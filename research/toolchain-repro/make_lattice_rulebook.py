@@ -39,8 +39,8 @@ book = {
         f('Rule', ty='relationship', rel='Rules'),
         f('LeftParent', ty='relationship', rel='Cells'), f('CenterParent', ty='relationship', rel='Cells'), f('RightParent', ty='relationship', rel='Cells'),
         f('RuleNumber', 'integer', 'lookup', '=INDEX(Rules!{{RuleNumber}},MATCH({{Rule}},Rules!{{RuleId}},0))'),
-        f('L', 'integer', 'lookup', LK('LeftParent', 'Value')), f('C', 'integer', 'lookup', LK('CenterParent', 'Value')), f('R', 'integer', 'lookup', LK('RightParent', 'Value')),
-        f('Neighborhood', 'integer', 'calculated', '=4*IF({{L}}=1,1,0)+2*IF({{C}}=1,1,0)+IF({{R}}=1,1,0)'),
+        f('LeftValue', 'integer', 'lookup', LK('LeftParent', 'Value')), f('CenterValue', 'integer', 'lookup', LK('CenterParent', 'Value')), f('RightValue', 'integer', 'lookup', LK('RightParent', 'Value')),
+        f('Neighborhood', 'integer', 'calculated', '=4*IF({{LeftValue}}=1,1,0)+2*IF({{CenterValue}}=1,1,0)+IF({{RightValue}}=1,1,0)'),
         f('Value', 'integer', 'calculated', '=IF({{Time}}<0,0,IF({{Time}}=0,IF({{Position}}=0,1,0),MOD(INT({{RuleNumber}}/POWER(2,{{Neighborhood}})),2)))'),
     ], 'data': rows},
 }

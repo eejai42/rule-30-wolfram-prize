@@ -134,10 +134,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 0,
-        "DependentCount": 11,
+        "DependentCount": 12,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 47
+        "DescendantCount": 50
       },
       {
         "AssertionId": "T0",
@@ -151,10 +151,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 12,
+        "DependentCount": 15,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 38
+        "DescendantCount": 41
       },
       {
         "AssertionId": "T004",
@@ -1135,12 +1135,12 @@
         "Name": "TS",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 3,
+        "DependentCount": 6,
         "EvidenceCount": 1,
         "RevisionCount": 0,
         "IsUsable": 1,
         "IsProofEligible": 1,
-        "DescendantCount": 5
+        "DescendantCount": 8
       },
       {
         "AssertionId": "H26",
@@ -1187,11 +1187,62 @@
         "StatusGroup": "Open",
         "PremiseCount": 2,
         "DependentCount": 1,
-        "EvidenceCount": 1,
+        "EvidenceCount": 3,
         "RevisionCount": 0,
         "IsUsable": 0,
         "IsProofEligible": 0,
         "DescendantCount": 2
+      },
+      {
+        "AssertionId": "TU",
+        "Statement": "For L>=T the left-cone relaxation is in bijection with rows R at time T on positions -T+1..-1 such that the Rule 30 evolution of the left half from R, with the center prescribed as boundary x(0,t)=c'(t), satisfies x(-1,t)=NOT c'(t+1) at every one-time t<=T+L-1; column 1 is determined, and count(T,a,L)<=2^(T-1).",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "research/loop-14-left-cone-growth/PROOFS.md §TU",
+        "Kind": "Theorem",
+        "IntroducedInLoop": "effortless-14",
+        "Name": "TU",
+        "StatusGroup": "Proved",
+        "PremiseCount": 3,
+        "DependentCount": 2,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
+        "DescendantCount": 2
+      },
+      {
+        "AssertionId": "H27",
+        "Statement": "For every primitive nonconstant word a of period p<=6 and every onset 2<=T<=T_max(a) that exact enumeration completes (live-set cap 2^23), the left cone excludes the periodic center with L(T,a)<=4T+4p+8.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Hypothesis",
+        "IntroducedInLoop": "effortless-14",
+        "Name": "H27",
+        "StatusGroup": "Checked",
+        "PremiseCount": 3,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 1,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "F13",
+        "Statement": "Exclusion lengths L(T,a) of the left-cone relaxation for every primitive word of period <=6, onsets from 2 up to the enumeration limit per word (largest completed onset 144); vectorised search validated against the loop 13 table and an independent SAT encoding of TU.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Finite check",
+        "IntroducedInLoop": "effortless-14",
+        "Name": "F13",
+        "StatusGroup": "Checked",
+        "PremiseCount": 3,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
       }
     ]
   },
@@ -1764,6 +1815,60 @@
         "Conclusion": "B1",
         "Premise": "T0",
         "Name": "B1-T0"
+      },
+      {
+        "DependencyId": "TU-D0",
+        "Conclusion": "TU",
+        "Premise": "D0",
+        "Name": "TU-D0"
+      },
+      {
+        "DependencyId": "TU-T0",
+        "Conclusion": "TU",
+        "Premise": "T0",
+        "Name": "TU-T0"
+      },
+      {
+        "DependencyId": "TU-TS",
+        "Conclusion": "TU",
+        "Premise": "TS",
+        "Name": "TU-TS"
+      },
+      {
+        "DependencyId": "H27-T0",
+        "Conclusion": "H27",
+        "Premise": "T0",
+        "Name": "H27-T0"
+      },
+      {
+        "DependencyId": "H27-TS",
+        "Conclusion": "H27",
+        "Premise": "TS",
+        "Name": "H27-TS"
+      },
+      {
+        "DependencyId": "H27-TU",
+        "Conclusion": "H27",
+        "Premise": "TU",
+        "Name": "H27-TU"
+      },
+      {
+        "DependencyId": "F13-T0",
+        "Conclusion": "F13",
+        "Premise": "T0",
+        "Name": "F13-T0"
+      },
+      {
+        "DependencyId": "F13-TS",
+        "Conclusion": "F13",
+        "Premise": "TS",
+        "Name": "F13-TS"
+      },
+      {
+        "DependencyId": "F13-TU",
+        "Conclusion": "F13",
+        "Premise": "TU",
+        "Name": "F13-TU"
       }
     ]
   },
@@ -5162,6 +5267,174 @@
         "ProofBlocked": 0,
         "IsSelf": 0,
         "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TU-D0",
+        "ConclusionKey": "TU",
+        "Premise": "D0",
+        "Name": "TU-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TU-T0",
+        "ConclusionKey": "TU",
+        "Premise": "T0",
+        "Name": "TU-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TU-TS",
+        "ConclusionKey": "TU",
+        "Premise": "TS",
+        "Name": "TU-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TU-TU",
+        "ConclusionKey": "TU",
+        "Premise": "TU",
+        "Name": "TU-TU",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H27-D0",
+        "ConclusionKey": "H27",
+        "Premise": "D0",
+        "Name": "H27-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H27-H27",
+        "ConclusionKey": "H27",
+        "Premise": "H27",
+        "Name": "H27-H27",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H27-T0",
+        "ConclusionKey": "H27",
+        "Premise": "T0",
+        "Name": "H27-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H27-TS",
+        "ConclusionKey": "H27",
+        "Premise": "TS",
+        "Name": "H27-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H27-TU",
+        "ConclusionKey": "H27",
+        "Premise": "TU",
+        "Name": "H27-TU",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F13-D0",
+        "ConclusionKey": "F13",
+        "Premise": "D0",
+        "Name": "F13-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F13-F13",
+        "ConclusionKey": "F13",
+        "Premise": "F13",
+        "Name": "F13-F13",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F13-T0",
+        "ConclusionKey": "F13",
+        "Premise": "T0",
+        "Name": "F13-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F13-TS",
+        "ConclusionKey": "F13",
+        "Premise": "TS",
+        "Name": "F13-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F13-TU",
+        "ConclusionKey": "F13",
+        "Premise": "TU",
+        "Name": "F13-TU",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
       }
     ]
   },
@@ -6567,11 +6840,71 @@
         "ProofBlockedCount": 1,
         "CurrentStatus": "BLOCKED",
         "ProofEligible": 0,
+        "SupportCount": 3,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 3
+      },
+      {
+        "AssessmentId": "TU",
+        "Assertion": "TU",
+        "ProjectKey": "Rule30",
+        "Name": "TU",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "Statement": "For L>=T the left-cone relaxation is in bijection with rows R at time T on positions -T+1..-1 such that the Rule 30 evolution of the left half from R, with the center prescribed as boundary x(0,t)=c'(t), satisfies x(-1,t)=NOT c'(t+1) at every one-time t<=T+L-1; column 1 is determined, and count(T,a,L)<=2^(T-1).",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 0,
+        "CurrentStatus": "PROVED_HUMAN_READABLE",
+        "ProofEligible": 1,
         "SupportCount": 1,
         "EvidenceGap": 0,
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
         "AncestorCount": 3
+      },
+      {
+        "AssessmentId": "H27",
+        "Assertion": "H27",
+        "ProjectKey": "Rule30",
+        "Name": "H27",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "For every primitive nonconstant word a of period p<=6 and every onset 2<=T<=T_max(a) that exact enumeration completes (live-set cap 2^23), the left cone excludes the periodic center with L(T,a)<=4T+4p+8.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 4
+      },
+      {
+        "AssessmentId": "F13",
+        "Assertion": "F13",
+        "ProjectKey": "Rule30",
+        "Name": "F13",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "Exclusion lengths L(T,a) of the left-cone relaxation for every primitive word of period <=6, onsets from 2 up to the enumeration limit per word (largest completed onset 144); vectorised search validated against the loop 13 table and an independent SAT encoding of TU.",
+        "Kind": "Finite check",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 4
       }
     ]
   },
@@ -6794,6 +7127,18 @@
         "Path": "research/loop-13-top-down/PROOFS.md",
         "Sha256": "27f943c93283a5d487aa9a08cc6ec56cb1bc818823477cf4d04a4a2d058f2080",
         "Name": "E31"
+      },
+      {
+        "EvidenceId": "E32",
+        "Path": "research/loop-14-left-cone-growth/left_cone_growth.json",
+        "Sha256": "687fa1f0b499c256121a806271edd35c2dd44ea9b6e5409a8b17b705df761e52",
+        "Name": "E32"
+      },
+      {
+        "EvidenceId": "E33",
+        "Path": "research/loop-14-left-cone-growth/PROOFS.md",
+        "Sha256": "f5aceb786453897124e7862728e26424d4e1490a9e30f7b6a9eac83a55cdebd1",
+        "Name": "E33"
       }
     ]
   },
@@ -7101,6 +7446,16 @@
         "Replacement": "",
         "Loop": "effortless-13",
         "Name": "revision-B1-1"
+      },
+      {
+        "RevisionId": "revision-H27-1",
+        "Assertion": "H27",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FINITE_VERIFIED",
+        "Reason": "3841 nonconstant cases completed, all excluded within 4T+4p+8; max L/T by onset band {\"0\": 13.0, \"10\": 5.909, \"20\": 3.4, \"30\": 2.267, \"40\": 1.725, \"50\": 1.38, \"60\": 1.516, \"70\": 1.403, \"80\": 1.35, \"90\": 1.315, \"100\": 1.24, \"110\": 1.188, \"120\": 1.227, \"130\": 1.205, \"140\": 1.179} (E32). Finite only.",
+        "Replacement": "",
+        "Loop": "effortless-14",
+        "Name": "revision-H27-1"
       }
     ]
   },
@@ -7731,17 +8086,36 @@
       {
         "LoopId": "effortless-14",
         "Kind": "EFFORTLESS",
+        "State": "VERIFIED",
+        "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"8c04169d89df1ad1550aeb8dbd097e876affacfb6ab66574276ecf896d8be008\", \"seconds\": 38.6, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+        "InputHash": "5348ababe96f85843d0323253763e7e8893ac6ab4555da27ed72f1e959328bcd",
+        "OutputHash": "33b732281485b52b26ef2f303d5b27494964f87d34ff95bd15901ea36a987da1",
+        "Sequence": 27,
+        "StartedAt": "2026-10-23T12:58:03-0500",
+        "FinishedAt": "2026-10-23T14:02:40-0500",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "H27: the left-cone exclusion L(T,a)<=4T+4p+8 holds for every primitive nonconstant word of period p<=6 at every onset exact enumeration completes; TU rewrites the relaxation as a driven left half with T-1 free bits.",
+        "Summary": "TU proved: the relaxation is a driven left half with T-1 free bits. H27 held: 3841 nonconstant cases (p<=6, onsets to 144) all excluded by the left cone alone; max L/T by onset band {\"0\": 13.0, \"10\": 5.909, \"20\": 3.4, \"30\": 2.267, \"40\": 1.725, \"50\": 1.38, \"60\": 1.516, \"70\": 1.403, \"80\": 1.35, \"90\": 1.315, \"100\": 1.24, \"110\": 1.188, \"120\": 1.227, \"130\": 1.205, \"140\": 1.179}; mean {\"0\": 2.322, \"10\": 2.127, \"20\": 1.963, \"30\": 1.658, \"40\": 1.412, \"50\": 1.205, \"60\": 1.243, \"70\": 1.233, \"80\": 1.212, \"90\": 1.207, \"100\": 1.184, \"110\": 1.143, \"120\": 1.107, \"130\": 1.173, \"140\": 1.165}. B5 remains the open child of B1.",
+        "Name": "effortless-14",
+        "ClaimsAdded": 3,
+        "RevisionsMade": 1,
+        "FalsificationsMade": 0,
+        "ProofsMade": 0
+      },
+      {
+        "LoopId": "effortless-15",
+        "Kind": "EFFORTLESS",
         "State": "RUNNING",
         "BuildReceipt": "",
         "InputHash": "",
         "OutputHash": "",
-        "Sequence": 27,
-        "StartedAt": "2026-10-23T12:58:03-0500",
+        "Sequence": 28,
+        "StartedAt": "2026-10-23T16:37:42-0500",
         "FinishedAt": "",
         "ProjectKey": "Rule30",
-        "Hypothesis": "H27: the left-cone exclusion L(T,a)<=4T+4p+8 holds for every primitive nonconstant word of period p<=6 at every onset exact enumeration completes; TU rewrites the relaxation as a driven left half with T-1 free bits.",
+        "Hypothesis": "H28: the left-cone exclusion excess L(T,a)-T is at most 64 for every primitive nonconstant word of period 7 or 8 at every onset T>=8 the enumeration completes; TV: from time 2T the one-time constraints are ray parities with no free-row term.",
         "Summary": "",
-        "Name": "effortless-14",
+        "Name": "effortless-15",
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
@@ -7868,12 +8242,12 @@
       {
         "DashboardId": "Rule30",
         "Name": "Rule30",
-        "ClaimCount": 63,
+        "ClaimCount": 66,
         "BlockedCount": 18,
-        "CompletedNativeLoops": 13,
+        "CompletedNativeLoops": 14,
         "EvidenceGapCount": 0,
-        "ProvedCount": 28,
-        "CheckedCount": 18,
+        "ProvedCount": 29,
+        "CheckedCount": 20,
         "FalsifiedCount": 11,
         "OpenCount": 6,
         "AtRiskCount": 1,
@@ -8416,6 +8790,41 @@
         "Assertion": "B5",
         "Name": "E31-B5",
         "EvidencePath": "research/loop-13-top-down/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E32-H27",
+        "Evidence": "E32",
+        "Assertion": "H27",
+        "Name": "E32-H27",
+        "EvidencePath": "research/loop-14-left-cone-growth/left_cone_growth.json"
+      },
+      {
+        "EvidenceLinkId": "E32-F13",
+        "Evidence": "E32",
+        "Assertion": "F13",
+        "Name": "E32-F13",
+        "EvidencePath": "research/loop-14-left-cone-growth/left_cone_growth.json"
+      },
+      {
+        "EvidenceLinkId": "E32-B5",
+        "Evidence": "E32",
+        "Assertion": "B5",
+        "Name": "E32-B5",
+        "EvidencePath": "research/loop-14-left-cone-growth/left_cone_growth.json"
+      },
+      {
+        "EvidenceLinkId": "E33-TU",
+        "Evidence": "E33",
+        "Assertion": "TU",
+        "Name": "E33-TU",
+        "EvidencePath": "research/loop-14-left-cone-growth/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E33-B5",
+        "Evidence": "E33",
+        "Assertion": "B5",
+        "Name": "E33-B5",
+        "EvidencePath": "research/loop-14-left-cone-growth/PROOFS.md"
       }
     ]
   }

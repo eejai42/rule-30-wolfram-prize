@@ -19,7 +19,7 @@ reasoning is kept straight by the build, not by hand.
 4. **Always run `effortless build`** after any change to the rulebook. `compile-rulebook` recomputes every calculated, lookup and aggregation field in place; `minimize-rulebook` regenerates the derived ladder.
 5. **Never reimplement the status logic** (IsUsable, Blocked, CurrentStatus, ProofEligible, EvidenceGap) in scripts. Read the compiled values.
 6. **Ask permission** before changing the assertion statuses of existing claims outside a loop.
-7. **Never add a table whose lookups point at its own rows** (for example a Cells table whose parents are Cells). compile-rulebook then silently skips the entire rulebook, so every ledger value goes empty while the build looks green. See `docs/toolchain-gaps.md`.
+7. **A failed compile-rulebook run can look like a no-op.** The CLI does not print a remote tool's error, so check that computed values actually changed (or rerun with `-debug`). Field names that are Python keywords or single letters like `R` make it fail. See `docs/toolchain-gaps.md`.
 
 ## The research loop (what "do a loop" means here)
 

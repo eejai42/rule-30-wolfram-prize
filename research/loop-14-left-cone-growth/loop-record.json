@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-14",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"8c04169d89df1ad1550aeb8dbd097e876affacfb6ab66574276ecf896d8be008\", \"seconds\": 38.6, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "5348ababe96f85843d0323253763e7e8893ac6ab4555da27ed72f1e959328bcd",
+  "OutputHash": "33b732281485b52b26ef2f303d5b27494964f87d34ff95bd15901ea36a987da1",
+  "Sequence": 27,
+  "StartedAt": "2026-10-23T12:58:03-0500",
+  "FinishedAt": "2026-10-23T14:02:40-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H27: the left-cone exclusion L(T,a)<=4T+4p+8 holds for every primitive nonconstant word of period p<=6 at every onset exact enumeration completes; TU rewrites the relaxation as a driven left half with T-1 free bits.",
+  "Summary": "TU proved: the relaxation is a driven left half with T-1 free bits. H27 held: 3841 nonconstant cases (p<=6, onsets to 144) all excluded by the left cone alone; max L/T by onset band {\"0\": 13.0, \"10\": 5.909, \"20\": 3.4, \"30\": 2.267, \"40\": 1.725, \"50\": 1.38, \"60\": 1.516, \"70\": 1.403, \"80\": 1.35, \"90\": 1.315, \"100\": 1.24, \"110\": 1.188, \"120\": 1.227, \"130\": 1.205, \"140\": 1.179}; mean {\"0\": 2.322, \"10\": 2.127, \"20\": 1.963, \"30\": 1.658, \"40\": 1.412, \"50\": 1.205, \"60\": 1.243, \"70\": 1.233, \"80\": 1.212, \"90\": 1.207, \"100\": 1.184, \"110\": 1.143, \"120\": 1.107, \"130\": 1.173, \"140\": 1.165}. B5 remains the open child of B1.",
+  "Name": "effortless-14",
+  "ClaimsAdded": 3,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 0,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 5.9,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 66,
+  "BlockedCount": 18,
+  "CompletedNativeLoops": 14,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 29,
+  "CheckedCount": 20,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 1,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

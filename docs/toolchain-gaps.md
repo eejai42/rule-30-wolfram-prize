@@ -1,23 +1,33 @@
 # Toolchain gaps found while moving Rule 30 into the rulebook
 
+| Gap | Status |
+|---|---|
+| 1. compile-rulebook and self-referencing tables | **Fixed** in compile-rulebook v2026.10.23.1627 |
+| 2. rulebook-to-postgres exponential self-lookups | **Fixed** in rulebook-to-postgres v2026.10.23.1648 |
+| 3. closure view cannot be filtered by the target row | Open |
+| 4. the CLI does not print a remote tool's failure | Open |
+| 5. field names that are Python keywords or reserved (`R`, `Class`) fail compile-rulebook | Open (rename the field) |
+
 Goal (project rule): everything is in the rulebook, and running the full rulebook gives the right
 answer. Python is allowed only as an optimizer for large pieces, checked against the rulebook.
 The Rule 30 lattice is SDLAF: rule number as Data, each cell a Formula over three Lookups to its
 parents. Three toolchain behaviours block that today. Reproduce with
 `research/toolchain-repro/make_lattice_rulebook.py`.
 
-## 1. compile-rulebook silently skips the whole rulebook when a table refers to its own rows
+## 1. compile-rulebook and self-referencing tables (fixed)
 
-A table whose lookups point at other rows of the same table (Cells.L -> parent Cells.Value) is
-acyclic row by row but cyclic field by field. compile-rulebook returns without error and fills in
-**no calculated, lookup or aggregation field in any table**: adding the lattice to this hub left
-P1's status, the dashboard totals and every other ledger value empty. The CLI only prints
-"Transpiler processing asynchronously" and the run looks successful.
+The first diagnosis was wrong in its cause. The empty compile came from the field name `R`
+(gap 5), and the CLI hid the error (gap 4). The real limit was the engine's settle loop: it
+recomputes the whole dataset until nothing changes and gives up after a bound derived from the
+field count (10 passes here), so a self-referencing chain deeper than ~8 rows failed with
+"field dependencies are cyclic".
 
-**Watch out:** never add a self-referencing table to `effortless-rulebook/effortless-rulebook.json`
-until this is fixed; the build will look green while the ledger stops computing.
-
-Wanted: evaluate the row-level DAG (topological order over rows, memoised), or at least fail loudly.
+Fix (v2026.10.23.1627, `erb_runtime._compute_in_row_order`): a table whose lookups read its own
+rows is computed row by row in dependency order inside each pass, so a whole chain settles in
+one pass; a genuine row cycle still reports as before. The surgical patcher also became linear
+(it rebuilt the file once per edit). Results: a depth-256 lattice (66,050 cells) compiles in
+5.9 s, exact against Rule 30; all 12 example rulebooks that compiled before produce
+byte-identical output.
 
 ## 2. rulebook-to-postgres evaluates it correctly, but in exponential time
 
@@ -31,8 +41,16 @@ parents, with no memoisation. The lattice matches Rule 30 exactly, but one cente
 | 12 | 1.09 |
 | 14 | 5.23 |
 
-About x2.2 per step; depth 30 is out of reach. Wanted: memoised evaluation for self-referencing
-lookups (for example a recursive CTE, or layer-by-layer materialisation in topological order).
+About x2.2 per step; depth 30 was out of reach.
+
+Fix (v2026.10.23.1648, `ApplySelfLookupMemo`): for each computed field a self-referencing lookup
+returns, the generated function becomes `<name>__compute`, an UNLOGGED memo table and a wrapper
+with the original name are added, a statement-level trigger empties the memo on any write
+(never stale), and `06-refresh-memos.sql` refills it in row-dependency order after the seed
+data. Rulebooks without a self-referencing lookup generate byte-identical SQL (15 of 17
+examples plus this hub). traffic-ticket-contest has one (Jurisdictions -> parent) and all 53 of
+its views return identical contents. A depth-128 lattice loads in 1.1 s, refreshes in 2.8 s and
+reads all 16,641 cells in 1.2 s.
 
 ## 3. Closure works, but its view cannot be filtered by the target row
 
@@ -41,4 +59,16 @@ compile-rulebook supports `"type": "closure"` and `COUNTIFS(vw_<edge_table>_clos
 "ancestors that are not usable", a condition on the closure's target row. The closure view
 exposes only from/to/hop columns, so that count is not expressible, and `research/loop_tools.py`
 still generates the Prerequisites rows in Python. Wanted: closure rows that can carry lookups of
-the target (or a filtered closure on a target-row condition).
+the target (or a filtered closure on a target-row condition). The runtime already supports an
+edge filter (a boolean field on the edge table); whether that is enough is untested.
+
+## 4. The CLI does not print a remote tool's failure
+
+compile-rulebook's hub throws with the script's stdout/stderr, but a normal `effortless
+compile-rulebook` run printed nothing and wrote nothing; only `-debug` showed "Remote server did
+not return expected output files". A failed build looks like a no-op.
+
+## 5. Reserved field names
+
+A field named `R` (Python parameter `r`) or `Class` (`class`) makes compile-rulebook's Python
+generator refuse the rulebook. Rename the field (here: `LeftValue`, `CenterValue`, `RightValue`).

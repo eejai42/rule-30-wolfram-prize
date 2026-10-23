@@ -49,7 +49,7 @@ def bit_mask(lo: int, hi: int, W: int) -> np.ndarray:
     return m
 
 
-def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22):
+def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22, death: dict | None = None):
     """Live-set sizes per window length L=1..Lmax. Returns (counts, first_zero_L, capped)."""
     assert T >= 2
     p = len(a)
@@ -86,7 +86,23 @@ def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22):
             if 1 <= e <= m + 1:
                 zero_mask[e >> 6] |= U64(1) << U64(e & 63)
                 want[e >> 6] |= U64(1) << U64(e & 63)
-        ok = np.all((D & zero_mask) == want, axis=1)
+        fails = (D & zero_mask) ^ want
+        ok = ~np.any(fails, axis=1)
+        if death is not None and not ok.any():
+            # where do the last live windows die? bit s = cell x(-s, T+m-s+1)
+            hist = {}
+            e0 = (T + m + 1) // 2 if (T + m + 1) % 2 == 0 else lo
+            for s in range(min(lo, e0), m + 2):
+                n = int(((fails[:, s >> 6] >> U64(s & 63)) & U64(1)).sum())
+                if n:
+                    hist[s] = n
+            e = (T + m + 1) // 2 if (T + m + 1) % 2 == 0 else None
+            death.update({'window_L': m + 1, 'death_time': T + m + 1, 'live_before': int(D.shape[0]),
+                          'fail_hist_by_column': {str(s): n for s, n in hist.items()},
+                          'fail_col_offset_min': min(hist) - T, 'fail_col_offset_max': max(hist) - T,
+                          'fail_time_offset_min': min(T + m - s + 1 for s in hist) - T,
+                          'fail_time_offset_max': max(T + m - s + 1 for s in hist) - T,
+                          'edge_cell_column': e, 'windows_failing_edge_cell': hist.get(e, 0) if e else 0})
         Dm2, Dm1 = Dm1[ok], D[ok]
         out.append(int(Dm1.shape[0]))
         if Dm1.shape[0] == 0:

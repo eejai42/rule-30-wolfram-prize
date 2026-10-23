@@ -57,3 +57,164 @@ a=000100 done to T=28 (1885s)
 a=000101 done to T=34 (1902s)
 a=000110 done to T=36 (1934s)
 a=000111 done to T=44 (1952s)
+a=001000 done to T=28 (1974s)
+a=001010 done to T=36 (2003s)
+a=001011 done to T=46 (2030s)
+a=001100 done to T=36 (2056s)
+a=001101 done to T=46 (2082s)
+a=001110 done to T=48 (2123s)
+a=001111 done to T=68 (2157s)
+a=010000 done to T=28 (2176s)
+a=010001 done to T=34 (2190s)
+a=010011 done to T=46 (2215s)
+a=010100 done to T=36 (2239s)
+a=010110 done to T=48 (2277s)
+a=010111 done to T=68 (2310s)
+a=011000 done to T=36 (2332s)
+a=011001 done to T=46 (2353s)
+a=011010 done to T=48 (2387s)
+a=011100 done to T=48 (2418s)
+a=011101 done to T=68 (2449s)
+a=011110 done to T=72 (2502s)
+a=011111 done to T=136 (2604s)
+a=100000 done to T=28 (2623s)
+a=100001 done to T=34 (2636s)
+a=100010 done to T=36 (2660s)
+a=100011 done to T=46 (2684s)
+a=100101 done to T=46 (2706s)
+a=100110 done to T=48 (2740s)
+a=100111 done to T=68 (2770s)
+a=101000 done to T=36 (2790s)
+a=101001 done to T=46 (2809s)
+a=101011 done to T=68 (2837s)
+a=101100 done to T=48 (2865s)
+a=101110 done to T=72 (2912s)
+a=101111 done to T=140 (3048s)
+a=110000 done to T=36 (3067s)
+a=110001 done to T=46 (3085s)
+a=110010 done to T=48 (3113s)
+a=110011 done to T=68 (3139s)
+a=110100 done to T=48 (3164s)
+a=110101 done to T=68 (3190s)
+a=110111 done to T=140 (3314s)
+a=111000 done to T=48 (3338s)
+a=111001 done to T=68 (3361s)
+a=111010 done to T=72 (3399s)
+a=111011 done to T=140 (3513s)
+a=111100 done to T=72 (3548s)
+a=111101 done to T=140 (3652s)
+a=111110 done to T=144 (3790s)
+{
+ "TU": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "H27": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "F13": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B5": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "B1": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 66,
+  "BlockedCount": 18,
+  "CompletedNativeLoops": 13,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 29,
+  "CheckedCount": 20,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 1,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "seconds": 3790.2,
+ "H27_holds": true,
+ "cases_completed": 3930,
+ "nonconstant_completed": 3841,
+ "largest_T_completed": 144,
+ "ratio_L_over_T_max_by_T_band": {
+  "0": 13.0,
+  "10": 5.909,
+  "20": 3.4,
+  "30": 2.267,
+  "40": 1.725,
+  "50": 1.38,
+  "60": 1.516,
+  "70": 1.403,
+  "80": 1.35,
+  "90": 1.315,
+  "100": 1.24,
+  "110": 1.188,
+  "120": 1.227,
+  "130": 1.205,
+  "140": 1.179
+ },
+ "ratio_L_over_T_mean_by_T_band": {
+  "0": 2.322,
+  "10": 2.127,
+  "20": 1.963,
+  "30": 1.658,
+  "40": 1.412,
+  "50": 1.205,
+  "60": 1.243,
+  "70": 1.233,
+  "80": 1.212,
+  "90": 1.207,
+  "100": 1.184,
+  "110": 1.143,
+  "120": 1.107,
+  "130": 1.173,
+  "140": 1.165
+ },
+ "nonconstant_survivors": []
+}
