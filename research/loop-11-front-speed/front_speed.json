@@ -1,0 +1,334 @@
+{
+ "KMAX": 5000,
+ "seconds": 0.8,
+ "tolerance": 0.02,
+ "loop10_rows_reproduced": 601,
+ "lattice_T": 1600,
+ "lattice_checked_k_max": 3200,
+ "lattice_mismatches": [],
+ "H24_counterexamples": [
+  {
+   "k": 1000,
+   "period": 16,
+   "onset": 1275
+  },
+  {
+   "k": 1001,
+   "period": 16,
+   "onset": 1273
+  },
+  {
+   "k": 1002,
+   "period": 16,
+   "onset": 1275
+  },
+  {
+   "k": 1003,
+   "period": 16,
+   "onset": 1274
+  },
+  {
+   "k": 1004,
+   "period": 16,
+   "onset": 1276
+  },
+  {
+   "k": 1005,
+   "period": 16,
+   "onset": 1278
+  },
+  {
+   "k": 1006,
+   "period": 16,
+   "onset": 1283
+  },
+  {
+   "k": 1007,
+   "period": 16,
+   "onset": 1281
+  },
+  {
+   "k": 1008,
+   "period": 16,
+   "onset": 1285
+  },
+  {
+   "k": 1009,
+   "period": 16,
+   "onset": 1284
+  }
+ ],
+ "H24_counterexample_count": 3990,
+ "onset_minus_5k_over_4": {
+  "min": 17.5,
+  "max": 396.0,
+  "at_KMAX": 396.0
+ },
+ "least_squares_slope_k_ge_2500": 1.35135,
+ "first_k_with_period": {
+  "1": 0,
+  "2": 3,
+  "4": 8,
+  "8": 29,
+  "16": 400
+ },
+ "onset_le_k_for_k_ge_20": [],
+ "onset_gt_k_for_all_k_ge_20": true,
+ "rows_every_100": [
+  {
+   "k": 0,
+   "period": 1,
+   "onset": 0
+  },
+  {
+   "k": 100,
+   "period": 8,
+   "onset": 134
+  },
+  {
+   "k": 200,
+   "period": 8,
+   "onset": 257
+  },
+  {
+   "k": 300,
+   "period": 8,
+   "onset": 389
+  },
+  {
+   "k": 400,
+   "period": 16,
+   "onset": 498
+  },
+  {
+   "k": 500,
+   "period": 16,
+   "onset": 635
+  },
+  {
+   "k": 600,
+   "period": 16,
+   "onset": 758
+  },
+  {
+   "k": 700,
+   "period": 16,
+   "onset": 896
+  },
+  {
+   "k": 800,
+   "period": 16,
+   "onset": 1032
+  },
+  {
+   "k": 900,
+   "period": 16,
+   "onset": 1141
+  },
+  {
+   "k": 1000,
+   "period": 16,
+   "onset": 1275
+  },
+  {
+   "k": 1100,
+   "period": 16,
+   "onset": 1426
+  },
+  {
+   "k": 1200,
+   "period": 16,
+   "onset": 1559
+  },
+  {
+   "k": 1300,
+   "period": 16,
+   "onset": 1696
+  },
+  {
+   "k": 1400,
+   "period": 16,
+   "onset": 1837
+  },
+  {
+   "k": 1500,
+   "period": 16,
+   "onset": 1971
+  },
+  {
+   "k": 1600,
+   "period": 16,
+   "onset": 2099
+  },
+  {
+   "k": 1700,
+   "period": 16,
+   "onset": 2218
+  },
+  {
+   "k": 1800,
+   "period": 16,
+   "onset": 2353
+  },
+  {
+   "k": 1900,
+   "period": 16,
+   "onset": 2490
+  },
+  {
+   "k": 2000,
+   "period": 16,
+   "onset": 2621
+  },
+  {
+   "k": 2100,
+   "period": 16,
+   "onset": 2756
+  },
+  {
+   "k": 2200,
+   "period": 16,
+   "onset": 2897
+  },
+  {
+   "k": 2300,
+   "period": 16,
+   "onset": 3026
+  },
+  {
+   "k": 2400,
+   "period": 16,
+   "onset": 3139
+  },
+  {
+   "k": 2500,
+   "period": 16,
+   "onset": 3264
+  },
+  {
+   "k": 2600,
+   "period": 16,
+   "onset": 3389
+  },
+  {
+   "k": 2700,
+   "period": 16,
+   "onset": 3532
+  },
+  {
+   "k": 2800,
+   "period": 16,
+   "onset": 3656
+  },
+  {
+   "k": 2900,
+   "period": 16,
+   "onset": 3781
+  },
+  {
+   "k": 3000,
+   "period": 16,
+   "onset": 3917
+  },
+  {
+   "k": 3100,
+   "period": 16,
+   "onset": 4058
+  },
+  {
+   "k": 3200,
+   "period": 16,
+   "onset": 4197
+  },
+  {
+   "k": 3300,
+   "period": 16,
+   "onset": 4322
+  },
+  {
+   "k": 3400,
+   "period": 16,
+   "onset": 4467
+  },
+  {
+   "k": 3500,
+   "period": 16,
+   "onset": 4614
+  },
+  {
+   "k": 3600,
+   "period": 16,
+   "onset": 4764
+  },
+  {
+   "k": 3700,
+   "period": 16,
+   "onset": 4871
+  },
+  {
+   "k": 3800,
+   "period": 16,
+   "onset": 5010
+  },
+  {
+   "k": 3900,
+   "period": 16,
+   "onset": 5173
+  },
+  {
+   "k": 4000,
+   "period": 16,
+   "onset": 5293
+  },
+  {
+   "k": 4100,
+   "period": 16,
+   "onset": 5402
+  },
+  {
+   "k": 4200,
+   "period": 16,
+   "onset": 5555
+  },
+  {
+   "k": 4300,
+   "period": 16,
+   "onset": 5676
+  },
+  {
+   "k": 4400,
+   "period": 16,
+   "onset": 5820
+  },
+  {
+   "k": 4500,
+   "period": 16,
+   "onset": 5937
+  },
+  {
+   "k": 4600,
+   "period": 16,
+   "onset": 6094
+  },
+  {
+   "k": 4700,
+   "period": 16,
+   "onset": 6231
+  },
+  {
+   "k": 4800,
+   "period": 16,
+   "onset": 6366
+  },
+  {
+   "k": 4900,
+   "period": 16,
+   "onset": 6516
+  },
+  {
+   "k": 5000,
+   "period": 16,
+   "onset": 6646
+  }
+ ]
+}

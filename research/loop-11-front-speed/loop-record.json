@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-11",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"f88b224205acdab440d7f64525c432673b1661194f695a6bf2c025d171b31855\", \"seconds\": 16.9, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "d7b0ecb046320bf6af3c1d9be6ac49a9df37e23984e6bdd8db25282a4741ca46",
+  "OutputHash": "5b3cc2727be78871090acf9cead627d273c38d864554cb953eca5fa6d0aab35a",
+  "Sequence": 24,
+  "StartedAt": "2026-10-23T09:40:25-0500",
+  "FinishedAt": "2026-10-23T09:40:49-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H24: the left-edge front moves at 5/4 (|onset_k/k - 5/4| <= 0.02 for 1000<=k<=5000).",
+  "Summary": "Left edge certified to k=5000 in 0.8s. H24 FALSIFIED (3990 offsets outside the band); slope 1.35135; onset - 5k/4 in [17.5, 396.0]. First k per period: {'1': 0, '2': 3, '4': 8, '8': 29, '16': 400}. Onset > k for all k>=20: True.",
+  "Name": "effortless-11",
+  "ClaimsAdded": 2,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 6.0,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 57,
+  "BlockedCount": 16,
+  "CompletedNativeLoops": 11,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 26,
+  "CheckedCount": 15,
+  "FalsifiedCount": 10,
+  "OpenCount": 6,
+  "AtRiskCount": 0,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}
