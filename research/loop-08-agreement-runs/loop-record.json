@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-8",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.8, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "d5edccf0e45955453a7dd1e63cef19e304a86f8a671572f81756d1a414e52e3d",
+  "OutputHash": "a6f9e34838a1ff3a39ad342836043ba86909948f8b9f7c38da61e2e232e97f0e",
+  "Sequence": 21,
+  "StartedAt": "2026-10-23T09:34:36-0500",
+  "FinishedAt": "2026-10-23T09:34:53-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H21: on 2^20 center bits every agreement run for shifts p<=4096 has length <= 44.",
+  "Summary": "TQ proved: P1 is the finiteness of agreement runs for every shift. H21 held: the longest agreement run over shifts 1..4096 on 2^20 bits is 33 (p=1324), against a random baseline near 32. Finite only; says nothing about later times.",
+  "Name": "effortless-8",
+  "ClaimsAdded": 2,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 0,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 5.9,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 50,
+  "BlockedCount": 14,
+  "CompletedNativeLoops": 8,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 25,
+  "CheckedCount": 11,
+  "FalsifiedCount": 8,
+  "OpenCount": 6,
+  "AtRiskCount": 0,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

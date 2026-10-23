@@ -134,10 +134,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 0,
-        "DependentCount": 8,
+        "DependentCount": 9,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 31
+        "DescendantCount": 33
       },
       {
         "AssertionId": "T0",
@@ -937,6 +937,40 @@
         "IsUsable": 0,
         "IsProofEligible": 0,
         "DescendantCount": 0
+      },
+      {
+        "AssertionId": "TQ",
+        "Statement": "The center is eventually p-periodic iff some agreement run c(t)=c(t+p) is infinite; so a finite bound on agreement runs for every p implies P1.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "research/loop-08-agreement-runs/PROOFS.md §TQ",
+        "Kind": "Theorem",
+        "IntroducedInLoop": "effortless-8",
+        "Name": "TQ",
+        "StatusGroup": "Proved",
+        "PremiseCount": 1,
+        "DependentCount": 1,
+        "EvidenceCount": 2,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
+        "DescendantCount": 1
+      },
+      {
+        "AssertionId": "H21",
+        "Statement": "On the first 2^20 center bits, every agreement run c(t)=c(t+p) for 1<=p<=4096 has length at most 44.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Hypothesis",
+        "IntroducedInLoop": "effortless-8",
+        "Name": "H21",
+        "StatusGroup": "Checked",
+        "PremiseCount": 1,
+        "DependentCount": 0,
+        "EvidenceCount": 2,
+        "RevisionCount": 1,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
       }
     ]
   },
@@ -1371,6 +1405,18 @@
         "Conclusion": "H19",
         "Premise": "TO",
         "Name": "H19-TO"
+      },
+      {
+        "DependencyId": "TQ-D0",
+        "Conclusion": "TQ",
+        "Premise": "D0",
+        "Name": "TQ-D0"
+      },
+      {
+        "DependencyId": "H21-TQ",
+        "Conclusion": "H21",
+        "Premise": "TQ",
+        "Name": "H21-TQ"
       }
     ]
   },
@@ -4025,6 +4071,66 @@
         "ProofBlocked": 0,
         "IsSelf": 0,
         "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TQ-D0",
+        "ConclusionKey": "TQ",
+        "Premise": "D0",
+        "Name": "TQ-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TQ-TQ",
+        "ConclusionKey": "TQ",
+        "Premise": "TQ",
+        "Name": "TQ-TQ",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H21-D0",
+        "ConclusionKey": "H21",
+        "Premise": "D0",
+        "Name": "H21-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H21-H21",
+        "ConclusionKey": "H21",
+        "Premise": "H21",
+        "Name": "H21-H21",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H21-TQ",
+        "ConclusionKey": "H21",
+        "Premise": "TQ",
+        "Name": "H21-TQ",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
       }
     ]
   },
@@ -5135,6 +5241,46 @@
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
         "AncestorCount": 12
+      },
+      {
+        "AssessmentId": "TQ",
+        "Assertion": "TQ",
+        "ProjectKey": "Rule30",
+        "Name": "TQ",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "Statement": "The center is eventually p-periodic iff some agreement run c(t)=c(t+p) is infinite; so a finite bound on agreement runs for every p implies P1.",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 0,
+        "CurrentStatus": "PROVED_HUMAN_READABLE",
+        "ProofEligible": 1,
+        "SupportCount": 2,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 1
+      },
+      {
+        "AssessmentId": "H21",
+        "Assertion": "H21",
+        "ProjectKey": "Rule30",
+        "Name": "H21",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "On the first 2^20 center bits, every agreement run c(t)=c(t+p) for 1<=p<=4096 has length at most 44.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 2,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 2
       }
     ]
   },
@@ -5303,6 +5449,18 @@
         "Path": "research/loop-07-parity-features/PROOFS.md",
         "Sha256": "3c73caa9e7a211df9e4bb32be0e5ed3ff92aa2b23dabfc579d0f01aeff827be5",
         "Name": "E22"
+      },
+      {
+        "EvidenceId": "E23",
+        "Path": "research/loop-08-agreement-runs/agreement_runs.json",
+        "Sha256": "42703560fe23e234d98d1ff91a74cf4da7483c5a638e41e82bc38d8c4fb68264",
+        "Name": "E23"
+      },
+      {
+        "EvidenceId": "E24",
+        "Path": "research/loop-08-agreement-runs/PROOFS.md",
+        "Sha256": "100590b97a79f58aab20dc1d6463c02829749e050fbc4faf436972d3a1636b55",
+        "Name": "E24"
       }
     ]
   },
@@ -5540,6 +5698,16 @@
         "Replacement": "TO",
         "Loop": "effortless-7",
         "Name": "revision-H19-1"
+      },
+      {
+        "RevisionId": "revision-H21-1",
+        "Assertion": "H21",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FINITE_VERIFIED",
+        "Reason": "Longest run over all 4096 shifts is 33 (p=1324, t=82603); median of the per-shift maxima 19. Finite only.",
+        "Replacement": "",
+        "Loop": "effortless-8",
+        "Name": "revision-H21-1"
       }
     ]
   },
@@ -6052,6 +6220,25 @@
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
         "ProofsMade": 0
+      },
+      {
+        "LoopId": "effortless-8",
+        "Kind": "EFFORTLESS",
+        "State": "VERIFIED",
+        "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.8, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+        "InputHash": "d5edccf0e45955453a7dd1e63cef19e304a86f8a671572f81756d1a414e52e3d",
+        "OutputHash": "a6f9e34838a1ff3a39ad342836043ba86909948f8b9f7c38da61e2e232e97f0e",
+        "Sequence": 21,
+        "StartedAt": "2026-10-23T09:34:36-0500",
+        "FinishedAt": "2026-10-23T09:34:53-0500",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "H21: on 2^20 center bits every agreement run for shifts p<=4096 has length <= 44.",
+        "Summary": "TQ proved: P1 is the finiteness of agreement runs for every shift. H21 held: the longest agreement run over shifts 1..4096 on 2^20 bits is 33 (p=1324), against a random baseline near 32. Finite only; says nothing about later times.",
+        "Name": "effortless-8",
+        "ClaimsAdded": 2,
+        "RevisionsMade": 1,
+        "FalsificationsMade": 0,
+        "ProofsMade": 0
       }
     ]
   },
@@ -6174,12 +6361,12 @@
       {
         "DashboardId": "Rule30",
         "Name": "Rule30",
-        "ClaimCount": 48,
+        "ClaimCount": 50,
         "BlockedCount": 14,
-        "CompletedNativeLoops": 7,
+        "CompletedNativeLoops": 8,
         "EvidenceGapCount": 0,
-        "ProvedCount": 24,
-        "CheckedCount": 10,
+        "ProvedCount": 25,
+        "CheckedCount": 11,
         "FalsifiedCount": 8,
         "OpenCount": 6,
         "AtRiskCount": 0,
@@ -6589,6 +6776,34 @@
         "Assertion": "TO",
         "Name": "E22-TO",
         "EvidencePath": "research/loop-07-parity-features/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E23-H21",
+        "Evidence": "E23",
+        "Assertion": "H21",
+        "Name": "E23-H21",
+        "EvidencePath": "research/loop-08-agreement-runs/agreement_runs.json"
+      },
+      {
+        "EvidenceLinkId": "E23-TQ",
+        "Evidence": "E23",
+        "Assertion": "TQ",
+        "Name": "E23-TQ",
+        "EvidencePath": "research/loop-08-agreement-runs/agreement_runs.json"
+      },
+      {
+        "EvidenceLinkId": "E24-TQ",
+        "Evidence": "E24",
+        "Assertion": "TQ",
+        "Name": "E24-TQ",
+        "EvidencePath": "research/loop-08-agreement-runs/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E17-H21",
+        "Evidence": "E17",
+        "Assertion": "H21",
+        "Name": "E17-H21",
+        "EvidencePath": "research/loop-05-center/center_2_20.txt"
       }
     ]
   }

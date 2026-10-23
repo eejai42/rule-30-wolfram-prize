@@ -1,0 +1,111 @@
+{
+ "N": 1048576,
+ "log2N": 20.0,
+ "PMAX": 4096,
+ "bound": 44,
+ "seconds": 5.6,
+ "H21_counterexamples": [],
+ "worst": {
+  "p": 1324,
+  "run": 33,
+  "start": 82603
+ },
+ "p1_longest_run": 21,
+ "median_longest_run": 19,
+ "histogram_longest_run_per_p": {
+  "15": 3,
+  "16": 78,
+  "17": 450,
+  "18": 937,
+  "19": 1066,
+  "20": 682,
+  "21": 419,
+  "22": 222,
+  "23": 120,
+  "24": 52,
+  "25": 37,
+  "26": 13,
+  "27": 9,
+  "28": 5,
+  "29": 2,
+  "33": 1
+ },
+ "top15": [
+  {
+   "p": 1324,
+   "run": 33,
+   "start": 82603
+  },
+  {
+   "p": 2750,
+   "run": 29,
+   "start": 529478
+  },
+  {
+   "p": 2759,
+   "run": 29,
+   "start": 231453
+  },
+  {
+   "p": 1276,
+   "run": 28,
+   "start": 793254
+  },
+  {
+   "p": 1453,
+   "run": 28,
+   "start": 611289
+  },
+  {
+   "p": 1704,
+   "run": 28,
+   "start": 777607
+  },
+  {
+   "p": 3251,
+   "run": 28,
+   "start": 318794
+  },
+  {
+   "p": 3381,
+   "run": 28,
+   "start": 823809
+  },
+  {
+   "p": 66,
+   "run": 27,
+   "start": 478986
+  },
+  {
+   "p": 769,
+   "run": 27,
+   "start": 889014
+  },
+  {
+   "p": 860,
+   "run": 27,
+   "start": 910291
+  },
+  {
+   "p": 1466,
+   "run": 27,
+   "start": 873198
+  },
+  {
+   "p": 1969,
+   "run": 27,
+   "start": 111588
+  },
+  {
+   "p": 2093,
+   "run": 27,
+   "start": 698375
+  },
+  {
+   "p": 2313,
+   "run": 27,
+   "start": 37549
+  }
+ ],
+ "random_baseline_note": "For an i.i.d. fair sequence the longest run per shift is about log2(N)=20, and about 32 for the worst of 4096 shifts."
+}
