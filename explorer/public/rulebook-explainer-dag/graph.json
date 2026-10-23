@@ -134,10 +134,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 0,
-        "DependentCount": 10,
+        "DependentCount": 11,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 42
+        "DescendantCount": 47
       },
       {
         "AssertionId": "T0",
@@ -151,10 +151,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 8,
+        "DependentCount": 12,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 34
+        "DescendantCount": 38
       },
       {
         "AssertionId": "T004",
@@ -219,10 +219,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 1,
+        "DependentCount": 2,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 3
+        "DescendantCount": 4
       },
       {
         "AssertionId": "TD",
@@ -465,18 +465,18 @@
       {
         "AssertionId": "B1",
         "Statement": "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns.",
-        "ReportedStatus": "OPEN",
-        "ProofSection": "",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "research/loop-13-top-down/PROOFS.md §Route L",
         "Name": "B1",
-        "IsUsable": 0,
-        "IsProofEligible": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
         "Kind": "Bridge obligation",
         "IntroducedInLoop": "",
-        "StatusGroup": "Open",
-        "PremiseCount": 0,
+        "StatusGroup": "Proved",
+        "PremiseCount": 2,
         "DependentCount": 1,
-        "EvidenceCount": 1,
-        "RevisionCount": 0,
+        "EvidenceCount": 2,
+        "RevisionCount": 1,
         "DescendantCount": 1
       },
       {
@@ -1124,6 +1124,74 @@
         "IsUsable": 1,
         "IsProofEligible": 0,
         "DescendantCount": 0
+      },
+      {
+        "AssertionId": "TS",
+        "Statement": "If the center p-agrees at t and t+1 then column -1 p-agrees at t when c(t)=1, and column -1 p-agrees at t iff column 1 does when c(t)=0: under center agreement, column -1 is column 1 read at the center's zero-times.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "research/loop-13-top-down/PROOFS.md §TS",
+        "Kind": "Theorem",
+        "IntroducedInLoop": "effortless-13",
+        "Name": "TS",
+        "StatusGroup": "Proved",
+        "PremiseCount": 1,
+        "DependentCount": 3,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
+        "DescendantCount": 5
+      },
+      {
+        "AssertionId": "H26",
+        "Statement": "For every onset 1<=T<=10 and every nonconstant primitive word a of period p<=4, the left cone and the inverse rule alone exclude a p-periodic center of word a from onset T: no column-1 window is compatible once L reaches some L<=4T+4p+8.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Hypothesis",
+        "IntroducedInLoop": "effortless-13",
+        "Name": "H26",
+        "StatusGroup": "Checked",
+        "PremiseCount": 3,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 1,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "F12",
+        "Statement": "Left-cone relaxation table for every onset T<=10 and every primitive word of period <=4: the number of column-1 windows (on the zero-times) compatible with a periodic center and the single-seed cone, for L<=4T+4p+8, with the first L that has none; the true (c,r) windows pass the same checker.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Finite check",
+        "IntroducedInLoop": "effortless-13",
+        "Name": "F12",
+        "StatusGroup": "Checked",
+        "PremiseCount": 2,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "B5",
+        "Statement": "For every onset T, every p>=2 and every nonconstant word a of least period p, the left-cone relaxation (periodic center word a from T, free column 1, inverse rule, cone of T0) is unsatisfiable at some finite L(T,a).",
+        "ReportedStatus": "OPEN",
+        "ProofSection": "",
+        "Kind": "Bridge obligation",
+        "IntroducedInLoop": "effortless-13",
+        "Name": "B5",
+        "StatusGroup": "Open",
+        "PremiseCount": 2,
+        "DependentCount": 1,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 0,
+        "IsProofEligible": 0,
+        "DescendantCount": 2
       }
     ]
   },
@@ -1636,6 +1704,66 @@
         "Conclusion": "F11",
         "Premise": "TR",
         "Name": "F11-TR"
+      },
+      {
+        "DependencyId": "TS-D0",
+        "Conclusion": "TS",
+        "Premise": "D0",
+        "Name": "TS-D0"
+      },
+      {
+        "DependencyId": "H26-T0",
+        "Conclusion": "H26",
+        "Premise": "T0",
+        "Name": "H26-T0"
+      },
+      {
+        "DependencyId": "H26-TC",
+        "Conclusion": "H26",
+        "Premise": "TC",
+        "Name": "H26-TC"
+      },
+      {
+        "DependencyId": "H26-TS",
+        "Conclusion": "H26",
+        "Premise": "TS",
+        "Name": "H26-TS"
+      },
+      {
+        "DependencyId": "F12-T0",
+        "Conclusion": "F12",
+        "Premise": "T0",
+        "Name": "F12-T0"
+      },
+      {
+        "DependencyId": "F12-TS",
+        "Conclusion": "F12",
+        "Premise": "TS",
+        "Name": "F12-TS"
+      },
+      {
+        "DependencyId": "B5-T0",
+        "Conclusion": "B5",
+        "Premise": "T0",
+        "Name": "B5-T0"
+      },
+      {
+        "DependencyId": "B5-TS",
+        "Conclusion": "B5",
+        "Premise": "TS",
+        "Name": "B5-TS"
+      },
+      {
+        "DependencyId": "B1-B5",
+        "Conclusion": "B1",
+        "Premise": "B5",
+        "Name": "B1-B5"
+      },
+      {
+        "DependencyId": "B1-T0",
+        "Conclusion": "B1",
+        "Premise": "T0",
+        "Name": "B1-T0"
       }
     ]
   },
@@ -2376,11 +2504,59 @@
         "ConclusionKey": "B1",
         "Premise": "B1",
         "Name": "B1-B1",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B1-B5",
+        "ConclusionKey": "B1",
+        "Premise": "B5",
+        "Name": "B1-B5",
         "PremiseUsable": 0,
         "PremiseProofEligible": 0,
         "Blocked": 1,
         "ProofBlocked": 1,
-        "IsSelf": 1,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 1
+      },
+      {
+        "PrerequisiteId": "B1-D0",
+        "ConclusionKey": "B1",
+        "Premise": "D0",
+        "Name": "B1-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B1-T0",
+        "ConclusionKey": "B1",
+        "Premise": "T0",
+        "Name": "B1-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B1-TS",
+        "ConclusionKey": "B1",
+        "Premise": "TS",
+        "Name": "B1-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
         "IsBlockingAncestor": 0
       },
       {
@@ -2412,6 +2588,18 @@
         "ConclusionKey": "P1",
         "Premise": "B1",
         "Name": "P1-B1",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "P1-B5",
+        "ConclusionKey": "P1",
+        "Premise": "B5",
+        "Name": "P1-B5",
         "PremiseUsable": 0,
         "PremiseProofEligible": 0,
         "Blocked": 1,
@@ -2484,6 +2672,18 @@
         "ConclusionKey": "P1",
         "Premise": "TD",
         "Name": "P1-TD",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "P1-TS",
+        "ConclusionKey": "P1",
+        "Premise": "TS",
+        "Name": "P1-TS",
         "PremiseUsable": 1,
         "PremiseProofEligible": 1,
         "Blocked": 0,
@@ -4782,6 +4982,186 @@
         "ProofBlocked": 0,
         "IsSelf": 0,
         "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TS-D0",
+        "ConclusionKey": "TS",
+        "Premise": "D0",
+        "Name": "TS-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TS-TS",
+        "ConclusionKey": "TS",
+        "Premise": "TS",
+        "Name": "TS-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H26-D0",
+        "ConclusionKey": "H26",
+        "Premise": "D0",
+        "Name": "H26-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H26-H26",
+        "ConclusionKey": "H26",
+        "Premise": "H26",
+        "Name": "H26-H26",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H26-T0",
+        "ConclusionKey": "H26",
+        "Premise": "T0",
+        "Name": "H26-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H26-TC",
+        "ConclusionKey": "H26",
+        "Premise": "TC",
+        "Name": "H26-TC",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H26-TS",
+        "ConclusionKey": "H26",
+        "Premise": "TS",
+        "Name": "H26-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F12-D0",
+        "ConclusionKey": "F12",
+        "Premise": "D0",
+        "Name": "F12-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F12-F12",
+        "ConclusionKey": "F12",
+        "Premise": "F12",
+        "Name": "F12-F12",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F12-T0",
+        "ConclusionKey": "F12",
+        "Premise": "T0",
+        "Name": "F12-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F12-TS",
+        "ConclusionKey": "F12",
+        "Premise": "TS",
+        "Name": "F12-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B5-B5",
+        "ConclusionKey": "B5",
+        "Premise": "B5",
+        "Name": "B5-B5",
+        "PremiseUsable": 0,
+        "PremiseProofEligible": 0,
+        "Blocked": 1,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B5-D0",
+        "ConclusionKey": "B5",
+        "Premise": "D0",
+        "Name": "B5-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B5-T0",
+        "ConclusionKey": "B5",
+        "Premise": "T0",
+        "Name": "B5-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B5-TS",
+        "ConclusionKey": "B5",
+        "Premise": "TS",
+        "Name": "B5-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
       }
     ]
   },
@@ -5338,20 +5718,20 @@
         "Assertion": "B1",
         "ProjectKey": "Rule30",
         "Name": "B1",
-        "ReportedStatus": "OPEN",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
         "BlockedCount": 1,
         "ProofBlockedCount": 1,
         "CurrentStatus": "BLOCKED",
         "ProofEligible": 0,
-        "SupportCount": 1,
+        "SupportCount": 2,
         "EvidenceGap": 0,
         "Statement": "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns.",
         "Kind": "Bridge obligation",
-        "StatusGroup": "Open",
-        "SelfUsable": 0,
-        "AncestorBlockedCount": 0,
-        "IsAtRisk": 0,
-        "AncestorCount": 0
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "AncestorBlockedCount": 1,
+        "IsAtRisk": 1,
+        "AncestorCount": 4
       },
       {
         "AssessmentId": "B2",
@@ -5411,7 +5791,7 @@
         "SelfUsable": 0,
         "AncestorBlockedCount": 1,
         "IsAtRisk": 0,
-        "AncestorCount": 6
+        "AncestorCount": 8
       },
       {
         "AssessmentId": "P2",
@@ -6112,6 +6492,86 @@
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
         "AncestorCount": 3
+      },
+      {
+        "AssessmentId": "TS",
+        "Assertion": "TS",
+        "ProjectKey": "Rule30",
+        "Name": "TS",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "Statement": "If the center p-agrees at t and t+1 then column -1 p-agrees at t when c(t)=1, and column -1 p-agrees at t iff column 1 does when c(t)=0: under center agreement, column -1 is column 1 read at the center's zero-times.",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 0,
+        "CurrentStatus": "PROVED_HUMAN_READABLE",
+        "ProofEligible": 1,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 1
+      },
+      {
+        "AssessmentId": "H26",
+        "Assertion": "H26",
+        "ProjectKey": "Rule30",
+        "Name": "H26",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "For every onset 1<=T<=10 and every nonconstant primitive word a of period p<=4, the left cone and the inverse rule alone exclude a p-periodic center of word a from onset T: no column-1 window is compatible once L reaches some L<=4T+4p+8.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 4
+      },
+      {
+        "AssessmentId": "F12",
+        "Assertion": "F12",
+        "ProjectKey": "Rule30",
+        "Name": "F12",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "Left-cone relaxation table for every onset T<=10 and every primitive word of period <=4: the number of column-1 windows (on the zero-times) compatible with a periodic center and the single-seed cone, for L<=4T+4p+8, with the first L that has none; the true (c,r) windows pass the same checker.",
+        "Kind": "Finite check",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 3
+      },
+      {
+        "AssessmentId": "B5",
+        "Assertion": "B5",
+        "ProjectKey": "Rule30",
+        "Name": "B5",
+        "ReportedStatus": "OPEN",
+        "Statement": "For every onset T, every p>=2 and every nonconstant word a of least period p, the left-cone relaxation (periodic center word a from T, free column 1, inverse rule, cone of T0) is unsatisfiable at some finite L(T,a).",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Open",
+        "SelfUsable": 0,
+        "BlockedCount": 1,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "BLOCKED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 3
       }
     ]
   },
@@ -6322,6 +6782,18 @@
         "Path": "research/loop-12-period-32/period_32.json",
         "Sha256": "1d4186cf50a221cc8c01c3e3c5e7206fd4bef94ecde94f7a3061a2ac9acb45c7",
         "Name": "E29"
+      },
+      {
+        "EvidenceId": "E30",
+        "Path": "research/loop-13-top-down/left_cone_table.json",
+        "Sha256": "27b8e95a327c19110114a5b10d31d5f3595395f2a202e789b3c38a079fdd5818",
+        "Name": "E30"
+      },
+      {
+        "EvidenceId": "E31",
+        "Path": "research/loop-13-top-down/PROOFS.md",
+        "Sha256": "27f943c93283a5d487aa9a08cc6ec56cb1bc818823477cf4d04a4a2d058f2080",
+        "Name": "E31"
       }
     ]
   },
@@ -6609,6 +7081,26 @@
         "Replacement": "TR",
         "Loop": "effortless-12",
         "Name": "revision-H25-1"
+      },
+      {
+        "RevisionId": "revision-H26-1",
+        "Assertion": "H26",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FINITE_VERIFIED",
+        "Reason": "All 200 nonconstant cases (T<=10, p<=4) excluded; first_zero_L/T in [1.0, 13.0] (E30). Finite only.",
+        "Replacement": "",
+        "Loop": "effortless-13",
+        "Name": "revision-H26-1"
+      },
+      {
+        "RevisionId": "revision-B1-1",
+        "Assertion": "B1",
+        "PriorStatus": "OPEN",
+        "NewStatus": "PROVED_HUMAN_READABLE",
+        "Reason": "Derived from B5 and T0 (PROOFS.md §Route L): a least-period-p>=2 center is nonconstant, the true (c,r) satisfies every left-cone constraint, B5 says none can. Compiles BLOCKED until B5 is discharged.",
+        "Replacement": "",
+        "Loop": "effortless-13",
+        "Name": "revision-B1-1"
       }
     ]
   },
@@ -7216,6 +7708,44 @@
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
         "ProofsMade": 0
+      },
+      {
+        "LoopId": "effortless-13",
+        "Kind": "EFFORTLESS",
+        "State": "VERIFIED",
+        "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.9, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+        "InputHash": "9d1fd3204b0e1565f0abf9da64e7db4e4f7fd035b1586ffcbfec532bb6c700a6",
+        "OutputHash": "d0ec97e5d4c9797e698dd1f7045ff7a849d18f0150cf25f1b3433f66ae3dc286",
+        "Sequence": 26,
+        "StartedAt": "2026-10-23T11:54:33-0500",
+        "FinishedAt": "2026-10-23T11:56:45-0500",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "Top-down decomposition of P1: B1 <- TC+B4 or <- B5. H26: for every onset 1<=T<=10 and every nonconstant primitive word of period p<=4, the left cone and the inverse rule alone exclude a p-periodic center by L<=4T+4p+8.",
+        "Summary": "Top-down: B1 derived from B5 (new open child), TS proved. H26 held: 200/200 nonconstant (T<=10, p<=4) cases excluded by the left cone alone; worst first_zero_L per T: {\"1\": 13, \"2\": 13, \"3\": 16, \"4\": 16, \"5\": 15, \"6\": 19, \"7\": 32, \"8\": 31, \"9\": 35, \"10\": 34}. Constants: a=1 dies by T+2 (TD), a=0 keeps slack (512 windows at T=10). P1's blocking ancestor is now B5.",
+        "Name": "effortless-13",
+        "ClaimsAdded": 4,
+        "RevisionsMade": 2,
+        "FalsificationsMade": 0,
+        "ProofsMade": 1
+      },
+      {
+        "LoopId": "effortless-14",
+        "Kind": "EFFORTLESS",
+        "State": "RUNNING",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "Sequence": 27,
+        "StartedAt": "2026-10-23T12:58:03-0500",
+        "FinishedAt": "",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "H27: the left-cone exclusion L(T,a)<=4T+4p+8 holds for every primitive nonconstant word of period p<=6 at every onset exact enumeration completes; TU rewrites the relaxation as a driven left half with T-1 free bits.",
+        "Summary": "",
+        "Name": "effortless-14",
+        "ClaimsAdded": 0,
+        "RevisionsMade": 0,
+        "FalsificationsMade": 0,
+        "ProofsMade": 0
       }
     ]
   },
@@ -7338,17 +7868,17 @@
       {
         "DashboardId": "Rule30",
         "Name": "Rule30",
-        "ClaimCount": 59,
-        "BlockedCount": 17,
-        "CompletedNativeLoops": 12,
+        "ClaimCount": 63,
+        "BlockedCount": 18,
+        "CompletedNativeLoops": 13,
         "EvidenceGapCount": 0,
-        "ProvedCount": 26,
-        "CheckedCount": 16,
+        "ProvedCount": 28,
+        "CheckedCount": 18,
         "FalsifiedCount": 11,
         "OpenCount": 6,
-        "AtRiskCount": 0,
+        "AtRiskCount": 1,
         "OpenPrizeProblemCount": 3,
-        "RunningLoopCount": 0,
+        "RunningLoopCount": 1,
         "LegacyLoopCount": 13
       }
     ]
@@ -7851,6 +8381,41 @@
         "Assertion": "F11",
         "Name": "E29-F11",
         "EvidencePath": "research/loop-12-period-32/period_32.json"
+      },
+      {
+        "EvidenceLinkId": "E30-H26",
+        "Evidence": "E30",
+        "Assertion": "H26",
+        "Name": "E30-H26",
+        "EvidencePath": "research/loop-13-top-down/left_cone_table.json"
+      },
+      {
+        "EvidenceLinkId": "E30-F12",
+        "Evidence": "E30",
+        "Assertion": "F12",
+        "Name": "E30-F12",
+        "EvidencePath": "research/loop-13-top-down/left_cone_table.json"
+      },
+      {
+        "EvidenceLinkId": "E31-TS",
+        "Evidence": "E31",
+        "Assertion": "TS",
+        "Name": "E31-TS",
+        "EvidencePath": "research/loop-13-top-down/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E31-B1",
+        "Evidence": "E31",
+        "Assertion": "B1",
+        "Name": "E31-B1",
+        "EvidencePath": "research/loop-13-top-down/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E31-B5",
+        "Evidence": "E31",
+        "Assertion": "B5",
+        "Name": "E31-B5",
+        "EvidencePath": "research/loop-13-top-down/PROOFS.md"
       }
     ]
   }

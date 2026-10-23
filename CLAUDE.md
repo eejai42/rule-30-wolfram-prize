@@ -19,6 +19,7 @@ reasoning is kept straight by the build, not by hand.
 4. **Always run `effortless build`** after any change to the rulebook. `compile-rulebook` recomputes every calculated, lookup and aggregation field in place; `minimize-rulebook` regenerates the derived ladder.
 5. **Never reimplement the status logic** (IsUsable, Blocked, CurrentStatus, ProofEligible, EvidenceGap) in scripts. Read the compiled values.
 6. **Ask permission** before changing the assertion statuses of existing claims outside a loop.
+7. **Never add a table whose lookups point at its own rows** (for example a Cells table whose parents are Cells). compile-rulebook then silently skips the entire rulebook, so every ledger value goes empty while the build looks green. See `docs/toolchain-gaps.md`.
 
 ## The research loop (what "do a loop" means here)
 
@@ -31,6 +32,14 @@ One loop = one hypothesis, tested, recorded, built, consumed:
 4. `effortless build`.
 5. Consume the compiled Assessments / Dashboards (read, do not recompute).
 6. Mark the loop `VERIFIED` with the input hash (rulebook sha256 before the build), the build receipt, and the output hash (rulebook sha256 after the build). Then build again so the Dashboard counts it.
+
+**Grow the DAG from the prize problem down.** Every loop names the open obligation it serves
+(B1, B2, B3 or a child of one) and its new claims get a dependency path to that node. Decompose
+the open node: state what it would follow from, mark it derived (the build keeps it `BLOCKED`,
+and `IsAtRisk` flags the proved-from-open edge), and leave the open child as the next target.
+A hypothesis with no path to a prize problem is a side quest and its loop summary must say so;
+loops 9 to 12 drifted that way and moved no prize count. Check with the Prerequisites rows of
+P1, P2, P3 after the build.
 
 `research/loop_tools.py` `run_loop()` does steps 0 to 6; a loop script supplies only the hub edit. Claims and revisions made inside a loop are tagged with it automatically. A loop that skips the build or the consume step is not VERIFIED.
 

@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-13",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.9, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "9d1fd3204b0e1565f0abf9da64e7db4e4f7fd035b1586ffcbfec532bb6c700a6",
+  "OutputHash": "d0ec97e5d4c9797e698dd1f7045ff7a849d18f0150cf25f1b3433f66ae3dc286",
+  "Sequence": 26,
+  "StartedAt": "2026-10-23T11:54:33-0500",
+  "FinishedAt": "2026-10-23T11:56:45-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "Top-down decomposition of P1: B1 <- TC+B4 or <- B5. H26: for every onset 1<=T<=10 and every nonconstant primitive word of period p<=4, the left cone and the inverse rule alone exclude a p-periodic center by L<=4T+4p+8.",
+  "Summary": "Top-down: B1 derived from B5 (new open child), TS proved. H26 held: 200/200 nonconstant (T<=10, p<=4) cases excluded by the left cone alone; worst first_zero_L per T: {\"1\": 13, \"2\": 13, \"3\": 16, \"4\": 16, \"5\": 15, \"6\": 19, \"7\": 32, \"8\": 31, \"9\": 35, \"10\": 34}. Constants: a=1 dies by T+2 (TD), a=0 keeps slack (512 windows at T=10). P1's blocking ancestor is now B5.",
+  "Name": "effortless-13",
+  "ClaimsAdded": 4,
+  "RevisionsMade": 2,
+  "FalsificationsMade": 0,
+  "ProofsMade": 1
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 6.3,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 63,
+  "BlockedCount": 18,
+  "CompletedNativeLoops": 13,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 28,
+  "CheckedCount": 18,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 1,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}
