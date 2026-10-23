@@ -1,0 +1,378 @@
+{
+  "version": "0.5",
+  "scope": "Research claims and finite CMCC Rule 30 model; not an ERB CLI schema or proof assistant.",
+  "primitives": {
+    "Schema": [
+      "Cells",
+      "Transition",
+      "Claims",
+      "Dependencies",
+      "Evidence",
+      "Revisions"
+    ],
+    "Data": [
+      "single_seed",
+      "transition_table",
+      "evidence"
+    ],
+    "Lookups": [
+      "(t-1,i-1)",
+      "(t-1,i)",
+      "(t-1,i+1)",
+      "claim dependencies"
+    ],
+    "Aggregations": [
+      "sum",
+      "count",
+      "xor_parity",
+      "minimum_witness"
+    ],
+    "CalculatedFields": [
+      "transition",
+      "period_from_forcing_parity",
+      "status_validation"
+    ]
+  },
+  "transition_table": [
+    {
+      "l": 0,
+      "c": 0,
+      "r": 0,
+      "bit": 0
+    },
+    {
+      "l": 0,
+      "c": 0,
+      "r": 1,
+      "bit": 1
+    },
+    {
+      "l": 0,
+      "c": 1,
+      "r": 0,
+      "bit": 1
+    },
+    {
+      "l": 0,
+      "c": 1,
+      "r": 1,
+      "bit": 1
+    },
+    {
+      "l": 1,
+      "c": 0,
+      "r": 0,
+      "bit": 1
+    },
+    {
+      "l": 1,
+      "c": 0,
+      "r": 1,
+      "bit": 0
+    },
+    {
+      "l": 1,
+      "c": 1,
+      "r": 0,
+      "bit": 0
+    },
+    {
+      "l": 1,
+      "c": 1,
+      "r": 1,
+      "bit": 0
+    }
+  ],
+  "claims": [
+    {
+      "id": "D0",
+      "status": "DEFINITION",
+      "statement": "Single seed, infinite lattice, Rule 30, time starts at zero.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "T0",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "Cone support and both boundary cells equal one.",
+      "dependencies": [
+        "D0"
+      ],
+      "proof_section": "2; original THEOREM_004.md"
+    },
+    {
+      "id": "T004",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "Fixed diagonal k has period dividing 2^k.",
+      "dependencies": [
+        "D0",
+        "T0"
+      ],
+      "proof_section": "3"
+    },
+    {
+      "id": "TA",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "Least antiderivative period is Q or 2Q according to forcing parity.",
+      "dependencies": [
+        "D0"
+      ],
+      "proof_section": "3"
+    },
+    {
+      "id": "TB",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "First diagonal one occurs at ceil(k/2); least period exceeds that time.",
+      "dependencies": [
+        "T0",
+        "T004"
+      ],
+      "proof_section": "3"
+    },
+    {
+      "id": "TC",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "For every T,p a mismatch occurs in column 0 or 1 by t=2T+p.",
+      "dependencies": [
+        "T0"
+      ],
+      "proof_section": "4"
+    },
+    {
+      "id": "TD",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "Constant center runs obey the proved endpoint bounds.",
+      "dependencies": [
+        "TC"
+      ],
+      "proof_section": "5"
+    },
+    {
+      "id": "K1",
+      "status": "REDERIVED_KNOWN",
+      "statement": "The center is not eventually constant.",
+      "dependencies": [
+        "TD"
+      ],
+      "proof_section": "5"
+    },
+    {
+      "id": "TE",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "Generic n-step output is XOR-affine in its extreme-left input.",
+      "dependencies": [
+        "D0"
+      ],
+      "proof_section": "6"
+    },
+    {
+      "id": "CM",
+      "status": "PROVED_HUMAN_READABLE",
+      "statement": "Time-indexed CMCC equations uniquely reproduce Rule 30.",
+      "dependencies": [
+        "D0"
+      ],
+      "proof_section": "7"
+    },
+    {
+      "id": "F1",
+      "status": "FINITE_VERIFIED",
+      "statement": "All supplied numerical outputs reproduced.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "F2",
+      "status": "FINITE_VERIFIED",
+      "statement": "Exact diagonal periods certified through offset 51.",
+      "dependencies": [
+        "TA",
+        "T004"
+      ],
+      "proof_section": null
+    },
+    {
+      "id": "F3",
+      "status": "FINITE_VERIFIED",
+      "statement": "100001 center bits checked twice; periods 1..10000 excluded for onsets through 90000.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "F4",
+      "status": "FINITE_VERIFIED",
+      "statement": "33411 SQLite cells match independent evolution.",
+      "dependencies": [
+        "CM"
+      ],
+      "proof_section": null
+    },
+    {
+      "id": "H1",
+      "status": "FALSIFIED",
+      "statement": "All diagonals k>=1 are balanced over their least period.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "H2",
+      "status": "FALSIFIED",
+      "statement": "Periods double at every k>=3.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "H3",
+      "status": "FALSIFIED",
+      "statement": "Cone support, first arrival and unbounded diagonal periods imply aperiodic moving diagonal.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "H4",
+      "status": "OPEN",
+      "statement": "Least diagonal periods never decrease.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "H5",
+      "status": "FALSIFIED",
+      "statement": "ACID alone implies transaction-order independence.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "H6",
+      "status": "FALSIFIED",
+      "statement": "Scalar aggregation results may always be nested without preserving group weights.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "B1",
+      "status": "OPEN",
+      "statement": "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "B2",
+      "status": "OPEN",
+      "statement": "Uniform sublinear center discrepancy bound.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "B3",
+      "status": "OPEN",
+      "statement": "Uniform machine-model lower bound with agreed asymptotic quantifiers.",
+      "dependencies": [],
+      "proof_section": null
+    },
+    {
+      "id": "P1",
+      "status": "OPEN",
+      "statement": "The Rule 30 center is not eventually periodic.",
+      "dependencies": [
+        "B1",
+        "K1"
+      ],
+      "proof_section": null
+    },
+    {
+      "id": "P2",
+      "status": "OPEN",
+      "statement": "The center has limiting frequency one-half.",
+      "dependencies": [
+        "B2"
+      ],
+      "proof_section": null
+    },
+    {
+      "id": "P3",
+      "status": "OPEN",
+      "statement": "The official computational-effort conjecture, once model and quantifiers are fixed.",
+      "dependencies": [
+        "B3"
+      ],
+      "proof_section": null
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E0",
+      "path": "data/audit.json"
+    },
+    {
+      "id": "E1",
+      "path": "data/diagonal_periods.json"
+    },
+    {
+      "id": "E2",
+      "path": "data/center_results.json"
+    },
+    {
+      "id": "E3",
+      "path": "data/period_witnesses.json"
+    },
+    {
+      "id": "E4",
+      "path": "data/structural_results.json"
+    },
+    {
+      "id": "E5",
+      "path": "data/adversarial_results.json"
+    },
+    {
+      "id": "E6",
+      "path": "data/period_verification.json"
+    },
+    {
+      "id": "E7",
+      "path": "data/periodic_center_probe.json"
+    }
+  ],
+  "revisions": [
+    {
+      "id": "revision-H1",
+      "claim_id": "H1",
+      "prior_status": "OPEN",
+      "new_status": "FALSIFIED",
+      "reason": "k=5 has 3 ones in its period of length 8.",
+      "replacement_id": "TA"
+    },
+    {
+      "id": "revision-H2",
+      "claim_id": "H2",
+      "prior_status": "OPEN",
+      "new_status": "FALSIFIED",
+      "reason": "k=4 and k=5 both have least period 8.",
+      "replacement_id": "TA"
+    },
+    {
+      "id": "revision-H3",
+      "claim_id": "H3",
+      "prior_status": "OPEN",
+      "new_status": "FALSIFIED",
+      "reason": "The explicit z-array has eventually zero moving diagonal.",
+      "replacement_id": "B1"
+    },
+    {
+      "id": "revision-H5",
+      "claim_id": "H5",
+      "prior_status": "OPEN",
+      "new_status": "FALSIFIED",
+      "reason": "Serial add-one/double schedules yield 2 and 1 from zero.",
+      "replacement_id": "CM"
+    },
+    {
+      "id": "revision-H6",
+      "claim_id": "H6",
+      "prior_status": "OPEN",
+      "new_status": "FALSIFIED",
+      "reason": "Unequal group sizes give average-of-averages 5 versus pooled mean 7.5.",
+      "replacement_id": "CM"
+    }
+  ]
+}

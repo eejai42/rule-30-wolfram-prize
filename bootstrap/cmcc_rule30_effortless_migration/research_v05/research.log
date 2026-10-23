@@ -1,0 +1,25 @@
+{
+  "max_diagonal": {
+    "k": 51,
+    "parent_common_period": 1048576,
+    "forcing_period": 1048576,
+    "forcing_parity": 1,
+    "period": 2097152,
+    "ones": 1048576,
+    "first_one": 26,
+    "sha256": "31a3aecba1e0b547de5d241bcd0566ea78c0d4dd5b9b5bd5c22cddde8840ce36"
+  },
+  "center": {
+    "T": 100000,
+    "n": 100001,
+    "ones": 50098,
+    "zeros": 49903,
+    "sha256_no_newline": "c0779618745db107645822860374918e066895f5b2266e3fdc80a61b0cec67c3",
+    "first_100000_ones": 50098,
+    "uniform_onsets_excluded_through": 90000,
+    "periods_tested": [
+      1,
+      10000
+    ]
+  }
+}

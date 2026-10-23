@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@effortlessapi/cli": "^2026.1008.1747",
+    "@electric-sql/pglite": "^0.5.11"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "every_diagonal_k_ge_1_balanced": {
+    "k": 5,
+    "parent_common_period": 8,
+    "forcing_period": 8,
+    "forcing_parity": 0,
+    "period": 8,
+    "ones": 3,
+    "first_one": 3,
+    "sha256": "4f90a39b83701f5d57801fb0d8afef20a0812c745b8c49d4bbd35c307ff65e09"
+  },
+  "period_doubles_every_k_ge_3": {
+    "k": 5,
+    "parent_common_period": 8,
+    "forcing_period": 8,
+    "forcing_parity": 0,
+    "period": 8,
+    "ones": 3,
+    "first_one": 3,
+    "sha256": "4f90a39b83701f5d57801fb0d8afef20a0812c745b8c49d4bbd35c307ff65e09"
+  },
+  "periods_nondecreasing": null
+}

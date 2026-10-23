@@ -1,0 +1,25 @@
+{
+  "T": 10000,
+  "n": 10001,
+  "independent_bitset_matches_v01_sha256": "91f5523e97f78f3034af7284f2ac9d50852d653907ca416f9c049c7e4661da77",
+  "independent_local_matches_bitset_through_t": 256,
+  "period_range": [
+    1,
+    1000
+  ],
+  "eventual_period_start_lower_bound_min": 8999,
+  "eventual_period_start_lower_bound_max": 9999,
+  "selected_period_start_lower_bounds": {
+    "1": 9999,
+    "2": 9999,
+    "3": 9995,
+    "5": 9996,
+    "10": 9991,
+    "30": 9971,
+    "100": 9899,
+    "500": 9499,
+    "1000": 8999
+  },
+  "python_version": "3.12.14",
+  "caveat": "Finite-prefix exclusions only; no asymptotic proof."
+}

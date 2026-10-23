@@ -1,0 +1,1319 @@
+{
+  "$schema": "https://example.com/cmcc-schema/v1",
+  "Name": "Rule30Research",
+  "Description": "Research provenance and dependency-aware assessments. Human-readable proofs remain imported assertions, not formal certificates.",
+  "Assertions": {
+    "Description": "Assertions",
+    "schema": [
+      {
+        "name": "AssertionId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "AssertionId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{AssertionId}}"
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Statement"
+      },
+      {
+        "name": "ReportedStatus",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "ReportedStatus"
+      },
+      {
+        "name": "ProofSection",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "ProofSection"
+      },
+      {
+        "name": "IsUsable",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "IsUsable",
+        "formula": "=IF(OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\",{{ReportedStatus}}=\"FINITE_VERIFIED\"),1,0)"
+      },
+      {
+        "name": "IsProofEligible",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "IsProofEligible",
+        "formula": "=IF(OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\"),1,0)"
+      }
+    ],
+    "data": [
+      {
+        "AssertionId": "D0",
+        "Statement": "Single seed, infinite lattice, Rule 30, time starts at zero.",
+        "ReportedStatus": "DEFINITION",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "T0",
+        "Statement": "Cone support and both boundary cells equal one.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "2; original THEOREM_004.md"
+      },
+      {
+        "AssertionId": "T004",
+        "Statement": "Fixed diagonal k has period dividing 2^k.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "3"
+      },
+      {
+        "AssertionId": "TA",
+        "Statement": "Least antiderivative period is Q or 2Q according to forcing parity.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "3"
+      },
+      {
+        "AssertionId": "TB",
+        "Statement": "First diagonal one occurs at ceil(k/2); least period exceeds that time.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "3"
+      },
+      {
+        "AssertionId": "TC",
+        "Statement": "For every T,p a mismatch occurs in column 0 or 1 by t=2T+p.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "4"
+      },
+      {
+        "AssertionId": "TD",
+        "Statement": "Constant center runs obey the proved endpoint bounds.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "5"
+      },
+      {
+        "AssertionId": "K1",
+        "Statement": "The center is not eventually constant.",
+        "ReportedStatus": "REDERIVED_KNOWN",
+        "ProofSection": "5"
+      },
+      {
+        "AssertionId": "TE",
+        "Statement": "Generic n-step output is XOR-affine in its extreme-left input.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "6"
+      },
+      {
+        "AssertionId": "CM",
+        "Statement": "Time-indexed CMCC equations uniquely reproduce Rule 30.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "7"
+      },
+      {
+        "AssertionId": "F1",
+        "Statement": "All supplied numerical outputs reproduced.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "F2",
+        "Statement": "Exact diagonal periods certified through offset 51.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "F3",
+        "Statement": "100001 center bits checked twice; periods 1..10000 excluded for onsets through 90000.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "F4",
+        "Statement": "33411 SQLite cells match independent evolution.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "H1",
+        "Statement": "All diagonals k>=1 are balanced over their least period.",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "H2",
+        "Statement": "Periods double at every k>=3.",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "H3",
+        "Statement": "Cone support, first arrival and unbounded diagonal periods imply aperiodic moving diagonal.",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "H4",
+        "Statement": "Least diagonal periods never decrease.",
+        "ReportedStatus": "OPEN",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "H5",
+        "Statement": "ACID alone implies transaction-order independence.",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "H6",
+        "Statement": "Scalar aggregation results may always be nested without preserving group weights.",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "B1",
+        "Statement": "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns.",
+        "ReportedStatus": "OPEN",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "B2",
+        "Statement": "Uniform sublinear center discrepancy bound.",
+        "ReportedStatus": "OPEN",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "B3",
+        "Statement": "Uniform machine-model lower bound with agreed asymptotic quantifiers.",
+        "ReportedStatus": "OPEN",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "P1",
+        "Statement": "The Rule 30 center is not eventually periodic.",
+        "ReportedStatus": "OPEN",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "P2",
+        "Statement": "The center has limiting frequency one-half.",
+        "ReportedStatus": "OPEN",
+        "ProofSection": ""
+      },
+      {
+        "AssertionId": "P3",
+        "Statement": "The official computational-effort conjecture, once model and quantifiers are fixed.",
+        "ReportedStatus": "OPEN",
+        "ProofSection": ""
+      }
+    ]
+  },
+  "Dependencies": {
+    "Description": "Dependencies",
+    "schema": [
+      {
+        "name": "DependencyId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "DependencyId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{DependencyId}}"
+      },
+      {
+        "name": "Conclusion",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Conclusion",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Premise",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Premise",
+        "RelatedTo": "Assertions"
+      }
+    ],
+    "data": [
+      {
+        "DependencyId": "T0-D0",
+        "Conclusion": "T0",
+        "Premise": "D0"
+      },
+      {
+        "DependencyId": "T004-D0",
+        "Conclusion": "T004",
+        "Premise": "D0"
+      },
+      {
+        "DependencyId": "T004-T0",
+        "Conclusion": "T004",
+        "Premise": "T0"
+      },
+      {
+        "DependencyId": "TA-D0",
+        "Conclusion": "TA",
+        "Premise": "D0"
+      },
+      {
+        "DependencyId": "TB-T0",
+        "Conclusion": "TB",
+        "Premise": "T0"
+      },
+      {
+        "DependencyId": "TB-T004",
+        "Conclusion": "TB",
+        "Premise": "T004"
+      },
+      {
+        "DependencyId": "TC-T0",
+        "Conclusion": "TC",
+        "Premise": "T0"
+      },
+      {
+        "DependencyId": "TD-TC",
+        "Conclusion": "TD",
+        "Premise": "TC"
+      },
+      {
+        "DependencyId": "K1-TD",
+        "Conclusion": "K1",
+        "Premise": "TD"
+      },
+      {
+        "DependencyId": "TE-D0",
+        "Conclusion": "TE",
+        "Premise": "D0"
+      },
+      {
+        "DependencyId": "CM-D0",
+        "Conclusion": "CM",
+        "Premise": "D0"
+      },
+      {
+        "DependencyId": "F2-TA",
+        "Conclusion": "F2",
+        "Premise": "TA"
+      },
+      {
+        "DependencyId": "F2-T004",
+        "Conclusion": "F2",
+        "Premise": "T004"
+      },
+      {
+        "DependencyId": "F4-CM",
+        "Conclusion": "F4",
+        "Premise": "CM"
+      },
+      {
+        "DependencyId": "P1-B1",
+        "Conclusion": "P1",
+        "Premise": "B1"
+      },
+      {
+        "DependencyId": "P1-K1",
+        "Conclusion": "P1",
+        "Premise": "K1"
+      },
+      {
+        "DependencyId": "P2-B2",
+        "Conclusion": "P2",
+        "Premise": "B2"
+      },
+      {
+        "DependencyId": "P3-B3",
+        "Conclusion": "P3",
+        "Premise": "B3"
+      }
+    ]
+  },
+  "Prerequisites": {
+    "Description": "Prerequisites",
+    "schema": [
+      {
+        "name": "PrerequisiteId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "PrerequisiteId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{PrerequisiteId}}"
+      },
+      {
+        "name": "ConclusionKey",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "ConclusionKey"
+      },
+      {
+        "name": "Premise",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Premise",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "PremiseUsable",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": false,
+        "Description": "PremiseUsable",
+        "formula": "=INDEX(Assertions!{{IsUsable}},MATCH({{Premise}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "PremiseProofEligible",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": false,
+        "Description": "PremiseProofEligible",
+        "formula": "=INDEX(Assertions!{{IsProofEligible}},MATCH({{Premise}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Blocked",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Blocked",
+        "formula": "=1-{{PremiseUsable}}"
+      },
+      {
+        "name": "ProofBlocked",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "ProofBlocked",
+        "formula": "=1-{{PremiseProofEligible}}"
+      }
+    ],
+    "data": [
+      {
+        "PrerequisiteId": "D0-D0",
+        "ConclusionKey": "D0",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "T0-D0",
+        "ConclusionKey": "T0",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "T0-T0",
+        "ConclusionKey": "T0",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "T004-D0",
+        "ConclusionKey": "T004",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "T004-T0",
+        "ConclusionKey": "T004",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "T004-T004",
+        "ConclusionKey": "T004",
+        "Premise": "T004"
+      },
+      {
+        "PrerequisiteId": "TA-D0",
+        "ConclusionKey": "TA",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "TA-TA",
+        "ConclusionKey": "TA",
+        "Premise": "TA"
+      },
+      {
+        "PrerequisiteId": "TB-D0",
+        "ConclusionKey": "TB",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "TB-T0",
+        "ConclusionKey": "TB",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "TB-T004",
+        "ConclusionKey": "TB",
+        "Premise": "T004"
+      },
+      {
+        "PrerequisiteId": "TB-TB",
+        "ConclusionKey": "TB",
+        "Premise": "TB"
+      },
+      {
+        "PrerequisiteId": "TC-D0",
+        "ConclusionKey": "TC",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "TC-T0",
+        "ConclusionKey": "TC",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "TC-TC",
+        "ConclusionKey": "TC",
+        "Premise": "TC"
+      },
+      {
+        "PrerequisiteId": "TD-D0",
+        "ConclusionKey": "TD",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "TD-T0",
+        "ConclusionKey": "TD",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "TD-TC",
+        "ConclusionKey": "TD",
+        "Premise": "TC"
+      },
+      {
+        "PrerequisiteId": "TD-TD",
+        "ConclusionKey": "TD",
+        "Premise": "TD"
+      },
+      {
+        "PrerequisiteId": "K1-D0",
+        "ConclusionKey": "K1",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "K1-K1",
+        "ConclusionKey": "K1",
+        "Premise": "K1"
+      },
+      {
+        "PrerequisiteId": "K1-T0",
+        "ConclusionKey": "K1",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "K1-TC",
+        "ConclusionKey": "K1",
+        "Premise": "TC"
+      },
+      {
+        "PrerequisiteId": "K1-TD",
+        "ConclusionKey": "K1",
+        "Premise": "TD"
+      },
+      {
+        "PrerequisiteId": "TE-D0",
+        "ConclusionKey": "TE",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "TE-TE",
+        "ConclusionKey": "TE",
+        "Premise": "TE"
+      },
+      {
+        "PrerequisiteId": "CM-CM",
+        "ConclusionKey": "CM",
+        "Premise": "CM"
+      },
+      {
+        "PrerequisiteId": "CM-D0",
+        "ConclusionKey": "CM",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "F1-F1",
+        "ConclusionKey": "F1",
+        "Premise": "F1"
+      },
+      {
+        "PrerequisiteId": "F2-D0",
+        "ConclusionKey": "F2",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "F2-F2",
+        "ConclusionKey": "F2",
+        "Premise": "F2"
+      },
+      {
+        "PrerequisiteId": "F2-T0",
+        "ConclusionKey": "F2",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "F2-T004",
+        "ConclusionKey": "F2",
+        "Premise": "T004"
+      },
+      {
+        "PrerequisiteId": "F2-TA",
+        "ConclusionKey": "F2",
+        "Premise": "TA"
+      },
+      {
+        "PrerequisiteId": "F3-F3",
+        "ConclusionKey": "F3",
+        "Premise": "F3"
+      },
+      {
+        "PrerequisiteId": "F4-CM",
+        "ConclusionKey": "F4",
+        "Premise": "CM"
+      },
+      {
+        "PrerequisiteId": "F4-D0",
+        "ConclusionKey": "F4",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "F4-F4",
+        "ConclusionKey": "F4",
+        "Premise": "F4"
+      },
+      {
+        "PrerequisiteId": "H1-H1",
+        "ConclusionKey": "H1",
+        "Premise": "H1"
+      },
+      {
+        "PrerequisiteId": "H2-H2",
+        "ConclusionKey": "H2",
+        "Premise": "H2"
+      },
+      {
+        "PrerequisiteId": "H3-H3",
+        "ConclusionKey": "H3",
+        "Premise": "H3"
+      },
+      {
+        "PrerequisiteId": "H4-H4",
+        "ConclusionKey": "H4",
+        "Premise": "H4"
+      },
+      {
+        "PrerequisiteId": "H5-H5",
+        "ConclusionKey": "H5",
+        "Premise": "H5"
+      },
+      {
+        "PrerequisiteId": "H6-H6",
+        "ConclusionKey": "H6",
+        "Premise": "H6"
+      },
+      {
+        "PrerequisiteId": "B1-B1",
+        "ConclusionKey": "B1",
+        "Premise": "B1"
+      },
+      {
+        "PrerequisiteId": "B2-B2",
+        "ConclusionKey": "B2",
+        "Premise": "B2"
+      },
+      {
+        "PrerequisiteId": "B3-B3",
+        "ConclusionKey": "B3",
+        "Premise": "B3"
+      },
+      {
+        "PrerequisiteId": "P1-B1",
+        "ConclusionKey": "P1",
+        "Premise": "B1"
+      },
+      {
+        "PrerequisiteId": "P1-D0",
+        "ConclusionKey": "P1",
+        "Premise": "D0"
+      },
+      {
+        "PrerequisiteId": "P1-K1",
+        "ConclusionKey": "P1",
+        "Premise": "K1"
+      },
+      {
+        "PrerequisiteId": "P1-P1",
+        "ConclusionKey": "P1",
+        "Premise": "P1"
+      },
+      {
+        "PrerequisiteId": "P1-T0",
+        "ConclusionKey": "P1",
+        "Premise": "T0"
+      },
+      {
+        "PrerequisiteId": "P1-TC",
+        "ConclusionKey": "P1",
+        "Premise": "TC"
+      },
+      {
+        "PrerequisiteId": "P1-TD",
+        "ConclusionKey": "P1",
+        "Premise": "TD"
+      },
+      {
+        "PrerequisiteId": "P2-B2",
+        "ConclusionKey": "P2",
+        "Premise": "B2"
+      },
+      {
+        "PrerequisiteId": "P2-P2",
+        "ConclusionKey": "P2",
+        "Premise": "P2"
+      },
+      {
+        "PrerequisiteId": "P3-B3",
+        "ConclusionKey": "P3",
+        "Premise": "B3"
+      },
+      {
+        "PrerequisiteId": "P3-P3",
+        "ConclusionKey": "P3",
+        "Premise": "P3"
+      }
+    ]
+  },
+  "Assessments": {
+    "Description": "Assessments",
+    "schema": [
+      {
+        "name": "AssessmentId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "AssessmentId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{AssessmentId}}"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Assertion",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "ReportedStatus",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": false,
+        "Description": "ReportedStatus",
+        "formula": "=INDEX(Assertions!{{ReportedStatus}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "BlockedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": false,
+        "Description": "BlockedCount",
+        "formula": "=SUMIFS(Prerequisites!{{Blocked}},Prerequisites!{{ConclusionKey}},{{Assertion}})"
+      },
+      {
+        "name": "ProofBlockedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": false,
+        "Description": "ProofBlockedCount",
+        "formula": "=SUMIFS(Prerequisites!{{ProofBlocked}},Prerequisites!{{ConclusionKey}},{{Assertion}})"
+      },
+      {
+        "name": "CurrentStatus",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "CurrentStatus",
+        "formula": "=IF({{BlockedCount}}>0,\"BLOCKED\",{{ReportedStatus}})"
+      },
+      {
+        "name": "ProofEligible",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "ProofEligible",
+        "formula": "=IF({{ProofBlockedCount}}=0,1,0)"
+      },
+      {
+        "name": "ProjectKey",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "ProjectKey"
+      }
+    ],
+    "data": [
+      {
+        "AssessmentId": "D0",
+        "Assertion": "D0",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "T0",
+        "Assertion": "T0",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "T004",
+        "Assertion": "T004",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "TA",
+        "Assertion": "TA",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "TB",
+        "Assertion": "TB",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "TC",
+        "Assertion": "TC",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "TD",
+        "Assertion": "TD",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "K1",
+        "Assertion": "K1",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "TE",
+        "Assertion": "TE",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "CM",
+        "Assertion": "CM",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "F1",
+        "Assertion": "F1",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "F2",
+        "Assertion": "F2",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "F3",
+        "Assertion": "F3",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "F4",
+        "Assertion": "F4",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "H1",
+        "Assertion": "H1",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "H2",
+        "Assertion": "H2",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "H3",
+        "Assertion": "H3",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "H4",
+        "Assertion": "H4",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "H5",
+        "Assertion": "H5",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "H6",
+        "Assertion": "H6",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "B1",
+        "Assertion": "B1",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "B2",
+        "Assertion": "B2",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "B3",
+        "Assertion": "B3",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "P1",
+        "Assertion": "P1",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "P2",
+        "Assertion": "P2",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "AssessmentId": "P3",
+        "Assertion": "P3",
+        "ProjectKey": "Rule30"
+      }
+    ]
+  },
+  "Evidence": {
+    "Description": "Evidence",
+    "schema": [
+      {
+        "name": "EvidenceId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "EvidenceId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{EvidenceId}}"
+      },
+      {
+        "name": "Path",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Path"
+      },
+      {
+        "name": "Sha256",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Sha256"
+      }
+    ],
+    "data": [
+      {
+        "EvidenceId": "E0",
+        "Path": "../research_v05/data/audit.json",
+        "Sha256": "a3bf852df7e5c1b24857d7f839d7dc03570fc77e0c823d6db2d1ce0285e26f6f"
+      },
+      {
+        "EvidenceId": "E1",
+        "Path": "../research_v05/data/diagonal_periods.json",
+        "Sha256": "fd4acfd82c3a25f5222484d884a4400ebb43cb850d530530055dd807aefe4d06"
+      },
+      {
+        "EvidenceId": "E2",
+        "Path": "../research_v05/data/center_results.json",
+        "Sha256": "2a2824a6a90e63e991ba5fbc1e51a8c69057d081befeb3adab8aef0de3de0efe"
+      },
+      {
+        "EvidenceId": "E3",
+        "Path": "../research_v05/data/period_witnesses.json",
+        "Sha256": "28fda425d46e333b745b7d6837c388f6a000039bb4f459ea597c9c46df9a8484"
+      },
+      {
+        "EvidenceId": "E4",
+        "Path": "../research_v05/data/structural_results.json",
+        "Sha256": "d0d1901398ec00b66977995edba3a336152f87c5e5ec96f147b38306184386c3"
+      },
+      {
+        "EvidenceId": "E5",
+        "Path": "../research_v05/data/adversarial_results.json",
+        "Sha256": "86473c84e64a5ad96135e2f347fda839cc75473fe6f5cae472fffce4fd1514de"
+      },
+      {
+        "EvidenceId": "E6",
+        "Path": "../research_v05/data/period_verification.json",
+        "Sha256": "18c327d6a9d35a2e85fecdc5f29bb6cd6c386d5f6c68b0d2e652c976c550ad95"
+      },
+      {
+        "EvidenceId": "E7",
+        "Path": "../research_v05/data/periodic_center_probe.json",
+        "Sha256": "491b5999740f528e52689801c5d62dec31db028269ce39a653ac297b81cfd07a"
+      }
+    ]
+  },
+  "Revisions": {
+    "Description": "Revisions",
+    "schema": [
+      {
+        "name": "RevisionId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "RevisionId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{RevisionId}}"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Assertion",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "PriorStatus",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "PriorStatus"
+      },
+      {
+        "name": "NewStatus",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "NewStatus"
+      },
+      {
+        "name": "Reason",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Reason"
+      },
+      {
+        "name": "Replacement",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Replacement",
+        "RelatedTo": "Assertions"
+      }
+    ],
+    "data": [
+      {
+        "RevisionId": "revision-H1",
+        "Assertion": "H1",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "k=5 has 3 ones in its period of length 8.",
+        "Replacement": "TA"
+      },
+      {
+        "RevisionId": "revision-H2",
+        "Assertion": "H2",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "k=4 and k=5 both have least period 8.",
+        "Replacement": "TA"
+      },
+      {
+        "RevisionId": "revision-H3",
+        "Assertion": "H3",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "The explicit z-array has eventually zero moving diagonal.",
+        "Replacement": "B1"
+      },
+      {
+        "RevisionId": "revision-H5",
+        "Assertion": "H5",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "Serial add-one/double schedules yield 2 and 1 from zero.",
+        "Replacement": "CM"
+      },
+      {
+        "RevisionId": "revision-H6",
+        "Assertion": "H6",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "Unequal group sizes give average-of-averages 5 versus pooled mean 7.5.",
+        "Replacement": "CM"
+      }
+    ]
+  },
+  "Loops": {
+    "Description": "Loops",
+    "schema": [
+      {
+        "name": "LoopId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "LoopId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{LoopId}}"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Kind"
+      },
+      {
+        "name": "State",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "State"
+      },
+      {
+        "name": "BuildReceipt",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "BuildReceipt"
+      },
+      {
+        "name": "InputHash",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "InputHash"
+      },
+      {
+        "name": "OutputHash",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "OutputHash"
+      },
+      {
+        "name": "ProjectKey",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "ProjectKey"
+      }
+    ],
+    "data": [
+      {
+        "LoopId": "legacy-1",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-2",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-3",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-4",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-5",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-6",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-7",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-8",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-9",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-10",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-11",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-12",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      },
+      {
+        "LoopId": "legacy-13",
+        "Kind": "LEGACY_RESEARCH",
+        "State": "REPORTED_COMPLETE",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "ProjectKey": "Rule30"
+      }
+    ]
+  },
+  "Dashboards": {
+    "Description": "Dashboards",
+    "schema": [
+      {
+        "name": "DashboardId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "DashboardId"
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": false,
+        "Description": "Name",
+        "formula": "={{DashboardId}}"
+      },
+      {
+        "name": "ClaimCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": false,
+        "Description": "ClaimCount",
+        "formula": "=COUNTIFS(Assessments!{{ProjectKey}},{{DashboardId}})"
+      },
+      {
+        "name": "BlockedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": false,
+        "Description": "BlockedCount",
+        "formula": "=COUNTIFS(Assessments!{{ProjectKey}},{{DashboardId}},Assessments!{{CurrentStatus}},\"BLOCKED\")"
+      },
+      {
+        "name": "CompletedNativeLoops",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": false,
+        "Description": "CompletedNativeLoops",
+        "formula": "=COUNTIFS(Loops!{{ProjectKey}},{{DashboardId}},Loops!{{Kind}},\"EFFORTLESS\",Loops!{{State}},\"VERIFIED\")"
+      }
+    ],
+    "data": [
+      {
+        "DashboardId": "Rule30"
+      }
+    ]
+  }
+}

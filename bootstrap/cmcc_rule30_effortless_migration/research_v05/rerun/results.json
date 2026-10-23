@@ -1,0 +1,26 @@
+[
+  {
+    "horizon": 100,
+    "ones": 52,
+    "zeros": 49,
+    "fraction_ones": 0.5148514851485149,
+    "sha256": "346fd5335c27204cb369998f4b0ed8b33708969923707ead30af7d9a625648f6",
+    "full_prefix_periods_le_100": []
+  },
+  {
+    "horizon": 1000,
+    "ones": 481,
+    "zeros": 520,
+    "fraction_ones": 0.4805194805194805,
+    "sha256": "4f40e83649ed63922bd794e260def12c13e6d01b02e3df136eebc69ea0fdb9ba",
+    "full_prefix_periods_le_100": []
+  },
+  {
+    "horizon": 10000,
+    "ones": 5033,
+    "zeros": 4968,
+    "fraction_ones": 0.5032496750324967,
+    "sha256": "91f5523e97f78f3034af7284f2ac9d50852d653907ca416f9c049c7e4661da77",
+    "full_prefix_periods_le_100": []
+  }
+]

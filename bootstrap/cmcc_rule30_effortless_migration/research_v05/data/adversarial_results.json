@@ -1,0 +1,69 @@
+{
+  "diagonal_countermodel_center": [
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "first_rule30_violation": {
+    "k": 2,
+    "t": 2,
+    "actual_next": 0,
+    "rule30_next": 1
+  },
+  "forcing_words_exhaustively_verified": 1966,
+  "generic_input_balance": [
+    {
+      "n": 1,
+      "assignments": 8,
+      "output_ones": 4
+    },
+    {
+      "n": 2,
+      "assignments": 32,
+      "output_ones": 16
+    },
+    {
+      "n": 3,
+      "assignments": 128,
+      "output_ones": 64
+    },
+    {
+      "n": 4,
+      "assignments": 512,
+      "output_ones": 256
+    },
+    {
+      "n": 5,
+      "assignments": 2048,
+      "output_ones": 1024
+    },
+    {
+      "n": 6,
+      "assignments": 8192,
+      "output_ones": 4096
+    }
+  ],
+  "acid_serial_orders": [
+    2,
+    1
+  ],
+  "average_of_averages": 5,
+  "pooled_average": 7.5
+}

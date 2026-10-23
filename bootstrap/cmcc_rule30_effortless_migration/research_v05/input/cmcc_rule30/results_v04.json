@@ -1,0 +1,80 @@
+[
+  {
+    "offset": 0,
+    "guaranteed_period": 1,
+    "observed_minimal_period": 1,
+    "first_32_bits": "11111111111111111111111111111111"
+  },
+  {
+    "offset": 1,
+    "guaranteed_period": 2,
+    "observed_minimal_period": 2,
+    "first_32_bits": "01010101010101010101010101010101"
+  },
+  {
+    "offset": 2,
+    "guaranteed_period": 4,
+    "observed_minimal_period": 2,
+    "first_32_bits": "01010101010101010101010101010101"
+  },
+  {
+    "offset": 3,
+    "guaranteed_period": 8,
+    "observed_minimal_period": 4,
+    "first_32_bits": "00110011001100110011001100110011"
+  },
+  {
+    "offset": 4,
+    "guaranteed_period": 16,
+    "observed_minimal_period": 8,
+    "first_32_bits": "00101101001011010010110100101101"
+  },
+  {
+    "offset": 5,
+    "guaranteed_period": 32,
+    "observed_minimal_period": 8,
+    "first_32_bits": "00010101000101010001010100010101"
+  },
+  {
+    "offset": 6,
+    "guaranteed_period": 64,
+    "observed_minimal_period": 16,
+    "first_32_bits": "00010100111010110001010011101011"
+  },
+  {
+    "offset": 7,
+    "guaranteed_period": 128,
+    "observed_minimal_period": 32,
+    "first_32_bits": "00001100101010101111001101010101"
+  },
+  {
+    "offset": 8,
+    "guaranteed_period": 256,
+    "observed_minimal_period": 32,
+    "first_32_bits": "00001011101001101010110101010101"
+  },
+  {
+    "offset": 9,
+    "guaranteed_period": 512,
+    "observed_minimal_period": 64,
+    "first_32_bits": "00000101011001011010101011001100"
+  },
+  {
+    "offset": 10,
+    "guaranteed_period": 1024,
+    "observed_minimal_period": 64,
+    "first_32_bits": "00000101010111010110010101001011"
+  },
+  {
+    "offset": 11,
+    "guaranteed_period": 2048,
+    "observed_minimal_period": 64,
+    "first_32_bits": "00000011001010110101101010111010"
+  },
+  {
+    "offset": 12,
+    "guaranteed_period": 4096,
+    "observed_minimal_period": 64,
+    "first_32_bits": "00000010110101010010101010101001"
+  }
+]

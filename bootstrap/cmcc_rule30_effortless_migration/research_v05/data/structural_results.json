@@ -1,0 +1,7 @@
+{
+  "adjacent_windows_checked": 6464,
+  "constant_completed_runs": 977,
+  "cmcc_cells_independently_checked": 33411,
+  "cmcc_horizon": 128,
+  "proofs": "REPORT.md; tests are finite validation, not proofs"
+}

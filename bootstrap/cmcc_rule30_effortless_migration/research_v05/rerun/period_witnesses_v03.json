@@ -1,0 +1,8002 @@
+{
+  "1": {
+    "witness_t": 9998,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9998
+  },
+  "2": {
+    "witness_t": 9998,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9998
+  },
+  "3": {
+    "witness_t": 9994,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9994
+  },
+  "4": {
+    "witness_t": 9995,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9995
+  },
+  "5": {
+    "witness_t": 9995,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9995
+  },
+  "6": {
+    "witness_t": 9994,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9994
+  },
+  "7": {
+    "witness_t": 9991,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9991
+  },
+  "8": {
+    "witness_t": 9984,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9984
+  },
+  "9": {
+    "witness_t": 9990,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9990
+  },
+  "10": {
+    "witness_t": 9990,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9990
+  },
+  "11": {
+    "witness_t": 9986,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9986
+  },
+  "12": {
+    "witness_t": 9987,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9987
+  },
+  "13": {
+    "witness_t": 9987,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9987
+  },
+  "14": {
+    "witness_t": 9986,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9986
+  },
+  "15": {
+    "witness_t": 9984,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9984
+  },
+  "16": {
+    "witness_t": 9984,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9984
+  },
+  "17": {
+    "witness_t": 9971,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9971
+  },
+  "18": {
+    "witness_t": 9981,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9981
+  },
+  "19": {
+    "witness_t": 9981,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9981
+  },
+  "20": {
+    "witness_t": 9977,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9977
+  },
+  "21": {
+    "witness_t": 9978,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9978
+  },
+  "22": {
+    "witness_t": 9978,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9978
+  },
+  "23": {
+    "witness_t": 9977,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9977
+  },
+  "24": {
+    "witness_t": 9974,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9974
+  },
+  "25": {
+    "witness_t": 9971,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9971
+  },
+  "26": {
+    "witness_t": 9973,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9973
+  },
+  "27": {
+    "witness_t": 9973,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9973
+  },
+  "28": {
+    "witness_t": 9971,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9971
+  },
+  "29": {
+    "witness_t": 9971,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9971
+  },
+  "30": {
+    "witness_t": 9970,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9970
+  },
+  "31": {
+    "witness_t": 9969,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9969
+  },
+  "32": {
+    "witness_t": 9965,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9965
+  },
+  "33": {
+    "witness_t": 9966,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9966
+  },
+  "34": {
+    "witness_t": 9966,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9966
+  },
+  "35": {
+    "witness_t": 9965,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9965
+  },
+  "36": {
+    "witness_t": 9964,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9964
+  },
+  "37": {
+    "witness_t": 9961,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9961
+  },
+  "38": {
+    "witness_t": 9960,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9960
+  },
+  "39": {
+    "witness_t": 9958,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9958
+  },
+  "40": {
+    "witness_t": 9959,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9959
+  },
+  "41": {
+    "witness_t": 9959,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9959
+  },
+  "42": {
+    "witness_t": 9958,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9958
+  },
+  "43": {
+    "witness_t": 9957,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9957
+  },
+  "44": {
+    "witness_t": 9956,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9956
+  },
+  "45": {
+    "witness_t": 9949,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9949
+  },
+  "46": {
+    "witness_t": 9953,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9953
+  },
+  "47": {
+    "witness_t": 9953,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9953
+  },
+  "48": {
+    "witness_t": 9946,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9946
+  },
+  "49": {
+    "witness_t": 9950,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9950
+  },
+  "50": {
+    "witness_t": 9950,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9950
+  },
+  "51": {
+    "witness_t": 9943,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9943
+  },
+  "52": {
+    "witness_t": 9947,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9947
+  },
+  "53": {
+    "witness_t": 9947,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9947
+  },
+  "54": {
+    "witness_t": 9942,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9942
+  },
+  "55": {
+    "witness_t": 9944,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9944
+  },
+  "56": {
+    "witness_t": 9944,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9944
+  },
+  "57": {
+    "witness_t": 9942,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9942
+  },
+  "58": {
+    "witness_t": 9942,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9942
+  },
+  "59": {
+    "witness_t": 9941,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9941
+  },
+  "60": {
+    "witness_t": 9939,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9939
+  },
+  "61": {
+    "witness_t": 9939,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9939
+  },
+  "62": {
+    "witness_t": 9936,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9936
+  },
+  "63": {
+    "witness_t": 9935,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9935
+  },
+  "64": {
+    "witness_t": 9930,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9930
+  },
+  "65": {
+    "witness_t": 9934,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9934
+  },
+  "66": {
+    "witness_t": 9934,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9934
+  },
+  "67": {
+    "witness_t": 9929,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9929
+  },
+  "68": {
+    "witness_t": 9931,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9931
+  },
+  "69": {
+    "witness_t": 9931,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9931
+  },
+  "70": {
+    "witness_t": 9929,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9929
+  },
+  "71": {
+    "witness_t": 9929,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9929
+  },
+  "72": {
+    "witness_t": 9928,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9928
+  },
+  "73": {
+    "witness_t": 9924,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9924
+  },
+  "74": {
+    "witness_t": 9925,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9925
+  },
+  "75": {
+    "witness_t": 9925,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9925
+  },
+  "76": {
+    "witness_t": 9924,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9924
+  },
+  "77": {
+    "witness_t": 9919,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9919
+  },
+  "78": {
+    "witness_t": 9921,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9921
+  },
+  "79": {
+    "witness_t": 9921,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9921
+  },
+  "80": {
+    "witness_t": 9919,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9919
+  },
+  "81": {
+    "witness_t": 9919,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9919
+  },
+  "82": {
+    "witness_t": 9916,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9916
+  },
+  "83": {
+    "witness_t": 9914,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9914
+  },
+  "84": {
+    "witness_t": 9915,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9915
+  },
+  "85": {
+    "witness_t": 9915,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9915
+  },
+  "86": {
+    "witness_t": 9914,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9914
+  },
+  "87": {
+    "witness_t": 9913,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9913
+  },
+  "88": {
+    "witness_t": 9911,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9911
+  },
+  "89": {
+    "witness_t": 9911,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9911
+  },
+  "90": {
+    "witness_t": 9908,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9908
+  },
+  "91": {
+    "witness_t": 9907,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9907
+  },
+  "92": {
+    "witness_t": 9906,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9906
+  },
+  "93": {
+    "witness_t": 9905,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9905
+  },
+  "94": {
+    "witness_t": 9904,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9904
+  },
+  "95": {
+    "witness_t": 9903,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9903
+  },
+  "96": {
+    "witness_t": 9902,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9902
+  },
+  "97": {
+    "witness_t": 9898,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9898
+  },
+  "98": {
+    "witness_t": 9901,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9901
+  },
+  "99": {
+    "witness_t": 9901,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9901
+  },
+  "100": {
+    "witness_t": 9898,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9898
+  },
+  "101": {
+    "witness_t": 9897,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9897
+  },
+  "102": {
+    "witness_t": 9894,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9894
+  },
+  "103": {
+    "witness_t": 9896,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9896
+  },
+  "104": {
+    "witness_t": 9896,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9896
+  },
+  "105": {
+    "witness_t": 9894,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9894
+  },
+  "106": {
+    "witness_t": 9894,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9894
+  },
+  "107": {
+    "witness_t": 9893,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9893
+  },
+  "108": {
+    "witness_t": 9892,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9892
+  },
+  "109": {
+    "witness_t": 9886,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9886
+  },
+  "110": {
+    "witness_t": 9889,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9889
+  },
+  "111": {
+    "witness_t": 9889,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9889
+  },
+  "112": {
+    "witness_t": 9886,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9886
+  },
+  "113": {
+    "witness_t": 9885,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9885
+  },
+  "114": {
+    "witness_t": 9884,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9884
+  },
+  "115": {
+    "witness_t": 9881,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9881
+  },
+  "116": {
+    "witness_t": 9883,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9883
+  },
+  "117": {
+    "witness_t": 9883,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9883
+  },
+  "118": {
+    "witness_t": 9881,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9881
+  },
+  "119": {
+    "witness_t": 9881,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9881
+  },
+  "120": {
+    "witness_t": 9880,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9880
+  },
+  "121": {
+    "witness_t": 9876,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9876
+  },
+  "122": {
+    "witness_t": 9877,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9877
+  },
+  "123": {
+    "witness_t": 9877,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9877
+  },
+  "124": {
+    "witness_t": 9876,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9876
+  },
+  "125": {
+    "witness_t": 9872,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9872
+  },
+  "126": {
+    "witness_t": 9873,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9873
+  },
+  "127": {
+    "witness_t": 9873,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9873
+  },
+  "128": {
+    "witness_t": 9872,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9872
+  },
+  "129": {
+    "witness_t": 9868,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9868
+  },
+  "130": {
+    "witness_t": 9869,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9869
+  },
+  "131": {
+    "witness_t": 9869,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9869
+  },
+  "132": {
+    "witness_t": 9868,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9868
+  },
+  "133": {
+    "witness_t": 9866,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9866
+  },
+  "134": {
+    "witness_t": 9866,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9866
+  },
+  "135": {
+    "witness_t": 9861,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9861
+  },
+  "136": {
+    "witness_t": 9863,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9863
+  },
+  "137": {
+    "witness_t": 9863,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9863
+  },
+  "138": {
+    "witness_t": 9861,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9861
+  },
+  "139": {
+    "witness_t": 9861,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9861
+  },
+  "140": {
+    "witness_t": 9860,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9860
+  },
+  "141": {
+    "witness_t": 9857,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9857
+  },
+  "142": {
+    "witness_t": 9856,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9856
+  },
+  "143": {
+    "witness_t": 9853,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9853
+  },
+  "144": {
+    "witness_t": 9855,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9855
+  },
+  "145": {
+    "witness_t": 9855,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9855
+  },
+  "146": {
+    "witness_t": 9853,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9853
+  },
+  "147": {
+    "witness_t": 9853,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9853
+  },
+  "148": {
+    "witness_t": 9852,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9852
+  },
+  "149": {
+    "witness_t": 9849,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9849
+  },
+  "150": {
+    "witness_t": 9847,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9847
+  },
+  "151": {
+    "witness_t": 9848,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9848
+  },
+  "152": {
+    "witness_t": 9848,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9848
+  },
+  "153": {
+    "witness_t": 9847,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9847
+  },
+  "154": {
+    "witness_t": 9846,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9846
+  },
+  "155": {
+    "witness_t": 9844,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9844
+  },
+  "156": {
+    "witness_t": 9844,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9844
+  },
+  "157": {
+    "witness_t": 9842,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9842
+  },
+  "158": {
+    "witness_t": 9842,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9842
+  },
+  "159": {
+    "witness_t": 9841,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9841
+  },
+  "160": {
+    "witness_t": 9840,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9840
+  },
+  "161": {
+    "witness_t": 9838,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9838
+  },
+  "162": {
+    "witness_t": 9838,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9838
+  },
+  "163": {
+    "witness_t": 9835,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9835
+  },
+  "164": {
+    "witness_t": 9834,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9834
+  },
+  "165": {
+    "witness_t": 9831,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9831
+  },
+  "166": {
+    "witness_t": 9833,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9833
+  },
+  "167": {
+    "witness_t": 9833,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9833
+  },
+  "168": {
+    "witness_t": 9831,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9831
+  },
+  "169": {
+    "witness_t": 9831,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9831
+  },
+  "170": {
+    "witness_t": 9830,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9830
+  },
+  "171": {
+    "witness_t": 9829,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9829
+  },
+  "172": {
+    "witness_t": 9828,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9828
+  },
+  "173": {
+    "witness_t": 9827,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9827
+  },
+  "174": {
+    "witness_t": 9826,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9826
+  },
+  "175": {
+    "witness_t": 9825,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9825
+  },
+  "176": {
+    "witness_t": 9824,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9824
+  },
+  "177": {
+    "witness_t": 9818,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9818
+  },
+  "178": {
+    "witness_t": 9821,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9821
+  },
+  "179": {
+    "witness_t": 9821,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9821
+  },
+  "180": {
+    "witness_t": 9818,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9818
+  },
+  "181": {
+    "witness_t": 9817,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9817
+  },
+  "182": {
+    "witness_t": 9813,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9813
+  },
+  "183": {
+    "witness_t": 9816,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9816
+  },
+  "184": {
+    "witness_t": 9816,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9816
+  },
+  "185": {
+    "witness_t": 9813,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9813
+  },
+  "186": {
+    "witness_t": 9812,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9812
+  },
+  "187": {
+    "witness_t": 9810,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9810
+  },
+  "188": {
+    "witness_t": 9811,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9811
+  },
+  "189": {
+    "witness_t": 9811,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9811
+  },
+  "190": {
+    "witness_t": 9810,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9810
+  },
+  "191": {
+    "witness_t": 9809,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9809
+  },
+  "192": {
+    "witness_t": 9808,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9808
+  },
+  "193": {
+    "witness_t": 9806,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9806
+  },
+  "194": {
+    "witness_t": 9806,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9806
+  },
+  "195": {
+    "witness_t": 9796,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9796
+  },
+  "196": {
+    "witness_t": 9803,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9803
+  },
+  "197": {
+    "witness_t": 9803,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9803
+  },
+  "198": {
+    "witness_t": 9799,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9799
+  },
+  "199": {
+    "witness_t": 9800,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9800
+  },
+  "200": {
+    "witness_t": 9800,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9800
+  },
+  "201": {
+    "witness_t": 9799,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9799
+  },
+  "202": {
+    "witness_t": 9794,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9794
+  },
+  "203": {
+    "witness_t": 9796,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9796
+  },
+  "204": {
+    "witness_t": 9796,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9796
+  },
+  "205": {
+    "witness_t": 9794,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9794
+  },
+  "206": {
+    "witness_t": 9794,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9794
+  },
+  "207": {
+    "witness_t": 9792,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9792
+  },
+  "208": {
+    "witness_t": 9792,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9792
+  },
+  "209": {
+    "witness_t": 9791,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9791
+  },
+  "210": {
+    "witness_t": 9789,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9789
+  },
+  "211": {
+    "witness_t": 9789,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9789
+  },
+  "212": {
+    "witness_t": 9786,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9786
+  },
+  "213": {
+    "witness_t": 9785,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9785
+  },
+  "214": {
+    "witness_t": 9781,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9781
+  },
+  "215": {
+    "witness_t": 9784,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9784
+  },
+  "216": {
+    "witness_t": 9784,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9784
+  },
+  "217": {
+    "witness_t": 9781,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9781
+  },
+  "218": {
+    "witness_t": 9778,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9778
+  },
+  "219": {
+    "witness_t": 9780,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9780
+  },
+  "220": {
+    "witness_t": 9780,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9780
+  },
+  "221": {
+    "witness_t": 9778,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9778
+  },
+  "222": {
+    "witness_t": 9778,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9778
+  },
+  "223": {
+    "witness_t": 9775,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9775
+  },
+  "224": {
+    "witness_t": 9772,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9772
+  },
+  "225": {
+    "witness_t": 9774,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9774
+  },
+  "226": {
+    "witness_t": 9774,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9774
+  },
+  "227": {
+    "witness_t": 9772,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9772
+  },
+  "228": {
+    "witness_t": 9772,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9772
+  },
+  "229": {
+    "witness_t": 9771,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9771
+  },
+  "230": {
+    "witness_t": 9769,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9769
+  },
+  "231": {
+    "witness_t": 9769,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9769
+  },
+  "232": {
+    "witness_t": 9768,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9768
+  },
+  "233": {
+    "witness_t": 9767,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9767
+  },
+  "234": {
+    "witness_t": 9766,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9766
+  },
+  "235": {
+    "witness_t": 9761,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9761
+  },
+  "236": {
+    "witness_t": 9763,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9763
+  },
+  "237": {
+    "witness_t": 9763,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9763
+  },
+  "238": {
+    "witness_t": 9761,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9761
+  },
+  "239": {
+    "witness_t": 9761,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9761
+  },
+  "240": {
+    "witness_t": 9757,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9757
+  },
+  "241": {
+    "witness_t": 9758,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9758
+  },
+  "242": {
+    "witness_t": 9758,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9758
+  },
+  "243": {
+    "witness_t": 9757,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9757
+  },
+  "244": {
+    "witness_t": 9756,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9756
+  },
+  "245": {
+    "witness_t": 9755,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9755
+  },
+  "246": {
+    "witness_t": 9753,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9753
+  },
+  "247": {
+    "witness_t": 9753,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9753
+  },
+  "248": {
+    "witness_t": 9752,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9752
+  },
+  "249": {
+    "witness_t": 9751,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9751
+  },
+  "250": {
+    "witness_t": 9748,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9748
+  },
+  "251": {
+    "witness_t": 9747,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9747
+  },
+  "252": {
+    "witness_t": 9746,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9746
+  },
+  "253": {
+    "witness_t": 9745,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9745
+  },
+  "254": {
+    "witness_t": 9743,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9743
+  },
+  "255": {
+    "witness_t": 9744,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9744
+  },
+  "256": {
+    "witness_t": 9744,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9744
+  },
+  "257": {
+    "witness_t": 9743,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9743
+  },
+  "258": {
+    "witness_t": 9742,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9742
+  },
+  "259": {
+    "witness_t": 9740,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9740
+  },
+  "260": {
+    "witness_t": 9740,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9740
+  },
+  "261": {
+    "witness_t": 9739,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9739
+  },
+  "262": {
+    "witness_t": 9738,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9738
+  },
+  "263": {
+    "witness_t": 9737,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9737
+  },
+  "264": {
+    "witness_t": 9736,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9736
+  },
+  "265": {
+    "witness_t": 9735,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9735
+  },
+  "266": {
+    "witness_t": 9734,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9734
+  },
+  "267": {
+    "witness_t": 9733,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9733
+  },
+  "268": {
+    "witness_t": 9729,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9729
+  },
+  "269": {
+    "witness_t": 9730,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9730
+  },
+  "270": {
+    "witness_t": 9730,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9730
+  },
+  "271": {
+    "witness_t": 9729,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9729
+  },
+  "272": {
+    "witness_t": 9728,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9728
+  },
+  "273": {
+    "witness_t": 9727,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9727
+  },
+  "274": {
+    "witness_t": 9726,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9726
+  },
+  "275": {
+    "witness_t": 9723,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9723
+  },
+  "276": {
+    "witness_t": 9721,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9721
+  },
+  "277": {
+    "witness_t": 9722,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9722
+  },
+  "278": {
+    "witness_t": 9722,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9722
+  },
+  "279": {
+    "witness_t": 9721,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9721
+  },
+  "280": {
+    "witness_t": 9719,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9719
+  },
+  "281": {
+    "witness_t": 9719,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9719
+  },
+  "282": {
+    "witness_t": 9717,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9717
+  },
+  "283": {
+    "witness_t": 9717,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9717
+  },
+  "284": {
+    "witness_t": 9716,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9716
+  },
+  "285": {
+    "witness_t": 9715,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9715
+  },
+  "286": {
+    "witness_t": 9713,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9713
+  },
+  "287": {
+    "witness_t": 9713,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9713
+  },
+  "288": {
+    "witness_t": 9709,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9709
+  },
+  "289": {
+    "witness_t": 9710,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9710
+  },
+  "290": {
+    "witness_t": 9710,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9710
+  },
+  "291": {
+    "witness_t": 9709,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9709
+  },
+  "292": {
+    "witness_t": 9707,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9707
+  },
+  "293": {
+    "witness_t": 9707,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9707
+  },
+  "294": {
+    "witness_t": 9706,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9706
+  },
+  "295": {
+    "witness_t": 9705,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9705
+  },
+  "296": {
+    "witness_t": 9704,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9704
+  },
+  "297": {
+    "witness_t": 9702,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9702
+  },
+  "298": {
+    "witness_t": 9702,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9702
+  },
+  "299": {
+    "witness_t": 9700,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9700
+  },
+  "300": {
+    "witness_t": 9700,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9700
+  },
+  "301": {
+    "witness_t": 9697,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9697
+  },
+  "302": {
+    "witness_t": 9695,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9695
+  },
+  "303": {
+    "witness_t": 9696,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9696
+  },
+  "304": {
+    "witness_t": 9696,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9696
+  },
+  "305": {
+    "witness_t": 9695,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9695
+  },
+  "306": {
+    "witness_t": 9693,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9693
+  },
+  "307": {
+    "witness_t": 9693,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9693
+  },
+  "308": {
+    "witness_t": 9691,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9691
+  },
+  "309": {
+    "witness_t": 9691,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9691
+  },
+  "310": {
+    "witness_t": 9689,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9689
+  },
+  "311": {
+    "witness_t": 9689,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9689
+  },
+  "312": {
+    "witness_t": 9687,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9687
+  },
+  "313": {
+    "witness_t": 9687,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9687
+  },
+  "314": {
+    "witness_t": 9686,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9686
+  },
+  "315": {
+    "witness_t": 9685,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9685
+  },
+  "316": {
+    "witness_t": 9682,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9682
+  },
+  "317": {
+    "witness_t": 9680,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9680
+  },
+  "318": {
+    "witness_t": 9681,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9681
+  },
+  "319": {
+    "witness_t": 9681,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9681
+  },
+  "320": {
+    "witness_t": 9680,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9680
+  },
+  "321": {
+    "witness_t": 9678,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9678
+  },
+  "322": {
+    "witness_t": 9678,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9678
+  },
+  "323": {
+    "witness_t": 9674,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9674
+  },
+  "324": {
+    "witness_t": 9675,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9675
+  },
+  "325": {
+    "witness_t": 9675,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9675
+  },
+  "326": {
+    "witness_t": 9674,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9674
+  },
+  "327": {
+    "witness_t": 9673,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9673
+  },
+  "328": {
+    "witness_t": 9671,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9671
+  },
+  "329": {
+    "witness_t": 9671,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9671
+  },
+  "330": {
+    "witness_t": 9670,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9670
+  },
+  "331": {
+    "witness_t": 9669,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9669
+  },
+  "332": {
+    "witness_t": 9668,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9668
+  },
+  "333": {
+    "witness_t": 9667,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9667
+  },
+  "334": {
+    "witness_t": 9665,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9665
+  },
+  "335": {
+    "witness_t": 9665,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9665
+  },
+  "336": {
+    "witness_t": 9664,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9664
+  },
+  "337": {
+    "witness_t": 9661,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9661
+  },
+  "338": {
+    "witness_t": 9659,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9659
+  },
+  "339": {
+    "witness_t": 9660,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9660
+  },
+  "340": {
+    "witness_t": 9660,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9660
+  },
+  "341": {
+    "witness_t": 9659,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9659
+  },
+  "342": {
+    "witness_t": 9652,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9652
+  },
+  "343": {
+    "witness_t": 9656,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9656
+  },
+  "344": {
+    "witness_t": 9656,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9656
+  },
+  "345": {
+    "witness_t": 9650,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9650
+  },
+  "346": {
+    "witness_t": 9653,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9653
+  },
+  "347": {
+    "witness_t": 9653,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9653
+  },
+  "348": {
+    "witness_t": 9650,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9650
+  },
+  "349": {
+    "witness_t": 9644,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9644
+  },
+  "350": {
+    "witness_t": 9649,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9649
+  },
+  "351": {
+    "witness_t": 9649,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9649
+  },
+  "352": {
+    "witness_t": 9645,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9645
+  },
+  "353": {
+    "witness_t": 9646,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9646
+  },
+  "354": {
+    "witness_t": 9646,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9646
+  },
+  "355": {
+    "witness_t": 9645,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9645
+  },
+  "356": {
+    "witness_t": 9644,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9644
+  },
+  "357": {
+    "witness_t": 9641,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9641
+  },
+  "358": {
+    "witness_t": 9638,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9638
+  },
+  "359": {
+    "witness_t": 9640,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9640
+  },
+  "360": {
+    "witness_t": 9640,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9640
+  },
+  "361": {
+    "witness_t": 9638,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9638
+  },
+  "362": {
+    "witness_t": 9638,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9638
+  },
+  "363": {
+    "witness_t": 9637,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9637
+  },
+  "364": {
+    "witness_t": 9635,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9635
+  },
+  "365": {
+    "witness_t": 9635,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9635
+  },
+  "366": {
+    "witness_t": 9634,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9634
+  },
+  "367": {
+    "witness_t": 9633,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9633
+  },
+  "368": {
+    "witness_t": 9632,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9632
+  },
+  "369": {
+    "witness_t": 9630,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9630
+  },
+  "370": {
+    "witness_t": 9630,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9630
+  },
+  "371": {
+    "witness_t": 9626,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9626
+  },
+  "372": {
+    "witness_t": 9627,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9627
+  },
+  "373": {
+    "witness_t": 9627,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9627
+  },
+  "374": {
+    "witness_t": 9626,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9626
+  },
+  "375": {
+    "witness_t": 9623,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9623
+  },
+  "376": {
+    "witness_t": 9622,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9622
+  },
+  "377": {
+    "witness_t": 9621,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9621
+  },
+  "378": {
+    "witness_t": 9620,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9620
+  },
+  "379": {
+    "witness_t": 9619,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9619
+  },
+  "380": {
+    "witness_t": 9618,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9618
+  },
+  "381": {
+    "witness_t": 9617,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9617
+  },
+  "382": {
+    "witness_t": 9616,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9616
+  },
+  "383": {
+    "witness_t": 9615,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9615
+  },
+  "384": {
+    "witness_t": 9614,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9614
+  },
+  "385": {
+    "witness_t": 9611,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9611
+  },
+  "386": {
+    "witness_t": 9613,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9613
+  },
+  "387": {
+    "witness_t": 9613,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9613
+  },
+  "388": {
+    "witness_t": 9611,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9611
+  },
+  "389": {
+    "witness_t": 9611,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9611
+  },
+  "390": {
+    "witness_t": 9610,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9610
+  },
+  "391": {
+    "witness_t": 9609,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9609
+  },
+  "392": {
+    "witness_t": 9608,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9608
+  },
+  "393": {
+    "witness_t": 9607,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9607
+  },
+  "394": {
+    "witness_t": 9605,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9605
+  },
+  "395": {
+    "witness_t": 9605,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9605
+  },
+  "396": {
+    "witness_t": 9603,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9603
+  },
+  "397": {
+    "witness_t": 9603,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9603
+  },
+  "398": {
+    "witness_t": 9600,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9600
+  },
+  "399": {
+    "witness_t": 9598,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9598
+  },
+  "400": {
+    "witness_t": 9599,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9599
+  },
+  "401": {
+    "witness_t": 9599,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9599
+  },
+  "402": {
+    "witness_t": 9598,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9598
+  },
+  "403": {
+    "witness_t": 9596,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9596
+  },
+  "404": {
+    "witness_t": 9596,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9596
+  },
+  "405": {
+    "witness_t": 9594,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9594
+  },
+  "406": {
+    "witness_t": 9594,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9594
+  },
+  "407": {
+    "witness_t": 9591,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9591
+  },
+  "408": {
+    "witness_t": 9590,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9590
+  },
+  "409": {
+    "witness_t": 9589,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9589
+  },
+  "410": {
+    "witness_t": 9586,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9586
+  },
+  "411": {
+    "witness_t": 9588,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9588
+  },
+  "412": {
+    "witness_t": 9588,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9588
+  },
+  "413": {
+    "witness_t": 9586,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9586
+  },
+  "414": {
+    "witness_t": 9586,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9586
+  },
+  "415": {
+    "witness_t": 9582,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9582
+  },
+  "416": {
+    "witness_t": 9583,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9583
+  },
+  "417": {
+    "witness_t": 9583,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9583
+  },
+  "418": {
+    "witness_t": 9582,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9582
+  },
+  "419": {
+    "witness_t": 9581,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9581
+  },
+  "420": {
+    "witness_t": 9579,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9579
+  },
+  "421": {
+    "witness_t": 9579,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9579
+  },
+  "422": {
+    "witness_t": 9578,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9578
+  },
+  "423": {
+    "witness_t": 9576,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9576
+  },
+  "424": {
+    "witness_t": 9576,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9576
+  },
+  "425": {
+    "witness_t": 9575,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9575
+  },
+  "426": {
+    "witness_t": 9574,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9574
+  },
+  "427": {
+    "witness_t": 9571,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9571
+  },
+  "428": {
+    "witness_t": 9570,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9570
+  },
+  "429": {
+    "witness_t": 9569,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9569
+  },
+  "430": {
+    "witness_t": 9568,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9568
+  },
+  "431": {
+    "witness_t": 9567,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9567
+  },
+  "432": {
+    "witness_t": 9566,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9566
+  },
+  "433": {
+    "witness_t": 9563,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9563
+  },
+  "434": {
+    "witness_t": 9565,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9565
+  },
+  "435": {
+    "witness_t": 9565,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9565
+  },
+  "436": {
+    "witness_t": 9563,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9563
+  },
+  "437": {
+    "witness_t": 9563,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9563
+  },
+  "438": {
+    "witness_t": 9560,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9560
+  },
+  "439": {
+    "witness_t": 9559,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9559
+  },
+  "440": {
+    "witness_t": 9558,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9558
+  },
+  "441": {
+    "witness_t": 9557,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9557
+  },
+  "442": {
+    "witness_t": 9555,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9555
+  },
+  "443": {
+    "witness_t": 9556,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9556
+  },
+  "444": {
+    "witness_t": 9556,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9556
+  },
+  "445": {
+    "witness_t": 9555,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9555
+  },
+  "446": {
+    "witness_t": 9551,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9551
+  },
+  "447": {
+    "witness_t": 9552,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9552
+  },
+  "448": {
+    "witness_t": 9552,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9552
+  },
+  "449": {
+    "witness_t": 9551,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9551
+  },
+  "450": {
+    "witness_t": 9546,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9546
+  },
+  "451": {
+    "witness_t": 9548,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9548
+  },
+  "452": {
+    "witness_t": 9548,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9548
+  },
+  "453": {
+    "witness_t": 9546,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9546
+  },
+  "454": {
+    "witness_t": 9546,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9546
+  },
+  "455": {
+    "witness_t": 9541,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9541
+  },
+  "456": {
+    "witness_t": 9543,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9543
+  },
+  "457": {
+    "witness_t": 9543,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9543
+  },
+  "458": {
+    "witness_t": 9541,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9541
+  },
+  "459": {
+    "witness_t": 9541,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9541
+  },
+  "460": {
+    "witness_t": 9539,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9539
+  },
+  "461": {
+    "witness_t": 9539,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9539
+  },
+  "462": {
+    "witness_t": 9538,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9538
+  },
+  "463": {
+    "witness_t": 9535,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9535
+  },
+  "464": {
+    "witness_t": 9533,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9533
+  },
+  "465": {
+    "witness_t": 9534,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9534
+  },
+  "466": {
+    "witness_t": 9534,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9534
+  },
+  "467": {
+    "witness_t": 9533,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9533
+  },
+  "468": {
+    "witness_t": 9531,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9531
+  },
+  "469": {
+    "witness_t": 9531,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9531
+  },
+  "470": {
+    "witness_t": 9530,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9530
+  },
+  "471": {
+    "witness_t": 9528,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9528
+  },
+  "472": {
+    "witness_t": 9528,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9528
+  },
+  "473": {
+    "witness_t": 9527,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9527
+  },
+  "474": {
+    "witness_t": 9523,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9523
+  },
+  "475": {
+    "witness_t": 9524,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9524
+  },
+  "476": {
+    "witness_t": 9524,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9524
+  },
+  "477": {
+    "witness_t": 9523,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9523
+  },
+  "478": {
+    "witness_t": 9522,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9522
+  },
+  "479": {
+    "witness_t": 9517,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9517
+  },
+  "480": {
+    "witness_t": 9519,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9519
+  },
+  "481": {
+    "witness_t": 9519,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9519
+  },
+  "482": {
+    "witness_t": 9517,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9517
+  },
+  "483": {
+    "witness_t": 9517,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9517
+  },
+  "484": {
+    "witness_t": 9516,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9516
+  },
+  "485": {
+    "witness_t": 9513,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9513
+  },
+  "486": {
+    "witness_t": 9511,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9511
+  },
+  "487": {
+    "witness_t": 9512,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9512
+  },
+  "488": {
+    "witness_t": 9512,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9512
+  },
+  "489": {
+    "witness_t": 9511,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9511
+  },
+  "490": {
+    "witness_t": 9509,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9509
+  },
+  "491": {
+    "witness_t": 9509,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9509
+  },
+  "492": {
+    "witness_t": 9503,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9503
+  },
+  "493": {
+    "witness_t": 9506,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9506
+  },
+  "494": {
+    "witness_t": 9506,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9506
+  },
+  "495": {
+    "witness_t": 9503,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9503
+  },
+  "496": {
+    "witness_t": 9502,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9502
+  },
+  "497": {
+    "witness_t": 9501,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9501
+  },
+  "498": {
+    "witness_t": 9500,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9500
+  },
+  "499": {
+    "witness_t": 9499,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9499
+  },
+  "500": {
+    "witness_t": 9498,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9498
+  },
+  "501": {
+    "witness_t": 9496,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9496
+  },
+  "502": {
+    "witness_t": 9497,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9497
+  },
+  "503": {
+    "witness_t": 9497,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9497
+  },
+  "504": {
+    "witness_t": 9496,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9496
+  },
+  "505": {
+    "witness_t": 9495,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9495
+  },
+  "506": {
+    "witness_t": 9494,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9494
+  },
+  "507": {
+    "witness_t": 9492,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9492
+  },
+  "508": {
+    "witness_t": 9492,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9492
+  },
+  "509": {
+    "witness_t": 9491,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9491
+  },
+  "510": {
+    "witness_t": 9490,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9490
+  },
+  "511": {
+    "witness_t": 9488,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9488
+  },
+  "512": {
+    "witness_t": 9488,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9488
+  },
+  "513": {
+    "witness_t": 9486,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9486
+  },
+  "514": {
+    "witness_t": 9486,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9486
+  },
+  "515": {
+    "witness_t": 9484,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9484
+  },
+  "516": {
+    "witness_t": 9484,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9484
+  },
+  "517": {
+    "witness_t": 9483,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9483
+  },
+  "518": {
+    "witness_t": 9480,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9480
+  },
+  "519": {
+    "witness_t": 9477,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9477
+  },
+  "520": {
+    "witness_t": 9479,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9479
+  },
+  "521": {
+    "witness_t": 9479,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9479
+  },
+  "522": {
+    "witness_t": 9477,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9477
+  },
+  "523": {
+    "witness_t": 9477,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9477
+  },
+  "524": {
+    "witness_t": 9475,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9475
+  },
+  "525": {
+    "witness_t": 9475,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9475
+  },
+  "526": {
+    "witness_t": 9472,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9472
+  },
+  "527": {
+    "witness_t": 9471,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9471
+  },
+  "528": {
+    "witness_t": 9470,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9470
+  },
+  "529": {
+    "witness_t": 9469,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9469
+  },
+  "530": {
+    "witness_t": 9468,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9468
+  },
+  "531": {
+    "witness_t": 9467,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9467
+  },
+  "532": {
+    "witness_t": 9466,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9466
+  },
+  "533": {
+    "witness_t": 9463,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9463
+  },
+  "534": {
+    "witness_t": 9465,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9465
+  },
+  "535": {
+    "witness_t": 9465,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9465
+  },
+  "536": {
+    "witness_t": 9463,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9463
+  },
+  "537": {
+    "witness_t": 9463,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9463
+  },
+  "538": {
+    "witness_t": 9462,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9462
+  },
+  "539": {
+    "witness_t": 9460,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9460
+  },
+  "540": {
+    "witness_t": 9460,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9460
+  },
+  "541": {
+    "witness_t": 9459,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9459
+  },
+  "542": {
+    "witness_t": 9458,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9458
+  },
+  "543": {
+    "witness_t": 9456,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9456
+  },
+  "544": {
+    "witness_t": 9456,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9456
+  },
+  "545": {
+    "witness_t": 9455,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9455
+  },
+  "546": {
+    "witness_t": 9454,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9454
+  },
+  "547": {
+    "witness_t": 9453,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9453
+  },
+  "548": {
+    "witness_t": 9451,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9451
+  },
+  "549": {
+    "witness_t": 9451,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9451
+  },
+  "550": {
+    "witness_t": 9450,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9450
+  },
+  "551": {
+    "witness_t": 9448,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9448
+  },
+  "552": {
+    "witness_t": 9448,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9448
+  },
+  "553": {
+    "witness_t": 9447,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9447
+  },
+  "554": {
+    "witness_t": 9446,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9446
+  },
+  "555": {
+    "witness_t": 9445,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9445
+  },
+  "556": {
+    "witness_t": 9441,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9441
+  },
+  "557": {
+    "witness_t": 9442,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9442
+  },
+  "558": {
+    "witness_t": 9442,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9442
+  },
+  "559": {
+    "witness_t": 9441,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9441
+  },
+  "560": {
+    "witness_t": 9431,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9431
+  },
+  "561": {
+    "witness_t": 9438,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9438
+  },
+  "562": {
+    "witness_t": 9438,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9438
+  },
+  "563": {
+    "witness_t": 9434,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9434
+  },
+  "564": {
+    "witness_t": 9435,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9435
+  },
+  "565": {
+    "witness_t": 9435,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9435
+  },
+  "566": {
+    "witness_t": 9434,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9434
+  },
+  "567": {
+    "witness_t": 9430,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9430
+  },
+  "568": {
+    "witness_t": 9431,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9431
+  },
+  "569": {
+    "witness_t": 9431,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9431
+  },
+  "570": {
+    "witness_t": 9430,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9430
+  },
+  "571": {
+    "witness_t": 9423,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9423
+  },
+  "572": {
+    "witness_t": 9427,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9427
+  },
+  "573": {
+    "witness_t": 9427,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9427
+  },
+  "574": {
+    "witness_t": 9422,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9422
+  },
+  "575": {
+    "witness_t": 9424,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9424
+  },
+  "576": {
+    "witness_t": 9424,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9424
+  },
+  "577": {
+    "witness_t": 9422,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9422
+  },
+  "578": {
+    "witness_t": 9422,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9422
+  },
+  "579": {
+    "witness_t": 9421,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9421
+  },
+  "580": {
+    "witness_t": 9420,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9420
+  },
+  "581": {
+    "witness_t": 9419,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9419
+  },
+  "582": {
+    "witness_t": 9417,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9417
+  },
+  "583": {
+    "witness_t": 9417,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9417
+  },
+  "584": {
+    "witness_t": 9415,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9415
+  },
+  "585": {
+    "witness_t": 9415,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9415
+  },
+  "586": {
+    "witness_t": 9413,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9413
+  },
+  "587": {
+    "witness_t": 9413,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9413
+  },
+  "588": {
+    "witness_t": 9410,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9410
+  },
+  "589": {
+    "witness_t": 9406,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9406
+  },
+  "590": {
+    "witness_t": 9409,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9409
+  },
+  "591": {
+    "witness_t": 9409,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9409
+  },
+  "592": {
+    "witness_t": 9406,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9406
+  },
+  "593": {
+    "witness_t": 9402,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9402
+  },
+  "594": {
+    "witness_t": 9405,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9405
+  },
+  "595": {
+    "witness_t": 9405,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9405
+  },
+  "596": {
+    "witness_t": 9402,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9402
+  },
+  "597": {
+    "witness_t": 9400,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9400
+  },
+  "598": {
+    "witness_t": 9401,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9401
+  },
+  "599": {
+    "witness_t": 9401,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9401
+  },
+  "600": {
+    "witness_t": 9400,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9400
+  },
+  "601": {
+    "witness_t": 9399,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9399
+  },
+  "602": {
+    "witness_t": 9398,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9398
+  },
+  "603": {
+    "witness_t": 9397,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9397
+  },
+  "604": {
+    "witness_t": 9395,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9395
+  },
+  "605": {
+    "witness_t": 9395,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9395
+  },
+  "606": {
+    "witness_t": 9394,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9394
+  },
+  "607": {
+    "witness_t": 9392,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9392
+  },
+  "608": {
+    "witness_t": 9392,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9392
+  },
+  "609": {
+    "witness_t": 9391,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9391
+  },
+  "610": {
+    "witness_t": 9390,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9390
+  },
+  "611": {
+    "witness_t": 9388,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9388
+  },
+  "612": {
+    "witness_t": 9388,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9388
+  },
+  "613": {
+    "witness_t": 9386,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9386
+  },
+  "614": {
+    "witness_t": 9386,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9386
+  },
+  "615": {
+    "witness_t": 9385,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9385
+  },
+  "616": {
+    "witness_t": 9382,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9382
+  },
+  "617": {
+    "witness_t": 9381,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9381
+  },
+  "618": {
+    "witness_t": 9380,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9380
+  },
+  "619": {
+    "witness_t": 9378,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9378
+  },
+  "620": {
+    "witness_t": 9379,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9379
+  },
+  "621": {
+    "witness_t": 9379,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9379
+  },
+  "622": {
+    "witness_t": 9378,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9378
+  },
+  "623": {
+    "witness_t": 9375,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9375
+  },
+  "624": {
+    "witness_t": 9371,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9371
+  },
+  "625": {
+    "witness_t": 9374,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9374
+  },
+  "626": {
+    "witness_t": 9374,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9374
+  },
+  "627": {
+    "witness_t": 9371,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9371
+  },
+  "628": {
+    "witness_t": 9370,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9370
+  },
+  "629": {
+    "witness_t": 9366,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9366
+  },
+  "630": {
+    "witness_t": 9369,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9369
+  },
+  "631": {
+    "witness_t": 9369,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9369
+  },
+  "632": {
+    "witness_t": 9366,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9366
+  },
+  "633": {
+    "witness_t": 9365,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9365
+  },
+  "634": {
+    "witness_t": 9362,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9362
+  },
+  "635": {
+    "witness_t": 9364,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9364
+  },
+  "636": {
+    "witness_t": 9364,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9364
+  },
+  "637": {
+    "witness_t": 9362,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9362
+  },
+  "638": {
+    "witness_t": 9362,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9362
+  },
+  "639": {
+    "witness_t": 9358,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9358
+  },
+  "640": {
+    "witness_t": 9359,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9359
+  },
+  "641": {
+    "witness_t": 9359,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9359
+  },
+  "642": {
+    "witness_t": 9358,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9358
+  },
+  "643": {
+    "witness_t": 9355,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9355
+  },
+  "644": {
+    "witness_t": 9354,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9354
+  },
+  "645": {
+    "witness_t": 9353,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9353
+  },
+  "646": {
+    "witness_t": 9352,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9352
+  },
+  "647": {
+    "witness_t": 9351,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9351
+  },
+  "648": {
+    "witness_t": 9349,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9349
+  },
+  "649": {
+    "witness_t": 9350,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9350
+  },
+  "650": {
+    "witness_t": 9350,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9350
+  },
+  "651": {
+    "witness_t": 9349,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9349
+  },
+  "652": {
+    "witness_t": 9345,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9345
+  },
+  "653": {
+    "witness_t": 9346,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9346
+  },
+  "654": {
+    "witness_t": 9346,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9346
+  },
+  "655": {
+    "witness_t": 9345,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9345
+  },
+  "656": {
+    "witness_t": 9343,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9343
+  },
+  "657": {
+    "witness_t": 9343,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9343
+  },
+  "658": {
+    "witness_t": 9331,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9331
+  },
+  "659": {
+    "witness_t": 9340,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9340
+  },
+  "660": {
+    "witness_t": 9340,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9340
+  },
+  "661": {
+    "witness_t": 9336,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9336
+  },
+  "662": {
+    "witness_t": 9337,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9337
+  },
+  "663": {
+    "witness_t": 9337,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9337
+  },
+  "664": {
+    "witness_t": 9336,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9336
+  },
+  "665": {
+    "witness_t": 9333,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9333
+  },
+  "666": {
+    "witness_t": 9331,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9331
+  },
+  "667": {
+    "witness_t": 9332,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9332
+  },
+  "668": {
+    "witness_t": 9332,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9332
+  },
+  "669": {
+    "witness_t": 9331,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9331
+  },
+  "670": {
+    "witness_t": 9324,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9324
+  },
+  "671": {
+    "witness_t": 9328,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9328
+  },
+  "672": {
+    "witness_t": 9328,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9328
+  },
+  "673": {
+    "witness_t": 9322,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9322
+  },
+  "674": {
+    "witness_t": 9325,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9325
+  },
+  "675": {
+    "witness_t": 9325,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9325
+  },
+  "676": {
+    "witness_t": 9322,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9322
+  },
+  "677": {
+    "witness_t": 9315,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9315
+  },
+  "678": {
+    "witness_t": 9321,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9321
+  },
+  "679": {
+    "witness_t": 9321,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9321
+  },
+  "680": {
+    "witness_t": 9317,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9317
+  },
+  "681": {
+    "witness_t": 9318,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9318
+  },
+  "682": {
+    "witness_t": 9318,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9318
+  },
+  "683": {
+    "witness_t": 9317,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9317
+  },
+  "684": {
+    "witness_t": 9315,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9315
+  },
+  "685": {
+    "witness_t": 9315,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9315
+  },
+  "686": {
+    "witness_t": 9313,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9313
+  },
+  "687": {
+    "witness_t": 9313,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9313
+  },
+  "688": {
+    "witness_t": 9311,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9311
+  },
+  "689": {
+    "witness_t": 9311,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9311
+  },
+  "690": {
+    "witness_t": 9310,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9310
+  },
+  "691": {
+    "witness_t": 9307,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9307
+  },
+  "692": {
+    "witness_t": 9306,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9306
+  },
+  "693": {
+    "witness_t": 9304,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9304
+  },
+  "694": {
+    "witness_t": 9305,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9305
+  },
+  "695": {
+    "witness_t": 9305,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9305
+  },
+  "696": {
+    "witness_t": 9304,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9304
+  },
+  "697": {
+    "witness_t": 9302,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9302
+  },
+  "698": {
+    "witness_t": 9302,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9302
+  },
+  "699": {
+    "witness_t": 9295,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9295
+  },
+  "700": {
+    "witness_t": 9299,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9299
+  },
+  "701": {
+    "witness_t": 9299,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9299
+  },
+  "702": {
+    "witness_t": 9293,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9293
+  },
+  "703": {
+    "witness_t": 9296,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9296
+  },
+  "704": {
+    "witness_t": 9296,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9296
+  },
+  "705": {
+    "witness_t": 9293,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9293
+  },
+  "706": {
+    "witness_t": 9290,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9290
+  },
+  "707": {
+    "witness_t": 9292,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9292
+  },
+  "708": {
+    "witness_t": 9292,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9292
+  },
+  "709": {
+    "witness_t": 9290,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9290
+  },
+  "710": {
+    "witness_t": 9290,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9290
+  },
+  "711": {
+    "witness_t": 9289,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9289
+  },
+  "712": {
+    "witness_t": 9287,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9287
+  },
+  "713": {
+    "witness_t": 9287,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9287
+  },
+  "714": {
+    "witness_t": 9285,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9285
+  },
+  "715": {
+    "witness_t": 9285,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9285
+  },
+  "716": {
+    "witness_t": 9284,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9284
+  },
+  "717": {
+    "witness_t": 9283,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9283
+  },
+  "718": {
+    "witness_t": 9281,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9281
+  },
+  "719": {
+    "witness_t": 9281,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9281
+  },
+  "720": {
+    "witness_t": 9280,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9280
+  },
+  "721": {
+    "witness_t": 9279,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9279
+  },
+  "722": {
+    "witness_t": 9277,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9277
+  },
+  "723": {
+    "witness_t": 9277,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9277
+  },
+  "724": {
+    "witness_t": 9276,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9276
+  },
+  "725": {
+    "witness_t": 9274,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9274
+  },
+  "726": {
+    "witness_t": 9274,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9274
+  },
+  "727": {
+    "witness_t": 9272,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9272
+  },
+  "728": {
+    "witness_t": 9272,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9272
+  },
+  "729": {
+    "witness_t": 9269,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9269
+  },
+  "730": {
+    "witness_t": 9267,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9267
+  },
+  "731": {
+    "witness_t": 9268,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9268
+  },
+  "732": {
+    "witness_t": 9268,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9268
+  },
+  "733": {
+    "witness_t": 9267,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9267
+  },
+  "734": {
+    "witness_t": 9260,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9260
+  },
+  "735": {
+    "witness_t": 9264,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9264
+  },
+  "736": {
+    "witness_t": 9264,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9264
+  },
+  "737": {
+    "witness_t": 9258,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9258
+  },
+  "738": {
+    "witness_t": 9261,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9261
+  },
+  "739": {
+    "witness_t": 9261,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9261
+  },
+  "740": {
+    "witness_t": 9258,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9258
+  },
+  "741": {
+    "witness_t": 9254,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9254
+  },
+  "742": {
+    "witness_t": 9257,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9257
+  },
+  "743": {
+    "witness_t": 9257,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9257
+  },
+  "744": {
+    "witness_t": 9254,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9254
+  },
+  "745": {
+    "witness_t": 9252,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9252
+  },
+  "746": {
+    "witness_t": 9253,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9253
+  },
+  "747": {
+    "witness_t": 9253,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9253
+  },
+  "748": {
+    "witness_t": 9252,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9252
+  },
+  "749": {
+    "witness_t": 9251,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9251
+  },
+  "750": {
+    "witness_t": 9249,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9249
+  },
+  "751": {
+    "witness_t": 9249,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9249
+  },
+  "752": {
+    "witness_t": 9246,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9246
+  },
+  "753": {
+    "witness_t": 9245,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9245
+  },
+  "754": {
+    "witness_t": 9241,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9241
+  },
+  "755": {
+    "witness_t": 9244,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9244
+  },
+  "756": {
+    "witness_t": 9244,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9244
+  },
+  "757": {
+    "witness_t": 9241,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9241
+  },
+  "758": {
+    "witness_t": 9240,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9240
+  },
+  "759": {
+    "witness_t": 9239,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9239
+  },
+  "760": {
+    "witness_t": 9238,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9238
+  },
+  "761": {
+    "witness_t": 9237,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9237
+  },
+  "762": {
+    "witness_t": 9234,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9234
+  },
+  "763": {
+    "witness_t": 9236,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9236
+  },
+  "764": {
+    "witness_t": 9236,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9236
+  },
+  "765": {
+    "witness_t": 9234,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9234
+  },
+  "766": {
+    "witness_t": 9234,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9234
+  },
+  "767": {
+    "witness_t": 9233,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9233
+  },
+  "768": {
+    "witness_t": 9231,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9231
+  },
+  "769": {
+    "witness_t": 9231,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9231
+  },
+  "770": {
+    "witness_t": 9230,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9230
+  },
+  "771": {
+    "witness_t": 9225,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9225
+  },
+  "772": {
+    "witness_t": 9227,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9227
+  },
+  "773": {
+    "witness_t": 9227,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9227
+  },
+  "774": {
+    "witness_t": 9225,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9225
+  },
+  "775": {
+    "witness_t": 9225,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9225
+  },
+  "776": {
+    "witness_t": 9222,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9222
+  },
+  "777": {
+    "witness_t": 9220,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9220
+  },
+  "778": {
+    "witness_t": 9221,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9221
+  },
+  "779": {
+    "witness_t": 9221,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9221
+  },
+  "780": {
+    "witness_t": 9220,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9220
+  },
+  "781": {
+    "witness_t": 9216,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9216
+  },
+  "782": {
+    "witness_t": 9217,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9217
+  },
+  "783": {
+    "witness_t": 9217,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9217
+  },
+  "784": {
+    "witness_t": 9216,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9216
+  },
+  "785": {
+    "witness_t": 9214,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9214
+  },
+  "786": {
+    "witness_t": 9214,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9214
+  },
+  "787": {
+    "witness_t": 9213,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9213
+  },
+  "788": {
+    "witness_t": 9200,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9200
+  },
+  "789": {
+    "witness_t": 9210,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9210
+  },
+  "790": {
+    "witness_t": 9210,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9210
+  },
+  "791": {
+    "witness_t": 9206,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9206
+  },
+  "792": {
+    "witness_t": 9207,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9207
+  },
+  "793": {
+    "witness_t": 9207,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9207
+  },
+  "794": {
+    "witness_t": 9206,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9206
+  },
+  "795": {
+    "witness_t": 9203,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9203
+  },
+  "796": {
+    "witness_t": 9200,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9200
+  },
+  "797": {
+    "witness_t": 9202,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9202
+  },
+  "798": {
+    "witness_t": 9202,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9202
+  },
+  "799": {
+    "witness_t": 9200,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9200
+  },
+  "800": {
+    "witness_t": 9200,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9200
+  },
+  "801": {
+    "witness_t": 9199,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9199
+  },
+  "802": {
+    "witness_t": 9198,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9198
+  },
+  "803": {
+    "witness_t": 9197,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9197
+  },
+  "804": {
+    "witness_t": 9196,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9196
+  },
+  "805": {
+    "witness_t": 9195,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9195
+  },
+  "806": {
+    "witness_t": 9194,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9194
+  },
+  "807": {
+    "witness_t": 9193,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9193
+  },
+  "808": {
+    "witness_t": 9192,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9192
+  },
+  "809": {
+    "witness_t": 9189,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9189
+  },
+  "810": {
+    "witness_t": 9184,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9184
+  },
+  "811": {
+    "witness_t": 9188,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9188
+  },
+  "812": {
+    "witness_t": 9188,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9188
+  },
+  "813": {
+    "witness_t": 9182,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9182
+  },
+  "814": {
+    "witness_t": 9185,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9185
+  },
+  "815": {
+    "witness_t": 9185,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9185
+  },
+  "816": {
+    "witness_t": 9182,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9182
+  },
+  "817": {
+    "witness_t": 9179,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9179
+  },
+  "818": {
+    "witness_t": 9181,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9181
+  },
+  "819": {
+    "witness_t": 9181,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9181
+  },
+  "820": {
+    "witness_t": 9179,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9179
+  },
+  "821": {
+    "witness_t": 9179,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9179
+  },
+  "822": {
+    "witness_t": 9177,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9177
+  },
+  "823": {
+    "witness_t": 9177,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9177
+  },
+  "824": {
+    "witness_t": 9176,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9176
+  },
+  "825": {
+    "witness_t": 9175,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9175
+  },
+  "826": {
+    "witness_t": 9174,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9174
+  },
+  "827": {
+    "witness_t": 9173,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9173
+  },
+  "828": {
+    "witness_t": 9171,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9171
+  },
+  "829": {
+    "witness_t": 9171,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9171
+  },
+  "830": {
+    "witness_t": 9170,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9170
+  },
+  "831": {
+    "witness_t": 9168,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9168
+  },
+  "832": {
+    "witness_t": 9168,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9168
+  },
+  "833": {
+    "witness_t": 9166,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9166
+  },
+  "834": {
+    "witness_t": 9166,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9166
+  },
+  "835": {
+    "witness_t": 9165,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9165
+  },
+  "836": {
+    "witness_t": 9163,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9163
+  },
+  "837": {
+    "witness_t": 9163,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9163
+  },
+  "838": {
+    "witness_t": 9158,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9158
+  },
+  "839": {
+    "witness_t": 9160,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9160
+  },
+  "840": {
+    "witness_t": 9160,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9160
+  },
+  "841": {
+    "witness_t": 9158,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9158
+  },
+  "842": {
+    "witness_t": 9158,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9158
+  },
+  "843": {
+    "witness_t": 9155,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9155
+  },
+  "844": {
+    "witness_t": 9154,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9154
+  },
+  "845": {
+    "witness_t": 9147,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9147
+  },
+  "846": {
+    "witness_t": 9153,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9153
+  },
+  "847": {
+    "witness_t": 9153,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9153
+  },
+  "848": {
+    "witness_t": 9149,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9149
+  },
+  "849": {
+    "witness_t": 9150,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9150
+  },
+  "850": {
+    "witness_t": 9150,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9150
+  },
+  "851": {
+    "witness_t": 9149,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9149
+  },
+  "852": {
+    "witness_t": 9147,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9147
+  },
+  "853": {
+    "witness_t": 9147,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9147
+  },
+  "854": {
+    "witness_t": 9146,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9146
+  },
+  "855": {
+    "witness_t": 9143,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9143
+  },
+  "856": {
+    "witness_t": 9140,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9140
+  },
+  "857": {
+    "witness_t": 9142,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9142
+  },
+  "858": {
+    "witness_t": 9142,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9142
+  },
+  "859": {
+    "witness_t": 9140,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9140
+  },
+  "860": {
+    "witness_t": 9140,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9140
+  },
+  "861": {
+    "witness_t": 9139,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9139
+  },
+  "862": {
+    "witness_t": 9138,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9138
+  },
+  "863": {
+    "witness_t": 9137,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9137
+  },
+  "864": {
+    "witness_t": 9136,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9136
+  },
+  "865": {
+    "witness_t": 9135,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9135
+  },
+  "866": {
+    "witness_t": 9134,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9134
+  },
+  "867": {
+    "witness_t": 9133,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9133
+  },
+  "868": {
+    "witness_t": 9132,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9132
+  },
+  "869": {
+    "witness_t": 9131,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9131
+  },
+  "870": {
+    "witness_t": 9129,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9129
+  },
+  "871": {
+    "witness_t": 9129,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9129
+  },
+  "872": {
+    "witness_t": 9128,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9128
+  },
+  "873": {
+    "witness_t": 9123,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9123
+  },
+  "874": {
+    "witness_t": 9125,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9125
+  },
+  "875": {
+    "witness_t": 9125,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9125
+  },
+  "876": {
+    "witness_t": 9123,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9123
+  },
+  "877": {
+    "witness_t": 9123,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9123
+  },
+  "878": {
+    "witness_t": 9122,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9122
+  },
+  "879": {
+    "witness_t": 9120,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9120
+  },
+  "880": {
+    "witness_t": 9120,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9120
+  },
+  "881": {
+    "witness_t": 9118,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9118
+  },
+  "882": {
+    "witness_t": 9118,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9118
+  },
+  "883": {
+    "witness_t": 9116,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9116
+  },
+  "884": {
+    "witness_t": 9116,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9116
+  },
+  "885": {
+    "witness_t": 9115,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9115
+  },
+  "886": {
+    "witness_t": 9114,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9114
+  },
+  "887": {
+    "witness_t": 9113,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9113
+  },
+  "888": {
+    "witness_t": 9112,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9112
+  },
+  "889": {
+    "witness_t": 9110,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9110
+  },
+  "890": {
+    "witness_t": 9110,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9110
+  },
+  "891": {
+    "witness_t": 9107,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9107
+  },
+  "892": {
+    "witness_t": 9105,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9105
+  },
+  "893": {
+    "witness_t": 9106,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9106
+  },
+  "894": {
+    "witness_t": 9106,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9106
+  },
+  "895": {
+    "witness_t": 9105,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9105
+  },
+  "896": {
+    "witness_t": 9104,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9104
+  },
+  "897": {
+    "witness_t": 9098,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9098
+  },
+  "898": {
+    "witness_t": 9101,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9101
+  },
+  "899": {
+    "witness_t": 9101,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9101
+  },
+  "900": {
+    "witness_t": 9098,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9098
+  },
+  "901": {
+    "witness_t": 9097,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9097
+  },
+  "902": {
+    "witness_t": 9096,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9096
+  },
+  "903": {
+    "witness_t": 9095,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9095
+  },
+  "904": {
+    "witness_t": 9092,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9092
+  },
+  "905": {
+    "witness_t": 9094,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9094
+  },
+  "906": {
+    "witness_t": 9094,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9094
+  },
+  "907": {
+    "witness_t": 9092,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9092
+  },
+  "908": {
+    "witness_t": 9092,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9092
+  },
+  "909": {
+    "witness_t": 9090,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9090
+  },
+  "910": {
+    "witness_t": 9090,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9090
+  },
+  "911": {
+    "witness_t": 9089,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9089
+  },
+  "912": {
+    "witness_t": 9087,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9087
+  },
+  "913": {
+    "witness_t": 9087,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9087
+  },
+  "914": {
+    "witness_t": 9086,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9086
+  },
+  "915": {
+    "witness_t": 9085,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9085
+  },
+  "916": {
+    "witness_t": 9083,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9083
+  },
+  "917": {
+    "witness_t": 9083,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9083
+  },
+  "918": {
+    "witness_t": 9082,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9082
+  },
+  "919": {
+    "witness_t": 9081,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9081
+  },
+  "920": {
+    "witness_t": 9080,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9080
+  },
+  "921": {
+    "witness_t": 9077,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9077
+  },
+  "922": {
+    "witness_t": 9076,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9076
+  },
+  "923": {
+    "witness_t": 9075,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9075
+  },
+  "924": {
+    "witness_t": 9070,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9070
+  },
+  "925": {
+    "witness_t": 9074,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9074
+  },
+  "926": {
+    "witness_t": 9074,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9074
+  },
+  "927": {
+    "witness_t": 9069,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9069
+  },
+  "928": {
+    "witness_t": 9071,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9071
+  },
+  "929": {
+    "witness_t": 9071,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9071
+  },
+  "930": {
+    "witness_t": 9069,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9069
+  },
+  "931": {
+    "witness_t": 9069,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9069
+  },
+  "932": {
+    "witness_t": 9068,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9068
+  },
+  "933": {
+    "witness_t": 9065,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9065
+  },
+  "934": {
+    "witness_t": 9062,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9062
+  },
+  "935": {
+    "witness_t": 9064,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9064
+  },
+  "936": {
+    "witness_t": 9064,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9064
+  },
+  "937": {
+    "witness_t": 9062,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9062
+  },
+  "938": {
+    "witness_t": 9062,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9062
+  },
+  "939": {
+    "witness_t": 9058,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9058
+  },
+  "940": {
+    "witness_t": 9059,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9059
+  },
+  "941": {
+    "witness_t": 9059,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9059
+  },
+  "942": {
+    "witness_t": 9058,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9058
+  },
+  "943": {
+    "witness_t": 9057,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9057
+  },
+  "944": {
+    "witness_t": 9056,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9056
+  },
+  "945": {
+    "witness_t": 9055,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9055
+  },
+  "946": {
+    "witness_t": 9054,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9054
+  },
+  "947": {
+    "witness_t": 9052,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9052
+  },
+  "948": {
+    "witness_t": 9052,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9052
+  },
+  "949": {
+    "witness_t": 9051,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9051
+  },
+  "950": {
+    "witness_t": 9050,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9050
+  },
+  "951": {
+    "witness_t": 9047,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9047
+  },
+  "952": {
+    "witness_t": 9046,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9046
+  },
+  "953": {
+    "witness_t": 9045,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9045
+  },
+  "954": {
+    "witness_t": 9044,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9044
+  },
+  "955": {
+    "witness_t": 9043,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9043
+  },
+  "956": {
+    "witness_t": 9041,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9041
+  },
+  "957": {
+    "witness_t": 9042,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9042
+  },
+  "958": {
+    "witness_t": 9042,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9042
+  },
+  "959": {
+    "witness_t": 9041,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9041
+  },
+  "960": {
+    "witness_t": 9039,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9039
+  },
+  "961": {
+    "witness_t": 9039,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9039
+  },
+  "962": {
+    "witness_t": 9036,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9036
+  },
+  "963": {
+    "witness_t": 9034,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9034
+  },
+  "964": {
+    "witness_t": 9035,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9035
+  },
+  "965": {
+    "witness_t": 9035,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9035
+  },
+  "966": {
+    "witness_t": 9034,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9034
+  },
+  "967": {
+    "witness_t": 9033,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9033
+  },
+  "968": {
+    "witness_t": 9032,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9032
+  },
+  "969": {
+    "witness_t": 9031,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9031
+  },
+  "970": {
+    "witness_t": 9029,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9029
+  },
+  "971": {
+    "witness_t": 9029,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9029
+  },
+  "972": {
+    "witness_t": 9027,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9027
+  },
+  "973": {
+    "witness_t": 9027,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9027
+  },
+  "974": {
+    "witness_t": 9024,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 9024
+  },
+  "975": {
+    "witness_t": 9022,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9022
+  },
+  "976": {
+    "witness_t": 9023,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9023
+  },
+  "977": {
+    "witness_t": 9023,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9023
+  },
+  "978": {
+    "witness_t": 9022,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9022
+  },
+  "979": {
+    "witness_t": 9021,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9021
+  },
+  "980": {
+    "witness_t": 9019,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9019
+  },
+  "981": {
+    "witness_t": 9019,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9019
+  },
+  "982": {
+    "witness_t": 9018,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9018
+  },
+  "983": {
+    "witness_t": 9014,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9014
+  },
+  "984": {
+    "witness_t": 9015,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9015
+  },
+  "985": {
+    "witness_t": 9015,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9015
+  },
+  "986": {
+    "witness_t": 9014,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9014
+  },
+  "987": {
+    "witness_t": 9012,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9012
+  },
+  "988": {
+    "witness_t": 9012,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9012
+  },
+  "989": {
+    "witness_t": 9010,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9010
+  },
+  "990": {
+    "witness_t": 9010,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9010
+  },
+  "991": {
+    "witness_t": 9009,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9009
+  },
+  "992": {
+    "witness_t": 9004,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9004
+  },
+  "993": {
+    "witness_t": 9006,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9006
+  },
+  "994": {
+    "witness_t": 9006,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9006
+  },
+  "995": {
+    "witness_t": 9004,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9004
+  },
+  "996": {
+    "witness_t": 9004,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9004
+  },
+  "997": {
+    "witness_t": 9003,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9003
+  },
+  "998": {
+    "witness_t": 9001,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9001
+  },
+  "999": {
+    "witness_t": 9001,
+    "bits": [
+      0,
+      1
+    ],
+    "excluded_onsets_through": 9001
+  },
+  "1000": {
+    "witness_t": 8998,
+    "bits": [
+      1,
+      0
+    ],
+    "excluded_onsets_through": 8998
+  }
+}

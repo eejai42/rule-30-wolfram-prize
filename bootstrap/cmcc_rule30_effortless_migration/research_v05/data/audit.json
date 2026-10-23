@@ -1,0 +1,70 @@
+{
+  "RULEBOOK.md": {
+    "sha256": "c7e77b15e415274a3626f81c465eacb6eb68982d0020610fafd653c35d5241a2",
+    "bytes": 5848
+  },
+  "THEOREM_004.md": {
+    "sha256": "b8756f03231912bfd64071266ce25226dd0b31c557acab0ec549197939350762",
+    "bytes": 2420
+  },
+  "center_100.txt": {
+    "sha256": "81a90a10e58f361e9abcc583481430c602f7e1f0034b3b31271a140a11868e53",
+    "bytes": 102,
+    "independent_growing_row_equal": true
+  },
+  "center_1000.txt": {
+    "sha256": "2fdebe29ad5adcc69ddb84c590e8eb18548b9f6084d061d6091987b8fb1f5490",
+    "bytes": 1002,
+    "independent_growing_row_equal": true
+  },
+  "center_10000.txt": {
+    "sha256": "67e5ae63d59c9cb2edb7b0f38de8633893a4d59e06e4892d6be10f45d2526ad4",
+    "bytes": 10002,
+    "independent_growing_row_equal": true
+  },
+  "experiment.py": {
+    "sha256": "0f1c0d8ddd013f69d31eaee22d4a1a36c8b93c99cd608e5504846a6b8832f01d",
+    "bytes": 1090
+  },
+  "experiment_v02.py": {
+    "sha256": "14e18be6bb1dd4c88935085230e074fc3d1f6460b15b4efd96f6dbceaeb56305",
+    "bytes": 2188
+  },
+  "experiment_v03.py": {
+    "sha256": "a4a0e2ec286e1d090f31db342eff14b6acee80394a7a7a0b1e64b3937ad201ce",
+    "bytes": 1246
+  },
+  "experiment_v04.py": {
+    "sha256": "f577697754f71a7ce5a62610d541c009869300893d306302139816bf101d5e91",
+    "bytes": 1155
+  },
+  "period_witnesses_v03.json": {
+    "sha256": "5491373a19d5bc05f3ffde1053f4ac5c377a339ad0ace3a1c3b5c27a33a614d3",
+    "bytes": 112896,
+    "rerun_equal_ignoring_python_version": true
+  },
+  "results.json": {
+    "sha256": "bc0ffbc992b403930766c10da782df8e06694615fe03dca8bbe9030b10e46a0d",
+    "bytes": 678,
+    "rerun_equal_ignoring_python_version": true
+  },
+  "results_v02.json": {
+    "sha256": "16e4dbc26d764300f5c437b3ea55ef8ad903481a74795e75dfa9bee1b917d836",
+    "bytes": 1927,
+    "rerun_equal_ignoring_python_version": true
+  },
+  "results_v03.json": {
+    "sha256": "57162c245ba66c584233cd69f76cc4b0ced13629fcdfd2b865514ab54911b9d9",
+    "bytes": 443,
+    "rerun_equal_ignoring_python_version": true
+  },
+  "results_v04.json": {
+    "sha256": "40626bd2392bb8637ca05489bcb1142bf2d6eed0002a725e0e1ec0c8d0218b23",
+    "bytes": 1902,
+    "rerun_equal_ignoring_python_version": true
+  },
+  "rule30.wl": {
+    "sha256": "2d2bf8592bd5218a00208b3f3595ff34284e8eb7b22e6eb07c7c5fcba7dd3fa3",
+    "bytes": 293
+  }
+}

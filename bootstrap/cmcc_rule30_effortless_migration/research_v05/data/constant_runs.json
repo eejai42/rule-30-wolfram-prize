@@ -1,0 +1,5864 @@
+[
+  {
+    "start": 0,
+    "end": 1,
+    "bit": 1,
+    "proved_endpoint_bound": 1
+  },
+  {
+    "start": 2,
+    "end": 2,
+    "bit": 0,
+    "proved_endpoint_bound": 13
+  },
+  {
+    "start": 3,
+    "end": 5,
+    "bit": 1,
+    "proved_endpoint_bound": 7
+  },
+  {
+    "start": 6,
+    "end": 7,
+    "bit": 0,
+    "proved_endpoint_bound": 29
+  },
+  {
+    "start": 8,
+    "end": 9,
+    "bit": 1,
+    "proved_endpoint_bound": 17
+  },
+  {
+    "start": 10,
+    "end": 12,
+    "bit": 0,
+    "proved_endpoint_bound": 45
+  },
+  {
+    "start": 13,
+    "end": 13,
+    "bit": 1,
+    "proved_endpoint_bound": 27
+  },
+  {
+    "start": 14,
+    "end": 14,
+    "bit": 0,
+    "proved_endpoint_bound": 61
+  },
+  {
+    "start": 15,
+    "end": 16,
+    "bit": 1,
+    "proved_endpoint_bound": 31
+  },
+  {
+    "start": 17,
+    "end": 18,
+    "bit": 0,
+    "proved_endpoint_bound": 73
+  },
+  {
+    "start": 19,
+    "end": 19,
+    "bit": 1,
+    "proved_endpoint_bound": 39
+  },
+  {
+    "start": 20,
+    "end": 21,
+    "bit": 0,
+    "proved_endpoint_bound": 85
+  },
+  {
+    "start": 22,
+    "end": 24,
+    "bit": 1,
+    "proved_endpoint_bound": 45
+  },
+  {
+    "start": 25,
+    "end": 25,
+    "bit": 0,
+    "proved_endpoint_bound": 105
+  },
+  {
+    "start": 26,
+    "end": 26,
+    "bit": 1,
+    "proved_endpoint_bound": 53
+  },
+  {
+    "start": 27,
+    "end": 27,
+    "bit": 0,
+    "proved_endpoint_bound": 113
+  },
+  {
+    "start": 28,
+    "end": 30,
+    "bit": 1,
+    "proved_endpoint_bound": 57
+  },
+  {
+    "start": 31,
+    "end": 32,
+    "bit": 0,
+    "proved_endpoint_bound": 129
+  },
+  {
+    "start": 33,
+    "end": 35,
+    "bit": 1,
+    "proved_endpoint_bound": 67
+  },
+  {
+    "start": 36,
+    "end": 36,
+    "bit": 0,
+    "proved_endpoint_bound": 149
+  },
+  {
+    "start": 37,
+    "end": 37,
+    "bit": 1,
+    "proved_endpoint_bound": 75
+  },
+  {
+    "start": 38,
+    "end": 38,
+    "bit": 0,
+    "proved_endpoint_bound": 157
+  },
+  {
+    "start": 39,
+    "end": 39,
+    "bit": 1,
+    "proved_endpoint_bound": 79
+  },
+  {
+    "start": 40,
+    "end": 40,
+    "bit": 0,
+    "proved_endpoint_bound": 165
+  },
+  {
+    "start": 41,
+    "end": 42,
+    "bit": 1,
+    "proved_endpoint_bound": 83
+  },
+  {
+    "start": 43,
+    "end": 46,
+    "bit": 0,
+    "proved_endpoint_bound": 177
+  },
+  {
+    "start": 47,
+    "end": 48,
+    "bit": 1,
+    "proved_endpoint_bound": 95
+  },
+  {
+    "start": 49,
+    "end": 50,
+    "bit": 0,
+    "proved_endpoint_bound": 201
+  },
+  {
+    "start": 51,
+    "end": 51,
+    "bit": 1,
+    "proved_endpoint_bound": 103
+  },
+  {
+    "start": 52,
+    "end": 52,
+    "bit": 0,
+    "proved_endpoint_bound": 213
+  },
+  {
+    "start": 53,
+    "end": 53,
+    "bit": 1,
+    "proved_endpoint_bound": 107
+  },
+  {
+    "start": 54,
+    "end": 54,
+    "bit": 0,
+    "proved_endpoint_bound": 221
+  },
+  {
+    "start": 55,
+    "end": 56,
+    "bit": 1,
+    "proved_endpoint_bound": 111
+  },
+  {
+    "start": 57,
+    "end": 57,
+    "bit": 0,
+    "proved_endpoint_bound": 233
+  },
+  {
+    "start": 58,
+    "end": 58,
+    "bit": 1,
+    "proved_endpoint_bound": 117
+  },
+  {
+    "start": 59,
+    "end": 59,
+    "bit": 0,
+    "proved_endpoint_bound": 241
+  },
+  {
+    "start": 60,
+    "end": 60,
+    "bit": 1,
+    "proved_endpoint_bound": 121
+  },
+  {
+    "start": 61,
+    "end": 61,
+    "bit": 0,
+    "proved_endpoint_bound": 249
+  },
+  {
+    "start": 62,
+    "end": 67,
+    "bit": 1,
+    "proved_endpoint_bound": 125
+  },
+  {
+    "start": 68,
+    "end": 71,
+    "bit": 0,
+    "proved_endpoint_bound": 277
+  },
+  {
+    "start": 72,
+    "end": 75,
+    "bit": 1,
+    "proved_endpoint_bound": 145
+  },
+  {
+    "start": 76,
+    "end": 78,
+    "bit": 0,
+    "proved_endpoint_bound": 309
+  },
+  {
+    "start": 79,
+    "end": 79,
+    "bit": 1,
+    "proved_endpoint_bound": 159
+  },
+  {
+    "start": 80,
+    "end": 80,
+    "bit": 0,
+    "proved_endpoint_bound": 325
+  },
+  {
+    "start": 81,
+    "end": 81,
+    "bit": 1,
+    "proved_endpoint_bound": 163
+  },
+  {
+    "start": 82,
+    "end": 82,
+    "bit": 0,
+    "proved_endpoint_bound": 333
+  },
+  {
+    "start": 83,
+    "end": 85,
+    "bit": 1,
+    "proved_endpoint_bound": 167
+  },
+  {
+    "start": 86,
+    "end": 90,
+    "bit": 0,
+    "proved_endpoint_bound": 349
+  },
+  {
+    "start": 91,
+    "end": 91,
+    "bit": 1,
+    "proved_endpoint_bound": 183
+  },
+  {
+    "start": 92,
+    "end": 93,
+    "bit": 0,
+    "proved_endpoint_bound": 373
+  },
+  {
+    "start": 94,
+    "end": 94,
+    "bit": 1,
+    "proved_endpoint_bound": 189
+  },
+  {
+    "start": 95,
+    "end": 95,
+    "bit": 0,
+    "proved_endpoint_bound": 385
+  },
+  {
+    "start": 96,
+    "end": 97,
+    "bit": 1,
+    "proved_endpoint_bound": 193
+  },
+  {
+    "start": 98,
+    "end": 100,
+    "bit": 0,
+    "proved_endpoint_bound": 397
+  },
+  {
+    "start": 101,
+    "end": 103,
+    "bit": 1,
+    "proved_endpoint_bound": 203
+  },
+  {
+    "start": 104,
+    "end": 106,
+    "bit": 0,
+    "proved_endpoint_bound": 421
+  },
+  {
+    "start": 107,
+    "end": 108,
+    "bit": 1,
+    "proved_endpoint_bound": 215
+  },
+  {
+    "start": 109,
+    "end": 109,
+    "bit": 0,
+    "proved_endpoint_bound": 441
+  },
+  {
+    "start": 110,
+    "end": 111,
+    "bit": 1,
+    "proved_endpoint_bound": 221
+  },
+  {
+    "start": 112,
+    "end": 112,
+    "bit": 0,
+    "proved_endpoint_bound": 453
+  },
+  {
+    "start": 113,
+    "end": 114,
+    "bit": 1,
+    "proved_endpoint_bound": 227
+  },
+  {
+    "start": 115,
+    "end": 115,
+    "bit": 0,
+    "proved_endpoint_bound": 465
+  },
+  {
+    "start": 116,
+    "end": 116,
+    "bit": 1,
+    "proved_endpoint_bound": 233
+  },
+  {
+    "start": 117,
+    "end": 123,
+    "bit": 0,
+    "proved_endpoint_bound": 473
+  },
+  {
+    "start": 124,
+    "end": 124,
+    "bit": 1,
+    "proved_endpoint_bound": 249
+  },
+  {
+    "start": 125,
+    "end": 127,
+    "bit": 0,
+    "proved_endpoint_bound": 505
+  },
+  {
+    "start": 128,
+    "end": 132,
+    "bit": 1,
+    "proved_endpoint_bound": 257
+  },
+  {
+    "start": 133,
+    "end": 133,
+    "bit": 0,
+    "proved_endpoint_bound": 537
+  },
+  {
+    "start": 134,
+    "end": 136,
+    "bit": 1,
+    "proved_endpoint_bound": 269
+  },
+  {
+    "start": 137,
+    "end": 137,
+    "bit": 0,
+    "proved_endpoint_bound": 553
+  },
+  {
+    "start": 138,
+    "end": 138,
+    "bit": 1,
+    "proved_endpoint_bound": 277
+  },
+  {
+    "start": 139,
+    "end": 140,
+    "bit": 0,
+    "proved_endpoint_bound": 561
+  },
+  {
+    "start": 141,
+    "end": 143,
+    "bit": 1,
+    "proved_endpoint_bound": 283
+  },
+  {
+    "start": 144,
+    "end": 146,
+    "bit": 0,
+    "proved_endpoint_bound": 581
+  },
+  {
+    "start": 147,
+    "end": 149,
+    "bit": 1,
+    "proved_endpoint_bound": 295
+  },
+  {
+    "start": 150,
+    "end": 150,
+    "bit": 0,
+    "proved_endpoint_bound": 605
+  },
+  {
+    "start": 151,
+    "end": 151,
+    "bit": 1,
+    "proved_endpoint_bound": 303
+  },
+  {
+    "start": 152,
+    "end": 152,
+    "bit": 0,
+    "proved_endpoint_bound": 613
+  },
+  {
+    "start": 153,
+    "end": 155,
+    "bit": 1,
+    "proved_endpoint_bound": 307
+  },
+  {
+    "start": 156,
+    "end": 160,
+    "bit": 0,
+    "proved_endpoint_bound": 629
+  },
+  {
+    "start": 161,
+    "end": 162,
+    "bit": 1,
+    "proved_endpoint_bound": 323
+  },
+  {
+    "start": 163,
+    "end": 164,
+    "bit": 0,
+    "proved_endpoint_bound": 657
+  },
+  {
+    "start": 165,
+    "end": 165,
+    "bit": 1,
+    "proved_endpoint_bound": 331
+  },
+  {
+    "start": 166,
+    "end": 168,
+    "bit": 0,
+    "proved_endpoint_bound": 669
+  },
+  {
+    "start": 169,
+    "end": 170,
+    "bit": 1,
+    "proved_endpoint_bound": 339
+  },
+  {
+    "start": 171,
+    "end": 172,
+    "bit": 0,
+    "proved_endpoint_bound": 689
+  },
+  {
+    "start": 173,
+    "end": 176,
+    "bit": 1,
+    "proved_endpoint_bound": 347
+  },
+  {
+    "start": 177,
+    "end": 178,
+    "bit": 0,
+    "proved_endpoint_bound": 713
+  },
+  {
+    "start": 179,
+    "end": 184,
+    "bit": 1,
+    "proved_endpoint_bound": 359
+  },
+  {
+    "start": 185,
+    "end": 190,
+    "bit": 0,
+    "proved_endpoint_bound": 745
+  },
+  {
+    "start": 191,
+    "end": 197,
+    "bit": 1,
+    "proved_endpoint_bound": 383
+  },
+  {
+    "start": 198,
+    "end": 198,
+    "bit": 0,
+    "proved_endpoint_bound": 797
+  },
+  {
+    "start": 199,
+    "end": 200,
+    "bit": 1,
+    "proved_endpoint_bound": 399
+  },
+  {
+    "start": 201,
+    "end": 202,
+    "bit": 0,
+    "proved_endpoint_bound": 809
+  },
+  {
+    "start": 203,
+    "end": 203,
+    "bit": 1,
+    "proved_endpoint_bound": 407
+  },
+  {
+    "start": 204,
+    "end": 204,
+    "bit": 0,
+    "proved_endpoint_bound": 821
+  },
+  {
+    "start": 205,
+    "end": 206,
+    "bit": 1,
+    "proved_endpoint_bound": 411
+  },
+  {
+    "start": 207,
+    "end": 207,
+    "bit": 0,
+    "proved_endpoint_bound": 833
+  },
+  {
+    "start": 208,
+    "end": 210,
+    "bit": 1,
+    "proved_endpoint_bound": 417
+  },
+  {
+    "start": 211,
+    "end": 215,
+    "bit": 0,
+    "proved_endpoint_bound": 849
+  },
+  {
+    "start": 216,
+    "end": 216,
+    "bit": 1,
+    "proved_endpoint_bound": 433
+  },
+  {
+    "start": 217,
+    "end": 217,
+    "bit": 0,
+    "proved_endpoint_bound": 873
+  },
+  {
+    "start": 218,
+    "end": 219,
+    "bit": 1,
+    "proved_endpoint_bound": 437
+  },
+  {
+    "start": 220,
+    "end": 222,
+    "bit": 0,
+    "proved_endpoint_bound": 885
+  },
+  {
+    "start": 223,
+    "end": 224,
+    "bit": 1,
+    "proved_endpoint_bound": 447
+  },
+  {
+    "start": 225,
+    "end": 225,
+    "bit": 0,
+    "proved_endpoint_bound": 905
+  },
+  {
+    "start": 226,
+    "end": 227,
+    "bit": 1,
+    "proved_endpoint_bound": 453
+  },
+  {
+    "start": 228,
+    "end": 230,
+    "bit": 0,
+    "proved_endpoint_bound": 917
+  },
+  {
+    "start": 231,
+    "end": 232,
+    "bit": 1,
+    "proved_endpoint_bound": 463
+  },
+  {
+    "start": 233,
+    "end": 235,
+    "bit": 0,
+    "proved_endpoint_bound": 937
+  },
+  {
+    "start": 236,
+    "end": 238,
+    "bit": 1,
+    "proved_endpoint_bound": 473
+  },
+  {
+    "start": 239,
+    "end": 239,
+    "bit": 0,
+    "proved_endpoint_bound": 961
+  },
+  {
+    "start": 240,
+    "end": 241,
+    "bit": 1,
+    "proved_endpoint_bound": 481
+  },
+  {
+    "start": 242,
+    "end": 242,
+    "bit": 0,
+    "proved_endpoint_bound": 973
+  },
+  {
+    "start": 243,
+    "end": 244,
+    "bit": 1,
+    "proved_endpoint_bound": 487
+  },
+  {
+    "start": 245,
+    "end": 246,
+    "bit": 0,
+    "proved_endpoint_bound": 985
+  },
+  {
+    "start": 247,
+    "end": 247,
+    "bit": 1,
+    "proved_endpoint_bound": 495
+  },
+  {
+    "start": 248,
+    "end": 248,
+    "bit": 0,
+    "proved_endpoint_bound": 997
+  },
+  {
+    "start": 249,
+    "end": 249,
+    "bit": 1,
+    "proved_endpoint_bound": 499
+  },
+  {
+    "start": 250,
+    "end": 250,
+    "bit": 0,
+    "proved_endpoint_bound": 1005
+  },
+  {
+    "start": 251,
+    "end": 257,
+    "bit": 1,
+    "proved_endpoint_bound": 503
+  },
+  {
+    "start": 258,
+    "end": 258,
+    "bit": 0,
+    "proved_endpoint_bound": 1037
+  },
+  {
+    "start": 259,
+    "end": 260,
+    "bit": 1,
+    "proved_endpoint_bound": 519
+  },
+  {
+    "start": 261,
+    "end": 261,
+    "bit": 0,
+    "proved_endpoint_bound": 1049
+  },
+  {
+    "start": 262,
+    "end": 262,
+    "bit": 1,
+    "proved_endpoint_bound": 525
+  },
+  {
+    "start": 263,
+    "end": 263,
+    "bit": 0,
+    "proved_endpoint_bound": 1057
+  },
+  {
+    "start": 264,
+    "end": 265,
+    "bit": 1,
+    "proved_endpoint_bound": 529
+  },
+  {
+    "start": 266,
+    "end": 266,
+    "bit": 0,
+    "proved_endpoint_bound": 1069
+  },
+  {
+    "start": 267,
+    "end": 268,
+    "bit": 1,
+    "proved_endpoint_bound": 535
+  },
+  {
+    "start": 269,
+    "end": 269,
+    "bit": 0,
+    "proved_endpoint_bound": 1081
+  },
+  {
+    "start": 270,
+    "end": 273,
+    "bit": 1,
+    "proved_endpoint_bound": 541
+  },
+  {
+    "start": 274,
+    "end": 274,
+    "bit": 0,
+    "proved_endpoint_bound": 1101
+  },
+  {
+    "start": 275,
+    "end": 277,
+    "bit": 1,
+    "proved_endpoint_bound": 551
+  },
+  {
+    "start": 278,
+    "end": 279,
+    "bit": 0,
+    "proved_endpoint_bound": 1117
+  },
+  {
+    "start": 280,
+    "end": 280,
+    "bit": 1,
+    "proved_endpoint_bound": 561
+  },
+  {
+    "start": 281,
+    "end": 281,
+    "bit": 0,
+    "proved_endpoint_bound": 1129
+  },
+  {
+    "start": 282,
+    "end": 284,
+    "bit": 1,
+    "proved_endpoint_bound": 565
+  },
+  {
+    "start": 285,
+    "end": 285,
+    "bit": 0,
+    "proved_endpoint_bound": 1145
+  },
+  {
+    "start": 286,
+    "end": 287,
+    "bit": 1,
+    "proved_endpoint_bound": 573
+  },
+  {
+    "start": 288,
+    "end": 290,
+    "bit": 0,
+    "proved_endpoint_bound": 1157
+  },
+  {
+    "start": 291,
+    "end": 291,
+    "bit": 1,
+    "proved_endpoint_bound": 583
+  },
+  {
+    "start": 292,
+    "end": 301,
+    "bit": 0,
+    "proved_endpoint_bound": 1173
+  },
+  {
+    "start": 302,
+    "end": 303,
+    "bit": 1,
+    "proved_endpoint_bound": 605
+  },
+  {
+    "start": 304,
+    "end": 304,
+    "bit": 0,
+    "proved_endpoint_bound": 1221
+  },
+  {
+    "start": 305,
+    "end": 307,
+    "bit": 1,
+    "proved_endpoint_bound": 611
+  },
+  {
+    "start": 308,
+    "end": 309,
+    "bit": 0,
+    "proved_endpoint_bound": 1237
+  },
+  {
+    "start": 310,
+    "end": 310,
+    "bit": 1,
+    "proved_endpoint_bound": 621
+  },
+  {
+    "start": 311,
+    "end": 311,
+    "bit": 0,
+    "proved_endpoint_bound": 1249
+  },
+  {
+    "start": 312,
+    "end": 313,
+    "bit": 1,
+    "proved_endpoint_bound": 625
+  },
+  {
+    "start": 314,
+    "end": 315,
+    "bit": 0,
+    "proved_endpoint_bound": 1261
+  },
+  {
+    "start": 316,
+    "end": 316,
+    "bit": 1,
+    "proved_endpoint_bound": 633
+  },
+  {
+    "start": 317,
+    "end": 317,
+    "bit": 0,
+    "proved_endpoint_bound": 1273
+  },
+  {
+    "start": 318,
+    "end": 321,
+    "bit": 1,
+    "proved_endpoint_bound": 637
+  },
+  {
+    "start": 322,
+    "end": 323,
+    "bit": 0,
+    "proved_endpoint_bound": 1293
+  },
+  {
+    "start": 324,
+    "end": 324,
+    "bit": 1,
+    "proved_endpoint_bound": 649
+  },
+  {
+    "start": 325,
+    "end": 326,
+    "bit": 0,
+    "proved_endpoint_bound": 1305
+  },
+  {
+    "start": 327,
+    "end": 328,
+    "bit": 1,
+    "proved_endpoint_bound": 655
+  },
+  {
+    "start": 329,
+    "end": 332,
+    "bit": 0,
+    "proved_endpoint_bound": 1321
+  },
+  {
+    "start": 333,
+    "end": 337,
+    "bit": 1,
+    "proved_endpoint_bound": 667
+  },
+  {
+    "start": 338,
+    "end": 343,
+    "bit": 0,
+    "proved_endpoint_bound": 1357
+  },
+  {
+    "start": 344,
+    "end": 344,
+    "bit": 1,
+    "proved_endpoint_bound": 689
+  },
+  {
+    "start": 345,
+    "end": 345,
+    "bit": 0,
+    "proved_endpoint_bound": 1385
+  },
+  {
+    "start": 346,
+    "end": 347,
+    "bit": 1,
+    "proved_endpoint_bound": 693
+  },
+  {
+    "start": 348,
+    "end": 348,
+    "bit": 0,
+    "proved_endpoint_bound": 1397
+  },
+  {
+    "start": 349,
+    "end": 350,
+    "bit": 1,
+    "proved_endpoint_bound": 699
+  },
+  {
+    "start": 351,
+    "end": 352,
+    "bit": 0,
+    "proved_endpoint_bound": 1409
+  },
+  {
+    "start": 353,
+    "end": 356,
+    "bit": 1,
+    "proved_endpoint_bound": 707
+  },
+  {
+    "start": 357,
+    "end": 358,
+    "bit": 0,
+    "proved_endpoint_bound": 1433
+  },
+  {
+    "start": 359,
+    "end": 359,
+    "bit": 1,
+    "proved_endpoint_bound": 719
+  },
+  {
+    "start": 360,
+    "end": 363,
+    "bit": 0,
+    "proved_endpoint_bound": 1445
+  },
+  {
+    "start": 364,
+    "end": 364,
+    "bit": 1,
+    "proved_endpoint_bound": 729
+  },
+  {
+    "start": 365,
+    "end": 366,
+    "bit": 0,
+    "proved_endpoint_bound": 1465
+  },
+  {
+    "start": 367,
+    "end": 371,
+    "bit": 1,
+    "proved_endpoint_bound": 735
+  },
+  {
+    "start": 372,
+    "end": 376,
+    "bit": 0,
+    "proved_endpoint_bound": 1493
+  },
+  {
+    "start": 377,
+    "end": 378,
+    "bit": 1,
+    "proved_endpoint_bound": 755
+  },
+  {
+    "start": 379,
+    "end": 379,
+    "bit": 0,
+    "proved_endpoint_bound": 1521
+  },
+  {
+    "start": 380,
+    "end": 380,
+    "bit": 1,
+    "proved_endpoint_bound": 761
+  },
+  {
+    "start": 381,
+    "end": 382,
+    "bit": 0,
+    "proved_endpoint_bound": 1529
+  },
+  {
+    "start": 383,
+    "end": 383,
+    "bit": 1,
+    "proved_endpoint_bound": 767
+  },
+  {
+    "start": 384,
+    "end": 384,
+    "bit": 0,
+    "proved_endpoint_bound": 1541
+  },
+  {
+    "start": 385,
+    "end": 386,
+    "bit": 1,
+    "proved_endpoint_bound": 771
+  },
+  {
+    "start": 387,
+    "end": 388,
+    "bit": 0,
+    "proved_endpoint_bound": 1553
+  },
+  {
+    "start": 389,
+    "end": 389,
+    "bit": 1,
+    "proved_endpoint_bound": 779
+  },
+  {
+    "start": 390,
+    "end": 391,
+    "bit": 0,
+    "proved_endpoint_bound": 1565
+  },
+  {
+    "start": 392,
+    "end": 392,
+    "bit": 1,
+    "proved_endpoint_bound": 785
+  },
+  {
+    "start": 393,
+    "end": 393,
+    "bit": 0,
+    "proved_endpoint_bound": 1577
+  },
+  {
+    "start": 394,
+    "end": 396,
+    "bit": 1,
+    "proved_endpoint_bound": 789
+  },
+  {
+    "start": 397,
+    "end": 397,
+    "bit": 0,
+    "proved_endpoint_bound": 1593
+  },
+  {
+    "start": 398,
+    "end": 398,
+    "bit": 1,
+    "proved_endpoint_bound": 797
+  },
+  {
+    "start": 399,
+    "end": 399,
+    "bit": 0,
+    "proved_endpoint_bound": 1601
+  },
+  {
+    "start": 400,
+    "end": 401,
+    "bit": 1,
+    "proved_endpoint_bound": 801
+  },
+  {
+    "start": 402,
+    "end": 406,
+    "bit": 0,
+    "proved_endpoint_bound": 1613
+  },
+  {
+    "start": 407,
+    "end": 408,
+    "bit": 1,
+    "proved_endpoint_bound": 815
+  },
+  {
+    "start": 409,
+    "end": 409,
+    "bit": 0,
+    "proved_endpoint_bound": 1641
+  },
+  {
+    "start": 410,
+    "end": 410,
+    "bit": 1,
+    "proved_endpoint_bound": 821
+  },
+  {
+    "start": 411,
+    "end": 412,
+    "bit": 0,
+    "proved_endpoint_bound": 1649
+  },
+  {
+    "start": 413,
+    "end": 413,
+    "bit": 1,
+    "proved_endpoint_bound": 827
+  },
+  {
+    "start": 414,
+    "end": 416,
+    "bit": 0,
+    "proved_endpoint_bound": 1661
+  },
+  {
+    "start": 417,
+    "end": 417,
+    "bit": 1,
+    "proved_endpoint_bound": 835
+  },
+  {
+    "start": 418,
+    "end": 418,
+    "bit": 0,
+    "proved_endpoint_bound": 1677
+  },
+  {
+    "start": 419,
+    "end": 419,
+    "bit": 1,
+    "proved_endpoint_bound": 839
+  },
+  {
+    "start": 420,
+    "end": 421,
+    "bit": 0,
+    "proved_endpoint_bound": 1685
+  },
+  {
+    "start": 422,
+    "end": 422,
+    "bit": 1,
+    "proved_endpoint_bound": 845
+  },
+  {
+    "start": 423,
+    "end": 423,
+    "bit": 0,
+    "proved_endpoint_bound": 1697
+  },
+  {
+    "start": 424,
+    "end": 426,
+    "bit": 1,
+    "proved_endpoint_bound": 849
+  },
+  {
+    "start": 427,
+    "end": 427,
+    "bit": 0,
+    "proved_endpoint_bound": 1713
+  },
+  {
+    "start": 428,
+    "end": 428,
+    "bit": 1,
+    "proved_endpoint_bound": 857
+  },
+  {
+    "start": 429,
+    "end": 429,
+    "bit": 0,
+    "proved_endpoint_bound": 1721
+  },
+  {
+    "start": 430,
+    "end": 434,
+    "bit": 1,
+    "proved_endpoint_bound": 861
+  },
+  {
+    "start": 435,
+    "end": 435,
+    "bit": 0,
+    "proved_endpoint_bound": 1745
+  },
+  {
+    "start": 436,
+    "end": 437,
+    "bit": 1,
+    "proved_endpoint_bound": 873
+  },
+  {
+    "start": 438,
+    "end": 440,
+    "bit": 0,
+    "proved_endpoint_bound": 1757
+  },
+  {
+    "start": 441,
+    "end": 441,
+    "bit": 1,
+    "proved_endpoint_bound": 883
+  },
+  {
+    "start": 442,
+    "end": 447,
+    "bit": 0,
+    "proved_endpoint_bound": 1773
+  },
+  {
+    "start": 448,
+    "end": 451,
+    "bit": 1,
+    "proved_endpoint_bound": 897
+  },
+  {
+    "start": 452,
+    "end": 452,
+    "bit": 0,
+    "proved_endpoint_bound": 1813
+  },
+  {
+    "start": 453,
+    "end": 453,
+    "bit": 1,
+    "proved_endpoint_bound": 907
+  },
+  {
+    "start": 454,
+    "end": 454,
+    "bit": 0,
+    "proved_endpoint_bound": 1821
+  },
+  {
+    "start": 455,
+    "end": 455,
+    "bit": 1,
+    "proved_endpoint_bound": 911
+  },
+  {
+    "start": 456,
+    "end": 458,
+    "bit": 0,
+    "proved_endpoint_bound": 1829
+  },
+  {
+    "start": 459,
+    "end": 462,
+    "bit": 1,
+    "proved_endpoint_bound": 919
+  },
+  {
+    "start": 463,
+    "end": 463,
+    "bit": 0,
+    "proved_endpoint_bound": 1857
+  },
+  {
+    "start": 464,
+    "end": 464,
+    "bit": 1,
+    "proved_endpoint_bound": 929
+  },
+  {
+    "start": 465,
+    "end": 466,
+    "bit": 0,
+    "proved_endpoint_bound": 1865
+  },
+  {
+    "start": 467,
+    "end": 467,
+    "bit": 1,
+    "proved_endpoint_bound": 935
+  },
+  {
+    "start": 468,
+    "end": 468,
+    "bit": 0,
+    "proved_endpoint_bound": 1877
+  },
+  {
+    "start": 469,
+    "end": 470,
+    "bit": 1,
+    "proved_endpoint_bound": 939
+  },
+  {
+    "start": 471,
+    "end": 471,
+    "bit": 0,
+    "proved_endpoint_bound": 1889
+  },
+  {
+    "start": 472,
+    "end": 472,
+    "bit": 1,
+    "proved_endpoint_bound": 945
+  },
+  {
+    "start": 473,
+    "end": 475,
+    "bit": 0,
+    "proved_endpoint_bound": 1897
+  },
+  {
+    "start": 476,
+    "end": 477,
+    "bit": 1,
+    "proved_endpoint_bound": 953
+  },
+  {
+    "start": 478,
+    "end": 478,
+    "bit": 0,
+    "proved_endpoint_bound": 1917
+  },
+  {
+    "start": 479,
+    "end": 479,
+    "bit": 1,
+    "proved_endpoint_bound": 959
+  },
+  {
+    "start": 480,
+    "end": 482,
+    "bit": 0,
+    "proved_endpoint_bound": 1925
+  },
+  {
+    "start": 483,
+    "end": 486,
+    "bit": 1,
+    "proved_endpoint_bound": 967
+  },
+  {
+    "start": 487,
+    "end": 490,
+    "bit": 0,
+    "proved_endpoint_bound": 1953
+  },
+  {
+    "start": 491,
+    "end": 491,
+    "bit": 1,
+    "proved_endpoint_bound": 983
+  },
+  {
+    "start": 492,
+    "end": 495,
+    "bit": 0,
+    "proved_endpoint_bound": 1973
+  },
+  {
+    "start": 496,
+    "end": 499,
+    "bit": 1,
+    "proved_endpoint_bound": 993
+  },
+  {
+    "start": 500,
+    "end": 502,
+    "bit": 0,
+    "proved_endpoint_bound": 2005
+  },
+  {
+    "start": 503,
+    "end": 506,
+    "bit": 1,
+    "proved_endpoint_bound": 1007
+  },
+  {
+    "start": 507,
+    "end": 507,
+    "bit": 0,
+    "proved_endpoint_bound": 2033
+  },
+  {
+    "start": 508,
+    "end": 508,
+    "bit": 1,
+    "proved_endpoint_bound": 1017
+  },
+  {
+    "start": 509,
+    "end": 512,
+    "bit": 0,
+    "proved_endpoint_bound": 2041
+  },
+  {
+    "start": 513,
+    "end": 513,
+    "bit": 1,
+    "proved_endpoint_bound": 1027
+  },
+  {
+    "start": 514,
+    "end": 515,
+    "bit": 0,
+    "proved_endpoint_bound": 2061
+  },
+  {
+    "start": 516,
+    "end": 516,
+    "bit": 1,
+    "proved_endpoint_bound": 1033
+  },
+  {
+    "start": 517,
+    "end": 517,
+    "bit": 0,
+    "proved_endpoint_bound": 2073
+  },
+  {
+    "start": 518,
+    "end": 518,
+    "bit": 1,
+    "proved_endpoint_bound": 1037
+  },
+  {
+    "start": 519,
+    "end": 521,
+    "bit": 0,
+    "proved_endpoint_bound": 2081
+  },
+  {
+    "start": 522,
+    "end": 522,
+    "bit": 1,
+    "proved_endpoint_bound": 1045
+  },
+  {
+    "start": 523,
+    "end": 523,
+    "bit": 0,
+    "proved_endpoint_bound": 2097
+  },
+  {
+    "start": 524,
+    "end": 524,
+    "bit": 1,
+    "proved_endpoint_bound": 1049
+  },
+  {
+    "start": 525,
+    "end": 525,
+    "bit": 0,
+    "proved_endpoint_bound": 2105
+  },
+  {
+    "start": 526,
+    "end": 526,
+    "bit": 1,
+    "proved_endpoint_bound": 1053
+  },
+  {
+    "start": 527,
+    "end": 527,
+    "bit": 0,
+    "proved_endpoint_bound": 2113
+  },
+  {
+    "start": 528,
+    "end": 529,
+    "bit": 1,
+    "proved_endpoint_bound": 1057
+  },
+  {
+    "start": 530,
+    "end": 534,
+    "bit": 0,
+    "proved_endpoint_bound": 2125
+  },
+  {
+    "start": 535,
+    "end": 535,
+    "bit": 1,
+    "proved_endpoint_bound": 1071
+  },
+  {
+    "start": 536,
+    "end": 537,
+    "bit": 0,
+    "proved_endpoint_bound": 2149
+  },
+  {
+    "start": 538,
+    "end": 538,
+    "bit": 1,
+    "proved_endpoint_bound": 1077
+  },
+  {
+    "start": 539,
+    "end": 545,
+    "bit": 0,
+    "proved_endpoint_bound": 2161
+  },
+  {
+    "start": 546,
+    "end": 546,
+    "bit": 1,
+    "proved_endpoint_bound": 1093
+  },
+  {
+    "start": 547,
+    "end": 548,
+    "bit": 0,
+    "proved_endpoint_bound": 2193
+  },
+  {
+    "start": 549,
+    "end": 551,
+    "bit": 1,
+    "proved_endpoint_bound": 1099
+  },
+  {
+    "start": 552,
+    "end": 555,
+    "bit": 0,
+    "proved_endpoint_bound": 2213
+  },
+  {
+    "start": 556,
+    "end": 557,
+    "bit": 1,
+    "proved_endpoint_bound": 1113
+  },
+  {
+    "start": 558,
+    "end": 558,
+    "bit": 0,
+    "proved_endpoint_bound": 2237
+  },
+  {
+    "start": 559,
+    "end": 560,
+    "bit": 1,
+    "proved_endpoint_bound": 1119
+  },
+  {
+    "start": 561,
+    "end": 562,
+    "bit": 0,
+    "proved_endpoint_bound": 2249
+  },
+  {
+    "start": 563,
+    "end": 565,
+    "bit": 1,
+    "proved_endpoint_bound": 1127
+  },
+  {
+    "start": 566,
+    "end": 566,
+    "bit": 0,
+    "proved_endpoint_bound": 2269
+  },
+  {
+    "start": 567,
+    "end": 572,
+    "bit": 1,
+    "proved_endpoint_bound": 1135
+  },
+  {
+    "start": 573,
+    "end": 574,
+    "bit": 0,
+    "proved_endpoint_bound": 2297
+  },
+  {
+    "start": 575,
+    "end": 575,
+    "bit": 1,
+    "proved_endpoint_bound": 1151
+  },
+  {
+    "start": 576,
+    "end": 581,
+    "bit": 0,
+    "proved_endpoint_bound": 2309
+  },
+  {
+    "start": 582,
+    "end": 584,
+    "bit": 1,
+    "proved_endpoint_bound": 1165
+  },
+  {
+    "start": 585,
+    "end": 585,
+    "bit": 0,
+    "proved_endpoint_bound": 2345
+  },
+  {
+    "start": 586,
+    "end": 588,
+    "bit": 1,
+    "proved_endpoint_bound": 1173
+  },
+  {
+    "start": 589,
+    "end": 591,
+    "bit": 0,
+    "proved_endpoint_bound": 2361
+  },
+  {
+    "start": 592,
+    "end": 592,
+    "bit": 1,
+    "proved_endpoint_bound": 1185
+  },
+  {
+    "start": 593,
+    "end": 594,
+    "bit": 0,
+    "proved_endpoint_bound": 2377
+  },
+  {
+    "start": 595,
+    "end": 595,
+    "bit": 1,
+    "proved_endpoint_bound": 1191
+  },
+  {
+    "start": 596,
+    "end": 597,
+    "bit": 0,
+    "proved_endpoint_bound": 2389
+  },
+  {
+    "start": 598,
+    "end": 599,
+    "bit": 1,
+    "proved_endpoint_bound": 1197
+  },
+  {
+    "start": 600,
+    "end": 604,
+    "bit": 0,
+    "proved_endpoint_bound": 2405
+  },
+  {
+    "start": 605,
+    "end": 606,
+    "bit": 1,
+    "proved_endpoint_bound": 1211
+  },
+  {
+    "start": 607,
+    "end": 608,
+    "bit": 0,
+    "proved_endpoint_bound": 2433
+  },
+  {
+    "start": 609,
+    "end": 609,
+    "bit": 1,
+    "proved_endpoint_bound": 1219
+  },
+  {
+    "start": 610,
+    "end": 611,
+    "bit": 0,
+    "proved_endpoint_bound": 2445
+  },
+  {
+    "start": 612,
+    "end": 614,
+    "bit": 1,
+    "proved_endpoint_bound": 1225
+  },
+  {
+    "start": 615,
+    "end": 616,
+    "bit": 0,
+    "proved_endpoint_bound": 2465
+  },
+  {
+    "start": 617,
+    "end": 617,
+    "bit": 1,
+    "proved_endpoint_bound": 1235
+  },
+  {
+    "start": 618,
+    "end": 619,
+    "bit": 0,
+    "proved_endpoint_bound": 2477
+  },
+  {
+    "start": 620,
+    "end": 620,
+    "bit": 1,
+    "proved_endpoint_bound": 1241
+  },
+  {
+    "start": 621,
+    "end": 624,
+    "bit": 0,
+    "proved_endpoint_bound": 2489
+  },
+  {
+    "start": 625,
+    "end": 629,
+    "bit": 1,
+    "proved_endpoint_bound": 1251
+  },
+  {
+    "start": 630,
+    "end": 630,
+    "bit": 0,
+    "proved_endpoint_bound": 2525
+  },
+  {
+    "start": 631,
+    "end": 631,
+    "bit": 1,
+    "proved_endpoint_bound": 1263
+  },
+  {
+    "start": 632,
+    "end": 634,
+    "bit": 0,
+    "proved_endpoint_bound": 2533
+  },
+  {
+    "start": 635,
+    "end": 635,
+    "bit": 1,
+    "proved_endpoint_bound": 1271
+  },
+  {
+    "start": 636,
+    "end": 637,
+    "bit": 0,
+    "proved_endpoint_bound": 2549
+  },
+  {
+    "start": 638,
+    "end": 638,
+    "bit": 1,
+    "proved_endpoint_bound": 1277
+  },
+  {
+    "start": 639,
+    "end": 645,
+    "bit": 0,
+    "proved_endpoint_bound": 2561
+  },
+  {
+    "start": 646,
+    "end": 647,
+    "bit": 1,
+    "proved_endpoint_bound": 1293
+  },
+  {
+    "start": 648,
+    "end": 648,
+    "bit": 0,
+    "proved_endpoint_bound": 2597
+  },
+  {
+    "start": 649,
+    "end": 651,
+    "bit": 1,
+    "proved_endpoint_bound": 1299
+  },
+  {
+    "start": 652,
+    "end": 652,
+    "bit": 0,
+    "proved_endpoint_bound": 2613
+  },
+  {
+    "start": 653,
+    "end": 653,
+    "bit": 1,
+    "proved_endpoint_bound": 1307
+  },
+  {
+    "start": 654,
+    "end": 655,
+    "bit": 0,
+    "proved_endpoint_bound": 2621
+  },
+  {
+    "start": 656,
+    "end": 657,
+    "bit": 1,
+    "proved_endpoint_bound": 1313
+  },
+  {
+    "start": 658,
+    "end": 659,
+    "bit": 0,
+    "proved_endpoint_bound": 2637
+  },
+  {
+    "start": 660,
+    "end": 660,
+    "bit": 1,
+    "proved_endpoint_bound": 1321
+  },
+  {
+    "start": 661,
+    "end": 662,
+    "bit": 0,
+    "proved_endpoint_bound": 2649
+  },
+  {
+    "start": 663,
+    "end": 665,
+    "bit": 1,
+    "proved_endpoint_bound": 1327
+  },
+  {
+    "start": 666,
+    "end": 672,
+    "bit": 0,
+    "proved_endpoint_bound": 2669
+  },
+  {
+    "start": 673,
+    "end": 674,
+    "bit": 1,
+    "proved_endpoint_bound": 1347
+  },
+  {
+    "start": 675,
+    "end": 675,
+    "bit": 0,
+    "proved_endpoint_bound": 2705
+  },
+  {
+    "start": 676,
+    "end": 680,
+    "bit": 1,
+    "proved_endpoint_bound": 1353
+  },
+  {
+    "start": 681,
+    "end": 681,
+    "bit": 0,
+    "proved_endpoint_bound": 2729
+  },
+  {
+    "start": 682,
+    "end": 682,
+    "bit": 1,
+    "proved_endpoint_bound": 1365
+  },
+  {
+    "start": 683,
+    "end": 684,
+    "bit": 0,
+    "proved_endpoint_bound": 2737
+  },
+  {
+    "start": 685,
+    "end": 685,
+    "bit": 1,
+    "proved_endpoint_bound": 1371
+  },
+  {
+    "start": 686,
+    "end": 686,
+    "bit": 0,
+    "proved_endpoint_bound": 2749
+  },
+  {
+    "start": 687,
+    "end": 687,
+    "bit": 1,
+    "proved_endpoint_bound": 1375
+  },
+  {
+    "start": 688,
+    "end": 691,
+    "bit": 0,
+    "proved_endpoint_bound": 2757
+  },
+  {
+    "start": 692,
+    "end": 695,
+    "bit": 1,
+    "proved_endpoint_bound": 1385
+  },
+  {
+    "start": 696,
+    "end": 696,
+    "bit": 0,
+    "proved_endpoint_bound": 2789
+  },
+  {
+    "start": 697,
+    "end": 698,
+    "bit": 1,
+    "proved_endpoint_bound": 1395
+  },
+  {
+    "start": 699,
+    "end": 701,
+    "bit": 0,
+    "proved_endpoint_bound": 2801
+  },
+  {
+    "start": 702,
+    "end": 704,
+    "bit": 1,
+    "proved_endpoint_bound": 1405
+  },
+  {
+    "start": 705,
+    "end": 705,
+    "bit": 0,
+    "proved_endpoint_bound": 2825
+  },
+  {
+    "start": 706,
+    "end": 706,
+    "bit": 1,
+    "proved_endpoint_bound": 1413
+  },
+  {
+    "start": 707,
+    "end": 710,
+    "bit": 0,
+    "proved_endpoint_bound": 2833
+  },
+  {
+    "start": 711,
+    "end": 711,
+    "bit": 1,
+    "proved_endpoint_bound": 1423
+  },
+  {
+    "start": 712,
+    "end": 712,
+    "bit": 0,
+    "proved_endpoint_bound": 2853
+  },
+  {
+    "start": 713,
+    "end": 714,
+    "bit": 1,
+    "proved_endpoint_bound": 1427
+  },
+  {
+    "start": 715,
+    "end": 718,
+    "bit": 0,
+    "proved_endpoint_bound": 2865
+  },
+  {
+    "start": 719,
+    "end": 719,
+    "bit": 1,
+    "proved_endpoint_bound": 1439
+  },
+  {
+    "start": 720,
+    "end": 722,
+    "bit": 0,
+    "proved_endpoint_bound": 2885
+  },
+  {
+    "start": 723,
+    "end": 726,
+    "bit": 1,
+    "proved_endpoint_bound": 1447
+  },
+  {
+    "start": 727,
+    "end": 727,
+    "bit": 0,
+    "proved_endpoint_bound": 2913
+  },
+  {
+    "start": 728,
+    "end": 728,
+    "bit": 1,
+    "proved_endpoint_bound": 1457
+  },
+  {
+    "start": 729,
+    "end": 731,
+    "bit": 0,
+    "proved_endpoint_bound": 2921
+  },
+  {
+    "start": 732,
+    "end": 732,
+    "bit": 1,
+    "proved_endpoint_bound": 1465
+  },
+  {
+    "start": 733,
+    "end": 733,
+    "bit": 0,
+    "proved_endpoint_bound": 2937
+  },
+  {
+    "start": 734,
+    "end": 734,
+    "bit": 1,
+    "proved_endpoint_bound": 1469
+  },
+  {
+    "start": 735,
+    "end": 739,
+    "bit": 0,
+    "proved_endpoint_bound": 2945
+  },
+  {
+    "start": 740,
+    "end": 740,
+    "bit": 1,
+    "proved_endpoint_bound": 1481
+  },
+  {
+    "start": 741,
+    "end": 741,
+    "bit": 0,
+    "proved_endpoint_bound": 2969
+  },
+  {
+    "start": 742,
+    "end": 743,
+    "bit": 1,
+    "proved_endpoint_bound": 1485
+  },
+  {
+    "start": 744,
+    "end": 744,
+    "bit": 0,
+    "proved_endpoint_bound": 2981
+  },
+  {
+    "start": 745,
+    "end": 746,
+    "bit": 1,
+    "proved_endpoint_bound": 1491
+  },
+  {
+    "start": 747,
+    "end": 750,
+    "bit": 0,
+    "proved_endpoint_bound": 2993
+  },
+  {
+    "start": 751,
+    "end": 752,
+    "bit": 1,
+    "proved_endpoint_bound": 1503
+  },
+  {
+    "start": 753,
+    "end": 755,
+    "bit": 0,
+    "proved_endpoint_bound": 3017
+  },
+  {
+    "start": 756,
+    "end": 757,
+    "bit": 1,
+    "proved_endpoint_bound": 1513
+  },
+  {
+    "start": 758,
+    "end": 758,
+    "bit": 0,
+    "proved_endpoint_bound": 3037
+  },
+  {
+    "start": 759,
+    "end": 759,
+    "bit": 1,
+    "proved_endpoint_bound": 1519
+  },
+  {
+    "start": 760,
+    "end": 760,
+    "bit": 0,
+    "proved_endpoint_bound": 3045
+  },
+  {
+    "start": 761,
+    "end": 764,
+    "bit": 1,
+    "proved_endpoint_bound": 1523
+  },
+  {
+    "start": 765,
+    "end": 766,
+    "bit": 0,
+    "proved_endpoint_bound": 3065
+  },
+  {
+    "start": 767,
+    "end": 767,
+    "bit": 1,
+    "proved_endpoint_bound": 1535
+  },
+  {
+    "start": 768,
+    "end": 768,
+    "bit": 0,
+    "proved_endpoint_bound": 3077
+  },
+  {
+    "start": 769,
+    "end": 769,
+    "bit": 1,
+    "proved_endpoint_bound": 1539
+  },
+  {
+    "start": 770,
+    "end": 770,
+    "bit": 0,
+    "proved_endpoint_bound": 3085
+  },
+  {
+    "start": 771,
+    "end": 774,
+    "bit": 1,
+    "proved_endpoint_bound": 1543
+  },
+  {
+    "start": 775,
+    "end": 775,
+    "bit": 0,
+    "proved_endpoint_bound": 3105
+  },
+  {
+    "start": 776,
+    "end": 776,
+    "bit": 1,
+    "proved_endpoint_bound": 1553
+  },
+  {
+    "start": 777,
+    "end": 777,
+    "bit": 0,
+    "proved_endpoint_bound": 3113
+  },
+  {
+    "start": 778,
+    "end": 778,
+    "bit": 1,
+    "proved_endpoint_bound": 1557
+  },
+  {
+    "start": 779,
+    "end": 780,
+    "bit": 0,
+    "proved_endpoint_bound": 3121
+  },
+  {
+    "start": 781,
+    "end": 781,
+    "bit": 1,
+    "proved_endpoint_bound": 1563
+  },
+  {
+    "start": 782,
+    "end": 786,
+    "bit": 0,
+    "proved_endpoint_bound": 3133
+  },
+  {
+    "start": 787,
+    "end": 789,
+    "bit": 1,
+    "proved_endpoint_bound": 1575
+  },
+  {
+    "start": 790,
+    "end": 793,
+    "bit": 0,
+    "proved_endpoint_bound": 3165
+  },
+  {
+    "start": 794,
+    "end": 796,
+    "bit": 1,
+    "proved_endpoint_bound": 1589
+  },
+  {
+    "start": 797,
+    "end": 805,
+    "bit": 0,
+    "proved_endpoint_bound": 3193
+  },
+  {
+    "start": 806,
+    "end": 807,
+    "bit": 1,
+    "proved_endpoint_bound": 1613
+  },
+  {
+    "start": 808,
+    "end": 808,
+    "bit": 0,
+    "proved_endpoint_bound": 3237
+  },
+  {
+    "start": 809,
+    "end": 814,
+    "bit": 1,
+    "proved_endpoint_bound": 1619
+  },
+  {
+    "start": 815,
+    "end": 816,
+    "bit": 0,
+    "proved_endpoint_bound": 3265
+  },
+  {
+    "start": 817,
+    "end": 817,
+    "bit": 1,
+    "proved_endpoint_bound": 1635
+  },
+  {
+    "start": 818,
+    "end": 819,
+    "bit": 0,
+    "proved_endpoint_bound": 3277
+  },
+  {
+    "start": 820,
+    "end": 822,
+    "bit": 1,
+    "proved_endpoint_bound": 1641
+  },
+  {
+    "start": 823,
+    "end": 823,
+    "bit": 0,
+    "proved_endpoint_bound": 3297
+  },
+  {
+    "start": 824,
+    "end": 824,
+    "bit": 1,
+    "proved_endpoint_bound": 1649
+  },
+  {
+    "start": 825,
+    "end": 828,
+    "bit": 0,
+    "proved_endpoint_bound": 3305
+  },
+  {
+    "start": 829,
+    "end": 829,
+    "bit": 1,
+    "proved_endpoint_bound": 1659
+  },
+  {
+    "start": 830,
+    "end": 831,
+    "bit": 0,
+    "proved_endpoint_bound": 3325
+  },
+  {
+    "start": 832,
+    "end": 834,
+    "bit": 1,
+    "proved_endpoint_bound": 1665
+  },
+  {
+    "start": 835,
+    "end": 838,
+    "bit": 0,
+    "proved_endpoint_bound": 3345
+  },
+  {
+    "start": 839,
+    "end": 839,
+    "bit": 1,
+    "proved_endpoint_bound": 1679
+  },
+  {
+    "start": 840,
+    "end": 840,
+    "bit": 0,
+    "proved_endpoint_bound": 3365
+  },
+  {
+    "start": 841,
+    "end": 841,
+    "bit": 1,
+    "proved_endpoint_bound": 1683
+  },
+  {
+    "start": 842,
+    "end": 847,
+    "bit": 0,
+    "proved_endpoint_bound": 3373
+  },
+  {
+    "start": 848,
+    "end": 848,
+    "bit": 1,
+    "proved_endpoint_bound": 1697
+  },
+  {
+    "start": 849,
+    "end": 850,
+    "bit": 0,
+    "proved_endpoint_bound": 3401
+  },
+  {
+    "start": 851,
+    "end": 854,
+    "bit": 1,
+    "proved_endpoint_bound": 1703
+  },
+  {
+    "start": 855,
+    "end": 859,
+    "bit": 0,
+    "proved_endpoint_bound": 3425
+  },
+  {
+    "start": 860,
+    "end": 861,
+    "bit": 1,
+    "proved_endpoint_bound": 1721
+  },
+  {
+    "start": 862,
+    "end": 863,
+    "bit": 0,
+    "proved_endpoint_bound": 3453
+  },
+  {
+    "start": 864,
+    "end": 864,
+    "bit": 1,
+    "proved_endpoint_bound": 1729
+  },
+  {
+    "start": 865,
+    "end": 865,
+    "bit": 0,
+    "proved_endpoint_bound": 3465
+  },
+  {
+    "start": 866,
+    "end": 867,
+    "bit": 1,
+    "proved_endpoint_bound": 1733
+  },
+  {
+    "start": 868,
+    "end": 869,
+    "bit": 0,
+    "proved_endpoint_bound": 3477
+  },
+  {
+    "start": 870,
+    "end": 874,
+    "bit": 1,
+    "proved_endpoint_bound": 1741
+  },
+  {
+    "start": 875,
+    "end": 875,
+    "bit": 0,
+    "proved_endpoint_bound": 3505
+  },
+  {
+    "start": 876,
+    "end": 878,
+    "bit": 1,
+    "proved_endpoint_bound": 1753
+  },
+  {
+    "start": 879,
+    "end": 885,
+    "bit": 0,
+    "proved_endpoint_bound": 3521
+  },
+  {
+    "start": 886,
+    "end": 886,
+    "bit": 1,
+    "proved_endpoint_bound": 1773
+  },
+  {
+    "start": 887,
+    "end": 888,
+    "bit": 0,
+    "proved_endpoint_bound": 3553
+  },
+  {
+    "start": 889,
+    "end": 889,
+    "bit": 1,
+    "proved_endpoint_bound": 1779
+  },
+  {
+    "start": 890,
+    "end": 890,
+    "bit": 0,
+    "proved_endpoint_bound": 3565
+  },
+  {
+    "start": 891,
+    "end": 896,
+    "bit": 1,
+    "proved_endpoint_bound": 1783
+  },
+  {
+    "start": 897,
+    "end": 898,
+    "bit": 0,
+    "proved_endpoint_bound": 3593
+  },
+  {
+    "start": 899,
+    "end": 899,
+    "bit": 1,
+    "proved_endpoint_bound": 1799
+  },
+  {
+    "start": 900,
+    "end": 904,
+    "bit": 0,
+    "proved_endpoint_bound": 3605
+  },
+  {
+    "start": 905,
+    "end": 905,
+    "bit": 1,
+    "proved_endpoint_bound": 1811
+  },
+  {
+    "start": 906,
+    "end": 907,
+    "bit": 0,
+    "proved_endpoint_bound": 3629
+  },
+  {
+    "start": 908,
+    "end": 908,
+    "bit": 1,
+    "proved_endpoint_bound": 1817
+  },
+  {
+    "start": 909,
+    "end": 911,
+    "bit": 0,
+    "proved_endpoint_bound": 3641
+  },
+  {
+    "start": 912,
+    "end": 912,
+    "bit": 1,
+    "proved_endpoint_bound": 1825
+  },
+  {
+    "start": 913,
+    "end": 913,
+    "bit": 0,
+    "proved_endpoint_bound": 3657
+  },
+  {
+    "start": 914,
+    "end": 914,
+    "bit": 1,
+    "proved_endpoint_bound": 1829
+  },
+  {
+    "start": 915,
+    "end": 915,
+    "bit": 0,
+    "proved_endpoint_bound": 3665
+  },
+  {
+    "start": 916,
+    "end": 917,
+    "bit": 1,
+    "proved_endpoint_bound": 1833
+  },
+  {
+    "start": 918,
+    "end": 918,
+    "bit": 0,
+    "proved_endpoint_bound": 3677
+  },
+  {
+    "start": 919,
+    "end": 919,
+    "bit": 1,
+    "proved_endpoint_bound": 1839
+  },
+  {
+    "start": 920,
+    "end": 920,
+    "bit": 0,
+    "proved_endpoint_bound": 3685
+  },
+  {
+    "start": 921,
+    "end": 921,
+    "bit": 1,
+    "proved_endpoint_bound": 1843
+  },
+  {
+    "start": 922,
+    "end": 922,
+    "bit": 0,
+    "proved_endpoint_bound": 3693
+  },
+  {
+    "start": 923,
+    "end": 923,
+    "bit": 1,
+    "proved_endpoint_bound": 1847
+  },
+  {
+    "start": 924,
+    "end": 924,
+    "bit": 0,
+    "proved_endpoint_bound": 3701
+  },
+  {
+    "start": 925,
+    "end": 925,
+    "bit": 1,
+    "proved_endpoint_bound": 1851
+  },
+  {
+    "start": 926,
+    "end": 927,
+    "bit": 0,
+    "proved_endpoint_bound": 3709
+  },
+  {
+    "start": 928,
+    "end": 928,
+    "bit": 1,
+    "proved_endpoint_bound": 1857
+  },
+  {
+    "start": 929,
+    "end": 929,
+    "bit": 0,
+    "proved_endpoint_bound": 3721
+  },
+  {
+    "start": 930,
+    "end": 933,
+    "bit": 1,
+    "proved_endpoint_bound": 1861
+  },
+  {
+    "start": 934,
+    "end": 935,
+    "bit": 0,
+    "proved_endpoint_bound": 3741
+  },
+  {
+    "start": 936,
+    "end": 936,
+    "bit": 1,
+    "proved_endpoint_bound": 1873
+  },
+  {
+    "start": 937,
+    "end": 938,
+    "bit": 0,
+    "proved_endpoint_bound": 3753
+  },
+  {
+    "start": 939,
+    "end": 939,
+    "bit": 1,
+    "proved_endpoint_bound": 1879
+  },
+  {
+    "start": 940,
+    "end": 940,
+    "bit": 0,
+    "proved_endpoint_bound": 3765
+  },
+  {
+    "start": 941,
+    "end": 941,
+    "bit": 1,
+    "proved_endpoint_bound": 1883
+  },
+  {
+    "start": 942,
+    "end": 942,
+    "bit": 0,
+    "proved_endpoint_bound": 3773
+  },
+  {
+    "start": 943,
+    "end": 945,
+    "bit": 1,
+    "proved_endpoint_bound": 1887
+  },
+  {
+    "start": 946,
+    "end": 946,
+    "bit": 0,
+    "proved_endpoint_bound": 3789
+  },
+  {
+    "start": 947,
+    "end": 951,
+    "bit": 1,
+    "proved_endpoint_bound": 1895
+  },
+  {
+    "start": 952,
+    "end": 952,
+    "bit": 0,
+    "proved_endpoint_bound": 3813
+  },
+  {
+    "start": 953,
+    "end": 953,
+    "bit": 1,
+    "proved_endpoint_bound": 1907
+  },
+  {
+    "start": 954,
+    "end": 955,
+    "bit": 0,
+    "proved_endpoint_bound": 3821
+  },
+  {
+    "start": 956,
+    "end": 961,
+    "bit": 1,
+    "proved_endpoint_bound": 1913
+  },
+  {
+    "start": 962,
+    "end": 963,
+    "bit": 0,
+    "proved_endpoint_bound": 3853
+  },
+  {
+    "start": 964,
+    "end": 965,
+    "bit": 1,
+    "proved_endpoint_bound": 1929
+  },
+  {
+    "start": 966,
+    "end": 967,
+    "bit": 0,
+    "proved_endpoint_bound": 3869
+  },
+  {
+    "start": 968,
+    "end": 968,
+    "bit": 1,
+    "proved_endpoint_bound": 1937
+  },
+  {
+    "start": 969,
+    "end": 971,
+    "bit": 0,
+    "proved_endpoint_bound": 3881
+  },
+  {
+    "start": 972,
+    "end": 972,
+    "bit": 1,
+    "proved_endpoint_bound": 1945
+  },
+  {
+    "start": 973,
+    "end": 974,
+    "bit": 0,
+    "proved_endpoint_bound": 3897
+  },
+  {
+    "start": 975,
+    "end": 975,
+    "bit": 1,
+    "proved_endpoint_bound": 1951
+  },
+  {
+    "start": 976,
+    "end": 976,
+    "bit": 0,
+    "proved_endpoint_bound": 3909
+  },
+  {
+    "start": 977,
+    "end": 977,
+    "bit": 1,
+    "proved_endpoint_bound": 1955
+  },
+  {
+    "start": 978,
+    "end": 983,
+    "bit": 0,
+    "proved_endpoint_bound": 3917
+  },
+  {
+    "start": 984,
+    "end": 985,
+    "bit": 1,
+    "proved_endpoint_bound": 1969
+  },
+  {
+    "start": 986,
+    "end": 986,
+    "bit": 0,
+    "proved_endpoint_bound": 3949
+  },
+  {
+    "start": 987,
+    "end": 988,
+    "bit": 1,
+    "proved_endpoint_bound": 1975
+  },
+  {
+    "start": 989,
+    "end": 989,
+    "bit": 0,
+    "proved_endpoint_bound": 3961
+  },
+  {
+    "start": 990,
+    "end": 990,
+    "bit": 1,
+    "proved_endpoint_bound": 1981
+  },
+  {
+    "start": 991,
+    "end": 993,
+    "bit": 0,
+    "proved_endpoint_bound": 3969
+  },
+  {
+    "start": 994,
+    "end": 997,
+    "bit": 1,
+    "proved_endpoint_bound": 1989
+  },
+  {
+    "start": 998,
+    "end": 998,
+    "bit": 0,
+    "proved_endpoint_bound": 3997
+  },
+  {
+    "start": 999,
+    "end": 999,
+    "bit": 1,
+    "proved_endpoint_bound": 1999
+  },
+  {
+    "start": 1000,
+    "end": 1003,
+    "bit": 0,
+    "proved_endpoint_bound": 4005
+  },
+  {
+    "start": 1004,
+    "end": 1009,
+    "bit": 1,
+    "proved_endpoint_bound": 2009
+  },
+  {
+    "start": 1010,
+    "end": 1013,
+    "bit": 0,
+    "proved_endpoint_bound": 4045
+  },
+  {
+    "start": 1014,
+    "end": 1014,
+    "bit": 1,
+    "proved_endpoint_bound": 2029
+  },
+  {
+    "start": 1015,
+    "end": 1016,
+    "bit": 0,
+    "proved_endpoint_bound": 4065
+  },
+  {
+    "start": 1017,
+    "end": 1017,
+    "bit": 1,
+    "proved_endpoint_bound": 2035
+  },
+  {
+    "start": 1018,
+    "end": 1020,
+    "bit": 0,
+    "proved_endpoint_bound": 4077
+  },
+  {
+    "start": 1021,
+    "end": 1021,
+    "bit": 1,
+    "proved_endpoint_bound": 2043
+  },
+  {
+    "start": 1022,
+    "end": 1023,
+    "bit": 0,
+    "proved_endpoint_bound": 4093
+  },
+  {
+    "start": 1024,
+    "end": 1024,
+    "bit": 1,
+    "proved_endpoint_bound": 2049
+  },
+  {
+    "start": 1025,
+    "end": 1033,
+    "bit": 0,
+    "proved_endpoint_bound": 4105
+  },
+  {
+    "start": 1034,
+    "end": 1036,
+    "bit": 1,
+    "proved_endpoint_bound": 2069
+  },
+  {
+    "start": 1037,
+    "end": 1041,
+    "bit": 0,
+    "proved_endpoint_bound": 4153
+  },
+  {
+    "start": 1042,
+    "end": 1044,
+    "bit": 1,
+    "proved_endpoint_bound": 2085
+  },
+  {
+    "start": 1045,
+    "end": 1045,
+    "bit": 0,
+    "proved_endpoint_bound": 4185
+  },
+  {
+    "start": 1046,
+    "end": 1046,
+    "bit": 1,
+    "proved_endpoint_bound": 2093
+  },
+  {
+    "start": 1047,
+    "end": 1047,
+    "bit": 0,
+    "proved_endpoint_bound": 4193
+  },
+  {
+    "start": 1048,
+    "end": 1048,
+    "bit": 1,
+    "proved_endpoint_bound": 2097
+  },
+  {
+    "start": 1049,
+    "end": 1052,
+    "bit": 0,
+    "proved_endpoint_bound": 4201
+  },
+  {
+    "start": 1053,
+    "end": 1061,
+    "bit": 1,
+    "proved_endpoint_bound": 2107
+  },
+  {
+    "start": 1062,
+    "end": 1064,
+    "bit": 0,
+    "proved_endpoint_bound": 4253
+  },
+  {
+    "start": 1065,
+    "end": 1066,
+    "bit": 1,
+    "proved_endpoint_bound": 2131
+  },
+  {
+    "start": 1067,
+    "end": 1070,
+    "bit": 0,
+    "proved_endpoint_bound": 4273
+  },
+  {
+    "start": 1071,
+    "end": 1071,
+    "bit": 1,
+    "proved_endpoint_bound": 2143
+  },
+  {
+    "start": 1072,
+    "end": 1073,
+    "bit": 0,
+    "proved_endpoint_bound": 4293
+  },
+  {
+    "start": 1074,
+    "end": 1077,
+    "bit": 1,
+    "proved_endpoint_bound": 2149
+  },
+  {
+    "start": 1078,
+    "end": 1078,
+    "bit": 0,
+    "proved_endpoint_bound": 4317
+  },
+  {
+    "start": 1079,
+    "end": 1079,
+    "bit": 1,
+    "proved_endpoint_bound": 2159
+  },
+  {
+    "start": 1080,
+    "end": 1083,
+    "bit": 0,
+    "proved_endpoint_bound": 4325
+  },
+  {
+    "start": 1084,
+    "end": 1087,
+    "bit": 1,
+    "proved_endpoint_bound": 2169
+  },
+  {
+    "start": 1088,
+    "end": 1088,
+    "bit": 0,
+    "proved_endpoint_bound": 4357
+  },
+  {
+    "start": 1089,
+    "end": 1091,
+    "bit": 1,
+    "proved_endpoint_bound": 2179
+  },
+  {
+    "start": 1092,
+    "end": 1092,
+    "bit": 0,
+    "proved_endpoint_bound": 4373
+  },
+  {
+    "start": 1093,
+    "end": 1095,
+    "bit": 1,
+    "proved_endpoint_bound": 2187
+  },
+  {
+    "start": 1096,
+    "end": 1096,
+    "bit": 0,
+    "proved_endpoint_bound": 4389
+  },
+  {
+    "start": 1097,
+    "end": 1097,
+    "bit": 1,
+    "proved_endpoint_bound": 2195
+  },
+  {
+    "start": 1098,
+    "end": 1101,
+    "bit": 0,
+    "proved_endpoint_bound": 4397
+  },
+  {
+    "start": 1102,
+    "end": 1104,
+    "bit": 1,
+    "proved_endpoint_bound": 2205
+  },
+  {
+    "start": 1105,
+    "end": 1109,
+    "bit": 0,
+    "proved_endpoint_bound": 4425
+  },
+  {
+    "start": 1110,
+    "end": 1111,
+    "bit": 1,
+    "proved_endpoint_bound": 2221
+  },
+  {
+    "start": 1112,
+    "end": 1113,
+    "bit": 0,
+    "proved_endpoint_bound": 4453
+  },
+  {
+    "start": 1114,
+    "end": 1116,
+    "bit": 1,
+    "proved_endpoint_bound": 2229
+  },
+  {
+    "start": 1117,
+    "end": 1119,
+    "bit": 0,
+    "proved_endpoint_bound": 4473
+  },
+  {
+    "start": 1120,
+    "end": 1120,
+    "bit": 1,
+    "proved_endpoint_bound": 2241
+  },
+  {
+    "start": 1121,
+    "end": 1124,
+    "bit": 0,
+    "proved_endpoint_bound": 4489
+  },
+  {
+    "start": 1125,
+    "end": 1125,
+    "bit": 1,
+    "proved_endpoint_bound": 2251
+  },
+  {
+    "start": 1126,
+    "end": 1128,
+    "bit": 0,
+    "proved_endpoint_bound": 4509
+  },
+  {
+    "start": 1129,
+    "end": 1129,
+    "bit": 1,
+    "proved_endpoint_bound": 2259
+  },
+  {
+    "start": 1130,
+    "end": 1130,
+    "bit": 0,
+    "proved_endpoint_bound": 4525
+  },
+  {
+    "start": 1131,
+    "end": 1136,
+    "bit": 1,
+    "proved_endpoint_bound": 2263
+  },
+  {
+    "start": 1137,
+    "end": 1137,
+    "bit": 0,
+    "proved_endpoint_bound": 4553
+  },
+  {
+    "start": 1138,
+    "end": 1138,
+    "bit": 1,
+    "proved_endpoint_bound": 2277
+  },
+  {
+    "start": 1139,
+    "end": 1139,
+    "bit": 0,
+    "proved_endpoint_bound": 4561
+  },
+  {
+    "start": 1140,
+    "end": 1143,
+    "bit": 1,
+    "proved_endpoint_bound": 2281
+  },
+  {
+    "start": 1144,
+    "end": 1144,
+    "bit": 0,
+    "proved_endpoint_bound": 4581
+  },
+  {
+    "start": 1145,
+    "end": 1148,
+    "bit": 1,
+    "proved_endpoint_bound": 2291
+  },
+  {
+    "start": 1149,
+    "end": 1151,
+    "bit": 0,
+    "proved_endpoint_bound": 4601
+  },
+  {
+    "start": 1152,
+    "end": 1152,
+    "bit": 1,
+    "proved_endpoint_bound": 2305
+  },
+  {
+    "start": 1153,
+    "end": 1153,
+    "bit": 0,
+    "proved_endpoint_bound": 4617
+  },
+  {
+    "start": 1154,
+    "end": 1156,
+    "bit": 1,
+    "proved_endpoint_bound": 2309
+  },
+  {
+    "start": 1157,
+    "end": 1158,
+    "bit": 0,
+    "proved_endpoint_bound": 4633
+  },
+  {
+    "start": 1159,
+    "end": 1159,
+    "bit": 1,
+    "proved_endpoint_bound": 2319
+  },
+  {
+    "start": 1160,
+    "end": 1160,
+    "bit": 0,
+    "proved_endpoint_bound": 4645
+  },
+  {
+    "start": 1161,
+    "end": 1161,
+    "bit": 1,
+    "proved_endpoint_bound": 2323
+  },
+  {
+    "start": 1162,
+    "end": 1163,
+    "bit": 0,
+    "proved_endpoint_bound": 4653
+  },
+  {
+    "start": 1164,
+    "end": 1165,
+    "bit": 1,
+    "proved_endpoint_bound": 2329
+  },
+  {
+    "start": 1166,
+    "end": 1168,
+    "bit": 0,
+    "proved_endpoint_bound": 4669
+  },
+  {
+    "start": 1169,
+    "end": 1169,
+    "bit": 1,
+    "proved_endpoint_bound": 2339
+  },
+  {
+    "start": 1170,
+    "end": 1170,
+    "bit": 0,
+    "proved_endpoint_bound": 4685
+  },
+  {
+    "start": 1171,
+    "end": 1172,
+    "bit": 1,
+    "proved_endpoint_bound": 2343
+  },
+  {
+    "start": 1173,
+    "end": 1174,
+    "bit": 0,
+    "proved_endpoint_bound": 4697
+  },
+  {
+    "start": 1175,
+    "end": 1176,
+    "bit": 1,
+    "proved_endpoint_bound": 2351
+  },
+  {
+    "start": 1177,
+    "end": 1179,
+    "bit": 0,
+    "proved_endpoint_bound": 4713
+  },
+  {
+    "start": 1180,
+    "end": 1180,
+    "bit": 1,
+    "proved_endpoint_bound": 2361
+  },
+  {
+    "start": 1181,
+    "end": 1181,
+    "bit": 0,
+    "proved_endpoint_bound": 4729
+  },
+  {
+    "start": 1182,
+    "end": 1183,
+    "bit": 1,
+    "proved_endpoint_bound": 2365
+  },
+  {
+    "start": 1184,
+    "end": 1184,
+    "bit": 0,
+    "proved_endpoint_bound": 4741
+  },
+  {
+    "start": 1185,
+    "end": 1187,
+    "bit": 1,
+    "proved_endpoint_bound": 2371
+  },
+  {
+    "start": 1188,
+    "end": 1193,
+    "bit": 0,
+    "proved_endpoint_bound": 4757
+  },
+  {
+    "start": 1194,
+    "end": 1195,
+    "bit": 1,
+    "proved_endpoint_bound": 2389
+  },
+  {
+    "start": 1196,
+    "end": 1196,
+    "bit": 0,
+    "proved_endpoint_bound": 4789
+  },
+  {
+    "start": 1197,
+    "end": 1198,
+    "bit": 1,
+    "proved_endpoint_bound": 2395
+  },
+  {
+    "start": 1199,
+    "end": 1200,
+    "bit": 0,
+    "proved_endpoint_bound": 4801
+  },
+  {
+    "start": 1201,
+    "end": 1201,
+    "bit": 1,
+    "proved_endpoint_bound": 2403
+  },
+  {
+    "start": 1202,
+    "end": 1202,
+    "bit": 0,
+    "proved_endpoint_bound": 4813
+  },
+  {
+    "start": 1203,
+    "end": 1204,
+    "bit": 1,
+    "proved_endpoint_bound": 2407
+  },
+  {
+    "start": 1205,
+    "end": 1206,
+    "bit": 0,
+    "proved_endpoint_bound": 4825
+  },
+  {
+    "start": 1207,
+    "end": 1210,
+    "bit": 1,
+    "proved_endpoint_bound": 2415
+  },
+  {
+    "start": 1211,
+    "end": 1211,
+    "bit": 0,
+    "proved_endpoint_bound": 4849
+  },
+  {
+    "start": 1212,
+    "end": 1213,
+    "bit": 1,
+    "proved_endpoint_bound": 2425
+  },
+  {
+    "start": 1214,
+    "end": 1215,
+    "bit": 0,
+    "proved_endpoint_bound": 4861
+  },
+  {
+    "start": 1216,
+    "end": 1217,
+    "bit": 1,
+    "proved_endpoint_bound": 2433
+  },
+  {
+    "start": 1218,
+    "end": 1219,
+    "bit": 0,
+    "proved_endpoint_bound": 4877
+  },
+  {
+    "start": 1220,
+    "end": 1220,
+    "bit": 1,
+    "proved_endpoint_bound": 2441
+  },
+  {
+    "start": 1221,
+    "end": 1221,
+    "bit": 0,
+    "proved_endpoint_bound": 4889
+  },
+  {
+    "start": 1222,
+    "end": 1222,
+    "bit": 1,
+    "proved_endpoint_bound": 2445
+  },
+  {
+    "start": 1223,
+    "end": 1224,
+    "bit": 0,
+    "proved_endpoint_bound": 4897
+  },
+  {
+    "start": 1225,
+    "end": 1226,
+    "bit": 1,
+    "proved_endpoint_bound": 2451
+  },
+  {
+    "start": 1227,
+    "end": 1227,
+    "bit": 0,
+    "proved_endpoint_bound": 4913
+  },
+  {
+    "start": 1228,
+    "end": 1231,
+    "bit": 1,
+    "proved_endpoint_bound": 2457
+  },
+  {
+    "start": 1232,
+    "end": 1232,
+    "bit": 0,
+    "proved_endpoint_bound": 4933
+  },
+  {
+    "start": 1233,
+    "end": 1233,
+    "bit": 1,
+    "proved_endpoint_bound": 2467
+  },
+  {
+    "start": 1234,
+    "end": 1234,
+    "bit": 0,
+    "proved_endpoint_bound": 4941
+  },
+  {
+    "start": 1235,
+    "end": 1236,
+    "bit": 1,
+    "proved_endpoint_bound": 2471
+  },
+  {
+    "start": 1237,
+    "end": 1237,
+    "bit": 0,
+    "proved_endpoint_bound": 4953
+  },
+  {
+    "start": 1238,
+    "end": 1240,
+    "bit": 1,
+    "proved_endpoint_bound": 2477
+  },
+  {
+    "start": 1241,
+    "end": 1241,
+    "bit": 0,
+    "proved_endpoint_bound": 4969
+  },
+  {
+    "start": 1242,
+    "end": 1245,
+    "bit": 1,
+    "proved_endpoint_bound": 2485
+  },
+  {
+    "start": 1246,
+    "end": 1247,
+    "bit": 0,
+    "proved_endpoint_bound": 4989
+  },
+  {
+    "start": 1248,
+    "end": 1251,
+    "bit": 1,
+    "proved_endpoint_bound": 2497
+  },
+  {
+    "start": 1252,
+    "end": 1254,
+    "bit": 0,
+    "proved_endpoint_bound": 5013
+  },
+  {
+    "start": 1255,
+    "end": 1257,
+    "bit": 1,
+    "proved_endpoint_bound": 2511
+  },
+  {
+    "start": 1258,
+    "end": 1258,
+    "bit": 0,
+    "proved_endpoint_bound": 5037
+  },
+  {
+    "start": 1259,
+    "end": 1260,
+    "bit": 1,
+    "proved_endpoint_bound": 2519
+  },
+  {
+    "start": 1261,
+    "end": 1261,
+    "bit": 0,
+    "proved_endpoint_bound": 5049
+  },
+  {
+    "start": 1262,
+    "end": 1262,
+    "bit": 1,
+    "proved_endpoint_bound": 2525
+  },
+  {
+    "start": 1263,
+    "end": 1265,
+    "bit": 0,
+    "proved_endpoint_bound": 5057
+  },
+  {
+    "start": 1266,
+    "end": 1268,
+    "bit": 1,
+    "proved_endpoint_bound": 2533
+  },
+  {
+    "start": 1269,
+    "end": 1280,
+    "bit": 0,
+    "proved_endpoint_bound": 5081
+  },
+  {
+    "start": 1281,
+    "end": 1281,
+    "bit": 1,
+    "proved_endpoint_bound": 2563
+  },
+  {
+    "start": 1282,
+    "end": 1282,
+    "bit": 0,
+    "proved_endpoint_bound": 5133
+  },
+  {
+    "start": 1283,
+    "end": 1285,
+    "bit": 1,
+    "proved_endpoint_bound": 2567
+  },
+  {
+    "start": 1286,
+    "end": 1287,
+    "bit": 0,
+    "proved_endpoint_bound": 5149
+  },
+  {
+    "start": 1288,
+    "end": 1288,
+    "bit": 1,
+    "proved_endpoint_bound": 2577
+  },
+  {
+    "start": 1289,
+    "end": 1290,
+    "bit": 0,
+    "proved_endpoint_bound": 5161
+  },
+  {
+    "start": 1291,
+    "end": 1293,
+    "bit": 1,
+    "proved_endpoint_bound": 2583
+  },
+  {
+    "start": 1294,
+    "end": 1294,
+    "bit": 0,
+    "proved_endpoint_bound": 5181
+  },
+  {
+    "start": 1295,
+    "end": 1298,
+    "bit": 1,
+    "proved_endpoint_bound": 2591
+  },
+  {
+    "start": 1299,
+    "end": 1299,
+    "bit": 0,
+    "proved_endpoint_bound": 5201
+  },
+  {
+    "start": 1300,
+    "end": 1301,
+    "bit": 1,
+    "proved_endpoint_bound": 2601
+  },
+  {
+    "start": 1302,
+    "end": 1305,
+    "bit": 0,
+    "proved_endpoint_bound": 5213
+  },
+  {
+    "start": 1306,
+    "end": 1307,
+    "bit": 1,
+    "proved_endpoint_bound": 2613
+  },
+  {
+    "start": 1308,
+    "end": 1308,
+    "bit": 0,
+    "proved_endpoint_bound": 5237
+  },
+  {
+    "start": 1309,
+    "end": 1310,
+    "bit": 1,
+    "proved_endpoint_bound": 2619
+  },
+  {
+    "start": 1311,
+    "end": 1312,
+    "bit": 0,
+    "proved_endpoint_bound": 5249
+  },
+  {
+    "start": 1313,
+    "end": 1313,
+    "bit": 1,
+    "proved_endpoint_bound": 2627
+  },
+  {
+    "start": 1314,
+    "end": 1316,
+    "bit": 0,
+    "proved_endpoint_bound": 5261
+  },
+  {
+    "start": 1317,
+    "end": 1317,
+    "bit": 1,
+    "proved_endpoint_bound": 2635
+  },
+  {
+    "start": 1318,
+    "end": 1320,
+    "bit": 0,
+    "proved_endpoint_bound": 5277
+  },
+  {
+    "start": 1321,
+    "end": 1321,
+    "bit": 1,
+    "proved_endpoint_bound": 2643
+  },
+  {
+    "start": 1322,
+    "end": 1323,
+    "bit": 0,
+    "proved_endpoint_bound": 5293
+  },
+  {
+    "start": 1324,
+    "end": 1326,
+    "bit": 1,
+    "proved_endpoint_bound": 2649
+  },
+  {
+    "start": 1327,
+    "end": 1331,
+    "bit": 0,
+    "proved_endpoint_bound": 5313
+  },
+  {
+    "start": 1332,
+    "end": 1332,
+    "bit": 1,
+    "proved_endpoint_bound": 2665
+  },
+  {
+    "start": 1333,
+    "end": 1333,
+    "bit": 0,
+    "proved_endpoint_bound": 5337
+  },
+  {
+    "start": 1334,
+    "end": 1334,
+    "bit": 1,
+    "proved_endpoint_bound": 2669
+  },
+  {
+    "start": 1335,
+    "end": 1335,
+    "bit": 0,
+    "proved_endpoint_bound": 5345
+  },
+  {
+    "start": 1336,
+    "end": 1336,
+    "bit": 1,
+    "proved_endpoint_bound": 2673
+  },
+  {
+    "start": 1337,
+    "end": 1337,
+    "bit": 0,
+    "proved_endpoint_bound": 5353
+  },
+  {
+    "start": 1338,
+    "end": 1338,
+    "bit": 1,
+    "proved_endpoint_bound": 2677
+  },
+  {
+    "start": 1339,
+    "end": 1341,
+    "bit": 0,
+    "proved_endpoint_bound": 5361
+  },
+  {
+    "start": 1342,
+    "end": 1343,
+    "bit": 1,
+    "proved_endpoint_bound": 2685
+  },
+  {
+    "start": 1344,
+    "end": 1346,
+    "bit": 0,
+    "proved_endpoint_bound": 5381
+  },
+  {
+    "start": 1347,
+    "end": 1347,
+    "bit": 1,
+    "proved_endpoint_bound": 2695
+  },
+  {
+    "start": 1348,
+    "end": 1354,
+    "bit": 0,
+    "proved_endpoint_bound": 5397
+  },
+  {
+    "start": 1355,
+    "end": 1355,
+    "bit": 1,
+    "proved_endpoint_bound": 2711
+  },
+  {
+    "start": 1356,
+    "end": 1360,
+    "bit": 0,
+    "proved_endpoint_bound": 5429
+  },
+  {
+    "start": 1361,
+    "end": 1361,
+    "bit": 1,
+    "proved_endpoint_bound": 2723
+  },
+  {
+    "start": 1362,
+    "end": 1369,
+    "bit": 0,
+    "proved_endpoint_bound": 5453
+  },
+  {
+    "start": 1370,
+    "end": 1370,
+    "bit": 1,
+    "proved_endpoint_bound": 2741
+  },
+  {
+    "start": 1371,
+    "end": 1371,
+    "bit": 0,
+    "proved_endpoint_bound": 5489
+  },
+  {
+    "start": 1372,
+    "end": 1373,
+    "bit": 1,
+    "proved_endpoint_bound": 2745
+  },
+  {
+    "start": 1374,
+    "end": 1374,
+    "bit": 0,
+    "proved_endpoint_bound": 5501
+  },
+  {
+    "start": 1375,
+    "end": 1375,
+    "bit": 1,
+    "proved_endpoint_bound": 2751
+  },
+  {
+    "start": 1376,
+    "end": 1376,
+    "bit": 0,
+    "proved_endpoint_bound": 5509
+  },
+  {
+    "start": 1377,
+    "end": 1377,
+    "bit": 1,
+    "proved_endpoint_bound": 2755
+  },
+  {
+    "start": 1378,
+    "end": 1378,
+    "bit": 0,
+    "proved_endpoint_bound": 5517
+  },
+  {
+    "start": 1379,
+    "end": 1383,
+    "bit": 1,
+    "proved_endpoint_bound": 2759
+  },
+  {
+    "start": 1384,
+    "end": 1389,
+    "bit": 0,
+    "proved_endpoint_bound": 5541
+  },
+  {
+    "start": 1390,
+    "end": 1391,
+    "bit": 1,
+    "proved_endpoint_bound": 2781
+  },
+  {
+    "start": 1392,
+    "end": 1394,
+    "bit": 0,
+    "proved_endpoint_bound": 5573
+  },
+  {
+    "start": 1395,
+    "end": 1396,
+    "bit": 1,
+    "proved_endpoint_bound": 2791
+  },
+  {
+    "start": 1397,
+    "end": 1397,
+    "bit": 0,
+    "proved_endpoint_bound": 5593
+  },
+  {
+    "start": 1398,
+    "end": 1398,
+    "bit": 1,
+    "proved_endpoint_bound": 2797
+  },
+  {
+    "start": 1399,
+    "end": 1399,
+    "bit": 0,
+    "proved_endpoint_bound": 5601
+  },
+  {
+    "start": 1400,
+    "end": 1400,
+    "bit": 1,
+    "proved_endpoint_bound": 2801
+  },
+  {
+    "start": 1401,
+    "end": 1401,
+    "bit": 0,
+    "proved_endpoint_bound": 5609
+  },
+  {
+    "start": 1402,
+    "end": 1402,
+    "bit": 1,
+    "proved_endpoint_bound": 2805
+  },
+  {
+    "start": 1403,
+    "end": 1404,
+    "bit": 0,
+    "proved_endpoint_bound": 5617
+  },
+  {
+    "start": 1405,
+    "end": 1406,
+    "bit": 1,
+    "proved_endpoint_bound": 2811
+  },
+  {
+    "start": 1407,
+    "end": 1409,
+    "bit": 0,
+    "proved_endpoint_bound": 5633
+  },
+  {
+    "start": 1410,
+    "end": 1410,
+    "bit": 1,
+    "proved_endpoint_bound": 2821
+  },
+  {
+    "start": 1411,
+    "end": 1411,
+    "bit": 0,
+    "proved_endpoint_bound": 5649
+  },
+  {
+    "start": 1412,
+    "end": 1413,
+    "bit": 1,
+    "proved_endpoint_bound": 2825
+  },
+  {
+    "start": 1414,
+    "end": 1414,
+    "bit": 0,
+    "proved_endpoint_bound": 5661
+  },
+  {
+    "start": 1415,
+    "end": 1417,
+    "bit": 1,
+    "proved_endpoint_bound": 2831
+  },
+  {
+    "start": 1418,
+    "end": 1418,
+    "bit": 0,
+    "proved_endpoint_bound": 5677
+  },
+  {
+    "start": 1419,
+    "end": 1419,
+    "bit": 1,
+    "proved_endpoint_bound": 2839
+  },
+  {
+    "start": 1420,
+    "end": 1422,
+    "bit": 0,
+    "proved_endpoint_bound": 5685
+  },
+  {
+    "start": 1423,
+    "end": 1424,
+    "bit": 1,
+    "proved_endpoint_bound": 2847
+  },
+  {
+    "start": 1425,
+    "end": 1425,
+    "bit": 0,
+    "proved_endpoint_bound": 5705
+  },
+  {
+    "start": 1426,
+    "end": 1426,
+    "bit": 1,
+    "proved_endpoint_bound": 2853
+  },
+  {
+    "start": 1427,
+    "end": 1429,
+    "bit": 0,
+    "proved_endpoint_bound": 5713
+  },
+  {
+    "start": 1430,
+    "end": 1430,
+    "bit": 1,
+    "proved_endpoint_bound": 2861
+  },
+  {
+    "start": 1431,
+    "end": 1432,
+    "bit": 0,
+    "proved_endpoint_bound": 5729
+  },
+  {
+    "start": 1433,
+    "end": 1435,
+    "bit": 1,
+    "proved_endpoint_bound": 2867
+  },
+  {
+    "start": 1436,
+    "end": 1437,
+    "bit": 0,
+    "proved_endpoint_bound": 5749
+  },
+  {
+    "start": 1438,
+    "end": 1439,
+    "bit": 1,
+    "proved_endpoint_bound": 2877
+  },
+  {
+    "start": 1440,
+    "end": 1441,
+    "bit": 0,
+    "proved_endpoint_bound": 5765
+  },
+  {
+    "start": 1442,
+    "end": 1442,
+    "bit": 1,
+    "proved_endpoint_bound": 2885
+  },
+  {
+    "start": 1443,
+    "end": 1446,
+    "bit": 0,
+    "proved_endpoint_bound": 5777
+  },
+  {
+    "start": 1447,
+    "end": 1448,
+    "bit": 1,
+    "proved_endpoint_bound": 2895
+  },
+  {
+    "start": 1449,
+    "end": 1453,
+    "bit": 0,
+    "proved_endpoint_bound": 5801
+  },
+  {
+    "start": 1454,
+    "end": 1455,
+    "bit": 1,
+    "proved_endpoint_bound": 2909
+  },
+  {
+    "start": 1456,
+    "end": 1461,
+    "bit": 0,
+    "proved_endpoint_bound": 5829
+  },
+  {
+    "start": 1462,
+    "end": 1464,
+    "bit": 1,
+    "proved_endpoint_bound": 2925
+  },
+  {
+    "start": 1465,
+    "end": 1466,
+    "bit": 0,
+    "proved_endpoint_bound": 5865
+  },
+  {
+    "start": 1467,
+    "end": 1467,
+    "bit": 1,
+    "proved_endpoint_bound": 2935
+  },
+  {
+    "start": 1468,
+    "end": 1468,
+    "bit": 0,
+    "proved_endpoint_bound": 5877
+  },
+  {
+    "start": 1469,
+    "end": 1471,
+    "bit": 1,
+    "proved_endpoint_bound": 2939
+  },
+  {
+    "start": 1472,
+    "end": 1472,
+    "bit": 0,
+    "proved_endpoint_bound": 5893
+  },
+  {
+    "start": 1473,
+    "end": 1473,
+    "bit": 1,
+    "proved_endpoint_bound": 2947
+  },
+  {
+    "start": 1474,
+    "end": 1474,
+    "bit": 0,
+    "proved_endpoint_bound": 5901
+  },
+  {
+    "start": 1475,
+    "end": 1476,
+    "bit": 1,
+    "proved_endpoint_bound": 2951
+  },
+  {
+    "start": 1477,
+    "end": 1479,
+    "bit": 0,
+    "proved_endpoint_bound": 5913
+  },
+  {
+    "start": 1480,
+    "end": 1486,
+    "bit": 1,
+    "proved_endpoint_bound": 2961
+  },
+  {
+    "start": 1487,
+    "end": 1487,
+    "bit": 0,
+    "proved_endpoint_bound": 5953
+  },
+  {
+    "start": 1488,
+    "end": 1493,
+    "bit": 1,
+    "proved_endpoint_bound": 2977
+  },
+  {
+    "start": 1494,
+    "end": 1494,
+    "bit": 0,
+    "proved_endpoint_bound": 5981
+  },
+  {
+    "start": 1495,
+    "end": 1496,
+    "bit": 1,
+    "proved_endpoint_bound": 2991
+  },
+  {
+    "start": 1497,
+    "end": 1498,
+    "bit": 0,
+    "proved_endpoint_bound": 5993
+  },
+  {
+    "start": 1499,
+    "end": 1504,
+    "bit": 1,
+    "proved_endpoint_bound": 2999
+  },
+  {
+    "start": 1505,
+    "end": 1505,
+    "bit": 0,
+    "proved_endpoint_bound": 6025
+  },
+  {
+    "start": 1506,
+    "end": 1506,
+    "bit": 1,
+    "proved_endpoint_bound": 3013
+  },
+  {
+    "start": 1507,
+    "end": 1507,
+    "bit": 0,
+    "proved_endpoint_bound": 6033
+  },
+  {
+    "start": 1508,
+    "end": 1508,
+    "bit": 1,
+    "proved_endpoint_bound": 3017
+  },
+  {
+    "start": 1509,
+    "end": 1509,
+    "bit": 0,
+    "proved_endpoint_bound": 6041
+  },
+  {
+    "start": 1510,
+    "end": 1510,
+    "bit": 1,
+    "proved_endpoint_bound": 3021
+  },
+  {
+    "start": 1511,
+    "end": 1513,
+    "bit": 0,
+    "proved_endpoint_bound": 6049
+  },
+  {
+    "start": 1514,
+    "end": 1514,
+    "bit": 1,
+    "proved_endpoint_bound": 3029
+  },
+  {
+    "start": 1515,
+    "end": 1517,
+    "bit": 0,
+    "proved_endpoint_bound": 6065
+  },
+  {
+    "start": 1518,
+    "end": 1520,
+    "bit": 1,
+    "proved_endpoint_bound": 3037
+  },
+  {
+    "start": 1521,
+    "end": 1522,
+    "bit": 0,
+    "proved_endpoint_bound": 6089
+  },
+  {
+    "start": 1523,
+    "end": 1524,
+    "bit": 1,
+    "proved_endpoint_bound": 3047
+  },
+  {
+    "start": 1525,
+    "end": 1529,
+    "bit": 0,
+    "proved_endpoint_bound": 6105
+  },
+  {
+    "start": 1530,
+    "end": 1532,
+    "bit": 1,
+    "proved_endpoint_bound": 3061
+  },
+  {
+    "start": 1533,
+    "end": 1533,
+    "bit": 0,
+    "proved_endpoint_bound": 6137
+  },
+  {
+    "start": 1534,
+    "end": 1535,
+    "bit": 1,
+    "proved_endpoint_bound": 3069
+  },
+  {
+    "start": 1536,
+    "end": 1536,
+    "bit": 0,
+    "proved_endpoint_bound": 6149
+  },
+  {
+    "start": 1537,
+    "end": 1537,
+    "bit": 1,
+    "proved_endpoint_bound": 3075
+  },
+  {
+    "start": 1538,
+    "end": 1538,
+    "bit": 0,
+    "proved_endpoint_bound": 6157
+  },
+  {
+    "start": 1539,
+    "end": 1543,
+    "bit": 1,
+    "proved_endpoint_bound": 3079
+  },
+  {
+    "start": 1544,
+    "end": 1546,
+    "bit": 0,
+    "proved_endpoint_bound": 6181
+  },
+  {
+    "start": 1547,
+    "end": 1547,
+    "bit": 1,
+    "proved_endpoint_bound": 3095
+  },
+  {
+    "start": 1548,
+    "end": 1550,
+    "bit": 0,
+    "proved_endpoint_bound": 6197
+  },
+  {
+    "start": 1551,
+    "end": 1551,
+    "bit": 1,
+    "proved_endpoint_bound": 3103
+  },
+  {
+    "start": 1552,
+    "end": 1552,
+    "bit": 0,
+    "proved_endpoint_bound": 6213
+  },
+  {
+    "start": 1553,
+    "end": 1553,
+    "bit": 1,
+    "proved_endpoint_bound": 3107
+  },
+  {
+    "start": 1554,
+    "end": 1554,
+    "bit": 0,
+    "proved_endpoint_bound": 6221
+  },
+  {
+    "start": 1555,
+    "end": 1556,
+    "bit": 1,
+    "proved_endpoint_bound": 3111
+  },
+  {
+    "start": 1557,
+    "end": 1557,
+    "bit": 0,
+    "proved_endpoint_bound": 6233
+  },
+  {
+    "start": 1558,
+    "end": 1559,
+    "bit": 1,
+    "proved_endpoint_bound": 3117
+  },
+  {
+    "start": 1560,
+    "end": 1561,
+    "bit": 0,
+    "proved_endpoint_bound": 6245
+  },
+  {
+    "start": 1562,
+    "end": 1563,
+    "bit": 1,
+    "proved_endpoint_bound": 3125
+  },
+  {
+    "start": 1564,
+    "end": 1564,
+    "bit": 0,
+    "proved_endpoint_bound": 6261
+  },
+  {
+    "start": 1565,
+    "end": 1566,
+    "bit": 1,
+    "proved_endpoint_bound": 3131
+  },
+  {
+    "start": 1567,
+    "end": 1569,
+    "bit": 0,
+    "proved_endpoint_bound": 6273
+  },
+  {
+    "start": 1570,
+    "end": 1570,
+    "bit": 1,
+    "proved_endpoint_bound": 3141
+  },
+  {
+    "start": 1571,
+    "end": 1572,
+    "bit": 0,
+    "proved_endpoint_bound": 6289
+  },
+  {
+    "start": 1573,
+    "end": 1573,
+    "bit": 1,
+    "proved_endpoint_bound": 3147
+  },
+  {
+    "start": 1574,
+    "end": 1578,
+    "bit": 0,
+    "proved_endpoint_bound": 6301
+  },
+  {
+    "start": 1579,
+    "end": 1581,
+    "bit": 1,
+    "proved_endpoint_bound": 3159
+  },
+  {
+    "start": 1582,
+    "end": 1582,
+    "bit": 0,
+    "proved_endpoint_bound": 6333
+  },
+  {
+    "start": 1583,
+    "end": 1583,
+    "bit": 1,
+    "proved_endpoint_bound": 3167
+  },
+  {
+    "start": 1584,
+    "end": 1585,
+    "bit": 0,
+    "proved_endpoint_bound": 6341
+  },
+  {
+    "start": 1586,
+    "end": 1587,
+    "bit": 1,
+    "proved_endpoint_bound": 3173
+  },
+  {
+    "start": 1588,
+    "end": 1588,
+    "bit": 0,
+    "proved_endpoint_bound": 6357
+  },
+  {
+    "start": 1589,
+    "end": 1589,
+    "bit": 1,
+    "proved_endpoint_bound": 3179
+  },
+  {
+    "start": 1590,
+    "end": 1590,
+    "bit": 0,
+    "proved_endpoint_bound": 6365
+  },
+  {
+    "start": 1591,
+    "end": 1592,
+    "bit": 1,
+    "proved_endpoint_bound": 3183
+  },
+  {
+    "start": 1593,
+    "end": 1594,
+    "bit": 0,
+    "proved_endpoint_bound": 6377
+  },
+  {
+    "start": 1595,
+    "end": 1596,
+    "bit": 1,
+    "proved_endpoint_bound": 3191
+  },
+  {
+    "start": 1597,
+    "end": 1603,
+    "bit": 0,
+    "proved_endpoint_bound": 6393
+  },
+  {
+    "start": 1604,
+    "end": 1606,
+    "bit": 1,
+    "proved_endpoint_bound": 3209
+  },
+  {
+    "start": 1607,
+    "end": 1607,
+    "bit": 0,
+    "proved_endpoint_bound": 6433
+  },
+  {
+    "start": 1608,
+    "end": 1610,
+    "bit": 1,
+    "proved_endpoint_bound": 3217
+  },
+  {
+    "start": 1611,
+    "end": 1611,
+    "bit": 0,
+    "proved_endpoint_bound": 6449
+  },
+  {
+    "start": 1612,
+    "end": 1612,
+    "bit": 1,
+    "proved_endpoint_bound": 3225
+  },
+  {
+    "start": 1613,
+    "end": 1613,
+    "bit": 0,
+    "proved_endpoint_bound": 6457
+  },
+  {
+    "start": 1614,
+    "end": 1614,
+    "bit": 1,
+    "proved_endpoint_bound": 3229
+  },
+  {
+    "start": 1615,
+    "end": 1615,
+    "bit": 0,
+    "proved_endpoint_bound": 6465
+  },
+  {
+    "start": 1616,
+    "end": 1618,
+    "bit": 1,
+    "proved_endpoint_bound": 3233
+  },
+  {
+    "start": 1619,
+    "end": 1620,
+    "bit": 0,
+    "proved_endpoint_bound": 6481
+  },
+  {
+    "start": 1621,
+    "end": 1621,
+    "bit": 1,
+    "proved_endpoint_bound": 3243
+  },
+  {
+    "start": 1622,
+    "end": 1622,
+    "bit": 0,
+    "proved_endpoint_bound": 6493
+  },
+  {
+    "start": 1623,
+    "end": 1624,
+    "bit": 1,
+    "proved_endpoint_bound": 3247
+  },
+  {
+    "start": 1625,
+    "end": 1625,
+    "bit": 0,
+    "proved_endpoint_bound": 6505
+  },
+  {
+    "start": 1626,
+    "end": 1628,
+    "bit": 1,
+    "proved_endpoint_bound": 3253
+  },
+  {
+    "start": 1629,
+    "end": 1630,
+    "bit": 0,
+    "proved_endpoint_bound": 6521
+  },
+  {
+    "start": 1631,
+    "end": 1631,
+    "bit": 1,
+    "proved_endpoint_bound": 3263
+  },
+  {
+    "start": 1632,
+    "end": 1632,
+    "bit": 0,
+    "proved_endpoint_bound": 6533
+  },
+  {
+    "start": 1633,
+    "end": 1633,
+    "bit": 1,
+    "proved_endpoint_bound": 3267
+  },
+  {
+    "start": 1634,
+    "end": 1634,
+    "bit": 0,
+    "proved_endpoint_bound": 6541
+  },
+  {
+    "start": 1635,
+    "end": 1635,
+    "bit": 1,
+    "proved_endpoint_bound": 3271
+  },
+  {
+    "start": 1636,
+    "end": 1636,
+    "bit": 0,
+    "proved_endpoint_bound": 6549
+  },
+  {
+    "start": 1637,
+    "end": 1637,
+    "bit": 1,
+    "proved_endpoint_bound": 3275
+  },
+  {
+    "start": 1638,
+    "end": 1643,
+    "bit": 0,
+    "proved_endpoint_bound": 6557
+  },
+  {
+    "start": 1644,
+    "end": 1644,
+    "bit": 1,
+    "proved_endpoint_bound": 3289
+  },
+  {
+    "start": 1645,
+    "end": 1645,
+    "bit": 0,
+    "proved_endpoint_bound": 6585
+  },
+  {
+    "start": 1646,
+    "end": 1646,
+    "bit": 1,
+    "proved_endpoint_bound": 3293
+  },
+  {
+    "start": 1647,
+    "end": 1647,
+    "bit": 0,
+    "proved_endpoint_bound": 6593
+  },
+  {
+    "start": 1648,
+    "end": 1648,
+    "bit": 1,
+    "proved_endpoint_bound": 3297
+  },
+  {
+    "start": 1649,
+    "end": 1650,
+    "bit": 0,
+    "proved_endpoint_bound": 6601
+  },
+  {
+    "start": 1651,
+    "end": 1651,
+    "bit": 1,
+    "proved_endpoint_bound": 3303
+  },
+  {
+    "start": 1652,
+    "end": 1652,
+    "bit": 0,
+    "proved_endpoint_bound": 6613
+  },
+  {
+    "start": 1653,
+    "end": 1653,
+    "bit": 1,
+    "proved_endpoint_bound": 3307
+  },
+  {
+    "start": 1654,
+    "end": 1654,
+    "bit": 0,
+    "proved_endpoint_bound": 6621
+  },
+  {
+    "start": 1655,
+    "end": 1655,
+    "bit": 1,
+    "proved_endpoint_bound": 3311
+  },
+  {
+    "start": 1656,
+    "end": 1656,
+    "bit": 0,
+    "proved_endpoint_bound": 6629
+  },
+  {
+    "start": 1657,
+    "end": 1661,
+    "bit": 1,
+    "proved_endpoint_bound": 3315
+  },
+  {
+    "start": 1662,
+    "end": 1662,
+    "bit": 0,
+    "proved_endpoint_bound": 6653
+  },
+  {
+    "start": 1663,
+    "end": 1665,
+    "bit": 1,
+    "proved_endpoint_bound": 3327
+  },
+  {
+    "start": 1666,
+    "end": 1666,
+    "bit": 0,
+    "proved_endpoint_bound": 6669
+  },
+  {
+    "start": 1667,
+    "end": 1667,
+    "bit": 1,
+    "proved_endpoint_bound": 3335
+  },
+  {
+    "start": 1668,
+    "end": 1669,
+    "bit": 0,
+    "proved_endpoint_bound": 6677
+  },
+  {
+    "start": 1670,
+    "end": 1670,
+    "bit": 1,
+    "proved_endpoint_bound": 3341
+  },
+  {
+    "start": 1671,
+    "end": 1673,
+    "bit": 0,
+    "proved_endpoint_bound": 6689
+  },
+  {
+    "start": 1674,
+    "end": 1674,
+    "bit": 1,
+    "proved_endpoint_bound": 3349
+  },
+  {
+    "start": 1675,
+    "end": 1675,
+    "bit": 0,
+    "proved_endpoint_bound": 6705
+  },
+  {
+    "start": 1676,
+    "end": 1680,
+    "bit": 1,
+    "proved_endpoint_bound": 3353
+  },
+  {
+    "start": 1681,
+    "end": 1684,
+    "bit": 0,
+    "proved_endpoint_bound": 6729
+  },
+  {
+    "start": 1685,
+    "end": 1685,
+    "bit": 1,
+    "proved_endpoint_bound": 3371
+  },
+  {
+    "start": 1686,
+    "end": 1687,
+    "bit": 0,
+    "proved_endpoint_bound": 6749
+  },
+  {
+    "start": 1688,
+    "end": 1696,
+    "bit": 1,
+    "proved_endpoint_bound": 3377
+  },
+  {
+    "start": 1697,
+    "end": 1697,
+    "bit": 0,
+    "proved_endpoint_bound": 6793
+  },
+  {
+    "start": 1698,
+    "end": 1698,
+    "bit": 1,
+    "proved_endpoint_bound": 3397
+  },
+  {
+    "start": 1699,
+    "end": 1700,
+    "bit": 0,
+    "proved_endpoint_bound": 6801
+  },
+  {
+    "start": 1701,
+    "end": 1701,
+    "bit": 1,
+    "proved_endpoint_bound": 3403
+  },
+  {
+    "start": 1702,
+    "end": 1704,
+    "bit": 0,
+    "proved_endpoint_bound": 6813
+  },
+  {
+    "start": 1705,
+    "end": 1707,
+    "bit": 1,
+    "proved_endpoint_bound": 3411
+  },
+  {
+    "start": 1708,
+    "end": 1710,
+    "bit": 0,
+    "proved_endpoint_bound": 6837
+  },
+  {
+    "start": 1711,
+    "end": 1711,
+    "bit": 1,
+    "proved_endpoint_bound": 3423
+  },
+  {
+    "start": 1712,
+    "end": 1712,
+    "bit": 0,
+    "proved_endpoint_bound": 6853
+  },
+  {
+    "start": 1713,
+    "end": 1713,
+    "bit": 1,
+    "proved_endpoint_bound": 3427
+  },
+  {
+    "start": 1714,
+    "end": 1715,
+    "bit": 0,
+    "proved_endpoint_bound": 6861
+  },
+  {
+    "start": 1716,
+    "end": 1719,
+    "bit": 1,
+    "proved_endpoint_bound": 3433
+  },
+  {
+    "start": 1720,
+    "end": 1720,
+    "bit": 0,
+    "proved_endpoint_bound": 6885
+  },
+  {
+    "start": 1721,
+    "end": 1723,
+    "bit": 1,
+    "proved_endpoint_bound": 3443
+  },
+  {
+    "start": 1724,
+    "end": 1724,
+    "bit": 0,
+    "proved_endpoint_bound": 6901
+  },
+  {
+    "start": 1725,
+    "end": 1725,
+    "bit": 1,
+    "proved_endpoint_bound": 3451
+  },
+  {
+    "start": 1726,
+    "end": 1726,
+    "bit": 0,
+    "proved_endpoint_bound": 6909
+  },
+  {
+    "start": 1727,
+    "end": 1730,
+    "bit": 1,
+    "proved_endpoint_bound": 3455
+  },
+  {
+    "start": 1731,
+    "end": 1733,
+    "bit": 0,
+    "proved_endpoint_bound": 6929
+  },
+  {
+    "start": 1734,
+    "end": 1734,
+    "bit": 1,
+    "proved_endpoint_bound": 3469
+  },
+  {
+    "start": 1735,
+    "end": 1736,
+    "bit": 0,
+    "proved_endpoint_bound": 6945
+  },
+  {
+    "start": 1737,
+    "end": 1739,
+    "bit": 1,
+    "proved_endpoint_bound": 3475
+  },
+  {
+    "start": 1740,
+    "end": 1740,
+    "bit": 0,
+    "proved_endpoint_bound": 6965
+  },
+  {
+    "start": 1741,
+    "end": 1742,
+    "bit": 1,
+    "proved_endpoint_bound": 3483
+  },
+  {
+    "start": 1743,
+    "end": 1743,
+    "bit": 0,
+    "proved_endpoint_bound": 6977
+  },
+  {
+    "start": 1744,
+    "end": 1745,
+    "bit": 1,
+    "proved_endpoint_bound": 3489
+  },
+  {
+    "start": 1746,
+    "end": 1746,
+    "bit": 0,
+    "proved_endpoint_bound": 6989
+  },
+  {
+    "start": 1747,
+    "end": 1747,
+    "bit": 1,
+    "proved_endpoint_bound": 3495
+  },
+  {
+    "start": 1748,
+    "end": 1749,
+    "bit": 0,
+    "proved_endpoint_bound": 6997
+  },
+  {
+    "start": 1750,
+    "end": 1751,
+    "bit": 1,
+    "proved_endpoint_bound": 3501
+  },
+  {
+    "start": 1752,
+    "end": 1752,
+    "bit": 0,
+    "proved_endpoint_bound": 7013
+  },
+  {
+    "start": 1753,
+    "end": 1753,
+    "bit": 1,
+    "proved_endpoint_bound": 3507
+  },
+  {
+    "start": 1754,
+    "end": 1755,
+    "bit": 0,
+    "proved_endpoint_bound": 7021
+  },
+  {
+    "start": 1756,
+    "end": 1756,
+    "bit": 1,
+    "proved_endpoint_bound": 3513
+  },
+  {
+    "start": 1757,
+    "end": 1757,
+    "bit": 0,
+    "proved_endpoint_bound": 7033
+  },
+  {
+    "start": 1758,
+    "end": 1764,
+    "bit": 1,
+    "proved_endpoint_bound": 3517
+  },
+  {
+    "start": 1765,
+    "end": 1766,
+    "bit": 0,
+    "proved_endpoint_bound": 7065
+  },
+  {
+    "start": 1767,
+    "end": 1767,
+    "bit": 1,
+    "proved_endpoint_bound": 3535
+  },
+  {
+    "start": 1768,
+    "end": 1774,
+    "bit": 0,
+    "proved_endpoint_bound": 7077
+  },
+  {
+    "start": 1775,
+    "end": 1775,
+    "bit": 1,
+    "proved_endpoint_bound": 3551
+  },
+  {
+    "start": 1776,
+    "end": 1777,
+    "bit": 0,
+    "proved_endpoint_bound": 7109
+  },
+  {
+    "start": 1778,
+    "end": 1781,
+    "bit": 1,
+    "proved_endpoint_bound": 3557
+  },
+  {
+    "start": 1782,
+    "end": 1783,
+    "bit": 0,
+    "proved_endpoint_bound": 7133
+  },
+  {
+    "start": 1784,
+    "end": 1788,
+    "bit": 1,
+    "proved_endpoint_bound": 3569
+  },
+  {
+    "start": 1789,
+    "end": 1789,
+    "bit": 0,
+    "proved_endpoint_bound": 7161
+  },
+  {
+    "start": 1790,
+    "end": 1790,
+    "bit": 1,
+    "proved_endpoint_bound": 3581
+  },
+  {
+    "start": 1791,
+    "end": 1794,
+    "bit": 0,
+    "proved_endpoint_bound": 7169
+  },
+  {
+    "start": 1795,
+    "end": 1795,
+    "bit": 1,
+    "proved_endpoint_bound": 3591
+  },
+  {
+    "start": 1796,
+    "end": 1799,
+    "bit": 0,
+    "proved_endpoint_bound": 7189
+  },
+  {
+    "start": 1800,
+    "end": 1801,
+    "bit": 1,
+    "proved_endpoint_bound": 3601
+  },
+  {
+    "start": 1802,
+    "end": 1805,
+    "bit": 0,
+    "proved_endpoint_bound": 7213
+  },
+  {
+    "start": 1806,
+    "end": 1806,
+    "bit": 1,
+    "proved_endpoint_bound": 3613
+  },
+  {
+    "start": 1807,
+    "end": 1808,
+    "bit": 0,
+    "proved_endpoint_bound": 7233
+  },
+  {
+    "start": 1809,
+    "end": 1810,
+    "bit": 1,
+    "proved_endpoint_bound": 3619
+  },
+  {
+    "start": 1811,
+    "end": 1812,
+    "bit": 0,
+    "proved_endpoint_bound": 7249
+  },
+  {
+    "start": 1813,
+    "end": 1814,
+    "bit": 1,
+    "proved_endpoint_bound": 3627
+  },
+  {
+    "start": 1815,
+    "end": 1815,
+    "bit": 0,
+    "proved_endpoint_bound": 7265
+  },
+  {
+    "start": 1816,
+    "end": 1817,
+    "bit": 1,
+    "proved_endpoint_bound": 3633
+  },
+  {
+    "start": 1818,
+    "end": 1818,
+    "bit": 0,
+    "proved_endpoint_bound": 7277
+  },
+  {
+    "start": 1819,
+    "end": 1819,
+    "bit": 1,
+    "proved_endpoint_bound": 3639
+  },
+  {
+    "start": 1820,
+    "end": 1820,
+    "bit": 0,
+    "proved_endpoint_bound": 7285
+  },
+  {
+    "start": 1821,
+    "end": 1821,
+    "bit": 1,
+    "proved_endpoint_bound": 3643
+  },
+  {
+    "start": 1822,
+    "end": 1824,
+    "bit": 0,
+    "proved_endpoint_bound": 7293
+  },
+  {
+    "start": 1825,
+    "end": 1825,
+    "bit": 1,
+    "proved_endpoint_bound": 3651
+  },
+  {
+    "start": 1826,
+    "end": 1826,
+    "bit": 0,
+    "proved_endpoint_bound": 7309
+  },
+  {
+    "start": 1827,
+    "end": 1827,
+    "bit": 1,
+    "proved_endpoint_bound": 3655
+  },
+  {
+    "start": 1828,
+    "end": 1829,
+    "bit": 0,
+    "proved_endpoint_bound": 7317
+  },
+  {
+    "start": 1830,
+    "end": 1831,
+    "bit": 1,
+    "proved_endpoint_bound": 3661
+  },
+  {
+    "start": 1832,
+    "end": 1833,
+    "bit": 0,
+    "proved_endpoint_bound": 7333
+  },
+  {
+    "start": 1834,
+    "end": 1835,
+    "bit": 1,
+    "proved_endpoint_bound": 3669
+  },
+  {
+    "start": 1836,
+    "end": 1837,
+    "bit": 0,
+    "proved_endpoint_bound": 7349
+  },
+  {
+    "start": 1838,
+    "end": 1840,
+    "bit": 1,
+    "proved_endpoint_bound": 3677
+  },
+  {
+    "start": 1841,
+    "end": 1841,
+    "bit": 0,
+    "proved_endpoint_bound": 7369
+  },
+  {
+    "start": 1842,
+    "end": 1845,
+    "bit": 1,
+    "proved_endpoint_bound": 3685
+  },
+  {
+    "start": 1846,
+    "end": 1847,
+    "bit": 0,
+    "proved_endpoint_bound": 7389
+  },
+  {
+    "start": 1848,
+    "end": 1849,
+    "bit": 1,
+    "proved_endpoint_bound": 3697
+  },
+  {
+    "start": 1850,
+    "end": 1850,
+    "bit": 0,
+    "proved_endpoint_bound": 7405
+  },
+  {
+    "start": 1851,
+    "end": 1851,
+    "bit": 1,
+    "proved_endpoint_bound": 3703
+  },
+  {
+    "start": 1852,
+    "end": 1852,
+    "bit": 0,
+    "proved_endpoint_bound": 7413
+  },
+  {
+    "start": 1853,
+    "end": 1854,
+    "bit": 1,
+    "proved_endpoint_bound": 3707
+  },
+  {
+    "start": 1855,
+    "end": 1860,
+    "bit": 0,
+    "proved_endpoint_bound": 7425
+  },
+  {
+    "start": 1861,
+    "end": 1861,
+    "bit": 1,
+    "proved_endpoint_bound": 3723
+  },
+  {
+    "start": 1862,
+    "end": 1865,
+    "bit": 0,
+    "proved_endpoint_bound": 7453
+  },
+  {
+    "start": 1866,
+    "end": 1866,
+    "bit": 1,
+    "proved_endpoint_bound": 3733
+  },
+  {
+    "start": 1867,
+    "end": 1867,
+    "bit": 0,
+    "proved_endpoint_bound": 7473
+  },
+  {
+    "start": 1868,
+    "end": 1869,
+    "bit": 1,
+    "proved_endpoint_bound": 3737
+  },
+  {
+    "start": 1870,
+    "end": 1870,
+    "bit": 0,
+    "proved_endpoint_bound": 7485
+  },
+  {
+    "start": 1871,
+    "end": 1871,
+    "bit": 1,
+    "proved_endpoint_bound": 3743
+  },
+  {
+    "start": 1872,
+    "end": 1873,
+    "bit": 0,
+    "proved_endpoint_bound": 7493
+  },
+  {
+    "start": 1874,
+    "end": 1874,
+    "bit": 1,
+    "proved_endpoint_bound": 3749
+  },
+  {
+    "start": 1875,
+    "end": 1875,
+    "bit": 0,
+    "proved_endpoint_bound": 7505
+  },
+  {
+    "start": 1876,
+    "end": 1877,
+    "bit": 1,
+    "proved_endpoint_bound": 3753
+  },
+  {
+    "start": 1878,
+    "end": 1879,
+    "bit": 0,
+    "proved_endpoint_bound": 7517
+  },
+  {
+    "start": 1880,
+    "end": 1882,
+    "bit": 1,
+    "proved_endpoint_bound": 3761
+  },
+  {
+    "start": 1883,
+    "end": 1884,
+    "bit": 0,
+    "proved_endpoint_bound": 7537
+  },
+  {
+    "start": 1885,
+    "end": 1886,
+    "bit": 1,
+    "proved_endpoint_bound": 3771
+  },
+  {
+    "start": 1887,
+    "end": 1887,
+    "bit": 0,
+    "proved_endpoint_bound": 7553
+  },
+  {
+    "start": 1888,
+    "end": 1890,
+    "bit": 1,
+    "proved_endpoint_bound": 3777
+  },
+  {
+    "start": 1891,
+    "end": 1891,
+    "bit": 0,
+    "proved_endpoint_bound": 7569
+  },
+  {
+    "start": 1892,
+    "end": 1893,
+    "bit": 1,
+    "proved_endpoint_bound": 3785
+  },
+  {
+    "start": 1894,
+    "end": 1894,
+    "bit": 0,
+    "proved_endpoint_bound": 7581
+  },
+  {
+    "start": 1895,
+    "end": 1895,
+    "bit": 1,
+    "proved_endpoint_bound": 3791
+  },
+  {
+    "start": 1896,
+    "end": 1897,
+    "bit": 0,
+    "proved_endpoint_bound": 7589
+  },
+  {
+    "start": 1898,
+    "end": 1899,
+    "bit": 1,
+    "proved_endpoint_bound": 3797
+  },
+  {
+    "start": 1900,
+    "end": 1900,
+    "bit": 0,
+    "proved_endpoint_bound": 7605
+  },
+  {
+    "start": 1901,
+    "end": 1903,
+    "bit": 1,
+    "proved_endpoint_bound": 3803
+  },
+  {
+    "start": 1904,
+    "end": 1904,
+    "bit": 0,
+    "proved_endpoint_bound": 7621
+  },
+  {
+    "start": 1905,
+    "end": 1905,
+    "bit": 1,
+    "proved_endpoint_bound": 3811
+  },
+  {
+    "start": 1906,
+    "end": 1908,
+    "bit": 0,
+    "proved_endpoint_bound": 7629
+  },
+  {
+    "start": 1909,
+    "end": 1909,
+    "bit": 1,
+    "proved_endpoint_bound": 3819
+  },
+  {
+    "start": 1910,
+    "end": 1912,
+    "bit": 0,
+    "proved_endpoint_bound": 7645
+  },
+  {
+    "start": 1913,
+    "end": 1913,
+    "bit": 1,
+    "proved_endpoint_bound": 3827
+  },
+  {
+    "start": 1914,
+    "end": 1914,
+    "bit": 0,
+    "proved_endpoint_bound": 7661
+  },
+  {
+    "start": 1915,
+    "end": 1915,
+    "bit": 1,
+    "proved_endpoint_bound": 3831
+  },
+  {
+    "start": 1916,
+    "end": 1917,
+    "bit": 0,
+    "proved_endpoint_bound": 7669
+  },
+  {
+    "start": 1918,
+    "end": 1919,
+    "bit": 1,
+    "proved_endpoint_bound": 3837
+  },
+  {
+    "start": 1920,
+    "end": 1920,
+    "bit": 0,
+    "proved_endpoint_bound": 7685
+  },
+  {
+    "start": 1921,
+    "end": 1923,
+    "bit": 1,
+    "proved_endpoint_bound": 3843
+  },
+  {
+    "start": 1924,
+    "end": 1924,
+    "bit": 0,
+    "proved_endpoint_bound": 7701
+  },
+  {
+    "start": 1925,
+    "end": 1928,
+    "bit": 1,
+    "proved_endpoint_bound": 3851
+  },
+  {
+    "start": 1929,
+    "end": 1930,
+    "bit": 0,
+    "proved_endpoint_bound": 7721
+  },
+  {
+    "start": 1931,
+    "end": 1938,
+    "bit": 1,
+    "proved_endpoint_bound": 3863
+  },
+  {
+    "start": 1939,
+    "end": 1941,
+    "bit": 0,
+    "proved_endpoint_bound": 7761
+  },
+  {
+    "start": 1942,
+    "end": 1942,
+    "bit": 1,
+    "proved_endpoint_bound": 3885
+  },
+  {
+    "start": 1943,
+    "end": 1944,
+    "bit": 0,
+    "proved_endpoint_bound": 7777
+  },
+  {
+    "start": 1945,
+    "end": 1945,
+    "bit": 1,
+    "proved_endpoint_bound": 3891
+  },
+  {
+    "start": 1946,
+    "end": 1946,
+    "bit": 0,
+    "proved_endpoint_bound": 7789
+  },
+  {
+    "start": 1947,
+    "end": 1948,
+    "bit": 1,
+    "proved_endpoint_bound": 3895
+  },
+  {
+    "start": 1949,
+    "end": 1949,
+    "bit": 0,
+    "proved_endpoint_bound": 7801
+  },
+  {
+    "start": 1950,
+    "end": 1950,
+    "bit": 1,
+    "proved_endpoint_bound": 3901
+  },
+  {
+    "start": 1951,
+    "end": 1952,
+    "bit": 0,
+    "proved_endpoint_bound": 7809
+  },
+  {
+    "start": 1953,
+    "end": 1955,
+    "bit": 1,
+    "proved_endpoint_bound": 3907
+  },
+  {
+    "start": 1956,
+    "end": 1956,
+    "bit": 0,
+    "proved_endpoint_bound": 7829
+  },
+  {
+    "start": 1957,
+    "end": 1957,
+    "bit": 1,
+    "proved_endpoint_bound": 3915
+  },
+  {
+    "start": 1958,
+    "end": 1958,
+    "bit": 0,
+    "proved_endpoint_bound": 7837
+  },
+  {
+    "start": 1959,
+    "end": 1960,
+    "bit": 1,
+    "proved_endpoint_bound": 3919
+  },
+  {
+    "start": 1961,
+    "end": 1961,
+    "bit": 0,
+    "proved_endpoint_bound": 7849
+  },
+  {
+    "start": 1962,
+    "end": 1962,
+    "bit": 1,
+    "proved_endpoint_bound": 3925
+  },
+  {
+    "start": 1963,
+    "end": 1963,
+    "bit": 0,
+    "proved_endpoint_bound": 7857
+  },
+  {
+    "start": 1964,
+    "end": 1966,
+    "bit": 1,
+    "proved_endpoint_bound": 3929
+  },
+  {
+    "start": 1967,
+    "end": 1967,
+    "bit": 0,
+    "proved_endpoint_bound": 7873
+  },
+  {
+    "start": 1968,
+    "end": 1968,
+    "bit": 1,
+    "proved_endpoint_bound": 3937
+  },
+  {
+    "start": 1969,
+    "end": 1972,
+    "bit": 0,
+    "proved_endpoint_bound": 7881
+  },
+  {
+    "start": 1973,
+    "end": 1973,
+    "bit": 1,
+    "proved_endpoint_bound": 3947
+  },
+  {
+    "start": 1974,
+    "end": 1974,
+    "bit": 0,
+    "proved_endpoint_bound": 7901
+  },
+  {
+    "start": 1975,
+    "end": 1977,
+    "bit": 1,
+    "proved_endpoint_bound": 3951
+  },
+  {
+    "start": 1978,
+    "end": 1982,
+    "bit": 0,
+    "proved_endpoint_bound": 7917
+  },
+  {
+    "start": 1983,
+    "end": 1983,
+    "bit": 1,
+    "proved_endpoint_bound": 3967
+  },
+  {
+    "start": 1984,
+    "end": 1984,
+    "bit": 0,
+    "proved_endpoint_bound": 7941
+  },
+  {
+    "start": 1985,
+    "end": 1986,
+    "bit": 1,
+    "proved_endpoint_bound": 3971
+  },
+  {
+    "start": 1987,
+    "end": 1989,
+    "bit": 0,
+    "proved_endpoint_bound": 7953
+  },
+  {
+    "start": 1990,
+    "end": 1991,
+    "bit": 1,
+    "proved_endpoint_bound": 3981
+  },
+  {
+    "start": 1992,
+    "end": 1992,
+    "bit": 0,
+    "proved_endpoint_bound": 7973
+  },
+  {
+    "start": 1993,
+    "end": 2001,
+    "bit": 1,
+    "proved_endpoint_bound": 3987
+  },
+  {
+    "start": 2002,
+    "end": 2008,
+    "bit": 0,
+    "proved_endpoint_bound": 8013
+  },
+  {
+    "start": 2009,
+    "end": 2009,
+    "bit": 1,
+    "proved_endpoint_bound": 4019
+  },
+  {
+    "start": 2010,
+    "end": 2013,
+    "bit": 0,
+    "proved_endpoint_bound": 8045
+  },
+  {
+    "start": 2014,
+    "end": 2014,
+    "bit": 1,
+    "proved_endpoint_bound": 4029
+  },
+  {
+    "start": 2015,
+    "end": 2015,
+    "bit": 0,
+    "proved_endpoint_bound": 8065
+  },
+  {
+    "start": 2016,
+    "end": 2017,
+    "bit": 1,
+    "proved_endpoint_bound": 4033
+  },
+  {
+    "start": 2018,
+    "end": 2018,
+    "bit": 0,
+    "proved_endpoint_bound": 8077
+  },
+  {
+    "start": 2019,
+    "end": 2019,
+    "bit": 1,
+    "proved_endpoint_bound": 4039
+  },
+  {
+    "start": 2020,
+    "end": 2020,
+    "bit": 0,
+    "proved_endpoint_bound": 8085
+  },
+  {
+    "start": 2021,
+    "end": 2021,
+    "bit": 1,
+    "proved_endpoint_bound": 4043
+  },
+  {
+    "start": 2022,
+    "end": 2022,
+    "bit": 0,
+    "proved_endpoint_bound": 8093
+  },
+  {
+    "start": 2023,
+    "end": 2023,
+    "bit": 1,
+    "proved_endpoint_bound": 4047
+  },
+  {
+    "start": 2024,
+    "end": 2024,
+    "bit": 0,
+    "proved_endpoint_bound": 8101
+  },
+  {
+    "start": 2025,
+    "end": 2030,
+    "bit": 1,
+    "proved_endpoint_bound": 4051
+  },
+  {
+    "start": 2031,
+    "end": 2031,
+    "bit": 0,
+    "proved_endpoint_bound": 8129
+  },
+  {
+    "start": 2032,
+    "end": 2033,
+    "bit": 1,
+    "proved_endpoint_bound": 4065
+  },
+  {
+    "start": 2034,
+    "end": 2034,
+    "bit": 0,
+    "proved_endpoint_bound": 8141
+  },
+  {
+    "start": 2035,
+    "end": 2037,
+    "bit": 1,
+    "proved_endpoint_bound": 4071
+  },
+  {
+    "start": 2038,
+    "end": 2039,
+    "bit": 0,
+    "proved_endpoint_bound": 8157
+  },
+  {
+    "start": 2040,
+    "end": 2040,
+    "bit": 1,
+    "proved_endpoint_bound": 4081
+  },
+  {
+    "start": 2041,
+    "end": 2041,
+    "bit": 0,
+    "proved_endpoint_bound": 8169
+  },
+  {
+    "start": 2042,
+    "end": 2042,
+    "bit": 1,
+    "proved_endpoint_bound": 4085
+  },
+  {
+    "start": 2043,
+    "end": 2043,
+    "bit": 0,
+    "proved_endpoint_bound": 8177
+  },
+  {
+    "start": 2044,
+    "end": 2044,
+    "bit": 1,
+    "proved_endpoint_bound": 4089
+  },
+  {
+    "start": 2045,
+    "end": 2045,
+    "bit": 0,
+    "proved_endpoint_bound": 8185
+  },
+  {
+    "start": 2046,
+    "end": 2047,
+    "bit": 1,
+    "proved_endpoint_bound": 4093
+  }
+]

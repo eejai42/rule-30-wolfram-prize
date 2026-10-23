@@ -1,0 +1,14 @@
+{
+  "sequence_length": 10001,
+  "periods_checked": [
+    1,
+    1000
+  ],
+  "all_eventual_period_onsets_at_most": 8998,
+  "excluded_for_every_tested_period": true,
+  "min_witness_periods": [
+    1000
+  ],
+  "center_sha256": "91f5523e97f78f3034af7284f2ac9d50852d653907ca416f9c049c7e4661da77",
+  "limitation": "No finite prefix can exclude eventual periodicity with an onset later than the observed prefix. This is not a Rule 30 prize proof."
+}

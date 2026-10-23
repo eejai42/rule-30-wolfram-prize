@@ -1,0 +1,17 @@
+{
+  "structural_checks": "PASS",
+  "native_build": "NOT_EXECUTED",
+  "formula_evaluation": "NOT_EXECUTED",
+  "database_execution": "NOT_EXECUTED",
+  "verified_native_loops": 0,
+  "draft_rows": {
+    "Assertions": 26,
+    "Dependencies": 18,
+    "Prerequisites": 58,
+    "Assessments": 26,
+    "Evidence": 8,
+    "Revisions": 5,
+    "Loops": 13,
+    "Dashboards": 1
+  }
+}

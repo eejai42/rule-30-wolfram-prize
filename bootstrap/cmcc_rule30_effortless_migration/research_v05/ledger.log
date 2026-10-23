@@ -1,0 +1,35 @@
+{
+  "claims": 26,
+  "revisions": 5,
+  "open_obligations": [
+    [
+      "H4",
+      "Least diagonal periods never decrease."
+    ],
+    [
+      "B1",
+      "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns."
+    ],
+    [
+      "B2",
+      "Uniform sublinear center discrepancy bound."
+    ],
+    [
+      "B3",
+      "Uniform machine-model lower bound with agreed asymptotic quantifiers."
+    ],
+    [
+      "P1",
+      "The Rule 30 center is not eventually periodic."
+    ],
+    [
+      "P2",
+      "The center has limiting frequency one-half."
+    ],
+    [
+      "P3",
+      "The official computational-effort conjecture, once model and quantifiers are fixed."
+    ]
+  ],
+  "warning": "Consistency checks do not verify arbitrary proof text."
+}
