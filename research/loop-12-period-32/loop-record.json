@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-12",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.8, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "d24ba9b0f3f1c9b11595adc94d894ceeff6b93d43ecee0a2e4ae4c5f0c074e86",
+  "OutputHash": "23a6210e2ae7e3e881e192100aaf8d2bdab907a79db41ea5d1dd05cca0980b7b",
+  "Sequence": 25,
+  "StartedAt": "2026-10-23T09:41:39-0500",
+  "FinishedAt": "2026-10-23T09:42:03-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H25: a left-edge diagonal with k < 20000 has period 32.",
+  "Summary": "Left edge certified to k=19999 in 12.3s. H25 FALSIFIED: max period 16. Onset > k for every 20<=k<=19999: True. Onset/k at k=19000: {'onset': 25481, 'ratio': 1.3411, 'period': 16}.",
+  "Name": "effortless-12",
+  "ClaimsAdded": 2,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 5.9,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 59,
+  "BlockedCount": 17,
+  "CompletedNativeLoops": 12,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 26,
+  "CheckedCount": 16,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 0,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}
