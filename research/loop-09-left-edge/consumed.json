@@ -1,0 +1,68 @@
+{
+ "TR": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F8": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "H22": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 53,
+  "BlockedCount": 14,
+  "CompletedNativeLoops": 8,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 26,
+  "CheckedCount": 13,
+  "FalsifiedCount": 8,
+  "OpenCount": 6,
+  "AtRiskCount": 0,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ },
+ "_receipt": {
+  "exit": 0,
+  "seconds": 6.0,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh queued (editor busy)"
+ },
+ "_input_hash": "33a81c983f2d187a90dfd38b8648e53d230bb2abc0d3dc6094e69535e4fedd04",
+ "_output_hash": "c83ce9844bae94f940b9076e07f7b8d8914141e3a5eaec83e52c6ea4bfc46208"
+}

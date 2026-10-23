@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-9",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 6.0, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "33a81c983f2d187a90dfd38b8648e53d230bb2abc0d3dc6094e69535e4fedd04",
+  "OutputHash": "c83ce9844bae94f940b9076e07f7b8d8914141e3a5eaec83e52c6ea4bfc46208",
+  "Sequence": 22,
+  "StartedAt": "2026-10-23T09:37:12-0500",
+  "FinishedAt": "2026-10-23T09:37:24-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H22: the left edge grows at most half as fast as the right (log2 left period <= log2 P_k / 2).",
+  "Summary": "TR proved: left-edge diagonals are eventually periodic with power-of-two periods. Certified exactly for k<=72 (largest period 2^3, latest onset 100). H22 held on [9, 72].",
+  "Name": "effortless-9",
+  "ClaimsAdded": 3,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 0,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 6.0,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh requested"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 53,
+  "BlockedCount": 14,
+  "CompletedNativeLoops": 9,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 26,
+  "CheckedCount": 13,
+  "FalsifiedCount": 8,
+  "OpenCount": 6,
+  "AtRiskCount": 0,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

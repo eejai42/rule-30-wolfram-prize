@@ -134,10 +134,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 0,
-        "DependentCount": 9,
+        "DependentCount": 10,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 33
+        "DescendantCount": 36
       },
       {
         "AssertionId": "T0",
@@ -151,10 +151,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 7,
+        "DependentCount": 8,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 25
+        "DescendantCount": 28
       },
       {
         "AssertionId": "T004",
@@ -168,10 +168,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 2,
-        "DependentCount": 9,
+        "DependentCount": 10,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 18
+        "DescendantCount": 19
       },
       {
         "AssertionId": "TA",
@@ -971,6 +971,57 @@
         "IsUsable": 1,
         "IsProofEligible": 0,
         "DescendantCount": 0
+      },
+      {
+        "AssertionId": "TR",
+        "Statement": "Every left-edge diagonal w_k(t)=x(-t+k,t) is eventually periodic, with least eventual period a power of two dividing 2^k.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "research/loop-09-left-edge/PROOFS.md §TR",
+        "Kind": "Theorem",
+        "IntroducedInLoop": "effortless-9",
+        "Name": "TR",
+        "StatusGroup": "Proved",
+        "PremiseCount": 2,
+        "DependentCount": 2,
+        "EvidenceCount": 2,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
+        "DescendantCount": 2
+      },
+      {
+        "AssertionId": "F8",
+        "Statement": "Exact least eventual periods and onsets of the left-edge diagonals certified for k<=72 (largest period 2^3, latest onset 100); agrees with a direct lattice for t<=4096.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Finite check",
+        "IntroducedInLoop": "effortless-9",
+        "Name": "F8",
+        "StatusGroup": "Checked",
+        "PremiseCount": 1,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "H22",
+        "Statement": "The left edge grows at most half as fast as the right: log2(left-edge period of w_k) <= log2(P_k)/2 for every k>=1.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Hypothesis",
+        "IntroducedInLoop": "effortless-9",
+        "Name": "H22",
+        "StatusGroup": "Checked",
+        "PremiseCount": 2,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 1,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
       }
     ]
   },
@@ -1417,6 +1468,36 @@
         "Conclusion": "H21",
         "Premise": "TQ",
         "Name": "H21-TQ"
+      },
+      {
+        "DependencyId": "TR-D0",
+        "Conclusion": "TR",
+        "Premise": "D0",
+        "Name": "TR-D0"
+      },
+      {
+        "DependencyId": "TR-T0",
+        "Conclusion": "TR",
+        "Premise": "T0",
+        "Name": "TR-T0"
+      },
+      {
+        "DependencyId": "F8-TR",
+        "Conclusion": "F8",
+        "Premise": "TR",
+        "Name": "F8-TR"
+      },
+      {
+        "DependencyId": "H22-TR",
+        "Conclusion": "H22",
+        "Premise": "TR",
+        "Name": "H22-TR"
+      },
+      {
+        "DependencyId": "H22-T004",
+        "Conclusion": "H22",
+        "Premise": "T004",
+        "Name": "H22-T004"
       }
     ]
   },
@@ -4131,6 +4212,150 @@
         "ProofBlocked": 0,
         "IsSelf": 0,
         "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TR-D0",
+        "ConclusionKey": "TR",
+        "Premise": "D0",
+        "Name": "TR-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TR-T0",
+        "ConclusionKey": "TR",
+        "Premise": "T0",
+        "Name": "TR-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TR-TR",
+        "ConclusionKey": "TR",
+        "Premise": "TR",
+        "Name": "TR-TR",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F8-D0",
+        "ConclusionKey": "F8",
+        "Premise": "D0",
+        "Name": "F8-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F8-F8",
+        "ConclusionKey": "F8",
+        "Premise": "F8",
+        "Name": "F8-F8",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F8-T0",
+        "ConclusionKey": "F8",
+        "Premise": "T0",
+        "Name": "F8-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F8-TR",
+        "ConclusionKey": "F8",
+        "Premise": "TR",
+        "Name": "F8-TR",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H22-D0",
+        "ConclusionKey": "H22",
+        "Premise": "D0",
+        "Name": "H22-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H22-H22",
+        "ConclusionKey": "H22",
+        "Premise": "H22",
+        "Name": "H22-H22",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H22-T0",
+        "ConclusionKey": "H22",
+        "Premise": "T0",
+        "Name": "H22-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H22-T004",
+        "ConclusionKey": "H22",
+        "Premise": "T004",
+        "Name": "H22-T004",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H22-TR",
+        "ConclusionKey": "H22",
+        "Premise": "TR",
+        "Name": "H22-TR",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
       }
     ]
   },
@@ -5281,6 +5506,66 @@
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
         "AncestorCount": 2
+      },
+      {
+        "AssessmentId": "TR",
+        "Assertion": "TR",
+        "ProjectKey": "Rule30",
+        "Name": "TR",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "Statement": "Every left-edge diagonal w_k(t)=x(-t+k,t) is eventually periodic, with least eventual period a power of two dividing 2^k.",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 0,
+        "CurrentStatus": "PROVED_HUMAN_READABLE",
+        "ProofEligible": 1,
+        "SupportCount": 2,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 2
+      },
+      {
+        "AssessmentId": "F8",
+        "Assertion": "F8",
+        "ProjectKey": "Rule30",
+        "Name": "F8",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "Exact least eventual periods and onsets of the left-edge diagonals certified for k<=72 (largest period 2^3, latest onset 100); agrees with a direct lattice for t<=4096.",
+        "Kind": "Finite check",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 3
+      },
+      {
+        "AssessmentId": "H22",
+        "Assertion": "H22",
+        "ProjectKey": "Rule30",
+        "Name": "H22",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "The left edge grows at most half as fast as the right: log2(left-edge period of w_k) <= log2(P_k)/2 for every k>=1.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 4
       }
     ]
   },
@@ -5461,6 +5746,18 @@
         "Path": "research/loop-08-agreement-runs/PROOFS.md",
         "Sha256": "100590b97a79f58aab20dc1d6463c02829749e050fbc4faf436972d3a1636b55",
         "Name": "E24"
+      },
+      {
+        "EvidenceId": "E25",
+        "Path": "research/loop-09-left-edge/left_edge.json",
+        "Sha256": "3295dd926beb44789ee985548df8bdf8ecb7f39410e0352e1729e083b3cb033c",
+        "Name": "E25"
+      },
+      {
+        "EvidenceId": "E26",
+        "Path": "research/loop-09-left-edge/PROOFS.md",
+        "Sha256": "f1b32f3534be7739df46739ad530823403d32b7210a883905aa57d4205e1958d",
+        "Name": "E26"
       }
     ]
   },
@@ -5708,6 +6005,16 @@
         "Replacement": "",
         "Loop": "effortless-8",
         "Name": "revision-H21-1"
+      },
+      {
+        "RevisionId": "revision-H22-1",
+        "Assertion": "H22",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FINITE_VERIFIED",
+        "Reason": "Holds for every k in [9, 72] (and for k=1..8, inspected before stating it). Finite only.",
+        "Replacement": "",
+        "Loop": "effortless-9",
+        "Name": "revision-H22-1"
       }
     ]
   },
@@ -6239,6 +6546,25 @@
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
         "ProofsMade": 0
+      },
+      {
+        "LoopId": "effortless-9",
+        "Kind": "EFFORTLESS",
+        "State": "VERIFIED",
+        "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 6.0, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+        "InputHash": "33a81c983f2d187a90dfd38b8648e53d230bb2abc0d3dc6094e69535e4fedd04",
+        "OutputHash": "c83ce9844bae94f940b9076e07f7b8d8914141e3a5eaec83e52c6ea4bfc46208",
+        "Sequence": 22,
+        "StartedAt": "2026-10-23T09:37:12-0500",
+        "FinishedAt": "2026-10-23T09:37:24-0500",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "H22: the left edge grows at most half as fast as the right (log2 left period <= log2 P_k / 2).",
+        "Summary": "TR proved: left-edge diagonals are eventually periodic with power-of-two periods. Certified exactly for k<=72 (largest period 2^3, latest onset 100). H22 held on [9, 72].",
+        "Name": "effortless-9",
+        "ClaimsAdded": 3,
+        "RevisionsMade": 1,
+        "FalsificationsMade": 0,
+        "ProofsMade": 0
       }
     ]
   },
@@ -6361,12 +6687,12 @@
       {
         "DashboardId": "Rule30",
         "Name": "Rule30",
-        "ClaimCount": 50,
+        "ClaimCount": 53,
         "BlockedCount": 14,
-        "CompletedNativeLoops": 8,
+        "CompletedNativeLoops": 9,
         "EvidenceGapCount": 0,
-        "ProvedCount": 25,
-        "CheckedCount": 11,
+        "ProvedCount": 26,
+        "CheckedCount": 13,
         "FalsifiedCount": 8,
         "OpenCount": 6,
         "AtRiskCount": 0,
@@ -6804,6 +7130,34 @@
         "Assertion": "H21",
         "Name": "E17-H21",
         "EvidencePath": "research/loop-05-center/center_2_20.txt"
+      },
+      {
+        "EvidenceLinkId": "E25-TR",
+        "Evidence": "E25",
+        "Assertion": "TR",
+        "Name": "E25-TR",
+        "EvidencePath": "research/loop-09-left-edge/left_edge.json"
+      },
+      {
+        "EvidenceLinkId": "E25-F8",
+        "Evidence": "E25",
+        "Assertion": "F8",
+        "Name": "E25-F8",
+        "EvidencePath": "research/loop-09-left-edge/left_edge.json"
+      },
+      {
+        "EvidenceLinkId": "E25-H22",
+        "Evidence": "E25",
+        "Assertion": "H22",
+        "Name": "E25-H22",
+        "EvidencePath": "research/loop-09-left-edge/left_edge.json"
+      },
+      {
+        "EvidenceLinkId": "E26-TR",
+        "Evidence": "E26",
+        "Assertion": "TR",
+        "Name": "E26-TR",
+        "EvidencePath": "research/loop-09-left-edge/PROOFS.md"
       }
     ]
   }
