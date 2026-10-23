@@ -15,7 +15,7 @@
       "DependentCount": 10,
       "EvidenceCount": 0,
       "RevisionCount": 0,
-      "DescendantCount": 36
+      "DescendantCount": 38
     },
     {
       "AssertionId": "T0",
@@ -32,7 +32,7 @@
       "DependentCount": 8,
       "EvidenceCount": 0,
       "RevisionCount": 0,
-      "DescendantCount": 28
+      "DescendantCount": 30
     },
     {
       "AssertionId": "T004",
@@ -860,12 +860,12 @@
       "Name": "TR",
       "StatusGroup": "Proved",
       "PremiseCount": 2,
-      "DependentCount": 2,
+      "DependentCount": 4,
       "EvidenceCount": 2,
       "RevisionCount": 0,
       "IsUsable": 1,
       "IsProofEligible": 1,
-      "DescendantCount": 2
+      "DescendantCount": 4
     },
     {
       "AssertionId": "F8",
@@ -897,6 +897,40 @@
       "DependentCount": 0,
       "EvidenceCount": 1,
       "RevisionCount": 1,
+      "IsUsable": 1,
+      "IsProofEligible": 0,
+      "DescendantCount": 0
+    },
+    {
+      "AssertionId": "H23",
+      "Statement": "Every left-edge diagonal w_k has least eventual period at most 8.",
+      "ReportedStatus": "FALSIFIED",
+      "ProofSection": "",
+      "Kind": "Hypothesis",
+      "IntroducedInLoop": "effortless-10",
+      "Name": "H23",
+      "StatusGroup": "Falsified",
+      "PremiseCount": 1,
+      "DependentCount": 0,
+      "EvidenceCount": 1,
+      "RevisionCount": 1,
+      "IsUsable": 0,
+      "IsProofEligible": 0,
+      "DescendantCount": 0
+    },
+    {
+      "AssertionId": "F9",
+      "Statement": "Exact left-edge periods and onsets certified for k<=600; reproduces loop 9 for k<=72 and a direct lattice for t<=1600.",
+      "ReportedStatus": "FINITE_VERIFIED",
+      "ProofSection": "",
+      "Kind": "Finite check",
+      "IntroducedInLoop": "effortless-10",
+      "Name": "F9",
+      "StatusGroup": "Checked",
+      "PremiseCount": 1,
+      "DependentCount": 0,
+      "EvidenceCount": 1,
+      "RevisionCount": 0,
       "IsUsable": 1,
       "IsProofEligible": 0,
       "DescendantCount": 0
@@ -1340,6 +1374,18 @@
       "Conclusion": "H22",
       "Premise": "T004",
       "Name": "H22-T004"
+    },
+    {
+      "DependencyId": "H23-TR",
+      "Conclusion": "H23",
+      "Premise": "TR",
+      "Name": "H23-TR"
+    },
+    {
+      "DependencyId": "F9-TR",
+      "Conclusion": "F9",
+      "Premise": "TR",
+      "Name": "F9-TR"
     }
   ],
   "Prerequisites": [
@@ -4114,6 +4160,102 @@
       "ProofBlocked": 0,
       "IsSelf": 0,
       "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H23-D0",
+      "ConclusionKey": "H23",
+      "Premise": "D0",
+      "Name": "H23-D0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H23-H23",
+      "ConclusionKey": "H23",
+      "Premise": "H23",
+      "Name": "H23-H23",
+      "PremiseUsable": 0,
+      "PremiseProofEligible": 0,
+      "Blocked": 1,
+      "ProofBlocked": 1,
+      "IsSelf": 1,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H23-T0",
+      "ConclusionKey": "H23",
+      "Premise": "T0",
+      "Name": "H23-T0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H23-TR",
+      "ConclusionKey": "H23",
+      "Premise": "TR",
+      "Name": "H23-TR",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F9-D0",
+      "ConclusionKey": "F9",
+      "Premise": "D0",
+      "Name": "F9-D0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F9-F9",
+      "ConclusionKey": "F9",
+      "Premise": "F9",
+      "Name": "F9-F9",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 0,
+      "Blocked": 0,
+      "ProofBlocked": 1,
+      "IsSelf": 1,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F9-T0",
+      "ConclusionKey": "F9",
+      "Premise": "T0",
+      "Name": "F9-T0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F9-TR",
+      "ConclusionKey": "F9",
+      "Premise": "TR",
+      "Name": "F9-TR",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
     }
   ],
   "Assessments": [
@@ -5176,6 +5318,46 @@
       "AncestorBlockedCount": 0,
       "IsAtRisk": 0,
       "AncestorCount": 4
+    },
+    {
+      "AssessmentId": "H23",
+      "Assertion": "H23",
+      "ProjectKey": "Rule30",
+      "Name": "H23",
+      "ReportedStatus": "FALSIFIED",
+      "Statement": "Every left-edge diagonal w_k has least eventual period at most 8.",
+      "Kind": "Hypothesis",
+      "StatusGroup": "Falsified",
+      "SelfUsable": 0,
+      "BlockedCount": 1,
+      "ProofBlockedCount": 1,
+      "CurrentStatus": "BLOCKED",
+      "ProofEligible": 0,
+      "SupportCount": 1,
+      "EvidenceGap": 0,
+      "AncestorBlockedCount": 0,
+      "IsAtRisk": 0,
+      "AncestorCount": 3
+    },
+    {
+      "AssessmentId": "F9",
+      "Assertion": "F9",
+      "ProjectKey": "Rule30",
+      "Name": "F9",
+      "ReportedStatus": "FINITE_VERIFIED",
+      "Statement": "Exact left-edge periods and onsets certified for k<=600; reproduces loop 9 for k<=72 and a direct lattice for t<=1600.",
+      "Kind": "Finite check",
+      "StatusGroup": "Checked",
+      "SelfUsable": 1,
+      "BlockedCount": 0,
+      "ProofBlockedCount": 1,
+      "CurrentStatus": "FINITE_VERIFIED",
+      "ProofEligible": 0,
+      "SupportCount": 1,
+      "EvidenceGap": 0,
+      "AncestorBlockedCount": 0,
+      "IsAtRisk": 0,
+      "AncestorCount": 3
     }
   ],
   "Evidence": [
@@ -5334,6 +5516,12 @@
       "Path": "research/loop-09-left-edge/PROOFS.md",
       "Sha256": "f1b32f3534be7739df46739ad530823403d32b7210a883905aa57d4205e1958d",
       "Name": "E26"
+    },
+    {
+      "EvidenceId": "E27",
+      "Path": "research/loop-10-left-zone/left_zone.json",
+      "Sha256": "7ac8028178f947f51c67aa3fb84fb8352c85fbae2f40e1ca2ab1fc32911b8765",
+      "Name": "E27"
     }
   ],
   "Revisions": [
@@ -5526,6 +5714,16 @@
       "Replacement": "",
       "Loop": "effortless-9",
       "Name": "revision-H22-1"
+    },
+    {
+      "RevisionId": "revision-H23-1",
+      "Assertion": "H23",
+      "PriorStatus": "OPEN",
+      "NewStatus": "FALSIFIED",
+      "Reason": "w_400 has least eventual period 16 (E27).",
+      "Replacement": "TR",
+      "Loop": "effortless-10",
+      "Name": "revision-H23-1"
     }
   ],
   "Loops": [
@@ -5946,19 +6144,38 @@
       "RevisionsMade": 1,
       "FalsificationsMade": 0,
       "ProofsMade": 0
+    },
+    {
+      "LoopId": "effortless-10",
+      "Kind": "EFFORTLESS",
+      "State": "VERIFIED",
+      "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.8, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+      "InputHash": "adbe302ea8b13570f89a5400c243229f2ec7b8ba23e928a020743daa1a88cb39",
+      "OutputHash": "d6d3bb54fe215842b7a9ae6f6d2bd49758350199f63ebe26ee459666caf87a6d",
+      "Sequence": 23,
+      "StartedAt": "2026-10-23T09:39:04-0500",
+      "FinishedAt": "2026-10-23T09:39:15-0500",
+      "ProjectKey": "Rule30",
+      "Hypothesis": "H23: every left-edge diagonal has least eventual period at most 8.",
+      "Summary": "Left edge certified to k=600. H23 FALSIFIED (periods {'1': 10, '2': 8, '4': 37, '8': 348, '16': 198}). Background: no spatial period <= 128 found. Front: onset/k between 1.2108 and 1.4706 for k>=50, slope 1.2529.",
+      "Name": "effortless-10",
+      "ClaimsAdded": 2,
+      "RevisionsMade": 1,
+      "FalsificationsMade": 1,
+      "ProofsMade": 0
     }
   ],
   "Dashboards": [
     {
       "DashboardId": "Rule30",
       "Name": "Rule30",
-      "ClaimCount": 53,
-      "BlockedCount": 14,
-      "CompletedNativeLoops": 9,
+      "ClaimCount": 55,
+      "BlockedCount": 15,
+      "CompletedNativeLoops": 10,
       "EvidenceGapCount": 0,
       "ProvedCount": 26,
-      "CheckedCount": 13,
-      "FalsifiedCount": 8,
+      "CheckedCount": 14,
+      "FalsifiedCount": 9,
       "OpenCount": 6,
       "AtRiskCount": 0,
       "OpenPrizeProblemCount": 3,
@@ -6379,6 +6596,20 @@
       "Assertion": "TR",
       "Name": "E26-TR",
       "EvidencePath": "research/loop-09-left-edge/PROOFS.md"
+    },
+    {
+      "EvidenceLinkId": "E27-H23",
+      "Evidence": "E27",
+      "Assertion": "H23",
+      "Name": "E27-H23",
+      "EvidencePath": "research/loop-10-left-zone/left_zone.json"
+    },
+    {
+      "EvidenceLinkId": "E27-F9",
+      "Evidence": "E27",
+      "Assertion": "F9",
+      "Name": "E27-F9",
+      "EvidencePath": "research/loop-10-left-zone/left_zone.json"
     }
   ]
 }

@@ -254,6 +254,7 @@ def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path) -> 
     """
     global CURRENT_LOOP
     outdir.mkdir(parents=True, exist_ok=True)
+    pre_bytes = RULEBOOK.read_bytes()
     book = load()
     start_loop(book, loop_id, hypothesis)
     save(book)
@@ -263,6 +264,11 @@ def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path) -> 
         book = load()
         summary = edit(book)
         save(book)
+    except BaseException:
+        # A crash in the loop's own code is not a research outcome: put the hub back as it was.
+        RULEBOOK.write_bytes(pre_bytes)
+        build()
+        raise
     finally:
         CURRENT_LOOP = ''
     input_hash = rulebook_hash()
