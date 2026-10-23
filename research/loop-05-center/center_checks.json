@@ -1,0 +1,61 @@
+{
+ "center_sha256_first_100001_matches_E2": true,
+ "N": 1048576,
+ "ones": 524976,
+ "H9": {
+  "bound": "3*sqrt(N)",
+  "range": [
+   16,
+   1048576
+  ],
+  "failures": [],
+  "failure_count": 0,
+  "max_ratio": 2.6511,
+  "argmax_N": 24979
+ },
+ "H13": {
+  "bound": "2*log2(T+1)+4",
+  "failures": [],
+  "failure_count": 0,
+  "run_count": 524859,
+  "longest_runs_[len,T,V,bit]": [
+   [
+    22,
+    731772,
+    731793,
+    1
+   ],
+   [
+    21,
+    37260,
+    37280,
+    1
+   ],
+   [
+    19,
+    809914,
+    809932,
+    1
+   ],
+   [
+    19,
+    794347,
+    794365,
+    1
+   ],
+   [
+    19,
+    105020,
+    105038,
+    0
+   ]
+  ]
+ },
+ "F6": {
+  "PMAX": 131072,
+  "uniform_onsets_excluded_through": 917498,
+  "binding_period": 131071,
+  "note": "For each p, an onset T is excluded when some t >= T has c(t) != c(t+p) with t+p < 2^20."
+ },
+ "TD_bound_check": true
+}

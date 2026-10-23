@@ -39,6 +39,61 @@
         "Description": "ProofSection"
       },
       {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Role of the claim in the research: Definition, Theorem, Known result, Finite check, Hypothesis, Bridge obligation or Prize problem."
+      },
+      {
+        "name": "IntroducedInLoop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The Effortless loop that added this claim; empty for claims carried over from research v05.",
+        "RelatedTo": "Loops"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Proved (definition, proved or rederived known), Checked (finite verification only), Falsified, Superseded or Open.",
+        "formula": "=IF(OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\"),\"Proved\",IF({{ReportedStatus}}=\"FINITE_VERIFIED\",\"Checked\",IF({{ReportedStatus}}=\"FALSIFIED\",\"Falsified\",IF({{ReportedStatus}}=\"SUPERSEDED\",\"Superseded\",\"Open\"))))"
+      },
+      {
+        "name": "PremiseCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Direct premises this claim depends on.",
+        "formula": "=COUNTIFS(Dependencies!{{Conclusion}},{{AssertionId}})"
+      },
+      {
+        "name": "DependentCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims that list this one as a direct premise.",
+        "formula": "=COUNTIFS(Dependencies!{{Premise}},{{AssertionId}})"
+      },
+      {
+        "name": "EvidenceCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Evidence files linked to this claim.",
+        "formula": "=COUNTIFS(EvidenceLinks!{{Assertion}},{{AssertionId}})"
+      },
+      {
+        "name": "RevisionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Recorded status changes of this claim.",
+        "formula": "=COUNTIFS(Revisions!{{Assertion}},{{AssertionId}})"
+      },
+      {
         "name": "IsUsable",
         "datatype": "integer",
         "type": "calculated",
@@ -53,6 +108,14 @@
         "nullable": false,
         "Description": "IsProofEligible",
         "formula": "=IF(OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\"),1,0)"
+      },
+      {
+        "name": "DescendantCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims that rest on this one, directly or transitively.",
+        "formula": "=COUNTIFS(Prerequisites!{{Premise}},{{AssertionId}},Prerequisites!{{IsSelf}},0)"
       }
     ]
   },
@@ -157,6 +220,22 @@
         "nullable": false,
         "Description": "ProofBlocked",
         "formula": "=1-{{PremiseProofEligible}}"
+      },
+      {
+        "name": "IsSelf",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for the row pairing a claim with itself.",
+        "formula": "=IF({{ConclusionKey}}={{Premise}},1,0)"
+      },
+      {
+        "name": "IsBlockingAncestor",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when this ancestor is not usable and so blocks the conclusion.",
+        "formula": "=IF(AND({{Blocked}}=1,{{IsSelf}}=0),1,0)"
       }
     ]
   },
@@ -193,6 +272,38 @@
         "nullable": false,
         "Description": "ReportedStatus",
         "formula": "=INDEX(Assertions!{{ReportedStatus}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim being assessed, in words.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Role of the claim (see Assertions.Kind).",
+        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Proved, Checked, Falsified, Superseded or Open, from the reported status.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "SelfUsable",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the claim itself is usable as a premise.",
+        "formula": "=INDEX(Assertions!{{IsUsable}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
       },
       {
         "name": "BlockedCount",
@@ -241,6 +352,30 @@
         "nullable": false,
         "Description": "1 when a FINITE_VERIFIED claim has no linked evidence file.",
         "formula": "=IF(AND({{ReportedStatus}}=\"FINITE_VERIFIED\",{{SupportCount}}=0),1,0)"
+      },
+      {
+        "name": "AncestorBlockedCount",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Ancestors (not counting the claim itself) that are not usable.",
+        "formula": "={{BlockedCount}}-(1-{{SelfUsable}})"
+      },
+      {
+        "name": "IsAtRisk",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when a claim reported as established rests on an ancestor that is open, falsified or superseded. Should always be 0.",
+        "formula": "=IF(AND({{SelfUsable}}=1,{{AncestorBlockedCount}}>0),1,0)"
+      },
+      {
+        "name": "AncestorCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims this one rests on, directly or transitively.",
+        "formula": "=COUNTIFS(Prerequisites!{{ConclusionKey}},{{AssessmentId}},Prerequisites!{{IsSelf}},0)"
       },
       {
         "name": "ProjectKey",
@@ -340,6 +475,14 @@
         "nullable": true,
         "Description": "Claim that replaces a falsified one, if any.",
         "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Loop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The Effortless loop that made this change; empty for v05 revisions recorded before native loops.",
+        "RelatedTo": "Loops"
       }
     ]
   },
@@ -395,6 +538,59 @@
         "type": "raw",
         "nullable": false,
         "Description": "OutputHash"
+      },
+      {
+        "name": "Sequence",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Order of the loop across legacy and native loops (legacy 1-13, then native)."
+      },
+      {
+        "name": "StartedAt",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "ISO time the loop started; recorded from the native loops after effortless-5."
+      },
+      {
+        "name": "FinishedAt",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "ISO time the loop was verified."
+      },
+      {
+        "name": "ClaimsAdded",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims this loop added.",
+        "formula": "=COUNTIFS(Assertions!{{IntroducedInLoop}},{{LoopId}})"
+      },
+      {
+        "name": "RevisionsMade",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Status changes this loop recorded.",
+        "formula": "=COUNTIFS(Revisions!{{Loop}},{{LoopId}})"
+      },
+      {
+        "name": "FalsificationsMade",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Hypotheses this loop falsified.",
+        "formula": "=COUNTIFS(Revisions!{{Loop}},{{LoopId}},Revisions!{{NewStatus}},\"FALSIFIED\")"
+      },
+      {
+        "name": "ProofsMade",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims this loop moved to proved.",
+        "formula": "=COUNTIFS(Revisions!{{Loop}},{{LoopId}},Revisions!{{NewStatus}},\"PROVED_HUMAN_READABLE\")"
       },
       {
         "name": "ProjectKey",
@@ -469,6 +665,70 @@
         "nullable": false,
         "Description": "Finite-verified claims with no linked evidence.",
         "formula": "=SUMIFS(Assessments!{{EvidenceGap}},Assessments!{{ProjectKey}},{{DashboardId}})"
+      },
+      {
+        "name": "ProvedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims proved, rederived or definitional.",
+        "formula": "=COUNTIFS(Assessments!{{ProjectKey}},{{DashboardId}},Assessments!{{StatusGroup}},\"Proved\")"
+      },
+      {
+        "name": "CheckedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims verified by finite computation only.",
+        "formula": "=COUNTIFS(Assessments!{{ProjectKey}},{{DashboardId}},Assessments!{{StatusGroup}},\"Checked\")"
+      },
+      {
+        "name": "FalsifiedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Hypotheses shown false.",
+        "formula": "=COUNTIFS(Assessments!{{ProjectKey}},{{DashboardId}},Assessments!{{StatusGroup}},\"Falsified\")"
+      },
+      {
+        "name": "OpenCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims still open.",
+        "formula": "=COUNTIFS(Assessments!{{ProjectKey}},{{DashboardId}},Assessments!{{StatusGroup}},\"Open\")"
+      },
+      {
+        "name": "AtRiskCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Established claims resting on something not established. Should be 0.",
+        "formula": "=SUMIFS(Assessments!{{IsAtRisk}},Assessments!{{ProjectKey}},{{DashboardId}})"
+      },
+      {
+        "name": "OpenPrizeProblemCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Prize problems not yet resolved.",
+        "formula": "=COUNTIFS(Assessments!{{ProjectKey}},{{DashboardId}},Assessments!{{Kind}},\"Prize problem\",Assessments!{{StatusGroup}},\"Open\")"
+      },
+      {
+        "name": "RunningLoopCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Loops in progress right now.",
+        "formula": "=COUNTIFS(Loops!{{ProjectKey}},{{DashboardId}},Loops!{{State}},\"RUNNING\")"
+      },
+      {
+        "name": "LegacyLoopCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Research cycles from v05, before native builds.",
+        "formula": "=COUNTIFS(Loops!{{ProjectKey}},{{DashboardId}},Loops!{{Kind}},\"LEGACY_RESEARCH\")"
       }
     ]
   },
@@ -505,6 +765,14 @@
         "nullable": false,
         "Description": "The assertion it supports.",
         "RelatedTo": "Assertions"
+      },
+      {
+        "name": "EvidencePath",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Repo-relative path of the evidence file.",
+        "formula": "=INDEX(Evidence!{{Path}},MATCH({{Evidence}},Evidence!{{EvidenceId}},0))"
       }
     ]
   }

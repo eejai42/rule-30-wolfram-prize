@@ -1,0 +1,31 @@
+{
+ "loop": {
+  "LoopId": "effortless-3",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"exit\": 0, \"log_sha256\": \"9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74\", \"seconds\": 4.6, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\"]}",
+  "InputHash": "5d77dc46468fe6a9d45000b2b044fd633bdc14966a4f4558466abcbeaef9acb0",
+  "OutputHash": "f7513804dd9d7097c1a9a034dcf0b2a50ef249faa427c563fa4c1e8c6007493c",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H14: y_j(P_j/2)=1 for all j (closes the plateau case of H7 at t=0).",
+  "Summary": "H14 falsified at k=5. Added TJ (cascade lemma), TK (H7 and H4 proved by induction), TL (repeat-or-double). H7 and H4 FINITE_VERIFIED->PROVED_HUMAN_READABLE; 19 plateau-fed offsets through 64 are now covered by proof, not data.",
+  "Name": "effortless-3"
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 4.5,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]"
+  ],
+  "log_sha256": "9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 36,
+  "BlockedCount": 12,
+  "CompletedNativeLoops": 3,
+  "EvidenceGapCount": 0
+ }
+}

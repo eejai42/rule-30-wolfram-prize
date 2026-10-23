@@ -1,0 +1,10 @@
+{
+ "build_seconds": 5.9,
+ "api_shows_running_loop_after_build_s": 5.1,
+ "row_state": "RUNNING",
+ "dashboard_running_loop_count_while_running": 1,
+ "fixture_row_lingers_after_upsert_rebuild": true,
+ "gone_after_editor_recreate_s": 13.1,
+ "hash_round_trip": true,
+ "PASS": true
+}

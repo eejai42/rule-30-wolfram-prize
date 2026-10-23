@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-6",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.9, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "731c12211abb3a6df9965c4716b53707c05ae175da098fdae2c602830b54127c",
+  "OutputHash": "572351c869d6c078fc8131c4ef5cbea3d2c363fb43561705a8ec578f2e41267a",
+  "Sequence": 19,
+  "StartedAt": "2026-10-23T04:28:13-0500",
+  "FinishedAt": "2026-10-23T04:30:59-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H18: every plateau of the doubling sequence has length at most 7.",
+  "Summary": "Frontier pushed from k=64 to k=72 (period 2^31, 44.7s). H18 held: longest complete plateau 7. Growth 0.4203 bits per offset. TP proved (plateau bound implies exponential growth).",
+  "Name": "effortless-6",
+  "ClaimsAdded": 3,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 0,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 5.8,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69",
+  "editor": "refresh requested"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 46,
+  "BlockedCount": 13,
+  "CompletedNativeLoops": 6,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 23,
+  "CheckedCount": 10,
+  "FalsifiedCount": 7,
+  "OpenCount": 6,
+  "AtRiskCount": 0,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

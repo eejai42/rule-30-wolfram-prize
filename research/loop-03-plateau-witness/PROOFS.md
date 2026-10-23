@@ -32,8 +32,10 @@ period `P/2` gives `q_k(P/2 + t) = 0` for `t < a`, i.e. `y_{k-1}` and `y_{k-2}` 
 *Step 3 (cascade).* Write `W_j` for the length of the longest zero window of `y_j` starting at
 `P/2`. Step 1 gives `W_{k-1} ≥ a` and `W_{k-2} ≥ a`. Step 2 gives `W_{j-1} ≥ W_j - 1` and
 `W_{j-2} ≥ W_j - 1`. By induction on `i`, `W_{k-1-2i} ≥ a - i` and `W_{k-2-2i} ≥ a - i`:
-the case `i = 0` is Step 1, and from the case `i` the two parents of `y_{k-1-2i}` and of
-`y_{k-2-2i}` are `y_{k-3-2i}` and `y_{k-4-2i}`, each of which inherits `≥ a - i - 1`.
+the case `i = 0` is Step 1. For the step from `i` to `i+1` (while `a - i ≥ 2`), apply Step 2 to
+`y_{k-2-2i}`: its parents `y_{k-3-2i}` and `y_{k-4-2i}` each inherit a zero window of length
+`≥ a - i - 1`, which is the case `i+1`. Every diagonal index used is at least 2, so the
+recurrence applies.
 
 *Step 4 (every offset from `k-2a` to `k-1` is 0 at `P/2`).* `W_j ≥ 1` means `y_j(P/2) = 0`. From
 Step 3 this holds for `j = k-1-2i` and `j = k-2-2i` whenever `i ≤ a-1`, i.e. for every

@@ -1,0 +1,31 @@
+{
+ "loop": {
+  "LoopId": "effortless-4",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"exit\": 0, \"log_sha256\": \"9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74\", \"seconds\": 4.6, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\"]}",
+  "InputHash": "bce3d260a32f22c1ed512e7bc5018050f01e39f0fdbacbc379f74e7a331fd56c",
+  "OutputHash": "bb92949699944828da4964404ab50093e2de0e13e6bd64d129df489910b7742d",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H15: after a doubling at k-1, eps_k = ones_{k-2} mod 2 (and H16: the same without the doubling).",
+  "Summary": "H15 tested on 25 offsets then proved as TM; H16 falsified at k=6; TN (no triple doubling) proved, giving log2 P_k <= log2 P_k0 + ceil(2(k-k0)/3). Longest observed plateau 7.",
+  "Name": "effortless-4"
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 4.5,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]"
+  ],
+  "log_sha256": "9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 40,
+  "BlockedCount": 13,
+  "CompletedNativeLoops": 4,
+  "EvidenceGapCount": 0
+ }
+}

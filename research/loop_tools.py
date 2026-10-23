@@ -10,11 +10,13 @@ Derived values (IsUsable, Blocked, CurrentStatus, ...) are NEVER computed here.
 `effortless build` computes them; `consume()` reads them back.
 """
 from __future__ import annotations
-import hashlib, json, subprocess, time
+import hashlib, json, subprocess, sys, time, urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+EDITOR_API = 'http://localhost:42441'   # effortless-rulebook/ports.env
 RULEBOOK = ROOT / 'effortless-rulebook' / 'effortless-rulebook.json'
+CURRENT_LOOP = ''   # set by run_loop; tags new claims and revisions with the loop that made them
 USABLE = {'DEFINITION', 'PROVED_HUMAN_READABLE', 'REDERIVED_KNOWN', 'FINITE_VERIFIED'}
 ALLOWED = USABLE | {'FALSIFIED', 'OPEN', 'SUPERSEDED'}
 
@@ -121,9 +123,13 @@ def regen_prerequisites(book: dict) -> None:
 
 
 # ---------- mutations ----------
-def add_assertion(book, aid, statement, status='OPEN', proof_section='', deps=()):
+KIND_BY_PREFIX = [('D', 'Definition'), ('K', 'Known result'), ('T', 'Theorem'), ('F', 'Finite check'), ('H', 'Hypothesis'), ('B', 'Bridge obligation'), ('P', 'Prize problem')]
+
+
+def add_assertion(book, aid, statement, status='OPEN', proof_section='', deps=(), kind=None):
     assert not has(book, 'Assertions', aid), f'{aid} exists'
-    rows(book, 'Assertions').append({'AssertionId': aid, 'Statement': statement, 'ReportedStatus': status, 'ProofSection': proof_section})
+    kind = kind or next(k for p, k in KIND_BY_PREFIX if aid.startswith(p))
+    rows(book, 'Assertions').append({'AssertionId': aid, 'Statement': statement, 'ReportedStatus': status, 'ProofSection': proof_section, 'Kind': kind, 'IntroducedInLoop': CURRENT_LOOP})
     for p in deps:
         add_dependency(book, aid, p)
 
@@ -139,7 +145,7 @@ def set_status(book, aid, new_status, reason, replacement=''):
     prior = a['ReportedStatus']
     assert new_status in ALLOWED
     n = 1 + sum(1 for r in rows(book, 'Revisions') if r['Assertion'] == aid)
-    rows(book, 'Revisions').append({'RevisionId': f'revision-{aid}-{n}', 'Assertion': aid, 'PriorStatus': prior, 'NewStatus': new_status, 'Reason': reason, 'Replacement': replacement})
+    rows(book, 'Revisions').append({'RevisionId': f'revision-{aid}-{n}', 'Assertion': aid, 'PriorStatus': prior, 'NewStatus': new_status, 'Reason': reason, 'Replacement': replacement, 'Loop': CURRENT_LOOP})
     a['ReportedStatus'] = new_status
 
 
@@ -179,7 +185,36 @@ def build() -> dict:
     versions = [ln.strip() for ln in log.splitlines() if ln.startswith('cli:>')]
     receipt = {'exit': proc.returncode, 'seconds': round(time.time() - t0, 1), 'versions': versions, 'log_sha256': hashlib.sha256(log.encode()).hexdigest()}
     assert proc.returncode == 0 and len(versions) >= 2, log[-2000:]
+    receipt['editor'] = refresh_editor()
     return receipt
+
+
+def refresh_editor() -> str:
+    """Ask the running rulebook editor to rebuild, so the explorer shows this build.
+
+    The editor does not rebuild by itself when the rulebook file changes from outside: it
+    offers a rebuild in its UI and drops the offer if nobody answers. An explicit
+    run-build request is the documented way to say yes. Skipped when the admin portal holds
+    unsaved edits, because a rebuild would push the rulebook's values over them.
+    """
+    try:
+        st = json.load(urllib.request.urlopen(f'{EDITOR_API}/api/uncommitted-status', timeout=3))
+    except Exception:
+        return 'editor not running'
+    if st.get('pending'):
+        return f"skipped: {st.get('changeCount')} unsaved admin-portal edit(s)"
+    try:
+        req = urllib.request.Request(f'{EDITOR_API}/api/admin/run-build', data=b'{}', method='POST', headers={'Content-Type': 'application/json'})
+        r = json.load(urllib.request.urlopen(req, timeout=10))
+    except Exception as e:
+        return f'refresh failed: {e}'
+    if r.get('started'):
+        return 'refresh requested'
+    # The editor drops requests while it is building; a detached waiter retries until it is current.
+    subprocess.Popen([sys.executable, str(ROOT / 'research' / 'editor_refresh.py')], cwd=ROOT,
+                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+    return 'refresh queued (editor busy)'
+
 
 
 def consume(book, assertion_ids) -> dict:
@@ -192,21 +227,44 @@ def consume(book, assertion_ids) -> dict:
     return out
 
 
-def record_loop(book, loop_id, hypothesis, summary, input_hash, receipt, output_hash, kind='EFFORTLESS', state='VERIFIED'):
+def _now():
+    return time.strftime('%Y-%m-%dT%H:%M:%S%z')
+
+
+def start_loop(book, loop_id, hypothesis):
+    """Add the loop as RUNNING so the explorer shows it while it works."""
     assert not has(book, 'Loops', loop_id)
-    rows(book, 'Loops').append({'LoopId': loop_id, 'Kind': kind, 'State': state, 'BuildReceipt': json.dumps(receipt, sort_keys=True), 'InputHash': input_hash, 'OutputHash': output_hash, 'ProjectKey': 'Rule30', 'Hypothesis': hypothesis, 'Summary': summary})
+    seq = 1 + max(r['Sequence'] for r in rows(book, 'Loops'))
+    rows(book, 'Loops').append({'LoopId': loop_id, 'Kind': 'EFFORTLESS', 'State': 'RUNNING', 'BuildReceipt': '', 'InputHash': '', 'OutputHash': '',
+                                'Sequence': seq, 'StartedAt': _now(), 'FinishedAt': '', 'ProjectKey': 'Rule30', 'Hypothesis': hypothesis, 'Summary': ''})
+
+
+def finish_loop(book, loop_id, summary, input_hash, receipt, output_hash):
+    r = row(book, 'Loops', loop_id)
+    assert r['State'] == 'RUNNING'
+    r.update({'State': 'VERIFIED', 'BuildReceipt': json.dumps(receipt, sort_keys=True), 'InputHash': input_hash, 'OutputHash': output_hash,
+              'Summary': summary, 'FinishedAt': _now()})
 
 
 def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path) -> dict:
-    """The whole loop: edit -> build -> consume -> record -> build.
+    """The whole loop: start (RUNNING) -> edit -> build -> consume -> finish (VERIFIED) -> build.
 
     `edit(book)` applies this loop's hub changes and returns a one-paragraph summary.
     Returns the consumed compiled values, also written to outdir/consumed.json.
     """
+    global CURRENT_LOOP
     outdir.mkdir(parents=True, exist_ok=True)
     book = load()
-    summary = edit(book)
+    start_loop(book, loop_id, hypothesis)
     save(book)
+    build()
+    CURRENT_LOOP = loop_id
+    try:
+        book = load()
+        summary = edit(book)
+        save(book)
+    finally:
+        CURRENT_LOOP = ''
     input_hash = rulebook_hash()
     receipt = build()
     output_hash = rulebook_hash()
@@ -216,7 +274,7 @@ def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path) -> 
     consumed['_input_hash'] = input_hash
     consumed['_output_hash'] = output_hash
     (outdir / 'consumed.json').write_text(json.dumps(consumed, indent=1) + '\n')
-    record_loop(book, loop_id, hypothesis, summary, input_hash, receipt, output_hash)
+    finish_loop(book, loop_id, summary, input_hash, receipt, output_hash)
     save(book)
     receipt2 = build()
     final = load()

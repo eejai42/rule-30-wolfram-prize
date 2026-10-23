@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explainer DAG — Table</title>
+  <link rel="stylesheet" href="../dag.css">
+</head>
+<body>
+  <div id="effortless-explainer-outlet"></div>
+  <script src="../embedded-graph.js"></script>
+  <script src="../dag-resolver.js"></script>
+  <script src="../routing.js"></script>
+  <script src="../explainer-dag.js"></script>
+  <script>
+    var lang = new URLSearchParams(location.search).get("lang") || "en";
+    document.documentElement.lang = lang;
+    EffortlessExplainer.init({ mode: "path", lang: lang, indexPath: "/dag", fieldPath: "/dag/:table/:field", tablePath: "/dag/:table" });
+  </script>
+</body>
+</html>

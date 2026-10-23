@@ -24,20 +24,28 @@ reasoning is kept straight by the build, not by hand.
 
 One loop = one hypothesis, tested, recorded, built, consumed:
 
+0. The loop is added to Loops as `RUNNING` and built, so the explorer shows it in progress.
 1. State the hypothesis as an Assertion (status OPEN) with its Dependencies.
 2. Run the experiment or write the proof. Save outputs under `research/loop-NN/` and register each file as Evidence (path + sha256) with EvidenceLinks to the assertions it supports.
 3. Record the outcome as a Revision (prior status, new status, reason) and update the assertion's ReportedStatus.
 4. `effortless build`.
 5. Consume the compiled Assessments / Dashboards (read, do not recompute).
-6. Append a Loops row with Kind `EFFORTLESS`, State `VERIFIED`, the input hash (rulebook sha256 before the build), the build receipt, and the output hash (rulebook sha256 after the build). Then build again so the Dashboard counts it.
+6. Mark the loop `VERIFIED` with the input hash (rulebook sha256 before the build), the build receipt, and the output hash (rulebook sha256 after the build). Then build again so the Dashboard counts it.
 
-`research/loop_tools.py` implements steps 1, 2, 3 and 6. A loop that skips the build or the consume step is not VERIFIED.
+`research/loop_tools.py` `run_loop()` does steps 0 to 6; a loop script supplies only the hub edit. Claims and revisions made inside a loop are tagged with it automatically. A loop that skips the build or the consume step is not VERIFIED.
 
 ## Status vocabulary
 `DEFINITION`, `PROVED_HUMAN_READABLE`, `REDERIVED_KNOWN`, `FINITE_VERIFIED` are usable premises. Only the first three are proof-eligible. `OPEN`, `FALSIFIED`, `SUPERSEDED` are not usable; any conclusion with such an ancestor compiles to `BLOCKED`.
 
+## Explorer and admin portal
+- `./start.sh` launches both. The explorer (progress, loops, claims, dependency graph, proofs) is at http://localhost:7431. The generated admin portal from `effortless-rulebook-editor` is at http://localhost:42442, its API at http://localhost:42441/api/docs.
+- The explorer lives in `explorer/` and reads only the editor API's views. Personas, stories and routes are in `docs/app.md`; read it before changing a screen.
+- Any status, count or flag a screen needs is a rulebook field first. Never compute one in the explorer.
+- The editor does NOT rebuild by itself when the rulebook file changes from outside; it only offers a rebuild in its UI. `loop_tools.build()` therefore asks it to rebuild after every `effortless build` (skipped when the admin portal has unsaved edits). The editor drops a request that arrives while it is already building (a full rebuild takes about 2 minutes; the data lands in the first few seconds), so a busy editor gets a detached waiter, `research/editor_refresh.py`, that retries until the editor has built the current rulebook. Its log is `.logs/editor-refresh.log`. A plain `effortless build` from the shell does not; click Rebuild in the admin portal or `curl -X POST localhost:42441/api/admin/run-build`.
+- The editor's rebuild only adds and updates rows. A row deleted from the rulebook stays in its database until `./start.sh editor` recreates the container. Research loops never delete rows, so this only matters for fixtures and hand edits.
+
 ## Build
-- Build: `effortless build` from project root (compile-rulebook then minimize-rulebook, both remote, about 30 seconds).
+- Build: `effortless build` from project root (compile-rulebook, minimize-rulebook, effortless-rulebook-editor, rulebook-to-explainer-dag; all remote, a few seconds each).
 - No Postgres target is registered. If one is added later, it is a read-only output spoke; the hub does not change.
 
 ## ERB Skills

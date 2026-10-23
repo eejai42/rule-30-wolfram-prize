@@ -1,9 +1,9 @@
-Assertions: AssertionId, Name, Statement, ReportedStatus, ProofSection, IsUsable, IsProofEligible
+Assertions: AssertionId, Name, Statement, ReportedStatus, ProofSection, Kind, IntroducedInLoop, StatusGroup, PremiseCount, DependentCount, EvidenceCount, RevisionCount, IsUsable, IsProofEligible, DescendantCount
 Dependencies: DependencyId, Name, Conclusion, Premise
-Prerequisites: PrerequisiteId, Name, ConclusionKey, Premise, PremiseUsable, PremiseProofEligible, Blocked, ProofBlocked
-Assessments: AssessmentId, Name, Assertion, ReportedStatus, BlockedCount, ProofBlockedCount, CurrentStatus, ProofEligible, SupportCount, EvidenceGap, ProjectKey
+Prerequisites: PrerequisiteId, Name, ConclusionKey, Premise, PremiseUsable, PremiseProofEligible, Blocked, ProofBlocked, IsSelf, IsBlockingAncestor
+Assessments: AssessmentId, Name, Assertion, ReportedStatus, Statement, Kind, StatusGroup, SelfUsable, BlockedCount, ProofBlockedCount, CurrentStatus, ProofEligible, SupportCount, EvidenceGap, AncestorBlockedCount, IsAtRisk, AncestorCount, ProjectKey
 Evidence: EvidenceId, Name, Path, Sha256
-Revisions: RevisionId, Name, Assertion, PriorStatus, NewStatus, Reason, Replacement
-Loops: LoopId, Name, Kind, State, BuildReceipt, InputHash, OutputHash, ProjectKey, Hypothesis, Summary
-Dashboards: DashboardId, Name, ClaimCount, BlockedCount, CompletedNativeLoops, EvidenceGapCount
-EvidenceLinks: EvidenceLinkId, Name, Evidence, Assertion
+Revisions: RevisionId, Name, Assertion, PriorStatus, NewStatus, Reason, Replacement, Loop
+Loops: LoopId, Name, Kind, State, BuildReceipt, InputHash, OutputHash, Sequence, StartedAt, FinishedAt, ClaimsAdded, RevisionsMade, FalsificationsMade, ProofsMade, ProjectKey, Hypothesis, Summary
+Dashboards: DashboardId, Name, ClaimCount, BlockedCount, CompletedNativeLoops, EvidenceGapCount, ProvedCount, CheckedCount, FalsifiedCount, OpenCount, AtRiskCount, OpenPrizeProblemCount, RunningLoopCount, LegacyLoopCount
+EvidenceLinks: EvidenceLinkId, Name, Evidence, Assertion, EvidencePath

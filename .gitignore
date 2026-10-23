@@ -2,3 +2,6 @@
 .ssotme/
 .effortless/**/*.zfs
 research/**/*.pyc
+effortless.env
+.logs/
+explorer/node_modules/**/*

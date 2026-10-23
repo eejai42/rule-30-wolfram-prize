@@ -1,0 +1,153 @@
+k=1 log2P=1 eps=1 0.0s
+k=2 log2P=1 eps=1 0.0s
+k=3 log2P=2 eps=1 0.0s
+k=4 log2P=3 eps=1 0.0s
+k=5 log2P=3 eps=0 0.0s
+k=6 log2P=4 eps=1 0.0s
+k=7 log2P=5 eps=1 0.0s
+k=8 log2P=5 eps=0 0.0s
+k=9 log2P=6 eps=1 0.0s
+k=10 log2P=6 eps=0 0.0s
+k=11 log2P=6 eps=0 0.0s
+k=12 log2P=6 eps=0 0.0s
+k=13 log2P=6 eps=0 0.0s
+k=14 log2P=6 eps=0 0.0s
+k=15 log2P=7 eps=1 0.0s
+k=16 log2P=8 eps=1 0.0s
+k=17 log2P=8 eps=0 0.0s
+k=18 log2P=8 eps=0 0.0s
+k=19 log2P=8 eps=0 0.0s
+k=20 log2P=8 eps=0 0.0s
+k=21 log2P=8 eps=0 0.0s
+k=22 log2P=8 eps=0 0.0s
+k=23 log2P=8 eps=0 0.0s
+k=24 log2P=9 eps=1 0.0s
+k=25 log2P=10 eps=1 0.0s
+k=26 log2P=10 eps=0 0.0s
+k=27 log2P=11 eps=1 0.0s
+k=28 log2P=11 eps=0 0.0s
+k=29 log2P=12 eps=1 0.0s
+k=30 log2P=12 eps=0 0.0s
+k=31 log2P=12 eps=0 0.0s
+k=32 log2P=12 eps=0 0.0s
+k=33 log2P=12 eps=0 0.0s
+k=34 log2P=13 eps=1 0.0s
+k=35 log2P=13 eps=0 0.0s
+k=36 log2P=14 eps=1 0.0s
+k=37 log2P=15 eps=1 0.0s
+k=38 log2P=15 eps=0 0.0s
+k=39 log2P=16 eps=1 0.0s
+k=40 log2P=16 eps=0 0.0s
+k=41 log2P=17 eps=1 0.0s
+k=42 log2P=17 eps=0 0.0s
+k=43 log2P=18 eps=1 0.0s
+k=44 log2P=18 eps=0 0.0s
+k=45 log2P=18 eps=0 0.0s
+k=46 log2P=18 eps=0 0.0s
+k=47 log2P=18 eps=0 0.0s
+k=48 log2P=19 eps=1 0.0s
+k=49 log2P=20 eps=1 0.0s
+k=50 log2P=20 eps=0 0.0s
+k=51 log2P=21 eps=1 0.01s
+k=52 log2P=21 eps=0 0.01s
+k=53 log2P=21 eps=0 0.01s
+k=54 log2P=22 eps=1 0.01s
+k=55 log2P=23 eps=1 0.03s
+k=56 log2P=23 eps=0 0.04s
+k=57 log2P=23 eps=0 0.04s
+k=58 log2P=24 eps=1 0.07s
+k=59 log2P=24 eps=0 0.08s
+k=60 log2P=25 eps=1 0.12s
+k=61 log2P=25 eps=0 0.11s
+k=62 log2P=25 eps=0 0.11s
+k=63 log2P=26 eps=1 0.34s
+k=64 log2P=27 eps=1 0.74s
+k=65 log2P=27 eps=0 0.75s
+k=66 log2P=28 eps=1 1.58s
+k=67 log2P=28 eps=0 1.67s
+k=68 log2P=28 eps=0 1.56s
+k=69 log2P=29 eps=1 3.46s
+k=70 log2P=30 eps=1 7.18s
+k=71 log2P=30 eps=0 7.13s
+k=72 log2P=31 eps=1 18.43s
+{
+ "H18": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "TP": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F7": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 46,
+  "BlockedCount": 13,
+  "CompletedNativeLoops": 5,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 23,
+  "CheckedCount": 10,
+  "FalsifiedCount": 7,
+  "OpenCount": 6,
+  "AtRiskCount": 0,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "frontier_K": 72,
+ "cap_bits": 2147483648,
+ "largest_period_log2": 31,
+ "E10_rows_reproduced": 64,
+ "new_offsets": [
+  65,
+  66,
+  67,
+  68,
+  69,
+  70,
+  71,
+  72
+ ],
+ "lattice_T": 4096,
+ "lattice_checked_offsets": [
+  65,
+  66,
+  67,
+  68,
+  69,
+  70,
+  71,
+  72
+ ],
+ "lattice_mismatches": [],
+ "lattice_seconds": 0.0,
+ "eps_sequence_3_to_K": "1101101000001100000001101010000101101010100001101001100101001101001101",
+ "longest_complete_plateau": 7,
+ "H18_counterexamples": [],
+ "trailing_open_plateau": [],
+ "TP_bound_with_L7_holds_on_data": true,
+ "growth_bits_per_offset_3_to_K": 0.4203,
+ "compute_seconds": 44.7
+}

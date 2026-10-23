@@ -1,0 +1,31 @@
+{
+ "loop": {
+  "LoopId": "effortless-5",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"exit\": 0, \"log_sha256\": \"9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74\", \"seconds\": 4.5, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\"]}",
+  "InputHash": "94ece196e029189b0485b9770d16afcb2c44d4a478ba1e5abef42c11cad3e397",
+  "OutputHash": "57a9f6171fc192de45656cfa7df8500fb1926173dbd6e4953b624092da98d6a4",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H9 and H13 hold on the first 2^20 center bits; the onset/period exclusion F3 extends to p <= 2^17.",
+  "Summary": "Center column to 2^20: E2 hash reproduced; F6 excludes all periods <= 2^17 for onsets <= 917498 (F3 was 10^4 / 9*10^4). H9 (max ratio 2.6511) and H13 (longest run 22) finite-verified. P1, P2 unchanged.",
+  "Name": "effortless-5"
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 4.5,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]"
+  ],
+  "log_sha256": "9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 43,
+  "BlockedCount": 13,
+  "CompletedNativeLoops": 5,
+  "EvidenceGapCount": 0
+ }
+}
