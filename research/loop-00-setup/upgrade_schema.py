@@ -1,0 +1,106 @@
+"""Loop 0 (setup): make the migrated draft a real ERB hub.
+
+- FK columns become `relationship` fields (ERB convention), same names and values.
+- New EvidenceLinks table: explicit evidence-to-claim support (README completion item 5).
+- Assessments gain SupportCount / EvidenceGap; Dashboards gain EvidenceGapCount.
+- Loops gain Hypothesis / Summary.
+- Evidence paths become repo-root relative (hashes re-verified, not retyped).
+Run once, then `effortless build`.
+"""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import loop_tools as lt
+
+book = lt.load()
+
+
+def field(name, datatype='string', type='raw', formula=None, related=None, desc=None, nullable=False):
+    f = {'name': name, 'datatype': datatype, 'type': type, 'nullable': nullable, 'Description': desc or name}
+    if formula:
+        f['formula'] = formula
+    if related:
+        f['RelatedTo'] = related
+    return f
+
+
+def set_fk(table, name, related, desc):
+    for f in book[table]['schema']:
+        if f['name'] == name:
+            f['type'] = 'relationship'
+            f['RelatedTo'] = related
+            f['Description'] = desc
+            return
+    raise KeyError(name)
+
+
+set_fk('Dependencies', 'Conclusion', 'Assertions', 'The assertion that depends on the premise.')
+set_fk('Dependencies', 'Premise', 'Assertions', 'The assertion the conclusion relies on.')
+set_fk('Prerequisites', 'ConclusionKey', 'Assessments', 'The assessment this transitive premise feeds.')
+set_fk('Prerequisites', 'Premise', 'Assertions', 'A transitive ancestor of the conclusion (including itself).')
+set_fk('Assessments', 'Assertion', 'Assertions', 'The assertion being assessed.')
+set_fk('Assessments', 'ProjectKey', 'Dashboards', 'Dashboard this assessment rolls up to.')
+set_fk('Revisions', 'Assertion', 'Assertions', 'The assertion whose status changed.')
+set_fk('Revisions', 'Replacement', 'Assertions', 'Claim that replaces a falsified one, if any.')
+set_fk('Loops', 'ProjectKey', 'Dashboards', 'Dashboard this loop rolls up to.')
+for f in book['Revisions']['schema']:
+    if f['name'] == 'Replacement':
+        f['nullable'] = True
+
+# EvidenceLinks
+book['EvidenceLinks'] = {
+    'Description': 'Which evidence file supports which assertion. One row per (evidence, assertion) pair.',
+    'schema': [
+        field('EvidenceLinkId', desc='EvidenceId-AssertionId.'),
+        field('Name', type='calculated', formula='={{EvidenceLinkId}}', desc='Display alias.'),
+        field('Evidence', type='relationship', related='Evidence', desc='The evidence file.'),
+        field('Assertion', type='relationship', related='Assertions', desc='The assertion it supports.'),
+    ],
+    'data': [],
+}
+
+# Assessments: SupportCount, EvidenceGap
+sch = book['Assessments']['schema']
+sch.insert(len(sch) - 1, field('SupportCount', 'integer', 'aggregation', '=COUNTIFS(EvidenceLinks!{{Assertion}},{{Assertion}})', desc='Number of evidence files linked to this assertion.'))
+sch.insert(len(sch) - 1, field('EvidenceGap', 'integer', 'calculated', '=IF(AND({{ReportedStatus}}="FINITE_VERIFIED",{{SupportCount}}=0),1,0)', desc='1 when a FINITE_VERIFIED claim has no linked evidence file.'))
+
+# Dashboards: EvidenceGapCount
+book['Dashboards']['schema'].append(field('EvidenceGapCount', 'integer', 'aggregation', '=SUMIFS(Assessments!{{EvidenceGap}},Assessments!{{ProjectKey}},{{DashboardId}})', desc='Finite-verified claims with no linked evidence.'))
+
+# Loops: Hypothesis, Summary
+book['Loops']['schema'] += [
+    field('Hypothesis', desc='The hypothesis this loop tested, as stated before the experiment.', nullable=True),
+    field('Summary', desc='What the loop changed in the hub and what the build showed.', nullable=True),
+]
+for r in book['Loops']['data']:
+    r.setdefault('Hypothesis', '')
+    r.setdefault('Summary', '')
+
+# Evidence paths -> repo-root relative; hashes re-verified by add_evidence
+base = 'bootstrap/cmcc_rule30_effortless_migration/research_v05/'
+for e in book['Evidence']['data']:
+    old = e['Sha256']
+    newp = base + e['Path'].replace('../research_v05/', '')
+    lt.add_evidence(book, e['EvidenceId'], newp)
+    assert e['Sha256'] == old, e['EvidenceId']
+
+# Evidence-to-claim links stated explicitly in research_v05/REPORT.md
+for eid, aids in {
+    'E0': ['F1'], 'E1': ['F2', 'H1', 'H2'], 'E6': ['F2'], 'E3': ['F2'], 'E2': ['F3'], 'E4': ['F4'],
+    'E5': ['TE', 'H5', 'H6'], 'E7': ['B1'],
+}.items():
+    for a in aids:
+        lt.link_evidence(book, eid, a)
+
+# Descriptions for the tables that only had their name
+book['Assertions']['Description'] = 'Every claim in the ledger: definitions, theorems, finite verifications, hypotheses and falsified attempts.'
+book['Dependencies']['Description'] = 'Declared one-step logical dependencies between assertions.'
+book['Prerequisites']['Description'] = 'Transitive closure of Dependencies, one row per (conclusion, ancestor), regenerated by research/loop_tools.py.'
+book['Assessments']['Description'] = 'Compiled status of each assertion given the status of all its ancestors.'
+book['Evidence']['Description'] = 'Files produced by experiments, with sha256 hashes computed from disk.'
+book['Revisions']['Description'] = 'Every status change, with the prior status kept visible.'
+book['Loops']['Description'] = 'Research loops. Only Kind EFFORTLESS + State VERIFIED rows carry build receipts and hashes.'
+book['Dashboards']['Description'] = 'Project-level rollups.'
+
+lt.save(book)
+print('schema upgraded; evidence verified:', lt.verify_evidence(book) == [])

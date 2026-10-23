@@ -1,1 +1,4 @@
 .DS_Store
+.ssotme/
+.effortless/**/*.zfs
+research/**/*.pyc

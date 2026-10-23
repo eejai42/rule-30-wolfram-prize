@@ -1,0 +1,31 @@
+{
+ "loop": {
+  "LoopId": "effortless-1",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"exit\": 0, \"log_sha256\": \"9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74\", \"seconds\": 4.5, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\"]}",
+  "InputHash": "cf2699faa72bae35c8bd605c244a7846e023dda5b318279a20bb6dbfdb12e6ee",
+  "OutputHash": "9b46ae92c3326b17b04fc08298959745934fc9de664daf712be918ff567a01d8",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H7: Q_k = max(P_{k-1},P_{k-2}) for all k>=3; TF/TG/TH/TI provable; H4 reduces to H7.",
+  "Summary": "Added TF, TG, TH, TI (proved) and H7 (finite through k=51). H4 OPEN->FINITE_VERIFIED with new dependency edges H4<-TI, H4<-H7; TH covers 33 of 49 offsets, the remaining 16 plateau-fed offsets are the open case of H7.",
+  "Name": "effortless-1"
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 4.5,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]"
+  ],
+  "log_sha256": "9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 31,
+  "BlockedCount": 11,
+  "CompletedNativeLoops": 1,
+  "EvidenceGapCount": 0
+ }
+}

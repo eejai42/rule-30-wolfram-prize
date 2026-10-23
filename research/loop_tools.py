@@ -1,0 +1,225 @@
+"""Hub editing helpers for the Rule 30 research ledger.
+
+Every mutation of effortless-rulebook.json goes through here so that:
+  * Prerequisites stays the exact transitive closure of Dependencies,
+  * every Assertion has an Assessment row,
+  * evidence hashes are computed, never typed,
+  * the file keeps Single Line Leaves formatting (one line per field, one per row).
+
+Derived values (IsUsable, Blocked, CurrentStatus, ...) are NEVER computed here.
+`effortless build` computes them; `consume()` reads them back.
+"""
+from __future__ import annotations
+import hashlib, json, subprocess, time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+RULEBOOK = ROOT / 'effortless-rulebook' / 'effortless-rulebook.json'
+USABLE = {'DEFINITION', 'PROVED_HUMAN_READABLE', 'REDERIVED_KNOWN', 'FINITE_VERIFIED'}
+ALLOWED = USABLE | {'FALSIFIED', 'OPEN', 'SUPERSEDED'}
+
+
+# ---------- file format ----------
+def load() -> dict:
+    return json.loads(RULEBOOK.read_text())
+
+
+def _dump_single_line_leaves(book: dict) -> str:
+    out = ['{']
+    keys = list(book)
+    for i, k in enumerate(keys):
+        v = book[k]
+        comma = ',' if i < len(keys) - 1 else ''
+        if isinstance(v, dict) and 'schema' in v:
+            out.append(f'  {json.dumps(k)}: {{')
+            inner = [kk for kk in v if kk not in ('schema', 'data')]
+            for kk in inner:
+                out.append(f'    {json.dumps(kk)}: {json.dumps(v[kk])},')
+            out.append('    "schema": [')
+            out.append(',\n'.join('      ' + json.dumps(f) for f in v['schema']))
+            out.append('    ],')
+            out.append('    "data": [')
+            out.append(',\n'.join('      ' + json.dumps(r) for r in v.get('data', [])))
+            out.append('    ]')
+            out.append('  }' + comma)
+        else:
+            out.append(f'  {json.dumps(k)}: {json.dumps(v)}{comma}')
+    out.append('}')
+    return '\n'.join(out) + '\n'
+
+
+def save(book: dict) -> None:
+    regen_prerequisites(book)
+    ensure_assessments(book)
+    RULEBOOK.write_text(_dump_single_line_leaves(book))
+
+
+def sha256_file(p: Path | str) -> str:
+    return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+
+
+def rulebook_hash() -> str:
+    return sha256_file(RULEBOOK)
+
+
+# ---------- lookups ----------
+def rows(book: dict, table: str) -> list[dict]:
+    return book[table]['data']
+
+
+def row(book: dict, table: str, key: str) -> dict:
+    pk = book[table]['schema'][0]['name']
+    for r in rows(book, table):
+        if r[pk] == key:
+            return r
+    raise KeyError(f'{table}.{key}')
+
+
+def has(book: dict, table: str, key: str) -> bool:
+    try:
+        row(book, table, key)
+        return True
+    except KeyError:
+        return False
+
+
+def _strip_derived(book: dict, table: str, r: dict) -> dict:
+    """Keep only raw/relationship columns; compiled columns are rebuilt by the build."""
+    keep = [f['name'] for f in book[table]['schema'] if f['type'] in ('raw', 'relationship')]
+    return {k: r[k] for k in keep if k in r}
+
+
+# ---------- structural invariants ----------
+def ensure_assessments(book: dict) -> None:
+    present = {r['AssessmentId'] for r in rows(book, 'Assessments')}
+    for a in rows(book, 'Assertions'):
+        if a['AssertionId'] not in present:
+            rows(book, 'Assessments').append({'AssessmentId': a['AssertionId'], 'Assertion': a['AssertionId'], 'ProjectKey': 'Rule30'})
+
+
+def regen_prerequisites(book: dict) -> None:
+    ids = {a['AssertionId'] for a in rows(book, 'Assertions')}
+    for a in rows(book, 'Assertions'):
+        assert a['ReportedStatus'] in ALLOWED, a
+    parents: dict[str, set[str]] = {k: set() for k in ids}
+    for d in rows(book, 'Dependencies'):
+        assert d['Conclusion'] in ids and d['Premise'] in ids, d
+        parents[d['Conclusion']].add(d['Premise'])
+
+    def closure(k, active=frozenset()):
+        assert k not in active, f'claim cycle through {k}'
+        s = {k}
+        for p in parents[k]:
+            s |= closure(p, active | {k})
+        return s
+
+    new = []
+    for k in sorted(ids, key=lambda x: [a['AssertionId'] for a in rows(book, 'Assertions')].index(x)):
+        for p in sorted(closure(k)):
+            new.append({'PrerequisiteId': f'{k}-{p}', 'ConclusionKey': k, 'Premise': p})
+    book['Prerequisites']['data'] = new
+
+
+# ---------- mutations ----------
+def add_assertion(book, aid, statement, status='OPEN', proof_section='', deps=()):
+    assert not has(book, 'Assertions', aid), f'{aid} exists'
+    rows(book, 'Assertions').append({'AssertionId': aid, 'Statement': statement, 'ReportedStatus': status, 'ProofSection': proof_section})
+    for p in deps:
+        add_dependency(book, aid, p)
+
+
+def add_dependency(book, conclusion, premise):
+    did = f'{conclusion}-{premise}'
+    if not has(book, 'Dependencies', did):
+        rows(book, 'Dependencies').append({'DependencyId': did, 'Conclusion': conclusion, 'Premise': premise})
+
+
+def set_status(book, aid, new_status, reason, replacement=''):
+    a = row(book, 'Assertions', aid)
+    prior = a['ReportedStatus']
+    assert new_status in ALLOWED
+    n = 1 + sum(1 for r in rows(book, 'Revisions') if r['Assertion'] == aid)
+    rows(book, 'Revisions').append({'RevisionId': f'revision-{aid}-{n}', 'Assertion': aid, 'PriorStatus': prior, 'NewStatus': new_status, 'Reason': reason, 'Replacement': replacement})
+    a['ReportedStatus'] = new_status
+
+
+def add_evidence(book, eid, path, supports=()):
+    """path is relative to the repo root. Hash is computed from the file, never typed."""
+    p = ROOT / path
+    assert p.is_file(), p
+    if has(book, 'Evidence', eid):
+        row(book, 'Evidence', eid).update({'Path': path, 'Sha256': sha256_file(p)})
+    else:
+        rows(book, 'Evidence').append({'EvidenceId': eid, 'Path': path, 'Sha256': sha256_file(p)})
+    for aid in supports:
+        link_evidence(book, eid, aid)
+
+
+def link_evidence(book, eid, aid):
+    lid = f'{eid}-{aid}'
+    if not has(book, 'EvidenceLinks', lid):
+        rows(book, 'EvidenceLinks').append({'EvidenceLinkId': lid, 'Evidence': eid, 'Assertion': aid})
+
+
+def verify_evidence(book) -> list[str]:
+    bad = []
+    for e in rows(book, 'Evidence'):
+        p = ROOT / e['Path']
+        if not p.is_file() or sha256_file(p) != e['Sha256']:
+            bad.append(e['EvidenceId'])
+    return bad
+
+
+# ---------- build / consume / loop record ----------
+def build() -> dict:
+    """Run `effortless build` from the project root. Returns a receipt (never a value)."""
+    t0 = time.time()
+    proc = subprocess.run(['effortless', 'build'], cwd=ROOT, capture_output=True, text=True)
+    log = proc.stdout + proc.stderr
+    versions = [ln.strip() for ln in log.splitlines() if ln.startswith('cli:>')]
+    receipt = {'exit': proc.returncode, 'seconds': round(time.time() - t0, 1), 'versions': versions, 'log_sha256': hashlib.sha256(log.encode()).hexdigest()}
+    assert proc.returncode == 0 and len(versions) >= 2, log[-2000:]
+    return receipt
+
+
+def consume(book, assertion_ids) -> dict:
+    """Read compiled values back. This is the only legal way to learn a status."""
+    out = {}
+    for aid in assertion_ids:
+        r = row(book, 'Assessments', aid)
+        out[aid] = {k: r[k] for k in ('ReportedStatus', 'CurrentStatus', 'BlockedCount', 'ProofBlockedCount', 'ProofEligible', 'SupportCount', 'EvidenceGap') if k in r}
+    out['_dashboard'] = dict(rows(book, 'Dashboards')[0])
+    return out
+
+
+def record_loop(book, loop_id, hypothesis, summary, input_hash, receipt, output_hash, kind='EFFORTLESS', state='VERIFIED'):
+    assert not has(book, 'Loops', loop_id)
+    rows(book, 'Loops').append({'LoopId': loop_id, 'Kind': kind, 'State': state, 'BuildReceipt': json.dumps(receipt, sort_keys=True), 'InputHash': input_hash, 'OutputHash': output_hash, 'ProjectKey': 'Rule30', 'Hypothesis': hypothesis, 'Summary': summary})
+
+
+def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path) -> dict:
+    """The whole loop: edit -> build -> consume -> record -> build.
+
+    `edit(book)` applies this loop's hub changes and returns a one-paragraph summary.
+    Returns the consumed compiled values, also written to outdir/consumed.json.
+    """
+    outdir.mkdir(parents=True, exist_ok=True)
+    book = load()
+    summary = edit(book)
+    save(book)
+    input_hash = rulebook_hash()
+    receipt = build()
+    output_hash = rulebook_hash()
+    book = load()
+    consumed = consume(book, consume_ids)
+    consumed['_receipt'] = receipt
+    consumed['_input_hash'] = input_hash
+    consumed['_output_hash'] = output_hash
+    (outdir / 'consumed.json').write_text(json.dumps(consumed, indent=1) + '\n')
+    record_loop(book, loop_id, hypothesis, summary, input_hash, receipt, output_hash)
+    save(book)
+    receipt2 = build()
+    final = load()
+    dash = dict(rows(final, 'Dashboards')[0])
+    (outdir / 'loop-record.json').write_text(json.dumps({'loop': row(final, 'Loops', loop_id), 'post_record_build': receipt2, 'dashboard_after': dash}, indent=1) + '\n')
+    return consumed

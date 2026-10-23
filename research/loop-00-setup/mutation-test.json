@@ -1,0 +1,63 @@
+{
+ "fixture": "T0.ReportedStatus := FALSIFIED",
+ "expected_blocked_min": [
+  "TB",
+  "TC",
+  "TD",
+  "K1"
+ ],
+ "blocked_by_build": [
+  "F2",
+  "K1",
+  "P1",
+  "T0",
+  "T004",
+  "TB",
+  "TC",
+  "TD"
+ ],
+ "not_blocked_by_build": [
+  "CM",
+  "D0",
+  "TA"
+ ],
+ "dashboard_baseline": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 26,
+  "BlockedCount": 12,
+  "CompletedNativeLoops": 0,
+  "EvidenceGapCount": 0
+ },
+ "dashboard_mutated": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 26,
+  "BlockedCount": 19,
+  "CompletedNativeLoops": 0,
+  "EvidenceGapCount": 0
+ },
+ "restored_equals_baseline": true,
+ "pre_hash": "23981bfa1193c2760c1c5212a089f8e49e7e3393432624b02822bcb0a2530b69",
+ "post_hash": "23981bfa1193c2760c1c5212a089f8e49e7e3393432624b02822bcb0a2530b69",
+ "hash_round_trip": true,
+ "mutation_build": {
+  "exit": 0,
+  "seconds": 4.6,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]"
+  ],
+  "log_sha256": "9c54c772f329556e2379a2c895de188d8d20d6af75cffbd10d2deb6b78eb0e74"
+ },
+ "restore_build": {
+  "exit": 0,
+  "seconds": 4.5,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]"
+  ],
+  "log_sha256": "946943b0076820aa8c10a9540d6f968570f95f5e50f1e3637c0da4e93fa63434"
+ },
+ "PASS": true
+}

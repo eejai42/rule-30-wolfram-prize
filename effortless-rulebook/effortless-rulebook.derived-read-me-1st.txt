@@ -1,0 +1,9 @@
+Assertions: AssertionId, Name, Statement, ReportedStatus, ProofSection, IsUsable, IsProofEligible
+Dependencies: DependencyId, Name, Conclusion, Premise
+Prerequisites: PrerequisiteId, Name, ConclusionKey, Premise, PremiseUsable, PremiseProofEligible, Blocked, ProofBlocked
+Assessments: AssessmentId, Name, Assertion, ReportedStatus, BlockedCount, ProofBlockedCount, CurrentStatus, ProofEligible, SupportCount, EvidenceGap, ProjectKey
+Evidence: EvidenceId, Name, Path, Sha256
+Revisions: RevisionId, Name, Assertion, PriorStatus, NewStatus, Reason, Replacement
+Loops: LoopId, Name, Kind, State, BuildReceipt, InputHash, OutputHash, ProjectKey, Hypothesis, Summary
+Dashboards: DashboardId, Name, ClaimCount, BlockedCount, CompletedNativeLoops, EvidenceGapCount
+EvidenceLinks: EvidenceLinkId, Name, Evidence, Assertion
