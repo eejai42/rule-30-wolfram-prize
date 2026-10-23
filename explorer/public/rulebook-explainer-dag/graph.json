@@ -137,7 +137,7 @@
         "DependentCount": 8,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 29
+        "DescendantCount": 31
       },
       {
         "AssertionId": "T0",
@@ -151,10 +151,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 6,
+        "DependentCount": 7,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 23
+        "DescendantCount": 25
       },
       {
         "AssertionId": "T004",
@@ -171,7 +171,7 @@
         "DependentCount": 9,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 17
+        "DescendantCount": 18
       },
       {
         "AssertionId": "TA",
@@ -185,10 +185,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 11,
+        "DependentCount": 12,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 17
+        "DescendantCount": 19
       },
       {
         "AssertionId": "TB",
@@ -205,7 +205,7 @@
         "DependentCount": 4,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 12
+        "DescendantCount": 13
       },
       {
         "AssertionId": "TC",
@@ -596,7 +596,7 @@
         "DependentCount": 2,
         "EvidenceCount": 1,
         "RevisionCount": 0,
-        "DescendantCount": 10
+        "DescendantCount": 11
       },
       {
         "AssertionId": "TH",
@@ -630,7 +630,7 @@
         "DependentCount": 2,
         "EvidenceCount": 3,
         "RevisionCount": 2,
-        "DescendantCount": 7
+        "DescendantCount": 8
       },
       {
         "AssertionId": "TI",
@@ -698,7 +698,7 @@
         "DependentCount": 1,
         "EvidenceCount": 2,
         "RevisionCount": 0,
-        "DescendantCount": 9
+        "DescendantCount": 10
       },
       {
         "AssertionId": "TK",
@@ -715,7 +715,7 @@
         "DependentCount": 4,
         "EvidenceCount": 2,
         "RevisionCount": 0,
-        "DescendantCount": 8
+        "DescendantCount": 9
       },
       {
         "AssertionId": "TL",
@@ -729,10 +729,10 @@
         "IntroducedInLoop": "effortless-3",
         "StatusGroup": "Proved",
         "PremiseCount": 3,
-        "DependentCount": 3,
+        "DependentCount": 4,
         "EvidenceCount": 1,
         "RevisionCount": 0,
-        "DescendantCount": 5
+        "DescendantCount": 6
       },
       {
         "AssertionId": "H15",
@@ -780,10 +780,10 @@
         "IntroducedInLoop": "effortless-4",
         "StatusGroup": "Proved",
         "PremiseCount": 3,
-        "DependentCount": 2,
+        "DependentCount": 3,
         "EvidenceCount": 1,
         "RevisionCount": 0,
-        "DescendantCount": 2
+        "DescendantCount": 3
       },
       {
         "AssertionId": "TN",
@@ -901,6 +901,40 @@
         "EvidenceCount": 1,
         "RevisionCount": 0,
         "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "TO",
+        "Statement": "For k>=3: if eps_k=1 the diagonal has an even number of ones per period; if eps_k=0 that parity equals the parity of the number of ones of q_k at odd positions.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "research/loop-07-parity-features/PROOFS.md §TO",
+        "Kind": "Theorem",
+        "IntroducedInLoop": "effortless-7",
+        "Name": "TO",
+        "StatusGroup": "Proved",
+        "PremiseCount": 2,
+        "DependentCount": 1,
+        "EvidenceCount": 2,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
+        "DescendantCount": 1
+      },
+      {
+        "AssertionId": "H19",
+        "Statement": "eps_k is a function of (eps_{k-1}, eps_{k-2}, o_{k-1}, o_{k-2}) for every k>=5, where o_j is the parity of the number of ones of y_j per period.",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": "",
+        "Kind": "Hypothesis",
+        "IntroducedInLoop": "effortless-7",
+        "Name": "H19",
+        "StatusGroup": "Falsified",
+        "PremiseCount": 3,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 1,
+        "IsUsable": 0,
         "IsProofEligible": 0,
         "DescendantCount": 0
       }
@@ -1307,6 +1341,36 @@
         "Conclusion": "F7",
         "Premise": "T004",
         "Name": "F7-T004"
+      },
+      {
+        "DependencyId": "TO-TA",
+        "Conclusion": "TO",
+        "Premise": "TA",
+        "Name": "TO-TA"
+      },
+      {
+        "DependencyId": "TO-T0",
+        "Conclusion": "TO",
+        "Premise": "T0",
+        "Name": "TO-T0"
+      },
+      {
+        "DependencyId": "H19-TL",
+        "Conclusion": "H19",
+        "Premise": "TL",
+        "Name": "H19-TL"
+      },
+      {
+        "DependencyId": "H19-TM",
+        "Conclusion": "H19",
+        "Premise": "TM",
+        "Name": "H19-TM"
+      },
+      {
+        "DependencyId": "H19-TO",
+        "Conclusion": "H19",
+        "Premise": "TO",
+        "Name": "H19-TO"
       }
     ]
   },
@@ -3757,6 +3821,210 @@
         "ProofBlocked": 0,
         "IsSelf": 0,
         "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TO-D0",
+        "ConclusionKey": "TO",
+        "Premise": "D0",
+        "Name": "TO-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TO-T0",
+        "ConclusionKey": "TO",
+        "Premise": "T0",
+        "Name": "TO-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TO-TA",
+        "ConclusionKey": "TO",
+        "Premise": "TA",
+        "Name": "TO-TA",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TO-TO",
+        "ConclusionKey": "TO",
+        "Premise": "TO",
+        "Name": "TO-TO",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-D0",
+        "ConclusionKey": "H19",
+        "Premise": "D0",
+        "Name": "H19-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-H19",
+        "ConclusionKey": "H19",
+        "Premise": "H19",
+        "Name": "H19-H19",
+        "PremiseUsable": 0,
+        "PremiseProofEligible": 0,
+        "Blocked": 1,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-H7",
+        "ConclusionKey": "H19",
+        "Premise": "H7",
+        "Name": "H19-H7",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-T0",
+        "ConclusionKey": "H19",
+        "Premise": "T0",
+        "Name": "H19-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-T004",
+        "ConclusionKey": "H19",
+        "Premise": "T004",
+        "Name": "H19-T004",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TA",
+        "ConclusionKey": "H19",
+        "Premise": "TA",
+        "Name": "H19-TA",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TB",
+        "ConclusionKey": "H19",
+        "Premise": "TB",
+        "Name": "H19-TB",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TG",
+        "ConclusionKey": "H19",
+        "Premise": "TG",
+        "Name": "H19-TG",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TJ",
+        "ConclusionKey": "H19",
+        "Premise": "TJ",
+        "Name": "H19-TJ",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TK",
+        "ConclusionKey": "H19",
+        "Premise": "TK",
+        "Name": "H19-TK",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TL",
+        "ConclusionKey": "H19",
+        "Premise": "TL",
+        "Name": "H19-TL",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TM",
+        "ConclusionKey": "H19",
+        "Premise": "TM",
+        "Name": "H19-TM",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H19-TO",
+        "ConclusionKey": "H19",
+        "Premise": "TO",
+        "Name": "H19-TO",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
       }
     ]
   },
@@ -4827,6 +5095,46 @@
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
         "AncestorCount": 4
+      },
+      {
+        "AssessmentId": "TO",
+        "Assertion": "TO",
+        "ProjectKey": "Rule30",
+        "Name": "TO",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "Statement": "For k>=3: if eps_k=1 the diagonal has an even number of ones per period; if eps_k=0 that parity equals the parity of the number of ones of q_k at odd positions.",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 0,
+        "CurrentStatus": "PROVED_HUMAN_READABLE",
+        "ProofEligible": 1,
+        "SupportCount": 2,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 3
+      },
+      {
+        "AssessmentId": "H19",
+        "Assertion": "H19",
+        "ProjectKey": "Rule30",
+        "Name": "H19",
+        "ReportedStatus": "FALSIFIED",
+        "Statement": "eps_k is a function of (eps_{k-1}, eps_{k-2}, o_{k-1}, o_{k-2}) for every k>=5, where o_j is the parity of the number of ones of y_j per period.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Falsified",
+        "SelfUsable": 0,
+        "BlockedCount": 1,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "BLOCKED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 12
       }
     ]
   },
@@ -4983,6 +5291,18 @@
         "Path": "research/loop-06-plateau-bound/PROOFS.md",
         "Sha256": "053dcc81862c6e76db5fcd23fd360a7eaaac420335227d82f0da979713f2c7f7",
         "Name": "E20"
+      },
+      {
+        "EvidenceId": "E21",
+        "Path": "research/loop-07-parity-features/parity_features.json",
+        "Sha256": "a0b8e9bf0b72ad74a61e25021ff6467c0ae06febcdbd1a5cb1bccb8bcc4691ba",
+        "Name": "E21"
+      },
+      {
+        "EvidenceId": "E22",
+        "Path": "research/loop-07-parity-features/PROOFS.md",
+        "Sha256": "3c73caa9e7a211df9e4bb32be0e5ed3ff92aa2b23dabfc579d0f01aeff827be5",
+        "Name": "E22"
       }
     ]
   },
@@ -5210,6 +5530,16 @@
         "Replacement": "",
         "Loop": "effortless-6",
         "Name": "revision-H18-1"
+      },
+      {
+        "RevisionId": "revision-H19-1",
+        "Assertion": "H19",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "Same four parity bits ((0, 0), (1, 0)) give different eps at offsets [(0, 11), (0, 18), (0, 31), (0, 45), (0, 53), (0, 57), (0, 62), (0, 68), (1, 9), (1, 27), (1, 29), (1, 39), (1, 41), (1, 43), (1, 51), (1, 60), (1, 66), (1, 72)]; 4 conflicting feature value(s) on k=5..72, all with eps_(k-1)=0 as TM predicts.",
+        "Replacement": "TO",
+        "Loop": "effortless-7",
+        "Name": "revision-H19-1"
       }
     ]
   },
@@ -5703,6 +6033,25 @@
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
         "ProofsMade": 0
+      },
+      {
+        "LoopId": "effortless-7",
+        "Kind": "EFFORTLESS",
+        "State": "VERIFIED",
+        "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"4f3193872ec818c0645473edcab73e6cd885d8f75c1fabfb7777edf59cb2ad69\", \"seconds\": 5.8, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.19.2045 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+        "InputHash": "ab03660893592547f9858d3344687f405a1a3b20b6402a40cd1b60a1e3f047e8",
+        "OutputHash": "fdd7b550affd0266d280e0b5e74983d4490334d4b5be3b41334bf775d731c7b5",
+        "Sequence": 20,
+        "StartedAt": "2026-10-23T09:32:46-0500",
+        "FinishedAt": "2026-10-23T09:33:29-0500",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "H19: eps_k is decided by the four parity bits (eps_{k-1}, eps_{k-2}, o_{k-1}, o_{k-2}).",
+        "Summary": "TO proved (diagonal parity read off the forcing word) and checked on k=3..64. H19 FALSIFIED: 4 conflicting feature value(s). Smallest window of past (eps, o) bits consistent with the data: None (observation only).",
+        "Name": "effortless-7",
+        "ClaimsAdded": 2,
+        "RevisionsMade": 1,
+        "FalsificationsMade": 1,
+        "ProofsMade": 0
       }
     ]
   },
@@ -5825,13 +6174,13 @@
       {
         "DashboardId": "Rule30",
         "Name": "Rule30",
-        "ClaimCount": 46,
-        "BlockedCount": 13,
-        "CompletedNativeLoops": 6,
+        "ClaimCount": 48,
+        "BlockedCount": 14,
+        "CompletedNativeLoops": 7,
         "EvidenceGapCount": 0,
-        "ProvedCount": 23,
+        "ProvedCount": 24,
         "CheckedCount": 10,
-        "FalsifiedCount": 7,
+        "FalsifiedCount": 8,
         "OpenCount": 6,
         "AtRiskCount": 0,
         "OpenPrizeProblemCount": 3,
@@ -6219,6 +6568,27 @@
         "Assertion": "H18",
         "Name": "E20-H18",
         "EvidencePath": "research/loop-06-plateau-bound/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E21-TO",
+        "Evidence": "E21",
+        "Assertion": "TO",
+        "Name": "E21-TO",
+        "EvidencePath": "research/loop-07-parity-features/parity_features.json"
+      },
+      {
+        "EvidenceLinkId": "E21-H19",
+        "Evidence": "E21",
+        "Assertion": "H19",
+        "Name": "E21-H19",
+        "EvidencePath": "research/loop-07-parity-features/parity_features.json"
+      },
+      {
+        "EvidenceLinkId": "E22-TO",
+        "Evidence": "E22",
+        "Assertion": "TO",
+        "Name": "E22-TO",
+        "EvidencePath": "research/loop-07-parity-features/PROOFS.md"
       }
     ]
   }
