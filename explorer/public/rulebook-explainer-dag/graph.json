@@ -14086,7 +14086,7 @@
       {
         "EvidenceId": "E50",
         "Path": "docs/p1-frontier.md",
-        "Sha256": "8192589986a05f39a0c1658781be9c45fb93e320ddd0d2241807481428601727",
+        "Sha256": "64cbaded214a7a579add1b42f999cbd264d745f0f35369e8f08189700a7a6de0",
         "Name": "E50",
         "ClaimCount": 0,
         "ClaimMismatchCount": 0
@@ -14118,7 +14118,7 @@
       {
         "EvidenceId": "E54",
         "Path": "research/loop-25-closure/PROOFS.md",
-        "Sha256": "775345ff3adaa41427e117e06109ea4b00c7d7d4805613c70f360835156364e2",
+        "Sha256": "dd467120cd6293eb0f360296f7d7f35c72febe15c6097853864b26a34e0a7203",
         "Name": "E54",
         "ClaimCount": 0,
         "ClaimMismatchCount": 0

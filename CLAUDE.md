@@ -73,6 +73,10 @@ the build checks the script on that sample. Steps 0 to 6 below are the classic l
    target and hypothesis, the honest estimate, and the route's steps with their roles), run it, then
    `effortless build`. The explorer's landing page shows this plan as the most promising path to P1, so a
    loop that changes the picture without updating it leaves the page wrong.
+6b. **Re-hash revised evidence.** Evidence files are pinned by sha256, and `build()` (and `run_loop`) refuse
+   to run while a registered file differs from its hash. Writing the PROOFS.md outcome or updating
+   `docs/p1-frontier.md` after the loop are deliberate revisions: build with
+   `python3 research/build.py --refresh-evidence`. Any other mismatch means a file changed by accident.
 
 **Grow the DAG from the prize problem down.** Every loop names the open obligation it serves
 (B1, B2, B3 or a child of one) and its new claims get a dependency path to that node. Decompose

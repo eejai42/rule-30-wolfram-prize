@@ -14,7 +14,7 @@
 | 10. a lookup through an empty reference: compile-rulebook evaluates the target formula on a blank row, Postgres returns NULL | Open (do not read such values) |
 | 11. a row-level cycle in a self-referencing table (A points at B, B at A) leaves every chained field NULL in Postgres | Open (keep self-references one-directional) |
 | 12. MAXIFS/MINIFS over an empty set: blank in compile-rulebook, 0 in Postgres | Open (guard with a COUNTIFS) |
-| 13. minimize-rulebook runs out of memory on a ~16 MB rulebook; rulebook-to-xlsx fails in the editor at ~11 MB | minimize-rulebook **fixed** in v2026.10.24.1121 (2 CPU / 4 GiB; 24 MB in 6 s); xlsx open |
+| 13. minimize-rulebook runs out of memory on a ~16 MB rulebook; rulebook-to-xlsx fails in the editor at ~11 MB; rulebook-to-rulespeak runs out of memory in the editor at 14.6 MB | minimize-rulebook **fixed** in v2026.10.24.1121 (2 CPU / 4 GiB; 24 MB in 6 s); xlsx and rulespeak open |
 
 Goal (project rule): everything is in the rulebook, and running the full rulebook gives the right
 answer. Python is allowed only as an optimizer for large pieces, checked against the rulebook.
@@ -152,4 +152,9 @@ Fix (minimize-rulebook v2026.10.24.1121): the workload ran with `cpu: 200m, memo
 (`tools/effortless/minimize-rulebook/cpln/workload.yaml` in Versioned-Stable-SSoTme-Tools), against
 compile-rulebook's 2Gi. Now 2000m / 4Gi; a 24 MB rulebook minimizes in about 6 seconds. The
 editor's rulebook-to-xlsx step still fails at this size (the rest of the editor build succeeds).
+
+Since loop 26 (rulebook 14.6 MB) the editor's rulebook-to-rulespeak step also fails, with
+`System.OutOfMemoryException` (from `GET localhost:42442/__boot/errors`). Postgres, the API and the
+portal are unaffected; only the RuleSpeak docs are missing. Likely the same fix as minimize-rulebook:
+raise the workload's memory in Versioned-Stable-SSoTme-Tools.
 

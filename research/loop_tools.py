@@ -208,6 +208,29 @@ def verify_evidence(book) -> list[str]:
     return bad
 
 
+def refresh_evidence(ids=None) -> list[str]:
+    """Re-hash evidence files after a deliberate revision (e.g. a PROOFS.md outcome written after the loop).
+    ids=None refreshes every stale one. Returns the ids refreshed."""
+    book = load()
+    ids = verify_evidence(book) if ids is None else list(ids)
+    for eid in ids:
+        e = row(book, 'Evidence', eid)
+        e['Sha256'] = sha256_file(ROOT / e['Path'])
+    if ids:
+        save(book)
+    return ids
+
+
+def require_current_evidence(book) -> None:
+    """Refuse to build over evidence whose file no longer matches its recorded sha256."""
+    stale = verify_evidence(book)
+    if stale:
+        paths = [row(book, 'Evidence', eid)['Path'] for eid in stale]
+        raise RuntimeError(f'Evidence changed since it was registered: {dict(zip(stale, paths))}. If the change is a deliberate '
+                           'revision (a PROOFS.md outcome written after the loop), run `python3 research/build.py --refresh-evidence`; '
+                           'otherwise restore the file.')
+
+
 # ---------- build / consume / loop record ----------
 def _effortless_build() -> tuple[int, str]:
     proc = subprocess.run(['effortless', 'build'], cwd=ROOT, capture_output=True, text=True)
@@ -225,6 +248,7 @@ def build() -> dict:
     """
     t0 = time.time()
     book = load()
+    require_current_evidence(book)
     clear_caches(book)
     RULEBOOK.write_text(_dump_single_line_leaves(book))
     versions, log = _effortless_build()
@@ -329,6 +353,7 @@ def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path, sum
     outdir.mkdir(parents=True, exist_ok=True)
     pre_bytes = RULEBOOK.read_bytes()
     book = load()
+    require_current_evidence(book)
     start_loop(book, loop_id, hypothesis)
     save(book)
     build()
