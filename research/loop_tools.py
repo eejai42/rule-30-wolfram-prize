@@ -281,7 +281,11 @@ def _now():
 
 
 def start_loop(book, loop_id, hypothesis):
-    """Add the loop as RUNNING so the explorer shows it while it works."""
+    """Add the loop as RUNNING so the explorer shows it while it works. A PLANNED row (research/strategy.py)
+    with the same id is started in place, keeping its plan and its LoopTargets."""
+    if has(book, 'Loops', loop_id) and row(book, 'Loops', loop_id)['State'] == 'PLANNED':
+        row(book, 'Loops', loop_id).update({'State': 'RUNNING', 'StartedAt': _now(), 'Hypothesis': hypothesis})
+        return
     assert not has(book, 'Loops', loop_id)
     seq = 1 + max(r['Sequence'] for r in rows(book, 'Loops'))
     rows(book, 'Loops').append({'LoopId': loop_id, 'Kind': 'EFFORTLESS', 'State': 'RUNNING', 'BuildReceipt': '', 'InputHash': '', 'OutputHash': '',

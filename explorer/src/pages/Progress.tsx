@@ -43,7 +43,7 @@ function LoopRow({ l }: { l: Row }) {
         <LoopState row={l} />
       </div>
       <p className="statement">{l.hypothesis}</p>
-      {l.kind === 'EFFORTLESS' && (
+      {l.kind === 'EFFORTLESS' && l.state !== 'PLANNED' && (
         <div className="counts">
           <span><D f="Loops.ClaimsAdded">{num(l.claims_added)}</D> added</span>
           <span><D f="Loops.ProofsMade">{num(l.proofs_made)}</D> proved</span>

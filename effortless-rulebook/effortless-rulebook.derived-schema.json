@@ -198,14 +198,6 @@
         "formula": "=IF({{IsCached}}=1,{{ModelVerdictCache}},IF({{IsModelLinked}}=1,{{PredicateVerdict}},\"NOT MODELED\"))"
       },
       {
-        "name": "OnCurrentPath",
-        "datatype": "integer",
-        "type": "aggregation",
-        "nullable": true,
-        "Description": "1 when the claim is a step of the plan in force.",
-        "formula": "=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)"
-      },
-      {
         "name": "IsCached",
         "datatype": "integer",
         "type": "raw",
@@ -267,6 +259,22 @@
         "type": "raw",
         "nullable": true,
         "Description": "Cached IsProofEligible from the last fresh compile; read by IsProofEligible while IsCached = 1."
+      },
+      {
+        "name": "OnCurrentPath",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "1 when the claim is a step of the plan in force.",
+        "formula": "=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)"
+      },
+      {
+        "name": "LoopTargetCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Loops (planned, running or done) linked to this claim.",
+        "formula": "=COUNTIFS(LoopTargets!{{Assertion}},{{AssertionId}})"
       }
     ]
   },
@@ -796,6 +804,21 @@
         "type": "raw",
         "nullable": true,
         "Description": "What the loop changed in the hub and what the build showed."
+      },
+      {
+        "name": "Plan",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "For a planned loop: what it will do and how its outcome will be read."
+      },
+      {
+        "name": "TargetCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims linked to this loop.",
+        "formula": "=COUNTIFS(LoopTargets!{{Loop}},{{LoopId}})"
       }
     ]
   },
@@ -960,6 +983,14 @@
         "nullable": true,
         "Description": "Claims still only stated in words.",
         "formula": "=COUNTIFS(Assertions!{{IsModelLinked}},0)"
+      },
+      {
+        "name": "PlannedLoopCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Loops planned but not started.",
+        "formula": "=COUNTIFS(Loops!{{ProjectKey}},{{DashboardId}},Loops!{{State}},\"PLANNED\")"
       }
     ]
   },
@@ -1092,6 +1123,14 @@
         "RelatedTo": "Loops"
       },
       {
+        "name": "NextLoop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The planned loop (State PLANNED) that carries out the next step.",
+        "RelatedTo": "Loops"
+      },
+      {
         "name": "ProjectKey",
         "datatype": "string",
         "type": "relationship",
@@ -1146,6 +1185,14 @@
         "nullable": true,
         "Description": "State of the loop that last updated the plan.",
         "formula": "=INDEX(Loops!{{State}},MATCH({{UpdatedInLoop}},Loops!{{LoopId}},0))"
+      },
+      {
+        "name": "NextLoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "PLANNED until the loop starts, then RUNNING and VERIFIED.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{NextLoop}},Loops!{{LoopId}},0))"
       },
       {
         "name": "StepCount",
@@ -6551,6 +6598,88 @@
         "type": "raw",
         "nullable": true,
         "Description": "Cached IsMatch from the last fresh compile; read by IsMatch while IsCached = 1."
+      }
+    ]
+  },
+  "LoopTargets": {
+    "Description": "The claims a loop serves, tests or builds on, so a loop page (planned, running or done) links to them.",
+    "schema": [
+      {
+        "name": "LoopTargetId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<loop>-<assertion>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LoopTargetId}}"
+      },
+      {
+        "name": "Loop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The loop.",
+        "RelatedTo": "Loops"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "A claim the loop serves, tests or builds on.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Role",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Serves (the open claim it advances), Tests (the hypothesis it decides), Builds on (results it uses) or Rules out."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "How the loop relates to the claim, in one line."
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Kind of claim.",
+        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Proved, Checked, Open, Falsified or Superseded.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "LoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "State of the loop.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{Loop}},Loops!{{LoopId}},0))"
       }
     ]
   }

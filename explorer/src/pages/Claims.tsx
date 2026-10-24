@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { byId, num, useRows, type Row } from '../data';
-import { CardLink, ClaimLink, D, Group, Section, fileHref, proofLink, useFlash } from '../ui';
+import { CardLink, ClaimLink, D, Group, LoopState, Section, fileHref, proofLink, useFlash } from '../ui';
 
 const KINDS = ['Prize problem', 'Bridge obligation', 'Theorem', 'Known result', 'Definition', 'Finite check', 'Hypothesis'];
 const GROUPS = ['Proved', 'Checked', 'Open', 'Falsified', 'Superseded'];
@@ -128,6 +128,8 @@ export function ClaimPage() {
   const blockers = useRows('Prerequisites').filter((p) => p.conclusion_key === id && num(p.is_blocking_ancestor) === 1);
   const evidence = useRows('EvidenceLinks').filter((e) => e.assertion === id);
   const revisions = useRows('Revisions').filter((r) => r.assertion === id);
+  const loopLinks = useRows('LoopTargets').filter((t) => t.assertion === id);
+  const loops = useRows('Loops');
   const flash = useFlash('Assessments', id);
   if (!a || !s) return <p className="muted">Loading…</p>;
   const proof = proofLink(a.proof_section);
@@ -175,6 +177,21 @@ export function ClaimPage() {
       <Section title={`Used by (${num(a.dependent_count)})`}>
         {dependents.length ? <ul className="list">{dependents.map((d) => mini(d.conclusion))}</ul> : <p className="muted">Nothing depends on this yet.</p>}
       </Section>
+      {loopLinks.length > 0 && (
+        <Section title={`Loops (${num(a.loop_target_count)})`}>
+          <ul className="list">
+            {loopLinks.map((t) => {
+              const l = byId(loops, 'loop_id', t.loop);
+              return (
+                <li key={t.loop_target_id}>
+                  <Link to={`/loops/${t.loop}`}>{t.loop}</Link> {l && <LoopState row={l} />} <span className="path-role">{t.role}</span>
+                  <div className="muted">{t.note}</div>
+                </li>
+              );
+            })}
+          </ul>
+        </Section>
+      )}
       <Section title={`Evidence (${num(a.evidence_count)})`}>
         {evidence.length ? (
           <ul className="list">

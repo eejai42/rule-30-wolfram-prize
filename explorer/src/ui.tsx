@@ -62,7 +62,7 @@ export function useFlash(table: string, id: string) {
 
 export function LoopState({ row }: { row: Row }) {
   const s = row.state as string;
-  const cls = s === 'RUNNING' ? 'pill running' : s === 'VERIFIED' ? 'pill g-proved' : 'pill g-superseded';
+  const cls = s === 'RUNNING' ? 'pill running' : s === 'VERIFIED' ? 'pill g-proved' : s === 'PLANNED' ? 'pill planned' : 'pill g-superseded';
   return <span className={cls}>{s === 'REPORTED_COMPLETE' ? 'legacy' : s.toLowerCase()}</span>;
 }
 
@@ -78,3 +78,29 @@ export function proofLink(section: string | null | undefined): { path: string; a
 }
 
 export const fileHref = (path: string, anchor = '') => `/files?path=${encodeURIComponent(path)}${anchor ? `&at=${encodeURIComponent(anchor)}` : ''}`;
+
+const ROLE_ORDER = ['Serves', 'Tests', 'Builds on', 'Rules out'];
+
+/** The claims a loop serves, tests or builds on (LoopTargets rows), grouped by role. */
+export function LoopTargetList({ rows, compact }: { rows: Row[]; compact?: boolean }) {
+  if (!rows.length) return null;
+  const sorted = [...rows].sort((a, b) => ROLE_ORDER.indexOf(a.role) - ROLE_ORDER.indexOf(b.role));
+  if (compact) {
+    return (
+      <div className="target-chips">
+        {sorted.map((t) => <span key={t.loop_target_id} className="target-chip" title={`${t.role}: ${t.note}`}><span className="muted small">{t.role}</span> <ClaimLink id={t.assertion} /></span>)}
+      </div>
+    );
+  }
+  return (
+    <ul className="list">
+      {sorted.map((t) => (
+        <li key={t.loop_target_id}>
+          <span className="path-role">{t.role}</span> <ClaimLink id={t.assertion} /> <Group value={t.status_group} f="LoopTargets.StatusGroup" />
+          <div className="muted">{t.note}</div>
+          <div className="muted small">{t.statement}</div>
+        </li>
+      ))}
+    </ul>
+  );
+}

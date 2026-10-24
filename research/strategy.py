@@ -43,6 +43,7 @@ STRATEGY_SCHEMA = [
     F('NextHypothesis', desc='Where the next loop is aiming: its hypothesis in words.'),
     F('Estimate', desc='An honest estimate of the odds, with what each number is for.'),
     F('UpdatedInLoop', ty='relationship', rel='Loops', desc='The loop after which this plan was written.'),
+    F('NextLoop', ty='relationship', rel='Loops', desc='The planned loop (State PLANNED) that carries out the next step.'),
     F('ProjectKey', ty='relationship', rel='Dashboards', desc='Dashboard this plan rolls up to.', nullable=False),
     LK('GoalStatement', 'Assertions', 'Goal', 'AssertionId', 'Statement', "The goal's statement."),
     LK('GoalStatusGroup', 'Assertions', 'Goal', 'AssertionId', 'StatusGroup', "The goal's status group."),
@@ -50,6 +51,7 @@ STRATEGY_SCHEMA = [
     LK('NextTargetStatement', 'Assertions', 'NextTarget', 'AssertionId', 'Statement', "The next target's statement."),
     LK('NextTargetStatusGroup', 'Assertions', 'NextTarget', 'AssertionId', 'StatusGroup', "The next target's status group."),
     LK('UpdatedInLoopState', 'Loops', 'UpdatedInLoop', 'LoopId', 'State', 'State of the loop that last updated the plan.'),
+    LK('NextLoopState', 'Loops', 'NextLoop', 'LoopId', 'State', 'PLANNED until the loop starts, then RUNNING and VERIFIED.'),
     F('StepCount', 'integer', 'aggregation', '=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}})', desc='Claims on the route.'),
     F('OpenStepCount', 'integer', 'aggregation', '=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsOpen}},1)', desc='Steps still open.'),
     F('EstablishedStepCount', 'integer', 'aggregation', '=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsEstablished}},1)', desc='Steps proved or finitely checked.'),
@@ -80,6 +82,25 @@ STEP_SCHEMA = [
 ]
 
 
+LOOP_TARGET_SCHEMA = [
+    F('LoopTargetId', desc='<loop>-<assertion>.', nullable=False),
+    F('Name', ty='calculated', formula='={{LoopTargetId}}', desc='Display alias.'),
+    F('Loop', ty='relationship', rel='Loops', desc='The loop.', nullable=False),
+    F('Assertion', ty='relationship', rel='Assertions', desc='A claim the loop serves, tests or builds on.', nullable=False),
+    F('Role', desc='Serves (the open claim it advances), Tests (the hypothesis it decides), Builds on (results it uses) or Rules out.', nullable=False),
+    F('Note', desc='How the loop relates to the claim, in one line.'),
+    LK('Statement', 'Assertions', 'Assertion', 'AssertionId', 'Statement', 'The claim.'),
+    LK('Kind', 'Assertions', 'Assertion', 'AssertionId', 'Kind', 'Kind of claim.'),
+    LK('StatusGroup', 'Assertions', 'Assertion', 'AssertionId', 'StatusGroup', 'Proved, Checked, Open, Falsified or Superseded.'),
+    LK('LoopState', 'Loops', 'Loop', 'LoopId', 'State', 'State of the loop.'),
+]
+
+
+def ensure_field(book, tbl, field):
+    sch = book[tbl]['schema']
+    sch[:] = [f for f in sch if f['name'] != field['name']] + [field]
+
+
 def ensure_tables(book):
     if 'Strategies' not in book:
         book['Strategies'] = {'Description': 'The plan toward a prize problem: where things stand, the route, and where the next loop aims. One row is in force (IsCurrent = 1); older plans are history.', 'schema': STRATEGY_SCHEMA, 'data': []}
@@ -89,9 +110,31 @@ def ensure_tables(book):
         book['StrategySteps'] = {'Description': 'The claims on a plan\'s route, in order from the goal, each with its role and a note. Statuses are looked up from the claims.', 'schema': STEP_SCHEMA, 'data': []}
     else:
         book['StrategySteps']['schema'] = STEP_SCHEMA
-    sch = book['Assertions']['schema']
-    sch[:] = [f for f in sch if f['name'] != 'OnCurrentPath'] + [
-        F('OnCurrentPath', 'integer', 'aggregation', '=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)', desc='1 when the claim is a step of the plan in force.')]
+    if 'LoopTargets' not in book:
+        book['LoopTargets'] = {'Description': 'The claims a loop serves, tests or builds on, so a loop page (planned, running or done) links to them.', 'schema': LOOP_TARGET_SCHEMA, 'data': []}
+    else:
+        book['LoopTargets']['schema'] = LOOP_TARGET_SCHEMA
+    ensure_field(book, 'Assertions', F('OnCurrentPath', 'integer', 'aggregation', '=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)', desc='1 when the claim is a step of the plan in force.'))
+    ensure_field(book, 'Assertions', F('LoopTargetCount', 'integer', 'aggregation', '=COUNTIFS(LoopTargets!{{Assertion}},{{AssertionId}})', desc='Loops (planned, running or done) linked to this claim.'))
+    ensure_field(book, 'Loops', F('Plan', desc='For a planned loop: what it will do and how its outcome will be read.'))
+    ensure_field(book, 'Loops', F('TargetCount', 'integer', 'aggregation', '=COUNTIFS(LoopTargets!{{Loop}},{{LoopId}})', desc='Claims linked to this loop.'))
+    ensure_field(book, 'Dashboards', F('PlannedLoopCount', 'integer', 'aggregation', '=COUNTIFS(Loops!{{ProjectKey}},{{DashboardId}},Loops!{{State}},"PLANNED")', desc='Loops planned but not started.'))
+
+
+def set_next_loop(book, loop_id: str, hypothesis: str, plan: str, targets: list[tuple[str, str, str]]):
+    """Write the planned loop (State PLANNED) and its claim links. A loop that already started is left alone."""
+    ensure_tables(book)
+    loops = book['Loops']['data']
+    if lt.has(book, 'Loops', loop_id) and lt.row(book, 'Loops', loop_id)['State'] != 'PLANNED':
+        return
+    book['Loops']['data'] = [r for r in loops if r['State'] != 'PLANNED']
+    seq = 1 + max(r['Sequence'] for r in book['Loops']['data'])
+    book['Loops']['data'].append({'LoopId': loop_id, 'Kind': 'EFFORTLESS', 'State': 'PLANNED', 'BuildReceipt': '', 'InputHash': '', 'OutputHash': '',
+                                  'Sequence': seq, 'StartedAt': '', 'FinishedAt': '', 'ProjectKey': 'Rule30', 'Hypothesis': hypothesis, 'Summary': '', 'Plan': plan})
+    book['LoopTargets']['data'] = [r for r in book['LoopTargets']['data'] if r['Loop'] != loop_id]
+    for aid, role, note in targets:
+        assert lt.has(book, 'Assertions', aid), aid
+        book['LoopTargets']['data'].append({'LoopTargetId': f'{loop_id}-{aid}', 'Loop': loop_id, 'Assertion': aid, 'Role': role, 'Note': note})
 
 
 def set_strategy(book, sid: str, goal: str, fields: dict, steps: list[tuple[str, str, str]]):
@@ -117,11 +160,26 @@ CURRENT = dict(
     fields=dict(
         Headline='P1 waits on two open obligations, B7 (period 2) and B8 (period 3 and up), at the bottom of a chain of proved reductions. No prize problem is closer to proved; the open obligations are sharper.',
         Approach='Go after period 2 first, through B9: no left-consistent sequence ends in a 2-periodic tail. TX makes the center left-consistent, so B9 is exactly what B1 needs, and it is weaker than B5. Finite checks are strong: every left-consistent start at onsets 20 to 46 dies within 22 steps of a period-2 tail (F21), and every near-center window of width 25 that such sequences produce at times 19 to 45 dies within 23 steps (H38).',
-        Missing='A uniform description of the reachable windows that still kills. The simplest one, closing the window set under one step with the outer cell free, covers every window and lets 18,432 of them survive (H40). The description has to keep information from the far left.',
+        Missing='A uniform description of the reachable windows that still kills. Freeing the outer cell at each step reaches every window and lets 18,432 survive (H40). Tying the outer cell to the settled left-edge zone does not help for long: the settled zone starts about 0.27 t columns out (17 at t = 64, 35 at t = 128), so column 24 is settled only until about t = 85, and the unsettled band between the window and the settled zone widens without bound.',
         NextTarget='B7',
-        NextHypothesis='Tie the outer cell of the window to the settled left-edge diagonals instead of leaving it free (or widen the window and constrain its outer part by the seed), and test whether the closure of the reachable windows still kills both period-2 tails. If it does, that is a finite proof of B9 for period 2.',
-        Estimate='Proving P1 itself: well under 1 percent, unchanged. Proving the period-2 case on this route: about 1 in 10. A decisive answer either way about this route within a few loops: likely.',
+        NextLoop='effortless-26',
+        NextHypothesis='Decide whether this route can work at all: is there any window width at which the free-outer-cell closure is not the whole space, and does the reachable language keep growing or settle? If the closure is everything at every width and the language keeps growing, no finite-window invariant proves B9 for period 2, and the route closes.',
+        Estimate='Proving P1 itself: well under 1 percent, unchanged. Proving the period-2 case on this route: lowered to about 1 in 20, because the window idea needs information from a band that widens with t. Loop 26 is designed to settle whether the route is viable at all.',
         UpdatedInLoop='effortless-25'),
+    next_loop=dict(
+        id='effortless-26',
+        hypothesis='H41 (draft, to be fixed before the run): for every window width E from 8 to 26, the closure of the near-center windows seen at t = 19, under one step with the outer cell free, is the whole space of 2^(E+1) windows; and the number of distinct reachable windows of width 25 keeps growing through t = 60.',
+        plan='Sweep the window width with the loop 25 closure, record the smallest width (if any) where the closure is a strict subset, and extend the reachable-language count of loop 23 to t = 60. Reading: a strict subset that still kills would revive the route with a concrete invariant; a full closure at every width, with a language that keeps growing, closes the finite-window route to B9 for period 2. Either way the plan is updated and the next target chosen from what is left.',
+        targets=[
+            ('B7', 'Serves', 'The open obligation for period 2 that this route would discharge.'),
+            ('B9', 'Serves', 'Its period-2 case is what a working invariant would prove.'),
+            ('P1', 'Serves', 'The goal, through B1.'),
+            ('H40', 'Builds on', 'Loop 25: at width 25 the free-outer-cell closure is everything.'),
+            ('H38', 'Builds on', 'Every reachable width-25 window dies: the finite half the invariant must preserve.'),
+            ('H37', 'Builds on', 'The reachable windows are a thin set.'),
+            ('F22', 'Builds on', 'The language sizes up to t = 45 that the run extends.'),
+            ('TX', 'Builds on', 'The step relation: the next center bit is forced after a 1.'),
+        ]),
     steps=[
         ('P1', 'Goal', 'Problem 1: the center column is not eventually periodic.'),
         ('B1', 'Reduction', 'A periodic center of period 2 or more is impossible; with K1 this is P1. Derived from B9 and TX.'),
@@ -142,6 +200,8 @@ CURRENT = dict(
 
 if __name__ == '__main__':
     book = lt.load()
+    nl = CURRENT['next_loop']
+    set_next_loop(book, nl['id'], nl['hypothesis'], nl['plan'], nl['targets'])
     set_strategy(book, CURRENT['sid'], CURRENT['goal'], CURRENT['fields'], CURRENT['steps'])
     lt.save(book)
     print('current strategy:', CURRENT['sid'], 'steps:', len(CURRENT['steps']))

@@ -55,6 +55,7 @@ export default function PathHero() {
           <div className="card next-card">
             <div className="eyebrow">Next loop aims at <ClaimLink id={plan.next_target} /> <Group value={plan.next_target_status_group} f="Strategies.NextTargetStatusGroup" /></div>
             <p className="statement">{plan.next_hypothesis}</p>
+            {plan.next_loop && <Link to={`/loops/${plan.next_loop}`}>Planned loop {plan.next_loop} <D f="Strategies.NextLoopState" className="pill planned">{String(plan.next_loop_state ?? '').toLowerCase()}</D> →</Link>}
           </div>
           <div className="card">
             <div className="eyebrow">The approach</div>

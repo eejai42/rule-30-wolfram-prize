@@ -201,14 +201,6 @@
         "formula": "=IF({{IsCached}}=1,{{ModelVerdictCache}},IF({{IsModelLinked}}=1,{{PredicateVerdict}},\"NOT MODELED\"))"
       },
       {
-        "name": "OnCurrentPath",
-        "datatype": "integer",
-        "type": "aggregation",
-        "nullable": true,
-        "Description": "1 when the claim is a step of the plan in force.",
-        "formula": "=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)"
-      },
-      {
         "name": "IsCached",
         "datatype": "integer",
         "type": "raw",
@@ -270,6 +262,22 @@
         "type": "raw",
         "nullable": true,
         "Description": "Cached IsProofEligible from the last fresh compile; read by IsProofEligible while IsCached = 1."
+      },
+      {
+        "name": "OnCurrentPath",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "1 when the claim is a step of the plan in force.",
+        "formula": "=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)"
+      },
+      {
+        "name": "LoopTargetCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Loops (planned, running or done) linked to this claim.",
+        "formula": "=COUNTIFS(LoopTargets!{{Assertion}},{{AssertionId}})"
       }
     ],
     "data": [
@@ -308,6 +316,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -345,6 +354,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -382,6 +392,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -419,6 +430,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -456,6 +468,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -493,6 +506,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -530,6 +544,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -567,6 +582,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -604,6 +620,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -641,6 +658,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -678,6 +696,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -715,6 +734,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -752,6 +772,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -789,6 +810,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -826,6 +848,7 @@
         "IsModelDecidedCache": 1,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "REFUTED BY 1 OF 8 INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -863,6 +886,7 @@
         "IsModelDecidedCache": 1,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "REFUTED BY 2 OF 6 INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -900,6 +924,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -937,6 +962,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -974,6 +1000,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1011,6 +1038,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1048,6 +1076,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1085,6 +1114,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1122,6 +1152,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1159,6 +1190,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 1,
         "IsCached": 1
       },
       {
@@ -1196,6 +1228,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "1 OF 3 UNDECIDED AT THE HORIZON",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1233,6 +1266,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1270,6 +1304,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1307,6 +1342,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1344,6 +1380,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1381,6 +1418,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1418,6 +1456,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1455,6 +1494,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1492,6 +1532,7 @@
         "IsModelDecidedCache": 1,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "REFUTED BY 1 OF 8 INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1529,6 +1570,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1566,6 +1608,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1603,6 +1646,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1640,6 +1684,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1677,6 +1722,7 @@
         "IsModelDecidedCache": 1,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "REFUTED BY 1 OF 5 INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1714,6 +1760,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1751,6 +1798,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1788,6 +1836,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1825,6 +1874,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1862,6 +1912,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1899,6 +1950,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1936,6 +1988,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -1973,6 +2026,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2010,6 +2064,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2047,6 +2102,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2084,6 +2140,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2121,6 +2178,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2158,6 +2216,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2195,6 +2254,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2232,6 +2292,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2269,6 +2330,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2306,6 +2368,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2343,6 +2406,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2380,6 +2444,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2417,6 +2482,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2454,6 +2520,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2491,6 +2558,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2528,6 +2596,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2565,6 +2634,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2602,6 +2672,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2639,6 +2710,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2676,6 +2748,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2713,6 +2786,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2750,6 +2824,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2787,6 +2862,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2824,6 +2900,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2861,6 +2938,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2898,6 +2976,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2935,6 +3014,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -2972,6 +3052,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3009,6 +3090,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3046,6 +3128,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3083,6 +3166,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3120,6 +3204,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3157,6 +3242,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 1,
         "IsCached": 1
       },
       {
@@ -3194,6 +3280,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3231,6 +3318,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3268,6 +3356,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3305,6 +3394,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3342,6 +3432,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3379,6 +3470,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3416,6 +3508,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3453,6 +3546,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 1,
         "IsCached": 1
       },
       {
@@ -3490,6 +3584,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "HOLDS ON EVERY INSTANCE",
+        "LoopTargetCount": 1,
         "IsCached": 1
       },
       {
@@ -3527,6 +3622,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3564,6 +3660,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3601,6 +3698,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3638,6 +3736,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 1,
         "IsCached": 1
       },
       {
@@ -3675,6 +3774,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 1,
         "IsCached": 1
       },
       {
@@ -3712,6 +3812,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 1,
         "IsCached": 1
       },
       {
@@ -3749,6 +3850,7 @@
         "IsModelDecidedCache": 1,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "REFUTED BY 1 OF 80 INSTANCES",
+        "LoopTargetCount": 0,
         "IsCached": 1
       },
       {
@@ -3786,6 +3888,7 @@
         "IsModelDecidedCache": 0,
         "IsModelContradictedCache": 0,
         "ModelVerdictCache": "NO INSTANCES",
+        "LoopTargetCount": 1,
         "IsCached": 1
       }
     ]
@@ -14274,6 +14377,21 @@
         "type": "raw",
         "nullable": true,
         "Description": "What the loop changed in the hub and what the build showed."
+      },
+      {
+        "name": "Plan",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "For a planned loop: what it will do and how its outcome will be read."
+      },
+      {
+        "name": "TargetCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims linked to this loop.",
+        "formula": "=COUNTIFS(LoopTargets!{{Loop}},{{LoopId}})"
       }
     ],
     "data": [
@@ -14294,7 +14412,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-2",
@@ -14313,7 +14432,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-3",
@@ -14332,7 +14452,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-4",
@@ -14351,7 +14472,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-5",
@@ -14370,7 +14492,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-6",
@@ -14389,7 +14512,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-7",
@@ -14408,7 +14532,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-8",
@@ -14427,7 +14552,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-9",
@@ -14446,7 +14572,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-10",
@@ -14465,7 +14592,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 2,
         "FalsificationsMade": 2,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-11",
@@ -14484,7 +14612,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-12",
@@ -14503,7 +14632,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "legacy-13",
@@ -14522,7 +14652,8 @@
         "ClaimsAdded": 0,
         "RevisionsMade": 0,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-1",
@@ -14541,7 +14672,8 @@
         "ClaimsAdded": 5,
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-2",
@@ -14560,7 +14692,8 @@
         "ClaimsAdded": 1,
         "RevisionsMade": 2,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-3",
@@ -14579,7 +14712,8 @@
         "ClaimsAdded": 4,
         "RevisionsMade": 3,
         "FalsificationsMade": 1,
-        "ProofsMade": 2
+        "ProofsMade": 2,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-4",
@@ -14598,7 +14732,8 @@
         "ClaimsAdded": 4,
         "RevisionsMade": 2,
         "FalsificationsMade": 1,
-        "ProofsMade": 1
+        "ProofsMade": 1,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-5",
@@ -14617,7 +14752,8 @@
         "ClaimsAdded": 3,
         "RevisionsMade": 2,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-6",
@@ -14636,7 +14772,8 @@
         "ClaimsAdded": 3,
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-7",
@@ -14655,7 +14792,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-8",
@@ -14674,7 +14812,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-9",
@@ -14693,7 +14832,8 @@
         "ClaimsAdded": 3,
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-10",
@@ -14712,7 +14852,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-11",
@@ -14731,7 +14872,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-12",
@@ -14750,7 +14892,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-13",
@@ -14769,7 +14912,8 @@
         "ClaimsAdded": 4,
         "RevisionsMade": 2,
         "FalsificationsMade": 0,
-        "ProofsMade": 1
+        "ProofsMade": 1,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-14",
@@ -14788,7 +14932,8 @@
         "ClaimsAdded": 3,
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-15",
@@ -14807,7 +14952,8 @@
         "ClaimsAdded": 3,
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-16",
@@ -14826,7 +14972,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-17",
@@ -14845,7 +14992,8 @@
         "ClaimsAdded": 4,
         "RevisionsMade": 2,
         "FalsificationsMade": 1,
-        "ProofsMade": 1
+        "ProofsMade": 1,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-18",
@@ -14864,7 +15012,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-19",
@@ -14883,7 +15032,8 @@
         "ClaimsAdded": 4,
         "RevisionsMade": 2,
         "FalsificationsMade": 0,
-        "ProofsMade": 1
+        "ProofsMade": 1,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-20",
@@ -14902,7 +15052,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-21",
@@ -14921,7 +15072,8 @@
         "ClaimsAdded": 2,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-22",
@@ -14940,7 +15092,8 @@
         "ClaimsAdded": 5,
         "RevisionsMade": 3,
         "FalsificationsMade": 2,
-        "ProofsMade": 1
+        "ProofsMade": 1,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-23",
@@ -14959,7 +15112,8 @@
         "ClaimsAdded": 3,
         "RevisionsMade": 2,
         "FalsificationsMade": 0,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-24",
@@ -14978,7 +15132,8 @@
         "ClaimsAdded": 1,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
       },
       {
         "LoopId": "effortless-25",
@@ -14997,7 +15152,29 @@
         "ClaimsAdded": 1,
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
-        "ProofsMade": 0
+        "ProofsMade": 0,
+        "TargetCount": 0
+      },
+      {
+        "LoopId": "effortless-26",
+        "Kind": "EFFORTLESS",
+        "State": "PLANNED",
+        "BuildReceipt": "",
+        "InputHash": "",
+        "OutputHash": "",
+        "Sequence": 39,
+        "StartedAt": "",
+        "FinishedAt": "",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "H41 (draft, to be fixed before the run): for every window width E from 8 to 26, the closure of the near-center windows seen at t = 19, under one step with the outer cell free, is the whole space of 2^(E+1) windows; and the number of distinct reachable windows of width 25 keeps growing through t = 60.",
+        "Summary": "",
+        "Plan": "Sweep the window width with the loop 25 closure, record the smallest width (if any) where the closure is a strict subset, and extend the reachable-language count of loop 23 to t = 60. Reading: a strict subset that still kills would revive the route with a concrete invariant; a full closure at every width, with a language that keeps growing, closes the finite-window route to B9 for period 2. Either way the plan is updated and the next target chosen from what is left.",
+        "Name": "effortless-26",
+        "ClaimsAdded": 0,
+        "RevisionsMade": 0,
+        "FalsificationsMade": 0,
+        "ProofsMade": 0,
+        "TargetCount": 8
       }
     ]
   },
@@ -15162,6 +15339,14 @@
         "nullable": true,
         "Description": "Claims still only stated in words.",
         "formula": "=COUNTIFS(Assertions!{{IsModelLinked}},0)"
+      },
+      {
+        "name": "PlannedLoopCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Loops planned but not started.",
+        "formula": "=COUNTIFS(Loops!{{ProjectKey}},{{DashboardId}},Loops!{{State}},\"PLANNED\")"
       }
     ],
     "data": [
@@ -15185,7 +15370,8 @@
         "ModelLinkedClaimCount": 95,
         "ModelDecidedClaimCount": 5,
         "ModelContradictionCount": 0,
-        "UnmodeledClaimCount": 0
+        "UnmodeledClaimCount": 0,
+        "PlannedLoopCount": 1
       }
     ]
   },
@@ -16230,6 +16416,14 @@
         "RelatedTo": "Loops"
       },
       {
+        "name": "NextLoop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The planned loop (State PLANNED) that carries out the next step.",
+        "RelatedTo": "Loops"
+      },
+      {
         "name": "ProjectKey",
         "datatype": "string",
         "type": "relationship",
@@ -16286,6 +16480,14 @@
         "formula": "=INDEX(Loops!{{State}},MATCH({{UpdatedInLoop}},Loops!{{LoopId}},0))"
       },
       {
+        "name": "NextLoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "PLANNED until the loop starts, then RUNNING and VERIFIED.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{NextLoop}},Loops!{{LoopId}},0))"
+      },
+      {
         "name": "StepCount",
         "datatype": "integer",
         "type": "aggregation",
@@ -16334,10 +16536,11 @@
         "ProjectKey": "Rule30",
         "Headline": "P1 waits on two open obligations, B7 (period 2) and B8 (period 3 and up), at the bottom of a chain of proved reductions. No prize problem is closer to proved; the open obligations are sharper.",
         "Approach": "Go after period 2 first, through B9: no left-consistent sequence ends in a 2-periodic tail. TX makes the center left-consistent, so B9 is exactly what B1 needs, and it is weaker than B5. Finite checks are strong: every left-consistent start at onsets 20 to 46 dies within 22 steps of a period-2 tail (F21), and every near-center window of width 25 that such sequences produce at times 19 to 45 dies within 23 steps (H38).",
-        "Missing": "A uniform description of the reachable windows that still kills. The simplest one, closing the window set under one step with the outer cell free, covers every window and lets 18,432 of them survive (H40). The description has to keep information from the far left.",
+        "Missing": "A uniform description of the reachable windows that still kills. Freeing the outer cell at each step reaches every window and lets 18,432 survive (H40). Tying the outer cell to the settled left-edge zone does not help for long: the settled zone starts about 0.27 t columns out (17 at t = 64, 35 at t = 128), so column 24 is settled only until about t = 85, and the unsettled band between the window and the settled zone widens without bound.",
         "NextTarget": "B7",
-        "NextHypothesis": "Tie the outer cell of the window to the settled left-edge diagonals instead of leaving it free (or widen the window and constrain its outer part by the seed), and test whether the closure of the reachable windows still kills both period-2 tails. If it does, that is a finite proof of B9 for period 2.",
-        "Estimate": "Proving P1 itself: well under 1 percent, unchanged. Proving the period-2 case on this route: about 1 in 10. A decisive answer either way about this route within a few loops: likely.",
+        "NextLoop": "effortless-26",
+        "NextHypothesis": "Decide whether this route can work at all: is there any window width at which the free-outer-cell closure is not the whole space, and does the reachable language keep growing or settle? If the closure is everything at every width and the language keeps growing, no finite-window invariant proves B9 for period 2, and the route closes.",
+        "Estimate": "Proving P1 itself: well under 1 percent, unchanged. Proving the period-2 case on this route: lowered to about 1 in 20, because the window idea needs information from a band that widens with t. Loop 26 is designed to settle whether the route is viable at all.",
         "UpdatedInLoop": "effortless-25",
         "Name": "after-loop-25",
         "GoalStatement": "The Rule 30 center is not eventually periodic.",
@@ -16346,6 +16549,7 @@
         "NextTargetStatement": "B6 for the period-2 words 01 and 10: for every onset T>=2, each TW row for a 2-periodic center violates a one-time constraint at or after 2T-1 (equivalently, the Rule 30 center is not eventually 2-periodic).",
         "NextTargetStatusGroup": "Open",
         "UpdatedInLoopState": "VERIFIED",
+        "NextLoopState": "PLANNED",
         "StepCount": 14,
         "OpenStepCount": 3,
         "EstablishedStepCount": 8,
@@ -669618,6 +669822,186 @@
         "IsMatch": 1,
         "IsMatchCache": 1,
         "IsCached": 1
+      }
+    ]
+  },
+  "LoopTargets": {
+    "Description": "The claims a loop serves, tests or builds on, so a loop page (planned, running or done) links to them.",
+    "schema": [
+      {
+        "name": "LoopTargetId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<loop>-<assertion>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LoopTargetId}}"
+      },
+      {
+        "name": "Loop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The loop.",
+        "RelatedTo": "Loops"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "A claim the loop serves, tests or builds on.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Role",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Serves (the open claim it advances), Tests (the hypothesis it decides), Builds on (results it uses) or Rules out."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "How the loop relates to the claim, in one line."
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Kind of claim.",
+        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Proved, Checked, Open, Falsified or Superseded.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "LoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "State of the loop.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{Loop}},Loops!{{LoopId}},0))"
+      }
+    ],
+    "data": [
+      {
+        "LoopTargetId": "effortless-26-B7",
+        "Loop": "effortless-26",
+        "Assertion": "B7",
+        "Role": "Serves",
+        "Note": "The open obligation for period 2 that this route would discharge.",
+        "Name": "effortless-26-B7",
+        "Statement": "B6 for the period-2 words 01 and 10: for every onset T>=2, each TW row for a 2-periodic center violates a one-time constraint at or after 2T-1 (equivalently, the Rule 30 center is not eventually 2-periodic).",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Open",
+        "LoopState": "PLANNED"
+      },
+      {
+        "LoopTargetId": "effortless-26-B9",
+        "Loop": "effortless-26",
+        "Assertion": "B9",
+        "Role": "Serves",
+        "Note": "Its period-2 case is what a working invariant would prove.",
+        "Name": "effortless-26-B9",
+        "Statement": "No left-consistent sequence (c(0)=1, and c(t+1)=NOT x(-1,t) whenever c(t)=1, with x the left half it generates from the seed) ends in a periodic tail with a nonconstant word.",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Proved",
+        "LoopState": "PLANNED"
+      },
+      {
+        "LoopTargetId": "effortless-26-P1",
+        "Loop": "effortless-26",
+        "Assertion": "P1",
+        "Role": "Serves",
+        "Note": "The goal, through B1.",
+        "Name": "effortless-26-P1",
+        "Statement": "The Rule 30 center is not eventually periodic.",
+        "Kind": "Prize problem",
+        "StatusGroup": "Open",
+        "LoopState": "PLANNED"
+      },
+      {
+        "LoopTargetId": "effortless-26-H40",
+        "Loop": "effortless-26",
+        "Assertion": "H40",
+        "Role": "Builds on",
+        "Note": "Loop 25: at width 25 the free-outer-cell closure is everything.",
+        "Name": "effortless-26-H40",
+        "Statement": "Let A be the least set of width-25 near-center windows (c(t), x(-1..-24,t)) that contains every window shown by a left-consistent prefix at t=19 and is closed under one step of the left half (outer bit free, next center bit forced by TX after a 1). For each period-2 tail, every window in A fails one of the next 24 one-time checks. H40 implies B9 for period 2 at every onset.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Falsified",
+        "LoopState": "PLANNED"
+      },
+      {
+        "LoopTargetId": "effortless-26-H38",
+        "Loop": "effortless-26",
+        "Assertion": "H38",
+        "Role": "Builds on",
+        "Note": "Every reachable width-25 window dies: the finite half the invariant must preserve.",
+        "Name": "effortless-26-H38",
+        "Statement": "There is an E<=30 such that every width-(E+1) near-center window shown by a left-consistent sequence at any time 19<=t<=45 dies within E-1 steps under the tail 01 and under the tail 10 (the finite part K(E) of B9 for period 2).",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "LoopState": "PLANNED"
+      },
+      {
+        "LoopTargetId": "effortless-26-H37",
+        "Loop": "effortless-26",
+        "Assertion": "H37",
+        "Role": "Builds on",
+        "Note": "The reachable windows are a thin set.",
+        "Name": "effortless-26-H37",
+        "Statement": "For some E>=12, the near-center windows (c(t), x(-1..-E,t)) shown by left-consistent sequences at t=45 miss at least half of the 2^(E+1) possible windows.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "LoopState": "PLANNED"
+      },
+      {
+        "LoopTargetId": "effortless-26-F22",
+        "Loop": "effortless-26",
+        "Assertion": "F22",
+        "Role": "Builds on",
+        "Note": "The language sizes up to t = 45 that the run extends.",
+        "Name": "effortless-26-F22",
+        "Statement": "Near-center window language of left-consistent sequences for E=4..30 (even) and t=19..45: language sizes, stability in t (E<=22), the smallest missing windows, and the windows surviving E-1 steps under each period-2 tail.",
+        "Kind": "Finite check",
+        "StatusGroup": "Checked",
+        "LoopState": "PLANNED"
+      },
+      {
+        "LoopTargetId": "effortless-26-TX",
+        "Loop": "effortless-26",
+        "Assertion": "TX",
+        "Role": "Builds on",
+        "Note": "The step relation: the next center bit is forced after a 1.",
+        "Name": "effortless-26-TX",
+        "Statement": "The left half x(i,t), i<=-1, is a function of c(0..t-1) and the seed, and whenever c(t)=1 the forward rule forces c(t+1)=NOT x(-1,t): the center is left-consistent.",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "LoopState": "PLANNED"
       }
     ]
   }

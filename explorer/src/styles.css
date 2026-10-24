@@ -188,3 +188,10 @@ a.card:hover { text-decoration: none; border-color: var(--accent); }
 .formal { white-space: pre-wrap; word-break: break-word; font-size: 12.5px; background: rgba(127,127,127,.08); padding: 8px 10px; border-radius: 8px; overflow-x: auto; }
 .inst-list { max-height: 320px; overflow: auto; }
 .graph-wrap .node.on-path rect { stroke-width: 4px; }
+
+/* ---- planned loops ---- */
+.pill.planned { background: rgba(208, 138, 0, .12); color: #9a6400; border: 1px dashed #d08a00; }
+.timeline-item.is-planned { border: 1px dashed #d08a00; border-radius: 10px; }
+.timeline-dot[data-kind="PLANNED"] { background: transparent; border: 2px dashed #d08a00; }
+.target-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.target-chip { font-size: 13px; padding: 2px 8px; border-radius: 999px; background: rgba(127,127,127,.1); }
