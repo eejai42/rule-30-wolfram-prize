@@ -15,7 +15,7 @@
       "DependentCount": 14,
       "EvidenceCount": 0,
       "RevisionCount": 0,
-      "DescendantCount": 67
+      "DescendantCount": 69
     },
     {
       "AssertionId": "T0",
@@ -29,10 +29,10 @@
       "IntroducedInLoop": "",
       "StatusGroup": "Proved",
       "PremiseCount": 1,
-      "DependentCount": 30,
+      "DependentCount": 32,
       "EvidenceCount": 0,
       "RevisionCount": 0,
-      "DescendantCount": 58
+      "DescendantCount": 60
     },
     {
       "AssertionId": "T004",
@@ -860,12 +860,12 @@
       "Name": "TR",
       "StatusGroup": "Proved",
       "PremiseCount": 2,
-      "DependentCount": 8,
+      "DependentCount": 10,
       "EvidenceCount": 2,
       "RevisionCount": 0,
       "IsUsable": 1,
       "IsProofEligible": 1,
-      "DescendantCount": 8
+      "DescendantCount": 10
     },
     {
       "AssertionId": "F8",
@@ -996,12 +996,12 @@
       "Name": "F11",
       "StatusGroup": "Checked",
       "PremiseCount": 1,
-      "DependentCount": 0,
+      "DependentCount": 2,
       "EvidenceCount": 1,
       "RevisionCount": 0,
       "IsUsable": 1,
       "IsProofEligible": 0,
-      "DescendantCount": 0
+      "DescendantCount": 2
     },
     {
       "AssertionId": "TS",
@@ -1018,7 +1018,7 @@
       "RevisionCount": 0,
       "IsUsable": 1,
       "IsProofEligible": 1,
-      "DescendantCount": 25
+      "DescendantCount": 27
     },
     {
       "AssertionId": "H26",
@@ -1065,7 +1065,7 @@
       "StatusGroup": "Proved",
       "PremiseCount": 5,
       "DependentCount": 1,
-      "EvidenceCount": 7,
+      "EvidenceCount": 8,
       "RevisionCount": 1,
       "IsUsable": 1,
       "IsProofEligible": 1,
@@ -1081,12 +1081,12 @@
       "Name": "TU",
       "StatusGroup": "Proved",
       "PremiseCount": 3,
-      "DependentCount": 20,
+      "DependentCount": 22,
       "EvidenceCount": 1,
       "RevisionCount": 0,
       "IsUsable": 1,
       "IsProofEligible": 1,
-      "DescendantCount": 22
+      "DescendantCount": 24
     },
     {
       "AssertionId": "H27",
@@ -1406,6 +1406,40 @@
       "PremiseCount": 4,
       "DependentCount": 0,
       "EvidenceCount": 2,
+      "RevisionCount": 0,
+      "IsUsable": 1,
+      "IsProofEligible": 0,
+      "DescendantCount": 0
+    },
+    {
+      "AssertionId": "H34",
+      "Statement": "With every settled left-edge diagonal imposed on the periodic-center relaxation (exact values, or periodicity only), the death window exceeds the settled frontier by at most 8 (exact) or 16 (periodic only) for the words 01 and 10 at every onset 8<=T<=160 the search completes: the clash with the settled zone is local.",
+      "ReportedStatus": "FALSIFIED",
+      "ProofSection": "",
+      "Kind": "Hypothesis",
+      "IntroducedInLoop": "effortless-21",
+      "Name": "H34",
+      "StatusGroup": "Falsified",
+      "PremiseCount": 4,
+      "DependentCount": 0,
+      "EvidenceCount": 2,
+      "RevisionCount": 1,
+      "IsUsable": 0,
+      "IsProofEligible": 0,
+      "DescendantCount": 0
+    },
+    {
+      "AssertionId": "F20",
+      "Statement": "Settled-zone relaxation table for the words 01 and 10, exact and periodicity-only modes, onsets 8..160: frontier, death window, excess, peak live set, failing columns; the true lattice satisfies every imposed constraint to time 400.",
+      "ReportedStatus": "FINITE_VERIFIED",
+      "ProofSection": "",
+      "Kind": "Finite check",
+      "IntroducedInLoop": "effortless-21",
+      "Name": "F20",
+      "StatusGroup": "Checked",
+      "PremiseCount": 4,
+      "DependentCount": 0,
+      "EvidenceCount": 1,
       "RevisionCount": 0,
       "IsUsable": 1,
       "IsProofEligible": 0,
@@ -2348,6 +2382,54 @@
       "Conclusion": "F19",
       "Premise": "TW",
       "Name": "F19-TW"
+    },
+    {
+      "DependencyId": "H34-T0",
+      "Conclusion": "H34",
+      "Premise": "T0",
+      "Name": "H34-T0"
+    },
+    {
+      "DependencyId": "H34-TR",
+      "Conclusion": "H34",
+      "Premise": "TR",
+      "Name": "H34-TR"
+    },
+    {
+      "DependencyId": "H34-TU",
+      "Conclusion": "H34",
+      "Premise": "TU",
+      "Name": "H34-TU"
+    },
+    {
+      "DependencyId": "H34-F11",
+      "Conclusion": "H34",
+      "Premise": "F11",
+      "Name": "H34-F11"
+    },
+    {
+      "DependencyId": "F20-T0",
+      "Conclusion": "F20",
+      "Premise": "T0",
+      "Name": "F20-T0"
+    },
+    {
+      "DependencyId": "F20-TR",
+      "Conclusion": "F20",
+      "Premise": "TR",
+      "Name": "F20-TR"
+    },
+    {
+      "DependencyId": "F20-TU",
+      "Conclusion": "F20",
+      "Premise": "TU",
+      "Name": "F20-TU"
+    },
+    {
+      "DependencyId": "F20-F11",
+      "Conclusion": "F20",
+      "Premise": "F11",
+      "Name": "F20-F11"
     }
   ],
   "Prerequisites": [
@@ -7378,6 +7460,174 @@
       "ProofBlocked": 0,
       "IsSelf": 0,
       "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H34-D0",
+      "ConclusionKey": "H34",
+      "Premise": "D0",
+      "Name": "H34-D0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H34-F11",
+      "ConclusionKey": "H34",
+      "Premise": "F11",
+      "Name": "H34-F11",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 0,
+      "Blocked": 0,
+      "ProofBlocked": 1,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H34-H34",
+      "ConclusionKey": "H34",
+      "Premise": "H34",
+      "Name": "H34-H34",
+      "PremiseUsable": 0,
+      "PremiseProofEligible": 0,
+      "Blocked": 1,
+      "ProofBlocked": 1,
+      "IsSelf": 1,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H34-T0",
+      "ConclusionKey": "H34",
+      "Premise": "T0",
+      "Name": "H34-T0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H34-TR",
+      "ConclusionKey": "H34",
+      "Premise": "TR",
+      "Name": "H34-TR",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H34-TS",
+      "ConclusionKey": "H34",
+      "Premise": "TS",
+      "Name": "H34-TS",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "H34-TU",
+      "ConclusionKey": "H34",
+      "Premise": "TU",
+      "Name": "H34-TU",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F20-D0",
+      "ConclusionKey": "F20",
+      "Premise": "D0",
+      "Name": "F20-D0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F20-F11",
+      "ConclusionKey": "F20",
+      "Premise": "F11",
+      "Name": "F20-F11",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 0,
+      "Blocked": 0,
+      "ProofBlocked": 1,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F20-F20",
+      "ConclusionKey": "F20",
+      "Premise": "F20",
+      "Name": "F20-F20",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 0,
+      "Blocked": 0,
+      "ProofBlocked": 1,
+      "IsSelf": 1,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F20-T0",
+      "ConclusionKey": "F20",
+      "Premise": "T0",
+      "Name": "F20-T0",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F20-TR",
+      "ConclusionKey": "F20",
+      "Premise": "TR",
+      "Name": "F20-TR",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F20-TS",
+      "ConclusionKey": "F20",
+      "Premise": "TS",
+      "Name": "F20-TS",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
+    },
+    {
+      "PrerequisiteId": "F20-TU",
+      "ConclusionKey": "F20",
+      "Premise": "TU",
+      "Name": "F20-TU",
+      "PremiseUsable": 1,
+      "PremiseProofEligible": 1,
+      "Blocked": 0,
+      "ProofBlocked": 0,
+      "IsSelf": 0,
+      "IsBlockingAncestor": 0
     }
   ],
   "Assessments": [
@@ -8635,7 +8885,7 @@
       "ProofBlockedCount": 2,
       "CurrentStatus": "BLOCKED",
       "ProofEligible": 0,
-      "SupportCount": 7,
+      "SupportCount": 8,
       "EvidenceGap": 0,
       "AncestorBlockedCount": 2,
       "IsAtRisk": 1,
@@ -9040,6 +9290,46 @@
       "AncestorBlockedCount": 0,
       "IsAtRisk": 0,
       "AncestorCount": 6
+    },
+    {
+      "AssessmentId": "H34",
+      "Assertion": "H34",
+      "ProjectKey": "Rule30",
+      "Name": "H34",
+      "ReportedStatus": "FALSIFIED",
+      "Statement": "With every settled left-edge diagonal imposed on the periodic-center relaxation (exact values, or periodicity only), the death window exceeds the settled frontier by at most 8 (exact) or 16 (periodic only) for the words 01 and 10 at every onset 8<=T<=160 the search completes: the clash with the settled zone is local.",
+      "Kind": "Hypothesis",
+      "StatusGroup": "Falsified",
+      "SelfUsable": 0,
+      "BlockedCount": 1,
+      "ProofBlockedCount": 2,
+      "CurrentStatus": "BLOCKED",
+      "ProofEligible": 0,
+      "SupportCount": 2,
+      "EvidenceGap": 0,
+      "AncestorBlockedCount": 0,
+      "IsAtRisk": 0,
+      "AncestorCount": 6
+    },
+    {
+      "AssessmentId": "F20",
+      "Assertion": "F20",
+      "ProjectKey": "Rule30",
+      "Name": "F20",
+      "ReportedStatus": "FINITE_VERIFIED",
+      "Statement": "Settled-zone relaxation table for the words 01 and 10, exact and periodicity-only modes, onsets 8..160: frontier, death window, excess, peak live set, failing columns; the true lattice satisfies every imposed constraint to time 400.",
+      "Kind": "Finite check",
+      "StatusGroup": "Checked",
+      "SelfUsable": 1,
+      "BlockedCount": 0,
+      "ProofBlockedCount": 2,
+      "CurrentStatus": "FINITE_VERIFIED",
+      "ProofEligible": 0,
+      "SupportCount": 1,
+      "EvidenceGap": 0,
+      "AncestorBlockedCount": 0,
+      "IsAtRisk": 0,
+      "AncestorCount": 6
     }
   ],
   "Evidence": [
@@ -9312,6 +9602,18 @@
       "Path": "research/loop-20-forced-ray/PROOFS.md",
       "Sha256": "72aeb80a155e15070c9e401e99cbefe745b37e7a81e1cf37c2e2de07b6af815b",
       "Name": "E45"
+    },
+    {
+      "EvidenceId": "E46",
+      "Path": "research/loop-21-settled-zone/settled_zone.json",
+      "Sha256": "7fe7ed57ab13c08c7b40ae1cbc23c5177a3181d4ef10c8d05d85c95cd18a9450",
+      "Name": "E46"
+    },
+    {
+      "EvidenceId": "E47",
+      "Path": "research/loop-21-settled-zone/PROOFS.md",
+      "Sha256": "e274a85f2a8d79a99691ca542f687d29ebde36761277fd97de05fa477c65f491",
+      "Name": "E47"
     }
   ],
   "Revisions": [
@@ -9644,6 +9946,16 @@
       "Replacement": "TW",
       "Loop": "effortless-20",
       "Name": "revision-H33-1"
+    },
+    {
+      "RevisionId": "revision-H34-1",
+      "Assertion": "H34",
+      "PriorStatus": "OPEN",
+      "NewStatus": "FALSIFIED",
+      "Reason": "42 of 80 cases exceed the bound, first {\"a\": \"01\", \"mode\": \"exact\", \"T\": 52, \"frontier\": 11, \"L\": 26, \"excess\": 15}; excess by onset {\"01:exact\": {\"8\": 1, \"12\": 3, \"16\": 1, \"20\": 1, \"24\": 3, \"28\": 3, \"32\": 3, \"36\": 3, \"40\": 5, \"44\": 5, \"48\": 4, \"52\": 15, \"56\": 9, \"60\": 13, \"64\": 17, \"80\": 19, \"96\": 22, \"112\": 28, \"128\": 29, \"144\": 24, \"160\": 20}, \"01:periodic\": {\"8\": 5, \"12\": 8, \"16\": 10, \"20\": 12, \"24\": 11, \"28\": 7, \"32\": 5, \"36\": 16, \"40\": 17, \"44\": 20, \"48\": 20, \"52\": 22, \"56\": 23, \"60\": 29, \"64\": 25, \"80\": 33, \"96\": 42, \"112\": 40, \"128\": 37}, \"10:exact\": {\"8\": 0, \"12\": 0, \"16\": 2, \"20\": 0, \"24\": 4, \"28\": 4, \"32\": 2, \"36\": 4, \"40\": 2, \"44\": 4, \"48\": 5, \"52\": 8, \"56\": 10, \"60\": 14, \"64\": 12, \"80\": 28, \"96\": 31, \"112\": 25, \"128\": 22, \"144\": 25, \"160\": 21}, \"10:periodic\": {\"8\": 2, \"12\": 6, \"16\": 10, \"20\": 12, \"24\": 11, \"28\": 10, \"32\": 14, \"36\": 18, \"40\": 20, \"44\": 20, \"48\": 21, \"52\": 24, \"56\": 23, \"60\": 26, \"64\": 26, \"80\": 36, \"96\": 40, \"112\": 41, \"128\": 37}} (E46).",
+      "Replacement": "TR",
+      "Loop": "effortless-21",
+      "Name": "revision-H34-1"
     }
   ],
   "Loops": [
@@ -10273,19 +10585,38 @@
       "RevisionsMade": 1,
       "FalsificationsMade": 1,
       "ProofsMade": 0
+    },
+    {
+      "LoopId": "effortless-21",
+      "Kind": "EFFORTLESS",
+      "State": "VERIFIED",
+      "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 6.3, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+      "InputHash": "6c15f1e8fb2d993d2edf7bea779485c357e11ef0b49c44e849721587ede02ef9",
+      "OutputHash": "1871b6875aee7b90a45d9cc9bdc3af325e8b11afb183dfc08b21b5c84e03a099",
+      "Sequence": 34,
+      "StartedAt": "2026-10-23T21:28:03-0500",
+      "FinishedAt": "2026-10-23T21:33:32-0500",
+      "ProjectKey": "Rule30",
+      "Hypothesis": "H34: with the settled left-edge diagonals imposed, the periodic-center relaxation dies within 8 (exact) / 16 (periodic-only) windows past the settled frontier for 01 and 10, onsets 8..160.",
+      "Summary": "Settled-zone relaxation: H34 FALSIFIED; excess past the settled frontier by onset {\"01:exact\": {\"8\": 1, \"12\": 3, \"16\": 1, \"20\": 1, \"24\": 3, \"28\": 3, \"32\": 3, \"36\": 3, \"40\": 5, \"44\": 5, \"48\": 4, \"52\": 15, \"56\": 9, \"60\": 13, \"64\": 17, \"80\": 19, \"96\": 22, \"112\": 28, \"128\": 29, \"144\": 24, \"160\": 20}, \"01:periodic\": {\"8\": 5, \"12\": 8, \"16\": 10, \"20\": 12, \"24\": 11, \"28\": 7, \"32\": 5, \"36\": 16, \"40\": 17, \"44\": 20, \"48\": 20, \"52\": 22, \"56\": 23, \"60\": 29, \"64\": 25, \"80\": 33, \"96\": 42, \"112\": 40, \"128\": 37}, \"10:exact\": {\"8\": 0, \"12\": 0, \"16\": 2, \"20\": 0, \"24\": 4, \"28\": 4, \"32\": 2, \"36\": 4, \"40\": 2, \"44\": 4, \"48\": 5, \"52\": 8, \"56\": 10, \"60\": 14, \"64\": 12, \"80\": 28, \"96\": 31, \"112\": 25, \"128\": 22, \"144\": 25, \"160\": 21}, \"10:periodic\": {\"8\": 2, \"12\": 6, \"16\": 10, \"20\": 12, \"24\": 11, \"28\": 10, \"32\": 14, \"36\": 18, \"40\": 20, \"44\": 20, \"48\": 21, \"52\": 24, \"56\": 23, \"60\": 26, \"64\": 26, \"80\": 36, \"96\": 40, \"112\": 41, \"128\": 37}}. The clash is not local even against the settled zone; the relaxation programme has reached its natural end for P1.",
+      "Name": "effortless-21",
+      "ClaimsAdded": 2,
+      "RevisionsMade": 1,
+      "FalsificationsMade": 1,
+      "ProofsMade": 0
     }
   ],
   "Dashboards": [
     {
       "DashboardId": "Rule30",
       "Name": "Rule30",
-      "ClaimCount": 83,
-      "BlockedCount": 24,
-      "CompletedNativeLoops": 20,
+      "ClaimCount": 85,
+      "BlockedCount": 25,
+      "CompletedNativeLoops": 21,
       "EvidenceGapCount": 0,
       "ProvedCount": 33,
-      "CheckedCount": 29,
-      "FalsifiedCount": 14,
+      "CheckedCount": 30,
+      "FalsifiedCount": 15,
       "OpenCount": 7,
       "AtRiskCount": 3,
       "OpenPrizeProblemCount": 3,
@@ -11035,6 +11366,34 @@
       "Assertion": "H33",
       "Name": "E45-H33",
       "EvidencePath": "research/loop-20-forced-ray/PROOFS.md"
+    },
+    {
+      "EvidenceLinkId": "E46-H34",
+      "Evidence": "E46",
+      "Assertion": "H34",
+      "Name": "E46-H34",
+      "EvidencePath": "research/loop-21-settled-zone/settled_zone.json"
+    },
+    {
+      "EvidenceLinkId": "E46-F20",
+      "Evidence": "E46",
+      "Assertion": "F20",
+      "Name": "E46-F20",
+      "EvidencePath": "research/loop-21-settled-zone/settled_zone.json"
+    },
+    {
+      "EvidenceLinkId": "E46-B5",
+      "Evidence": "E46",
+      "Assertion": "B5",
+      "Name": "E46-B5",
+      "EvidencePath": "research/loop-21-settled-zone/settled_zone.json"
+    },
+    {
+      "EvidenceLinkId": "E47-H34",
+      "Evidence": "E47",
+      "Assertion": "H34",
+      "Name": "E47-H34",
+      "EvidencePath": "research/loop-21-settled-zone/PROOFS.md"
     }
   ]
 }

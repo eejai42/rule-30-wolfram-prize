@@ -1,0 +1,238 @@
+01 exact T=8 frontier=1 L=2 excess=1 capped=False 0s
+01 exact T=12 frontier=1 L=4 excess=3 capped=False 0s
+01 exact T=16 frontier=1 L=2 excess=1 capped=False 0s
+01 exact T=20 frontier=1 L=2 excess=1 capped=False 0s
+01 exact T=24 frontier=1 L=4 excess=3 capped=False 0s
+01 exact T=28 frontier=3 L=6 excess=3 capped=False 0s
+01 exact T=32 frontier=3 L=6 excess=3 capped=False 0s
+01 exact T=36 frontier=3 L=6 excess=3 capped=False 0s
+01 exact T=40 frontier=5 L=10 excess=5 capped=False 0s
+01 exact T=44 frontier=7 L=12 excess=5 capped=False 0s
+01 exact T=48 frontier=10 L=14 excess=4 capped=False 0s
+01 exact T=52 frontier=11 L=26 excess=15 capped=False 0s
+01 exact T=56 frontier=13 L=22 excess=9 capped=False 0s
+01 exact T=60 frontier=15 L=28 excess=13 capped=False 0s
+01 exact T=64 frontier=17 L=34 excess=17 capped=False 0s
+01 exact T=80 frontier=23 L=42 excess=19 capped=False 0s
+01 exact T=96 frontier=28 L=50 excess=22 capped=False 0s
+01 exact T=112 frontier=32 L=60 excess=28 capped=False 0s
+01 exact T=128 frontier=35 L=64 excess=29 capped=False 0s
+01 exact T=144 frontier=40 L=64 excess=24 capped=False 2s
+01 exact T=160 frontier=44 L=64 excess=20 capped=False 10s
+01 periodic T=8 frontier=1 L=6 excess=5 capped=False 10s
+01 periodic T=12 frontier=1 L=9 excess=8 capped=False 10s
+01 periodic T=16 frontier=1 L=11 excess=10 capped=False 10s
+01 periodic T=20 frontier=1 L=13 excess=12 capped=False 10s
+01 periodic T=24 frontier=1 L=12 excess=11 capped=False 10s
+01 periodic T=28 frontier=3 L=10 excess=7 capped=False 10s
+01 periodic T=32 frontier=3 L=8 excess=5 capped=False 10s
+01 periodic T=36 frontier=3 L=19 excess=16 capped=False 10s
+01 periodic T=40 frontier=5 L=22 excess=17 capped=False 10s
+01 periodic T=44 frontier=7 L=27 excess=20 capped=False 10s
+01 periodic T=48 frontier=10 L=30 excess=20 capped=False 10s
+01 periodic T=52 frontier=11 L=33 excess=22 capped=False 10s
+01 periodic T=56 frontier=13 L=36 excess=23 capped=False 10s
+01 periodic T=60 frontier=15 L=44 excess=29 capped=False 10s
+01 periodic T=64 frontier=17 L=42 excess=25 capped=False 10s
+01 periodic T=80 frontier=23 L=56 excess=33 capped=False 13s
+01 periodic T=96 frontier=28 L=70 excess=42 capped=False 16s
+01 periodic T=112 frontier=32 L=72 excess=40 capped=False 28s
+01 periodic T=128 frontier=35 L=72 excess=37 capped=False 178s
+10 exact T=8 frontier=1 L=1 excess=0 capped=False 178s
+10 exact T=12 frontier=1 L=1 excess=0 capped=False 178s
+10 exact T=16 frontier=1 L=3 excess=2 capped=False 178s
+10 exact T=20 frontier=1 L=1 excess=0 capped=False 178s
+10 exact T=24 frontier=1 L=5 excess=4 capped=False 178s
+10 exact T=28 frontier=3 L=7 excess=4 capped=False 178s
+10 exact T=32 frontier=3 L=5 excess=2 capped=False 178s
+10 exact T=36 frontier=3 L=7 excess=4 capped=False 178s
+10 exact T=40 frontier=5 L=7 excess=2 capped=False 178s
+10 exact T=44 frontier=7 L=11 excess=4 capped=False 178s
+10 exact T=48 frontier=10 L=15 excess=5 capped=False 178s
+10 exact T=52 frontier=11 L=19 excess=8 capped=False 178s
+10 exact T=56 frontier=13 L=23 excess=10 capped=False 178s
+10 exact T=60 frontier=15 L=29 excess=14 capped=False 178s
+10 exact T=64 frontier=17 L=29 excess=12 capped=False 178s
+10 exact T=80 frontier=23 L=51 excess=28 capped=False 178s
+10 exact T=96 frontier=28 L=59 excess=31 capped=False 178s
+10 exact T=112 frontier=32 L=57 excess=25 capped=False 178s
+10 exact T=128 frontier=35 L=57 excess=22 capped=False 178s
+10 exact T=144 frontier=40 L=65 excess=25 capped=False 180s
+10 exact T=160 frontier=44 L=65 excess=21 capped=False 187s
+10 periodic T=8 frontier=1 L=3 excess=2 capped=False 187s
+10 periodic T=12 frontier=1 L=7 excess=6 capped=False 187s
+10 periodic T=16 frontier=1 L=11 excess=10 capped=False 187s
+10 periodic T=20 frontier=1 L=13 excess=12 capped=False 187s
+10 periodic T=24 frontier=1 L=12 excess=11 capped=False 187s
+10 periodic T=28 frontier=3 L=13 excess=10 capped=False 187s
+10 periodic T=32 frontier=3 L=17 excess=14 capped=False 187s
+10 periodic T=36 frontier=3 L=21 excess=18 capped=False 187s
+10 periodic T=40 frontier=5 L=25 excess=20 capped=False 187s
+10 periodic T=44 frontier=7 L=27 excess=20 capped=False 187s
+10 periodic T=48 frontier=10 L=31 excess=21 capped=False 187s
+10 periodic T=52 frontier=11 L=35 excess=24 capped=False 187s
+10 periodic T=56 frontier=13 L=36 excess=23 capped=False 187s
+10 periodic T=60 frontier=15 L=41 excess=26 capped=False 187s
+10 periodic T=64 frontier=17 L=43 excess=26 capped=False 187s
+10 periodic T=80 frontier=23 L=59 excess=36 capped=False 190s
+10 periodic T=96 frontier=28 L=68 excess=40 capped=False 193s
+10 periodic T=112 frontier=32 L=73 excess=41 capped=False 202s
+10 periodic T=128 frontier=35 L=72 excess=37 capped=False 316s
+{
+ "H34": {
+  "ReportedStatus": "FALSIFIED",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F20": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B5": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 8,
+  "EvidenceGap": 0
+ },
+ "B7": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 85,
+  "BlockedCount": 25,
+  "CompletedNativeLoops": 20,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 33,
+  "CheckedCount": 30,
+  "FalsifiedCount": 15,
+  "OpenCount": 7,
+  "AtRiskCount": 3,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "seconds": 315.5,
+ "cases_completed": 80,
+ "H34_holds": false,
+ "excess_by_T": {
+  "01:exact": {
+   "8": 1,
+   "12": 3,
+   "16": 1,
+   "20": 1,
+   "24": 3,
+   "28": 3,
+   "32": 3,
+   "36": 3,
+   "40": 5,
+   "44": 5,
+   "48": 4,
+   "52": 15,
+   "56": 9,
+   "60": 13,
+   "64": 17,
+   "80": 19,
+   "96": 22,
+   "112": 28,
+   "128": 29,
+   "144": 24,
+   "160": 20
+  },
+  "01:periodic": {
+   "8": 5,
+   "12": 8,
+   "16": 10,
+   "20": 12,
+   "24": 11,
+   "28": 7,
+   "32": 5,
+   "36": 16,
+   "40": 17,
+   "44": 20,
+   "48": 20,
+   "52": 22,
+   "56": 23,
+   "60": 29,
+   "64": 25,
+   "80": 33,
+   "96": 42,
+   "112": 40,
+   "128": 37
+  },
+  "10:exact": {
+   "8": 0,
+   "12": 0,
+   "16": 2,
+   "20": 0,
+   "24": 4,
+   "28": 4,
+   "32": 2,
+   "36": 4,
+   "40": 2,
+   "44": 4,
+   "48": 5,
+   "52": 8,
+   "56": 10,
+   "60": 14,
+   "64": 12,
+   "80": 28,
+   "96": 31,
+   "112": 25,
+   "128": 22,
+   "144": 25,
+   "160": 21
+  },
+  "10:periodic": {
+   "8": 2,
+   "12": 6,
+   "16": 10,
+   "20": 12,
+   "24": 11,
+   "28": 10,
+   "32": 14,
+   "36": 18,
+   "40": 20,
+   "44": 20,
+   "48": 21,
+   "52": 24,
+   "56": 23,
+   "60": 26,
+   "64": 26,
+   "80": 36,
+   "96": 40,
+   "112": 41,
+   "128": 37
+  }
+ }
+}

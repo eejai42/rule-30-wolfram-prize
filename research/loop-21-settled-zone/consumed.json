@@ -1,0 +1,77 @@
+{
+ "H34": {
+  "ReportedStatus": "FALSIFIED",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F20": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B5": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 8,
+  "EvidenceGap": 0
+ },
+ "B7": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 85,
+  "BlockedCount": 25,
+  "CompletedNativeLoops": 20,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 33,
+  "CheckedCount": 30,
+  "FalsifiedCount": 15,
+  "OpenCount": 7,
+  "AtRiskCount": 3,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ },
+ "_receipt": {
+  "exit": 0,
+  "seconds": 6.3,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh requested"
+ },
+ "_input_hash": "6c15f1e8fb2d993d2edf7bea779485c357e11ef0b49c44e849721587ede02ef9",
+ "_output_hash": "1871b6875aee7b90a45d9cc9bdc3af325e8b11afb183dfc08b21b5c84e03a099"
+}

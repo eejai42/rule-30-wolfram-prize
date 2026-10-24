@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-21",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 6.3, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "6c15f1e8fb2d993d2edf7bea779485c357e11ef0b49c44e849721587ede02ef9",
+  "OutputHash": "1871b6875aee7b90a45d9cc9bdc3af325e8b11afb183dfc08b21b5c84e03a099",
+  "Sequence": 34,
+  "StartedAt": "2026-10-23T21:28:03-0500",
+  "FinishedAt": "2026-10-23T21:33:32-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H34: with the settled left-edge diagonals imposed, the periodic-center relaxation dies within 8 (exact) / 16 (periodic-only) windows past the settled frontier for 01 and 10, onsets 8..160.",
+  "Summary": "Settled-zone relaxation: H34 FALSIFIED; excess past the settled frontier by onset {\"01:exact\": {\"8\": 1, \"12\": 3, \"16\": 1, \"20\": 1, \"24\": 3, \"28\": 3, \"32\": 3, \"36\": 3, \"40\": 5, \"44\": 5, \"48\": 4, \"52\": 15, \"56\": 9, \"60\": 13, \"64\": 17, \"80\": 19, \"96\": 22, \"112\": 28, \"128\": 29, \"144\": 24, \"160\": 20}, \"01:periodic\": {\"8\": 5, \"12\": 8, \"16\": 10, \"20\": 12, \"24\": 11, \"28\": 7, \"32\": 5, \"36\": 16, \"40\": 17, \"44\": 20, \"48\": 20, \"52\": 22, \"56\": 23, \"60\": 29, \"64\": 25, \"80\": 33, \"96\": 42, \"112\": 40, \"128\": 37}, \"10:exact\": {\"8\": 0, \"12\": 0, \"16\": 2, \"20\": 0, \"24\": 4, \"28\": 4, \"32\": 2, \"36\": 4, \"40\": 2, \"44\": 4, \"48\": 5, \"52\": 8, \"56\": 10, \"60\": 14, \"64\": 12, \"80\": 28, \"96\": 31, \"112\": 25, \"128\": 22, \"144\": 25, \"160\": 21}, \"10:periodic\": {\"8\": 2, \"12\": 6, \"16\": 10, \"20\": 12, \"24\": 11, \"28\": 10, \"32\": 14, \"36\": 18, \"40\": 20, \"44\": 20, \"48\": 21, \"52\": 24, \"56\": 23, \"60\": 26, \"64\": 26, \"80\": 36, \"96\": 40, \"112\": 41, \"128\": 37}}. The clash is not local even against the settled zone; the relaxation programme has reached its natural end for P1.",
+  "Name": "effortless-21",
+  "ClaimsAdded": 2,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 6.2,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 85,
+  "BlockedCount": 25,
+  "CompletedNativeLoops": 21,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 33,
+  "CheckedCount": 30,
+  "FalsifiedCount": 15,
+  "OpenCount": 7,
+  "AtRiskCount": 3,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}
