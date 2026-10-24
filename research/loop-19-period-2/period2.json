@@ -1,0 +1,895 @@
+{
+ "CAP_live": 67108864,
+ "seconds": 72.8,
+ "H32_holds": true,
+ "new_cases": [
+  {
+   "a": "01",
+   "T": 47,
+   "L": 64,
+   "capped": false,
+   "survivors": 33993,
+   "peak_live": 8388608,
+   "seconds": 6.0
+  },
+  {
+   "a": "01",
+   "T": 48,
+   "L": 64,
+   "capped": false,
+   "survivors": 66875,
+   "peak_live": 16777216,
+   "seconds": 8.3
+  },
+  {
+   "a": "01",
+   "T": 49,
+   "L": 64,
+   "capped": false,
+   "survivors": 133648,
+   "peak_live": 16777216,
+   "seconds": 12.1
+  },
+  {
+   "a": "01",
+   "T": 50,
+   "L": 64,
+   "capped": false,
+   "survivors": 257064,
+   "peak_live": 33554432,
+   "seconds": 16.6
+  },
+  {
+   "a": "10",
+   "T": 47,
+   "L": 65,
+   "capped": false,
+   "survivors": 8514,
+   "peak_live": 8388608,
+   "seconds": 4.2
+  },
+  {
+   "a": "10",
+   "T": 48,
+   "L": 65,
+   "capped": false,
+   "survivors": 16773,
+   "peak_live": 8388608,
+   "seconds": 5.8
+  },
+  {
+   "a": "10",
+   "T": 49,
+   "L": 65,
+   "capped": false,
+   "survivors": 32235,
+   "peak_live": 16777216,
+   "seconds": 8.2
+  },
+  {
+   "a": "10",
+   "T": 50,
+   "L": 65,
+   "capped": false,
+   "survivors": 66089,
+   "peak_live": 16777216,
+   "seconds": 11.7
+  }
+ ],
+ "L_by_T": {
+  "01": {
+   "2": 4,
+   "3": 6,
+   "4": 6,
+   "5": 10,
+   "6": 10,
+   "7": 10,
+   "8": 18,
+   "9": 16,
+   "10": 18,
+   "11": 16,
+   "12": 30,
+   "13": 24,
+   "14": 28,
+   "15": 32,
+   "16": 26,
+   "17": 32,
+   "18": 34,
+   "19": 30,
+   "20": 38,
+   "21": 36,
+   "22": 42,
+   "23": 44,
+   "24": 42,
+   "25": 42,
+   "26": 44,
+   "27": 44,
+   "28": 48,
+   "29": 50,
+   "30": 54,
+   "31": 56,
+   "32": 64,
+   "33": 58,
+   "34": 64,
+   "35": 64,
+   "36": 62,
+   "37": 64,
+   "38": 64,
+   "39": 64,
+   "40": 64,
+   "41": 64,
+   "42": 64,
+   "43": 64,
+   "44": 64,
+   "45": 64,
+   "46": 64,
+   "47": 64,
+   "48": 64,
+   "49": 64,
+   "50": 64
+  },
+  "10": {
+   "2": 7,
+   "3": 5,
+   "4": 7,
+   "5": 9,
+   "6": 11,
+   "7": 13,
+   "8": 11,
+   "9": 19,
+   "10": 15,
+   "11": 31,
+   "12": 17,
+   "13": 29,
+   "14": 33,
+   "15": 27,
+   "16": 31,
+   "17": 31,
+   "18": 31,
+   "19": 39,
+   "20": 31,
+   "21": 37,
+   "22": 41,
+   "23": 41,
+   "24": 43,
+   "25": 45,
+   "26": 45,
+   "27": 49,
+   "28": 49,
+   "29": 49,
+   "30": 53,
+   "31": 65,
+   "32": 55,
+   "33": 65,
+   "34": 63,
+   "35": 63,
+   "36": 63,
+   "37": 63,
+   "38": 65,
+   "39": 65,
+   "40": 65,
+   "41": 65,
+   "42": 65,
+   "43": 65,
+   "44": 65,
+   "45": 65,
+   "46": 65,
+   "47": 65,
+   "48": 65,
+   "49": 65,
+   "50": 65
+  }
+ },
+ "rows": [
+  {
+   "T": 2,
+   "a": "01",
+   "L": 4,
+   "survivors": null,
+   "source": "loop19"
+  },
+  {
+   "T": 3,
+   "a": "01",
+   "L": 6,
+   "survivors": null,
+   "source": "loop19"
+  },
+  {
+   "T": 4,
+   "a": "01",
+   "L": 6,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 5,
+   "a": "01",
+   "L": 10,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 6,
+   "a": "01",
+   "L": 10,
+   "survivors": 3,
+   "source": "loop18"
+  },
+  {
+   "T": 7,
+   "a": "01",
+   "L": 10,
+   "survivors": 6,
+   "source": "loop18"
+  },
+  {
+   "T": 8,
+   "a": "01",
+   "L": 18,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 9,
+   "a": "01",
+   "L": 16,
+   "survivors": 8,
+   "source": "loop18"
+  },
+  {
+   "T": 10,
+   "a": "01",
+   "L": 18,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 11,
+   "a": "01",
+   "L": 16,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 12,
+   "a": "01",
+   "L": 30,
+   "survivors": 3,
+   "source": "loop18"
+  },
+  {
+   "T": 13,
+   "a": "01",
+   "L": 24,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 14,
+   "a": "01",
+   "L": 28,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 15,
+   "a": "01",
+   "L": 32,
+   "survivors": 6,
+   "source": "loop18"
+  },
+  {
+   "T": 16,
+   "a": "01",
+   "L": 26,
+   "survivors": 10,
+   "source": "loop18"
+  },
+  {
+   "T": 17,
+   "a": "01",
+   "L": 32,
+   "survivors": 9,
+   "source": "loop18"
+  },
+  {
+   "T": 18,
+   "a": "01",
+   "L": 34,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 19,
+   "a": "01",
+   "L": 30,
+   "survivors": 14,
+   "source": "loop18"
+  },
+  {
+   "T": 20,
+   "a": "01",
+   "L": 38,
+   "survivors": 15,
+   "source": "loop18"
+  },
+  {
+   "T": 21,
+   "a": "01",
+   "L": 36,
+   "survivors": 10,
+   "source": "loop18"
+  },
+  {
+   "T": 22,
+   "a": "01",
+   "L": 42,
+   "survivors": 6,
+   "source": "loop18"
+  },
+  {
+   "T": 23,
+   "a": "01",
+   "L": 44,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 24,
+   "a": "01",
+   "L": 42,
+   "survivors": 4,
+   "source": "loop18"
+  },
+  {
+   "T": 25,
+   "a": "01",
+   "L": 42,
+   "survivors": 8,
+   "source": "loop18"
+  },
+  {
+   "T": 26,
+   "a": "01",
+   "L": 44,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 27,
+   "a": "01",
+   "L": 44,
+   "survivors": 10,
+   "source": "loop18"
+  },
+  {
+   "T": 28,
+   "a": "01",
+   "L": 48,
+   "survivors": 6,
+   "source": "loop18"
+  },
+  {
+   "T": 29,
+   "a": "01",
+   "L": 50,
+   "survivors": 4,
+   "source": "loop18"
+  },
+  {
+   "T": 30,
+   "a": "01",
+   "L": 54,
+   "survivors": 4,
+   "source": "loop18"
+  },
+  {
+   "T": 31,
+   "a": "01",
+   "L": 56,
+   "survivors": 8,
+   "source": "loop18"
+  },
+  {
+   "T": 32,
+   "a": "01",
+   "L": 64,
+   "survivors": 21,
+   "source": "loop18"
+  },
+  {
+   "T": 33,
+   "a": "01",
+   "L": 58,
+   "survivors": 8,
+   "source": "loop18"
+  },
+  {
+   "T": 34,
+   "a": "01",
+   "L": 64,
+   "survivors": 24,
+   "source": "loop18"
+  },
+  {
+   "T": 35,
+   "a": "01",
+   "L": 64,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 36,
+   "a": "01",
+   "L": 62,
+   "survivors": 44,
+   "source": "loop18"
+  },
+  {
+   "T": 37,
+   "a": "01",
+   "L": 64,
+   "survivors": 40,
+   "source": "loop18"
+  },
+  {
+   "T": 38,
+   "a": "01",
+   "L": 64,
+   "survivors": 36,
+   "source": "loop18"
+  },
+  {
+   "T": 39,
+   "a": "01",
+   "L": 64,
+   "survivors": 207,
+   "source": "loop18"
+  },
+  {
+   "T": 40,
+   "a": "01",
+   "L": 64,
+   "survivors": 196,
+   "source": "loop18"
+  },
+  {
+   "T": 41,
+   "a": "01",
+   "L": 64,
+   "survivors": 501,
+   "source": "loop18"
+  },
+  {
+   "T": 42,
+   "a": "01",
+   "L": 64,
+   "survivors": 1453,
+   "source": "loop18"
+  },
+  {
+   "T": 43,
+   "a": "01",
+   "L": 64,
+   "survivors": 1817,
+   "source": "loop18"
+  },
+  {
+   "T": 44,
+   "a": "01",
+   "L": 64,
+   "survivors": 4427,
+   "source": "loop18"
+  },
+  {
+   "T": 45,
+   "a": "01",
+   "L": 64,
+   "survivors": 7934,
+   "source": "loop18"
+  },
+  {
+   "T": 46,
+   "a": "01",
+   "L": 64,
+   "survivors": 15886,
+   "source": "loop18"
+  },
+  {
+   "T": 47,
+   "a": "01",
+   "L": 64,
+   "capped": false,
+   "survivors": 33993,
+   "peak_live": 8388608,
+   "seconds": 6.0,
+   "source": "loop19"
+  },
+  {
+   "T": 48,
+   "a": "01",
+   "L": 64,
+   "capped": false,
+   "survivors": 66875,
+   "peak_live": 16777216,
+   "seconds": 8.3,
+   "source": "loop19"
+  },
+  {
+   "T": 49,
+   "a": "01",
+   "L": 64,
+   "capped": false,
+   "survivors": 133648,
+   "peak_live": 16777216,
+   "seconds": 12.1,
+   "source": "loop19"
+  },
+  {
+   "T": 50,
+   "a": "01",
+   "L": 64,
+   "capped": false,
+   "survivors": 257064,
+   "peak_live": 33554432,
+   "seconds": 16.6,
+   "source": "loop19"
+  },
+  {
+   "T": 2,
+   "a": "10",
+   "L": 7,
+   "survivors": null,
+   "source": "loop19"
+  },
+  {
+   "T": 3,
+   "a": "10",
+   "L": 5,
+   "survivors": null,
+   "source": "loop19"
+  },
+  {
+   "T": 4,
+   "a": "10",
+   "L": 7,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 5,
+   "a": "10",
+   "L": 9,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 6,
+   "a": "10",
+   "L": 11,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 7,
+   "a": "10",
+   "L": 13,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 8,
+   "a": "10",
+   "L": 11,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 9,
+   "a": "10",
+   "L": 19,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 10,
+   "a": "10",
+   "L": 15,
+   "survivors": 11,
+   "source": "loop18"
+  },
+  {
+   "T": 11,
+   "a": "10",
+   "L": 31,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 12,
+   "a": "10",
+   "L": 17,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 13,
+   "a": "10",
+   "L": 29,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 14,
+   "a": "10",
+   "L": 33,
+   "survivors": 3,
+   "source": "loop18"
+  },
+  {
+   "T": 15,
+   "a": "10",
+   "L": 27,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 16,
+   "a": "10",
+   "L": 31,
+   "survivors": 3,
+   "source": "loop18"
+  },
+  {
+   "T": 17,
+   "a": "10",
+   "L": 31,
+   "survivors": 4,
+   "source": "loop18"
+  },
+  {
+   "T": 18,
+   "a": "10",
+   "L": 31,
+   "survivors": 10,
+   "source": "loop18"
+  },
+  {
+   "T": 19,
+   "a": "10",
+   "L": 39,
+   "survivors": 9,
+   "source": "loop18"
+  },
+  {
+   "T": 20,
+   "a": "10",
+   "L": 31,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 21,
+   "a": "10",
+   "L": 37,
+   "survivors": 10,
+   "source": "loop18"
+  },
+  {
+   "T": 22,
+   "a": "10",
+   "L": 41,
+   "survivors": 6,
+   "source": "loop18"
+  },
+  {
+   "T": 23,
+   "a": "10",
+   "L": 41,
+   "survivors": 9,
+   "source": "loop18"
+  },
+  {
+   "T": 24,
+   "a": "10",
+   "L": 43,
+   "survivors": 6,
+   "source": "loop18"
+  },
+  {
+   "T": 25,
+   "a": "10",
+   "L": 45,
+   "survivors": 1,
+   "source": "loop18"
+  },
+  {
+   "T": 26,
+   "a": "10",
+   "L": 45,
+   "survivors": 2,
+   "source": "loop18"
+  },
+  {
+   "T": 27,
+   "a": "10",
+   "L": 49,
+   "survivors": 6,
+   "source": "loop18"
+  },
+  {
+   "T": 28,
+   "a": "10",
+   "L": 49,
+   "survivors": 8,
+   "source": "loop18"
+  },
+  {
+   "T": 29,
+   "a": "10",
+   "L": 49,
+   "survivors": 9,
+   "source": "loop18"
+  },
+  {
+   "T": 30,
+   "a": "10",
+   "L": 53,
+   "survivors": 4,
+   "source": "loop18"
+  },
+  {
+   "T": 31,
+   "a": "10",
+   "L": 65,
+   "survivors": 13,
+   "source": "loop18"
+  },
+  {
+   "T": 32,
+   "a": "10",
+   "L": 55,
+   "survivors": 12,
+   "source": "loop18"
+  },
+  {
+   "T": 33,
+   "a": "10",
+   "L": 65,
+   "survivors": 24,
+   "source": "loop18"
+  },
+  {
+   "T": 34,
+   "a": "10",
+   "L": 63,
+   "survivors": 8,
+   "source": "loop18"
+  },
+  {
+   "T": 35,
+   "a": "10",
+   "L": 63,
+   "survivors": 14,
+   "source": "loop18"
+  },
+  {
+   "T": 36,
+   "a": "10",
+   "L": 63,
+   "survivors": 7,
+   "source": "loop18"
+  },
+  {
+   "T": 37,
+   "a": "10",
+   "L": 63,
+   "survivors": 5,
+   "source": "loop18"
+  },
+  {
+   "T": 38,
+   "a": "10",
+   "L": 65,
+   "survivors": 20,
+   "source": "loop18"
+  },
+  {
+   "T": 39,
+   "a": "10",
+   "L": 65,
+   "survivors": 7,
+   "source": "loop18"
+  },
+  {
+   "T": 40,
+   "a": "10",
+   "L": 65,
+   "survivors": 70,
+   "source": "loop18"
+  },
+  {
+   "T": 41,
+   "a": "10",
+   "L": 65,
+   "survivors": 126,
+   "source": "loop18"
+  },
+  {
+   "T": 42,
+   "a": "10",
+   "L": 65,
+   "survivors": 171,
+   "source": "loop18"
+  },
+  {
+   "T": 43,
+   "a": "10",
+   "L": 65,
+   "survivors": 719,
+   "source": "loop18"
+  },
+  {
+   "T": 44,
+   "a": "10",
+   "L": 65,
+   "survivors": 1106,
+   "source": "loop18"
+  },
+  {
+   "T": 45,
+   "a": "10",
+   "L": 65,
+   "survivors": 1928,
+   "source": "loop18"
+  },
+  {
+   "T": 46,
+   "a": "10",
+   "L": 65,
+   "survivors": 4240,
+   "source": "loop18"
+  },
+  {
+   "T": 47,
+   "a": "10",
+   "L": 65,
+   "capped": false,
+   "survivors": 8514,
+   "peak_live": 8388608,
+   "seconds": 4.2,
+   "source": "loop19"
+  },
+  {
+   "T": 48,
+   "a": "10",
+   "L": 65,
+   "capped": false,
+   "survivors": 16773,
+   "peak_live": 8388608,
+   "seconds": 5.8,
+   "source": "loop19"
+  },
+  {
+   "T": 49,
+   "a": "10",
+   "L": 65,
+   "capped": false,
+   "survivors": 32235,
+   "peak_live": 16777216,
+   "seconds": 8.2,
+   "source": "loop19"
+  },
+  {
+   "T": 50,
+   "a": "10",
+   "L": 65,
+   "capped": false,
+   "survivors": 66089,
+   "peak_live": 16777216,
+   "seconds": 11.7,
+   "source": "loop19"
+  }
+ ]
+}

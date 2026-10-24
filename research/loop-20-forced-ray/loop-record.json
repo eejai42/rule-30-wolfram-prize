@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-20",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 6.6, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "02ee2eba8cb6e890f2cf4756c632188cdb26f63b82bb5bc3bb27f30b511ef972",
+  "OutputHash": "c7108b899f6421de442fbf00ab38f22a715c0bbf477f75535df4093886136f00",
+  "Sequence": 33,
+  "StartedAt": "2026-10-23T20:16:31-0500",
+  "FinishedAt": "2026-10-23T20:19:11-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H33: the 64-wall is the TW boundary phenomenon: pinned death windows for period-3/4 words persist through T=63 and break at T=64..66; 01/10 stay pinned at onsets 51, 52.",
+  "Summary": "64-wall structure for 01: 33 forced interior cells on the death rays over onsets 37..46; one-time functions independent over GF(2) for T<=18: True; columns 1-3 tied, 6+ untied. H33 FALSIFIED: {\"011\": {\"first_pinned_onset\": 44, \"pinned_through_63\": false, \"L_at_64_65_66\": {\"64\": 90, \"65\": 96, \"66\": 95}}, \"101\": {\"first_pinned_onset\": null, \"pinned_through_63\": false, \"L_at_64_65_66\": {\"64\": 94, \"65\": 96, \"66\": 91}}, \"110\": {\"first_pinned_onset\": null, \"pinned_through_63\": false, \"L_at_64_65_66\": {\"64\": 97, \"65\": 89, \"66\": 95}}, \"0111\": {\"first_pinned_onset\": 52, \"pinned_through_63\": false, \"L_at_64_65_66\": {\"64\": 90, \"65\": 80, \"66\": 86}}, \"1011\": {\"first_pinned_onset\": 50, \"pinned_through_63\": false, \"L_at_64_65_66\": {\"64\": 81, \"65\": 83, \"66\": 81}}, \"1101\": {\"first_pinned_onset\": 47, \"pinned_through_63\": false, \"L_at_64_65_66\": {\"64\": 81, \"65\": 82, \"66\": 88}}, \"1110\": {\"first_pinned_onset\": null, \"pinned_through_63\": false, \"L_at_64_65_66\": {\"64\": 81, \"65\": 89, \"66\": 81}}, \"01\": {\"first_pinned_onset\": 51, \"pinned_through_63\": true, \"L_at_64_65_66\": {}}, \"10\": {\"first_pinned_onset\": 51, \"pinned_through_63\": true, \"L_at_64_65_66\": {}}}.",
+  "Name": "effortless-20",
+  "ClaimsAdded": 2,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 12.4,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "fe6671d91350c1a126950c55a9267c5ed533419af4994f7167217a192321bbf8",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 83,
+  "BlockedCount": 24,
+  "CompletedNativeLoops": 20,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 33,
+  "CheckedCount": 29,
+  "FalsifiedCount": 14,
+  "OpenCount": 7,
+  "AtRiskCount": 3,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

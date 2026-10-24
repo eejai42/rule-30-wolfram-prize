@@ -1,0 +1,387 @@
+structure done 15s
+linear done 16s
+011 wall scan done 28s
+101 wall scan done 36s
+110 wall scan done 43s
+0111 wall scan done 44s
+1011 wall scan done 44s
+1101 wall scan done 45s
+1110 wall scan done 45s
+01 T=51 L=64 70s
+01 T=52 L=64 106s
+10 T=51 L=65 123s
+10 T=52 L=65 147s
+{
+ "H33": {
+  "ReportedStatus": "FALSIFIED",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F19": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "B7": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 83,
+  "BlockedCount": 24,
+  "CompletedNativeLoops": 19,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 33,
+  "CheckedCount": 29,
+  "FalsifiedCount": 14,
+  "OpenCount": 7,
+  "AtRiskCount": 3,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "seconds": 146.8,
+ "H33_holds": false,
+ "death_ray_forced_interior_cells": [
+  {
+   "T": 37,
+   "survivors": 40,
+   "death_ray_interior_cells": 95,
+   "death_ray_interior_forced": 17
+  },
+  {
+   "T": 38,
+   "survivors": 36,
+   "death_ray_interior_cells": 96,
+   "death_ray_interior_forced": 4
+  },
+  {
+   "T": 39,
+   "survivors": 207,
+   "death_ray_interior_cells": 97,
+   "death_ray_interior_forced": 1
+  },
+  {
+   "T": 40,
+   "survivors": 196,
+   "death_ray_interior_cells": 98,
+   "death_ray_interior_forced": 2
+  },
+  {
+   "T": 41,
+   "survivors": 501,
+   "death_ray_interior_cells": 99,
+   "death_ray_interior_forced": 1
+  },
+  {
+   "T": 42,
+   "survivors": 1453,
+   "death_ray_interior_cells": 100,
+   "death_ray_interior_forced": 2
+  },
+  {
+   "T": 43,
+   "survivors": 1817,
+   "death_ray_interior_cells": 101,
+   "death_ray_interior_forced": 1
+  },
+  {
+   "T": 44,
+   "survivors": 4427,
+   "death_ray_interior_cells": 102,
+   "death_ray_interior_forced": 2
+  },
+  {
+   "T": 45,
+   "survivors": 7934,
+   "death_ray_interior_cells": 103,
+   "death_ray_interior_forced": 1
+  },
+  {
+   "T": 46,
+   "survivors": 15886,
+   "death_ray_interior_cells": 104,
+   "death_ray_interior_forced": 2
+  }
+ ],
+ "wall": {
+  "011": {
+   "L_by_T": {
+    "44": 66,
+    "45": 66,
+    "46": 64,
+    "47": 65,
+    "48": 66,
+    "49": 66,
+    "50": 66,
+    "51": 66,
+    "52": 66,
+    "53": 66,
+    "54": 66,
+    "55": 66,
+    "56": 66,
+    "57": 66,
+    "58": 66,
+    "59": 66,
+    "60": 66,
+    "61": 66,
+    "62": 66,
+    "63": 87,
+    "64": 90,
+    "65": 96,
+    "66": 95
+   },
+   "first_pinned_onset": 44,
+   "pinned_through_63": false,
+   "L_at_64_65_66": {
+    "64": 90,
+    "65": 96,
+    "66": 95
+   },
+   "exceeds_pin_after_63": true
+  },
+  "101": {
+   "L_by_T": {
+    "44": 61,
+    "45": 64,
+    "46": 64,
+    "47": 64,
+    "48": 64,
+    "49": 64,
+    "50": 64,
+    "51": 64,
+    "52": 64,
+    "53": 64,
+    "54": 64,
+    "55": 64,
+    "56": 64,
+    "57": 64,
+    "58": 64,
+    "59": 64,
+    "60": 64,
+    "61": 64,
+    "62": 64,
+    "63": 91,
+    "64": 94,
+    "65": 96,
+    "66": 91
+   },
+   "first_pinned_onset": null,
+   "pinned_through_63": false,
+   "L_at_64_65_66": {
+    "64": 94,
+    "65": 96,
+    "66": 91
+   },
+   "exceeds_pin_after_63": true
+  },
+  "110": {
+   "L_by_T": {
+    "44": 64,
+    "45": 65,
+    "46": 65,
+    "47": 65,
+    "48": 65,
+    "49": 65,
+    "50": 65,
+    "51": 65,
+    "52": 65,
+    "53": 65,
+    "54": 65,
+    "55": 65,
+    "56": 65,
+    "57": 65,
+    "58": 65,
+    "59": 65,
+    "60": 65,
+    "61": 65,
+    "62": 65,
+    "63": 65,
+    "64": 97,
+    "65": 89,
+    "66": 95
+   },
+   "first_pinned_onset": null,
+   "pinned_through_63": false,
+   "L_at_64_65_66": {
+    "64": 97,
+    "65": 89,
+    "66": 95
+   },
+   "exceeds_pin_after_63": true
+  },
+  "0111": {
+   "L_by_T": {
+    "44": 54,
+    "45": 56,
+    "46": 59,
+    "47": 63,
+    "48": 62,
+    "49": 62,
+    "50": 60,
+    "51": 63,
+    "52": 64,
+    "53": 64,
+    "54": 64,
+    "55": 64,
+    "56": 64,
+    "57": 64,
+    "58": 64,
+    "59": 64,
+    "60": 64,
+    "61": 64,
+    "62": 64,
+    "63": 82,
+    "64": 90,
+    "65": 80,
+    "66": 86
+   },
+   "first_pinned_onset": 52,
+   "pinned_through_63": false,
+   "L_at_64_65_66": {
+    "64": 90,
+    "65": 80,
+    "66": 86
+   },
+   "exceeds_pin_after_63": true
+  },
+  "1011": {
+   "L_by_T": {
+    "44": 56,
+    "45": 56,
+    "46": 61,
+    "47": 63,
+    "48": 63,
+    "49": 61,
+    "50": 64,
+    "51": 65,
+    "52": 65,
+    "53": 65,
+    "54": 65,
+    "55": 65,
+    "56": 65,
+    "57": 65,
+    "58": 65,
+    "59": 65,
+    "60": 65,
+    "61": 65,
+    "62": 65,
+    "63": 65,
+    "64": 81,
+    "65": 83,
+    "66": 81
+   },
+   "first_pinned_onset": 50,
+   "pinned_through_63": false,
+   "L_at_64_65_66": {
+    "64": 81,
+    "65": 83,
+    "66": 81
+   },
+   "exceeds_pin_after_63": true
+  },
+  "1101": {
+   "L_by_T": {
+    "44": 57,
+    "45": 57,
+    "46": 60,
+    "47": 64,
+    "48": 62,
+    "49": 64,
+    "50": 65,
+    "51": 65,
+    "52": 66,
+    "53": 66,
+    "54": 66,
+    "55": 66,
+    "56": 66,
+    "57": 66,
+    "58": 66,
+    "59": 66,
+    "60": 66,
+    "61": 66,
+    "62": 66,
+    "63": 80,
+    "64": 81,
+    "65": 82,
+    "66": 88
+   },
+   "first_pinned_onset": 47,
+   "pinned_through_63": false,
+   "L_at_64_65_66": {
+    "64": 81,
+    "65": 82,
+    "66": 88
+   },
+   "exceeds_pin_after_63": true
+  },
+  "1110": {
+   "L_by_T": {
+    "44": 57,
+    "45": 61,
+    "46": 58,
+    "47": 63,
+    "48": 62,
+    "49": 61,
+    "50": 65,
+    "51": 66,
+    "52": 63,
+    "53": 66,
+    "54": 67,
+    "55": 67,
+    "56": 67,
+    "57": 67,
+    "58": 67,
+    "59": 67,
+    "60": 67,
+    "61": 67,
+    "62": 81,
+    "63": 81,
+    "64": 81,
+    "65": 89,
+    "66": 81
+   },
+   "first_pinned_onset": null,
+   "pinned_through_63": false,
+   "L_at_64_65_66": {
+    "64": 81,
+    "65": 89,
+    "66": 81
+   },
+   "exceeds_pin_after_63": true
+  },
+  "01": {
+   "L_by_T": {
+    "51": 64,
+    "52": 64
+   },
+   "first_pinned_onset": 51,
+   "pinned_through_63": true,
+   "L_at_64_65_66": {},
+  

@@ -1,0 +1,158 @@
+01 T=47 L=64 capped=False surv=33993 6s
+01 T=48 L=64 capped=False surv=66875 14s
+01 T=49 L=64 capped=False surv=133648 26s
+01 T=50 L=64 capped=False surv=257064 43s
+10 T=47 L=65 capped=False surv=8514 47s
+10 T=48 L=65 capped=False surv=16773 53s
+10 T=49 L=65 capped=False surv=32235 61s
+10 T=50 L=65 capped=False surv=66089 73s
+{
+ "B6": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "B7": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "B8": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "H32": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F18": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 81,
+  "BlockedCount": 23,
+  "CompletedNativeLoops": 18,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 33,
+  "CheckedCount": 28,
+  "FalsifiedCount": 13,
+  "OpenCount": 7,
+  "AtRiskCount": 3,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "seconds": 72.8,
+ "H32_holds": true,
+ "new_cases": [
+  {
+   "a": "01",
+   "T": 47,
+   "L": 64,
+   "capped": false,
+   "survivors": 33993,
+   "peak_live": 8388608,
+   "seconds": 6.0
+  },
+  {
+   "a": "01",
+   "T": 48,
+   "L": 64,
+   "capped": false,
+   "survivors": 66875,
+   "peak_live": 16777216,
+   "seconds": 8.3
+  },
+  {
+   "a": "01",
+   "T": 49,
+   "L": 64,
+   "capped": false,
+   "survivors": 133648,
+   "peak_live": 16777216,
+   "seconds": 12.1
+  },
+  {
+   "a": "01",
+   "T": 50,
+   "L": 64,
+   "capped": false,
+   "survivors": 257064,
+   "peak_live": 33554432,
+   "seconds": 16.6
+  },
+  {
+   "a": "10",
+   "T": 47,
+   "L": 65,
+   "capped": false,
+   "survivors": 8514,
+   "peak_live": 8388608,
+   "seconds": 4.2
+  },
+  {
+   "a": "10",
+   "T": 48,
+   "L": 65,
+   "capped": false,
+   "survivors": 16773,
+   "peak_live": 8388608,
+   "seconds": 5.8
+  },
+  {
+   "a": "10",
+   "T": 49,
+   "L": 65,
+   "capped": false,
+   "survivors": 32235,
+   "peak_live": 16777216,
+   "seconds": 8.2
+  },
+  {
+   "a": "10",
+   "T": 50,
+   "L": 65,
+   "capped": false,
+   "survivors": 66089,
+   "peak_live": 16777216,
+   "seconds": 11.7
+  }
+ ]
+}

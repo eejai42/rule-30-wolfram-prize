@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-18",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 6.1, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "5ae3969d774453798813dcf746e7c6065d148463ee8dbcf04dd2a2e167fafe1c",
+  "OutputHash": "e85094b453b6f328017a1eaa2e1a950debe7c04175830641ccdf39497c312f17",
+  "Sequence": 31,
+  "StartedAt": "2026-10-23T20:02:15-0500",
+  "FinishedAt": "2026-10-23T20:03:12-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H31: for words 01 and 10 at onsets 4..46 a common killing cone cell exists at death and its time t*(T) is a staircase in T (steps 0 or 1).",
+  "Summary": "H31 FALSIFIED: {\"01\": {\"cases\": 43, \"common_cell_always\": false, \"cases_without_common_cell\": [37, 38, 39, 40, 41, 42, 43, 44, 45, 46], \"staircase\": false, \"edge_is_common_count\": 16}, \"10\": {\"cases\": 43, \"common_cell_always\": false, \"cases_without_common_cell\": [38, 40, 41, 42, 43, 44, 45, 46], \"staircase\": false, \"edge_is_common_count\": 16}}. t*-T for 01: {\"4\": 0, \"5\": 0, \"6\": 0, \"7\": 0, \"8\": 0, \"9\": 0, \"10\": 0, \"11\": 0, \"12\": 0, \"13\": 0, \"14\": 0, \"15\": 0, \"16\": 0, \"17\": 0, \"18\": 0, \"19\": 0, \"20\": 0, \"21\": 0, \"22\": 0, \"23\": 0, \"24\": 0, \"25\": 0, \"26\": 0, \"27\": 0, \"28\": 0, \"29\": 0, \"30\": 0, \"31\": 0, \"32\": 0, \"33\": 0, \"34\": 1, \"35\": 1, \"36\": 0, \"37\": null, \"38\": null, \"39\": null, \"40\": null, \"41\": null, \"42\": null, \"43\": null, \"44\": null, \"45\": null, \"46\": null}.",
+  "Name": "effortless-18",
+  "ClaimsAdded": 2,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 6.0,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 77,
+  "BlockedCount": 21,
+  "CompletedNativeLoops": 18,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 32,
+  "CheckedCount": 26,
+  "FalsifiedCount": 13,
+  "OpenCount": 6,
+  "AtRiskCount": 2,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

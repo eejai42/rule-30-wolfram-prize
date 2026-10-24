@@ -1,0 +1,8435 @@
+{
+ "WORDS": [
+  "01",
+  "10"
+ ],
+ "TMIN": 4,
+ "TMAX": 46,
+ "seconds": 44.5,
+ "01": {
+  "cases": 43,
+  "common_cell_always": false,
+  "cases_without_common_cell": [
+   37,
+   38,
+   39,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46
+  ],
+  "t_star_by_T": {
+   "4": 4,
+   "5": 5,
+   "6": 6,
+   "7": 7,
+   "8": 8,
+   "9": 9,
+   "10": 10,
+   "11": 11,
+   "12": 12,
+   "13": 13,
+   "14": 14,
+   "15": 15,
+   "16": 16,
+   "17": 17,
+   "18": 18,
+   "19": 19,
+   "20": 20,
+   "21": 21,
+   "22": 22,
+   "23": 23,
+   "24": 24,
+   "25": 25,
+   "26": 26,
+   "27": 27,
+   "28": 28,
+   "29": 29,
+   "30": 30,
+   "31": 31,
+   "32": 32,
+   "33": 33,
+   "34": 35,
+   "35": 36,
+   "36": 36,
+   "37": null,
+   "38": null,
+   "39": null,
+   "40": null,
+   "41": null,
+   "42": null,
+   "43": null,
+   "44": null,
+   "45": null,
+   "46": null
+  },
+  "steps": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   2,
+   1,
+   0,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "staircase": false,
+  "edge_is_common_count": 16,
+  "excess_t_star_minus_T": {
+   "4": 0,
+   "5": 0,
+   "6": 0,
+   "7": 0,
+   "8": 0,
+   "9": 0,
+   "10": 0,
+   "11": 0,
+   "12": 0,
+   "13": 0,
+   "14": 0,
+   "15": 0,
+   "16": 0,
+   "17": 0,
+   "18": 0,
+   "19": 0,
+   "20": 0,
+   "21": 0,
+   "22": 0,
+   "23": 0,
+   "24": 0,
+   "25": 0,
+   "26": 0,
+   "27": 0,
+   "28": 0,
+   "29": 0,
+   "30": 0,
+   "31": 0,
+   "32": 0,
+   "33": 0,
+   "34": 1,
+   "35": 1,
+   "36": 0,
+   "37": null,
+   "38": null,
+   "39": null,
+   "40": null,
+   "41": null,
+   "42": null,
+   "43": null,
+   "44": null,
+   "45": null,
+   "46": null
+  },
+  "multiple_common_cells": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   31,
+   33,
+   34,
+   35,
+   36
+  ]
+ },
+ "10": {
+  "cases": 43,
+  "common_cell_always": false,
+  "cases_without_common_cell": [
+   38,
+   40,
+   41,
+   42,
+   43,
+   44,
+   45,
+   46
+  ],
+  "t_star_by_T": {
+   "4": 4,
+   "5": 5,
+   "6": 6,
+   "7": 7,
+   "8": 8,
+   "9": 9,
+   "10": 10,
+   "11": 11,
+   "12": 12,
+   "13": 13,
+   "14": 14,
+   "15": 15,
+   "16": 16,
+   "17": 17,
+   "18": 18,
+   "19": 19,
+   "20": 20,
+   "21": 21,
+   "22": 22,
+   "23": 23,
+   "24": 24,
+   "25": 25,
+   "26": 26,
+   "27": 27,
+   "28": 28,
+   "29": 29,
+   "30": 30,
+   "31": 32,
+   "32": 32,
+   "33": 33,
+   "34": 34,
+   "35": 35,
+   "36": 36,
+   "37": 37,
+   "38": null,
+   "39": 40,
+   "40": null,
+   "41": null,
+   "42": null,
+   "43": null,
+   "44": null,
+   "45": null,
+   "46": null
+  },
+  "steps": [
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   2,
+   0,
+   1,
+   1,
+   1,
+   1,
+   1,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ],
+  "staircase": false,
+  "edge_is_common_count": 16,
+  "excess_t_star_minus_T": {
+   "4": 0,
+   "5": 0,
+   "6": 0,
+   "7": 0,
+   "8": 0,
+   "9": 0,
+   "10": 0,
+   "11": 0,
+   "12": 0,
+   "13": 0,
+   "14": 0,
+   "15": 0,
+   "16": 0,
+   "17": 0,
+   "18": 0,
+   "19": 0,
+   "20": 0,
+   "21": 0,
+   "22": 0,
+   "23": 0,
+   "24": 0,
+   "25": 0,
+   "26": 0,
+   "27": 0,
+   "28": 0,
+   "29": 0,
+   "30": 0,
+   "31": 1,
+   "32": 0,
+   "33": 0,
+   "34": 0,
+   "35": 0,
+   "36": 0,
+   "37": 0,
+   "38": null,
+   "39": 1,
+   "40": null,
+   "41": null,
+   "42": null,
+   "43": null,
+   "44": null,
+   "45": null,
+   "46": null
+  },
+  "multiple_common_cells": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20,
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37
+  ]
+ },
+ "H31_holds": false,
+ "rows": [
+  {
+   "T": 4,
+   "a": "01",
+   "L": 6,
+   "death_time_window_end": 10,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "5": {
+     "n": 1,
+     "time": 5,
+     "is_edge": true
+    },
+    "6": {
+     "n": 1,
+     "time": 4,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 5,
+     "time": 5,
+     "is_edge": true
+    },
+    {
+     "column": 6,
+     "time": 4,
+     "is_edge": false
+    }
+   ],
+   "t_star": 4,
+   "s_star": 6,
+   "edge_is_common": true
+  },
+  {
+   "T": 5,
+   "a": "01",
+   "L": 10,
+   "death_time_window_end": 15,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "8": {
+     "n": 2,
+     "time": 7,
+     "is_edge": false
+    },
+    "9": {
+     "n": 2,
+     "time": 6,
+     "is_edge": false
+    },
+    "10": {
+     "n": 2,
+     "time": 5,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 8,
+     "time": 7,
+     "is_edge": false
+    },
+    {
+     "column": 9,
+     "time": 6,
+     "is_edge": false
+    },
+    {
+     "column": 10,
+     "time": 5,
+     "is_edge": false
+    }
+   ],
+   "t_star": 5,
+   "s_star": 10,
+   "edge_is_common": false
+  },
+  {
+   "T": 6,
+   "a": "01",
+   "L": 10,
+   "death_time_window_end": 16,
+   "capped": false,
+   "survivors": 3,
+   "violated_cells": {
+    "8": {
+     "n": 3,
+     "time": 8,
+     "is_edge": true
+    },
+    "9": {
+     "n": 3,
+     "time": 7,
+     "is_edge": false
+    },
+    "10": {
+     "n": 3,
+     "time": 6,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 8,
+     "time": 8,
+     "is_edge": true
+    },
+    {
+     "column": 9,
+     "time": 7,
+     "is_edge": false
+    },
+    {
+     "column": 10,
+     "time": 6,
+     "is_edge": false
+    }
+   ],
+   "t_star": 6,
+   "s_star": 10,
+   "edge_is_common": true
+  },
+  {
+   "T": 7,
+   "a": "01",
+   "L": 10,
+   "death_time_window_end": 17,
+   "capped": false,
+   "survivors": 6,
+   "violated_cells": {
+    "9": {
+     "n": 6,
+     "time": 8,
+     "is_edge": false
+    },
+    "10": {
+     "n": 6,
+     "time": 7,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 9,
+     "time": 8,
+     "is_edge": false
+    },
+    {
+     "column": 10,
+     "time": 7,
+     "is_edge": false
+    }
+   ],
+   "t_star": 7,
+   "s_star": 10,
+   "edge_is_common": false
+  },
+  {
+   "T": 8,
+   "a": "01",
+   "L": 18,
+   "death_time_window_end": 26,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "13": {
+     "n": 1,
+     "time": 13,
+     "is_edge": true
+    },
+    "14": {
+     "n": 1,
+     "time": 12,
+     "is_edge": false
+    },
+    "15": {
+     "n": 1,
+     "time": 11,
+     "is_edge": false
+    },
+    "16": {
+     "n": 1,
+     "time": 10,
+     "is_edge": false
+    },
+    "17": {
+     "n": 1,
+     "time": 9,
+     "is_edge": false
+    },
+    "18": {
+     "n": 1,
+     "time": 8,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 13,
+     "time": 13,
+     "is_edge": true
+    },
+    {
+     "column": 14,
+     "time": 12,
+     "is_edge": false
+    },
+    {
+     "column": 15,
+     "time": 11,
+     "is_edge": false
+    },
+    {
+     "column": 16,
+     "time": 10,
+     "is_edge": false
+    },
+    {
+     "column": 17,
+     "time": 9,
+     "is_edge": false
+    },
+    {
+     "column": 18,
+     "time": 8,
+     "is_edge": false
+    }
+   ],
+   "t_star": 8,
+   "s_star": 18,
+   "edge_is_common": true
+  },
+  {
+   "T": 9,
+   "a": "01",
+   "L": 16,
+   "death_time_window_end": 25,
+   "capped": false,
+   "survivors": 8,
+   "violated_cells": {
+    "13": {
+     "n": 8,
+     "time": 12,
+     "is_edge": false
+    },
+    "14": {
+     "n": 8,
+     "time": 11,
+     "is_edge": false
+    },
+    "15": {
+     "n": 8,
+     "time": 10,
+     "is_edge": false
+    },
+    "16": {
+     "n": 8,
+     "time": 9,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 13,
+     "time": 12,
+     "is_edge": false
+    },
+    {
+     "column": 14,
+     "time": 11,
+     "is_edge": false
+    },
+    {
+     "column": 15,
+     "time": 10,
+     "is_edge": false
+    },
+    {
+     "column": 16,
+     "time": 9,
+     "is_edge": false
+    }
+   ],
+   "t_star": 9,
+   "s_star": 16,
+   "edge_is_common": false
+  },
+  {
+   "T": 10,
+   "a": "01",
+   "L": 18,
+   "death_time_window_end": 28,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "14": {
+     "n": 2,
+     "time": 14,
+     "is_edge": true
+    },
+    "15": {
+     "n": 2,
+     "time": 13,
+     "is_edge": false
+    },
+    "16": {
+     "n": 2,
+     "time": 12,
+     "is_edge": false
+    },
+    "17": {
+     "n": 2,
+     "time": 11,
+     "is_edge": false
+    },
+    "18": {
+     "n": 2,
+     "time": 10,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 14,
+     "time": 14,
+     "is_edge": true
+    },
+    {
+     "column": 15,
+     "time": 13,
+     "is_edge": false
+    },
+    {
+     "column": 16,
+     "time": 12,
+     "is_edge": false
+    },
+    {
+     "column": 17,
+     "time": 11,
+     "is_edge": false
+    },
+    {
+     "column": 18,
+     "time": 10,
+     "is_edge": false
+    }
+   ],
+   "t_star": 10,
+   "s_star": 18,
+   "edge_is_common": true
+  },
+  {
+   "T": 11,
+   "a": "01",
+   "L": 16,
+   "death_time_window_end": 27,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "14": {
+     "n": 2,
+     "time": 13,
+     "is_edge": false
+    },
+    "15": {
+     "n": 2,
+     "time": 12,
+     "is_edge": false
+    },
+    "16": {
+     "n": 2,
+     "time": 11,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 14,
+     "time": 13,
+     "is_edge": false
+    },
+    {
+     "column": 15,
+     "time": 12,
+     "is_edge": false
+    },
+    {
+     "column": 16,
+     "time": 11,
+     "is_edge": false
+    }
+   ],
+   "t_star": 11,
+   "s_star": 16,
+   "edge_is_common": false
+  },
+  {
+   "T": 12,
+   "a": "01",
+   "L": 30,
+   "death_time_window_end": 42,
+   "capped": false,
+   "survivors": 3,
+   "violated_cells": {
+    "21": {
+     "n": 3,
+     "time": 21,
+     "is_edge": true
+    },
+    "22": {
+     "n": 3,
+     "time": 20,
+     "is_edge": false
+    },
+    "23": {
+     "n": 3,
+     "time": 19,
+     "is_edge": false
+    },
+    "24": {
+     "n": 3,
+     "time": 18,
+     "is_edge": false
+    },
+    "25": {
+     "n": 3,
+     "time": 17,
+     "is_edge": false
+    },
+    "26": {
+     "n": 3,
+     "time": 16,
+     "is_edge": false
+    },
+    "27": {
+     "n": 3,
+     "time": 15,
+     "is_edge": false
+    },
+    "28": {
+     "n": 3,
+     "time": 14,
+     "is_edge": false
+    },
+    "29": {
+     "n": 3,
+     "time": 13,
+     "is_edge": false
+    },
+    "30": {
+     "n": 3,
+     "time": 12,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 21,
+     "time": 21,
+     "is_edge": true
+    },
+    {
+     "column": 22,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 23,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 24,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 15,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 14,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 13,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 12,
+     "is_edge": false
+    }
+   ],
+   "t_star": 12,
+   "s_star": 30,
+   "edge_is_common": true
+  },
+  {
+   "T": 13,
+   "a": "01",
+   "L": 24,
+   "death_time_window_end": 37,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "19": {
+     "n": 1,
+     "time": 18,
+     "is_edge": false
+    },
+    "20": {
+     "n": 1,
+     "time": 17,
+     "is_edge": false
+    },
+    "21": {
+     "n": 1,
+     "time": 16,
+     "is_edge": false
+    },
+    "22": {
+     "n": 1,
+     "time": 15,
+     "is_edge": false
+    },
+    "23": {
+     "n": 1,
+     "time": 14,
+     "is_edge": false
+    },
+    "24": {
+     "n": 1,
+     "time": 13,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 19,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 20,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 21,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 22,
+     "time": 15,
+     "is_edge": false
+    },
+    {
+     "column": 23,
+     "time": 14,
+     "is_edge": false
+    },
+    {
+     "column": 24,
+     "time": 13,
+     "is_edge": false
+    }
+   ],
+   "t_star": 13,
+   "s_star": 24,
+   "edge_is_common": false
+  },
+  {
+   "T": 14,
+   "a": "01",
+   "L": 28,
+   "death_time_window_end": 42,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "21": {
+     "n": 2,
+     "time": 21,
+     "is_edge": true
+    },
+    "22": {
+     "n": 2,
+     "time": 20,
+     "is_edge": false
+    },
+    "23": {
+     "n": 2,
+     "time": 19,
+     "is_edge": false
+    },
+    "24": {
+     "n": 2,
+     "time": 18,
+     "is_edge": false
+    },
+    "25": {
+     "n": 2,
+     "time": 17,
+     "is_edge": false
+    },
+    "26": {
+     "n": 2,
+     "time": 16,
+     "is_edge": false
+    },
+    "27": {
+     "n": 2,
+     "time": 15,
+     "is_edge": false
+    },
+    "28": {
+     "n": 2,
+     "time": 14,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 21,
+     "time": 21,
+     "is_edge": true
+    },
+    {
+     "column": 22,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 23,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 24,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 15,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 14,
+     "is_edge": false
+    }
+   ],
+   "t_star": 14,
+   "s_star": 28,
+   "edge_is_common": true
+  },
+  {
+   "T": 15,
+   "a": "01",
+   "L": 32,
+   "death_time_window_end": 47,
+   "capped": false,
+   "survivors": 6,
+   "violated_cells": {
+    "24": {
+     "n": 6,
+     "time": 23,
+     "is_edge": false
+    },
+    "25": {
+     "n": 6,
+     "time": 22,
+     "is_edge": false
+    },
+    "26": {
+     "n": 6,
+     "time": 21,
+     "is_edge": false
+    },
+    "27": {
+     "n": 6,
+     "time": 20,
+     "is_edge": false
+    },
+    "28": {
+     "n": 6,
+     "time": 19,
+     "is_edge": false
+    },
+    "29": {
+     "n": 6,
+     "time": 18,
+     "is_edge": false
+    },
+    "30": {
+     "n": 6,
+     "time": 17,
+     "is_edge": false
+    },
+    "31": {
+     "n": 6,
+     "time": 16,
+     "is_edge": false
+    },
+    "32": {
+     "n": 6,
+     "time": 15,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 24,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 15,
+     "is_edge": false
+    }
+   ],
+   "t_star": 15,
+   "s_star": 32,
+   "edge_is_common": false
+  },
+  {
+   "T": 16,
+   "a": "01",
+   "L": 26,
+   "death_time_window_end": 42,
+   "capped": false,
+   "survivors": 10,
+   "violated_cells": {
+    "21": {
+     "n": 10,
+     "time": 21,
+     "is_edge": true
+    },
+    "22": {
+     "n": 10,
+     "time": 20,
+     "is_edge": false
+    },
+    "23": {
+     "n": 10,
+     "time": 19,
+     "is_edge": false
+    },
+    "24": {
+     "n": 10,
+     "time": 18,
+     "is_edge": false
+    },
+    "25": {
+     "n": 10,
+     "time": 17,
+     "is_edge": false
+    },
+    "26": {
+     "n": 10,
+     "time": 16,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 21,
+     "time": 21,
+     "is_edge": true
+    },
+    {
+     "column": 22,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 23,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 24,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 16,
+     "is_edge": false
+    }
+   ],
+   "t_star": 16,
+   "s_star": 26,
+   "edge_is_common": true
+  },
+  {
+   "T": 17,
+   "a": "01",
+   "L": 32,
+   "death_time_window_end": 49,
+   "capped": false,
+   "survivors": 9,
+   "violated_cells": {
+    "25": {
+     "n": 9,
+     "time": 24,
+     "is_edge": false
+    },
+    "26": {
+     "n": 9,
+     "time": 23,
+     "is_edge": false
+    },
+    "27": {
+     "n": 9,
+     "time": 22,
+     "is_edge": false
+    },
+    "28": {
+     "n": 9,
+     "time": 21,
+     "is_edge": false
+    },
+    "29": {
+     "n": 9,
+     "time": 20,
+     "is_edge": false
+    },
+    "30": {
+     "n": 9,
+     "time": 19,
+     "is_edge": false
+    },
+    "31": {
+     "n": 9,
+     "time": 18,
+     "is_edge": false
+    },
+    "32": {
+     "n": 9,
+     "time": 17,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 25,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 17,
+     "is_edge": false
+    }
+   ],
+   "t_star": 17,
+   "s_star": 32,
+   "edge_is_common": false
+  },
+  {
+   "T": 18,
+   "a": "01",
+   "L": 34,
+   "death_time_window_end": 52,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "26": {
+     "n": 2,
+     "time": 26,
+     "is_edge": true
+    },
+    "27": {
+     "n": 2,
+     "time": 25,
+     "is_edge": false
+    },
+    "28": {
+     "n": 2,
+     "time": 24,
+     "is_edge": false
+    },
+    "29": {
+     "n": 2,
+     "time": 23,
+     "is_edge": false
+    },
+    "30": {
+     "n": 2,
+     "time": 22,
+     "is_edge": false
+    },
+    "31": {
+     "n": 2,
+     "time": 21,
+     "is_edge": false
+    },
+    "32": {
+     "n": 2,
+     "time": 20,
+     "is_edge": false
+    },
+    "33": {
+     "n": 2,
+     "time": 19,
+     "is_edge": false
+    },
+    "34": {
+     "n": 2,
+     "time": 18,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 26,
+     "time": 26,
+     "is_edge": true
+    },
+    {
+     "column": 27,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 33,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 18,
+     "is_edge": false
+    }
+   ],
+   "t_star": 18,
+   "s_star": 34,
+   "edge_is_common": true
+  },
+  {
+   "T": 19,
+   "a": "01",
+   "L": 30,
+   "death_time_window_end": 49,
+   "capped": false,
+   "survivors": 14,
+   "violated_cells": {
+    "25": {
+     "n": 14,
+     "time": 24,
+     "is_edge": false
+    },
+    "26": {
+     "n": 14,
+     "time": 23,
+     "is_edge": false
+    },
+    "27": {
+     "n": 14,
+     "time": 22,
+     "is_edge": false
+    },
+    "28": {
+     "n": 14,
+     "time": 21,
+     "is_edge": false
+    },
+    "29": {
+     "n": 14,
+     "time": 20,
+     "is_edge": false
+    },
+    "30": {
+     "n": 14,
+     "time": 19,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 25,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 19,
+     "is_edge": false
+    }
+   ],
+   "t_star": 19,
+   "s_star": 30,
+   "edge_is_common": false
+  },
+  {
+   "T": 20,
+   "a": "01",
+   "L": 38,
+   "death_time_window_end": 58,
+   "capped": false,
+   "survivors": 15,
+   "violated_cells": {
+    "29": {
+     "n": 15,
+     "time": 29,
+     "is_edge": true
+    },
+    "30": {
+     "n": 15,
+     "time": 28,
+     "is_edge": false
+    },
+    "31": {
+     "n": 15,
+     "time": 27,
+     "is_edge": false
+    },
+    "32": {
+     "n": 15,
+     "time": 26,
+     "is_edge": false
+    },
+    "33": {
+     "n": 15,
+     "time": 25,
+     "is_edge": false
+    },
+    "34": {
+     "n": 15,
+     "time": 24,
+     "is_edge": false
+    },
+    "35": {
+     "n": 15,
+     "time": 23,
+     "is_edge": false
+    },
+    "36": {
+     "n": 15,
+     "time": 22,
+     "is_edge": false
+    },
+    "37": {
+     "n": 15,
+     "time": 21,
+     "is_edge": false
+    },
+    "38": {
+     "n": 15,
+     "time": 20,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 29,
+     "time": 29,
+     "is_edge": true
+    },
+    {
+     "column": 30,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 33,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 20,
+     "is_edge": false
+    }
+   ],
+   "t_star": 20,
+   "s_star": 38,
+   "edge_is_common": true
+  },
+  {
+   "T": 21,
+   "a": "01",
+   "L": 36,
+   "death_time_window_end": 57,
+   "capped": false,
+   "survivors": 10,
+   "violated_cells": {
+    "29": {
+     "n": 10,
+     "time": 28,
+     "is_edge": false
+    },
+    "30": {
+     "n": 10,
+     "time": 27,
+     "is_edge": false
+    },
+    "31": {
+     "n": 10,
+     "time": 26,
+     "is_edge": false
+    },
+    "32": {
+     "n": 10,
+     "time": 25,
+     "is_edge": false
+    },
+    "33": {
+     "n": 10,
+     "time": 24,
+     "is_edge": false
+    },
+    "34": {
+     "n": 10,
+     "time": 23,
+     "is_edge": false
+    },
+    "35": {
+     "n": 10,
+     "time": 22,
+     "is_edge": false
+    },
+    "36": {
+     "n": 10,
+     "time": 21,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 29,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 33,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 21,
+     "is_edge": false
+    }
+   ],
+   "t_star": 21,
+   "s_star": 36,
+   "edge_is_common": false
+  },
+  {
+   "T": 22,
+   "a": "01",
+   "L": 42,
+   "death_time_window_end": 64,
+   "capped": false,
+   "survivors": 6,
+   "violated_cells": {
+    "32": {
+     "n": 6,
+     "time": 32,
+     "is_edge": true
+    },
+    "33": {
+     "n": 6,
+     "time": 31,
+     "is_edge": false
+    },
+    "34": {
+     "n": 6,
+     "time": 30,
+     "is_edge": false
+    },
+    "35": {
+     "n": 6,
+     "time": 29,
+     "is_edge": false
+    },
+    "36": {
+     "n": 6,
+     "time": 28,
+     "is_edge": false
+    },
+    "37": {
+     "n": 6,
+     "time": 27,
+     "is_edge": false
+    },
+    "38": {
+     "n": 6,
+     "time": 26,
+     "is_edge": false
+    },
+    "39": {
+     "n": 6,
+     "time": 25,
+     "is_edge": false
+    },
+    "40": {
+     "n": 6,
+     "time": 24,
+     "is_edge": false
+    },
+    "41": {
+     "n": 6,
+     "time": 23,
+     "is_edge": false
+    },
+    "42": {
+     "n": 6,
+     "time": 22,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 32,
+     "time": 32,
+     "is_edge": true
+    },
+    {
+     "column": 33,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 22,
+     "is_edge": false
+    }
+   ],
+   "t_star": 22,
+   "s_star": 42,
+   "edge_is_common": true
+  },
+  {
+   "T": 23,
+   "a": "01",
+   "L": 44,
+   "death_time_window_end": 67,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "34": {
+     "n": 2,
+     "time": 33,
+     "is_edge": false
+    },
+    "35": {
+     "n": 2,
+     "time": 32,
+     "is_edge": false
+    },
+    "36": {
+     "n": 2,
+     "time": 31,
+     "is_edge": false
+    },
+    "37": {
+     "n": 2,
+     "time": 30,
+     "is_edge": false
+    },
+    "38": {
+     "n": 2,
+     "time": 29,
+     "is_edge": false
+    },
+    "39": {
+     "n": 2,
+     "time": 28,
+     "is_edge": false
+    },
+    "40": {
+     "n": 2,
+     "time": 27,
+     "is_edge": false
+    },
+    "41": {
+     "n": 2,
+     "time": 26,
+     "is_edge": false
+    },
+    "42": {
+     "n": 2,
+     "time": 25,
+     "is_edge": false
+    },
+    "43": {
+     "n": 2,
+     "time": 24,
+     "is_edge": false
+    },
+    "44": {
+     "n": 2,
+     "time": 23,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 34,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 23,
+     "is_edge": false
+    }
+   ],
+   "t_star": 23,
+   "s_star": 44,
+   "edge_is_common": false
+  },
+  {
+   "T": 24,
+   "a": "01",
+   "L": 42,
+   "death_time_window_end": 66,
+   "capped": false,
+   "survivors": 4,
+   "violated_cells": {
+    "33": {
+     "n": 4,
+     "time": 33,
+     "is_edge": true
+    },
+    "34": {
+     "n": 4,
+     "time": 32,
+     "is_edge": false
+    },
+    "35": {
+     "n": 4,
+     "time": 31,
+     "is_edge": false
+    },
+    "36": {
+     "n": 4,
+     "time": 30,
+     "is_edge": false
+    },
+    "37": {
+     "n": 4,
+     "time": 29,
+     "is_edge": false
+    },
+    "38": {
+     "n": 4,
+     "time": 28,
+     "is_edge": false
+    },
+    "39": {
+     "n": 4,
+     "time": 27,
+     "is_edge": false
+    },
+    "40": {
+     "n": 4,
+     "time": 26,
+     "is_edge": false
+    },
+    "41": {
+     "n": 4,
+     "time": 25,
+     "is_edge": false
+    },
+    "42": {
+     "n": 4,
+     "time": 24,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 33,
+     "time": 33,
+     "is_edge": true
+    },
+    {
+     "column": 34,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 24,
+     "is_edge": false
+    }
+   ],
+   "t_star": 24,
+   "s_star": 42,
+   "edge_is_common": true
+  },
+  {
+   "T": 25,
+   "a": "01",
+   "L": 42,
+   "death_time_window_end": 67,
+   "capped": false,
+   "survivors": 8,
+   "violated_cells": {
+    "34": {
+     "n": 8,
+     "time": 33,
+     "is_edge": false
+    },
+    "35": {
+     "n": 8,
+     "time": 32,
+     "is_edge": false
+    },
+    "36": {
+     "n": 8,
+     "time": 31,
+     "is_edge": false
+    },
+    "37": {
+     "n": 8,
+     "time": 30,
+     "is_edge": false
+    },
+    "38": {
+     "n": 8,
+     "time": 29,
+     "is_edge": false
+    },
+    "39": {
+     "n": 8,
+     "time": 28,
+     "is_edge": false
+    },
+    "40": {
+     "n": 8,
+     "time": 27,
+     "is_edge": false
+    },
+    "41": {
+     "n": 8,
+     "time": 26,
+     "is_edge": false
+    },
+    "42": {
+     "n": 8,
+     "time": 25,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 34,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 25,
+     "is_edge": false
+    }
+   ],
+   "t_star": 25,
+   "s_star": 42,
+   "edge_is_common": false
+  },
+  {
+   "T": 26,
+   "a": "01",
+   "L": 44,
+   "death_time_window_end": 70,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "35": {
+     "n": 2,
+     "time": 35,
+     "is_edge": true
+    },
+    "36": {
+     "n": 2,
+     "time": 34,
+     "is_edge": false
+    },
+    "37": {
+     "n": 2,
+     "time": 33,
+     "is_edge": false
+    },
+    "38": {
+     "n": 2,
+     "time": 32,
+     "is_edge": false
+    },
+    "39": {
+     "n": 2,
+     "time": 31,
+     "is_edge": false
+    },
+    "40": {
+     "n": 2,
+     "time": 30,
+     "is_edge": false
+    },
+    "41": {
+     "n": 2,
+     "time": 29,
+     "is_edge": false
+    },
+    "42": {
+     "n": 2,
+     "time": 28,
+     "is_edge": false
+    },
+    "43": {
+     "n": 2,
+     "time": 27,
+     "is_edge": false
+    },
+    "44": {
+     "n": 2,
+     "time": 26,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 35,
+     "time": 35,
+     "is_edge": true
+    },
+    {
+     "column": 36,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 26,
+     "is_edge": false
+    }
+   ],
+   "t_star": 26,
+   "s_star": 44,
+   "edge_is_common": true
+  },
+  {
+   "T": 27,
+   "a": "01",
+   "L": 44,
+   "death_time_window_end": 71,
+   "capped": false,
+   "survivors": 10,
+   "violated_cells": {
+    "36": {
+     "n": 10,
+     "time": 35,
+     "is_edge": false
+    },
+    "37": {
+     "n": 10,
+     "time": 34,
+     "is_edge": false
+    },
+    "38": {
+     "n": 10,
+     "time": 33,
+     "is_edge": false
+    },
+    "39": {
+     "n": 10,
+     "time": 32,
+     "is_edge": false
+    },
+    "40": {
+     "n": 10,
+     "time": 31,
+     "is_edge": false
+    },
+    "41": {
+     "n": 10,
+     "time": 30,
+     "is_edge": false
+    },
+    "42": {
+     "n": 10,
+     "time": 29,
+     "is_edge": false
+    },
+    "43": {
+     "n": 10,
+     "time": 28,
+     "is_edge": false
+    },
+    "44": {
+     "n": 10,
+     "time": 27,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 36,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 27,
+     "is_edge": false
+    }
+   ],
+   "t_star": 27,
+   "s_star": 44,
+   "edge_is_common": false
+  },
+  {
+   "T": 28,
+   "a": "01",
+   "L": 48,
+   "death_time_window_end": 76,
+   "capped": false,
+   "survivors": 6,
+   "violated_cells": {
+    "38": {
+     "n": 6,
+     "time": 38,
+     "is_edge": true
+    },
+    "39": {
+     "n": 6,
+     "time": 37,
+     "is_edge": false
+    },
+    "40": {
+     "n": 6,
+     "time": 36,
+     "is_edge": false
+    },
+    "41": {
+     "n": 6,
+     "time": 35,
+     "is_edge": false
+    },
+    "42": {
+     "n": 6,
+     "time": 34,
+     "is_edge": false
+    },
+    "43": {
+     "n": 6,
+     "time": 33,
+     "is_edge": false
+    },
+    "44": {
+     "n": 6,
+     "time": 32,
+     "is_edge": false
+    },
+    "45": {
+     "n": 6,
+     "time": 31,
+     "is_edge": false
+    },
+    "46": {
+     "n": 6,
+     "time": 30,
+     "is_edge": false
+    },
+    "47": {
+     "n": 6,
+     "time": 29,
+     "is_edge": false
+    },
+    "48": {
+     "n": 6,
+     "time": 28,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 38,
+     "time": 38,
+     "is_edge": true
+    },
+    {
+     "column": 39,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 28,
+     "is_edge": false
+    }
+   ],
+   "t_star": 28,
+   "s_star": 48,
+   "edge_is_common": true
+  },
+  {
+   "T": 29,
+   "a": "01",
+   "L": 50,
+   "death_time_window_end": 79,
+   "capped": false,
+   "survivors": 4,
+   "violated_cells": {
+    "40": {
+     "n": 4,
+     "time": 39,
+     "is_edge": false
+    },
+    "41": {
+     "n": 4,
+     "time": 38,
+     "is_edge": false
+    },
+    "42": {
+     "n": 4,
+     "time": 37,
+     "is_edge": false
+    },
+    "43": {
+     "n": 4,
+     "time": 36,
+     "is_edge": false
+    },
+    "44": {
+     "n": 4,
+     "time": 35,
+     "is_edge": false
+    },
+    "45": {
+     "n": 4,
+     "time": 34,
+     "is_edge": false
+    },
+    "46": {
+     "n": 4,
+     "time": 33,
+     "is_edge": false
+    },
+    "47": {
+     "n": 4,
+     "time": 32,
+     "is_edge": false
+    },
+    "48": {
+     "n": 4,
+     "time": 31,
+     "is_edge": false
+    },
+    "49": {
+     "n": 4,
+     "time": 30,
+     "is_edge": false
+    },
+    "50": {
+     "n": 4,
+     "time": 29,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 40,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 50,
+     "time": 29,
+     "is_edge": false
+    }
+   ],
+   "t_star": 29,
+   "s_star": 50,
+   "edge_is_common": false
+  },
+  {
+   "T": 30,
+   "a": "01",
+   "L": 54,
+   "death_time_window_end": 84,
+   "capped": false,
+   "survivors": 4,
+   "violated_cells": {
+    "42": {
+     "n": 4,
+     "time": 42,
+     "is_edge": true
+    },
+    "43": {
+     "n": 4,
+     "time": 41,
+     "is_edge": false
+    },
+    "44": {
+     "n": 4,
+     "time": 40,
+     "is_edge": false
+    },
+    "45": {
+     "n": 4,
+     "time": 39,
+     "is_edge": false
+    },
+    "46": {
+     "n": 4,
+     "time": 38,
+     "is_edge": false
+    },
+    "47": {
+     "n": 4,
+     "time": 37,
+     "is_edge": false
+    },
+    "48": {
+     "n": 4,
+     "time": 36,
+     "is_edge": false
+    },
+    "49": {
+     "n": 4,
+     "time": 35,
+     "is_edge": false
+    },
+    "50": {
+     "n": 4,
+     "time": 34,
+     "is_edge": false
+    },
+    "51": {
+     "n": 4,
+     "time": 33,
+     "is_edge": false
+    },
+    "52": {
+     "n": 4,
+     "time": 32,
+     "is_edge": false
+    },
+    "53": {
+     "n": 4,
+     "time": 31,
+     "is_edge": false
+    },
+    "54": {
+     "n": 4,
+     "time": 30,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 42,
+     "time": 42,
+     "is_edge": true
+    },
+    {
+     "column": 43,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 50,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 30,
+     "is_edge": false
+    }
+   ],
+   "t_star": 30,
+   "s_star": 54,
+   "edge_is_common": true
+  },
+  {
+   "T": 31,
+   "a": "01",
+   "L": 56,
+   "death_time_window_end": 87,
+   "capped": false,
+   "survivors": 8,
+   "violated_cells": {
+    "44": {
+     "n": 8,
+     "time": 43,
+     "is_edge": false
+    },
+    "45": {
+     "n": 8,
+     "time": 42,
+     "is_edge": false
+    },
+    "46": {
+     "n": 8,
+     "time": 41,
+     "is_edge": false
+    },
+    "47": {
+     "n": 8,
+     "time": 40,
+     "is_edge": false
+    },
+    "48": {
+     "n": 8,
+     "time": 39,
+     "is_edge": false
+    },
+    "49": {
+     "n": 8,
+     "time": 38,
+     "is_edge": false
+    },
+    "50": {
+     "n": 8,
+     "time": 37,
+     "is_edge": false
+    },
+    "51": {
+     "n": 8,
+     "time": 36,
+     "is_edge": false
+    },
+    "52": {
+     "n": 8,
+     "time": 35,
+     "is_edge": false
+    },
+    "53": {
+     "n": 8,
+     "time": 34,
+     "is_edge": false
+    },
+    "54": {
+     "n": 8,
+     "time": 33,
+     "is_edge": false
+    },
+    "55": {
+     "n": 8,
+     "time": 32,
+     "is_edge": false
+    },
+    "56": {
+     "n": 8,
+     "time": 31,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 44,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 50,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 31,
+     "is_edge": false
+    }
+   ],
+   "t_star": 31,
+   "s_star": 56,
+   "edge_is_common": false
+  },
+  {
+   "T": 32,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 96,
+   "capped": false,
+   "survivors": 21,
+   "violated_cells": {
+    "64": {
+     "n": 21,
+     "time": 32,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 64,
+     "time": 32,
+     "is_edge": false
+    }
+   ],
+   "t_star": 32,
+   "s_star": 64,
+   "edge_is_common": false
+  },
+  {
+   "T": 33,
+   "a": "01",
+   "L": 58,
+   "death_time_window_end": 91,
+   "capped": false,
+   "survivors": 8,
+   "violated_cells": {
+    "46": {
+     "n": 8,
+     "time": 45,
+     "is_edge": false
+    },
+    "47": {
+     "n": 8,
+     "time": 44,
+     "is_edge": false
+    },
+    "48": {
+     "n": 8,
+     "time": 43,
+     "is_edge": false
+    },
+    "49": {
+     "n": 8,
+     "time": 42,
+     "is_edge": false
+    },
+    "50": {
+     "n": 8,
+     "time": 41,
+     "is_edge": false
+    },
+    "51": {
+     "n": 8,
+     "time": 40,
+     "is_edge": false
+    },
+    "52": {
+     "n": 8,
+     "time": 39,
+     "is_edge": false
+    },
+    "53": {
+     "n": 8,
+     "time": 38,
+     "is_edge": false
+    },
+    "54": {
+     "n": 8,
+     "time": 37,
+     "is_edge": false
+    },
+    "55": {
+     "n": 8,
+     "time": 36,
+     "is_edge": false
+    },
+    "56": {
+     "n": 8,
+     "time": 35,
+     "is_edge": false
+    },
+    "57": {
+     "n": 8,
+     "time": 34,
+     "is_edge": false
+    },
+    "58": {
+     "n": 8,
+     "time": 33,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 46,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 50,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 33,
+     "is_edge": false
+    }
+   ],
+   "t_star": 33,
+   "s_star": 58,
+   "edge_is_common": false
+  },
+  {
+   "T": 34,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 98,
+   "capped": false,
+   "survivors": 24,
+   "violated_cells": {
+    "49": {
+     "n": 24,
+     "time": 49,
+     "is_edge": true
+    },
+    "50": {
+     "n": 24,
+     "time": 48,
+     "is_edge": false
+    },
+    "51": {
+     "n": 24,
+     "time": 47,
+     "is_edge": false
+    },
+    "52": {
+     "n": 24,
+     "time": 46,
+     "is_edge": false
+    },
+    "53": {
+     "n": 24,
+     "time": 45,
+     "is_edge": false
+    },
+    "54": {
+     "n": 24,
+     "time": 44,
+     "is_edge": false
+    },
+    "55": {
+     "n": 24,
+     "time": 43,
+     "is_edge": false
+    },
+    "56": {
+     "n": 24,
+     "time": 42,
+     "is_edge": false
+    },
+    "57": {
+     "n": 24,
+     "time": 41,
+     "is_edge": false
+    },
+    "58": {
+     "n": 24,
+     "time": 40,
+     "is_edge": false
+    },
+    "59": {
+     "n": 24,
+     "time": 39,
+     "is_edge": false
+    },
+    "60": {
+     "n": 24,
+     "time": 38,
+     "is_edge": false
+    },
+    "61": {
+     "n": 24,
+     "time": 37,
+     "is_edge": false
+    },
+    "62": {
+     "n": 24,
+     "time": 36,
+     "is_edge": false
+    },
+    "63": {
+     "n": 24,
+     "time": 35,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 49,
+     "time": 49,
+     "is_edge": true
+    },
+    {
+     "column": 50,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 63,
+     "time": 35,
+     "is_edge": false
+    }
+   ],
+   "t_star": 35,
+   "s_star": 63,
+   "edge_is_common": true
+  },
+  {
+   "T": 35,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 99,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "50": {
+     "n": 2,
+     "time": 49,
+     "is_edge": false
+    },
+    "51": {
+     "n": 2,
+     "time": 48,
+     "is_edge": false
+    },
+    "52": {
+     "n": 2,
+     "time": 47,
+     "is_edge": false
+    },
+    "53": {
+     "n": 2,
+     "time": 46,
+     "is_edge": false
+    },
+    "54": {
+     "n": 2,
+     "time": 45,
+     "is_edge": false
+    },
+    "55": {
+     "n": 2,
+     "time": 44,
+     "is_edge": false
+    },
+    "56": {
+     "n": 2,
+     "time": 43,
+     "is_edge": false
+    },
+    "57": {
+     "n": 2,
+     "time": 42,
+     "is_edge": false
+    },
+    "58": {
+     "n": 2,
+     "time": 41,
+     "is_edge": false
+    },
+    "59": {
+     "n": 2,
+     "time": 40,
+     "is_edge": false
+    },
+    "60": {
+     "n": 2,
+     "time": 39,
+     "is_edge": false
+    },
+    "61": {
+     "n": 2,
+     "time": 38,
+     "is_edge": false
+    },
+    "62": {
+     "n": 2,
+     "time": 37,
+     "is_edge": false
+    },
+    "63": {
+     "n": 2,
+     "time": 36,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 50,
+     "time": 49,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 63,
+     "time": 36,
+     "is_edge": false
+    }
+   ],
+   "t_star": 36,
+   "s_star": 63,
+   "edge_is_common": false
+  },
+  {
+   "T": 36,
+   "a": "01",
+   "L": 62,
+   "death_time_window_end": 98,
+   "capped": false,
+   "survivors": 44,
+   "violated_cells": {
+    "49": {
+     "n": 44,
+     "time": 49,
+     "is_edge": true
+    },
+    "50": {
+     "n": 44,
+     "time": 48,
+     "is_edge": false
+    },
+    "51": {
+     "n": 44,
+     "time": 47,
+     "is_edge": false
+    },
+    "52": {
+     "n": 44,
+     "time": 46,
+     "is_edge": false
+    },
+    "53": {
+     "n": 44,
+     "time": 45,
+     "is_edge": false
+    },
+    "54": {
+     "n": 44,
+     "time": 44,
+     "is_edge": false
+    },
+    "55": {
+     "n": 44,
+     "time": 43,
+     "is_edge": false
+    },
+    "56": {
+     "n": 44,
+     "time": 42,
+     "is_edge": false
+    },
+    "57": {
+     "n": 44,
+     "time": 41,
+     "is_edge": false
+    },
+    "58": {
+     "n": 44,
+     "time": 40,
+     "is_edge": false
+    },
+    "59": {
+     "n": 44,
+     "time": 39,
+     "is_edge": false
+    },
+    "60": {
+     "n": 44,
+     "time": 38,
+     "is_edge": false
+    },
+    "61": {
+     "n": 44,
+     "time": 37,
+     "is_edge": false
+    },
+    "62": {
+     "n": 44,
+     "time": 36,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 49,
+     "time": 49,
+     "is_edge": true
+    },
+    {
+     "column": 50,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 36,
+     "is_edge": false
+    }
+   ],
+   "t_star": 36,
+   "s_star": 62,
+   "edge_is_common": true
+  },
+  {
+   "T": 37,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 101,
+   "capped": false,
+   "survivors": 40,
+   "violated_cells": {
+    "51": {
+     "n": 28,
+     "time": 50,
+     "is_edge": false
+    },
+    "52": {
+     "n": 28,
+     "time": 49,
+     "is_edge": false
+    },
+    "53": {
+     "n": 28,
+     "time": 48,
+     "is_edge": false
+    },
+    "54": {
+     "n": 28,
+     "time": 47,
+     "is_edge": false
+    },
+    "55": {
+     "n": 28,
+     "time": 46,
+     "is_edge": false
+    },
+    "56": {
+     "n": 28,
+     "time": 45,
+     "is_edge": false
+    },
+    "57": {
+     "n": 28,
+     "time": 44,
+     "is_edge": false
+    },
+    "58": {
+     "n": 28,
+     "time": 43,
+     "is_edge": false
+    },
+    "59": {
+     "n": 28,
+     "time": 42,
+     "is_edge": false
+    },
+    "60": {
+     "n": 28,
+     "time": 41,
+     "is_edge": false
+    },
+    "61": {
+     "n": 28,
+     "time": 40,
+     "is_edge": false
+    },
+    "62": {
+     "n": 28,
+     "time": 39,
+     "is_edge": false
+    },
+    "63": {
+     "n": 28,
+     "time": 38,
+     "is_edge": false
+    },
+    "64": {
+     "n": 12,
+     "time": 37,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 38,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 102,
+   "capped": false,
+   "survivors": 36,
+   "violated_cells": {
+    "51": {
+     "n": 24,
+     "time": 51,
+     "is_edge": true
+    },
+    "52": {
+     "n": 24,
+     "time": 50,
+     "is_edge": false
+    },
+    "53": {
+     "n": 24,
+     "time": 49,
+     "is_edge": false
+    },
+    "54": {
+     "n": 24,
+     "time": 48,
+     "is_edge": false
+    },
+    "55": {
+     "n": 24,
+     "time": 47,
+     "is_edge": false
+    },
+    "56": {
+     "n": 24,
+     "time": 46,
+     "is_edge": false
+    },
+    "57": {
+     "n": 24,
+     "time": 45,
+     "is_edge": false
+    },
+    "58": {
+     "n": 24,
+     "time": 44,
+     "is_edge": false
+    },
+    "59": {
+     "n": 24,
+     "time": 43,
+     "is_edge": false
+    },
+    "60": {
+     "n": 24,
+     "time": 42,
+     "is_edge": false
+    },
+    "61": {
+     "n": 24,
+     "time": 41,
+     "is_edge": false
+    },
+    "62": {
+     "n": 24,
+     "time": 40,
+     "is_edge": false
+    },
+    "63": {
+     "n": 24,
+     "time": 39,
+     "is_edge": false
+    },
+    "64": {
+     "n": 12,
+     "time": 38,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 39,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 103,
+   "capped": false,
+   "survivors": 207,
+   "violated_cells": {
+    "52": {
+     "n": 103,
+     "time": 51,
+     "is_edge": false
+    },
+    "53": {
+     "n": 103,
+     "time": 50,
+     "is_edge": false
+    },
+    "54": {
+     "n": 103,
+     "time": 49,
+     "is_edge": false
+    },
+    "55": {
+     "n": 103,
+     "time": 48,
+     "is_edge": false
+    },
+    "56": {
+     "n": 103,
+     "time": 47,
+     "is_edge": false
+    },
+    "57": {
+     "n": 103,
+     "time": 46,
+     "is_edge": false
+    },
+    "58": {
+     "n": 103,
+     "time": 45,
+     "is_edge": false
+    },
+    "59": {
+     "n": 103,
+     "time": 44,
+     "is_edge": false
+    },
+    "60": {
+     "n": 103,
+     "time": 43,
+     "is_edge": false
+    },
+    "61": {
+     "n": 103,
+     "time": 42,
+     "is_edge": false
+    },
+    "62": {
+     "n": 103,
+     "time": 41,
+     "is_edge": false
+    },
+    "63": {
+     "n": 103,
+     "time": 40,
+     "is_edge": false
+    },
+    "64": {
+     "n": 104,
+     "time": 39,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 40,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 104,
+   "capped": false,
+   "survivors": 196,
+   "violated_cells": {
+    "52": {
+     "n": 48,
+     "time": 52,
+     "is_edge": true
+    },
+    "53": {
+     "n": 48,
+     "time": 51,
+     "is_edge": false
+    },
+    "54": {
+     "n": 48,
+     "time": 50,
+     "is_edge": false
+    },
+    "55": {
+     "n": 48,
+     "time": 49,
+     "is_edge": false
+    },
+    "56": {
+     "n": 48,
+     "time": 48,
+     "is_edge": false
+    },
+    "57": {
+     "n": 48,
+     "time": 47,
+     "is_edge": false
+    },
+    "58": {
+     "n": 48,
+     "time": 46,
+     "is_edge": false
+    },
+    "59": {
+     "n": 48,
+     "time": 45,
+     "is_edge": false
+    },
+    "60": {
+     "n": 48,
+     "time": 44,
+     "is_edge": false
+    },
+    "61": {
+     "n": 48,
+     "time": 43,
+     "is_edge": false
+    },
+    "62": {
+     "n": 48,
+     "time": 42,
+     "is_edge": false
+    },
+    "63": {
+     "n": 48,
+     "time": 41,
+     "is_edge": false
+    },
+    "64": {
+     "n": 148,
+     "time": 40,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 41,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 105,
+   "capped": false,
+   "survivors": 501,
+   "violated_cells": {
+    "53": {
+     "n": 257,
+     "time": 52,
+     "is_edge": false
+    },
+    "54": {
+     "n": 257,
+     "time": 51,
+     "is_edge": false
+    },
+    "55": {
+     "n": 257,
+     "time": 50,
+     "is_edge": false
+    },
+    "56": {
+     "n": 257,
+     "time": 49,
+     "is_edge": false
+    },
+    "57": {
+     "n": 257,
+     "time": 48,
+     "is_edge": false
+    },
+    "58": {
+     "n": 257,
+     "time": 47,
+     "is_edge": false
+    },
+    "59": {
+     "n": 257,
+     "time": 46,
+     "is_edge": false
+    },
+    "60": {
+     "n": 257,
+     "time": 45,
+     "is_edge": false
+    },
+    "61": {
+     "n": 257,
+     "time": 44,
+     "is_edge": false
+    },
+    "62": {
+     "n": 257,
+     "time": 43,
+     "is_edge": false
+    },
+    "63": {
+     "n": 257,
+     "time": 42,
+     "is_edge": false
+    },
+    "64": {
+     "n": 244,
+     "time": 41,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 42,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 106,
+   "capped": false,
+   "survivors": 1453,
+   "violated_cells": {
+    "53": {
+     "n": 659,
+     "time": 53,
+     "is_edge": true
+    },
+    "54": {
+     "n": 659,
+     "time": 52,
+     "is_edge": false
+    },
+    "55": {
+     "n": 659,
+     "time": 51,
+     "is_edge": false
+    },
+    "56": {
+     "n": 659,
+     "time": 50,
+     "is_edge": false
+    },
+    "57": {
+     "n": 659,
+     "time": 49,
+     "is_edge": false
+    },
+    "58": {
+     "n": 659,
+     "time": 48,
+     "is_edge": false
+    },
+    "59": {
+     "n": 659,
+     "time": 47,
+     "is_edge": false
+    },
+    "60": {
+     "n": 659,
+     "time": 46,
+     "is_edge": false
+    },
+    "61": {
+     "n": 659,
+     "time": 45,
+     "is_edge": false
+    },
+    "62": {
+     "n": 659,
+     "time": 44,
+     "is_edge": false
+    },
+    "63": {
+     "n": 659,
+     "time": 43,
+     "is_edge": false
+    },
+    "64": {
+     "n": 794,
+     "time": 42,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 43,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 107,
+   "capped": false,
+   "survivors": 1817,
+   "violated_cells": {
+    "54": {
+     "n": 721,
+     "time": 53,
+     "is_edge": false
+    },
+    "55": {
+     "n": 721,
+     "time": 52,
+     "is_edge": false
+    },
+    "56": {
+     "n": 721,
+     "time": 51,
+     "is_edge": false
+    },
+    "57": {
+     "n": 721,
+     "time": 50,
+     "is_edge": false
+    },
+    "58": {
+     "n": 721,
+     "time": 49,
+     "is_edge": false
+    },
+    "59": {
+     "n": 721,
+     "time": 48,
+     "is_edge": false
+    },
+    "60": {
+     "n": 721,
+     "time": 47,
+     "is_edge": false
+    },
+    "61": {
+     "n": 721,
+     "time": 46,
+     "is_edge": false
+    },
+    "62": {
+     "n": 721,
+     "time": 45,
+     "is_edge": false
+    },
+    "63": {
+     "n": 721,
+     "time": 44,
+     "is_edge": false
+    },
+    "64": {
+     "n": 1096,
+     "time": 43,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 44,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 108,
+   "capped": false,
+   "survivors": 4427,
+   "violated_cells": {
+    "54": {
+     "n": 2019,
+     "time": 54,
+     "is_edge": true
+    },
+    "55": {
+     "n": 2019,
+     "time": 53,
+     "is_edge": false
+    },
+    "56": {
+     "n": 2019,
+     "time": 52,
+     "is_edge": false
+    },
+    "57": {
+     "n": 2019,
+     "time": 51,
+     "is_edge": false
+    },
+    "58": {
+     "n": 2019,
+     "time": 50,
+     "is_edge": false
+    },
+    "59": {
+     "n": 2019,
+     "time": 49,
+     "is_edge": false
+    },
+    "60": {
+     "n": 2019,
+     "time": 48,
+     "is_edge": false
+    },
+    "61": {
+     "n": 2019,
+     "time": 47,
+     "is_edge": false
+    },
+    "62": {
+     "n": 2019,
+     "time": 46,
+     "is_edge": false
+    },
+    "63": {
+     "n": 2019,
+     "time": 45,
+     "is_edge": false
+    },
+    "64": {
+     "n": 2408,
+     "time": 44,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 45,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 109,
+   "capped": false,
+   "survivors": 7934,
+   "violated_cells": {
+    "55": {
+     "n": 3856,
+     "time": 54,
+     "is_edge": false
+    },
+    "56": {
+     "n": 3856,
+     "time": 53,
+     "is_edge": false
+    },
+    "57": {
+     "n": 3856,
+     "time": 52,
+     "is_edge": false
+    },
+    "58": {
+     "n": 3856,
+     "time": 51,
+     "is_edge": false
+    },
+    "59": {
+     "n": 3856,
+     "time": 50,
+     "is_edge": false
+    },
+    "60": {
+     "n": 3856,
+     "time": 49,
+     "is_edge": false
+    },
+    "61": {
+     "n": 3856,
+     "time": 48,
+     "is_edge": false
+    },
+    "62": {
+     "n": 3856,
+     "time": 47,
+     "is_edge": false
+    },
+    "63": {
+     "n": 3856,
+     "time": 46,
+     "is_edge": false
+    },
+    "64": {
+     "n": 4078,
+     "time": 45,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 46,
+   "a": "01",
+   "L": 64,
+   "death_time_window_end": 110,
+   "capped": false,
+   "survivors": 15886,
+   "violated_cells": {
+    "55": {
+     "n": 8035,
+     "time": 55,
+     "is_edge": true
+    },
+    "56": {
+     "n": 8035,
+     "time": 54,
+     "is_edge": false
+    },
+    "57": {
+     "n": 8035,
+     "time": 53,
+     "is_edge": false
+    },
+    "58": {
+     "n": 8035,
+     "time": 52,
+     "is_edge": false
+    },
+    "59": {
+     "n": 8035,
+     "time": 51,
+     "is_edge": false
+    },
+    "60": {
+     "n": 8035,
+     "time": 50,
+     "is_edge": false
+    },
+    "61": {
+     "n": 8035,
+     "time": 49,
+     "is_edge": false
+    },
+    "62": {
+     "n": 8035,
+     "time": 48,
+     "is_edge": false
+    },
+    "63": {
+     "n": 8035,
+     "time": 47,
+     "is_edge": false
+    },
+    "64": {
+     "n": 7851,
+     "time": 46,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 4,
+   "a": "10",
+   "L": 7,
+   "death_time_window_end": 11,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "6": {
+     "n": 1,
+     "time": 5,
+     "is_edge": false
+    },
+    "7": {
+     "n": 1,
+     "time": 4,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 6,
+     "time": 5,
+     "is_edge": false
+    },
+    {
+     "column": 7,
+     "time": 4,
+     "is_edge": false
+    }
+   ],
+   "t_star": 4,
+   "s_star": 7,
+   "edge_is_common": false
+  },
+  {
+   "T": 5,
+   "a": "10",
+   "L": 9,
+   "death_time_window_end": 14,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "7": {
+     "n": 1,
+     "time": 7,
+     "is_edge": true
+    },
+    "8": {
+     "n": 1,
+     "time": 6,
+     "is_edge": false
+    },
+    "9": {
+     "n": 1,
+     "time": 5,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 7,
+     "time": 7,
+     "is_edge": true
+    },
+    {
+     "column": 8,
+     "time": 6,
+     "is_edge": false
+    },
+    {
+     "column": 9,
+     "time": 5,
+     "is_edge": false
+    }
+   ],
+   "t_star": 5,
+   "s_star": 9,
+   "edge_is_common": true
+  },
+  {
+   "T": 6,
+   "a": "10",
+   "L": 11,
+   "death_time_window_end": 17,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "9": {
+     "n": 1,
+     "time": 8,
+     "is_edge": false
+    },
+    "10": {
+     "n": 1,
+     "time": 7,
+     "is_edge": false
+    },
+    "11": {
+     "n": 1,
+     "time": 6,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 9,
+     "time": 8,
+     "is_edge": false
+    },
+    {
+     "column": 10,
+     "time": 7,
+     "is_edge": false
+    },
+    {
+     "column": 11,
+     "time": 6,
+     "is_edge": false
+    }
+   ],
+   "t_star": 6,
+   "s_star": 11,
+   "edge_is_common": false
+  },
+  {
+   "T": 7,
+   "a": "10",
+   "L": 13,
+   "death_time_window_end": 20,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "10": {
+     "n": 1,
+     "time": 10,
+     "is_edge": true
+    },
+    "11": {
+     "n": 1,
+     "time": 9,
+     "is_edge": false
+    },
+    "12": {
+     "n": 1,
+     "time": 8,
+     "is_edge": false
+    },
+    "13": {
+     "n": 1,
+     "time": 7,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 10,
+     "time": 10,
+     "is_edge": true
+    },
+    {
+     "column": 11,
+     "time": 9,
+     "is_edge": false
+    },
+    {
+     "column": 12,
+     "time": 8,
+     "is_edge": false
+    },
+    {
+     "column": 13,
+     "time": 7,
+     "is_edge": false
+    }
+   ],
+   "t_star": 7,
+   "s_star": 13,
+   "edge_is_common": true
+  },
+  {
+   "T": 8,
+   "a": "10",
+   "L": 11,
+   "death_time_window_end": 19,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "10": {
+     "n": 2,
+     "time": 9,
+     "is_edge": false
+    },
+    "11": {
+     "n": 2,
+     "time": 8,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 10,
+     "time": 9,
+     "is_edge": false
+    },
+    {
+     "column": 11,
+     "time": 8,
+     "is_edge": false
+    }
+   ],
+   "t_star": 8,
+   "s_star": 11,
+   "edge_is_common": false
+  },
+  {
+   "T": 9,
+   "a": "10",
+   "L": 19,
+   "death_time_window_end": 28,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "14": {
+     "n": 1,
+     "time": 14,
+     "is_edge": true
+    },
+    "15": {
+     "n": 1,
+     "time": 13,
+     "is_edge": false
+    },
+    "16": {
+     "n": 1,
+     "time": 12,
+     "is_edge": false
+    },
+    "17": {
+     "n": 1,
+     "time": 11,
+     "is_edge": false
+    },
+    "18": {
+     "n": 1,
+     "time": 10,
+     "is_edge": false
+    },
+    "19": {
+     "n": 1,
+     "time": 9,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 14,
+     "time": 14,
+     "is_edge": true
+    },
+    {
+     "column": 15,
+     "time": 13,
+     "is_edge": false
+    },
+    {
+     "column": 16,
+     "time": 12,
+     "is_edge": false
+    },
+    {
+     "column": 17,
+     "time": 11,
+     "is_edge": false
+    },
+    {
+     "column": 18,
+     "time": 10,
+     "is_edge": false
+    },
+    {
+     "column": 19,
+     "time": 9,
+     "is_edge": false
+    }
+   ],
+   "t_star": 9,
+   "s_star": 19,
+   "edge_is_common": true
+  },
+  {
+   "T": 10,
+   "a": "10",
+   "L": 15,
+   "death_time_window_end": 25,
+   "capped": false,
+   "survivors": 11,
+   "violated_cells": {
+    "13": {
+     "n": 11,
+     "time": 12,
+     "is_edge": false
+    },
+    "14": {
+     "n": 11,
+     "time": 11,
+     "is_edge": false
+    },
+    "15": {
+     "n": 11,
+     "time": 10,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 13,
+     "time": 12,
+     "is_edge": false
+    },
+    {
+     "column": 14,
+     "time": 11,
+     "is_edge": false
+    },
+    {
+     "column": 15,
+     "time": 10,
+     "is_edge": false
+    }
+   ],
+   "t_star": 10,
+   "s_star": 15,
+   "edge_is_common": false
+  },
+  {
+   "T": 11,
+   "a": "10",
+   "L": 31,
+   "death_time_window_end": 42,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "21": {
+     "n": 2,
+     "time": 21,
+     "is_edge": true
+    },
+    "22": {
+     "n": 2,
+     "time": 20,
+     "is_edge": false
+    },
+    "23": {
+     "n": 2,
+     "time": 19,
+     "is_edge": false
+    },
+    "24": {
+     "n": 2,
+     "time": 18,
+     "is_edge": false
+    },
+    "25": {
+     "n": 2,
+     "time": 17,
+     "is_edge": false
+    },
+    "26": {
+     "n": 2,
+     "time": 16,
+     "is_edge": false
+    },
+    "27": {
+     "n": 2,
+     "time": 15,
+     "is_edge": false
+    },
+    "28": {
+     "n": 2,
+     "time": 14,
+     "is_edge": false
+    },
+    "29": {
+     "n": 2,
+     "time": 13,
+     "is_edge": false
+    },
+    "30": {
+     "n": 2,
+     "time": 12,
+     "is_edge": false
+    },
+    "31": {
+     "n": 2,
+     "time": 11,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 21,
+     "time": 21,
+     "is_edge": true
+    },
+    {
+     "column": 22,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 23,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 24,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 15,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 14,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 13,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 12,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 11,
+     "is_edge": false
+    }
+   ],
+   "t_star": 11,
+   "s_star": 31,
+   "edge_is_common": true
+  },
+  {
+   "T": 12,
+   "a": "10",
+   "L": 17,
+   "death_time_window_end": 29,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "15": {
+     "n": 1,
+     "time": 14,
+     "is_edge": false
+    },
+    "16": {
+     "n": 1,
+     "time": 13,
+     "is_edge": false
+    },
+    "17": {
+     "n": 1,
+     "time": 12,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 15,
+     "time": 14,
+     "is_edge": false
+    },
+    {
+     "column": 16,
+     "time": 13,
+     "is_edge": false
+    },
+    {
+     "column": 17,
+     "time": 12,
+     "is_edge": false
+    }
+   ],
+   "t_star": 12,
+   "s_star": 17,
+   "edge_is_common": false
+  },
+  {
+   "T": 13,
+   "a": "10",
+   "L": 29,
+   "death_time_window_end": 42,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "21": {
+     "n": 2,
+     "time": 21,
+     "is_edge": true
+    },
+    "22": {
+     "n": 2,
+     "time": 20,
+     "is_edge": false
+    },
+    "23": {
+     "n": 2,
+     "time": 19,
+     "is_edge": false
+    },
+    "24": {
+     "n": 2,
+     "time": 18,
+     "is_edge": false
+    },
+    "25": {
+     "n": 2,
+     "time": 17,
+     "is_edge": false
+    },
+    "26": {
+     "n": 2,
+     "time": 16,
+     "is_edge": false
+    },
+    "27": {
+     "n": 2,
+     "time": 15,
+     "is_edge": false
+    },
+    "28": {
+     "n": 2,
+     "time": 14,
+     "is_edge": false
+    },
+    "29": {
+     "n": 2,
+     "time": 13,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 21,
+     "time": 21,
+     "is_edge": true
+    },
+    {
+     "column": 22,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 23,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 24,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 15,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 14,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 13,
+     "is_edge": false
+    }
+   ],
+   "t_star": 13,
+   "s_star": 29,
+   "edge_is_common": true
+  },
+  {
+   "T": 14,
+   "a": "10",
+   "L": 33,
+   "death_time_window_end": 47,
+   "capped": false,
+   "survivors": 3,
+   "violated_cells": {
+    "24": {
+     "n": 3,
+     "time": 23,
+     "is_edge": false
+    },
+    "25": {
+     "n": 3,
+     "time": 22,
+     "is_edge": false
+    },
+    "26": {
+     "n": 3,
+     "time": 21,
+     "is_edge": false
+    },
+    "27": {
+     "n": 3,
+     "time": 20,
+     "is_edge": false
+    },
+    "28": {
+     "n": 3,
+     "time": 19,
+     "is_edge": false
+    },
+    "29": {
+     "n": 3,
+     "time": 18,
+     "is_edge": false
+    },
+    "30": {
+     "n": 3,
+     "time": 17,
+     "is_edge": false
+    },
+    "31": {
+     "n": 3,
+     "time": 16,
+     "is_edge": false
+    },
+    "32": {
+     "n": 3,
+     "time": 15,
+     "is_edge": false
+    },
+    "33": {
+     "n": 3,
+     "time": 14,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 24,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 15,
+     "is_edge": false
+    },
+    {
+     "column": 33,
+     "time": 14,
+     "is_edge": false
+    }
+   ],
+   "t_star": 14,
+   "s_star": 33,
+   "edge_is_common": false
+  },
+  {
+   "T": 15,
+   "a": "10",
+   "L": 27,
+   "death_time_window_end": 42,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "21": {
+     "n": 1,
+     "time": 21,
+     "is_edge": true
+    },
+    "22": {
+     "n": 1,
+     "time": 20,
+     "is_edge": false
+    },
+    "23": {
+     "n": 1,
+     "time": 19,
+     "is_edge": false
+    },
+    "24": {
+     "n": 1,
+     "time": 18,
+     "is_edge": false
+    },
+    "25": {
+     "n": 1,
+     "time": 17,
+     "is_edge": false
+    },
+    "26": {
+     "n": 1,
+     "time": 16,
+     "is_edge": false
+    },
+    "27": {
+     "n": 1,
+     "time": 15,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 21,
+     "time": 21,
+     "is_edge": true
+    },
+    {
+     "column": 22,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 23,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 24,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 16,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 15,
+     "is_edge": false
+    }
+   ],
+   "t_star": 15,
+   "s_star": 27,
+   "edge_is_common": true
+  },
+  {
+   "T": 16,
+   "a": "10",
+   "L": 31,
+   "death_time_window_end": 47,
+   "capped": false,
+   "survivors": 3,
+   "violated_cells": {
+    "24": {
+     "n": 3,
+     "time": 23,
+     "is_edge": false
+    },
+    "25": {
+     "n": 3,
+     "time": 22,
+     "is_edge": false
+    },
+    "26": {
+     "n": 3,
+     "time": 21,
+     "is_edge": false
+    },
+    "27": {
+     "n": 3,
+     "time": 20,
+     "is_edge": false
+    },
+    "28": {
+     "n": 3,
+     "time": 19,
+     "is_edge": false
+    },
+    "29": {
+     "n": 3,
+     "time": 18,
+     "is_edge": false
+    },
+    "30": {
+     "n": 3,
+     "time": 17,
+     "is_edge": false
+    },
+    "31": {
+     "n": 3,
+     "time": 16,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 24,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 25,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 17,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 16,
+     "is_edge": false
+    }
+   ],
+   "t_star": 16,
+   "s_star": 31,
+   "edge_is_common": false
+  },
+  {
+   "T": 17,
+   "a": "10",
+   "L": 31,
+   "death_time_window_end": 48,
+   "capped": false,
+   "survivors": 4,
+   "violated_cells": {
+    "24": {
+     "n": 4,
+     "time": 24,
+     "is_edge": true
+    },
+    "25": {
+     "n": 4,
+     "time": 23,
+     "is_edge": false
+    },
+    "26": {
+     "n": 4,
+     "time": 22,
+     "is_edge": false
+    },
+    "27": {
+     "n": 4,
+     "time": 21,
+     "is_edge": false
+    },
+    "28": {
+     "n": 4,
+     "time": 20,
+     "is_edge": false
+    },
+    "29": {
+     "n": 4,
+     "time": 19,
+     "is_edge": false
+    },
+    "30": {
+     "n": 4,
+     "time": 18,
+     "is_edge": false
+    },
+    "31": {
+     "n": 4,
+     "time": 17,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 24,
+     "time": 24,
+     "is_edge": true
+    },
+    {
+     "column": 25,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 18,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 17,
+     "is_edge": false
+    }
+   ],
+   "t_star": 17,
+   "s_star": 31,
+   "edge_is_common": true
+  },
+  {
+   "T": 18,
+   "a": "10",
+   "L": 31,
+   "death_time_window_end": 49,
+   "capped": false,
+   "survivors": 10,
+   "violated_cells": {
+    "25": {
+     "n": 10,
+     "time": 24,
+     "is_edge": false
+    },
+    "26": {
+     "n": 10,
+     "time": 23,
+     "is_edge": false
+    },
+    "27": {
+     "n": 10,
+     "time": 22,
+     "is_edge": false
+    },
+    "28": {
+     "n": 10,
+     "time": 21,
+     "is_edge": false
+    },
+    "29": {
+     "n": 10,
+     "time": 20,
+     "is_edge": false
+    },
+    "30": {
+     "n": 10,
+     "time": 19,
+     "is_edge": false
+    },
+    "31": {
+     "n": 10,
+     "time": 18,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 25,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 26,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 19,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 18,
+     "is_edge": false
+    }
+   ],
+   "t_star": 18,
+   "s_star": 31,
+   "edge_is_common": false
+  },
+  {
+   "T": 19,
+   "a": "10",
+   "L": 39,
+   "death_time_window_end": 58,
+   "capped": false,
+   "survivors": 9,
+   "violated_cells": {
+    "29": {
+     "n": 9,
+     "time": 29,
+     "is_edge": true
+    },
+    "30": {
+     "n": 9,
+     "time": 28,
+     "is_edge": false
+    },
+    "31": {
+     "n": 9,
+     "time": 27,
+     "is_edge": false
+    },
+    "32": {
+     "n": 9,
+     "time": 26,
+     "is_edge": false
+    },
+    "33": {
+     "n": 9,
+     "time": 25,
+     "is_edge": false
+    },
+    "34": {
+     "n": 9,
+     "time": 24,
+     "is_edge": false
+    },
+    "35": {
+     "n": 9,
+     "time": 23,
+     "is_edge": false
+    },
+    "36": {
+     "n": 9,
+     "time": 22,
+     "is_edge": false
+    },
+    "37": {
+     "n": 9,
+     "time": 21,
+     "is_edge": false
+    },
+    "38": {
+     "n": 9,
+     "time": 20,
+     "is_edge": false
+    },
+    "39": {
+     "n": 9,
+     "time": 19,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 29,
+     "time": 29,
+     "is_edge": true
+    },
+    {
+     "column": 30,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 33,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 20,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 19,
+     "is_edge": false
+    }
+   ],
+   "t_star": 19,
+   "s_star": 39,
+   "edge_is_common": true
+  },
+  {
+   "T": 20,
+   "a": "10",
+   "L": 31,
+   "death_time_window_end": 51,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "26": {
+     "n": 2,
+     "time": 25,
+     "is_edge": false
+    },
+    "27": {
+     "n": 2,
+     "time": 24,
+     "is_edge": false
+    },
+    "28": {
+     "n": 2,
+     "time": 23,
+     "is_edge": false
+    },
+    "29": {
+     "n": 2,
+     "time": 22,
+     "is_edge": false
+    },
+    "30": {
+     "n": 2,
+     "time": 21,
+     "is_edge": false
+    },
+    "31": {
+     "n": 2,
+     "time": 20,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 26,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 27,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 28,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 29,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 30,
+     "time": 21,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 20,
+     "is_edge": false
+    }
+   ],
+   "t_star": 20,
+   "s_star": 31,
+   "edge_is_common": false
+  },
+  {
+   "T": 21,
+   "a": "10",
+   "L": 37,
+   "death_time_window_end": 58,
+   "capped": false,
+   "survivors": 10,
+   "violated_cells": {
+    "29": {
+     "n": 10,
+     "time": 29,
+     "is_edge": true
+    },
+    "30": {
+     "n": 10,
+     "time": 28,
+     "is_edge": false
+    },
+    "31": {
+     "n": 10,
+     "time": 27,
+     "is_edge": false
+    },
+    "32": {
+     "n": 10,
+     "time": 26,
+     "is_edge": false
+    },
+    "33": {
+     "n": 10,
+     "time": 25,
+     "is_edge": false
+    },
+    "34": {
+     "n": 10,
+     "time": 24,
+     "is_edge": false
+    },
+    "35": {
+     "n": 10,
+     "time": 23,
+     "is_edge": false
+    },
+    "36": {
+     "n": 10,
+     "time": 22,
+     "is_edge": false
+    },
+    "37": {
+     "n": 10,
+     "time": 21,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 29,
+     "time": 29,
+     "is_edge": true
+    },
+    {
+     "column": 30,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 31,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 32,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 33,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 22,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 21,
+     "is_edge": false
+    }
+   ],
+   "t_star": 21,
+   "s_star": 37,
+   "edge_is_common": true
+  },
+  {
+   "T": 22,
+   "a": "10",
+   "L": 41,
+   "death_time_window_end": 63,
+   "capped": false,
+   "survivors": 6,
+   "violated_cells": {
+    "32": {
+     "n": 6,
+     "time": 31,
+     "is_edge": false
+    },
+    "33": {
+     "n": 6,
+     "time": 30,
+     "is_edge": false
+    },
+    "34": {
+     "n": 6,
+     "time": 29,
+     "is_edge": false
+    },
+    "35": {
+     "n": 6,
+     "time": 28,
+     "is_edge": false
+    },
+    "36": {
+     "n": 6,
+     "time": 27,
+     "is_edge": false
+    },
+    "37": {
+     "n": 6,
+     "time": 26,
+     "is_edge": false
+    },
+    "38": {
+     "n": 6,
+     "time": 25,
+     "is_edge": false
+    },
+    "39": {
+     "n": 6,
+     "time": 24,
+     "is_edge": false
+    },
+    "40": {
+     "n": 6,
+     "time": 23,
+     "is_edge": false
+    },
+    "41": {
+     "n": 6,
+     "time": 22,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 32,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 33,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 23,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 22,
+     "is_edge": false
+    }
+   ],
+   "t_star": 22,
+   "s_star": 41,
+   "edge_is_common": false
+  },
+  {
+   "T": 23,
+   "a": "10",
+   "L": 41,
+   "death_time_window_end": 64,
+   "capped": false,
+   "survivors": 9,
+   "violated_cells": {
+    "32": {
+     "n": 9,
+     "time": 32,
+     "is_edge": true
+    },
+    "33": {
+     "n": 9,
+     "time": 31,
+     "is_edge": false
+    },
+    "34": {
+     "n": 9,
+     "time": 30,
+     "is_edge": false
+    },
+    "35": {
+     "n": 9,
+     "time": 29,
+     "is_edge": false
+    },
+    "36": {
+     "n": 9,
+     "time": 28,
+     "is_edge": false
+    },
+    "37": {
+     "n": 9,
+     "time": 27,
+     "is_edge": false
+    },
+    "38": {
+     "n": 9,
+     "time": 26,
+     "is_edge": false
+    },
+    "39": {
+     "n": 9,
+     "time": 25,
+     "is_edge": false
+    },
+    "40": {
+     "n": 9,
+     "time": 24,
+     "is_edge": false
+    },
+    "41": {
+     "n": 9,
+     "time": 23,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 32,
+     "time": 32,
+     "is_edge": true
+    },
+    {
+     "column": 33,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 34,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 24,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 23,
+     "is_edge": false
+    }
+   ],
+   "t_star": 23,
+   "s_star": 41,
+   "edge_is_common": true
+  },
+  {
+   "T": 24,
+   "a": "10",
+   "L": 43,
+   "death_time_window_end": 67,
+   "capped": false,
+   "survivors": 6,
+   "violated_cells": {
+    "34": {
+     "n": 6,
+     "time": 33,
+     "is_edge": false
+    },
+    "35": {
+     "n": 6,
+     "time": 32,
+     "is_edge": false
+    },
+    "36": {
+     "n": 6,
+     "time": 31,
+     "is_edge": false
+    },
+    "37": {
+     "n": 6,
+     "time": 30,
+     "is_edge": false
+    },
+    "38": {
+     "n": 6,
+     "time": 29,
+     "is_edge": false
+    },
+    "39": {
+     "n": 6,
+     "time": 28,
+     "is_edge": false
+    },
+    "40": {
+     "n": 6,
+     "time": 27,
+     "is_edge": false
+    },
+    "41": {
+     "n": 6,
+     "time": 26,
+     "is_edge": false
+    },
+    "42": {
+     "n": 6,
+     "time": 25,
+     "is_edge": false
+    },
+    "43": {
+     "n": 6,
+     "time": 24,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 34,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 35,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 36,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 25,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 24,
+     "is_edge": false
+    }
+   ],
+   "t_star": 24,
+   "s_star": 43,
+   "edge_is_common": false
+  },
+  {
+   "T": 25,
+   "a": "10",
+   "L": 45,
+   "death_time_window_end": 70,
+   "capped": false,
+   "survivors": 1,
+   "violated_cells": {
+    "35": {
+     "n": 1,
+     "time": 35,
+     "is_edge": true
+    },
+    "36": {
+     "n": 1,
+     "time": 34,
+     "is_edge": false
+    },
+    "37": {
+     "n": 1,
+     "time": 33,
+     "is_edge": false
+    },
+    "38": {
+     "n": 1,
+     "time": 32,
+     "is_edge": false
+    },
+    "39": {
+     "n": 1,
+     "time": 31,
+     "is_edge": false
+    },
+    "40": {
+     "n": 1,
+     "time": 30,
+     "is_edge": false
+    },
+    "41": {
+     "n": 1,
+     "time": 29,
+     "is_edge": false
+    },
+    "42": {
+     "n": 1,
+     "time": 28,
+     "is_edge": false
+    },
+    "43": {
+     "n": 1,
+     "time": 27,
+     "is_edge": false
+    },
+    "44": {
+     "n": 1,
+     "time": 26,
+     "is_edge": false
+    },
+    "45": {
+     "n": 1,
+     "time": 25,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 35,
+     "time": 35,
+     "is_edge": true
+    },
+    {
+     "column": 36,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 26,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 25,
+     "is_edge": false
+    }
+   ],
+   "t_star": 25,
+   "s_star": 45,
+   "edge_is_common": true
+  },
+  {
+   "T": 26,
+   "a": "10",
+   "L": 45,
+   "death_time_window_end": 71,
+   "capped": false,
+   "survivors": 2,
+   "violated_cells": {
+    "36": {
+     "n": 2,
+     "time": 35,
+     "is_edge": false
+    },
+    "37": {
+     "n": 2,
+     "time": 34,
+     "is_edge": false
+    },
+    "38": {
+     "n": 2,
+     "time": 33,
+     "is_edge": false
+    },
+    "39": {
+     "n": 2,
+     "time": 32,
+     "is_edge": false
+    },
+    "40": {
+     "n": 2,
+     "time": 31,
+     "is_edge": false
+    },
+    "41": {
+     "n": 2,
+     "time": 30,
+     "is_edge": false
+    },
+    "42": {
+     "n": 2,
+     "time": 29,
+     "is_edge": false
+    },
+    "43": {
+     "n": 2,
+     "time": 28,
+     "is_edge": false
+    },
+    "44": {
+     "n": 2,
+     "time": 27,
+     "is_edge": false
+    },
+    "45": {
+     "n": 2,
+     "time": 26,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 36,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 37,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 38,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 39,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 27,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 26,
+     "is_edge": false
+    }
+   ],
+   "t_star": 26,
+   "s_star": 45,
+   "edge_is_common": false
+  },
+  {
+   "T": 27,
+   "a": "10",
+   "L": 49,
+   "death_time_window_end": 76,
+   "capped": false,
+   "survivors": 6,
+   "violated_cells": {
+    "38": {
+     "n": 6,
+     "time": 38,
+     "is_edge": true
+    },
+    "39": {
+     "n": 6,
+     "time": 37,
+     "is_edge": false
+    },
+    "40": {
+     "n": 6,
+     "time": 36,
+     "is_edge": false
+    },
+    "41": {
+     "n": 6,
+     "time": 35,
+     "is_edge": false
+    },
+    "42": {
+     "n": 6,
+     "time": 34,
+     "is_edge": false
+    },
+    "43": {
+     "n": 6,
+     "time": 33,
+     "is_edge": false
+    },
+    "44": {
+     "n": 6,
+     "time": 32,
+     "is_edge": false
+    },
+    "45": {
+     "n": 6,
+     "time": 31,
+     "is_edge": false
+    },
+    "46": {
+     "n": 6,
+     "time": 30,
+     "is_edge": false
+    },
+    "47": {
+     "n": 6,
+     "time": 29,
+     "is_edge": false
+    },
+    "48": {
+     "n": 6,
+     "time": 28,
+     "is_edge": false
+    },
+    "49": {
+     "n": 6,
+     "time": 27,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 38,
+     "time": 38,
+     "is_edge": true
+    },
+    {
+     "column": 39,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 28,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 27,
+     "is_edge": false
+    }
+   ],
+   "t_star": 27,
+   "s_star": 49,
+   "edge_is_common": true
+  },
+  {
+   "T": 28,
+   "a": "10",
+   "L": 49,
+   "death_time_window_end": 77,
+   "capped": false,
+   "survivors": 8,
+   "violated_cells": {
+    "39": {
+     "n": 8,
+     "time": 38,
+     "is_edge": false
+    },
+    "40": {
+     "n": 8,
+     "time": 37,
+     "is_edge": false
+    },
+    "41": {
+     "n": 8,
+     "time": 36,
+     "is_edge": false
+    },
+    "42": {
+     "n": 8,
+     "time": 35,
+     "is_edge": false
+    },
+    "43": {
+     "n": 8,
+     "time": 34,
+     "is_edge": false
+    },
+    "44": {
+     "n": 8,
+     "time": 33,
+     "is_edge": false
+    },
+    "45": {
+     "n": 8,
+     "time": 32,
+     "is_edge": false
+    },
+    "46": {
+     "n": 8,
+     "time": 31,
+     "is_edge": false
+    },
+    "47": {
+     "n": 8,
+     "time": 30,
+     "is_edge": false
+    },
+    "48": {
+     "n": 8,
+     "time": 29,
+     "is_edge": false
+    },
+    "49": {
+     "n": 8,
+     "time": 28,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 39,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 40,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 29,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 28,
+     "is_edge": false
+    }
+   ],
+   "t_star": 28,
+   "s_star": 49,
+   "edge_is_common": false
+  },
+  {
+   "T": 29,
+   "a": "10",
+   "L": 49,
+   "death_time_window_end": 78,
+   "capped": false,
+   "survivors": 9,
+   "violated_cells": {
+    "39": {
+     "n": 9,
+     "time": 39,
+     "is_edge": true
+    },
+    "40": {
+     "n": 9,
+     "time": 38,
+     "is_edge": false
+    },
+    "41": {
+     "n": 9,
+     "time": 37,
+     "is_edge": false
+    },
+    "42": {
+     "n": 9,
+     "time": 36,
+     "is_edge": false
+    },
+    "43": {
+     "n": 9,
+     "time": 35,
+     "is_edge": false
+    },
+    "44": {
+     "n": 9,
+     "time": 34,
+     "is_edge": false
+    },
+    "45": {
+     "n": 9,
+     "time": 33,
+     "is_edge": false
+    },
+    "46": {
+     "n": 9,
+     "time": 32,
+     "is_edge": false
+    },
+    "47": {
+     "n": 9,
+     "time": 31,
+     "is_edge": false
+    },
+    "48": {
+     "n": 9,
+     "time": 30,
+     "is_edge": false
+    },
+    "49": {
+     "n": 9,
+     "time": 29,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 39,
+     "time": 39,
+     "is_edge": true
+    },
+    {
+     "column": 40,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 41,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 42,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 30,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 29,
+     "is_edge": false
+    }
+   ],
+   "t_star": 29,
+   "s_star": 49,
+   "edge_is_common": true
+  },
+  {
+   "T": 30,
+   "a": "10",
+   "L": 53,
+   "death_time_window_end": 83,
+   "capped": false,
+   "survivors": 4,
+   "violated_cells": {
+    "42": {
+     "n": 4,
+     "time": 41,
+     "is_edge": false
+    },
+    "43": {
+     "n": 4,
+     "time": 40,
+     "is_edge": false
+    },
+    "44": {
+     "n": 4,
+     "time": 39,
+     "is_edge": false
+    },
+    "45": {
+     "n": 4,
+     "time": 38,
+     "is_edge": false
+    },
+    "46": {
+     "n": 4,
+     "time": 37,
+     "is_edge": false
+    },
+    "47": {
+     "n": 4,
+     "time": 36,
+     "is_edge": false
+    },
+    "48": {
+     "n": 4,
+     "time": 35,
+     "is_edge": false
+    },
+    "49": {
+     "n": 4,
+     "time": 34,
+     "is_edge": false
+    },
+    "50": {
+     "n": 4,
+     "time": 33,
+     "is_edge": false
+    },
+    "51": {
+     "n": 4,
+     "time": 32,
+     "is_edge": false
+    },
+    "52": {
+     "n": 4,
+     "time": 31,
+     "is_edge": false
+    },
+    "53": {
+     "n": 4,
+     "time": 30,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 42,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 43,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 44,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 50,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 32,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 31,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 30,
+     "is_edge": false
+    }
+   ],
+   "t_star": 30,
+   "s_star": 53,
+   "edge_is_common": false
+  },
+  {
+   "T": 31,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 96,
+   "capped": false,
+   "survivors": 13,
+   "violated_cells": {
+    "64": {
+     "n": 13,
+     "time": 32,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 64,
+     "time": 32,
+     "is_edge": false
+    }
+   ],
+   "t_star": 32,
+   "s_star": 64,
+   "edge_is_common": false
+  },
+  {
+   "T": 32,
+   "a": "10",
+   "L": 55,
+   "death_time_window_end": 87,
+   "capped": false,
+   "survivors": 12,
+   "violated_cells": {
+    "44": {
+     "n": 12,
+     "time": 43,
+     "is_edge": false
+    },
+    "45": {
+     "n": 12,
+     "time": 42,
+     "is_edge": false
+    },
+    "46": {
+     "n": 12,
+     "time": 41,
+     "is_edge": false
+    },
+    "47": {
+     "n": 12,
+     "time": 40,
+     "is_edge": false
+    },
+    "48": {
+     "n": 12,
+     "time": 39,
+     "is_edge": false
+    },
+    "49": {
+     "n": 12,
+     "time": 38,
+     "is_edge": false
+    },
+    "50": {
+     "n": 12,
+     "time": 37,
+     "is_edge": false
+    },
+    "51": {
+     "n": 12,
+     "time": 36,
+     "is_edge": false
+    },
+    "52": {
+     "n": 12,
+     "time": 35,
+     "is_edge": false
+    },
+    "53": {
+     "n": 12,
+     "time": 34,
+     "is_edge": false
+    },
+    "54": {
+     "n": 12,
+     "time": 33,
+     "is_edge": false
+    },
+    "55": {
+     "n": 12,
+     "time": 32,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 44,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 45,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 46,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 47,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 48,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 49,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 50,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 34,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 33,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 32,
+     "is_edge": false
+    }
+   ],
+   "t_star": 32,
+   "s_star": 55,
+   "edge_is_common": false
+  },
+  {
+   "T": 33,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 98,
+   "capped": false,
+   "survivors": 24,
+   "violated_cells": {
+    "49": {
+     "n": 24,
+     "time": 49,
+     "is_edge": true
+    },
+    "50": {
+     "n": 24,
+     "time": 48,
+     "is_edge": false
+    },
+    "51": {
+     "n": 24,
+     "time": 47,
+     "is_edge": false
+    },
+    "52": {
+     "n": 24,
+     "time": 46,
+     "is_edge": false
+    },
+    "53": {
+     "n": 24,
+     "time": 45,
+     "is_edge": false
+    },
+    "54": {
+     "n": 24,
+     "time": 44,
+     "is_edge": false
+    },
+    "55": {
+     "n": 24,
+     "time": 43,
+     "is_edge": false
+    },
+    "56": {
+     "n": 24,
+     "time": 42,
+     "is_edge": false
+    },
+    "57": {
+     "n": 24,
+     "time": 41,
+     "is_edge": false
+    },
+    "58": {
+     "n": 24,
+     "time": 40,
+     "is_edge": false
+    },
+    "59": {
+     "n": 24,
+     "time": 39,
+     "is_edge": false
+    },
+    "60": {
+     "n": 24,
+     "time": 38,
+     "is_edge": false
+    },
+    "61": {
+     "n": 24,
+     "time": 37,
+     "is_edge": false
+    },
+    "62": {
+     "n": 24,
+     "time": 36,
+     "is_edge": false
+    },
+    "63": {
+     "n": 24,
+     "time": 35,
+     "is_edge": false
+    },
+    "65": {
+     "n": 24,
+     "time": 33,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 49,
+     "time": 49,
+     "is_edge": true
+    },
+    {
+     "column": 50,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 63,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 65,
+     "time": 33,
+     "is_edge": false
+    }
+   ],
+   "t_star": 33,
+   "s_star": 65,
+   "edge_is_common": true
+  },
+  {
+   "T": 34,
+   "a": "10",
+   "L": 63,
+   "death_time_window_end": 97,
+   "capped": false,
+   "survivors": 8,
+   "violated_cells": {
+    "49": {
+     "n": 8,
+     "time": 48,
+     "is_edge": false
+    },
+    "50": {
+     "n": 8,
+     "time": 47,
+     "is_edge": false
+    },
+    "51": {
+     "n": 8,
+     "time": 46,
+     "is_edge": false
+    },
+    "52": {
+     "n": 8,
+     "time": 45,
+     "is_edge": false
+    },
+    "53": {
+     "n": 8,
+     "time": 44,
+     "is_edge": false
+    },
+    "54": {
+     "n": 8,
+     "time": 43,
+     "is_edge": false
+    },
+    "55": {
+     "n": 8,
+     "time": 42,
+     "is_edge": false
+    },
+    "56": {
+     "n": 8,
+     "time": 41,
+     "is_edge": false
+    },
+    "57": {
+     "n": 8,
+     "time": 40,
+     "is_edge": false
+    },
+    "58": {
+     "n": 8,
+     "time": 39,
+     "is_edge": false
+    },
+    "59": {
+     "n": 8,
+     "time": 38,
+     "is_edge": false
+    },
+    "60": {
+     "n": 8,
+     "time": 37,
+     "is_edge": false
+    },
+    "61": {
+     "n": 8,
+     "time": 36,
+     "is_edge": false
+    },
+    "62": {
+     "n": 8,
+     "time": 35,
+     "is_edge": false
+    },
+    "63": {
+     "n": 8,
+     "time": 34,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 49,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 50,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 35,
+     "is_edge": false
+    },
+    {
+     "column": 63,
+     "time": 34,
+     "is_edge": false
+    }
+   ],
+   "t_star": 34,
+   "s_star": 63,
+   "edge_is_common": false
+  },
+  {
+   "T": 35,
+   "a": "10",
+   "L": 63,
+   "death_time_window_end": 98,
+   "capped": false,
+   "survivors": 14,
+   "violated_cells": {
+    "49": {
+     "n": 14,
+     "time": 49,
+     "is_edge": true
+    },
+    "50": {
+     "n": 14,
+     "time": 48,
+     "is_edge": false
+    },
+    "51": {
+     "n": 14,
+     "time": 47,
+     "is_edge": false
+    },
+    "52": {
+     "n": 14,
+     "time": 46,
+     "is_edge": false
+    },
+    "53": {
+     "n": 14,
+     "time": 45,
+     "is_edge": false
+    },
+    "54": {
+     "n": 14,
+     "time": 44,
+     "is_edge": false
+    },
+    "55": {
+     "n": 14,
+     "time": 43,
+     "is_edge": false
+    },
+    "56": {
+     "n": 14,
+     "time": 42,
+     "is_edge": false
+    },
+    "57": {
+     "n": 14,
+     "time": 41,
+     "is_edge": false
+    },
+    "58": {
+     "n": 14,
+     "time": 40,
+     "is_edge": false
+    },
+    "59": {
+     "n": 14,
+     "time": 39,
+     "is_edge": false
+    },
+    "60": {
+     "n": 14,
+     "time": 38,
+     "is_edge": false
+    },
+    "61": {
+     "n": 14,
+     "time": 37,
+     "is_edge": false
+    },
+    "62": {
+     "n": 14,
+     "time": 36,
+     "is_edge": false
+    },
+    "63": {
+     "n": 14,
+     "time": 35,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 49,
+     "time": 49,
+     "is_edge": true
+    },
+    {
+     "column": 50,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 36,
+     "is_edge": false
+    },
+    {
+     "column": 63,
+     "time": 35,
+     "is_edge": false
+    }
+   ],
+   "t_star": 35,
+   "s_star": 63,
+   "edge_is_common": true
+  },
+  {
+   "T": 36,
+   "a": "10",
+   "L": 63,
+   "death_time_window_end": 99,
+   "capped": false,
+   "survivors": 7,
+   "violated_cells": {
+    "50": {
+     "n": 7,
+     "time": 49,
+     "is_edge": false
+    },
+    "51": {
+     "n": 7,
+     "time": 48,
+     "is_edge": false
+    },
+    "52": {
+     "n": 7,
+     "time": 47,
+     "is_edge": false
+    },
+    "53": {
+     "n": 7,
+     "time": 46,
+     "is_edge": false
+    },
+    "54": {
+     "n": 7,
+     "time": 45,
+     "is_edge": false
+    },
+    "55": {
+     "n": 7,
+     "time": 44,
+     "is_edge": false
+    },
+    "56": {
+     "n": 7,
+     "time": 43,
+     "is_edge": false
+    },
+    "57": {
+     "n": 7,
+     "time": 42,
+     "is_edge": false
+    },
+    "58": {
+     "n": 7,
+     "time": 41,
+     "is_edge": false
+    },
+    "59": {
+     "n": 7,
+     "time": 40,
+     "is_edge": false
+    },
+    "60": {
+     "n": 7,
+     "time": 39,
+     "is_edge": false
+    },
+    "61": {
+     "n": 7,
+     "time": 38,
+     "is_edge": false
+    },
+    "62": {
+     "n": 7,
+     "time": 37,
+     "is_edge": false
+    },
+    "63": {
+     "n": 7,
+     "time": 36,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 50,
+     "time": 49,
+     "is_edge": false
+    },
+    {
+     "column": 51,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 37,
+     "is_edge": false
+    },
+    {
+     "column": 63,
+     "time": 36,
+     "is_edge": false
+    }
+   ],
+   "t_star": 36,
+   "s_star": 63,
+   "edge_is_common": false
+  },
+  {
+   "T": 37,
+   "a": "10",
+   "L": 63,
+   "death_time_window_end": 100,
+   "capped": false,
+   "survivors": 5,
+   "violated_cells": {
+    "50": {
+     "n": 5,
+     "time": 50,
+     "is_edge": true
+    },
+    "51": {
+     "n": 5,
+     "time": 49,
+     "is_edge": false
+    },
+    "52": {
+     "n": 5,
+     "time": 48,
+     "is_edge": false
+    },
+    "53": {
+     "n": 5,
+     "time": 47,
+     "is_edge": false
+    },
+    "54": {
+     "n": 5,
+     "time": 46,
+     "is_edge": false
+    },
+    "55": {
+     "n": 5,
+     "time": 45,
+     "is_edge": false
+    },
+    "56": {
+     "n": 5,
+     "time": 44,
+     "is_edge": false
+    },
+    "57": {
+     "n": 5,
+     "time": 43,
+     "is_edge": false
+    },
+    "58": {
+     "n": 5,
+     "time": 42,
+     "is_edge": false
+    },
+    "59": {
+     "n": 5,
+     "time": 41,
+     "is_edge": false
+    },
+    "60": {
+     "n": 5,
+     "time": 40,
+     "is_edge": false
+    },
+    "61": {
+     "n": 5,
+     "time": 39,
+     "is_edge": false
+    },
+    "62": {
+     "n": 5,
+     "time": 38,
+     "is_edge": false
+    },
+    "63": {
+     "n": 5,
+     "time": 37,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 50,
+     "time": 50,
+     "is_edge": true
+    },
+    {
+     "column": 51,
+     "time": 49,
+     "is_edge": false
+    },
+    {
+     "column": 52,
+     "time": 48,
+     "is_edge": false
+    },
+    {
+     "column": 53,
+     "time": 47,
+     "is_edge": false
+    },
+    {
+     "column": 54,
+     "time": 46,
+     "is_edge": false
+    },
+    {
+     "column": 55,
+     "time": 45,
+     "is_edge": false
+    },
+    {
+     "column": 56,
+     "time": 44,
+     "is_edge": false
+    },
+    {
+     "column": 57,
+     "time": 43,
+     "is_edge": false
+    },
+    {
+     "column": 58,
+     "time": 42,
+     "is_edge": false
+    },
+    {
+     "column": 59,
+     "time": 41,
+     "is_edge": false
+    },
+    {
+     "column": 60,
+     "time": 40,
+     "is_edge": false
+    },
+    {
+     "column": 61,
+     "time": 39,
+     "is_edge": false
+    },
+    {
+     "column": 62,
+     "time": 38,
+     "is_edge": false
+    },
+    {
+     "column": 63,
+     "time": 37,
+     "is_edge": false
+    }
+   ],
+   "t_star": 37,
+   "s_star": 63,
+   "edge_is_common": true
+  },
+  {
+   "T": 38,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 103,
+   "capped": false,
+   "survivors": 20,
+   "violated_cells": {
+    "52": {
+     "n": 4,
+     "time": 51,
+     "is_edge": false
+    },
+    "53": {
+     "n": 4,
+     "time": 50,
+     "is_edge": false
+    },
+    "54": {
+     "n": 4,
+     "time": 49,
+     "is_edge": false
+    },
+    "55": {
+     "n": 4,
+     "time": 48,
+     "is_edge": false
+    },
+    "56": {
+     "n": 4,
+     "time": 47,
+     "is_edge": false
+    },
+    "57": {
+     "n": 4,
+     "time": 46,
+     "is_edge": false
+    },
+    "58": {
+     "n": 4,
+     "time": 45,
+     "is_edge": false
+    },
+    "59": {
+     "n": 4,
+     "time": 44,
+     "is_edge": false
+    },
+    "60": {
+     "n": 4,
+     "time": 43,
+     "is_edge": false
+    },
+    "61": {
+     "n": 4,
+     "time": 42,
+     "is_edge": false
+    },
+    "62": {
+     "n": 4,
+     "time": 41,
+     "is_edge": false
+    },
+    "63": {
+     "n": 4,
+     "time": 40,
+     "is_edge": false
+    },
+    "64": {
+     "n": 16,
+     "time": 39,
+     "is_edge": false
+    },
+    "65": {
+     "n": 4,
+     "time": 38,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 39,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 104,
+   "capped": false,
+   "survivors": 7,
+   "violated_cells": {
+    "64": {
+     "n": 7,
+     "time": 40,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [
+    {
+     "column": 64,
+     "time": 40,
+     "is_edge": false
+    }
+   ],
+   "t_star": 40,
+   "s_star": 64,
+   "edge_is_common": false
+  },
+  {
+   "T": 40,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 105,
+   "capped": false,
+   "survivors": 70,
+   "violated_cells": {
+    "53": {
+     "n": 14,
+     "time": 52,
+     "is_edge": false
+    },
+    "54": {
+     "n": 14,
+     "time": 51,
+     "is_edge": false
+    },
+    "55": {
+     "n": 14,
+     "time": 50,
+     "is_edge": false
+    },
+    "56": {
+     "n": 14,
+     "time": 49,
+     "is_edge": false
+    },
+    "57": {
+     "n": 14,
+     "time": 48,
+     "is_edge": false
+    },
+    "58": {
+     "n": 14,
+     "time": 47,
+     "is_edge": false
+    },
+    "59": {
+     "n": 14,
+     "time": 46,
+     "is_edge": false
+    },
+    "60": {
+     "n": 14,
+     "time": 45,
+     "is_edge": false
+    },
+    "61": {
+     "n": 14,
+     "time": 44,
+     "is_edge": false
+    },
+    "62": {
+     "n": 14,
+     "time": 43,
+     "is_edge": false
+    },
+    "63": {
+     "n": 14,
+     "time": 42,
+     "is_edge": false
+    },
+    "64": {
+     "n": 56,
+     "time": 41,
+     "is_edge": false
+    },
+    "65": {
+     "n": 14,
+     "time": 40,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 41,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 106,
+   "capped": false,
+   "survivors": 126,
+   "violated_cells": {
+    "53": {
+     "n": 78,
+     "time": 53,
+     "is_edge": true
+    },
+    "54": {
+     "n": 78,
+     "time": 52,
+     "is_edge": false
+    },
+    "55": {
+     "n": 78,
+     "time": 51,
+     "is_edge": false
+    },
+    "56": {
+     "n": 78,
+     "time": 50,
+     "is_edge": false
+    },
+    "57": {
+     "n": 78,
+     "time": 49,
+     "is_edge": false
+    },
+    "58": {
+     "n": 78,
+     "time": 48,
+     "is_edge": false
+    },
+    "59": {
+     "n": 78,
+     "time": 47,
+     "is_edge": false
+    },
+    "60": {
+     "n": 78,
+     "time": 46,
+     "is_edge": false
+    },
+    "61": {
+     "n": 78,
+     "time": 45,
+     "is_edge": false
+    },
+    "62": {
+     "n": 78,
+     "time": 44,
+     "is_edge": false
+    },
+    "63": {
+     "n": 78,
+     "time": 43,
+     "is_edge": false
+    },
+    "64": {
+     "n": 48,
+     "time": 42,
+     "is_edge": false
+    },
+    "65": {
+     "n": 78,
+     "time": 41,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 42,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 107,
+   "capped": false,
+   "survivors": 171,
+   "violated_cells": {
+    "54": {
+     "n": 85,
+     "time": 53,
+     "is_edge": false
+    },
+    "55": {
+     "n": 85,
+     "time": 52,
+     "is_edge": false
+    },
+    "56": {
+     "n": 85,
+     "time": 51,
+     "is_edge": false
+    },
+    "57": {
+     "n": 85,
+     "time": 50,
+     "is_edge": false
+    },
+    "58": {
+     "n": 85,
+     "time": 49,
+     "is_edge": false
+    },
+    "59": {
+     "n": 85,
+     "time": 48,
+     "is_edge": false
+    },
+    "60": {
+     "n": 85,
+     "time": 47,
+     "is_edge": false
+    },
+    "61": {
+     "n": 85,
+     "time": 46,
+     "is_edge": false
+    },
+    "62": {
+     "n": 85,
+     "time": 45,
+     "is_edge": false
+    },
+    "63": {
+     "n": 85,
+     "time": 44,
+     "is_edge": false
+    },
+    "64": {
+     "n": 86,
+     "time": 43,
+     "is_edge": false
+    },
+    "65": {
+     "n": 85,
+     "time": 42,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 43,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 108,
+   "capped": false,
+   "survivors": 719,
+   "violated_cells": {
+    "54": {
+     "n": 249,
+     "time": 54,
+     "is_edge": true
+    },
+    "55": {
+     "n": 249,
+     "time": 53,
+     "is_edge": false
+    },
+    "56": {
+     "n": 249,
+     "time": 52,
+     "is_edge": false
+    },
+    "57": {
+     "n": 249,
+     "time": 51,
+     "is_edge": false
+    },
+    "58": {
+     "n": 249,
+     "time": 50,
+     "is_edge": false
+    },
+    "59": {
+     "n": 249,
+     "time": 49,
+     "is_edge": false
+    },
+    "60": {
+     "n": 249,
+     "time": 48,
+     "is_edge": false
+    },
+    "61": {
+     "n": 249,
+     "time": 47,
+     "is_edge": false
+    },
+    "62": {
+     "n": 249,
+     "time": 46,
+     "is_edge": false
+    },
+    "63": {
+     "n": 249,
+     "time": 45,
+     "is_edge": false
+    },
+    "64": {
+     "n": 470,
+     "time": 44,
+     "is_edge": false
+    },
+    "65": {
+     "n": 249,
+     "time": 43,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 44,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 109,
+   "capped": false,
+   "survivors": 1106,
+   "violated_cells": {
+    "55": {
+     "n": 458,
+     "time": 54,
+     "is_edge": false
+    },
+    "56": {
+     "n": 458,
+     "time": 53,
+     "is_edge": false
+    },
+    "57": {
+     "n": 458,
+     "time": 52,
+     "is_edge": false
+    },
+    "58": {
+     "n": 458,
+     "time": 51,
+     "is_edge": false
+    },
+    "59": {
+     "n": 458,
+     "time": 50,
+     "is_edge": false
+    },
+    "60": {
+     "n": 458,
+     "time": 49,
+     "is_edge": false
+    },
+    "61": {
+     "n": 458,
+     "time": 48,
+     "is_edge": false
+    },
+    "62": {
+     "n": 458,
+     "time": 47,
+     "is_edge": false
+    },
+    "63": {
+     "n": 458,
+     "time": 46,
+     "is_edge": false
+    },
+    "64": {
+     "n": 648,
+     "time": 45,
+     "is_edge": false
+    },
+    "65": {
+     "n": 458,
+     "time": 44,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 45,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 110,
+   "capped": false,
+   "survivors": 1928,
+   "violated_cells": {
+    "55": {
+     "n": 1036,
+     "time": 55,
+     "is_edge": true
+    },
+    "56": {
+     "n": 1036,
+     "time": 54,
+     "is_edge": false
+    },
+    "57": {
+     "n": 1036,
+     "time": 53,
+     "is_edge": false
+    },
+    "58": {
+     "n": 1036,
+     "time": 52,
+     "is_edge": false
+    },
+    "59": {
+     "n": 1036,
+     "time": 51,
+     "is_edge": false
+    },
+    "60": {
+     "n": 1036,
+     "time": 50,
+     "is_edge": false
+    },
+    "61": {
+     "n": 1036,
+     "time": 49,
+     "is_edge": false
+    },
+    "62": {
+     "n": 1036,
+     "time": 48,
+     "is_edge": false
+    },
+    "63": {
+     "n": 1036,
+     "time": 47,
+     "is_edge": false
+    },
+    "64": {
+     "n": 892,
+     "time": 46,
+     "is_edge": false
+    },
+    "65": {
+     "n": 1036,
+     "time": 45,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  },
+  {
+   "T": 46,
+   "a": "10",
+   "L": 65,
+   "death_time_window_end": 111,
+   "capped": false,
+   "survivors": 4240,
+   "violated_cells": {
+    "56": {
+     "n": 2121,
+     "time": 55,
+     "is_edge": false
+    },
+    "57": {
+     "n": 2121,
+     "time": 54,
+     "is_edge": false
+    },
+    "58": {
+     "n": 2121,
+     "time": 53,
+     "is_edge": false
+    },
+    "59": {
+     "n": 2121,
+     "time": 52,
+     "is_edge": false
+    },
+    "60": {
+     "n": 2121,
+     "time": 51,
+     "is_edge": false
+    },
+    "61": {
+     "n": 2121,
+     "time": 50,
+     "is_edge": false
+    },
+    "62": {
+     "n": 2121,
+     "time": 49,
+     "is_edge": false
+    },
+    "63": {
+     "n": 2121,
+     "time": 48,
+     "is_edge": false
+    },
+    "64": {
+     "n": 2119,
+     "time": 47,
+     "is_edge": false
+    },
+    "65": {
+     "n": 2121,
+     "time": 46,
+     "is_edge": false
+    }
+   },
+   "common_killing_cells": [],
+   "t_star": null,
+   "s_star": null,
+   "edge_is_common": false
+  }
+ ]
+}

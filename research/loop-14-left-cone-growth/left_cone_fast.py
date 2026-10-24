@@ -49,7 +49,7 @@ def bit_mask(lo: int, hi: int, W: int) -> np.ndarray:
     return m
 
 
-def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22, death: dict | None = None):
+def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22, death: dict | None = None, track: dict | None = None):
     """Live-set sizes per window length L=1..Lmax. Returns (counts, first_zero_L, capped)."""
     assert T >= 2
     p = len(a)
@@ -59,6 +59,7 @@ def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22, death: dict | None = N
     Dm2 = np.zeros((1, W), dtype=U64)     # D_{-2}: bit 0 = c'(T-1), never used for s>=2 at m=0? (D_{m-2}[0] at m=0 -> s=2 > m+1, masked)
     Dm1[:, 0] = U64(c(T))
     out = []
+    R = np.zeros((1, W), dtype=U64)          # r' bits of each live window, bit m = r'(T+m) (keep only)
     for m in range(Lmax):
         N = Dm1.shape[0]
         c0, c1 = c(T + m), c(T + m + 1)
@@ -68,6 +69,9 @@ def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22, death: dict | None = N
             Dm2 = np.repeat(Dm2, 2, axis=0)
             r = np.tile(np.array([0, 1], dtype=U64), N)
             b1 = U64(c1) ^ (U64(c0) | r)
+            if track is not None:
+                R = np.repeat(R, 2, axis=0)
+                R[:, m >> 6] |= r << U64(m & 63)
         else:
             b1 = np.full(N, c1 ^ 1, dtype=U64)
         G = shl(Dm1, 1) | shl(Dm2, 2)
@@ -103,7 +107,12 @@ def counts(T: int, a: str, Lmax: int, cap: int = 1 << 22, death: dict | None = N
                           'fail_time_offset_min': min(T + m - s + 1 for s in hist) - T,
                           'fail_time_offset_max': max(T + m - s + 1 for s in hist) - T,
                           'edge_cell_column': e, 'windows_failing_edge_cell': hist.get(e, 0) if e else 0})
+        if track is not None and not ok.any():
+            track['live_r_bits'] = R.copy()          # the windows that die at this step
+            track['death_step'] = m
         Dm2, Dm1 = Dm1[ok], D[ok]
+        if track is not None:
+            R = R[ok]
         out.append(int(Dm1.shape[0]))
         if Dm1.shape[0] == 0:
             return out + [0] * (Lmax - m - 1), m + 1, False
