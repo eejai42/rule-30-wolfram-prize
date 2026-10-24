@@ -1,9 +1,33 @@
-Assertions: AssertionId, Name, Statement, ReportedStatus, ProofSection, Kind, IntroducedInLoop, StatusGroup, PremiseCount, DependentCount, EvidenceCount, RevisionCount, IsUsable, IsProofEligible, DescendantCount
+Assertions: AssertionId, Name, Statement, ReportedStatus, ProofSection, Kind, IntroducedInLoop, StatusGroup, PremiseCount, DependentCount, EvidenceCount, RevisionCount, IsUsable, IsProofEligible, DescendantCount, Predicate, PredicateVerdict, PredicateIsFinitelyDecidable
 Dependencies: DependencyId, Name, Conclusion, Premise
 Prerequisites: PrerequisiteId, Name, ConclusionKey, Premise, PremiseUsable, PremiseProofEligible, Blocked, ProofBlocked, IsSelf, IsBlockingAncestor
 Assessments: AssessmentId, Name, Assertion, ReportedStatus, Statement, Kind, StatusGroup, SelfUsable, BlockedCount, ProofBlockedCount, CurrentStatus, ProofEligible, SupportCount, EvidenceGap, AncestorBlockedCount, IsAtRisk, AncestorCount, ProjectKey
-Evidence: EvidenceId, Name, Path, Sha256
+Evidence: EvidenceId, Name, Path, Sha256, ClaimCount, ClaimMismatchCount
 Revisions: RevisionId, Name, Assertion, PriorStatus, NewStatus, Reason, Replacement, Loop
 Loops: LoopId, Name, Kind, State, BuildReceipt, InputHash, OutputHash, Sequence, StartedAt, FinishedAt, ClaimsAdded, RevisionsMade, FalsificationsMade, ProofsMade, ProjectKey, Hypothesis, Summary
-Dashboards: DashboardId, Name, ClaimCount, BlockedCount, CompletedNativeLoops, EvidenceGapCount, ProvedCount, CheckedCount, FalsifiedCount, OpenCount, AtRiskCount, OpenPrizeProblemCount, RunningLoopCount, LegacyLoopCount
+Dashboards: DashboardId, Name, ClaimCount, BlockedCount, CompletedNativeLoops, EvidenceGapCount, ProvedCount, CheckedCount, FalsifiedCount, OpenCount, AtRiskCount, OpenPrizeProblemCount, RunningLoopCount, LegacyLoopCount, ConformanceMismatchCount, PredicatesFailingAnInstance
 EvidenceLinks: EvidenceLinkId, Name, Evidence, Assertion, EvidencePath
+CellStates: CellStateId, Name, StateValue
+Rules: RuleId, Name, RuleNumber, TableNumber, BlackOutputCount, IsBalanced, ZeroNeighborhoodOutput, IsQuiescent, MirrorRuleNumber, ComplementRuleNumber, IsMirrorSymmetric, PolynomialMismatchCount, IsRule30Polynomial, LeftInsensitiveCount, IsLeftPermutive, RightInsensitiveCount, IsRightPermutive, RunCount
+Neighborhoods: NeighborhoodId, Name, LeftState, CenterState, RightState, NeighborhoodIndex, MirrorIndex, ComplementIndex, PolynomialValue, EntryCount
+RuleTableEntries: RuleTableEntryId, Name, Rule, Neighborhood, LeftPartner, RightPartner, RuleNumber, NeighborhoodIndex, MirrorIndex, ComplementIndex, PolynomialValue, OutputValue, Weight, MirrorWeight, ComplementWeight, MatchesPolynomial, LeftPartnerOutput, IsLeftSensitive, RightPartnerOutput, IsRightSensitive, UseCount
+InitialConditions: InitialConditionId, Name, Background, BackgroundValue, SeedCellCount, BlackSeedCount, OriginSeedCount, IsSingleSeed
+SeedCells: SeedCellId, Name, InitialCondition, Position, State, StateValue
+Runs: RunId, Name, Rule, InitialCondition, Depth, RuleNumber, IsQuiescent, BackgroundValue, IsSingleSeed, IsLightConeExact, CellCount, BlackCellCount, LineCount, TotalCellUpdates, CenterLength, CenterOnes, CenterDensity, CenterDiscrepancy, MaxAbsCenterDiscrepancy, LongestCenterRun, CenterRunBoundViolations
+TimeSteps: TimeStepId, Name, Run, Time, PreviousStep, Depth, Width, CellCount, BlackCount, LineDensity, CenterValue, CellUpdates, PreviousCumulativeCellUpdates, CumulativeCellUpdates
+Columns: ColumnId, Name, Run, Position, Depth, IsCenter, FirstTime, CellCount, BlackCount, Density
+Cells: CellId, Name, Run, TimeStep, Column, SeedCell, Time, Position, LeftParent, CenterParent, RightParent, RuleNumber, RunRule, BackgroundValue, SeedValue, LeftValue, CenterValue, RightValue, Neighborhood, TransitionKey, Value, StateKey, IsCenter, IsColumnStart, RightOffset, LeftOffset, PriorColumnOnes, ColumnOnes, PrefixLength, ColumnDensity, Discrepancy, AbsDiscrepancy, DensityDeviation, PriorRunStart, RunStart, RunLength, RunBound, ViolatesRunBound, RunBoundHolds, ClaimCount
+Periods: PeriodId, Name, Length, TestCount
+PeriodTests: PeriodTestId, Name, Column, Period, PeriodLength, Depth, ComparisonCount, MismatchCount, LastMismatchTime, LongestAgreementStreak, FirstSurvivingOnset, FinalAgreementLength, OnsetBound, BoundedRefutationHolds
+PeriodComparisons: PeriodComparisonId, Name, PeriodTest, Time, EarlierCell, LaterCell, PreviousComparison, EarlierValue, LaterValue, IsMismatch, PriorAgreementStreak, AgreementStreak
+Tolerances: ToleranceId, Name, Epsilon, ExcursionCount, LastExcursionTime, HorizonTime, SettledAtHorizon
+ToleranceChecks: ToleranceCheckId, Name, Tolerance, Cell, Epsilon, Time, DensityDeviation, IsExcursion
+ColorCounts: ColorCountId, Name, Column, CellState, Depth, ConeCount, ColumnFirstTime, OccurrenceCount, Share, ShareDeviation
+MachineModels: MachineModelId, Name, StepMeaning, InputEncoding, AlgorithmCount
+Algorithms: AlgorithmId, Name, MachineModel, EffortRule, StoresAnswer, IsAdmissible, ComputationCount, WrongOutputCount, RatioAtHorizon, RatioAtHalfHorizon, IsRatioGrowing, EffortHolds
+Computations: ComputationId, Name, Algorithm, TimeStep, EffortRule, TargetIndex, Depth, CenterValue, ConeUpdates, OutputValue, IsCorrect, Effort, EffortRatio, IsHorizon, IsHalfHorizon
+Variables: VariableId, Name, Symbol, Meaning, DomainTable, IsUnboundedInProblem, QuantifierCount
+Predicates: PredicateId, Name, Problem, InstanceKind, Formal, Statement, InstanceMeaning, QuantifierCount, UnboundedQuantifierCount, IsFinitelyDecidable, InstanceCount, HoldingCount, FailingCount, FiniteVerdict, AssertionCount
+Quantifiers: QuantifierId, Name, Predicate, Position, Binder, Variable, Condition, Symbol, DomainTable, IsUnbounded
+PredicateInstances: PredicateInstanceId, Name, Predicate, InstanceKind, RuleTableEntry, Run, PeriodTest, Cell, Tolerance, Algorithm, EntryHolds, RunHolds, PeriodTestHolds, PeriodTestWitness, CellHolds, ToleranceHolds, ToleranceWitness, AlgorithmHolds, Holds
+AcceleratorClaims: AcceleratorClaimId, Name, Cell, Source, ClaimedValue, ModelValue, IsMatch

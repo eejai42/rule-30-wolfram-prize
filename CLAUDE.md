@@ -4,11 +4,19 @@ This is an Effortless Rulebook (ERB) project. All development follows the effort
 
 ## What this repo is
 
-A research ledger for the Wolfram Rule 30 prize problems. The rulebook holds
-assertions (definitions, theorems, finite verifications, hypotheses), their
-dependency DAG, evidence files with hashes, revisions, and the research loops
-themselves. `effortless build` recomputes every derived status, so the
-reasoning is kept straight by the build, not by hand.
+The Wolfram Rule 30 prize problems, modeled in one rulebook with two halves:
+
+- **The domain model**: Rule 30 itself, built like `effortless-rulebooks/rulebook-examples/simpsons-paradox`.
+  Rules, neighborhoods and rule tables; the single seed; a run with its time steps, columns and
+  every cell of the light cone to depth 64; Problem 1's period tests and comparisons; Problem 2's
+  prefix densities, tolerances and color counts; Problem 3's machine models, algorithms and
+  computations; and the predicates themselves (formal statement, quantifiers, variables, bounded
+  instances). Only structure and inputs are data; every cell value, witness and verdict is a
+  formula. Map: `bootstrap/rule30-model/schema.md` (Shadle artifacts in the same folder).
+- **The ledger**: assertions (definitions, theorems, finite verifications, hypotheses), their
+  dependency DAG, evidence files with hashes, revisions, and the research loops. `effortless
+  build` recomputes every derived status. `Assertions.Predicate` links a claim to the modeled
+  predicate it is about, and `PredicateVerdict` shows what the model computes for it.
 
 **No prize conjecture is proved here.** See `bootstrap/cmcc_rule30_effortless_migration/research_v05/REPORT.md` for the partial results this ledger started from.
 
@@ -18,6 +26,7 @@ reasoning is kept straight by the build, not by hand.
 3. **Edit the hub with `research/loop_tools.py`**, not by hand. It keeps the Prerequisites closure consistent with Dependencies and keeps Single Line Leaves formatting.
 4. **Always run `effortless build`** after any change to the rulebook. `compile-rulebook` recomputes every calculated, lookup and aggregation field in place; `minimize-rulebook` regenerates the derived ladder.
 5. **Never reimplement the status logic** (IsUsable, Blocked, CurrentStatus, ProofEligible, EvidenceGap) in scripts. Read the compiled values.
+5a. **The domain model tables are owned by `research/hub/build_model.py`.** It replaces them on every run, so change the model there (not with a one-off edit), then `effortless build`, then `python3 research/hub/check_model.py`, which compares the built values with the independent oracle in `bootstrap/rule30-model/mock-data/`. A claim about Rule 30 belongs in the model as rows and formulas the build decides; Python may only accelerate, and its values enter as `AcceleratorClaims` the model checks.
 6. **Ask permission** before changing the assertion statuses of existing claims outside a loop.
 7. **A failed compile-rulebook run can look like a no-op.** The CLI does not print a remote tool's error, so check that computed values actually changed (or rerun with `-debug`). Field names that are Python keywords or single letters like `R` make it fail. See `docs/toolchain-gaps.md`.
 

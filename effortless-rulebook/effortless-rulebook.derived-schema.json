@@ -116,6 +116,30 @@
         "nullable": true,
         "Description": "Claims that rest on this one, directly or transitively.",
         "formula": "=COUNTIFS(Prerequisites!{{Premise}},{{AssertionId}},Prerequisites!{{IsSelf}},0)"
+      },
+      {
+        "name": "Predicate",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The modeled predicate this claim is about, if any.",
+        "RelatedTo": "Predicates"
+      },
+      {
+        "name": "PredicateVerdict",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The model's verdict on the predicate's bounded instances.",
+        "formula": "=INDEX(Predicates!{{FiniteVerdict}},MATCH({{Predicate}},Predicates!{{PredicateId}},0))"
+      },
+      {
+        "name": "PredicateIsFinitelyDecidable",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the model can decide the full statement.",
+        "formula": "=INDEX(Predicates!{{IsFinitelyDecidable}},MATCH({{Predicate}},Predicates!{{PredicateId}},0))"
       }
     ]
   },
@@ -418,6 +442,22 @@
         "type": "raw",
         "nullable": false,
         "Description": "Sha256"
+      },
+      {
+        "name": "ClaimCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Cell values this evidence file claims.",
+        "formula": "=COUNTIFS(AcceleratorClaims!{{Source}},{{EvidenceId}})"
+      },
+      {
+        "name": "ClaimMismatchCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claimed values the model computes differently. Must be 0.",
+        "formula": "=COUNTIFS(AcceleratorClaims!{{Source}},{{EvidenceId}},AcceleratorClaims!{{IsMatch}},0)"
       }
     ]
   },
@@ -729,6 +769,22 @@
         "nullable": true,
         "Description": "Research cycles from v05, before native builds.",
         "formula": "=COUNTIFS(Loops!{{ProjectKey}},{{DashboardId}},Loops!{{Kind}},\"LEGACY_RESEARCH\")"
+      },
+      {
+        "name": "ConformanceMismatchCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Optimizer claims the model disagrees with. Must be 0.",
+        "formula": "=COUNTIFS(AcceleratorClaims!{{IsMatch}},0)"
+      },
+      {
+        "name": "PredicatesFailingAnInstance",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Predicates with at least one failing bounded instance.",
+        "formula": "=COUNTIFS(Predicates!{{IsFinitelyDecidable}},0,Predicates!{{FailingCount}},\">0\")"
       }
     ]
   },
@@ -773,6 +829,2439 @@
         "nullable": true,
         "Description": "Repo-relative path of the evidence file.",
         "formula": "=INDEX(Evidence!{{Path}},MATCH({{Evidence}},Evidence!{{EvidenceId}},0))"
+      }
+    ]
+  },
+  "CellStates": {
+    "Description": "The two states a cell can hold, with their colors. Problem 2 asks whether each occurs equally often.",
+    "schema": [
+      {
+        "name": "CellStateId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The color: white or black."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{CellStateId}}"
+      },
+      {
+        "name": "StateValue",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The numeric value: white 0, black 1."
+      }
+    ]
+  },
+  "Rules": {
+    "Description": "Elementary cellular-automaton rules, as data. Rule 30 and the rest of its equivalence class (mirror 86, complement 135, both 149); each rule's table, symmetries and permutivity are computed from its RuleTableEntries.",
+    "schema": [
+      {
+        "name": "RuleId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "rule-<number>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{RuleId}}"
+      },
+      {
+        "name": "RuleNumber",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Wolfram rule number 0..255: the output for neighborhood n is bit n."
+      },
+      {
+        "name": "TableNumber",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "The rule number read back from the 8 computed transitions; equals RuleNumber when the table is consistent.",
+        "formula": "=SUMIFS(RuleTableEntries!{{Weight}},RuleTableEntries!{{Rule}},{{RuleId}})"
+      },
+      {
+        "name": "BlackOutputCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "How many of the 8 neighborhoods output black.",
+        "formula": "=SUMIFS(RuleTableEntries!{{OutputValue}},RuleTableEntries!{{Rule}},{{RuleId}})"
+      },
+      {
+        "name": "IsBalanced",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when exactly half the neighborhoods output black (a precondition for density 1/2 heuristics).",
+        "formula": "=IF({{BlackOutputCount}}=4,1,0)"
+      },
+      {
+        "name": "ZeroNeighborhoodOutput",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Output for the all-white neighborhood 000.",
+        "formula": "=SUMIFS(RuleTableEntries!{{OutputValue}},RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{NeighborhoodIndex}},0)"
+      },
+      {
+        "name": "IsQuiescent",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when 000 stays white, so a white background stays white and the light cone is exact.",
+        "formula": "=IF({{ZeroNeighborhoodOutput}}=0,1,0)"
+      },
+      {
+        "name": "MirrorRuleNumber",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "The rule with left and right swapped (30 -> 86).",
+        "formula": "=SUMIFS(RuleTableEntries!{{MirrorWeight}},RuleTableEntries!{{Rule}},{{RuleId}})"
+      },
+      {
+        "name": "ComplementRuleNumber",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "The rule with black and white swapped in inputs and output (30 -> 135).",
+        "formula": "=SUMIFS(RuleTableEntries!{{ComplementWeight}},RuleTableEntries!{{Rule}},{{RuleId}})"
+      },
+      {
+        "name": "IsMirrorSymmetric",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the rule is its own mirror.",
+        "formula": "=IF({{MirrorRuleNumber}}={{RuleNumber}},1,0)"
+      },
+      {
+        "name": "PolynomialMismatchCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Neighborhoods where the rule differs from Mod[p + q + r + q r, 2].",
+        "formula": "=COUNTIFS(RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{MatchesPolynomial}},0)"
+      },
+      {
+        "name": "IsRule30Polynomial",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the rule is exactly Wolfram's polynomial form of Rule 30.",
+        "formula": "=IF({{PolynomialMismatchCount}}=0,1,0)"
+      },
+      {
+        "name": "LeftInsensitiveCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Neighborhoods where flipping the left cell does not flip the output.",
+        "formula": "=COUNTIFS(RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{IsLeftSensitive}},0)"
+      },
+      {
+        "name": "IsLeftPermutive",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when flipping the left neighbor always flips the output (Rule 30: new = left XOR f(center, right)).",
+        "formula": "=IF({{LeftInsensitiveCount}}=0,1,0)"
+      },
+      {
+        "name": "RightInsensitiveCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Neighborhoods where flipping the right cell does not flip the output.",
+        "formula": "=COUNTIFS(RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{IsRightSensitive}},0)"
+      },
+      {
+        "name": "IsRightPermutive",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when flipping the right neighbor always flips the output.",
+        "formula": "=IF({{RightInsensitiveCount}}=0,1,0)"
+      },
+      {
+        "name": "RunCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Runs evolving under this rule.",
+        "formula": "=COUNTIFS(Runs!{{Rule}},{{RuleId}})"
+      }
+    ]
+  },
+  "Neighborhoods": {
+    "Description": "The 8 neighborhoods a new cell is computed from: the cell and its immediate neighbors (left, center, right). Index = left*4 + center*2 + right selects the bit of the rule number.",
+    "schema": [
+      {
+        "name": "NeighborhoodId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "n<left><center><right>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{NeighborhoodId}}"
+      },
+      {
+        "name": "LeftState",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The left neighbor (p)."
+      },
+      {
+        "name": "CenterState",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The cell itself (q)."
+      },
+      {
+        "name": "RightState",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The right neighbor (r)."
+      },
+      {
+        "name": "NeighborhoodIndex",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "left*4 + center*2 + right.",
+        "formula": "=4*{{LeftState}}+2*{{CenterState}}+{{RightState}}"
+      },
+      {
+        "name": "MirrorIndex",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Index of the left-right reflected neighborhood.",
+        "formula": "=4*{{RightState}}+2*{{CenterState}}+{{LeftState}}"
+      },
+      {
+        "name": "ComplementIndex",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Index of the color-swapped neighborhood.",
+        "formula": "=7-{{NeighborhoodIndex}}"
+      },
+      {
+        "name": "PolynomialValue",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Wolfram's Rule 30 polynomial Mod[p + q + r + q r, 2] at this neighborhood.",
+        "formula": "=MOD({{LeftState}}+{{CenterState}}+{{RightState}}+{{CenterState}}*{{RightState}},2)"
+      },
+      {
+        "name": "EntryCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Rule tables that list this neighborhood.",
+        "formula": "=COUNTIFS(RuleTableEntries!{{Neighborhood}},{{NeighborhoodId}})"
+      }
+    ]
+  },
+  "RuleTableEntries": {
+    "Description": "One transition of one rule: neighborhood -> output value. The rule table is computed from the rule number; symmetries and permutivity are read off the table.",
+    "schema": [
+      {
+        "name": "RuleTableEntryId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<rule>-n<pattern>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{RuleTableEntryId}}"
+      },
+      {
+        "name": "Rule",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The rule this transition belongs to.",
+        "RelatedTo": "Rules"
+      },
+      {
+        "name": "Neighborhood",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The input neighborhood.",
+        "RelatedTo": "Neighborhoods"
+      },
+      {
+        "name": "LeftPartner",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The same rule at this neighborhood with the left cell flipped.",
+        "RelatedTo": "RuleTableEntries"
+      },
+      {
+        "name": "RightPartner",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The same rule at this neighborhood with the right cell flipped.",
+        "RelatedTo": "RuleTableEntries"
+      },
+      {
+        "name": "RuleNumber",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The rule number.",
+        "formula": "=INDEX(Rules!{{RuleNumber}},MATCH({{Rule}},Rules!{{RuleId}},0))"
+      },
+      {
+        "name": "NeighborhoodIndex",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Which bit of the rule number this is.",
+        "formula": "=INDEX(Neighborhoods!{{NeighborhoodIndex}},MATCH({{Neighborhood}},Neighborhoods!{{NeighborhoodId}},0))"
+      },
+      {
+        "name": "MirrorIndex",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Index of the mirrored neighborhood.",
+        "formula": "=INDEX(Neighborhoods!{{MirrorIndex}},MATCH({{Neighborhood}},Neighborhoods!{{NeighborhoodId}},0))"
+      },
+      {
+        "name": "ComplementIndex",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Index of the complemented neighborhood.",
+        "formula": "=INDEX(Neighborhoods!{{ComplementIndex}},MATCH({{Neighborhood}},Neighborhoods!{{NeighborhoodId}},0))"
+      },
+      {
+        "name": "PolynomialValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The Rule 30 polynomial at this neighborhood.",
+        "formula": "=INDEX(Neighborhoods!{{PolynomialValue}},MATCH({{Neighborhood}},Neighborhoods!{{NeighborhoodId}},0))"
+      },
+      {
+        "name": "OutputValue",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The new cell state: bit NeighborhoodIndex of the rule number.",
+        "formula": "=MOD(INT({{RuleNumber}}/POWER(2,{{NeighborhoodIndex}})),2)"
+      },
+      {
+        "name": "Weight",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "This transition's contribution to the rule number.",
+        "formula": "={{OutputValue}}*POWER(2,{{NeighborhoodIndex}})"
+      },
+      {
+        "name": "MirrorWeight",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "This transition's contribution to the mirror rule's number.",
+        "formula": "={{OutputValue}}*POWER(2,{{MirrorIndex}})"
+      },
+      {
+        "name": "ComplementWeight",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "This transition's contribution to the complement rule's number.",
+        "formula": "=(1-{{OutputValue}})*POWER(2,{{ComplementIndex}})"
+      },
+      {
+        "name": "MatchesPolynomial",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the output equals Mod[p + q + r + q r, 2].",
+        "formula": "=IF({{OutputValue}}={{PolynomialValue}},1,0)"
+      },
+      {
+        "name": "LeftPartnerOutput",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Output with the left cell flipped.",
+        "formula": "=INDEX(RuleTableEntries!{{OutputValue}},MATCH({{LeftPartner}},RuleTableEntries!{{RuleTableEntryId}},0))"
+      },
+      {
+        "name": "IsLeftSensitive",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when flipping the left cell flips the output here.",
+        "formula": "=IF({{OutputValue}}<>{{LeftPartnerOutput}},1,0)"
+      },
+      {
+        "name": "RightPartnerOutput",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Output with the right cell flipped.",
+        "formula": "=INDEX(RuleTableEntries!{{OutputValue}},MATCH({{RightPartner}},RuleTableEntries!{{RuleTableEntryId}},0))"
+      },
+      {
+        "name": "IsRightSensitive",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when flipping the right cell flips the output here.",
+        "formula": "=IF({{OutputValue}}<>{{RightPartnerOutput}},1,0)"
+      },
+      {
+        "name": "UseCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "How many cells of the runs were produced by this transition.",
+        "formula": "=COUNTIFS(Cells!{{TransitionKey}},{{RuleTableEntryId}})"
+      }
+    ]
+  },
+  "InitialConditions": {
+    "Description": "The states of all cells at time 0: a background color plus the listed seed cells.",
+    "schema": [
+      {
+        "name": "InitialConditionId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Name of the initial condition."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{InitialConditionId}}"
+      },
+      {
+        "name": "Background",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The state of every cell not listed as a seed cell.",
+        "RelatedTo": "CellStates"
+      },
+      {
+        "name": "BackgroundValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Numeric background state.",
+        "formula": "=INDEX(CellStates!{{StateValue}},MATCH({{Background}},CellStates!{{CellStateId}},0))"
+      },
+      {
+        "name": "SeedCellCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Explicitly listed cells.",
+        "formula": "=COUNTIFS(SeedCells!{{InitialCondition}},{{InitialConditionId}})"
+      },
+      {
+        "name": "BlackSeedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Listed cells that are black.",
+        "formula": "=SUMIFS(SeedCells!{{StateValue}},SeedCells!{{InitialCondition}},{{InitialConditionId}})"
+      },
+      {
+        "name": "OriginSeedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Listed cells at position 0.",
+        "formula": "=COUNTIFS(SeedCells!{{InitialCondition}},{{InitialConditionId}},SeedCells!{{Position}},0)"
+      },
+      {
+        "name": "IsSingleSeed",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for the prize problems' initial condition: one nonzero cell (black) at position 0 on white.",
+        "formula": "=IF(AND({{BackgroundValue}}=0,{{SeedCellCount}}=1,{{BlackSeedCount}}=1,{{OriginSeedCount}}=1),1,0)"
+      }
+    ]
+  },
+  "SeedCells": {
+    "Description": "A cell of an initial condition that differs from (or is stated beside) the background.",
+    "schema": [
+      {
+        "name": "SeedCellId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<initial condition>-p<position>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{SeedCellId}}"
+      },
+      {
+        "name": "InitialCondition",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The initial condition this cell belongs to.",
+        "RelatedTo": "InitialConditions"
+      },
+      {
+        "name": "Position",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Position i of the seed cell."
+      },
+      {
+        "name": "State",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Its state.",
+        "RelatedTo": "CellStates"
+      },
+      {
+        "name": "StateValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Numeric state.",
+        "formula": "=INDEX(CellStates!{{StateValue}},MATCH({{State}},CellStates!{{CellStateId}},0))"
+      }
+    ]
+  },
+  "Runs": {
+    "Description": "One evolution: a rule applied to an initial condition up to a depth. The prize problems are about the run of Rule 30 from the single seed.",
+    "schema": [
+      {
+        "name": "RunId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Name of the run."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{RunId}}"
+      },
+      {
+        "name": "Rule",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The rule applied at every time step.",
+        "RelatedTo": "Rules"
+      },
+      {
+        "name": "InitialCondition",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The states at time 0.",
+        "RelatedTo": "InitialConditions"
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The last time step computed: the horizon."
+      },
+      {
+        "name": "RuleNumber",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The rule number.",
+        "formula": "=INDEX(Rules!{{RuleNumber}},MATCH({{Rule}},Rules!{{RuleId}},0))"
+      },
+      {
+        "name": "IsQuiescent",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when 000 -> white.",
+        "formula": "=INDEX(Rules!{{IsQuiescent}},MATCH({{Rule}},Rules!{{RuleId}},0))"
+      },
+      {
+        "name": "BackgroundValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The background state.",
+        "formula": "=INDEX(InitialConditions!{{BackgroundValue}},MATCH({{InitialCondition}},InitialConditions!{{InitialConditionId}},0))"
+      },
+      {
+        "name": "IsSingleSeed",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 for the single seed.",
+        "formula": "=INDEX(InitialConditions!{{IsSingleSeed}},MATCH({{InitialCondition}},InitialConditions!{{InitialConditionId}},0))"
+      },
+      {
+        "name": "IsLightConeExact",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when every cell outside |i| <= t is white, so computing only the cone is exact.",
+        "formula": "=IF(AND({{IsQuiescent}}=1,{{BackgroundValue}}=0,{{IsSingleSeed}}=1),1,0)"
+      },
+      {
+        "name": "CellCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Cells computed (the light cone).",
+        "formula": "=COUNTIFS(Cells!{{Run}},{{RunId}})"
+      },
+      {
+        "name": "BlackCellCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black cells in the cone.",
+        "formula": "=SUMIFS(Cells!{{Value}},Cells!{{Run}},{{RunId}})"
+      },
+      {
+        "name": "LineCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Time steps computed.",
+        "formula": "=COUNTIFS(TimeSteps!{{Run}},{{RunId}})"
+      },
+      {
+        "name": "TotalCellUpdates",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Cell updates needed to reach the depth.",
+        "formula": "=MAXIFS(TimeSteps!{{CumulativeCellUpdates}},TimeSteps!{{Run}},{{RunId}})"
+      },
+      {
+        "name": "CenterLength",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Terms of the center column computed: c(0) .. c(Depth).",
+        "formula": "=COUNTIFS(Cells!{{Run}},{{RunId}},Cells!{{IsCenter}},1)"
+      },
+      {
+        "name": "CenterOnes",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black terms in the center column.",
+        "formula": "=SUMIFS(Cells!{{Value}},Cells!{{Run}},{{RunId}},Cells!{{IsCenter}},1)"
+      },
+      {
+        "name": "CenterDensity",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Share of black in the computed center column.",
+        "formula": "={{CenterOnes}}/{{CenterLength}}"
+      },
+      {
+        "name": "CenterDiscrepancy",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Ones minus zeros in the computed center column.",
+        "formula": "=2*{{CenterOnes}}-{{CenterLength}}"
+      },
+      {
+        "name": "MaxAbsCenterDiscrepancy",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Largest |ones - zeros| over all center prefixes.",
+        "formula": "=MAXIFS(Cells!{{AbsDiscrepancy}},Cells!{{Run}},{{RunId}},Cells!{{IsCenter}},1)"
+      },
+      {
+        "name": "LongestCenterRun",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Longest constant run in the center column.",
+        "formula": "=MAXIFS(Cells!{{RunLength}},Cells!{{Run}},{{RunId}},Cells!{{IsCenter}},1)"
+      },
+      {
+        "name": "CenterRunBoundViolations",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Center cells past the Theorem D bound for their run. Must be 0.",
+        "formula": "=SUMIFS(Cells!{{ViolatesRunBound}},Cells!{{Run}},{{RunId}})"
+      }
+    ]
+  },
+  "TimeSteps": {
+    "Description": "One line of a run: time step t. Width, black count and the center term are aggregated from its cells; cell updates accumulate along the time chain.",
+    "schema": [
+      {
+        "name": "TimeStepId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<run>-t<time>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{TimeStepId}}"
+      },
+      {
+        "name": "Run",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The run.",
+        "RelatedTo": "Runs"
+      },
+      {
+        "name": "Time",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Time step t."
+      },
+      {
+        "name": "PreviousStep",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Time step t - 1; empty at t = 0.",
+        "RelatedTo": "TimeSteps"
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The run's horizon.",
+        "formula": "=INDEX(Runs!{{Depth}},MATCH({{Run}},Runs!{{RunId}},0))"
+      },
+      {
+        "name": "Width",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Cells in the light cone at this time step.",
+        "formula": "=2*{{Time}}+1"
+      },
+      {
+        "name": "CellCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Cells computed at this time step; equals Width.",
+        "formula": "=COUNTIFS(Cells!{{TimeStep}},{{TimeStepId}})"
+      },
+      {
+        "name": "BlackCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black cells on this line.",
+        "formula": "=SUMIFS(Cells!{{Value}},Cells!{{TimeStep}},{{TimeStepId}})"
+      },
+      {
+        "name": "LineDensity",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Share of black on this line.",
+        "formula": "={{BlackCount}}/{{CellCount}}"
+      },
+      {
+        "name": "CenterValue",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "c(t), the center term.",
+        "formula": "=SUMIFS(Cells!{{Value}},Cells!{{TimeStep}},{{TimeStepId}},Cells!{{IsCenter}},1)"
+      },
+      {
+        "name": "CellUpdates",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Cells the rule computes to produce this line (none at t = 0).",
+        "formula": "=IF({{Time}}=0,0,{{Width}})"
+      },
+      {
+        "name": "PreviousCumulativeCellUpdates",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Updates through t - 1.",
+        "formula": "=INDEX(TimeSteps!{{CumulativeCellUpdates}},MATCH({{PreviousStep}},TimeSteps!{{TimeStepId}},0))"
+      },
+      {
+        "name": "CumulativeCellUpdates",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Cell updates needed to reach this line: (t + 1)^2 - 1.",
+        "formula": "=IF({{Time}}=0,0,{{PreviousCumulativeCellUpdates}}+{{CellUpdates}})"
+      }
+    ]
+  },
+  "Columns": {
+    "Description": "The cells at one position over time, read as a sequence in t. The center column (position 0) is the sequence of center-cell values all three problems are about.",
+    "schema": [
+      {
+        "name": "ColumnId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<run>-p<position>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{ColumnId}}"
+      },
+      {
+        "name": "Run",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The run.",
+        "RelatedTo": "Runs"
+      },
+      {
+        "name": "Position",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Position i."
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The run's horizon.",
+        "formula": "=INDEX(Runs!{{Depth}},MATCH({{Run}},Runs!{{RunId}},0))"
+      },
+      {
+        "name": "IsCenter",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for the center column.",
+        "formula": "=IF({{Position}}=0,1,0)"
+      },
+      {
+        "name": "FirstTime",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "First time step at which the light cone reaches this column; earlier terms are background.",
+        "formula": "=ABS({{Position}})"
+      },
+      {
+        "name": "CellCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Computed cells in this column.",
+        "formula": "=COUNTIFS(Cells!{{Column}},{{ColumnId}})"
+      },
+      {
+        "name": "BlackCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black cells in this column.",
+        "formula": "=SUMIFS(Cells!{{Value}},Cells!{{Column}},{{ColumnId}})"
+      },
+      {
+        "name": "Density",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Share of black among terms 0 .. Depth (background terms count as white).",
+        "formula": "={{BlackCount}}/({{Depth}}+1)"
+      }
+    ]
+  },
+  "Cells": {
+    "Description": "x(i, t): one cell of a run, inside the light cone |i| <= t <= 64. Its value is the seed at t = 0, otherwise the rule-table output selected by its three parents. Along the column (CenterParent is the previous term) it accumulates the Problem 2 prefix counts and the Problem 1 constant runs.",
+    "schema": [
+      {
+        "name": "CellId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<run>-t<time>p<position>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{CellId}}"
+      },
+      {
+        "name": "Run",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The run.",
+        "RelatedTo": "Runs"
+      },
+      {
+        "name": "TimeStep",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The line (time step) this cell is on.",
+        "RelatedTo": "TimeSteps"
+      },
+      {
+        "name": "Column",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The column (position) this cell is in.",
+        "RelatedTo": "Columns"
+      },
+      {
+        "name": "SeedCell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "At t = 0: the seed cell listed at this position, if any.",
+        "RelatedTo": "SeedCells"
+      },
+      {
+        "name": "Time",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Time step t."
+      },
+      {
+        "name": "Position",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Position i."
+      },
+      {
+        "name": "LeftParent",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Cell (t-1, i-1); empty outside the cone.",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "CenterParent",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Cell (t-1, i): the previous term of this column; empty outside the cone.",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "RightParent",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Cell (t-1, i+1); empty outside the cone.",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "RuleNumber",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The rule number of the run.",
+        "formula": "=INDEX(Runs!{{RuleNumber}},MATCH({{Run}},Runs!{{RunId}},0))"
+      },
+      {
+        "name": "RunRule",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The rule of the run.",
+        "formula": "=INDEX(Runs!{{Rule}},MATCH({{Run}},Runs!{{RunId}},0))"
+      },
+      {
+        "name": "BackgroundValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The background state of the run.",
+        "formula": "=INDEX(Runs!{{BackgroundValue}},MATCH({{Run}},Runs!{{RunId}},0))"
+      },
+      {
+        "name": "SeedValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "State of the seed cell here, if listed.",
+        "formula": "=INDEX(SeedCells!{{StateValue}},MATCH({{SeedCell}},SeedCells!{{SeedCellId}},0))"
+      },
+      {
+        "name": "LeftValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Value of the left parent (blank outside the cone).",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{LeftParent}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "CenterValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Value of the center parent: the previous term of this column.",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{CenterParent}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "RightValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Value of the right parent.",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{RightParent}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "Neighborhood",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Index of the parents' neighborhood; a blank parent is white (exact when the run is light-cone exact).",
+        "formula": "=4*IF({{LeftValue}}=1,1,0)+2*IF({{CenterValue}}=1,1,0)+IF({{RightValue}}=1,1,0)"
+      },
+      {
+        "name": "TransitionKey",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The RuleTableEntry that produced this cell; blank at t = 0.",
+        "formula": "=IF({{Time}}=0,\"\",CONCAT({{RunRule}},\"-n\",IF({{LeftValue}}=1,\"1\",\"0\"),IF({{CenterValue}}=1,\"1\",\"0\"),IF({{RightValue}}=1,\"1\",\"0\")))"
+      },
+      {
+        "name": "Value",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The cell: the initial condition at t = 0, otherwise bit Neighborhood of the rule number.",
+        "formula": "=IF({{Time}}=0,IF({{SeedValue}}=1,1,{{BackgroundValue}}),MOD(INT({{RuleNumber}}/POWER(2,{{Neighborhood}})),2))"
+      },
+      {
+        "name": "StateKey",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The color of the cell.",
+        "formula": "=IF({{Value}}=1,\"black\",\"white\")"
+      },
+      {
+        "name": "IsCenter",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 on the center column c(t) = x(0, t).",
+        "formula": "=IF({{Position}}=0,1,0)"
+      },
+      {
+        "name": "IsColumnStart",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 on the first computed cell of its column; earlier terms are background.",
+        "formula": "=IF({{Time}}=ABS({{Position}}),1,0)"
+      },
+      {
+        "name": "RightOffset",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "k of the right-edge diagonal y_k(t) = x(t-k, t) this cell lies on.",
+        "formula": "={{Time}}-{{Position}}"
+      },
+      {
+        "name": "LeftOffset",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "k of the left-edge diagonal w_k(t) = x(-t+k, t) this cell lies on.",
+        "formula": "={{Time}}+{{Position}}"
+      },
+      {
+        "name": "PriorColumnOnes",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Black terms of this column through t - 1.",
+        "formula": "=INDEX(Cells!{{ColumnOnes}},MATCH({{CenterParent}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "ColumnOnes",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Black terms of this column in the prefix 0 .. t (background terms are white).",
+        "formula": "=IF({{IsColumnStart}}=1,{{Value}},{{PriorColumnOnes}}+{{Value}})"
+      },
+      {
+        "name": "PrefixLength",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Terms in the prefix 0 .. t.",
+        "formula": "={{Time}}+1"
+      },
+      {
+        "name": "ColumnDensity",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Share of black in the prefix: the running average of Problem 2.",
+        "formula": "={{ColumnOnes}}/{{PrefixLength}}"
+      },
+      {
+        "name": "Discrepancy",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Ones minus zeros in the prefix.",
+        "formula": "=2*{{ColumnOnes}}-{{PrefixLength}}"
+      },
+      {
+        "name": "AbsDiscrepancy",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "|ones - zeros| in the prefix.",
+        "formula": "=ABS({{Discrepancy}})"
+      },
+      {
+        "name": "DensityDeviation",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Distance of the running density from 1/2.",
+        "formula": "=ABS({{ColumnDensity}}-0.5)"
+      },
+      {
+        "name": "PriorRunStart",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Start of the constant run the previous term belongs to.",
+        "formula": "=INDEX(Cells!{{RunStart}},MATCH({{CenterParent}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "RunStart",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "First time step of the constant run this term belongs to. (Equality is written as a difference: rulebook-to-postgres mistypes field = field inside a self-referencing chain, docs/toolchain-gaps.md gap 7.)",
+        "formula": "=IF({{IsColumnStart}}=1,IF({{Value}}-{{BackgroundValue}}=0,0,{{Time}}),IF({{Value}}-{{CenterValue}}=0,{{PriorRunStart}},{{Time}}))"
+      },
+      {
+        "name": "RunLength",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Length of the constant run so far.",
+        "formula": "={{Time}}-{{RunStart}}+1"
+      },
+      {
+        "name": "RunBound",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Theorem D, the center-run bounds: a black run starting at T ends by 2T+1, a white one by 4T+5.",
+        "formula": "=IF({{Value}}=1,2*{{RunStart}}+1,4*{{RunStart}}+5)"
+      },
+      {
+        "name": "ViolatesRunBound",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when this center term lies past the Theorem D bound of its run.",
+        "formula": "=IF(AND({{IsCenter}}=1,{{Time}}>{{RunBound}}),1,0)"
+      },
+      {
+        "name": "RunBoundHolds",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Theorem D instance: 1 when this term respects the bound.",
+        "formula": "=1-{{ViolatesRunBound}}"
+      },
+      {
+        "name": "ClaimCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Accelerator claims made about this cell.",
+        "formula": "=COUNTIFS(AcceleratorClaims!{{Cell}},{{CellId}})"
+      }
+    ]
+  },
+  "Periods": {
+    "Description": "Candidate periods p >= 1 for Problem 1 (bounded at 24 in the model; unbounded in the problem).",
+    "schema": [
+      {
+        "name": "PeriodId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "p<length>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{PeriodId}}"
+      },
+      {
+        "name": "Length",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The period p."
+      },
+      {
+        "name": "TestCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Columns tested against this period.",
+        "formula": "=COUNTIFS(PeriodTests!{{Period}},{{PeriodId}})"
+      }
+    ]
+  },
+  "PeriodTests": {
+    "Description": "Is this column eventually periodic with this period? Every onset T up to the last mismatch is refuted; onsets after it survive only because the horizon ends. Problem 1 says every (p, T) is refuted.",
+    "schema": [
+      {
+        "name": "PeriodTestId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<column>-p<period>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{PeriodTestId}}"
+      },
+      {
+        "name": "Column",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The column tested.",
+        "RelatedTo": "Columns"
+      },
+      {
+        "name": "Period",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The period p.",
+        "RelatedTo": "Periods"
+      },
+      {
+        "name": "PeriodLength",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "p.",
+        "formula": "=INDEX(Periods!{{Length}},MATCH({{Period}},Periods!{{PeriodId}},0))"
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The horizon.",
+        "formula": "=INDEX(Columns!{{Depth}},MATCH({{Column}},Columns!{{ColumnId}},0))"
+      },
+      {
+        "name": "ComparisonCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Comparisons c(t) vs c(t + p) inside the horizon.",
+        "formula": "=COUNTIFS(PeriodComparisons!{{PeriodTest}},{{PeriodTestId}})"
+      },
+      {
+        "name": "MismatchCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Comparisons with c(t + p) != c(t).",
+        "formula": "=COUNTIFS(PeriodComparisons!{{PeriodTest}},{{PeriodTestId}},PeriodComparisons!{{IsMismatch}},1)"
+      },
+      {
+        "name": "LastMismatchTime",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "The witness: the last t with c(t + p) != c(t). Every onset T <= it is refuted.",
+        "formula": "=MAXIFS(PeriodComparisons!{{Time}},PeriodComparisons!{{PeriodTest}},{{PeriodTestId}},PeriodComparisons!{{IsMismatch}},1)"
+      },
+      {
+        "name": "LongestAgreementStreak",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Longest stretch on which the column looked p-periodic.",
+        "formula": "=MAXIFS(PeriodComparisons!{{AgreementStreak}},PeriodComparisons!{{PeriodTest}},{{PeriodTestId}})"
+      },
+      {
+        "name": "FirstSurvivingOnset",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The first onset the horizon cannot refute.",
+        "formula": "={{LastMismatchTime}}+1"
+      },
+      {
+        "name": "FinalAgreementLength",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Matching comparisons after the last mismatch, up to the horizon.",
+        "formula": "={{Depth}}-{{PeriodLength}}-{{LastMismatchTime}}"
+      },
+      {
+        "name": "OnsetBound",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Bounded form of Problem 1: every onset up to this must be refuted.",
+        "formula": "=INT(({{Depth}}-{{PeriodLength}})/2)"
+      },
+      {
+        "name": "BoundedRefutationHolds",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Problem 1 instance: 1 when every onset T <= OnsetBound has a mismatch at some t >= T.",
+        "formula": "=IF({{LastMismatchTime}}>={{OnsetBound}},1,0)"
+      }
+    ]
+  },
+  "PeriodComparisons": {
+    "Description": "One comparison of a periodicity test: c(t) against c(t + p).",
+    "schema": [
+      {
+        "name": "PeriodComparisonId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<period test>-t<time>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{PeriodComparisonId}}"
+      },
+      {
+        "name": "PeriodTest",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The test this comparison belongs to.",
+        "RelatedTo": "PeriodTests"
+      },
+      {
+        "name": "Time",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "t."
+      },
+      {
+        "name": "EarlierCell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The term c(t).",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "LaterCell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The term c(t + p).",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "PreviousComparison",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The comparison at t - 1; empty at t = 0.",
+        "RelatedTo": "PeriodComparisons"
+      },
+      {
+        "name": "EarlierValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "c(t).",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{EarlierCell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "LaterValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "c(t + p).",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{LaterCell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "IsMismatch",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when c(t + p) != c(t): refutes period p from every onset T <= t.",
+        "formula": "=IF({{EarlierValue}}<>{{LaterValue}},1,0)"
+      },
+      {
+        "name": "PriorAgreementStreak",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Streak through t - 1.",
+        "formula": "=INDEX(PeriodComparisons!{{AgreementStreak}},MATCH({{PreviousComparison}},PeriodComparisons!{{PeriodComparisonId}},0))"
+      },
+      {
+        "name": "AgreementStreak",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Consecutive matching comparisons ending at t.",
+        "formula": "=IF({{IsMismatch}}=1,0,IF({{Time}}=0,1,{{PriorAgreementStreak}}+1))"
+      }
+    ]
+  },
+  "Tolerances": {
+    "Description": "Margins epsilon around 1/2 for Problem 2. The limit is 1/2 exactly when, for every epsilon, excursions eventually stop.",
+    "schema": [
+      {
+        "name": "ToleranceId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "eps-<epsilon>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{ToleranceId}}"
+      },
+      {
+        "name": "Epsilon",
+        "datatype": "number",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The margin."
+      },
+      {
+        "name": "ExcursionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Prefixes whose density is more than epsilon from 1/2.",
+        "formula": "=COUNTIFS(ToleranceChecks!{{Tolerance}},{{ToleranceId}},ToleranceChecks!{{IsExcursion}},1)"
+      },
+      {
+        "name": "LastExcursionTime",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "The witness: the last prefix end t outside the margin.",
+        "formula": "=MAXIFS(ToleranceChecks!{{Time}},ToleranceChecks!{{Tolerance}},{{ToleranceId}},ToleranceChecks!{{IsExcursion}},1)"
+      },
+      {
+        "name": "HorizonTime",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "The last prefix checked.",
+        "formula": "=MAXIFS(ToleranceChecks!{{Time}},ToleranceChecks!{{Tolerance}},{{ToleranceId}})"
+      },
+      {
+        "name": "SettledAtHorizon",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Problem 2 instance: 1 when the density at the horizon is within epsilon of 1/2.",
+        "formula": "=IF({{LastExcursionTime}}<{{HorizonTime}},1,0)"
+      }
+    ]
+  },
+  "ToleranceChecks": {
+    "Description": "One prefix of the center column against one tolerance: is its density within epsilon of 1/2?",
+    "schema": [
+      {
+        "name": "ToleranceCheckId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<tolerance>-t<time>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{ToleranceCheckId}}"
+      },
+      {
+        "name": "Tolerance",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The margin.",
+        "RelatedTo": "Tolerances"
+      },
+      {
+        "name": "Cell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The center cell ending the prefix.",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "Epsilon",
+        "datatype": "number",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The margin.",
+        "formula": "=INDEX(Tolerances!{{Epsilon}},MATCH({{Tolerance}},Tolerances!{{ToleranceId}},0))"
+      },
+      {
+        "name": "Time",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Prefix end t.",
+        "formula": "=INDEX(Cells!{{Time}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "DensityDeviation",
+        "datatype": "number",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "|density - 1/2| of the prefix.",
+        "formula": "=INDEX(Cells!{{DensityDeviation}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "IsExcursion",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the prefix density is more than epsilon from 1/2.",
+        "formula": "=IF({{DensityDeviation}}>{{Epsilon}},1,0)"
+      }
+    ]
+  },
+  "ColorCounts": {
+    "Description": "How often each color occurs in each column (\"does each color of cell occur on average equally often\").",
+    "schema": [
+      {
+        "name": "ColorCountId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<column>-<color>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{ColorCountId}}"
+      },
+      {
+        "name": "Column",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The column.",
+        "RelatedTo": "Columns"
+      },
+      {
+        "name": "CellState",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The color.",
+        "RelatedTo": "CellStates"
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The horizon.",
+        "formula": "=INDEX(Columns!{{Depth}},MATCH({{Column}},Columns!{{ColumnId}},0))"
+      },
+      {
+        "name": "ConeCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Computed cells of this column with this color.",
+        "formula": "=COUNTIFS(Cells!{{Column}},{{Column}},Cells!{{StateKey}},{{CellState}})"
+      },
+      {
+        "name": "ColumnFirstTime",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Terms before this are background (white).",
+        "formula": "=INDEX(Columns!{{FirstTime}},MATCH({{Column}},Columns!{{ColumnId}},0))"
+      },
+      {
+        "name": "OccurrenceCount",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Terms 0 .. Depth of this column with this color, counting background terms as white.",
+        "formula": "=IF({{CellState}}=\"white\",{{ConeCount}}+{{ColumnFirstTime}},{{ConeCount}})"
+      },
+      {
+        "name": "Share",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Share of terms with this color.",
+        "formula": "={{OccurrenceCount}}/({{Depth}}+1)"
+      },
+      {
+        "name": "ShareDeviation",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Distance of the share from 1/2.",
+        "formula": "=ABS({{Share}}-0.5)"
+      }
+    ]
+  },
+  "MachineModels": {
+    "Description": "What one step of computational effort is: the cost model. Problem 3 needs one fixed; universality relates them only up to simulation overhead.",
+    "schema": [
+      {
+        "name": "MachineModelId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Name of the model."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{MachineModelId}}"
+      },
+      {
+        "name": "StepMeaning",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What one unit of effort counts."
+      },
+      {
+        "name": "InputEncoding",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "How n is given to the machine."
+      },
+      {
+        "name": "AlgorithmCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Algorithms recorded on this model.",
+        "formula": "=COUNTIFS(Algorithms!{{MachineModel}},{{MachineModelId}})"
+      }
+    ]
+  },
+  "Algorithms": {
+    "Description": "A way of computing c(n) on a machine model. An algorithm that stores the answer is not admissible. Problem 3 asks whether every admissible algorithm's effort ratio effort/n is unbounded. Light-cone simulation costs O(n²) cell updates; beating O(n²) would be a partial result.",
+    "schema": [
+      {
+        "name": "AlgorithmId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Name of the algorithm."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{AlgorithmId}}"
+      },
+      {
+        "name": "MachineModel",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The machine model its effort is counted in.",
+        "RelatedTo": "MachineModels"
+      },
+      {
+        "name": "EffortRule",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "How its effort for n is counted: cone-updates (simulate the light cone) or table-read (one read)."
+      },
+      {
+        "name": "StoresAnswer",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the machine contains the sequence itself."
+      },
+      {
+        "name": "IsAdmissible",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the algorithm does not store the answer.",
+        "formula": "=1-{{StoresAnswer}}"
+      },
+      {
+        "name": "ComputationCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Values of n computed.",
+        "formula": "=COUNTIFS(Computations!{{Algorithm}},{{AlgorithmId}})"
+      },
+      {
+        "name": "WrongOutputCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Outputs that differ from c(n). Must be 0.",
+        "formula": "=COUNTIFS(Computations!{{Algorithm}},{{AlgorithmId}},Computations!{{IsCorrect}},0)"
+      },
+      {
+        "name": "RatioAtHorizon",
+        "datatype": "number",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "effort/n at n = depth.",
+        "formula": "=MAXIFS(Computations!{{EffortRatio}},Computations!{{Algorithm}},{{AlgorithmId}},Computations!{{IsHorizon}},1)"
+      },
+      {
+        "name": "RatioAtHalfHorizon",
+        "datatype": "number",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "effort/n at n = depth/2.",
+        "formula": "=MAXIFS(Computations!{{EffortRatio}},Computations!{{Algorithm}},{{AlgorithmId}},Computations!{{IsHalfHorizon}},1)"
+      },
+      {
+        "name": "IsRatioGrowing",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when effort/n grows between half the horizon and the horizon (no sign of O(n)).",
+        "formula": "=IF({{RatioAtHorizon}}>{{RatioAtHalfHorizon}},1,0)"
+      },
+      {
+        "name": "EffortHolds",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Problem 3 instance: an admissible algorithm shows no sign of O(n) effort (inadmissible ones are excluded, so hold vacuously).",
+        "formula": "=IF({{IsAdmissible}}=1,{{IsRatioGrowing}},1)"
+      }
+    ]
+  },
+  "Computations": {
+    "Description": "machine[m][n] = {v, t}: one algorithm computing c(n), with its output value and effort.",
+    "schema": [
+      {
+        "name": "ComputationId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<algorithm>-n<n>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{ComputationId}}"
+      },
+      {
+        "name": "Algorithm",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The algorithm m.",
+        "RelatedTo": "Algorithms"
+      },
+      {
+        "name": "TimeStep",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The target time step n.",
+        "RelatedTo": "TimeSteps"
+      },
+      {
+        "name": "EffortRule",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "How effort is counted.",
+        "formula": "=INDEX(Algorithms!{{EffortRule}},MATCH({{Algorithm}},Algorithms!{{AlgorithmId}},0))"
+      },
+      {
+        "name": "TargetIndex",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "n.",
+        "formula": "=INDEX(TimeSteps!{{Time}},MATCH({{TimeStep}},TimeSteps!{{TimeStepId}},0))"
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The horizon.",
+        "formula": "=INDEX(TimeSteps!{{Depth}},MATCH({{TimeStep}},TimeSteps!{{TimeStepId}},0))"
+      },
+      {
+        "name": "CenterValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "c(n) in the model.",
+        "formula": "=INDEX(TimeSteps!{{CenterValue}},MATCH({{TimeStep}},TimeSteps!{{TimeStepId}},0))"
+      },
+      {
+        "name": "ConeUpdates",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Cell updates to reach line n.",
+        "formula": "=INDEX(TimeSteps!{{CumulativeCellUpdates}},MATCH({{TimeStep}},TimeSteps!{{TimeStepId}},0))"
+      },
+      {
+        "name": "OutputValue",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "v: the value the algorithm outputs (both recorded algorithms read the computed cell).",
+        "formula": "={{CenterValue}}"
+      },
+      {
+        "name": "IsCorrect",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when v = c(n).",
+        "formula": "=IF({{OutputValue}}={{CenterValue}},1,0)"
+      },
+      {
+        "name": "Effort",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "t: the effort spent.",
+        "formula": "=IF({{EffortRule}}=\"cone-updates\",{{ConeUpdates}},1)"
+      },
+      {
+        "name": "EffortRatio",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "effort / n.",
+        "formula": "={{Effort}}/{{TargetIndex}}"
+      },
+      {
+        "name": "IsHorizon",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 at n = depth.",
+        "formula": "=IF({{TargetIndex}}={{Depth}},1,0)"
+      },
+      {
+        "name": "IsHalfHorizon",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 at n = depth/2.",
+        "formula": "=IF({{TargetIndex}}=INT({{Depth}}/2),1,0)"
+      }
+    ]
+  },
+  "Variables": {
+    "Description": "The variables the predicates quantify over, the table whose rows are their values in the model, and whether their domain is infinite in the problem.",
+    "schema": [
+      {
+        "name": "VariableId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Name of the variable."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{VariableId}}"
+      },
+      {
+        "name": "Symbol",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "How the problem writes it."
+      },
+      {
+        "name": "Meaning",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What it ranges over."
+      },
+      {
+        "name": "DomainTable",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The table whose rows are its values in the model (finite there)."
+      },
+      {
+        "name": "IsUnboundedInProblem",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when its domain in the problem is infinite."
+      },
+      {
+        "name": "QuantifierCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Quantifiers binding it.",
+        "formula": "=COUNTIFS(Quantifiers!{{Variable}},{{VariableId}})"
+      }
+    ]
+  },
+  "Predicates": {
+    "Description": "The properties stated about the model: the definitions, the known results and the three prize problems. Each has a formal statement, quantifiers, and bounded instances computed from the model.",
+    "schema": [
+      {
+        "name": "PredicateId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Name of the predicate."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{PredicateId}}"
+      },
+      {
+        "name": "Problem",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Definition, Known result, Theorem, or the prize problem it is (P1, P2, P3)."
+      },
+      {
+        "name": "InstanceKind",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The table whose rows are its bounded instances."
+      },
+      {
+        "name": "Formal",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The statement in Wolfram Language notation."
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The statement in words."
+      },
+      {
+        "name": "InstanceMeaning",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What one bounded instance asserts."
+      },
+      {
+        "name": "QuantifierCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Quantifiers in the statement.",
+        "formula": "=COUNTIFS(Quantifiers!{{Predicate}},{{PredicateId}})"
+      },
+      {
+        "name": "UnboundedQuantifierCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Quantifiers over an infinite domain.",
+        "formula": "=SUMIFS(Quantifiers!{{IsUnbounded}},Quantifiers!{{Predicate}},{{PredicateId}})"
+      },
+      {
+        "name": "IsFinitelyDecidable",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the model can decide the full statement, not only bounded instances.",
+        "formula": "=IF({{UnboundedQuantifierCount}}=0,1,0)"
+      },
+      {
+        "name": "InstanceCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Bounded instances in the model.",
+        "formula": "=COUNTIFS(PredicateInstances!{{Predicate}},{{PredicateId}})"
+      },
+      {
+        "name": "HoldingCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Instances that hold.",
+        "formula": "=SUMIFS(PredicateInstances!{{Holds}},PredicateInstances!{{Predicate}},{{PredicateId}})"
+      },
+      {
+        "name": "FailingCount",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Instances that fail.",
+        "formula": "={{InstanceCount}}-{{HoldingCount}}"
+      },
+      {
+        "name": "FiniteVerdict",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "What the model says about its bounded instances. Never a verdict on an unbounded statement.",
+        "formula": "=IF({{InstanceCount}}=0,\"NO INSTANCES\",IF({{FailingCount}}=0,\"HOLDS ON EVERY INSTANCE\",CONCAT(\"FAILS ON \",{{FailingCount}},\" OF \",{{InstanceCount}})))"
+      },
+      {
+        "name": "AssertionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Ledger claims about this predicate.",
+        "formula": "=COUNTIFS(Assertions!{{Predicate}},{{PredicateId}})"
+      }
+    ]
+  },
+  "Quantifiers": {
+    "Description": "One quantifier of a predicate: the binder, the variable it binds and its condition.",
+    "schema": [
+      {
+        "name": "QuantifierId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<predicate>-q<order>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{QuantifierId}}"
+      },
+      {
+        "name": "Predicate",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The predicate.",
+        "RelatedTo": "Predicates"
+      },
+      {
+        "name": "Position",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Order in the statement, outermost first."
+      },
+      {
+        "name": "Binder",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "for-all, exists, not-exists, limit or limsup."
+      },
+      {
+        "name": "Variable",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The variable bound.",
+        "RelatedTo": "Variables"
+      },
+      {
+        "name": "Condition",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The restriction on the variable, if any."
+      },
+      {
+        "name": "Symbol",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "How the problem writes the variable.",
+        "formula": "=INDEX(Variables!{{Symbol}},MATCH({{Variable}},Variables!{{VariableId}},0))"
+      },
+      {
+        "name": "DomainTable",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The table holding its values in the model.",
+        "formula": "=INDEX(Variables!{{DomainTable}},MATCH({{Variable}},Variables!{{VariableId}},0))"
+      },
+      {
+        "name": "IsUnbounded",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when it ranges over an infinite domain.",
+        "formula": "=INDEX(Variables!{{IsUnboundedInProblem}},MATCH({{Variable}},Variables!{{VariableId}},0))"
+      }
+    ]
+  },
+  "PredicateInstances": {
+    "Description": "One bounded instance of a predicate, pointing at the model row that decides it. This is the roof all predicates share: every verdict here is computed from the cells.",
+    "schema": [
+      {
+        "name": "PredicateInstanceId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<predicate>-<instance>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{PredicateInstanceId}}"
+      },
+      {
+        "name": "Predicate",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The predicate.",
+        "RelatedTo": "Predicates"
+      },
+      {
+        "name": "InstanceKind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Which of the references below decides it.",
+        "formula": "=INDEX(Predicates!{{InstanceKind}},MATCH({{Predicate}},Predicates!{{PredicateId}},0))"
+      },
+      {
+        "name": "RuleTableEntry",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a rule-table predicate.",
+        "RelatedTo": "RuleTableEntries"
+      },
+      {
+        "name": "Run",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a run predicate.",
+        "RelatedTo": "Runs"
+      },
+      {
+        "name": "PeriodTest",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a Problem 1 predicate.",
+        "RelatedTo": "PeriodTests"
+      },
+      {
+        "name": "Cell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a cell predicate.",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "Tolerance",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a Problem 2 predicate.",
+        "RelatedTo": "Tolerances"
+      },
+      {
+        "name": "Algorithm",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a Problem 3 predicate.",
+        "RelatedTo": "Algorithms"
+      },
+      {
+        "name": "EntryHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The transition matches the polynomial.",
+        "formula": "=INDEX(RuleTableEntries!{{MatchesPolynomial}},MATCH({{RuleTableEntry}},RuleTableEntries!{{RuleTableEntryId}},0))"
+      },
+      {
+        "name": "RunHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The run is light-cone exact.",
+        "formula": "=INDEX(Runs!{{IsLightConeExact}},MATCH({{Run}},Runs!{{RunId}},0))"
+      },
+      {
+        "name": "PeriodTestHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Every onset up to the bound is refuted.",
+        "formula": "=INDEX(PeriodTests!{{BoundedRefutationHolds}},MATCH({{PeriodTest}},PeriodTests!{{PeriodTestId}},0))"
+      },
+      {
+        "name": "PeriodTestWitness",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The last mismatch.",
+        "formula": "=INDEX(PeriodTests!{{LastMismatchTime}},MATCH({{PeriodTest}},PeriodTests!{{PeriodTestId}},0))"
+      },
+      {
+        "name": "CellHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The cell respects the Theorem D bound.",
+        "formula": "=INDEX(Cells!{{RunBoundHolds}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "ToleranceHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The density at the horizon is within epsilon.",
+        "formula": "=INDEX(Tolerances!{{SettledAtHorizon}},MATCH({{Tolerance}},Tolerances!{{ToleranceId}},0))"
+      },
+      {
+        "name": "ToleranceWitness",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The last excursion.",
+        "formula": "=INDEX(Tolerances!{{LastExcursionTime}},MATCH({{Tolerance}},Tolerances!{{ToleranceId}},0))"
+      },
+      {
+        "name": "AlgorithmHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The algorithm shows no sign of O(n) effort.",
+        "formula": "=INDEX(Algorithms!{{EffortHolds}},MATCH({{Algorithm}},Algorithms!{{AlgorithmId}},0))"
+      },
+      {
+        "name": "Holds",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the instance holds, read from its deciding row.",
+        "formula": "=IF({{InstanceKind}}=\"RuleTableEntry\",{{EntryHolds}},IF({{InstanceKind}}=\"Run\",{{RunHolds}},IF({{InstanceKind}}=\"PeriodTest\",{{PeriodTestHolds}},IF({{InstanceKind}}=\"Cell\",{{CellHolds}},IF({{InstanceKind}}=\"Tolerance\",{{ToleranceHolds}},IF({{InstanceKind}}=\"Algorithm\",{{AlgorithmHolds}},0))))))"
+      }
+    ]
+  },
+  "AcceleratorClaims": {
+    "Description": "A value an optimizer outside the rulebook claims for a cell. The rulebook computes the cell itself and decides whether the claim matches.",
+    "schema": [
+      {
+        "name": "AcceleratorClaimId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<evidence>-<cell>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{AcceleratorClaimId}}"
+      },
+      {
+        "name": "Cell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The cell the claim is about.",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "Source",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The evidence file the claimed value comes from.",
+        "RelatedTo": "Evidence"
+      },
+      {
+        "name": "ClaimedValue",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The value the optimizer reports."
+      },
+      {
+        "name": "ModelValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The value the model computes for that cell.",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "IsMatch",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the optimizer agrees with the model.",
+        "formula": "=IF({{ClaimedValue}}={{ModelValue}},1,0)"
       }
     ]
   }
