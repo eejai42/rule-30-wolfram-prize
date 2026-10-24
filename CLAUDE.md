@@ -91,6 +91,12 @@ P1, P2, P3 after the build.
 - The editor does NOT rebuild by itself when the rulebook file changes from outside; it only offers a rebuild in its UI. `loop_tools.build()` therefore asks it to rebuild after every `effortless build` (skipped when the admin portal has unsaved edits). The editor drops a request that arrives while it is already building (a full rebuild takes about 2 minutes; the data lands in the first few seconds), so a busy editor gets a detached waiter, `research/editor_refresh.py`, that retries until the editor has built the current rulebook. Its log is `.logs/editor-refresh.log`. A plain `effortless build` from the shell does not; click Rebuild in the admin portal or `curl -X POST localhost:42441/api/admin/run-build`.
 - The editor's rebuild only adds and updates rows of the tables and fields it already has. A deleted row, a renamed key, a new table or a new field reaches its database only when `./start.sh editor` recreates the container. Research loops never do any of these; `research/hub/build_model.py` does, so recreate the editor after changing the model's schema.
 
+## Commits
+- **Commit as soon as a unit of work is finished**: a verified loop, a model change that passes
+  check_model.py, a doc update. Do not wait to be asked, and do not leave finished work
+  uncommitted between turns. Commit only your own changes: check `git status` and leave files
+  another session is still editing for that session's commit.
+
 ## Build
 - Build: `effortless build` from project root (compile-rulebook, minimize-rulebook, effortless-rulebook-editor, rulebook-to-explainer-dag; all remote, a few seconds each).
 - No Postgres target is registered. If one is added later, it is a read-only output spoke; the hub does not change.

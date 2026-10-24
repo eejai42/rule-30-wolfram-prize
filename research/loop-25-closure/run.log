@@ -1,0 +1,96 @@
+{
+ "H40": {
+  "ReportedStatus": "FALSIFIED",
+  "EffectiveStatus": "FALSIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "TX": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B9": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "B7": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 95,
+  "BlockedCount": 30,
+  "CompletedNativeLoops": 24,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 35,
+  "CheckedCount": 34,
+  "FalsifiedCount": 19,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 6,
+  "ModelLinkedClaimCount": 94,
+  "ModelDecidedClaimCount": 5,
+  "ModelContradictionCount": 0,
+  "UnmodeledClaimCount": 1
+ }
+}
+{
+ "seconds": 23.9,
+ "base_size": 40,
+ "closure_size": 33554432,
+ "closure_rounds": 20,
+ "closure_fraction_of_all": 1.0,
+ "closure_contains_seen_t19_45": true,
+ "survivors_in_closure": {
+  "01": 12288,
+  "10": 6144
+ },
+ "survivors_among_seen_windows_t19_45": {
+  "01": 0,
+  "10": 0
+ },
+ "H40_holds": false
+}

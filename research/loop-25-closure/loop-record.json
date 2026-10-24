@@ -1,0 +1,55 @@
+{
+ "loop": {
+  "LoopId": "effortless-25",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 47.6, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "9d766da7f646ffca8c9499569570117d5070bbc8a94944187b7b231fa8c1e62f",
+  "OutputHash": "bebbe0d418dc7d6508cc88fd7eb8dca82f516c425d3e11c587b61833f3b6557b",
+  "Sequence": 38,
+  "StartedAt": "2026-10-24T02:47:03-0500",
+  "FinishedAt": "2026-10-24T02:49:03-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H40: the closure of the width-25 near-center windows of left-consistent sequences (base t=19, free outer bit) is killed within 24 checks by both period-2 tails; H40 implies B9 for period 2.",
+  "Summary": "H40 FALSIFIED: the closure of the 40 width-25 windows seen at t=19 under the step with a free outer bit has 33554432 windows (1.0 of all 2^25); survivors of the 23-step kill: {\"01\": 12288, \"10\": 6144}. The simple invariant with a free outer bit is too lossy at width 25; a local invariant needs the far-left information.",
+  "Name": "effortless-25",
+  "ClaimsAdded": 1,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 48.5,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 95,
+  "BlockedCount": 30,
+  "CompletedNativeLoops": 25,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 35,
+  "CheckedCount": 34,
+  "FalsifiedCount": 19,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 6,
+  "ModelLinkedClaimCount": 94,
+  "ModelDecidedClaimCount": 5,
+  "ModelContradictionCount": 0,
+  "UnmodeledClaimCount": 1
+ }
+}

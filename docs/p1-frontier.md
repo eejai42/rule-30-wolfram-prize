@@ -5,7 +5,7 @@ proved, what is ruled out, and what the next loops aim at. The rulebook is the s
 for every status below; this page is the map that explains how the nodes fit. Update it when a
 loop changes the chain under P1.
 
-Last updated: loop 22 (2026-10-23).
+Last updated: loop 25 (2026-10-24).
 
 ## The chain under P1
 
@@ -61,6 +61,11 @@ new idea about why they would work.
 7. **Bounded excess past the settled left-edge zone.** Imposing every settled left-edge diagonal,
    exactly or by periodicity only, still leaves an excess that grows with the onset (H34, loop 21).
 
+8. **A local invariant with a free outer bit.** The closure of the width-25 near-center windows under
+   one step, with the outer cell and the post-0 center bit free, is every window, and 18,432 of
+   them survive a period-2 tail (H40, loop 25). The real windows all die (H38), so the reachable
+   set is thin, but this description of it is not.
+
 ## Certified, finite
 
 Every nonconstant periodic center tested is excluded: periods 2 to 16, onsets to 384, about 6,000
@@ -70,9 +75,11 @@ uniform in the onset.
 
 ## Current target
 
-B9, attacked directly with the seeded relaxation of loop 22: grow every left-consistent prefix
-from the seed, attach a periodic tail, and see how soon the left half contradicts it. It uses the
-whole left-side information, not a relaxation of it, and is strictly sharper than B5.
+B9 for period 2. The seeded relaxation kills every period-2 tail within 22 steps from onset 20 to
+46 (loop 22), and every reachable width-25 window dies within 23 steps (H38, loop 23). What is
+missing is a uniform description of the reachable windows that still kills: a free outer bit is
+too weak (H40). The next candidates keep more of the left side, for example the outer bit tied to
+the settled left-edge diagonals, or a wider window whose outer part is constrained by the seed.
 
 ## What the model computes (loop 24 on)
 

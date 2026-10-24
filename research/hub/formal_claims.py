@@ -206,6 +206,10 @@ CLAIMS = [
      ('Exists!', 'width', le(E, K(30)), ('ForAll!', 'time', between(t, K(19), K(45)), ('ForAll', 'window', ('InWindowLanguage', w, E, t),
       AND(('WindowDies', w, E, ('word-01',)), ('WindowDies', w, E, ('word-10',)))))),
      'H38: some E <= 30 has every width-(E+1) window of a left-consistent sequence at 19 <= t <= 45 dying within E - 1 steps under 01 and under 10.'),
+    ('pr-h40-window-closure-kill', 'Hypothesis', 'H40', 1,
+     ('ForAll!', 'word', AND(('Nonconstant', a), eq(plen, K(2))), ('ForAll', 'window', ('InWindowClosure', w, K(24), K(19), ('LeftConsistentPrefix', s, K(19))),
+      ('WindowDies', w, K(24), a))),
+     'H40: every window in the closure of the width-25 near-center windows shown at t = 19 (one step of the left half, outer bit free, TX after a 1) dies within 24 checks under 01 and under 10; it implies B9 for period 2.'),
     # --- reported tables of the relaxation loops ---
     ('pr-f12-relaxation-table', 'Finite check', 'F12', 1,
      ('ForAll!', 'onset', between(T, K(1), K(10)), ('ForAll!', 'word', AND(prim, le(plen, K(4))), eq(REP(('ExclusionLength', T, a)), ('ExclusionLength', T, a)))),

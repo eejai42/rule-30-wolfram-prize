@@ -56,6 +56,7 @@ UNMODELED_OPERATORS = [  # (OperatorId, Symbol, Kind, Arity): named symbols the 
     ('left-consistent-prefix', 'LeftConsistentPrefix', 'apply', 2), ('seeded-kill-time', 'SeededKillTime', 'apply', 3),
     ('seeded-survivors', 'SeededSurvivors', 'apply', 2), ('window-language-size', 'WindowLanguageSize', 'apply', 2),
     ('in-window-language', 'InWindowLanguage', 'apply', 3), ('window-dies', 'WindowDies', 'apply', 3),
+    ('in-window-closure', 'InWindowClosure', 'apply', 4),
     ('death-ray-forced-cells', 'DeathRayForcedCells', 'apply', 2),
     ('is-supplied-output', 'IsSuppliedOutput', 'apply', 1), ('rerun', 'Rerun', 'apply', 1), ('supplied', 'Supplied', 'apply', 1),
     ('is-sqlite-cell', 'IsSqliteCell', 'apply', 1), ('sqlite-value', 'SqliteValue', 'apply', 1), ('cell-position', 'CellPosition', 'apply', 1),
