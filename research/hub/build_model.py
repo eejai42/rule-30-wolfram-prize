@@ -26,6 +26,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import loop_tools as lt
 import model_tools as mt
+import formal_claims as fc
 
 DEPTH, MAX_PERIOD, TOLERANCES = 64, 24, ((1, 5), (1, 10), (1, 20))   # epsilon as an exact fraction
 TAIL_WORD_LENGTHS, TAIL_ONSETS, TAIL_MARGIN = (1, 2, 3), range(1, 11), 12   # B9 tail candidates: words, onsets, horizon past the onset
@@ -33,7 +34,7 @@ RUN = 'r30-seed'
 OWNED = ('CellStates', 'Rules', 'Neighborhoods', 'RuleTableEntries', 'InitialConditions', 'SeedCells',
          'Runs', 'TimeSteps', 'Columns', 'Cells', 'Periods', 'PeriodTests', 'PeriodicityCandidates', 'MismatchWindows',
          'LeftConsistencyChecks', 'PeriodicWords', 'WordLetters', 'WordShifts', 'WordShiftChecks',
-         'TailCandidates', 'TailCenterTerms', 'TailCells', 'TailChecks',
+         'TailCandidates', 'TailCenterTerms', 'TailCells', 'TailChecks', 'Diagonals', 'DiagonalPeriodTests', 'DiagonalPeriodChecks', 'DiagonalFacts',
          'Tolerances', 'ToleranceChecks', 'ColorCounts', 'MachineModels', 'Algorithms', 'Computations',
          'Variables', 'Operators', 'Terms', 'Predicates', 'PredicateInstances', 'AcceleratorClaims')
 RETIRED = ('Lattice', 'PeriodComparisons', 'Quantifiers')   # tables earlier versions of this script owned
@@ -333,6 +334,10 @@ book['PeriodTests'] = table(
         CALC('FinalAgreementLength', '={{Depth}}-({{PeriodLength}}+{{LastMismatchTime}})', 'Matching comparisons after the last mismatch, up to the horizon.'),
         CALC('OnsetBound', '=INT(({{Depth}}-{{PeriodLength}})/2)', 'Bounded form of Problem 1: every onset up to this must be refuted.'),
         CALC('BoundedRefutationHolds', '=IF({{LastMismatchTime}}>={{OnsetBound}},1,0)', '1 when every onset T <= OnsetBound has a mismatch at some t >= T.'),
+        AGG('WindowCount', '=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}})', 'Theorem C windows for this period that end inside the horizon.'),
+        AGG('WindowFailureCount', '=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}},MismatchWindows!{{WindowHolds}},0)', 'Windows with no mismatch in either column. Theorem C says 0.'),
+        AGG('CenterWitnessWindowCount', '=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}},MismatchWindows!{{CenterInWindow}},1)', 'Windows where column 0 alone has the mismatch.'),
+        CALC('WindowsHold', '=IF(AND({{WindowCount}}>0,{{WindowFailureCount}}=0),1,0)', '1 when every Theorem C window of this period holds.'),
     ],
     [{'PeriodTestId': ptid(i, p), 'Column': colid(i), 'Period': f'p{p:02d}'} for i in PERIOD_COLUMNS for p in range(1, MAX_PERIOD + 1)])
 
@@ -370,13 +375,14 @@ book['PeriodicityCandidates'] = table(
 windows = []
 for p in range(1, MAX_PERIOD + 1):
     for t in range((DEPTH - 2 * p) // 2 + 1):
-        windows.append({'MismatchWindowId': f'tc-p{p:02d}-T{t:03d}', 'Onset': t, 'Period': f'p{p:02d}',
+        windows.append({'MismatchWindowId': f'tc-p{p:02d}-T{t:03d}', 'Onset': t, 'Period': f'p{p:02d}', 'CenterTest': ptid(0, p),
                         'CenterCandidate': pcid(0, p, t), 'NeighborCandidate': pcid(1, p, t)})
 book['MismatchWindows'] = table(
     'Theorem C for one (T, p): some i in {0, 1} and t in [T, 2T + p] have x(i, t) != x(i, t + p). Only windows that end inside the horizon are rows.',
     KEY('MismatchWindowId', 'tc-p<period>-T<onset>.') + [
         F('Onset', 'integer', desc='T.', nullable=False),
         REL('Period', 'Periods', 'p.', False),
+        REL('CenterTest', 'PeriodTests', 'The center column test for p (for the roll-up).', False),
         REL('CenterCandidate', 'PeriodicityCandidates', 'Column 0 with period p from onset T.', False),
         REL('NeighborCandidate', 'PeriodicityCandidates', 'Column 1 with period p from onset T.', False),
         LK('PeriodLength', 'Periods', 'Period', 'PeriodId', 'Length', 'p.'),
@@ -569,6 +575,142 @@ book['TailChecks'] = table(
     ],
     tchecks)
 
+# --- diagonals: y_k(t) = x(t - k, t) along the right edge, w_k(t) = x(k - t, t) along the left ---
+# Loops 1-12 studied their periods. Candidate periods are the powers of two up to min(2^k, cap): the
+# model certifies the least dyadic period (T004 says the least period divides 2^k, so for right
+# diagonals it is the least period; the left side is only searched among dyadic periods).
+RIGHT_K, LEFT_K, RIGHT_CAP, LEFT_CAP = range(0, 9), range(0, 11), 32, 8
+did = lambda side, k: f'{side}-k{k:02d}'
+dcell = lambda side, k, t: (cid(t, t - k) if abs(t - k) <= t else None) if side == 'right' else (cid(t, k - t) if abs(k - t) <= t else None)
+diags, dtests, dchecks = [], [], []
+for side, ks, cap in (('right', RIGHT_K, RIGHT_CAP), ('left', LEFT_K, LEFT_CAP)):
+    for k in ks:
+        diags.append({'DiagonalId': did(side, k), 'Side': side, 'Offset': k, 'PreviousDiagonal': did(side, k - 1) if k else None,
+                      'OppositeDiagonal': did('right', k) if side == 'left' and k in RIGHT_K else None})
+        d = 1
+        while d <= min(2 ** k, cap):
+            tid_ = f'{did(side, k)}-d{d:02d}'
+            dtests.append({'DiagonalPeriodTestId': tid_, 'Diagonal': did(side, k), 'Period': d, 'HalfCell': dcell(side, k, d // 2) if d > 1 else None})
+            for t in range(DEPTH + 1 - d):
+                dchecks.append({'DiagonalPeriodCheckId': f'{tid_}-t{t:02d}', 'DiagonalPeriodTest': tid_, 'Time': t,
+                                'EarlierCell': dcell(side, k, t), 'LaterCell': dcell(side, k, t + d)})
+            d *= 2
+
+book['Diagonals'] = table(
+    'A diagonal of the cone read as a sequence in t: right side y_k(t) = x(t - k, t), left side w_k(t) = x(k - t, t) (k = 0 is the edge). Before the cone reaches it a diagonal is white.',
+    KEY('DiagonalId', '<side>-k<offset>.') + [
+        F('Side', desc='right (y_k) or left (w_k).'),
+        F('Offset', 'integer', desc='k.', nullable=False),
+        REL('PreviousDiagonal', 'Diagonals', 'The diagonal k - 1 on the same side; empty at k = 0.'),
+        REL('OppositeDiagonal', 'Diagonals', 'For a left diagonal w_k: the right diagonal y_k (one direction only).'),
+        F('Depth', 'integer', desc='The horizon (the run depth).', nullable=False),
+        AGG('RightOnes', '=SUMIFS(Cells!{{Value}},Cells!{{RightOffset}},{{Offset}})', 'Black cells with t - i = k.'),
+        AGG('LeftOnes', '=SUMIFS(Cells!{{Value}},Cells!{{LeftOffset}},{{Offset}})', 'Black cells with t + i = k.'),
+        AGG('RightCells', '=COUNTIFS(Cells!{{RightOffset}},{{Offset}})', 'Cells with t - i = k.'),
+        AGG('LeftCells', '=COUNTIFS(Cells!{{LeftOffset}},{{Offset}})', 'Cells with t + i = k.'),
+        AGG('RightFirstOneRaw', '=MINIFS(Cells!{{Time}},Cells!{{RightOffset}},{{Offset}},Cells!{{Value}},1)', 'Raw MINIFS (gap 12); read FirstOneTime.'),
+        AGG('LeftFirstOneRaw', '=MINIFS(Cells!{{Time}},Cells!{{LeftOffset}},{{Offset}},Cells!{{Value}},1)', 'Raw MINIFS (gap 12); read FirstOneTime.'),
+        CALC('OnesCount', '=IF({{Side}}="right",{{RightOnes}},{{LeftOnes}})', 'Black cells on the diagonal inside the horizon.'),
+        CALC('CellCount', '=IF({{Side}}="right",{{RightCells}},{{LeftCells}})', 'Cells of the diagonal inside the cone and the horizon.'),
+        CALC('FirstOneTime', '=IF({{OnesCount}}=0,-1,IF({{Side}}="right",{{RightFirstOneRaw}},{{LeftFirstOneRaw}}))', 'First t with a black cell on the diagonal; -1 when none inside the horizon.'),
+        AGG('PureCount', '=COUNTIFS(DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsPurePeriod}},1)', 'Dyadic periods the whole observed diagonal has.'),
+        AGG('LeastPureRaw', '=MINIFS(DiagonalPeriodTests!{{Period}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsPurePeriod}},1)', 'Raw MINIFS (gap 12); read LeastPeriod.'),
+        CALC('LeastPeriod', '=IF({{PureCount}}>0,{{LeastPureRaw}},-1)', 'P_k: the least dyadic period of the diagonal from t = 0; -1 when none is certified inside the horizon.'),
+        AGG('EventualCount', '=COUNTIFS(DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsEventualPeriod}},1)', 'Dyadic periods the diagonal eventually has.'),
+        AGG('LeastEventualRaw', '=MINIFS(DiagonalPeriodTests!{{Period}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsEventualPeriod}},1)', 'Raw MINIFS (gap 12); read EventualPeriod.'),
+        CALC('EventualPeriod', '=IF({{EventualCount}}>0,{{LeastEventualRaw}},-1)', 'Least dyadic eventual period; -1 when none is certified inside the horizon.'),
+        AGG('EventualOnset', '=SUMIFS(DiagonalPeriodTests!{{EventualOnset}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsLeastEventual}},1)', 'Onset of the least eventual period.'),
+        AGG('OnesPerPeriod', '=SUMIFS(DiagonalPeriodTests!{{OnesInFirstPeriod}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsLeast}},1)', 'Black cells in one least period y_k(0 .. P_k - 1).'),
+        AGG('HalfPeriodValue', '=SUMIFS(DiagonalPeriodTests!{{HalfValue}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsLeast}},1)', 'y_k(P_k / 2).'),
+        LK('PreviousLeastPeriod', 'Diagonals', 'PreviousDiagonal', 'DiagonalId', 'LeastPeriod', 'P_{k-1}.'),
+        CALC('Doubles', '=IF(AND({{Offset}}>=1,{{LeastPeriod}}-2*{{PreviousLeastPeriod}}=0),1,0)', 'eps_k: 1 when P_k = 2 P_{k-1}.'),
+        LK('PreviousDoubles', 'Diagonals', 'PreviousDiagonal', 'DiagonalId', 'Doubles', 'eps_{k-1}.'),
+        LK('PreviousPreviousDoubles', 'Diagonals', 'PreviousDiagonal', 'DiagonalId', 'PreviousDoubles', 'eps_{k-2}.'),
+        LK('PreviousOnesPerPeriod', 'Diagonals', 'PreviousDiagonal', 'DiagonalId', 'OnesPerPeriod', 'Ones per period of y_{k-1}.'),
+        LK('PreviousPreviousOnesPerPeriod', 'Diagonals', 'PreviousDiagonal', 'DiagonalId', 'PreviousOnesPerPeriod', 'Ones per period of y_{k-2}.'),
+        LK('OppositeLeastPeriod', 'Diagonals', 'OppositeDiagonal', 'DiagonalId', 'LeastPeriod', 'P_k of the right diagonal with the same offset.'),
+    ],
+    [dict(r, Depth=DEPTH) for r in diags])
+
+book['DiagonalPeriodTests'] = table(
+    'Is the dyadic d a period of the diagonal, from t = 0 (pure) or from some onset (eventual)?',
+    KEY('DiagonalPeriodTestId', '<diagonal>-d<period>.') + [
+        REL('Diagonal', 'Diagonals', 'The diagonal.', False),
+        F('Period', 'integer', desc='d, a power of two.', nullable=False),
+        REL('HalfCell', 'Cells', 'The cell of the diagonal at t = d / 2 (empty before the cone: white).'),
+        LK('Depth', 'Diagonals', 'Diagonal', 'DiagonalId', 'Depth', 'The horizon.'),
+        LK('DiagonalLeastPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'LeastPeriod', 'P_k.'),
+        LK('DiagonalEventualPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'EventualPeriod', 'Least eventual period.'),
+        LK('HalfCellValue', 'Cells', 'HalfCell', 'CellId', 'Value', 'The diagonal at t = d / 2.'),
+        CALC('HalfValue', '=IF({{HalfCellValue}}=1,1,0)', 'The diagonal at d / 2, white before the cone.'),
+        AGG('ComparisonCount', '=COUNTIFS(DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}})', 'Comparisons inside the horizon.'),
+        AGG('MismatchCount', '=COUNTIFS(DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}},DiagonalPeriodChecks!{{IsMismatch}},1)', 'Comparisons that differ.'),
+        AGG('LastMismatchRaw', '=MAXIFS(DiagonalPeriodChecks!{{Time}},DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}},DiagonalPeriodChecks!{{IsMismatch}},1)', 'Raw MAXIFS (gap 12); read EventualOnset.'),
+        AGG('OnesInFirstPeriod', '=SUMIFS(DiagonalPeriodChecks!{{EarlierBit}},DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}},DiagonalPeriodChecks!{{IsInFirstPeriod}},1)', 'Black cells among t = 0 .. d - 1.'),
+        CALC('IsPurePeriod', '=IF(AND({{MismatchCount}}=0,{{ComparisonCount}}>={{Period}}),1,0)', '1 when every comparison matches and every residue mod d is compared at least once.'),
+        CALC('EventualOnset', '=IF({{MismatchCount}}=0,0,{{LastMismatchRaw}}+1)', 'The first t from which every comparison matches.'),
+        CALC('IsEventualPeriod', '=IF(AND({{EventualOnset}}*2<={{Depth}},{{ComparisonCount}}-{{EventualOnset}}>=2*{{Period}}),1,0)', '1 when d is a period from the onset on, with the onset in the first half of the horizon and at least 2d matching comparisons after it.'),
+        CALC('IsLeast', '=IF({{Period}}-{{DiagonalLeastPeriod}}=0,1,0)', '1 for the least pure period.'),
+        CALC('IsLeastEventual', '=IF({{Period}}-{{DiagonalEventualPeriod}}=0,1,0)', '1 for the least eventual period.'),
+    ],
+    dtests)
+
+book['DiagonalPeriodChecks'] = table(
+    'One comparison of a diagonal period test: the diagonal at t against t + d.',
+    KEY('DiagonalPeriodCheckId', '<test>-t<time>.') + [
+        REL('DiagonalPeriodTest', 'DiagonalPeriodTests', 'The test.', False),
+        F('Time', 'integer', desc='t.', nullable=False),
+        REL('EarlierCell', 'Cells', 'The diagonal at t (empty before the cone: white).'),
+        REL('LaterCell', 'Cells', 'The diagonal at t + d.'),
+        LK('Period', 'DiagonalPeriodTests', 'DiagonalPeriodTest', 'DiagonalPeriodTestId', 'Period', 'd.'),
+        LK('EarlierValue', 'Cells', 'EarlierCell', 'CellId', 'Value', 'At t.'),
+        LK('LaterValue', 'Cells', 'LaterCell', 'CellId', 'Value', 'At t + d.'),
+        CALC('EarlierBit', '=IF({{EarlierValue}}=1,1,0)', 'At t, white before the cone.'),
+        CALC('LaterBit', '=IF({{LaterValue}}=1,1,0)', 'At t + d, white before the cone.'),
+        CALC('IsMismatch', '=IF(ABS({{EarlierBit}}-{{LaterBit}})=1,1,0)', '1 when the diagonal differs at t and t + d.'),
+        CALC('IsInFirstPeriod', '=IF({{Time}}<{{Period}},1,0)', '1 for t < d.'),
+    ],
+    dchecks)
+
+FACTS = {  # fact -> (diagonals it is stated for, what Holds reads)
+    'all-ones': ([('right', 0), ('left', 0)], 'every cone cell on the edge is black'),
+    'first-one-at-half': ([('right', k) for k in RIGHT_K], 'first black cell at t = ceil(k/2), and P_k exceeds that time'),
+    'balanced': ([('right', k) for k in RIGHT_K if k >= 1], 'exactly half the cells of one least period are black'),
+    'doubles': ([('right', k) for k in RIGHT_K if k >= 3], 'P_k = 2 P_{k-1}'),
+    'nondecreasing': ([('right', k) for k in RIGHT_K if k >= 1], 'P_k >= P_{k-1}'),
+    'repeat-or-double': ([('right', k) for k in RIGHT_K if k >= 3], 'P_k is P_{k-1} or 2 P_{k-1}'),
+    'no-triple-double': ([('right', k) for k in RIGHT_K if k >= 5], 'not (eps_k = eps_{k-1} = eps_{k-2} = 1)'),
+    'half-period-one': ([('right', k) for k in RIGHT_K if k >= 1], 'y_k(P_k / 2) = 1'),
+    'eventually-dyadic': ([('left', k) for k in LEFT_K], 'w_k has a dyadic eventual period <= min(2^k, %d) inside the horizon' % LEFT_CAP),
+    'parity-after-doubling': ([('right', k) for k in RIGHT_K if k >= 4], 'if eps_{k-1} = 1 then eps_k = ones of y_{k-2} per period mod 2'),
+    'parity-always': ([('right', k) for k in RIGHT_K if k >= 4], 'eps_k = ones of y_{k-2} per period mod 2'),
+    'left-half-speed': ([('left', k) for k in LEFT_K if 1 <= k <= max(RIGHT_K)], 'Pw_k^2 <= P_k (log2 Pw_k <= log2 P_k / 2)'),
+}
+book['DiagonalFacts'] = table(
+    'One fact a predicate states about one diagonal, decided from the diagonal\'s computed periods and cells.',
+    KEY('DiagonalFactId', '<fact>-<diagonal>.') + [
+        F('Fact', desc='Which fact: ' + '; '.join(f'{k}: {v[1]}' for k, v in FACTS.items()) + '.'),
+        REL('Diagonal', 'Diagonals', 'The diagonal.', False),
+        LK('Offset', 'Diagonals', 'Diagonal', 'DiagonalId', 'Offset', 'k.'),
+        LK('OnesCount', 'Diagonals', 'Diagonal', 'DiagonalId', 'OnesCount', 'Black cells observed.'),
+        LK('CellCount', 'Diagonals', 'Diagonal', 'DiagonalId', 'CellCount', 'Cells observed.'),
+        LK('FirstOneTime', 'Diagonals', 'Diagonal', 'DiagonalId', 'FirstOneTime', 'First black cell.'),
+        LK('LeastPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'LeastPeriod', 'P_k.'),
+        LK('PreviousLeastPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'PreviousLeastPeriod', 'P_{k-1}.'),
+        LK('OnesPerPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'OnesPerPeriod', 'Black cells per least period.'),
+        LK('HalfPeriodValue', 'Diagonals', 'Diagonal', 'DiagonalId', 'HalfPeriodValue', 'y_k(P_k / 2).'),
+        LK('Doubles', 'Diagonals', 'Diagonal', 'DiagonalId', 'Doubles', 'eps_k.'),
+        LK('PreviousDoubles', 'Diagonals', 'Diagonal', 'DiagonalId', 'PreviousDoubles', 'eps_{k-1}.'),
+        LK('PreviousPreviousDoubles', 'Diagonals', 'Diagonal', 'DiagonalId', 'PreviousPreviousDoubles', 'eps_{k-2}.'),
+        LK('EventualPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'EventualPeriod', 'Least dyadic eventual period.'),
+        LK('PreviousPreviousOnesPerPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'PreviousPreviousOnesPerPeriod', 'Ones per period of y_{k-2}.'),
+        LK('OppositeLeastPeriod', 'Diagonals', 'Diagonal', 'DiagonalId', 'OppositeLeastPeriod', 'P_k of the right diagonal with the same offset.'),
+        CALC('Holds', '=IF({{Fact}}="all-ones",IF({{OnesCount}}-{{CellCount}}=0,1,0),IF({{Fact}}="first-one-at-half",IF(AND({{FirstOneTime}}-INT(({{Offset}}+1)/2)=0,{{LeastPeriod}}>{{FirstOneTime}}),1,0),IF({{Fact}}="balanced",IF(2*{{OnesPerPeriod}}-{{LeastPeriod}}=0,1,0),IF({{Fact}}="doubles",{{Doubles}},IF({{Fact}}="nondecreasing",IF({{LeastPeriod}}>={{PreviousLeastPeriod}},1,0),IF({{Fact}}="repeat-or-double",IF(OR({{LeastPeriod}}-{{PreviousLeastPeriod}}=0,{{Doubles}}=1),1,0),IF({{Fact}}="no-triple-double",IF({{Doubles}}+{{PreviousDoubles}}+{{PreviousPreviousDoubles}}<3,1,0),IF({{Fact}}="half-period-one",{{HalfPeriodValue}},IF({{Fact}}="eventually-dyadic",IF({{EventualPeriod}}>0,1,0),IF({{Fact}}="parity-after-doubling",IF({{PreviousDoubles}}=1,IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),1),IF({{Fact}}="parity-always",IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),IF({{Fact}}="left-half-speed",IF({{EventualPeriod}}*{{EventualPeriod}}<={{OppositeLeastPeriod}},1,0),0))))))))))))',
+             '1 when the fact holds for this diagonal.'),
+        CALC('IsDecided', '=IF({{Fact}}="left-half-speed",IF(AND({{EventualPeriod}}>0,{{OppositeLeastPeriod}}>0),1,0),IF(OR({{Fact}}="all-ones",{{Fact}}="eventually-dyadic",{{LeastPeriod}}>0),1,0))', '1 when the horizon certifies the periods the fact needs; otherwise the fact is not an instance.'),
+    ],
+    [{'DiagonalFactId': f'{fact}-{did(s, k)}', 'Fact': fact, 'Diagonal': did(s, k)} for fact, (ds, _) in FACTS.items() for s, k in ds])
+
 # ============================ Problem 2 ============================
 book['Tolerances'] = table(
     'Margins epsilon around 1/2 for Problem 2. The limit is 1/2 exactly when, for every epsilon, excursions eventually stop.',
@@ -675,7 +817,9 @@ VARS = [
     ('right-bit', 'r', 'Right cell of a neighborhood (0 or 1)', 'Neighborhoods', 0),
     ('run-end', 'V', 'Last time step of a constant run', 'Cells', 1),
     ('word', 'a', 'A finite word whose repetition is a tail', 'PeriodicWords', 1),
-]
+    ('offset', 'k', 'Diagonal offset', 'Diagonals', 1),
+    ('offset-j', 'j', 'A second diagonal offset', 'Diagonals', 1),
+] + fc.NEW_VARIABLES
 book['Variables'] = table(
     'The variables the predicates quantify over, the table whose rows are their values in the model, and whether their domain is infinite in the problem.',
     KEY('VariableId', 'Name of the variable.') + [
@@ -693,12 +837,12 @@ book['Operators'] = table(
         F('Symbol', desc='How it is written.'),
         F('Kind', desc='binder, infix, prefix, apply, atom, var or const: how a term with this operator is written out.'),
         F('Arity', 'integer', desc='Number of arguments (a binder has two: its condition and its body).', nullable=False),
+        F('IsModeled', 'integer', desc='1 when the model computes this operator (a table or field gives it its value); 0 when it is only a named symbol so far.', nullable=False),
         AGG('UseCount', '=COUNTIFS(Terms!{{TermOperator}},{{OperatorId}})', 'Terms using it.'),
     ],
-    [{'OperatorId': o, 'Symbol': s, 'Kind': k, 'Arity': a} for o, s, k, a in mt.OPERATORS])
+    [{'OperatorId': o, 'Symbol': s, 'Kind': k, 'Arity': a, 'IsModeled': m} for o, s, k, a, m in mt.OPERATORS])
 
 ARGS = ('Arg1', 'Arg2', 'Arg3', 'Arg4')
-sum_args = lambda f: '+'.join(f'IF({{{{OpArity}}}}>={n},{{{{{a}{f}}}}},0)' for n, a in enumerate(ARGS, 1))
 book['Terms'] = table(
     'One node of a formal statement: an operator with its argument terms, a variable, or a constant. A binder holds its bound variable, its condition (Arg1) and its body (Arg2). The text, the quantifier count and whether a quantifier ranges over an infinite domain are computed from the tree.',
     KEY('TermId', '<predicate>-<preorder index>.') + [
@@ -711,19 +855,19 @@ book['Terms'] = table(
         REL('Arg3', 'Terms', 'Third argument.'),
         REL('Arg4', 'Terms', 'Fourth argument.'),
         REL('IntroducedInLoop', 'Loops', 'The model-native loop that added this term; empty for the core predicates.'),
+        F('PredicateKey', desc='The predicate whose statement this node belongs to (a plain key, not a reference: Predicates already points at the root term).'),
         LK('OpSymbol', 'Operators', 'TermOperator', 'OperatorId', 'Symbol', 'How the operator is written.', 'string'),
         LK('OpKind', 'Operators', 'TermOperator', 'OperatorId', 'Kind', 'How the term is written out.', 'string'),
         LK('OpArity', 'Operators', 'TermOperator', 'OperatorId', 'Arity', 'Number of arguments.'),
+        LK('OpIsModeled', 'Operators', 'TermOperator', 'OperatorId', 'IsModeled', '1 when the model computes the operator.'),
         LK('VarSymbol', 'Variables', 'Variable', 'VariableId', 'Symbol', 'The variable as written.', 'string'),
         LK('VarUnbounded', 'Variables', 'Variable', 'VariableId', 'IsUnboundedInProblem', '1 when the variable ranges over an infinite domain.'),
-    ] + [LK(f'{a}Text', 'Terms', a, 'TermId', 'Rendered', f'{a} written out.', 'string') for a in ARGS]
-      + [LK(f'{a}Unbounded', 'Terms', a, 'TermId', 'UnboundedBinderCount', f'Unbounded quantifiers inside {a}.') for a in ARGS]
-      + [LK(f'{a}Binders', 'Terms', a, 'TermId', 'BinderCount', f'Quantifiers inside {a}.') for a in ARGS] + [
+    ] + [LK(f'{a}Text', 'Terms', a, 'TermId', 'Rendered', f'{a} written out.', 'string') for a in ARGS] + [
         CALC('Rendered', '=IF({{OpKind}}="var",{{VarSymbol}},IF({{OpKind}}="const",CONCAT("",{{Constant}}),IF({{OpKind}}="atom",{{OpSymbol}},IF({{OpKind}}="binder",CONCAT({{OpSymbol}},"[",{{VarSymbol}},", ",{{Arg1Text}},", ",{{Arg2Text}},"]"),IF({{OpKind}}="infix",CONCAT("(",{{Arg1Text}}," ",{{OpSymbol}}," ",{{Arg2Text}},")"),IF({{OpKind}}="prefix",CONCAT({{OpSymbol}},{{Arg1Text}}),CONCAT({{OpSymbol}},"[",{{Arg1Text}},IF({{OpArity}}>=2,CONCAT(", ",{{Arg2Text}}),""),IF({{OpArity}}>=3,CONCAT(", ",{{Arg3Text}}),""),IF({{OpArity}}>=4,CONCAT(", ",{{Arg4Text}}),""),"]")))))))',
              'The term written out in Wolfram Language style, computed from the tree.', 'string'),
         CALC('IsUnboundedBinder', '=IF(AND({{OpKind}}="binder",{{VarUnbounded}}=1,{{BoundsVariable}}=0),1,0)', '1 for a quantifier over an infinite domain.'),
-        CALC('UnboundedBinderCount', '={{IsUnboundedBinder}}+' + sum_args('Unbounded'), 'Unbounded quantifiers in this subtree.'),
-        CALC('BinderCount', '=IF({{OpKind}}="binder",1,0)+' + sum_args('Binders'), 'Quantifiers in this subtree.'),
+        CALC('IsBinder', '=IF({{OpKind}}="binder",1,0)', '1 for a quantifier (or another binder).'),
+        CALC('IsUnmodeledOperator', '=IF({{OpIsModeled}}=1,0,1)', '1 when the model does not compute this operator yet.'),
     ],
     [])
 
@@ -747,20 +891,20 @@ PREDS = [
      ('ForAll', 'time', ('>=', t_, K(0)), ('ForAll', 'position', ('>', ('Abs', i_), t_), ('==', x(i_, t_), K(0)))),
      'From the single seed under a quiescent rule, every cell outside the light cone is white.',
      'One instance per run: the run satisfies the conditions that make the cone exact.'),
-    ('pr-p1-non-periodic', 'P1', 'PeriodicityCandidate', 0,
+    ('pr-p1-non-periodic', 'P1', 'PeriodTest', 0,
      ('NotExists', 'period', ('>=', p_, K(1)), ('NotExists', 'onset', ('>=', T_, K(0)), ('ForAll', 'time', ('>=', t_, T_), ('==', c(pl(t_, p_)), c(t_))))),
      'Problem 1: the center column is not eventually periodic.',
-     'One instance per candidate (p, T), p <= %d, T <= (depth - p)/2: the horizon holds a witness t >= T with c(t + p) != c(t).' % MAX_PERIOD),
-    ('pr-k1-not-constant', 'Known result', 'PeriodicityCandidate', 0,
+     'One instance per period p <= %d: every candidate (p, T) with T <= (depth - p)/2 has a witness t >= T with c(t + p) != c(t) inside the horizon (the witnesses are PeriodicityCandidates.FirstMismatchFrom).' % MAX_PERIOD),
+    ('pr-k1-not-constant', 'Known result', 'PeriodTest', 0,
      ('NotExists', 'onset', ('>=', T_, K(0)), ('ForAll', 'time', ('>=', t_, T_), ('==', c(pl(t_, K(1))), c(t_)))),
      'The center column is not eventually constant (the period-1 case of Problem 1).',
-     'One instance per onset T <= (depth - 1)/2: a witness t >= T with c(t + 1) != c(t).'),
-    ('pr-tc-mismatch-window', 'Theorem', 'MismatchWindow', 1,
+     'One instance: every onset T <= (depth - 1)/2 has a witness t >= T with c(t + 1) != c(t).'),
+    ('pr-tc-mismatch-window', 'Theorem', 'PeriodTestWindows', 1,
      ('ForAll', 'onset', ('>=', T_, K(0)), ('ForAll', 'period', ('>=', p_, K(1)),
       ('Exists!', 'position', ('&&', ('>=', i_, K(0)), ('<=', i_, K(1))),
        ('Exists!', 'time', ('&&', ('>=', t_, T_), ('<=', t_, pl(tm(K(2), T_), p_))), ('!=', x(i_, t_), x(i_, pl(t_, p_))))))),
      'Theorem C: for every T and p, column 0 or column 1 has x(i, t) != x(i, t + p) for some t in [T, 2T + p].',
-     'One instance per (T, p) whose window ends inside the horizon.'),
+     'One instance per period p: every window (T, p) that ends inside the horizon holds (the windows are MismatchWindows rows).'),
     ('pr-td-run-bounds', 'Theorem', 'Cell', 1,
      ('ForAll', 'onset', ('>=', T_, K(0)), ('ForAll', 'run-end', ('>=', Vr, T_), ('&&',
       ('=>', ('ForAll!', 'time', in_run, ('==', c(t_), K(1))), ('<=', Vr, pl(tm(K(2), T_), K(1)))),
@@ -787,11 +931,86 @@ PREDS = [
      'Problem 3: no admissible machine computes c(n) with effort O(n) (the displayed predicate; the prose says "at least O(n)").',
      "One instance per algorithm: an admissible algorithm's effort ratio still grows at the horizon."),
 ]
+k_, j_ = V('offset'), V('offset-j')
+P_, Eps, dy = (lambda k: ('P', k)), (lambda k: ('Eps', k)), (lambda k, n: ('-', k, K(n)))
+TWO20 = ('Power', K(2), K(20))
+PREDS += [
+    ('pr-t0-edges', 'Theorem', 'DiagonalFact', 1,
+     ('ForAll', 'time', ('>=', t_, K(0)), ('&&', ('==', x(('-', K(0), t_), t_), K(1)), ('==', x(t_, t_), K(1)))),
+     'T0: both boundary cells of the cone are black at every time (cone support is pr-light-cone).',
+     'One instance per edge diagonal: every cone cell on it is black inside the horizon.'),
+    ('pr-t004-dyadic-period', 'Theorem', 'DiagonalPeriodTest', 1,
+     ('ForAll', 'offset', ('>=', k_, K(0)), ('|', P_(k_), ('Power', K(2), k_))),
+     'T004: the right diagonal y_k is periodic with a period dividing 2^k.',
+     'One instance per k <= 5: 2^k is a period of the observed y_k.'),
+    ('pr-tb-first-one', 'Theorem', 'DiagonalFact', 1,
+     ('ForAll', 'offset', ('>=', k_, K(0)), ('&&', ('==', ('FirstOne', k_), ('Ceiling', ('/', k_, K(2)))), ('>', P_(k_), ('FirstOne', k_)))),
+     'TB: the first black cell of y_k is at t = ceil(k/2), and its least period exceeds that time.',
+     'One instance per right diagonal whose least period the horizon certifies.'),
+    ('pr-h1-balanced', 'Hypothesis', 'DiagonalFact', 1,
+     ('ForAll', 'offset', ('>=', k_, K(1)), ('==', tm(K(2), ('OnesPerPeriod', k_)), P_(k_))),
+     'H1: every right diagonal k >= 1 is balanced over its least period.',
+     'One instance per certified right diagonal k >= 1.'),
+    ('pr-h2-always-doubles', 'Hypothesis', 'DiagonalFact', 1,
+     ('ForAll', 'offset', ('>=', k_, K(3)), ('==', P_(k_), tm(K(2), P_(dy(k_, 1))))),
+     'H2: the least period doubles at every k >= 3.',
+     'One instance per certified right diagonal k >= 3.'),
+    ('pr-h4-nondecreasing', 'Hypothesis', 'DiagonalFact', 1,
+     ('ForAll', 'offset', ('>=', k_, K(1)), ('>=', P_(k_), P_(dy(k_, 1)))),
+     'H4: least diagonal periods never decrease.',
+     'One instance per certified right diagonal k >= 1.'),
+    ('pr-tl-repeat-or-double', 'Theorem', 'DiagonalFact', 1,
+     ('&&', ('ForAll', 'offset', ('>=', k_, K(3)), ('==', P_(k_), tm(P_(dy(k_, 1)), pl(K(1), Eps(k_))))),
+      ('ForAll', 'offset', ('>=', k_, K(3)), ('Exists', 'offset-j', ('>', j_, k_), ('==', Eps(j_), K(1))))),
+     'TL: P_k = P_{k-1} (1 + eps_k) for every k >= 3, and the period doubles infinitely often.',
+     'One instance per certified right diagonal k >= 3: the repeat-or-double conjunct.'),
+    ('pr-tn-no-triple-double', 'Theorem', 'DiagonalFact', 1,
+     ('ForAll', 'offset', ('>=', k_, K(5)), ('!', ('&&', ('&&', ('==', Eps(k_), K(1)), ('==', Eps(dy(k_, 1)), K(1))), ('==', Eps(dy(k_, 2)), K(1))))),
+     'TN: for k >= 5 the least diagonal period never doubles three times in a row.',
+     'One instance per certified right diagonal k >= 5.'),
+    ('pr-h14-half-period-one', 'Hypothesis', 'DiagonalFact', 1,
+     ('ForAll', 'offset', ('>=', k_, K(1)), ('==', ('y', k_, ('/', P_(k_), K(2))), K(1))),
+     'H14: every right diagonal is black at its half period: y_j(P_j / 2) = 1.',
+     'One instance per certified right diagonal k >= 1.'),
+    ('pr-tr-left-dyadic', 'Theorem', 'DiagonalFact', 0,
+     ('ForAll', 'offset', ('>=', k_, K(0)), ('|', ('Pw', k_), ('Power', K(2), k_))),
+     'TR: every left diagonal w_k is eventually periodic, with least eventual period a power of two dividing 2^k.',
+     'One instance per left diagonal k <= 10: the horizon shows a dyadic eventual period <= min(2^k, 8) (only dyadic periods are searched).'),
+    ('pr-h23-left-period-8', 'Hypothesis', 'DiagonalFact', 0,
+     ('ForAll', 'offset', ('>=', k_, K(0)), ('<=', ('Pw', k_), K(8))),
+     'H23: every left diagonal w_k has least eventual period at most 8.',
+     'One instance per left diagonal k <= 10 (its refutation lies beyond the model: far larger k).'),
+    ('pr-h9-discrepancy-root', 'Hypothesis', 'CellSquaredDiscrepancyBound', 1,
+     ('ForAll!', 'prefix-length', ('&&', ('>=', N_, K(16)), ('<=', N_, TWO20)), ('<=', ('Power', ('-', tm(K(2), ('Ones', N_)), N_), K(2)), tm(K(9), N_))),
+     'H9: |2 S(N) - N| <= 3 sqrt(N) for every 16 <= N <= 2^20 (squared, so it is exact in integers).',
+     'One instance per center prefix with N >= 16 inside the horizon (a sample of the domain).',
+     {'slope': 9, 'domain_min': 16}),
+    ('pr-h13-run-log-bound', 'Hypothesis', 'CellRunLengthLogBound', 1,
+     ('ForAll!', 'onset', ('&&', ('>=', T_, K(1)), ('<', T_, TWO20)), ('ForAll!', 'run-end', ('&&', ('>=', Vr, T_), ('<', Vr, ('-', TWO20, K(1)))),
+      ('=>', ('MaximalRun', T_, Vr), ('<=', pl(('-', Vr, T_), K(1)), pl(tm(K(2), ('Log2', pl(T_, K(1)))), K(4)))))),
+     'H13: every maximal constant center run [T, V] with 1 <= T and V < 2^20 - 1 has length <= 2 log2(T + 1) + 4.',
+     'One instance per center cell whose run starts at T >= 1: the run so far is within the bound (2^(L - 4) <= (T + 1)^2).',
+     {'slope': 2, 'intercept': 4, 'domain_min': 1}),
+    ('pr-h21-agreement-44', 'Hypothesis', 'PeriodTestAgreementBound', 1,
+     ('ForAll!', 'period', ('&&', ('>=', p_, K(1)), ('<=', p_, K(4096))), ('ForAll!', 'time', ('&&', ('>=', t_, K(0)), ('<', t_, TWO20)), ('<=', ('AgreementRun', p_, t_), K(44)))),
+     'H21: on the first 2^20 center bits, every agreement run c(t) = c(t + p), 1 <= p <= 4096, has length at most 44.',
+     'One instance per period p <= %d: the longest agreement run inside the horizon.' % MAX_PERIOD,
+     {'intercept': 44}),
+    ('pr-tq-agreement-runs', 'Theorem', '', 0,
+     ('ForAll', 'period', ('>=', p_, K(1)), ('<=>', ('Exists', 'onset', ('>=', T_, K(0)), ('ForAll', 'time', ('>=', t_, T_), ('==', c(pl(t_, p_)), c(t_)))),
+      ('Exists', 'time', ('>=', t_, K(0)), ('==', ('AgreementRun', p_, t_), INF)))),
+     'TQ: the center is eventually p-periodic iff some agreement run c(t) = c(t + p) is infinite.',
+     'No bounded instances: an infinite run is not visible inside a horizon.'),
+]
+PREDS += [(pid, prob, '', refutes, tree, gloss, 'No instances yet: the statement is formal; IsComputable says whether the model can compute its operators.')
+          for pid, prob, _, refutes, tree, gloss in fc.CLAIMS]
+PREDS += [(pid, prob, kind, refutes, tree, gloss, f'One instance per {kind} row the statement is about.') for pid, prob, _, refutes, kind, tree, gloss, _ in fc.DECIDED]
+COVERS = {'pr-rule30-polynomial'}
 preds = []
-for pid, prob, kind, refutes, tree, st, meaning in PREDS:
+for pid, prob, kind, refutes, tree, st, meaning, *extra in PREDS:
     root, rows_ = mt.term_rows(pid, tree)
     book['Terms']['data'].extend(rows_)
-    preds.append(mt.predicate_row(pid, prob, kind, root, st, meaning, refutes))
+    preds.append(mt.predicate_row(pid, prob, kind, root, st, meaning, refutes, covers_domain=int(pid in COVERS), **(extra[0] if extra else {})))
 book['Predicates'] = table(
     'The properties stated about the model: definitions, theorems, bridge obligations and the three prize problems. The formal statement is a Terms tree; its bounded instances are computed from the model; a model-native loop adds its hypotheses here as rows.',
     KEY('PredicateId', 'Name of the predicate.') + [
@@ -803,17 +1022,21 @@ book['Predicates'] = table(
         F('FailureRefutes', 'integer', desc='1 when a failing instance is a counterexample to the statement; 0 when it only means the horizon did not decide it.', nullable=False),
         F('BoundSlope', 'integer', desc='For bound hypotheses: the bound is slope * |a| + intercept.'),
         F('BoundIntercept', 'integer', desc='For bound hypotheses: see BoundSlope.'),
+        F('DomainMin', 'integer', desc='For bound hypotheses: the smallest index (N, T) the statement covers.'),
+        F('CoversDomain', 'integer', desc='1 when the instance rows enumerate the whole bounded domain of the statement, so holding on all of them verifies it; 0 when they are a sample (a model horizon shorter than the statement).', nullable=False),
         REL('IntroducedInLoop', 'Loops', 'The model-native loop that stated this predicate; empty for the core predicates.'),
         LK('Formal', 'Terms', 'RootTerm', 'TermId', 'Rendered', 'The formal statement, written out from its term tree.', 'string'),
-        LK('QuantifierCount', 'Terms', 'RootTerm', 'TermId', 'BinderCount', 'Quantifiers in the statement.'),
-        LK('UnboundedQuantifierCount', 'Terms', 'RootTerm', 'TermId', 'UnboundedBinderCount', 'Quantifiers over an infinite domain.'),
+        AGG('QuantifierCount', '=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsBinder}},1)', 'Quantifiers in the statement.'),
+        AGG('UnboundedQuantifierCount', '=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnboundedBinder}},1)', 'Quantifiers over an infinite domain.'),
+        AGG('UnmodeledOperatorCount', '=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnmodeledOperator}},1)', 'Operators of the statement the model does not compute yet.'),
+        CALC('IsComputable', '=IF({{UnmodeledOperatorCount}}=0,1,0)', '1 when every operator of the statement has a meaning in the model.'),
         CALC('IsFinitelyDecidable', '=IF({{UnboundedQuantifierCount}}=0,1,0)', '1 when the model can decide the full statement, not only bounded instances.'),
         AGG('RowCount', '=COUNTIFS(PredicateInstances!{{Predicate}},{{PredicateId}})', 'Instance rows, in or out of the domain.'),
         AGG('InstanceCount', '=COUNTIFS(PredicateInstances!{{Predicate}},{{PredicateId}},PredicateInstances!{{InDomain}},1)', 'Bounded instances in the domain of the statement.'),
         AGG('HoldingCount', '=SUMIFS(PredicateInstances!{{Holds}},PredicateInstances!{{Predicate}},{{PredicateId}},PredicateInstances!{{InDomain}},1)', 'Instances that hold.'),
         CALC('FailingCount', '={{InstanceCount}}-{{HoldingCount}}', 'Instances that fail.'),
         CALC('IsRefuted', '=IF(AND({{FailureRefutes}}=1,{{FailingCount}}>0),1,0)', '1 when a counterexample instance fails: the statement is false.'),
-        CALC('IsVerified', '=IF(AND({{IsFinitelyDecidable}}=1,{{InstanceCount}}>0,{{FailingCount}}=0),1,0)', '1 when the statement is finite and every instance holds: the model decides it true.'),
+        CALC('IsVerified', '=IF(AND({{IsFinitelyDecidable}}=1,{{CoversDomain}}=1,{{InstanceCount}}>0,{{FailingCount}}=0),1,0)', '1 when the statement is finite, its instances cover its domain and every one holds: the model decides it true.'),
         CALC('FiniteVerdict', '=IF({{InstanceCount}}=0,"NO INSTANCES",IF({{FailingCount}}=0,"HOLDS ON EVERY INSTANCE",IF({{FailureRefutes}}=1,CONCAT("REFUTED BY ",{{FailingCount}}," OF ",{{InstanceCount}}," INSTANCES"),CONCAT({{FailingCount}}," OF ",{{InstanceCount}}," UNDECIDED AT THE HORIZON"))))', 'What the model says about the bounded instances.', 'string'),
         AGG('AssertionCount', '=COUNTIFS(Assertions!{{Predicate}},{{PredicateId}})', 'Ledger claims about this predicate.'),
     ],
@@ -822,27 +1045,53 @@ book['Predicates'] = table(
 inst = [mt.instance_row('pr-d0-setup', RUN, 'Run', RUN)]
 inst += [mt.instance_row('pr-rule30-polynomial', nbid(n), 'RuleTableEntry', entid('rule-30', n)) for n in range(7, -1, -1)]
 inst.append(mt.instance_row('pr-light-cone', RUN, 'Run', RUN))
-# Instance rows only for onsets in the bounded form (T <= (depth - p)/2); InDomain recomputes the bound.
-inst += [mt.instance_row('pr-p1-non-periodic', f'p{p:02d}-T{t:03d}', 'PeriodicityCandidate', pcid(0, p, t)) for p in range(1, MAX_PERIOD + 1) for t in range((DEPTH - p) // 2 + 1)]
-inst += [mt.instance_row('pr-k1-not-constant', f'T{t:03d}', 'PeriodicityCandidate', pcid(0, 1, t)) for t in range((DEPTH - 1) // 2 + 1)]
-inst += [mt.instance_row('pr-tc-mismatch-window', w['MismatchWindowId'], 'MismatchWindow', w['MismatchWindowId']) for w in windows]
+# One instance per period: the (p, T) candidates and Theorem C windows are already rows with their own
+# witnesses; the instance reads their roll-up on the period test.
+inst += [mt.instance_row('pr-p1-non-periodic', f'p{p:02d}', 'PeriodTest', ptid(0, p)) for p in range(1, MAX_PERIOD + 1)]
+inst.append(mt.instance_row('pr-k1-not-constant', 'p01', 'PeriodTest', ptid(0, 1)))
+inst += [mt.instance_row('pr-tc-mismatch-window', f'p{p:02d}', 'PeriodTest', ptid(0, p)) for p in range(1, MAX_PERIOD + 1)]
 inst += [mt.instance_row('pr-td-run-bounds', f't{t:03d}', 'Cell', cid(t, 0)) for t in range(DEPTH + 1)]
 inst += [mt.instance_row('pr-tx-left-consistent', f't{t:03d}', 'LeftConsistencyCheck', f'{RUN}-tx-t{t:03d}') for t in range(DEPTH)]
 inst += [mt.instance_row('pr-b9-tail-killed', r['TailCandidateId'], 'TailCandidate', r['TailCandidateId']) for r in tails]
 inst += [mt.instance_row('pr-p2-equal-frequency', f'eps-{a}-{b}', 'Tolerance', f'eps-{a}-{b}') for a, b in TOLERANCES]
 inst += [mt.instance_row('pr-p3-effort', a, 'Algorithm', a) for a in ('light-cone-simulation', 'answer-table')]
+FACT_OF = {'pr-t0-edges': 'all-ones', 'pr-tb-first-one': 'first-one-at-half', 'pr-h1-balanced': 'balanced', 'pr-h2-always-doubles': 'doubles',
+           'pr-h4-nondecreasing': 'nondecreasing', 'pr-tl-repeat-or-double': 'repeat-or-double', 'pr-tn-no-triple-double': 'no-triple-double',
+           'pr-h14-half-period-one': 'half-period-one', 'pr-tr-left-dyadic': 'eventually-dyadic', 'pr-h23-left-period-8': 'eventually-dyadic'}
+for pid, fact in FACT_OF.items():
+    inst += [mt.instance_row(pid, did(sd, k), 'DiagonalFact', f'{fact}-{did(sd, k)}') for sd, k in FACTS[fact][0]]
+inst += [mt.instance_row('pr-t004-dyadic-period', f'k{k:02d}', 'DiagonalPeriodTest', f"{did('right', k)}-d{2 ** k:02d}") for k in RIGHT_K if 2 ** k <= RIGHT_CAP]
+inst += [mt.instance_row('pr-h9-discrepancy-root', f't{t:03d}', 'Cell', cid(t, 0)) for t in range(DEPTH + 1)]
+inst += [mt.instance_row('pr-h13-run-log-bound', f't{t:03d}', 'Cell', cid(t, 0)) for t in range(DEPTH + 1)]
+inst += [mt.instance_row('pr-h21-agreement-44', f'p{p:02d}', 'PeriodTest', ptid(0, p)) for p in range(1, MAX_PERIOD + 1)]
+for pid, _, _, _, kind, _, _, fact in fc.DECIDED:
+    if fact:
+        inst += [mt.instance_row(pid, did(sd, k), 'DiagonalFact', f'{fact}-{did(sd, k)}') for sd, k in FACTS[fact][0]]
+inst += [mt.instance_row('pr-cm-model-reproduces', f't{t:03d}', 'AcceleratorClaim', f'E17-{cid(t, 0)}') for t in range(DEPTH + 1)]
 KINDS = [  # InstanceKind, reference, field read for Holds
     ('RuleTableEntry', 'RuleTableEntry', 'MatchesPolynomial'), ('Run', 'Run', 'IsLightConeExact'), ('RunSetup', 'Run', 'IsPrizeSetup'),
     ('PeriodicityCandidate', 'PeriodicityCandidate', 'IsRefuted'), ('MismatchWindow', 'MismatchWindow', 'WindowHolds'),
     ('Cell', 'Cell', 'RunBoundHolds'), ('LeftConsistencyCheck', 'LeftConsistencyCheck', 'IsConsistent'),
     ('TailCandidate', 'TailCandidate', 'IsKilled'), ('Tolerance', 'Tolerance', 'SettledAtHorizon'), ('Algorithm', 'Algorithm', 'EffortHolds'),
+    ('DiagonalPeriodTest', 'DiagonalPeriodTest', 'IsPurePeriod'), ('DiagonalFact', 'DiagonalFact', 'Holds'), ('AcceleratorClaim', 'AcceleratorClaim', 'IsMatch'),
+    ('PeriodTest', 'PeriodTest', 'BoundedRefutationHolds'), ('PeriodTestWindows', 'PeriodTest', 'WindowsHold'),
 ]
-REF_TABLE = {'RuleTableEntry': 'RuleTableEntries', 'Run': 'Runs', 'PeriodicityCandidate': 'PeriodicityCandidates', 'MismatchWindow': 'MismatchWindows',
+REF_TABLE = {'RuleTableEntry': 'RuleTableEntries', 'Run': 'Runs', 'PeriodTest': 'PeriodTests', 'PeriodicityCandidate': 'PeriodicityCandidates', 'MismatchWindow': 'MismatchWindows',
+             'DiagonalPeriodTest': 'DiagonalPeriodTests', 'DiagonalFact': 'DiagonalFacts', 'AcceleratorClaim': 'AcceleratorClaims',
              'Cell': 'Cells', 'LeftConsistencyCheck': 'LeftConsistencyChecks', 'TailCandidate': 'TailCandidates', 'Tolerance': 'Tolerances', 'Algorithm': 'Algorithms'}
 holds = '0'
 for kind, ref, field in reversed(KINDS):
     holds = f'IF({{{{InstanceKind}}}}="{kind}",{{{{{kind}Holds}}}},{holds})'
-holds = 'IF({{InstanceKind}}="TailCandidateExcessBound",IF(AND({{TailCandidateHolds}}=1,{{TailKillExcess}}<={{BoundSlope}}*{{TailWordLength}}+{{BoundIntercept}}),1,0),' + holds + ')'
+# Parametrized kinds: the bound is data on the predicate (BoundSlope, BoundIntercept, DomainMin), so a
+# loop states a new bound hypothesis with rows only.
+PARAM = [
+    ('TailCandidateExcessBound', 'IF(AND({{TailCandidateHolds}}=1,{{TailKillExcess}}<={{BoundSlope}}*{{TailWordLength}}+{{BoundIntercept}}),1,0)'),
+    ('CellSquaredDiscrepancyBound', 'IF({{CellDiscrepancy}}*{{CellDiscrepancy}}<={{BoundSlope}}*{{CellPrefixLength}},1,0)'),
+    ('CellRunLengthLogBound', 'IF(POWER(2,{{CellRunLength}}-{{BoundIntercept}})<=POWER({{CellRunStart}}+1,{{BoundSlope}}),1,0)'),
+    ('PeriodTestAgreementBound', 'IF({{TestLongestAgreement}}<={{BoundIntercept}},1,0)'),
+]
+for kind, f in reversed(PARAM):
+    holds = f'IF({{{{InstanceKind}}}}="{kind}",{f},{holds})'
 book['PredicateInstances'] = table(
     'One bounded instance of a predicate, pointing at the model row that decides it. This is the roof all predicates share: whether an instance is in the domain, whether it holds and its witness are all read from the model.',
     KEY('PredicateInstanceId', '<predicate>-<instance>.') + [
@@ -851,6 +1100,7 @@ book['PredicateInstances'] = table(
         LK('InstanceKind', 'Predicates', 'Predicate', 'PredicateId', 'InstanceKind', 'Which reference decides it.', 'string'),
         LK('BoundSlope', 'Predicates', 'Predicate', 'PredicateId', 'BoundSlope', 'Bound hypotheses: slope.'),
         LK('BoundIntercept', 'Predicates', 'Predicate', 'PredicateId', 'BoundIntercept', 'Bound hypotheses: intercept.'),
+        LK('DomainMin', 'Predicates', 'Predicate', 'PredicateId', 'DomainMin', 'Bound hypotheses: smallest index covered.'),
     ] + [REL(ref, REF_TABLE[ref], f'Deciding row, for a {ref} instance.') for ref in mt.INSTANCE_REFS]
       + [LK(f'{kind}Holds', REF_TABLE[ref], ref, f'{ref}Id', field, f'{REF_TABLE[ref]}.{field}.') for kind, ref, field in KINDS] + [
         LK('CandidateInDomain', 'PeriodicityCandidates', 'PeriodicityCandidate', 'PeriodicityCandidateId', 'InBoundedDomain', 'Onset within the bounded form.'),
@@ -859,11 +1109,22 @@ book['PredicateInstances'] = table(
         LK('TailKillTime', 'TailCandidates', 'TailCandidate', 'TailCandidateId', 'KillTime', 'When left-consistency kills the tail.'),
         LK('TailKillExcess', 'TailCandidates', 'TailCandidate', 'TailCandidateId', 'KillExcess', 'Kill time minus onset.'),
         LK('TailWordLength', 'TailCandidates', 'TailCandidate', 'TailCandidateId', 'WordLength', '|a|.'),
-        CALC('InDomain', '=IF({{InstanceKind}}="PeriodicityCandidate",{{CandidateInDomain}},IF(OR({{InstanceKind}}="TailCandidate",{{InstanceKind}}="TailCandidateExcessBound"),{{TailInDomain}},1))', '1 when the instance lies in the domain the statement quantifies over (computed, not chosen).'),
+        LK('CellDiscrepancy', 'Cells', 'Cell', 'CellId', 'Discrepancy', 'Ones minus zeros of the prefix.'),
+        LK('CellPrefixLength', 'Cells', 'Cell', 'CellId', 'PrefixLength', 'N.'),
+        LK('CellIsCenter', 'Cells', 'Cell', 'CellId', 'IsCenter', '1 on the center column.'),
+        LK('CellRunLength', 'Cells', 'Cell', 'CellId', 'RunLength', 'Constant run length so far.'),
+        LK('CellRunStart', 'Cells', 'Cell', 'CellId', 'RunStart', 'Start of the constant run.'),
+        LK('TestLongestAgreement', 'PeriodTests', 'PeriodTest', 'PeriodTestId', 'LongestAgreementStreak', 'Longest agreement run.'),
+        LK('FactIsDecided', 'DiagonalFacts', 'DiagonalFact', 'DiagonalFactId', 'IsDecided', 'The horizon certifies what the fact needs.'),
+        CALC('InDomain', '=IF({{InstanceKind}}="PeriodicityCandidate",{{CandidateInDomain}},IF(OR({{InstanceKind}}="TailCandidate",{{InstanceKind}}="TailCandidateExcessBound"),{{TailInDomain}},IF({{InstanceKind}}="CellSquaredDiscrepancyBound",IF(AND({{CellIsCenter}}=1,{{CellPrefixLength}}>={{DomainMin}}),1,0),IF({{InstanceKind}}="CellRunLengthLogBound",IF(AND({{CellIsCenter}}=1,{{CellRunStart}}>={{DomainMin}}),1,0),IF({{InstanceKind}}="DiagonalFact",{{FactIsDecided}},1)))))', '1 when the instance lies in the domain the statement quantifies over (computed, not chosen).'),
         CALC('Holds', '=' + holds, '1 when the instance holds, read from its deciding row.'),
         CALC('Witness', '=IF({{InstanceKind}}="PeriodicityCandidate",{{CandidateWitness}},IF(OR({{InstanceKind}}="TailCandidate",{{InstanceKind}}="TailCandidateExcessBound"),{{TailKillTime}},0))', 'The time step that decides it, where there is one: the refuting mismatch or the kill.'),
     ],
     inst)
+for r in kept.get('Predicates', []):
+    r.setdefault('CoversDomain', 1)   # loop predicates written before CoversDomain existed enumerated their domain
+for r in kept.get('Terms', []):
+    r.setdefault('PredicateKey', r['TermId'].rsplit('-', 1)[0])   # terms written before PredicateKey existed
 for t in LOOP_OWNED:
     book[t]['data'].extend(kept.get(t, []))
 
@@ -933,7 +1194,13 @@ ensure_field('Dashboards', AGG('ModelContradictionCount', '=COUNTIFS(Assertions!
 ensure_field('Dashboards', AGG('UnmodeledClaimCount', '=COUNTIFS(Assertions!{{IsModelLinked}},0)', 'Claims still only stated in words.'))
 
 LINK = {'D0': 'pr-d0-setup', 'P1': 'pr-p1-non-periodic', 'P2': 'pr-p2-equal-frequency', 'P3': 'pr-p3-effort', 'K1': 'pr-k1-not-constant',
-        'TC': 'pr-tc-mismatch-window', 'TD': 'pr-td-run-bounds', 'TX': 'pr-tx-left-consistent', 'B9': 'pr-b9-tail-killed', 'B1': 'pr-b9-tail-killed'}
+        'TC': 'pr-tc-mismatch-window', 'TD': 'pr-td-run-bounds', 'TX': 'pr-tx-left-consistent', 'B9': 'pr-b9-tail-killed', 'B1': 'pr-b9-tail-killed',
+        'T0': 'pr-t0-edges', 'T004': 'pr-t004-dyadic-period', 'TB': 'pr-tb-first-one', 'H1': 'pr-h1-balanced', 'H2': 'pr-h2-always-doubles',
+        'H4': 'pr-h4-nondecreasing', 'TL': 'pr-tl-repeat-or-double', 'TN': 'pr-tn-no-triple-double', 'H14': 'pr-h14-half-period-one',
+        'TR': 'pr-tr-left-dyadic', 'H23': 'pr-h23-left-period-8', 'H9': 'pr-h9-discrepancy-root', 'H13': 'pr-h13-run-log-bound',
+        'H21': 'pr-h21-agreement-44', 'TQ': 'pr-tq-agreement-runs'}
+LINK.update({aid: pid for pid, _, aid, *_ in fc.CLAIMS})
+LINK.update({aid: pid for pid, _, aid, *_ in fc.DECIDED})
 loop_preds = {r['PredicateId'] for r in book['Predicates']['data'] if r.get('IntroducedInLoop')}
 for a in book['Assertions']['data']:
     if a.get('Predicate') not in loop_preds:   # a loop's own claims keep the predicate the loop gave them

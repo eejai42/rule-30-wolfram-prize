@@ -72,6 +72,11 @@ for key, want in S['S18_first_mismatch_sample'].items():
     eq(f'S18 first mismatch {key}', T['PeriodicityCandidates'][f'{RUN}-p{int(i):+04d}-{p}-{onset}']['FirstMismatchFrom'], want)
 for key, want in S['S19_tail_kill_times'].items():
     eq(f'S19 kill time {key}', T['TailCandidates'][f'tail-{key}']['KillTime'], want)
+for k, want in S['S20_right_least_periods'].items():
+    eq(f'S20 P_{k}', T['Diagonals'][f'right-k{int(k):02d}']['LeastPeriod'], want)
+for k, (per, onset) in S['S20_left_eventual'].items():
+    eq(f'S20 w_{k} eventual period', T['Diagonals'][f'left-k{int(k):02d}']['EventualPeriod'], per)
+    eq(f'S20 w_{k} onset', T['Diagonals'][f'left-k{int(k):02d}']['EventualOnset'], onset)
 for a in book['Assertions']['data']:
     if a.get('IsModelContradicted'):
         fails.append(f"ledger: {a['AssertionId']} is reported {a['ReportedStatus']} but the model refutes it")

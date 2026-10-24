@@ -15,7 +15,13 @@ The Wolfram Rule 30 prize problems, modeled in one rulebook with two halves:
   tolerances and color counts; Problem 3's machine models, algorithms and computations. The
   predicates themselves: each formal statement is a tree of Terms over Operators and Variables,
   written out by the build, with bounded instances whose domain, verdict and witness are computed.
-  Only structure and inputs are data. Map: `bootstrap/rule30-model/schema.md`.
+  Right and left diagonals (y_k, w_k) with their dyadic periods, and the facts the diagonal claims
+  state. Only structure and inputs are data. Map: `bootstrap/rule30-model/schema.md`.
+- **Every claim has a formal statement** (`UnmodeledClaimCount` = 0). The ones not decided by
+  instances live in `research/hub/formal_claims.py`; an operator the model does not compute yet
+  (the relaxation, window languages, the forcing word q_k, `Reported[...]` table values) has
+  `Operators.IsModeled` = 0, and `Predicates.IsComputable` says whether a statement can be decided
+  from the model at all. Making an uncomputable statement computable means modeling its operators.
 - **The ledger**: assertions, their dependency DAG, evidence files, revisions, and the research
   loops. The ledger reads the model: `Assertions.Predicate` links a claim to its predicate, and
   `EffectiveStatus` (which StatusGroup, IsUsable and CurrentStatus use) is FALSIFIED when the model
@@ -31,7 +37,7 @@ The Wolfram Rule 30 prize problems, modeled in one rulebook with two halves:
 3. **Edit the hub with `research/loop_tools.py`**, not by hand. It keeps the Prerequisites closure consistent with Dependencies and keeps Single Line Leaves formatting.
 4. **Always run `effortless build`** after any change to the rulebook. `compile-rulebook` recomputes every calculated, lookup and aggregation field in place; `minimize-rulebook` regenerates the derived ladder.
 5. **Never reimplement the status logic** (IsUsable, Blocked, CurrentStatus, ProofEligible, EvidenceGap) in scripts. Read the compiled values.
-5a. **The domain model tables are owned by `research/hub/build_model.py`.** It replaces them on every run, so change the model there (not with a one-off edit), then `effortless build`, then `python3 research/hub/check_model.py`, which compares the built values with the independent oracle in `bootstrap/rule30-model/mock-data/`, and `python3 research/hub/check_postgres.py`, which compares every computed value with the editor's Postgres views (the two substrates have disagreed before: `docs/toolchain-gaps.md` gaps 6 to 13). A claim about Rule 30 belongs in the model as rows and formulas the build decides; Python may only accelerate, and its values enter as `AcceleratorClaims` the model checks.
+5a. **The domain model tables are owned by `research/hub/build_model.py`.** It replaces them on every run, so change the model there (not with a one-off edit), then `effortless build`, then `python3 research/hub/check_model.py`, which compares the built values with the independent oracle in `bootstrap/rule30-model/mock-data/`, and `python3 research/hub/check_postgres.py`, which compares every computed value with the editor's Postgres views (the two substrates have disagreed before: `docs/toolchain-gaps.md` gaps 6 to 13; keep the compiled rulebook under about 14 MB, gap 13). A claim about Rule 30 belongs in the model as rows and formulas the build decides; Python may only accelerate, and its values enter as `AcceleratorClaims` the model checks.
 6. **Ask permission** before changing the assertion statuses of existing claims outside a loop.
 7. **A failed compile-rulebook run can look like a no-op.** The CLI does not print a remote tool's error, so check that computed values actually changed (or rerun with `-debug`). Field names that are Python keywords or single letters like `R` make it fail. See `docs/toolchain-gaps.md`.
 
@@ -48,10 +54,13 @@ value or a verdict; the loop's rows survive reruns of build_model.py (they carry
 `research/loop-24-kill-bound/run.py` is the pattern. If the hypothesis needs a concept the model lacks,
 add it to build_model.py first (a model change, checked by check_model.py and check_postgres.py).
 
-**Computations too large for rows** (millions of windows, onsets in the hundreds) stay Python, as
-before, but their per-object results enter as `AcceleratorClaims`-style rows the model rechecks on
-objects it computes itself, and the claim's status stays a report (`IsModelDecided` = 0). Steps 0
-to 6 below are that classic loop:
+**Computations too large for rows** (millions of windows, onsets in the hundreds) stay Python: the
+classic loop below, with the claim's status a report (`IsModelDecided` = 0). Give the claim a formal
+statement anyway: add its term tree to `research/hub/formal_claims.py` (CLAIMS), declaring any new
+operator in `model_tools.UNMODELED_OPERATORS`, and its `Predicate` link follows. Where the model can
+recompute some of the objects (cells, tails, diagonals), load the script's per-object results as
+claim rows next to the model's own value, the way `AcceleratorClaims` holds E17's center bits, so
+the build checks the script on that sample. Steps 0 to 6 below are the classic loop:
 
 0. The loop is added to Loops as `RUNNING` and built, so the explorer shows it in progress.
 1. State the hypothesis as an Assertion (status OPEN) with its Dependencies.

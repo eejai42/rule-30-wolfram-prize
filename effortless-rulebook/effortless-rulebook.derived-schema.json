@@ -2369,6 +2369,38 @@
         "nullable": true,
         "Description": "1 when every onset T <= OnsetBound has a mismatch at some t >= T.",
         "formula": "=IF({{LastMismatchTime}}>={{OnsetBound}},1,0)"
+      },
+      {
+        "name": "WindowCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Theorem C windows for this period that end inside the horizon.",
+        "formula": "=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}})"
+      },
+      {
+        "name": "WindowFailureCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Windows with no mismatch in either column. Theorem C says 0.",
+        "formula": "=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}},MismatchWindows!{{WindowHolds}},0)"
+      },
+      {
+        "name": "CenterWitnessWindowCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Windows where column 0 alone has the mismatch.",
+        "formula": "=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}},MismatchWindows!{{CenterInWindow}},1)"
+      },
+      {
+        "name": "WindowsHold",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when every Theorem C window of this period holds.",
+        "formula": "=IF(AND({{WindowCount}}>0,{{WindowFailureCount}}=0),1,0)"
       }
     ]
   },
@@ -2567,6 +2599,14 @@
         "nullable": false,
         "Description": "p.",
         "RelatedTo": "Periods"
+      },
+      {
+        "name": "CenterTest",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The center column test for p (for the roll-up).",
+        "RelatedTo": "PeriodTests"
       },
       {
         "name": "CenterCandidate",
@@ -3523,6 +3563,688 @@
       }
     ]
   },
+  "Diagonals": {
+    "Description": "A diagonal of the cone read as a sequence in t: right side y_k(t) = x(t - k, t), left side w_k(t) = x(k - t, t) (k = 0 is the edge). Before the cone reaches it a diagonal is white.",
+    "schema": [
+      {
+        "name": "DiagonalId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<side>-k<offset>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{DiagonalId}}"
+      },
+      {
+        "name": "Side",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "right (y_k) or left (w_k)."
+      },
+      {
+        "name": "Offset",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "k."
+      },
+      {
+        "name": "PreviousDiagonal",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The diagonal k - 1 on the same side; empty at k = 0.",
+        "RelatedTo": "Diagonals"
+      },
+      {
+        "name": "OppositeDiagonal",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "For a left diagonal w_k: the right diagonal y_k (one direction only).",
+        "RelatedTo": "Diagonals"
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The horizon (the run depth)."
+      },
+      {
+        "name": "RightOnes",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black cells with t - i = k.",
+        "formula": "=SUMIFS(Cells!{{Value}},Cells!{{RightOffset}},{{Offset}})"
+      },
+      {
+        "name": "LeftOnes",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black cells with t + i = k.",
+        "formula": "=SUMIFS(Cells!{{Value}},Cells!{{LeftOffset}},{{Offset}})"
+      },
+      {
+        "name": "RightCells",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Cells with t - i = k.",
+        "formula": "=COUNTIFS(Cells!{{RightOffset}},{{Offset}})"
+      },
+      {
+        "name": "LeftCells",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Cells with t + i = k.",
+        "formula": "=COUNTIFS(Cells!{{LeftOffset}},{{Offset}})"
+      },
+      {
+        "name": "RightFirstOneRaw",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Raw MINIFS (gap 12); read FirstOneTime.",
+        "formula": "=MINIFS(Cells!{{Time}},Cells!{{RightOffset}},{{Offset}},Cells!{{Value}},1)"
+      },
+      {
+        "name": "LeftFirstOneRaw",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Raw MINIFS (gap 12); read FirstOneTime.",
+        "formula": "=MINIFS(Cells!{{Time}},Cells!{{LeftOffset}},{{Offset}},Cells!{{Value}},1)"
+      },
+      {
+        "name": "OnesCount",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Black cells on the diagonal inside the horizon.",
+        "formula": "=IF({{Side}}=\"right\",{{RightOnes}},{{LeftOnes}})"
+      },
+      {
+        "name": "CellCount",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Cells of the diagonal inside the cone and the horizon.",
+        "formula": "=IF({{Side}}=\"right\",{{RightCells}},{{LeftCells}})"
+      },
+      {
+        "name": "FirstOneTime",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "First t with a black cell on the diagonal; -1 when none inside the horizon.",
+        "formula": "=IF({{OnesCount}}=0,-1,IF({{Side}}=\"right\",{{RightFirstOneRaw}},{{LeftFirstOneRaw}}))"
+      },
+      {
+        "name": "PureCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Dyadic periods the whole observed diagonal has.",
+        "formula": "=COUNTIFS(DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsPurePeriod}},1)"
+      },
+      {
+        "name": "LeastPureRaw",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Raw MINIFS (gap 12); read LeastPeriod.",
+        "formula": "=MINIFS(DiagonalPeriodTests!{{Period}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsPurePeriod}},1)"
+      },
+      {
+        "name": "LeastPeriod",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "P_k: the least dyadic period of the diagonal from t = 0; -1 when none is certified inside the horizon.",
+        "formula": "=IF({{PureCount}}>0,{{LeastPureRaw}},-1)"
+      },
+      {
+        "name": "EventualCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Dyadic periods the diagonal eventually has.",
+        "formula": "=COUNTIFS(DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsEventualPeriod}},1)"
+      },
+      {
+        "name": "LeastEventualRaw",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Raw MINIFS (gap 12); read EventualPeriod.",
+        "formula": "=MINIFS(DiagonalPeriodTests!{{Period}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsEventualPeriod}},1)"
+      },
+      {
+        "name": "EventualPeriod",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Least dyadic eventual period; -1 when none is certified inside the horizon.",
+        "formula": "=IF({{EventualCount}}>0,{{LeastEventualRaw}},-1)"
+      },
+      {
+        "name": "EventualOnset",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Onset of the least eventual period.",
+        "formula": "=SUMIFS(DiagonalPeriodTests!{{EventualOnset}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsLeastEventual}},1)"
+      },
+      {
+        "name": "OnesPerPeriod",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black cells in one least period y_k(0 .. P_k - 1).",
+        "formula": "=SUMIFS(DiagonalPeriodTests!{{OnesInFirstPeriod}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsLeast}},1)"
+      },
+      {
+        "name": "HalfPeriodValue",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "y_k(P_k / 2).",
+        "formula": "=SUMIFS(DiagonalPeriodTests!{{HalfValue}},DiagonalPeriodTests!{{Diagonal}},{{DiagonalId}},DiagonalPeriodTests!{{IsLeast}},1)"
+      },
+      {
+        "name": "PreviousLeastPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "P_{k-1}.",
+        "formula": "=INDEX(Diagonals!{{LeastPeriod}},MATCH({{PreviousDiagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "Doubles",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "eps_k: 1 when P_k = 2 P_{k-1}.",
+        "formula": "=IF(AND({{Offset}}>=1,{{LeastPeriod}}-2*{{PreviousLeastPeriod}}=0),1,0)"
+      },
+      {
+        "name": "PreviousDoubles",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "eps_{k-1}.",
+        "formula": "=INDEX(Diagonals!{{Doubles}},MATCH({{PreviousDiagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "PreviousPreviousDoubles",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "eps_{k-2}.",
+        "formula": "=INDEX(Diagonals!{{PreviousDoubles}},MATCH({{PreviousDiagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "PreviousOnesPerPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Ones per period of y_{k-1}.",
+        "formula": "=INDEX(Diagonals!{{OnesPerPeriod}},MATCH({{PreviousDiagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "PreviousPreviousOnesPerPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Ones per period of y_{k-2}.",
+        "formula": "=INDEX(Diagonals!{{PreviousOnesPerPeriod}},MATCH({{PreviousDiagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "OppositeLeastPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "P_k of the right diagonal with the same offset.",
+        "formula": "=INDEX(Diagonals!{{LeastPeriod}},MATCH({{OppositeDiagonal}},Diagonals!{{DiagonalId}},0))"
+      }
+    ]
+  },
+  "DiagonalPeriodTests": {
+    "Description": "Is the dyadic d a period of the diagonal, from t = 0 (pure) or from some onset (eventual)?",
+    "schema": [
+      {
+        "name": "DiagonalPeriodTestId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<diagonal>-d<period>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{DiagonalPeriodTestId}}"
+      },
+      {
+        "name": "Diagonal",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The diagonal.",
+        "RelatedTo": "Diagonals"
+      },
+      {
+        "name": "Period",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "d, a power of two."
+      },
+      {
+        "name": "HalfCell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The cell of the diagonal at t = d / 2 (empty before the cone: white).",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "Depth",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The horizon.",
+        "formula": "=INDEX(Diagonals!{{Depth}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "DiagonalLeastPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "P_k.",
+        "formula": "=INDEX(Diagonals!{{LeastPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "DiagonalEventualPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Least eventual period.",
+        "formula": "=INDEX(Diagonals!{{EventualPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "HalfCellValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The diagonal at t = d / 2.",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{HalfCell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "HalfValue",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The diagonal at d / 2, white before the cone.",
+        "formula": "=IF({{HalfCellValue}}=1,1,0)"
+      },
+      {
+        "name": "ComparisonCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Comparisons inside the horizon.",
+        "formula": "=COUNTIFS(DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}})"
+      },
+      {
+        "name": "MismatchCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Comparisons that differ.",
+        "formula": "=COUNTIFS(DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}},DiagonalPeriodChecks!{{IsMismatch}},1)"
+      },
+      {
+        "name": "LastMismatchRaw",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Raw MAXIFS (gap 12); read EventualOnset.",
+        "formula": "=MAXIFS(DiagonalPeriodChecks!{{Time}},DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}},DiagonalPeriodChecks!{{IsMismatch}},1)"
+      },
+      {
+        "name": "OnesInFirstPeriod",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Black cells among t = 0 .. d - 1.",
+        "formula": "=SUMIFS(DiagonalPeriodChecks!{{EarlierBit}},DiagonalPeriodChecks!{{DiagonalPeriodTest}},{{DiagonalPeriodTestId}},DiagonalPeriodChecks!{{IsInFirstPeriod}},1)"
+      },
+      {
+        "name": "IsPurePeriod",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when every comparison matches and every residue mod d is compared at least once.",
+        "formula": "=IF(AND({{MismatchCount}}=0,{{ComparisonCount}}>={{Period}}),1,0)"
+      },
+      {
+        "name": "EventualOnset",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The first t from which every comparison matches.",
+        "formula": "=IF({{MismatchCount}}=0,0,{{LastMismatchRaw}}+1)"
+      },
+      {
+        "name": "IsEventualPeriod",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when d is a period from the onset on, with the onset in the first half of the horizon and at least 2d matching comparisons after it.",
+        "formula": "=IF(AND({{EventualOnset}}*2<={{Depth}},{{ComparisonCount}}-{{EventualOnset}}>=2*{{Period}}),1,0)"
+      },
+      {
+        "name": "IsLeast",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for the least pure period.",
+        "formula": "=IF({{Period}}-{{DiagonalLeastPeriod}}=0,1,0)"
+      },
+      {
+        "name": "IsLeastEventual",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for the least eventual period.",
+        "formula": "=IF({{Period}}-{{DiagonalEventualPeriod}}=0,1,0)"
+      }
+    ]
+  },
+  "DiagonalPeriodChecks": {
+    "Description": "One comparison of a diagonal period test: the diagonal at t against t + d.",
+    "schema": [
+      {
+        "name": "DiagonalPeriodCheckId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<test>-t<time>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{DiagonalPeriodCheckId}}"
+      },
+      {
+        "name": "DiagonalPeriodTest",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The test.",
+        "RelatedTo": "DiagonalPeriodTests"
+      },
+      {
+        "name": "Time",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "t."
+      },
+      {
+        "name": "EarlierCell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The diagonal at t (empty before the cone: white).",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "LaterCell",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The diagonal at t + d.",
+        "RelatedTo": "Cells"
+      },
+      {
+        "name": "Period",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "d.",
+        "formula": "=INDEX(DiagonalPeriodTests!{{Period}},MATCH({{DiagonalPeriodTest}},DiagonalPeriodTests!{{DiagonalPeriodTestId}},0))"
+      },
+      {
+        "name": "EarlierValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "At t.",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{EarlierCell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "LaterValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "At t + d.",
+        "formula": "=INDEX(Cells!{{Value}},MATCH({{LaterCell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "EarlierBit",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "At t, white before the cone.",
+        "formula": "=IF({{EarlierValue}}=1,1,0)"
+      },
+      {
+        "name": "LaterBit",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "At t + d, white before the cone.",
+        "formula": "=IF({{LaterValue}}=1,1,0)"
+      },
+      {
+        "name": "IsMismatch",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the diagonal differs at t and t + d.",
+        "formula": "=IF(ABS({{EarlierBit}}-{{LaterBit}})=1,1,0)"
+      },
+      {
+        "name": "IsInFirstPeriod",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for t < d.",
+        "formula": "=IF({{Time}}<{{Period}},1,0)"
+      }
+    ]
+  },
+  "DiagonalFacts": {
+    "Description": "One fact a predicate states about one diagonal, decided from the diagonal's computed periods and cells.",
+    "schema": [
+      {
+        "name": "DiagonalFactId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<fact>-<diagonal>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{DiagonalFactId}}"
+      },
+      {
+        "name": "Fact",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Which fact: all-ones: every cone cell on the edge is black; first-one-at-half: first black cell at t = ceil(k/2), and P_k exceeds that time; balanced: exactly half the cells of one least period are black; doubles: P_k = 2 P_{k-1}; nondecreasing: P_k >= P_{k-1}; repeat-or-double: P_k is P_{k-1} or 2 P_{k-1}; no-triple-double: not (eps_k = eps_{k-1} = eps_{k-2} = 1); half-period-one: y_k(P_k / 2) = 1; eventually-dyadic: w_k has a dyadic eventual period <= min(2^k, 8) inside the horizon; parity-after-doubling: if eps_{k-1} = 1 then eps_k = ones of y_{k-2} per period mod 2; parity-always: eps_k = ones of y_{k-2} per period mod 2; left-half-speed: Pw_k^2 <= P_k (log2 Pw_k <= log2 P_k / 2)."
+      },
+      {
+        "name": "Diagonal",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The diagonal.",
+        "RelatedTo": "Diagonals"
+      },
+      {
+        "name": "Offset",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "k.",
+        "formula": "=INDEX(Diagonals!{{Offset}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "OnesCount",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Black cells observed.",
+        "formula": "=INDEX(Diagonals!{{OnesCount}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "CellCount",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Cells observed.",
+        "formula": "=INDEX(Diagonals!{{CellCount}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "FirstOneTime",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "First black cell.",
+        "formula": "=INDEX(Diagonals!{{FirstOneTime}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "LeastPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "P_k.",
+        "formula": "=INDEX(Diagonals!{{LeastPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "PreviousLeastPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "P_{k-1}.",
+        "formula": "=INDEX(Diagonals!{{PreviousLeastPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "OnesPerPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Black cells per least period.",
+        "formula": "=INDEX(Diagonals!{{OnesPerPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "HalfPeriodValue",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "y_k(P_k / 2).",
+        "formula": "=INDEX(Diagonals!{{HalfPeriodValue}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "Doubles",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "eps_k.",
+        "formula": "=INDEX(Diagonals!{{Doubles}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "PreviousDoubles",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "eps_{k-1}.",
+        "formula": "=INDEX(Diagonals!{{PreviousDoubles}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "PreviousPreviousDoubles",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "eps_{k-2}.",
+        "formula": "=INDEX(Diagonals!{{PreviousPreviousDoubles}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "EventualPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Least dyadic eventual period.",
+        "formula": "=INDEX(Diagonals!{{EventualPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "PreviousPreviousOnesPerPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Ones per period of y_{k-2}.",
+        "formula": "=INDEX(Diagonals!{{PreviousPreviousOnesPerPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "OppositeLeastPeriod",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "P_k of the right diagonal with the same offset.",
+        "formula": "=INDEX(Diagonals!{{OppositeLeastPeriod}},MATCH({{Diagonal}},Diagonals!{{DiagonalId}},0))"
+      },
+      {
+        "name": "Holds",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the fact holds for this diagonal.",
+        "formula": "=IF({{Fact}}=\"all-ones\",IF({{OnesCount}}-{{CellCount}}=0,1,0),IF({{Fact}}=\"first-one-at-half\",IF(AND({{FirstOneTime}}-INT(({{Offset}}+1)/2)=0,{{LeastPeriod}}>{{FirstOneTime}}),1,0),IF({{Fact}}=\"balanced\",IF(2*{{OnesPerPeriod}}-{{LeastPeriod}}=0,1,0),IF({{Fact}}=\"doubles\",{{Doubles}},IF({{Fact}}=\"nondecreasing\",IF({{LeastPeriod}}>={{PreviousLeastPeriod}},1,0),IF({{Fact}}=\"repeat-or-double\",IF(OR({{LeastPeriod}}-{{PreviousLeastPeriod}}=0,{{Doubles}}=1),1,0),IF({{Fact}}=\"no-triple-double\",IF({{Doubles}}+{{PreviousDoubles}}+{{PreviousPreviousDoubles}}<3,1,0),IF({{Fact}}=\"half-period-one\",{{HalfPeriodValue}},IF({{Fact}}=\"eventually-dyadic\",IF({{EventualPeriod}}>0,1,0),IF({{Fact}}=\"parity-after-doubling\",IF({{PreviousDoubles}}=1,IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),1),IF({{Fact}}=\"parity-always\",IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),IF({{Fact}}=\"left-half-speed\",IF({{EventualPeriod}}*{{EventualPeriod}}<={{OppositeLeastPeriod}},1,0),0))))))))))))"
+      },
+      {
+        "name": "IsDecided",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the horizon certifies the periods the fact needs; otherwise the fact is not an instance.",
+        "formula": "=IF({{Fact}}=\"left-half-speed\",IF(AND({{EventualPeriod}}>0,{{OppositeLeastPeriod}}>0),1,0),IF(OR({{Fact}}=\"all-ones\",{{Fact}}=\"eventually-dyadic\",{{LeastPeriod}}>0),1,0))"
+      }
+    ]
+  },
   "Tolerances": {
     "Description": "Margins epsilon around 1/2 for Problem 2. The limit is 1/2 exactly when, for every epsilon, excursions eventually stop.",
     "schema": [
@@ -4133,6 +4855,13 @@
         "Description": "Number of arguments (a binder has two: its condition and its body)."
       },
       {
+        "name": "IsModeled",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the model computes this operator (a table or field gives it its value); 0 when it is only a named symbol so far."
+      },
+      {
         "name": "UseCount",
         "datatype": "integer",
         "type": "aggregation",
@@ -4231,6 +4960,13 @@
         "RelatedTo": "Loops"
       },
       {
+        "name": "PredicateKey",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The predicate whose statement this node belongs to (a plain key, not a reference: Predicates already points at the root term)."
+      },
+      {
         "name": "OpSymbol",
         "datatype": "string",
         "type": "lookup",
@@ -4253,6 +4989,14 @@
         "nullable": true,
         "Description": "Number of arguments.",
         "formula": "=INDEX(Operators!{{Arity}},MATCH({{TermOperator}},Operators!{{OperatorId}},0))"
+      },
+      {
+        "name": "OpIsModeled",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the model computes the operator.",
+        "formula": "=INDEX(Operators!{{IsModeled}},MATCH({{TermOperator}},Operators!{{OperatorId}},0))"
       },
       {
         "name": "VarSymbol",
@@ -4303,70 +5047,6 @@
         "formula": "=INDEX(Terms!{{Rendered}},MATCH({{Arg4}},Terms!{{TermId}},0))"
       },
       {
-        "name": "Arg1Unbounded",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Unbounded quantifiers inside Arg1.",
-        "formula": "=INDEX(Terms!{{UnboundedBinderCount}},MATCH({{Arg1}},Terms!{{TermId}},0))"
-      },
-      {
-        "name": "Arg2Unbounded",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Unbounded quantifiers inside Arg2.",
-        "formula": "=INDEX(Terms!{{UnboundedBinderCount}},MATCH({{Arg2}},Terms!{{TermId}},0))"
-      },
-      {
-        "name": "Arg3Unbounded",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Unbounded quantifiers inside Arg3.",
-        "formula": "=INDEX(Terms!{{UnboundedBinderCount}},MATCH({{Arg3}},Terms!{{TermId}},0))"
-      },
-      {
-        "name": "Arg4Unbounded",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Unbounded quantifiers inside Arg4.",
-        "formula": "=INDEX(Terms!{{UnboundedBinderCount}},MATCH({{Arg4}},Terms!{{TermId}},0))"
-      },
-      {
-        "name": "Arg1Binders",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Quantifiers inside Arg1.",
-        "formula": "=INDEX(Terms!{{BinderCount}},MATCH({{Arg1}},Terms!{{TermId}},0))"
-      },
-      {
-        "name": "Arg2Binders",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Quantifiers inside Arg2.",
-        "formula": "=INDEX(Terms!{{BinderCount}},MATCH({{Arg2}},Terms!{{TermId}},0))"
-      },
-      {
-        "name": "Arg3Binders",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Quantifiers inside Arg3.",
-        "formula": "=INDEX(Terms!{{BinderCount}},MATCH({{Arg3}},Terms!{{TermId}},0))"
-      },
-      {
-        "name": "Arg4Binders",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Quantifiers inside Arg4.",
-        "formula": "=INDEX(Terms!{{BinderCount}},MATCH({{Arg4}},Terms!{{TermId}},0))"
-      },
-      {
         "name": "Rendered",
         "datatype": "string",
         "type": "calculated",
@@ -4383,20 +5063,20 @@
         "formula": "=IF(AND({{OpKind}}=\"binder\",{{VarUnbounded}}=1,{{BoundsVariable}}=0),1,0)"
       },
       {
-        "name": "UnboundedBinderCount",
+        "name": "IsBinder",
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "Unbounded quantifiers in this subtree.",
-        "formula": "={{IsUnboundedBinder}}+IF({{OpArity}}>=1,{{Arg1Unbounded}},0)+IF({{OpArity}}>=2,{{Arg2Unbounded}},0)+IF({{OpArity}}>=3,{{Arg3Unbounded}},0)+IF({{OpArity}}>=4,{{Arg4Unbounded}},0)"
+        "Description": "1 for a quantifier (or another binder).",
+        "formula": "=IF({{OpKind}}=\"binder\",1,0)"
       },
       {
-        "name": "BinderCount",
+        "name": "IsUnmodeledOperator",
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "Quantifiers in this subtree.",
-        "formula": "=IF({{OpKind}}=\"binder\",1,0)+IF({{OpArity}}>=1,{{Arg1Binders}},0)+IF({{OpArity}}>=2,{{Arg2Binders}},0)+IF({{OpArity}}>=3,{{Arg3Binders}},0)+IF({{OpArity}}>=4,{{Arg4Binders}},0)"
+        "Description": "1 when the model does not compute this operator yet.",
+        "formula": "=IF({{OpIsModeled}}=1,0,1)"
       }
     ]
   },
@@ -4476,6 +5156,20 @@
         "Description": "For bound hypotheses: see BoundSlope."
       },
       {
+        "name": "DomainMin",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "For bound hypotheses: the smallest index (N, T) the statement covers."
+      },
+      {
+        "name": "CoversDomain",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the instance rows enumerate the whole bounded domain of the statement, so holding on all of them verifies it; 0 when they are a sample (a model horizon shorter than the statement)."
+      },
+      {
         "name": "IntroducedInLoop",
         "datatype": "string",
         "type": "relationship",
@@ -4494,18 +5188,34 @@
       {
         "name": "QuantifierCount",
         "datatype": "integer",
-        "type": "lookup",
+        "type": "aggregation",
         "nullable": true,
         "Description": "Quantifiers in the statement.",
-        "formula": "=INDEX(Terms!{{BinderCount}},MATCH({{RootTerm}},Terms!{{TermId}},0))"
+        "formula": "=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsBinder}},1)"
       },
       {
         "name": "UnboundedQuantifierCount",
         "datatype": "integer",
-        "type": "lookup",
+        "type": "aggregation",
         "nullable": true,
         "Description": "Quantifiers over an infinite domain.",
-        "formula": "=INDEX(Terms!{{UnboundedBinderCount}},MATCH({{RootTerm}},Terms!{{TermId}},0))"
+        "formula": "=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnboundedBinder}},1)"
+      },
+      {
+        "name": "UnmodeledOperatorCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Operators of the statement the model does not compute yet.",
+        "formula": "=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnmodeledOperator}},1)"
+      },
+      {
+        "name": "IsComputable",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when every operator of the statement has a meaning in the model.",
+        "formula": "=IF({{UnmodeledOperatorCount}}=0,1,0)"
       },
       {
         "name": "IsFinitelyDecidable",
@@ -4560,8 +5270,8 @@
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "1 when the statement is finite and every instance holds: the model decides it true.",
-        "formula": "=IF(AND({{IsFinitelyDecidable}}=1,{{InstanceCount}}>0,{{FailingCount}}=0),1,0)"
+        "Description": "1 when the statement is finite, its instances cover its domain and every one holds: the model decides it true.",
+        "formula": "=IF(AND({{IsFinitelyDecidable}}=1,{{CoversDomain}}=1,{{InstanceCount}}>0,{{FailingCount}}=0),1,0)"
       },
       {
         "name": "FiniteVerdict",
@@ -4640,6 +5350,14 @@
         "formula": "=INDEX(Predicates!{{BoundIntercept}},MATCH({{Predicate}},Predicates!{{PredicateId}},0))"
       },
       {
+        "name": "DomainMin",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Bound hypotheses: smallest index covered.",
+        "formula": "=INDEX(Predicates!{{DomainMin}},MATCH({{Predicate}},Predicates!{{PredicateId}},0))"
+      },
+      {
         "name": "RuleTableEntry",
         "datatype": "string",
         "type": "relationship",
@@ -4654,6 +5372,14 @@
         "nullable": true,
         "Description": "Deciding row, for a Run instance.",
         "RelatedTo": "Runs"
+      },
+      {
+        "name": "PeriodTest",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a PeriodTest instance.",
+        "RelatedTo": "PeriodTests"
       },
       {
         "name": "PeriodicityCandidate",
@@ -4694,6 +5420,30 @@
         "nullable": true,
         "Description": "Deciding row, for a TailCandidate instance.",
         "RelatedTo": "TailCandidates"
+      },
+      {
+        "name": "DiagonalPeriodTest",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a DiagonalPeriodTest instance.",
+        "RelatedTo": "DiagonalPeriodTests"
+      },
+      {
+        "name": "DiagonalFact",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a DiagonalFact instance.",
+        "RelatedTo": "DiagonalFacts"
+      },
+      {
+        "name": "AcceleratorClaim",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Deciding row, for a AcceleratorClaim instance.",
+        "RelatedTo": "AcceleratorClaims"
       },
       {
         "name": "Tolerance",
@@ -4792,6 +5542,46 @@
         "formula": "=INDEX(Algorithms!{{EffortHolds}},MATCH({{Algorithm}},Algorithms!{{AlgorithmId}},0))"
       },
       {
+        "name": "DiagonalPeriodTestHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "DiagonalPeriodTests.IsPurePeriod.",
+        "formula": "=INDEX(DiagonalPeriodTests!{{IsPurePeriod}},MATCH({{DiagonalPeriodTest}},DiagonalPeriodTests!{{DiagonalPeriodTestId}},0))"
+      },
+      {
+        "name": "DiagonalFactHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "DiagonalFacts.Holds.",
+        "formula": "=INDEX(DiagonalFacts!{{Holds}},MATCH({{DiagonalFact}},DiagonalFacts!{{DiagonalFactId}},0))"
+      },
+      {
+        "name": "AcceleratorClaimHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "AcceleratorClaims.IsMatch.",
+        "formula": "=INDEX(AcceleratorClaims!{{IsMatch}},MATCH({{AcceleratorClaim}},AcceleratorClaims!{{AcceleratorClaimId}},0))"
+      },
+      {
+        "name": "PeriodTestHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "PeriodTests.BoundedRefutationHolds.",
+        "formula": "=INDEX(PeriodTests!{{BoundedRefutationHolds}},MATCH({{PeriodTest}},PeriodTests!{{PeriodTestId}},0))"
+      },
+      {
+        "name": "PeriodTestWindowsHolds",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "PeriodTests.WindowsHold.",
+        "formula": "=INDEX(PeriodTests!{{WindowsHold}},MATCH({{PeriodTest}},PeriodTests!{{PeriodTestId}},0))"
+      },
+      {
         "name": "CandidateInDomain",
         "datatype": "integer",
         "type": "lookup",
@@ -4840,12 +5630,68 @@
         "formula": "=INDEX(TailCandidates!{{WordLength}},MATCH({{TailCandidate}},TailCandidates!{{TailCandidateId}},0))"
       },
       {
+        "name": "CellDiscrepancy",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Ones minus zeros of the prefix.",
+        "formula": "=INDEX(Cells!{{Discrepancy}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "CellPrefixLength",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "N.",
+        "formula": "=INDEX(Cells!{{PrefixLength}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "CellIsCenter",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 on the center column.",
+        "formula": "=INDEX(Cells!{{IsCenter}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "CellRunLength",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Constant run length so far.",
+        "formula": "=INDEX(Cells!{{RunLength}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "CellRunStart",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Start of the constant run.",
+        "formula": "=INDEX(Cells!{{RunStart}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "TestLongestAgreement",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Longest agreement run.",
+        "formula": "=INDEX(PeriodTests!{{LongestAgreementStreak}},MATCH({{PeriodTest}},PeriodTests!{{PeriodTestId}},0))"
+      },
+      {
+        "name": "FactIsDecided",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The horizon certifies what the fact needs.",
+        "formula": "=INDEX(DiagonalFacts!{{IsDecided}},MATCH({{DiagonalFact}},DiagonalFacts!{{DiagonalFactId}},0))"
+      },
+      {
         "name": "InDomain",
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the instance lies in the domain the statement quantifies over (computed, not chosen).",
-        "formula": "=IF({{InstanceKind}}=\"PeriodicityCandidate\",{{CandidateInDomain}},IF(OR({{InstanceKind}}=\"TailCandidate\",{{InstanceKind}}=\"TailCandidateExcessBound\"),{{TailInDomain}},1))"
+        "formula": "=IF({{InstanceKind}}=\"PeriodicityCandidate\",{{CandidateInDomain}},IF(OR({{InstanceKind}}=\"TailCandidate\",{{InstanceKind}}=\"TailCandidateExcessBound\"),{{TailInDomain}},IF({{InstanceKind}}=\"CellSquaredDiscrepancyBound\",IF(AND({{CellIsCenter}}=1,{{CellPrefixLength}}>={{DomainMin}}),1,0),IF({{InstanceKind}}=\"CellRunLengthLogBound\",IF(AND({{CellIsCenter}}=1,{{CellRunStart}}>={{DomainMin}}),1,0),IF({{InstanceKind}}=\"DiagonalFact\",{{FactIsDecided}},1)))))"
       },
       {
         "name": "Holds",
@@ -4853,7 +5699,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the instance holds, read from its deciding row.",
-        "formula": "=IF({{InstanceKind}}=\"TailCandidateExcessBound\",IF(AND({{TailCandidateHolds}}=1,{{TailKillExcess}}<={{BoundSlope}}*{{TailWordLength}}+{{BoundIntercept}}),1,0),IF({{InstanceKind}}=\"RuleTableEntry\",{{RuleTableEntryHolds}},IF({{InstanceKind}}=\"Run\",{{RunHolds}},IF({{InstanceKind}}=\"RunSetup\",{{RunSetupHolds}},IF({{InstanceKind}}=\"PeriodicityCandidate\",{{PeriodicityCandidateHolds}},IF({{InstanceKind}}=\"MismatchWindow\",{{MismatchWindowHolds}},IF({{InstanceKind}}=\"Cell\",{{CellHolds}},IF({{InstanceKind}}=\"LeftConsistencyCheck\",{{LeftConsistencyCheckHolds}},IF({{InstanceKind}}=\"TailCandidate\",{{TailCandidateHolds}},IF({{InstanceKind}}=\"Tolerance\",{{ToleranceHolds}},IF({{InstanceKind}}=\"Algorithm\",{{AlgorithmHolds}},0)))))))))))"
+        "formula": "=IF({{InstanceKind}}=\"TailCandidateExcessBound\",IF(AND({{TailCandidateHolds}}=1,{{TailKillExcess}}<={{BoundSlope}}*{{TailWordLength}}+{{BoundIntercept}}),1,0),IF({{InstanceKind}}=\"CellSquaredDiscrepancyBound\",IF({{CellDiscrepancy}}*{{CellDiscrepancy}}<={{BoundSlope}}*{{CellPrefixLength}},1,0),IF({{InstanceKind}}=\"CellRunLengthLogBound\",IF(POWER(2,{{CellRunLength}}-{{BoundIntercept}})<=POWER({{CellRunStart}}+1,{{BoundSlope}}),1,0),IF({{InstanceKind}}=\"PeriodTestAgreementBound\",IF({{TestLongestAgreement}}<={{BoundIntercept}},1,0),IF({{InstanceKind}}=\"RuleTableEntry\",{{RuleTableEntryHolds}},IF({{InstanceKind}}=\"Run\",{{RunHolds}},IF({{InstanceKind}}=\"RunSetup\",{{RunSetupHolds}},IF({{InstanceKind}}=\"PeriodicityCandidate\",{{PeriodicityCandidateHolds}},IF({{InstanceKind}}=\"MismatchWindow\",{{MismatchWindowHolds}},IF({{InstanceKind}}=\"Cell\",{{CellHolds}},IF({{InstanceKind}}=\"LeftConsistencyCheck\",{{LeftConsistencyCheckHolds}},IF({{InstanceKind}}=\"TailCandidate\",{{TailCandidateHolds}},IF({{InstanceKind}}=\"Tolerance\",{{ToleranceHolds}},IF({{InstanceKind}}=\"Algorithm\",{{AlgorithmHolds}},IF({{InstanceKind}}=\"DiagonalPeriodTest\",{{DiagonalPeriodTestHolds}},IF({{InstanceKind}}=\"DiagonalFact\",{{DiagonalFactHolds}},IF({{InstanceKind}}=\"AcceleratorClaim\",{{AcceleratorClaimHolds}},IF({{InstanceKind}}=\"PeriodTest\",{{PeriodTestHolds}},IF({{InstanceKind}}=\"PeriodTestWindows\",{{PeriodTestWindowsHolds}},0)))))))))))))))))))"
       },
       {
         "name": "Witness",

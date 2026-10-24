@@ -95,6 +95,23 @@ def kill(w, T):
 tail_words = [w for w in words if least[w] == len(w)]
 kills = {f'{w}-T{T:02d}': kill(w, T) for w in tail_words for T in TAIL_ONSETS}
 
+# --- diagonals (S20): least dyadic period of y_k from t = 0; least dyadic eventual period of w_k ---
+def dyadic(seq, cap, kmax, eventual):
+    d = 1
+    while d <= min(2 ** kmax, cap):
+        mism = [t for t in range(DEPTH + 1 - d) if seq[t] != seq[t + d]]
+        if not eventual and not mism and DEPTH + 1 - d >= d:
+            return d, 0
+        onset = max(mism) + 1 if mism else 0
+        if eventual and 2 * onset <= DEPTH and (DEPTH + 1 - d) - onset >= 2 * d:
+            return d, onset
+        d *= 2
+    return -1, 0
+
+
+right = {k: dyadic([x(t - k, t) for t in range(DEPTH + 1)], 32, k, False)[0] for k in range(9)}
+left = {k: dyadic([x(k - t, t) for t in range(DEPTH + 1)], 8, k, True) for k in range(11)}
+
 out = {
     'depth': DEPTH,
     'S01_rule30_table': {f'{n:03b}': rule_bit(30, n) for n in range(7, -1, -1)},
@@ -123,6 +140,8 @@ out = {
     'S17_tc_windows': len(windows), 'S17_tc_failures': tc_fail, 'S17_tc_center_witnesses': tc_center,
     'S18_first_mismatch_sample': {f'{i}-p{p:02d}-T{T:03d}': first_mismatch(i, p, T) for i in (0, 1) for p in (1, 2, 3, 7) for T in (0, 5, 20, 40) if T <= DEPTH - p},
     'S19_tail_kill_times': kills,
+    'S20_right_least_periods': right,
+    'S20_left_eventual': {k: list(v) for k, v in left.items()},
 }
 Path(__file__).with_name('scenarios.json').write_text(json.dumps(out, indent=1) + '\n')
 print(json.dumps({k: out[k] for k in ('S03_equivalence', 'S04_quiescent', 'S07_transition_use', 'S10_td_violations', 'S11_last_excursion', 'S12_center_color_counts', 'S14_cells')}))

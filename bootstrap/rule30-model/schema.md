@@ -49,6 +49,9 @@ Operators, Variables ──< Terms (self: Arg1..Arg4) ──< Predicates ──<
 | | PeriodicWords, WordLetters, WordShifts, WordShiftChecks | a tail word, its letters and rotations | LeastPeriod, IsPrimitive, IsNonconstant, IsInB9Domain, MaxKillExcess |
 | | TailCandidates | real prefix to T, then a a a ... | KillTime (witness), IsKilled, KillExcess |
 | | TailCenterTerms, TailCells, TailChecks | c'(t), the left half x'(i, t) it drives, the one-time check | Value, IsViolation, FirstViolationFrom |
+| Diagonals | Diagonals | y_k (right) or w_k (left) | LeastPeriod (P_k), EventualPeriod, EventualOnset, FirstOneTime, OnesPerPeriod, HalfPeriodValue, Doubles (eps_k) |
+| | DiagonalPeriodTests, DiagonalPeriodChecks | is the dyadic d a period (pure or eventual) | IsPurePeriod, IsEventualPeriod, EventualOnset |
+| | DiagonalFacts | one fact a claim states about one diagonal | Holds, IsDecided |
 | Problem 2 | Tolerances | a margin ε | LastExcursionTime (witness), SettledAtHorizon |
 | | ToleranceChecks | (ε, prefix) | IsExcursion |
 | | ColorCounts | (column, color) | OccurrenceCount, Share |
@@ -56,9 +59,9 @@ Operators, Variables ──< Terms (self: Arg1..Arg4) ──< Predicates ──<
 | | Algorithms | a way to compute c(n) | IsAdmissible, RatioAtHorizon, IsRatioGrowing |
 | | Computations | machine[m][n] = {v, t} | OutputValue, Effort, EffortRatio |
 | Logic | Variables | t, i, p, T, N, ε, n, m, a, … | BinderCount |
-| | Operators | ForAll, ==, c, x, rule30, cTail, … | UseCount |
-| | Terms | one node of a formal statement | Rendered (the statement written out), BinderCount, UnboundedBinderCount |
-| | Predicates | a definition, theorem, bridge obligation, hypothesis or prize problem | Formal, IsFinitelyDecidable, InstanceCount, FailingCount, IsRefuted, IsVerified, FiniteVerdict |
+| | Operators | ForAll, ==, c, x, rule30, cTail, P, Eps, …, and named symbols not yet modeled | IsModeled, UseCount |
+| | Terms | one node of a formal statement | Rendered (the statement written out), IsBinder, IsUnboundedBinder, IsUnmodeledOperator |
+| | Predicates | a definition, theorem, bridge obligation, hypothesis, finite check or prize problem (one per ledger claim) | Formal, QuantifierCount, IsFinitelyDecidable, IsComputable, InstanceCount, FailingCount, IsRefuted, IsVerified, FiniteVerdict |
 | | PredicateInstances | one bounded instance | InDomain, Holds, Witness (read from the deciding row) |
 | Ledger | Assertions (bridge fields) | a claim | IsModelLinked, ModelVerdict, EffectiveStatus, IsModelDecided, IsModelContradicted |
 | Outside | AcceleratorClaims | an optimizer's claimed cell value | IsMatch |

@@ -73,3 +73,21 @@ uniform in the onset.
 B9, attacked directly with the seeded relaxation of loop 22: grow every left-consistent prefix
 from the seed, attach a periodic tail, and see how soon the left half contradicts it. It uses the
 whole left-side information, not a relaxation of it, and is strictly sharper than B5.
+
+## What the model computes (loop 24 on)
+
+The chain above is now also in the rulebook as predicates with term-tree statements
+(`Predicates`, `Terms`), and these nodes have instances the build decides from Rule 30 itself:
+
+| Node | Instances (depth 64) | Verdict |
+|---|---|---|
+| TX | every center step t < 64 (`LeftConsistencyChecks`) | holds on all |
+| B9, B1 | the real prefix with every primitive tail of length <= 3 spliced on at onsets 1..10, each with its own left-half lattice (`TailCandidates`, `TailCells`, `TailChecks`) | every one is killed; the longest survival is 10 steps (010 at onset 10) |
+| H39 (loop 24) | the same 80 tails: killed within 3 x period | FALSIFIED by the build (010 at onset 10) |
+| TC | every window (T, p) inside the horizon (`MismatchWindows`) | holds; column 0 alone has the mismatch in all 492 |
+| P1, K1 | every candidate (p, T), p <= 24, with its refuting witness (`PeriodicityCandidates`) | every onset in the bounded form is refuted |
+
+TU, TV, TW and B5 to B8 have formal statements but use operators the model does not compute yet
+(`RelaxationSatisfiable`, `TWRowCount`, `IsTWRow`, `RowViolates`, ...; `Operators.IsModeled` = 0).
+Modeling the free-row relaxation as tables (rows R as data, their left-half lattices, the one-time
+checks) is what would let the build decide B6 to B8 on small onsets.
