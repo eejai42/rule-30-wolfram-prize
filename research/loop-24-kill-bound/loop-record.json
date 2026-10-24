@@ -1,0 +1,55 @@
+{
+ "loop": {
+  "LoopId": "effortless-24",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 36.8, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "bc288c79b117da40f95ccb66c474d0357d867540032fc0be2dbc75b57dd26c81",
+  "OutputHash": "689cfa0d08dc85a3f4d0cb8de2e8378cb00bfc8483179a0effe77cce66d2a6f8",
+  "Sequence": 37,
+  "StartedAt": "2026-10-24T01:50:25-0500",
+  "FinishedAt": "2026-10-24T01:51:42-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H39: on the real prefix, left-consistency kills every nonconstant primitive tail a with |a| <= 3, spliced on at any onset 1 <= T <= 10, within 3|a| steps of the onset. Stated as model rows; the build decides it.",
+  "Summary": "H39 stated as rows: predicate pr-h39-kill-within-3p with 100 instance rows over TailCandidates. Decided by the build: FALSIFIED (REFUTED BY 1 OF 80 INSTANCES). Counterexamples (candidate, excess): [('tail-010-T10', 10)].",
+  "Name": "effortless-24",
+  "ClaimsAdded": 1,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 35.7,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 94,
+  "BlockedCount": 29,
+  "CompletedNativeLoops": 24,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 35,
+  "CheckedCount": 34,
+  "FalsifiedCount": 18,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 2,
+  "ModelLinkedClaimCount": 11,
+  "ModelDecidedClaimCount": 1,
+  "ModelContradictionCount": 1,
+  "UnmodeledClaimCount": 83
+ }
+}

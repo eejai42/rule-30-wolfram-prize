@@ -11,6 +11,8 @@ import loop_tools as lt
 # build_model.py is a script (importing it would rewrite the hub), so read its table list from source.
 OWNED = ast.literal_eval(re.search(r'^OWNED = (\(.*?\))$', (Path(__file__).with_name('build_model.py')).read_text(), re.S | re.M).group(1))
 
+# Fields that exist only to expose a documented substrate difference; the model reads a guarded field instead.
+KNOWN_GAPS = {('PeriodicWords', 'KilledExcessMax'): 'gap 12, read through MaxKillExcess'}
 snake = lambda s: re.sub(r'(?<=[a-z0-9])(?=[A-Z])', '_', s).lower()
 book = lt.load()
 total, skipped, bad = 0, 0, []
@@ -27,7 +29,7 @@ for t in OWNED:
     for r in book[t]['data']:
         p = pg.get(r[pk], {})
         for f in computed:
-            if f in via and r.get(via[f]) in (None, ''):
+            if (t, f) in KNOWN_GAPS or (f in via and r.get(via[f]) in (None, '')):
                 skipped += 1
                 continue
             a, b = r.get(f), p.get(snake(f))
@@ -43,7 +45,7 @@ for t in OWNED:
 by_field = {}
 for b in bad:
     by_field[b.split('[')[0]] = by_field.get(b.split('[')[0], 0) + 1
-print(f'{total} computed values compared, {len(bad)} differ ({skipped} lookups through an empty reference skipped)')
+print(f'{total} computed values compared, {len(bad)} differ ({skipped} skipped: lookups through an empty reference, and {len(KNOWN_GAPS)} documented gap field(s))')
 for k, n in sorted(by_field.items()):
     print(f'  {k}: {n}')
 print('\n'.join(bad[:10]))

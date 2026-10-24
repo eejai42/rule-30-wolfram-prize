@@ -186,8 +186,8 @@
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "1 when the report says otherwise than the model: the report is wrong.",
-        "formula": "=IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,{{ReportedStatus}}<>\"FALSIFIED\"),1,0)"
+        "Description": "1 when the report asserts the claim (proved, checked or definitional) and the model refutes it: the report is wrong. An OPEN claim the model refutes is decided, not contradicted.",
+        "formula": "=IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),1,0)"
       },
       {
         "name": "ModelVerdict",

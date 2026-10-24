@@ -915,7 +915,7 @@ ensure_field('Assertions', CALC('ModelVerdict', '=IF({{IsModelLinked}}=1,{{Predi
 ensure_field('Assertions', CALC('EffectiveStatus', '=IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1),"FALSIFIED",IF(AND({{IsModelLinked}}=1,{{PredicateIsVerified}}=1,OR({{ReportedStatus}}="OPEN",{{ReportedStatus}}="FINITE_VERIFIED")),"FINITE_VERIFIED",{{ReportedStatus}}))',
                                  'The status the ledger uses: FALSIFIED when the model holds a counterexample, FINITE_VERIFIED when the model decides an open or checked claim true, otherwise the reported status.', 'string'))
 ensure_field('Assertions', CALC('IsModelDecided', '=IF(AND({{IsModelLinked}}=1,OR({{PredicateIsRefuted}}=1,{{PredicateIsVerified}}=1)),1,0)', '1 when the model, not a report, decides the status.'))
-ensure_field('Assertions', CALC('IsModelContradicted', '=IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,{{ReportedStatus}}<>"FALSIFIED"),1,0)', '1 when the report says otherwise than the model: the report is wrong.'))
+ensure_field('Assertions', CALC('IsModelContradicted', '=IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,OR({{ReportedStatus}}="DEFINITION",{{ReportedStatus}}="PROVED_HUMAN_READABLE",{{ReportedStatus}}="REDERIVED_KNOWN",{{ReportedStatus}}="FINITE_VERIFIED")),1,0)', '1 when the report asserts the claim (proved, checked or definitional) and the model refutes it: the report is wrong. An OPEN claim the model refutes is decided, not contradicted.'))
 for f in book['Assertions']['schema']:
     if f['name'] in ('StatusGroup', 'IsUsable', 'IsProofEligible'):
         f['formula'] = f['formula'].replace('{{ReportedStatus}}', '{{EffectiveStatus}}')
