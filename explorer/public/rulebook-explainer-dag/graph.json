@@ -134,10 +134,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 0,
-        "DependentCount": 14,
+        "DependentCount": 15,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 69
+        "DescendantCount": 74
       },
       {
         "AssertionId": "T0",
@@ -151,10 +151,10 @@
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
         "PremiseCount": 1,
-        "DependentCount": 32,
+        "DependentCount": 33,
         "EvidenceCount": 0,
         "RevisionCount": 0,
-        "DescendantCount": 60
+        "DescendantCount": 65
       },
       {
         "AssertionId": "T004",
@@ -466,16 +466,16 @@
         "AssertionId": "B1",
         "Statement": "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns.",
         "ReportedStatus": "PROVED_HUMAN_READABLE",
-        "ProofSection": "research/loop-13-top-down/PROOFS.md §Route L",
+        "ProofSection": "research/loop-22-left-consistent/PROOFS.md §B9 (B1 from B9 and TX); earlier route research/loop-13-top-down/PROOFS.md §Route L",
         "Name": "B1",
         "IsUsable": 1,
         "IsProofEligible": 1,
         "Kind": "Bridge obligation",
         "IntroducedInLoop": "",
         "StatusGroup": "Proved",
-        "PremiseCount": 2,
+        "PremiseCount": 4,
         "DependentCount": 1,
-        "EvidenceCount": 2,
+        "EvidenceCount": 4,
         "RevisionCount": 1,
         "DescendantCount": 1
       },
@@ -1140,7 +1140,7 @@
         "RevisionCount": 0,
         "IsUsable": 1,
         "IsProofEligible": 1,
-        "DescendantCount": 27
+        "DescendantCount": 30
       },
       {
         "AssertionId": "H26",
@@ -1186,12 +1186,12 @@
         "Name": "B5",
         "StatusGroup": "Proved",
         "PremiseCount": 5,
-        "DependentCount": 1,
+        "DependentCount": 2,
         "EvidenceCount": 8,
         "RevisionCount": 1,
         "IsUsable": 1,
         "IsProofEligible": 1,
-        "DescendantCount": 2
+        "DescendantCount": 3
       },
       {
         "AssertionId": "TU",
@@ -1203,12 +1203,12 @@
         "Name": "TU",
         "StatusGroup": "Proved",
         "PremiseCount": 3,
-        "DependentCount": 22,
+        "DependentCount": 23,
         "EvidenceCount": 1,
         "RevisionCount": 0,
         "IsUsable": 1,
         "IsProofEligible": 1,
-        "DescendantCount": 24
+        "DescendantCount": 27
       },
       {
         "AssertionId": "H27",
@@ -1259,7 +1259,7 @@
         "RevisionCount": 0,
         "IsUsable": 1,
         "IsProofEligible": 1,
-        "DescendantCount": 18
+        "DescendantCount": 21
       },
       {
         "AssertionId": "H28",
@@ -1339,12 +1339,12 @@
         "Name": "TW",
         "StatusGroup": "Proved",
         "PremiseCount": 4,
-        "DependentCount": 10,
+        "DependentCount": 12,
         "EvidenceCount": 2,
         "RevisionCount": 0,
         "IsUsable": 1,
         "IsProofEligible": 1,
-        "DescendantCount": 12
+        "DescendantCount": 15
       },
       {
         "AssertionId": "B6",
@@ -1361,7 +1361,7 @@
         "RevisionCount": 1,
         "IsUsable": 1,
         "IsProofEligible": 1,
-        "DescendantCount": 3
+        "DescendantCount": 4
       },
       {
         "AssertionId": "H30",
@@ -1442,11 +1442,11 @@
         "StatusGroup": "Open",
         "PremiseCount": 3,
         "DependentCount": 1,
-        "EvidenceCount": 3,
+        "EvidenceCount": 4,
         "RevisionCount": 0,
         "IsUsable": 0,
         "IsProofEligible": 0,
-        "DescendantCount": 4
+        "DescendantCount": 5
       },
       {
         "AssertionId": "B8",
@@ -1459,11 +1459,11 @@
         "StatusGroup": "Open",
         "PremiseCount": 3,
         "DependentCount": 1,
-        "EvidenceCount": 1,
+        "EvidenceCount": 2,
         "RevisionCount": 0,
         "IsUsable": 0,
         "IsProofEligible": 0,
-        "DescendantCount": 4
+        "DescendantCount": 5
       },
       {
         "AssertionId": "H32",
@@ -1560,6 +1560,91 @@
         "Name": "F20",
         "StatusGroup": "Checked",
         "PremiseCount": 4,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "TX",
+        "Statement": "The left half x(i,t), i<=-1, is a function of c(0..t-1) and the seed, and whenever c(t)=1 the forward rule forces c(t+1)=NOT x(-1,t): the center is left-consistent.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "research/loop-22-left-consistent/PROOFS.md §TX",
+        "Kind": "Theorem",
+        "IntroducedInLoop": "effortless-22",
+        "Name": "TX",
+        "StatusGroup": "Proved",
+        "PremiseCount": 2,
+        "DependentCount": 5,
+        "EvidenceCount": 1,
+        "RevisionCount": 0,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
+        "DescendantCount": 6
+      },
+      {
+        "AssertionId": "B9",
+        "Statement": "No left-consistent sequence (c(0)=1, and c(t+1)=NOT x(-1,t) whenever c(t)=1, with x the left half it generates from the seed) ends in a periodic tail with a nonconstant word.",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "ProofSection": "",
+        "Kind": "Bridge obligation",
+        "IntroducedInLoop": "effortless-22",
+        "Name": "B9",
+        "StatusGroup": "Proved",
+        "PremiseCount": 3,
+        "DependentCount": 1,
+        "EvidenceCount": 3,
+        "RevisionCount": 1,
+        "IsUsable": 1,
+        "IsProofEligible": 1,
+        "DescendantCount": 2
+      },
+      {
+        "AssertionId": "H35",
+        "Statement": "For the words 01 and 10 and every onset 4<=T<=46, every left-consistent prefix c(0..T-1) is killed by the 2-periodic tail before time 2T-1, inside the zone where the free-row relaxation provably cannot kill (TW).",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": "",
+        "Kind": "Hypothesis",
+        "IntroducedInLoop": "effortless-22",
+        "Name": "H35",
+        "StatusGroup": "Falsified",
+        "PremiseCount": 2,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 1,
+        "IsUsable": 0,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "H36",
+        "Statement": "For every nonconstant primitive word of period 3 or 4 and every onset 4<=T<=32, every left-consistent prefix is killed by the periodic tail before time 2T-1.",
+        "ReportedStatus": "FALSIFIED",
+        "ProofSection": "",
+        "Kind": "Hypothesis",
+        "IntroducedInLoop": "effortless-22",
+        "Name": "H36",
+        "StatusGroup": "Falsified",
+        "PremiseCount": 2,
+        "DependentCount": 0,
+        "EvidenceCount": 1,
+        "RevisionCount": 1,
+        "IsUsable": 0,
+        "IsProofEligible": 0,
+        "DescendantCount": 0
+      },
+      {
+        "AssertionId": "F21",
+        "Statement": "Seeded relaxation table: for the words 01, 10 (onsets 4..46) and every primitive word of period 3 and 4 (onsets 4..32), the number of left-consistent prefixes, survivors, and the largest and mean death excess t*-T with its histogram; tree growth ratio 1.4981 per step.",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "ProofSection": "",
+        "Kind": "Finite check",
+        "IntroducedInLoop": "effortless-22",
+        "Name": "F21",
+        "StatusGroup": "Checked",
+        "PremiseCount": 1,
         "DependentCount": 0,
         "EvidenceCount": 1,
         "RevisionCount": 0,
@@ -2588,6 +2673,78 @@
         "Conclusion": "F20",
         "Premise": "F11",
         "Name": "F20-F11"
+      },
+      {
+        "DependencyId": "TX-D0",
+        "Conclusion": "TX",
+        "Premise": "D0",
+        "Name": "TX-D0"
+      },
+      {
+        "DependencyId": "TX-T0",
+        "Conclusion": "TX",
+        "Premise": "T0",
+        "Name": "TX-T0"
+      },
+      {
+        "DependencyId": "B9-TX",
+        "Conclusion": "B9",
+        "Premise": "TX",
+        "Name": "B9-TX"
+      },
+      {
+        "DependencyId": "B9-B5",
+        "Conclusion": "B9",
+        "Premise": "B5",
+        "Name": "B9-B5"
+      },
+      {
+        "DependencyId": "B9-TU",
+        "Conclusion": "B9",
+        "Premise": "TU",
+        "Name": "B9-TU"
+      },
+      {
+        "DependencyId": "B1-B9",
+        "Conclusion": "B1",
+        "Premise": "B9",
+        "Name": "B1-B9"
+      },
+      {
+        "DependencyId": "B1-TX",
+        "Conclusion": "B1",
+        "Premise": "TX",
+        "Name": "B1-TX"
+      },
+      {
+        "DependencyId": "H35-TX",
+        "Conclusion": "H35",
+        "Premise": "TX",
+        "Name": "H35-TX"
+      },
+      {
+        "DependencyId": "H35-TW",
+        "Conclusion": "H35",
+        "Premise": "TW",
+        "Name": "H35-TW"
+      },
+      {
+        "DependencyId": "H36-TX",
+        "Conclusion": "H36",
+        "Premise": "TX",
+        "Name": "H36-TX"
+      },
+      {
+        "DependencyId": "H36-TW",
+        "Conclusion": "H36",
+        "Premise": "TW",
+        "Name": "H36-TW"
+      },
+      {
+        "DependencyId": "F21-TX",
+        "Conclusion": "F21",
+        "Premise": "TX",
+        "Name": "F21-TX"
       }
     ]
   },
@@ -3384,6 +3541,18 @@
         "IsBlockingAncestor": 1
       },
       {
+        "PrerequisiteId": "B1-B9",
+        "ConclusionKey": "B1",
+        "Premise": "B9",
+        "Name": "B1-B9",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
         "PrerequisiteId": "B1-D0",
         "ConclusionKey": "B1",
         "Premise": "D0",
@@ -3448,6 +3617,18 @@
         "ConclusionKey": "B1",
         "Premise": "TW",
         "Name": "B1-TW",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B1-TX",
+        "ConclusionKey": "B1",
+        "Premise": "TX",
+        "Name": "B1-TX",
         "PremiseUsable": 1,
         "PremiseProofEligible": 1,
         "Blocked": 0,
@@ -3538,6 +3719,18 @@
         "ProofBlocked": 1,
         "IsSelf": 0,
         "IsBlockingAncestor": 1
+      },
+      {
+        "PrerequisiteId": "P1-B9",
+        "ConclusionKey": "P1",
+        "Premise": "B9",
+        "Name": "P1-B9",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
       },
       {
         "PrerequisiteId": "P1-D0",
@@ -3652,6 +3845,18 @@
         "ConclusionKey": "P1",
         "Premise": "TW",
         "Name": "P1-TW",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "P1-TX",
+        "ConclusionKey": "P1",
+        "Premise": "TX",
+        "Name": "P1-TX",
         "PremiseUsable": 1,
         "PremiseProofEligible": 1,
         "Blocked": 0,
@@ -7870,6 +8075,426 @@
         "ProofBlocked": 0,
         "IsSelf": 0,
         "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TX-D0",
+        "ConclusionKey": "TX",
+        "Premise": "D0",
+        "Name": "TX-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TX-T0",
+        "ConclusionKey": "TX",
+        "Premise": "T0",
+        "Name": "TX-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "TX-TX",
+        "ConclusionKey": "TX",
+        "Premise": "TX",
+        "Name": "TX-TX",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-B5",
+        "ConclusionKey": "B9",
+        "Premise": "B5",
+        "Name": "B9-B5",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-B6",
+        "ConclusionKey": "B9",
+        "Premise": "B6",
+        "Name": "B9-B6",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-B7",
+        "ConclusionKey": "B9",
+        "Premise": "B7",
+        "Name": "B9-B7",
+        "PremiseUsable": 0,
+        "PremiseProofEligible": 0,
+        "Blocked": 1,
+        "ProofBlocked": 1,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 1
+      },
+      {
+        "PrerequisiteId": "B9-B8",
+        "ConclusionKey": "B9",
+        "Premise": "B8",
+        "Name": "B9-B8",
+        "PremiseUsable": 0,
+        "PremiseProofEligible": 0,
+        "Blocked": 1,
+        "ProofBlocked": 1,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 1
+      },
+      {
+        "PrerequisiteId": "B9-B9",
+        "ConclusionKey": "B9",
+        "Premise": "B9",
+        "Name": "B9-B9",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-D0",
+        "ConclusionKey": "B9",
+        "Premise": "D0",
+        "Name": "B9-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-T0",
+        "ConclusionKey": "B9",
+        "Premise": "T0",
+        "Name": "B9-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-TS",
+        "ConclusionKey": "B9",
+        "Premise": "TS",
+        "Name": "B9-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-TU",
+        "ConclusionKey": "B9",
+        "Premise": "TU",
+        "Name": "B9-TU",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-TV",
+        "ConclusionKey": "B9",
+        "Premise": "TV",
+        "Name": "B9-TV",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-TW",
+        "ConclusionKey": "B9",
+        "Premise": "TW",
+        "Name": "B9-TW",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "B9-TX",
+        "ConclusionKey": "B9",
+        "Premise": "TX",
+        "Name": "B9-TX",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-D0",
+        "ConclusionKey": "H35",
+        "Premise": "D0",
+        "Name": "H35-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-H35",
+        "ConclusionKey": "H35",
+        "Premise": "H35",
+        "Name": "H35-H35",
+        "PremiseUsable": 0,
+        "PremiseProofEligible": 0,
+        "Blocked": 1,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-T0",
+        "ConclusionKey": "H35",
+        "Premise": "T0",
+        "Name": "H35-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-TS",
+        "ConclusionKey": "H35",
+        "Premise": "TS",
+        "Name": "H35-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-TU",
+        "ConclusionKey": "H35",
+        "Premise": "TU",
+        "Name": "H35-TU",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-TV",
+        "ConclusionKey": "H35",
+        "Premise": "TV",
+        "Name": "H35-TV",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-TW",
+        "ConclusionKey": "H35",
+        "Premise": "TW",
+        "Name": "H35-TW",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H35-TX",
+        "ConclusionKey": "H35",
+        "Premise": "TX",
+        "Name": "H35-TX",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-D0",
+        "ConclusionKey": "H36",
+        "Premise": "D0",
+        "Name": "H36-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-H36",
+        "ConclusionKey": "H36",
+        "Premise": "H36",
+        "Name": "H36-H36",
+        "PremiseUsable": 0,
+        "PremiseProofEligible": 0,
+        "Blocked": 1,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-T0",
+        "ConclusionKey": "H36",
+        "Premise": "T0",
+        "Name": "H36-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-TS",
+        "ConclusionKey": "H36",
+        "Premise": "TS",
+        "Name": "H36-TS",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-TU",
+        "ConclusionKey": "H36",
+        "Premise": "TU",
+        "Name": "H36-TU",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-TV",
+        "ConclusionKey": "H36",
+        "Premise": "TV",
+        "Name": "H36-TV",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-TW",
+        "ConclusionKey": "H36",
+        "Premise": "TW",
+        "Name": "H36-TW",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "H36-TX",
+        "ConclusionKey": "H36",
+        "Premise": "TX",
+        "Name": "H36-TX",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F21-D0",
+        "ConclusionKey": "F21",
+        "Premise": "D0",
+        "Name": "F21-D0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F21-F21",
+        "ConclusionKey": "F21",
+        "Premise": "F21",
+        "Name": "F21-F21",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 0,
+        "Blocked": 0,
+        "ProofBlocked": 1,
+        "IsSelf": 1,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F21-T0",
+        "ConclusionKey": "F21",
+        "Premise": "T0",
+        "Name": "F21-T0",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
+      },
+      {
+        "PrerequisiteId": "F21-TX",
+        "ConclusionKey": "F21",
+        "Premise": "TX",
+        "Name": "F21-TX",
+        "PremiseUsable": 1,
+        "PremiseProofEligible": 1,
+        "Blocked": 0,
+        "ProofBlocked": 0,
+        "IsSelf": 0,
+        "IsBlockingAncestor": 0
       }
     ]
   },
@@ -8431,7 +9056,7 @@
         "ProofBlockedCount": 2,
         "CurrentStatus": "BLOCKED",
         "ProofEligible": 0,
-        "SupportCount": 2,
+        "SupportCount": 4,
         "EvidenceGap": 0,
         "Statement": "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns.",
         "Kind": "Bridge obligation",
@@ -8439,7 +9064,7 @@
         "SelfUsable": 1,
         "AncestorBlockedCount": 2,
         "IsAtRisk": 1,
-        "AncestorCount": 10
+        "AncestorCount": 12
       },
       {
         "AssessmentId": "B2",
@@ -8499,7 +9124,7 @@
         "SelfUsable": 0,
         "AncestorBlockedCount": 2,
         "IsAtRisk": 0,
-        "AncestorCount": 14
+        "AncestorCount": 16
       },
       {
         "AssessmentId": "P2",
@@ -9575,7 +10200,7 @@
         "ProofBlockedCount": 1,
         "CurrentStatus": "BLOCKED",
         "ProofEligible": 0,
-        "SupportCount": 3,
+        "SupportCount": 4,
         "EvidenceGap": 0,
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
@@ -9595,7 +10220,7 @@
         "ProofBlockedCount": 1,
         "CurrentStatus": "BLOCKED",
         "ProofEligible": 0,
-        "SupportCount": 1,
+        "SupportCount": 2,
         "EvidenceGap": 0,
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
@@ -9720,6 +10345,106 @@
         "AncestorBlockedCount": 0,
         "IsAtRisk": 0,
         "AncestorCount": 6
+      },
+      {
+        "AssessmentId": "TX",
+        "Assertion": "TX",
+        "ProjectKey": "Rule30",
+        "Name": "TX",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "Statement": "The left half x(i,t), i<=-1, is a function of c(0..t-1) and the seed, and whenever c(t)=1 the forward rule forces c(t+1)=NOT x(-1,t): the center is left-consistent.",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 0,
+        "CurrentStatus": "PROVED_HUMAN_READABLE",
+        "ProofEligible": 1,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 2
+      },
+      {
+        "AssessmentId": "B9",
+        "Assertion": "B9",
+        "ProjectKey": "Rule30",
+        "Name": "B9",
+        "ReportedStatus": "PROVED_HUMAN_READABLE",
+        "Statement": "No left-consistent sequence (c(0)=1, and c(t+1)=NOT x(-1,t) whenever c(t)=1, with x the left half it generates from the seed) ends in a periodic tail with a nonconstant word.",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Proved",
+        "SelfUsable": 1,
+        "BlockedCount": 2,
+        "ProofBlockedCount": 2,
+        "CurrentStatus": "BLOCKED",
+        "ProofEligible": 0,
+        "SupportCount": 3,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 2,
+        "IsAtRisk": 1,
+        "AncestorCount": 11
+      },
+      {
+        "AssessmentId": "H35",
+        "Assertion": "H35",
+        "ProjectKey": "Rule30",
+        "Name": "H35",
+        "ReportedStatus": "FALSIFIED",
+        "Statement": "For the words 01 and 10 and every onset 4<=T<=46, every left-consistent prefix c(0..T-1) is killed by the 2-periodic tail before time 2T-1, inside the zone where the free-row relaxation provably cannot kill (TW).",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Falsified",
+        "SelfUsable": 0,
+        "BlockedCount": 1,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "BLOCKED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 7
+      },
+      {
+        "AssessmentId": "H36",
+        "Assertion": "H36",
+        "ProjectKey": "Rule30",
+        "Name": "H36",
+        "ReportedStatus": "FALSIFIED",
+        "Statement": "For every nonconstant primitive word of period 3 or 4 and every onset 4<=T<=32, every left-consistent prefix is killed by the periodic tail before time 2T-1.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Falsified",
+        "SelfUsable": 0,
+        "BlockedCount": 1,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "BLOCKED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 7
+      },
+      {
+        "AssessmentId": "F21",
+        "Assertion": "F21",
+        "ProjectKey": "Rule30",
+        "Name": "F21",
+        "ReportedStatus": "FINITE_VERIFIED",
+        "Statement": "Seeded relaxation table: for the words 01, 10 (onsets 4..46) and every primitive word of period 3 and 4 (onsets 4..32), the number of left-consistent prefixes, survivors, and the largest and mean death excess t*-T with its histogram; tree growth ratio 1.4981 per step.",
+        "Kind": "Finite check",
+        "StatusGroup": "Checked",
+        "SelfUsable": 1,
+        "BlockedCount": 0,
+        "ProofBlockedCount": 1,
+        "CurrentStatus": "FINITE_VERIFIED",
+        "ProofEligible": 0,
+        "SupportCount": 1,
+        "EvidenceGap": 0,
+        "AncestorBlockedCount": 0,
+        "IsAtRisk": 0,
+        "AncestorCount": 3
       }
     ]
   },
@@ -10038,6 +10763,24 @@
         "Path": "research/loop-21-settled-zone/PROOFS.md",
         "Sha256": "e274a85f2a8d79a99691ca542f687d29ebde36761277fd97de05fa477c65f491",
         "Name": "E47"
+      },
+      {
+        "EvidenceId": "E48",
+        "Path": "research/loop-22-left-consistent/seeded.json",
+        "Sha256": "61fb507de43abfc73fc495bf3d8ba9de321bdf2c9ab722026842a110b1cf39b1",
+        "Name": "E48"
+      },
+      {
+        "EvidenceId": "E49",
+        "Path": "research/loop-22-left-consistent/PROOFS.md",
+        "Sha256": "ecc63034c393448f31e10940f696b7697125206b69ac09237b2c6c0dd9e7801f",
+        "Name": "E49"
+      },
+      {
+        "EvidenceId": "E50",
+        "Path": "docs/p1-frontier.md",
+        "Sha256": "8192589986a05f39a0c1658781be9c45fb93e320ddd0d2241807481428601727",
+        "Name": "E50"
       }
     ]
   },
@@ -10445,6 +11188,36 @@
         "Replacement": "TR",
         "Loop": "effortless-21",
         "Name": "revision-H34-1"
+      },
+      {
+        "RevisionId": "revision-B9-1",
+        "Assertion": "B9",
+        "PriorStatus": "OPEN",
+        "NewStatus": "PROVED_HUMAN_READABLE",
+        "Reason": "Derived from B5 and TU (PROOFS.md §B9): a left-consistent sequence with a periodic tail from T gives a row at T satisfying every relaxation constraint, which B5 forbids. B9 is weaker than B5; a direct proof would replace this premise. Compiles BLOCKED while B5 is.",
+        "Replacement": "",
+        "Loop": "effortless-22",
+        "Name": "revision-B9-1"
+      },
+      {
+        "RevisionId": "revision-H35-1",
+        "Assertion": "H35",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "6 failures, first {\"a\": \"01\", \"T\": 4, \"survivors\": 0, \"excess_max\": 3} (E48).",
+        "Replacement": "TX",
+        "Loop": "effortless-22",
+        "Name": "revision-H35-1"
+      },
+      {
+        "RevisionId": "revision-H36-1",
+        "Assertion": "H36",
+        "PriorStatus": "OPEN",
+        "NewStatus": "FALSIFIED",
+        "Reason": "89 failures, first {\"a\": \"001\", \"T\": 4, \"survivors\": 0, \"excess_max\": 14} (E48).",
+        "Replacement": "TX",
+        "Loop": "effortless-22",
+        "Name": "revision-H36-1"
       }
     ]
   },
@@ -11223,6 +11996,25 @@
         "RevisionsMade": 1,
         "FalsificationsMade": 1,
         "ProofsMade": 0
+      },
+      {
+        "LoopId": "effortless-22",
+        "Kind": "EFFORTLESS",
+        "State": "VERIFIED",
+        "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 7.1, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+        "InputHash": "45715c4a3b4701d8b870e140627dcce5fe05b7fe5438094563e20f0608e8c591",
+        "OutputHash": "bec76df133bccc76969484271bc6aa057aab310bb0b09165eab5cdb395e2fe71",
+        "Sequence": 35,
+        "StartedAt": "2026-10-23T23:02:30-0500",
+        "FinishedAt": "2026-10-23T23:06:01-0500",
+        "ProjectKey": "Rule30",
+        "Hypothesis": "Consolidate the P1 frontier; TX (the center is left-consistent) and B9 under B1. H35: every left-consistent prefix is killed by a 2-periodic tail before time 2T-1, onsets 4..46; H36: the same for periods 3-4, onsets 4..32.",
+        "Summary": "Consolidated the P1 frontier (docs/p1-frontier.md: chain, reductions, 7 ruled-out mechanisms; dyadic wall corrected). TX proved; B9 (no left-consistent sequence has a nonconstant periodic tail) inserted under B1. H35 FALSIFIED: period-2 max excess by onset {\"01\": {\"4\": 3, \"5\": 3, \"6\": 3, \"7\": 1, \"8\": 3, \"9\": 5, \"10\": 5, \"11\": 5, \"12\": 5, \"13\": 5, \"14\": 5, \"15\": 9, \"16\": 19, \"17\": 7, \"18\": 17, \"19\": 13, \"20\": 15, \"21\": 11, \"22\": 13, \"23\": 9, \"24\": 11, \"25\": 11, \"26\": 9, \"27\": 21, \"28\": 11, \"29\": 19, \"30\": 11, \"31\": 21, \"32\": 15, \"33\": 19, \"34\": 13, \"35\": 17, \"36\": 11, \"37\": 15, \"38\": 19, \"39\": 13, \"40\": 17, \"41\": 11, \"42\": 15, \"43\": 17, \"44\": 17, \"45\": 15, \"46\": 15}, \"10\": {\"4\": 4, \"5\": 4, \"6\": 2, \"7\": 2, \"8\": 2, \"9\": 6, \"10\": 6, \"11\": 4, \"12\": 4, \"13\": 6, \"14\": 10, \"15\": 4, \"16\": 8, \"17\": 18, \"18\": 6, \"19\": 16, \"20\": 12, \"21\": 14, \"22\": 10, \"23\": 12, \"24\": 10, \"25\": 10, \"26\": 10, \"27\": 10, \"28\": 20, \"29\": 12, \"30\": 22, \"31\": 16, \"32\": 20, \"33\": 14, \"34\": 18, \"35\": 12, \"36\": 16, \"37\": 14, \"38\": 14, \"39\": 18, \"40\": 12, \"41\": 16, \"42\": 18, \"43\": 18, \"44\": 16, \"45\": 16, \"46\": 14}}. H36 FALSIFIED: period 3-4 max excess 34.",
+        "Name": "effortless-22",
+        "ClaimsAdded": 5,
+        "RevisionsMade": 3,
+        "FalsificationsMade": 2,
+        "ProofsMade": 1
       }
     ]
   },
@@ -11345,15 +12137,15 @@
       {
         "DashboardId": "Rule30",
         "Name": "Rule30",
-        "ClaimCount": 85,
-        "BlockedCount": 25,
-        "CompletedNativeLoops": 21,
+        "ClaimCount": 90,
+        "BlockedCount": 28,
+        "CompletedNativeLoops": 22,
         "EvidenceGapCount": 0,
-        "ProvedCount": 33,
-        "CheckedCount": 30,
-        "FalsifiedCount": 15,
+        "ProvedCount": 35,
+        "CheckedCount": 31,
+        "FalsifiedCount": 17,
         "OpenCount": 7,
-        "AtRiskCount": 3,
+        "AtRiskCount": 4,
         "OpenPrizeProblemCount": 3,
         "RunningLoopCount": 0,
         "LegacyLoopCount": 13
@@ -12173,6 +12965,83 @@
         "Assertion": "H34",
         "Name": "E47-H34",
         "EvidencePath": "research/loop-21-settled-zone/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E48-H35",
+        "Evidence": "E48",
+        "Assertion": "H35",
+        "Name": "E48-H35",
+        "EvidencePath": "research/loop-22-left-consistent/seeded.json"
+      },
+      {
+        "EvidenceLinkId": "E48-H36",
+        "Evidence": "E48",
+        "Assertion": "H36",
+        "Name": "E48-H36",
+        "EvidencePath": "research/loop-22-left-consistent/seeded.json"
+      },
+      {
+        "EvidenceLinkId": "E48-F21",
+        "Evidence": "E48",
+        "Assertion": "F21",
+        "Name": "E48-F21",
+        "EvidencePath": "research/loop-22-left-consistent/seeded.json"
+      },
+      {
+        "EvidenceLinkId": "E48-B9",
+        "Evidence": "E48",
+        "Assertion": "B9",
+        "Name": "E48-B9",
+        "EvidencePath": "research/loop-22-left-consistent/seeded.json"
+      },
+      {
+        "EvidenceLinkId": "E49-TX",
+        "Evidence": "E49",
+        "Assertion": "TX",
+        "Name": "E49-TX",
+        "EvidencePath": "research/loop-22-left-consistent/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E49-B9",
+        "Evidence": "E49",
+        "Assertion": "B9",
+        "Name": "E49-B9",
+        "EvidencePath": "research/loop-22-left-consistent/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E49-B1",
+        "Evidence": "E49",
+        "Assertion": "B1",
+        "Name": "E49-B1",
+        "EvidencePath": "research/loop-22-left-consistent/PROOFS.md"
+      },
+      {
+        "EvidenceLinkId": "E50-B1",
+        "Evidence": "E50",
+        "Assertion": "B1",
+        "Name": "E50-B1",
+        "EvidencePath": "docs/p1-frontier.md"
+      },
+      {
+        "EvidenceLinkId": "E50-B7",
+        "Evidence": "E50",
+        "Assertion": "B7",
+        "Name": "E50-B7",
+        "EvidencePath": "docs/p1-frontier.md"
+      },
+      {
+        "EvidenceLinkId": "E50-B8",
+        "Evidence": "E50",
+        "Assertion": "B8",
+        "Name": "E50-B8",
+        "EvidencePath": "docs/p1-frontier.md"
+      },
+      {
+        "EvidenceLinkId": "E50-B9",
+        "Evidence": "E50",
+        "Assertion": "B9",
+        "Name": "E50-B9",
+        "EvidencePath": "docs/p1-frontier.md"
       }
     ]
   }

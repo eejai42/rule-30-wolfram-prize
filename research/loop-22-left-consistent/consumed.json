@@ -1,0 +1,95 @@
+{
+ "TX": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B9": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "H35": {
+  "ReportedStatus": "FALSIFIED",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "H36": {
+  "ReportedStatus": "FALSIFIED",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "F21": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B1": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 90,
+  "BlockedCount": 28,
+  "CompletedNativeLoops": 21,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 35,
+  "CheckedCount": 31,
+  "FalsifiedCount": 17,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ },
+ "_receipt": {
+  "exit": 0,
+  "seconds": 7.1,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh requested"
+ },
+ "_input_hash": "45715c4a3b4701d8b870e140627dcce5fe05b7fe5438094563e20f0608e8c591",
+ "_output_hash": "bec76df133bccc76969484271bc6aa057aab310bb0b09165eab5cdb395e2fe71"
+}

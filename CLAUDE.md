@@ -48,6 +48,7 @@ P1, P2, P3 after the build.
 
 ## Explorer and admin portal
 - `./start.sh` launches both. The explorer (progress, loops, claims, dependency graph, proofs) is at http://localhost:7431. The generated admin portal from `effortless-rulebook-editor` is at http://localhost:42442, its API at http://localhost:42441/api/docs.
+- **`docs/p1-frontier.md` is the map of the attack on P1**: the chain of open nodes, the proved reductions, and the mechanisms already ruled out. Read it before proposing a loop; update it when a loop changes the chain.
 - The explorer lives in `explorer/` and reads only the editor API's views. Personas, stories and routes are in `docs/app.md`; read it before changing a screen.
 - Any status, count or flag a screen needs is a rulebook field first. Never compute one in the explorer.
 - The editor does NOT rebuild by itself when the rulebook file changes from outside; it only offers a rebuild in its UI. `loop_tools.build()` therefore asks it to rebuild after every `effortless build` (skipped when the admin portal has unsaved edits). The editor drops a request that arrives while it is already building (a full rebuild takes about 2 minutes; the data lands in the first few seconds), so a busy editor gets a detached waiter, `research/editor_refresh.py`, that retries until the editor has built the current rulebook. Its log is `.logs/editor-refresh.log`. A plain `effortless build` from the shell does not; click Rebuild in the admin portal or `curl -X POST localhost:42441/api/admin/run-build`.

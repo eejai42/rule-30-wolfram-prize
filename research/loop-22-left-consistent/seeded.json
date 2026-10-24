@@ -1,0 +1,11318 @@
+{
+ "TMAX2": 46,
+ "TMAX34": 32,
+ "seconds": 165.0,
+ "tree_sizes": {
+  "0": 1,
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 3,
+  "5": 4,
+  "6": 6,
+  "7": 10,
+  "8": 16,
+  "9": 23,
+  "10": 33,
+  "11": 49,
+  "12": 77,
+  "13": 111,
+  "14": 165,
+  "15": 238,
+  "16": 361,
+  "17": 536,
+  "18": 773,
+  "19": 1159,
+  "20": 1727,
+  "21": 2580,
+  "22": 3801,
+  "23": 5692,
+  "24": 8603,
+  "25": 12856,
+  "26": 19604,
+  "27": 29600,
+  "28": 43664,
+  "29": 66358,
+  "30": 101552,
+  "31": 153364,
+  "32": 226860,
+  "33": 345753,
+  "34": 507377,
+  "35": 772027,
+  "36": 1149508,
+  "37": 1697792,
+  "38": 2545630,
+  "39": 3774663,
+  "40": 5643374,
+  "41": 8528994,
+  "42": 12875512,
+  "43": 19111230,
+  "44": 28985481,
+  "45": 43951920
+ },
+ "growth_ratio_last10": 1.4981,
+ "H35_holds": false,
+ "H36_holds": false,
+ "H35_failures": [
+  {
+   "a": "01",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 3
+  },
+  {
+   "a": "10",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 4
+  },
+  {
+   "a": "10",
+   "T": 5,
+   "survivors": 0,
+   "excess_max": 4
+  },
+  {
+   "a": "01",
+   "T": 16,
+   "survivors": 0,
+   "excess_max": 19
+  },
+  {
+   "a": "10",
+   "T": 17,
+   "survivors": 0,
+   "excess_max": 18
+  },
+  {
+   "a": "01",
+   "T": 18,
+   "survivors": 0,
+   "excess_max": 17
+  }
+ ],
+ "H36_failures": [
+  {
+   "a": "001",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 14
+  },
+  {
+   "a": "010",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 4
+  },
+  {
+   "a": "100",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 3
+  },
+  {
+   "a": "110",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 3
+  },
+  {
+   "a": "0001",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 3
+  },
+  {
+   "a": "0010",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 10
+  },
+  {
+   "a": "0100",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 9
+  },
+  {
+   "a": "1000",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 4
+  },
+  {
+   "a": "1001",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 12
+  },
+  {
+   "a": "1100",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 9
+  },
+  {
+   "a": "1101",
+   "T": 4,
+   "survivors": 0,
+   "excess_max": 3
+  },
+  {
+   "a": "010",
+   "T": 5,
+   "survivors": 0,
+   "excess_max": 13
+  },
+  {
+   "a": "101",
+   "T": 5,
+   "survivors": 0,
+   "excess_max": 8
+  },
+  {
+   "a": "0011",
+   "T": 5,
+   "survivors": 0,
+   "excess_max": 11
+  },
+  {
+   "a": "0100",
+   "T": 5,
+   "survivors": 0,
+   "excess_max": 9
+  },
+  {
+   "a": "1000",
+   "T": 5,
+   "survivors": 0,
+   "excess_max": 8
+  },
+  {
+   "a": "1001",
+   "T": 5,
+   "survivors": 0,
+   "excess_max": 8
+  },
+  {
+   "a": "011",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 7
+  },
+  {
+   "a": "100",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 12
+  },
+  {
+   "a": "0001",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 7
+  },
+  {
+   "a": "0011",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 7
+  },
+  {
+   "a": "0100",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 13
+  },
+  {
+   "a": "0110",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 10
+  },
+  {
+   "a": "1000",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 8
+  },
+  {
+   "a": "1011",
+   "T": 6,
+   "survivors": 0,
+   "excess_max": 7
+  },
+  {
+   "a": "001",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 11
+  },
+  {
+   "a": "110",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 6
+  },
+  {
+   "a": "0001",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 7
+  },
+  {
+   "a": "0010",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 6
+  },
+  {
+   "a": "0011",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 6
+  },
+  {
+   "a": "0110",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 6
+  },
+  {
+   "a": "0111",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 6
+  },
+  {
+   "a": "1000",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 12
+  },
+  {
+   "a": "1100",
+   "T": 7,
+   "survivors": 0,
+   "excess_max": 9
+  },
+  {
+   "a": "010",
+   "T": 8,
+   "survivors": 0,
+   "excess_max": 10
+  },
+  {
+   "a": "0001",
+   "T": 8,
+   "survivors": 0,
+   "excess_max": 11
+  },
+  {
+   "a": "1001",
+   "T": 8,
+   "survivors": 0,
+   "excess_max": 8
+  },
+  {
+   "a": "001",
+   "T": 9,
+   "survivors": 0,
+   "excess_max": 8
+  },
+  {
+   "a": "100",
+   "T": 9,
+   "survivors": 0,
+   "excess_max": 9
+  },
+  {
+   "a": "0010",
+   "T": 9,
+   "survivors": 0,
+   "excess_max": 10
+  },
+  {
+   "a": "1000",
+   "T": 9,
+   "survivors": 1,
+   "excess_max": 4
+  },
+  {
+   "a": "010",
+   "T": 10,
+   "survivors": 0,
+   "excess_max": 10
+  },
+  {
+   "a": "0001",
+   "T": 10,
+   "survivors": 1,
+   "excess_max": 7
+  },
+  {
+   "a": "0100",
+   "T": 10,
+   "survivors": 0,
+   "excess_max": 9
+  },
+  {
+   "a": "1000",
+   "T": 10,
+   "survivors": 0,
+   "excess_max": 12
+  },
+  {
+   "a": "010",
+   "T": 11,
+   "survivors": 0,
+   "excess_max": 10
+  },
+  {
+   "a": "011",
+   "T": 11,
+   "survivors": 0,
+   "excess_max": 10
+  },
+  {
+   "a": "0001",
+   "T": 11,
+   "survivors": 0,
+   "excess_max": 11
+  },
+  {
+   "a": "0010",
+   "T": 11,
+   "survivors": 0,
+   "excess_max": 26
+  },
+  {
+   "a": "0001",
+   "T": 12,
+   "survivors": 0,
+   "excess_max": 15
+  },
+  {
+   "a": "0100",
+   "T": 12,
+   "survivors": 0,
+   "excess_max": 25
+  },
+  {
+   "a": "1000",
+   "T": 12,
+   "survivors": 0,
+   "excess_max": 20
+  },
+  {
+   "a": "0001",
+   "T": 13,
+   "survivors": 0,
+   "excess_max": 19
+  },
+  {
+   "a": "0010",
+   "T": 13,
+   "survivors": 0,
+   "excess_max": 14
+  },
+  {
+   "a": "0011",
+   "T": 13,
+   "survivors": 0,
+   "excess_max": 14
+  },
+  {
+   "a": "1000",
+   "T": 13,
+   "survivors": 0,
+   "excess_max": 24
+  },
+  {
+   "a": "010",
+   "T": 14,
+   "survivors": 0,
+   "excess_max": 13
+  },
+  {
+   "a": "0001",
+   "T": 14,
+   "survivors": 0,
+   "excess_max": 23
+  },
+  {
+   "a": "0010",
+   "T": 14,
+   "survivors": 0,
+   "excess_max": 18
+  },
+  {
+   "a": "0100",
+   "T": 14,
+   "survivors": 0,
+   "excess_max": 13
+  },
+  {
+   "a": "0110",
+   "T": 14,
+   "survivors": 0,
+   "excess_max": 13
+  },
+  {
+   "a": "0010",
+   "T": 15,
+   "survivors": 0,
+   "excess_max": 22
+  },
+  {
+   "a": "0100",
+   "T": 15,
+   "survivors": 0,
+   "excess_max": 17
+  },
+  {
+   "a": "0001",
+   "T": 16,
+   "survivors": 0,
+   "excess_max": 19
+  },
+  {
+   "a": "0100",
+   "T": 16,
+   "survivors": 0,
+   "excess_max": 21
+  },
+  {
+   "a": "1000",
+   "T": 16,
+   "survivors": 0,
+   "excess_max": 16
+  },
+  {
+   "a": "001",
+   "T": 17,
+   "survivors": 0,
+   "excess_max": 26
+  },
+  {
+   "a": "0010",
+   "T": 17,
+   "survivors": 0,
+   "excess_max": 18
+  },
+  {
+   "a": "1000",
+   "T": 17,
+   "survivors": 0,
+   "excess_max": 20
+  },
+  {
+   "a": "010",
+   "T": 18,
+   "survivors": 0,
+   "excess_max": 25
+  },
+  {
+   "a": "0001",
+   "T": 18,
+   "survivors": 0,
+   "excess_max": 31
+  },
+  {
+   "a": "0100",
+   "T": 18,
+   "survivors": 0,
+   "excess_max": 17
+  },
+  {
+   "a": "100",
+   "T": 19,
+   "survivors": 0,
+   "excess_max": 24
+  },
+  {
+   "a": "0010",
+   "T": 19,
+   "survivors": 0,
+   "excess_max": 30
+  },
+  {
+   "a": "001",
+   "T": 20,
+   "survivors": 0,
+   "excess_max": 23
+  },
+  {
+   "a": "0100",
+   "T": 20,
+   "survivors": 0,
+   "excess_max": 29
+  },
+  {
+   "a": "010",
+   "T": 21,
+   "survivors": 0,
+   "excess_max": 22
+  },
+  {
+   "a": "1000",
+   "T": 21,
+   "survivors": 0,
+   "excess_max": 28
+  },
+  {
+   "a": "100",
+   "T": 22,
+   "survivors": 0,
+   "excess_max": 21
+  },
+  {
+   "a": "0001",
+   "T": 22,
+   "survivors": 0,
+   "excess_max": 27
+  },
+  {
+   "a": "0010",
+   "T": 22,
+   "survivors": 0,
+   "excess_max": 22
+  },
+  {
+   "a": "1000",
+   "T": 22,
+   "survivors": 0,
+   "excess_max": 24
+  },
+  {
+   "a": "0001",
+   "T": 23,
+   "survivors": 0,
+   "excess_max": 23
+  },
+  {
+   "a": "0010",
+   "T": 23,
+   "survivors": 0,
+   "excess_max": 26
+  },
+  {
+   "a": "0100",
+   "T": 24,
+   "survivors": 0,
+   "excess_max": 25
+  },
+  {
+   "a": "1000",
+   "T": 25,
+   "survivors": 0,
+   "excess_max": 24
+  },
+  {
+   "a": "0001",
+   "T": 30,
+   "survivors": 0,
+   "excess_max": 31
+  },
+  {
+   "a": "0010",
+   "T": 31,
+   "survivors": 0,
+   "excess_max": 30
+  },
+  {
+   "a": "0010",
+   "T": 32,
+   "survivors": 0,
+   "excess_max": 34
+  }
+ ],
+ "period2_excess_max_by_T": {
+  "01": {
+   "4": 3,
+   "5": 3,
+   "6": 3,
+   "7": 1,
+   "8": 3,
+   "9": 5,
+   "10": 5,
+   "11": 5,
+   "12": 5,
+   "13": 5,
+   "14": 5,
+   "15": 9,
+   "16": 19,
+   "17": 7,
+   "18": 17,
+   "19": 13,
+   "20": 15,
+   "21": 11,
+   "22": 13,
+   "23": 9,
+   "24": 11,
+   "25": 11,
+   "26": 9,
+   "27": 21,
+   "28": 11,
+   "29": 19,
+   "30": 11,
+   "31": 21,
+   "32": 15,
+   "33": 19,
+   "34": 13,
+   "35": 17,
+   "36": 11,
+   "37": 15,
+   "38": 19,
+   "39": 13,
+   "40": 17,
+   "41": 11,
+   "42": 15,
+   "43": 17,
+   "44": 17,
+   "45": 15,
+   "46": 15
+  },
+  "10": {
+   "4": 4,
+   "5": 4,
+   "6": 2,
+   "7": 2,
+   "8": 2,
+   "9": 6,
+   "10": 6,
+   "11": 4,
+   "12": 4,
+   "13": 6,
+   "14": 10,
+   "15": 4,
+   "16": 8,
+   "17": 18,
+   "18": 6,
+   "19": 16,
+   "20": 12,
+   "21": 14,
+   "22": 10,
+   "23": 12,
+   "24": 10,
+   "25": 10,
+   "26": 10,
+   "27": 10,
+   "28": 20,
+   "29": 12,
+   "30": 22,
+   "31": 16,
+   "32": 20,
+   "33": 14,
+   "34": 18,
+   "35": 12,
+   "36": 16,
+   "37": 14,
+   "38": 14,
+   "39": 18,
+   "40": 12,
+   "41": 16,
+   "42": 18,
+   "43": 18,
+   "44": 16,
+   "45": 16,
+   "46": 14
+  }
+ },
+ "period34_excess_max_overall": 34,
+ "period34_excess_max_by_T": {
+  "4": 14,
+  "5": 13,
+  "6": 13,
+  "7": 12,
+  "8": 11,
+  "9": 10,
+  "10": 12,
+  "11": 26,
+  "12": 25,
+  "13": 24,
+  "14": 23,
+  "15": 22,
+  "16": 21,
+  "17": 26,
+  "18": 31,
+  "19": 30,
+  "20": 29,
+  "21": 28,
+  "22": 27,
+  "23": 26,
+  "24": 25,
+  "25": 24,
+  "26": 23,
+  "27": 23,
+  "28": 22,
+  "29": 27,
+  "30": 31,
+  "31": 30,
+  "32": 34
+ },
+ "rows": [
+  {
+   "a": "01",
+   "p": 2,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "3": 1
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 2.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "0": 1,
+    "4": 1
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 6.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "14": 1
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "4": 1
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "1": 1
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "0": 1,
+    "3": 1
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "0": 1,
+    "2": 1
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "0": 1,
+    "3": 1
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "3": 1
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 4.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "10": 1
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "2": 1
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 4.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "9": 1
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "1": 1
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "1": 1
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 2.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "0": 1,
+    "4": 1
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 6.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "0": 1,
+    "12": 1
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "0": 1,
+    "2": 1
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 4.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "0": 1,
+    "9": 1
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "0": 1,
+    "3": 1
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 4,
+   "prefixes": 2,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "0": 1,
+    "1": 1
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.67,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "3": 2
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "2": 1,
+    "4": 1
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "2": 2
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 8.33,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "13": 2
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "1": 2
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.67,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "3": 2
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 3.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "2": 1,
+    "8": 1
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 2
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.67,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "3": 2
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "2": 2
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 7.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "11": 2
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 5.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "9": 2
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "1": 2
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "1": 2
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 3.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "4": 1,
+    "8": 1
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 3.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "4": 1,
+    "8": 1
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 2
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 2
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 5,
+   "prefixes": 3,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 2
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "1": 3,
+    "3": 1
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "2": 2
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 2.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "2": 4
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.75,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "1": 3,
+    "4": 1
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 5.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "1": 1,
+    "7": 3
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 5.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 2,
+    "12": 2
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "3": 2
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 2
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 6.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "3": 1,
+    "7": 3
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 2.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "2": 4
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 4.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "3": 3,
+    "7": 1
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 4.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "1": 3,
+    "13": 1
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 7.75,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "1": 1,
+    "10": 3
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 1.75,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "1": 1,
+    "2": 3
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 3.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 2,
+    "8": 2
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "3": 2
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 3.0,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 2,
+    "7": 2
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 2
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 2
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 6,
+   "prefixes": 4,
+   "survivors": 0,
+   "excess_max": 0,
+   "excess_mean": -0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 2
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "1": 6
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 3,
+    "2": 1
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 9.5,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "2": 1,
+    "11": 5
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "1": 6
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 2.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "2": 5,
+    "4": 1
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.17,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 3,
+    "3": 1
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 3,
+    "5": 1
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 2.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 2,
+    "0": 1,
+    "6": 3
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 6.33,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "3": 1,
+    "7": 5
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 5.33,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "2": 1,
+    "6": 5
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 2.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "2": 5,
+    "6": 1
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "1": 6
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 2.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "2": 5,
+    "6": 1
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 5.33,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "2": 1,
+    "6": 5
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.67,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 2,
+    "0": 3,
+    "12": 1
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 3,
+    "4": 1
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.17,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 3,
+    "3": 1
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 4.17,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 2,
+    "0": 1,
+    "9": 3
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.67,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 1,
+    "4": 3
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 7,
+   "prefixes": 6,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.17,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2,
+    "0": 1,
+    "1": 3
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "1": 2,
+    "3": 5
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 6,
+    "2": 3
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 2.6,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "2": 2,
+    "5": 5
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 4.9,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 3,
+    "1": 2,
+    "10": 5
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "1": 5,
+    "4": 2
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 6,
+    "3": 3
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 6,
+    "5": 3
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 3,
+    "1": 5,
+    "3": 1
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 3.4,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 3,
+    "3": 5,
+    "11": 2
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 3.1,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "2": 2,
+    "6": 5
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.3,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "2": 5,
+    "3": 2
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 2.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "1": 2,
+    "5": 5
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.2,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "1": 5,
+    "5": 2
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.6,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "1": 5,
+    "2": 2
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.1,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 6,
+    "4": 3
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 2.3,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1,
+    "0": 6,
+    "8": 3
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 6,
+    "3": 3
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.9,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 3,
+    "1": 5,
+    "5": 1
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 3,
+    "1": 5,
+    "3": 1
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 8,
+   "prefixes": 10,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 2.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1,
+    "0": 3,
+    "1": 1,
+    "5": 5
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "1": 5,
+    "5": 5
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.81,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 7,
+    "2": 5,
+    "6": 1
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.62,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 6,
+    "2": 8,
+    "8": 2
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.19,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "1": 5,
+    "4": 5
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.94,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "1": 5,
+    "2": 2,
+    "4": 3
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 2.81,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 3,
+    "0": 7,
+    "3": 1,
+    "9": 5
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.88,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 7,
+    "2": 1,
+    "3": 5
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 2.06,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 6,
+    "3": 2,
+    "6": 5
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 2.75,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "3": 5,
+    "7": 5
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.88,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 6,
+    "2": 8,
+    "10": 2
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 2.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "2": 2,
+    "3": 5,
+    "7": 3
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "1": 5,
+    "5": 5
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "1": 5,
+    "2": 2,
+    "5": 3
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "1": 5,
+    "2": 3,
+    "3": 2
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 1,
+   "excess_max": 4,
+   "excess_mean": 1.13,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 3,
+    "0": 7,
+    "4": 5
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 7,
+    "3": 5,
+    "4": 1
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.19,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 7,
+    "2": 1,
+    "4": 5
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.88,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 6,
+    "4": 2,
+    "5": 5
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.44,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 6,
+    "3": 2,
+    "4": 5
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 9,
+   "prefixes": 16,
+   "survivors": 0,
+   "excess_max": 1,
+   "excess_mean": 0.25,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3,
+    "0": 6,
+    "1": 7
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.74,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7,
+    "1": 13,
+    "3": 2,
+    "5": 1
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.57,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 5,
+    "2": 5,
+    "4": 5,
+    "6": 2
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 3.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7,
+    "2": 6,
+    "8": 10
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.3,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 7,
+    "1": 13,
+    "7": 2,
+    "10": 1
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.61,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7,
+    "1": 3,
+    "2": 10,
+    "7": 3
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.57,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 5,
+    "3": 10,
+    "6": 2
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.43,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 5,
+    "2": 7,
+    "5": 5
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.22,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 12,
+    "1": 2,
+    "3": 3
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 1,
+   "excess_max": 7,
+   "excess_mean": 2.27,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 7,
+    "3": 12,
+    "7": 3
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 2.83,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7,
+    "2": 6,
+    "6": 10
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7,
+    "2": 10,
+    "3": 4,
+    "7": 2
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.26,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 7,
+    "1": 13,
+    "5": 1,
+    "9": 2
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7,
+    "1": 3,
+    "2": 10,
+    "6": 3
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7,
+    "1": 3,
+    "2": 3,
+    "3": 10
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 3.39,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 6,
+    "0": 5,
+    "4": 5,
+    "8": 5,
+    "12": 2
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 2.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 5,
+    "3": 2,
+    "4": 5,
+    "7": 5
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 5,
+    "2": 7,
+    "3": 5
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.35,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 12,
+    "1": 2,
+    "4": 3
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.22,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 12,
+    "1": 2,
+    "3": 3
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 10,
+   "prefixes": 23,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.04,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 12,
+    "1": 3,
+    "2": 2
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.85,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5,
+    "1": 11,
+    "3": 15,
+    "5": 2
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 15,
+    "2": 2,
+    "4": 4
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 2.09,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5,
+    "2": 22,
+    "5": 6
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 3.97,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 5,
+    "1": 11,
+    "7": 15,
+    "10": 2
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.82,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 5,
+    "1": 17,
+    "2": 4,
+    "4": 5,
+    "10": 2
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.82,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 15,
+    "6": 5,
+    "9": 1
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.06,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 15,
+    "2": 4,
+    "3": 2
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.55,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 6,
+    "1": 12,
+    "6": 3
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 4.58,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 5,
+    "3": 15,
+    "7": 8,
+    "11": 5
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 26,
+   "excess_mean": 2.88,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 5,
+    "2": 22,
+    "6": 5,
+    "26": 1
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 3.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5,
+    "2": 6,
+    "3": 7,
+    "6": 15
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 2.76,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5,
+    "1": 11,
+    "5": 17
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.88,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5,
+    "1": 17,
+    "2": 4,
+    "6": 7
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5,
+    "1": 17,
+    "2": 7,
+    "5": 4
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.61,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 15,
+    "4": 4,
+    "8": 2
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.18,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 15,
+    "3": 6
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 15,
+    "2": 4,
+    "6": 2
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.45,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 6,
+    "1": 12,
+    "5": 3
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.36,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 6,
+    "1": 12,
+    "4": 3
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 11,
+   "prefixes": 33,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.64,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12,
+    "0": 6,
+    "1": 3,
+    "2": 10,
+    "5": 2
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.88,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "1": 24,
+    "3": 8,
+    "5": 2
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.78,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 23,
+    "2": 18,
+    "4": 2
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 2.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "2": 15,
+    "5": 17,
+    "8": 2
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "1": 24,
+    "4": 10
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.49,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "1": 10,
+    "2": 9,
+    "4": 15
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 2.27,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 23,
+    "3": 3,
+    "6": 15,
+    "9": 2
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.18,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 23,
+    "2": 2,
+    "3": 15,
+    "5": 3
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.2,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 20,
+    "1": 14,
+    "3": 5,
+    "9": 4
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 5.94,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 15,
+    "3": 13,
+    "7": 6,
+    "15": 15
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 3.29,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "2": 15,
+    "6": 11,
+    "10": 8
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "2": 19,
+    "3": 15
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 25,
+   "excess_mean": 2.02,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 15,
+    "1": 24,
+    "5": 8,
+    "25": 2
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "1": 10,
+    "2": 9,
+    "5": 15
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.22,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 15,
+    "1": 10,
+    "2": 15,
+    "3": 5,
+    "5": 4
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 2.49,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 6,
+    "0": 23,
+    "4": 17,
+    "20": 3
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.16,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 23,
+    "3": 17,
+    "4": 3
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 23,
+    "2": 2,
+    "3": 3,
+    "4": 15
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.08,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 20,
+    "1": 14,
+    "5": 9
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 20,
+    "1": 14,
+    "3": 5,
+    "4": 4
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 12,
+   "prefixes": 49,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.2,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6,
+    "0": 20,
+    "1": 9,
+    "4": 14
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.08,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 23,
+    "1": 33,
+    "3": 16,
+    "5": 5
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.55,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 38,
+    "2": 12,
+    "4": 2,
+    "6": 5
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 2.9,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 23,
+    "2": 16,
+    "5": 30,
+    "8": 8
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.3,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 23,
+    "1": 33,
+    "4": 19,
+    "7": 2
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 23,
+    "1": 21,
+    "2": 30,
+    "4": 3
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 38,
+    "3": 19
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.19,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 38,
+    "2": 7,
+    "6": 2,
+    "8": 4,
+    "9": 6
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 19,
+    "1": 9,
+    "3": 29
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 3.47,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 23,
+    "3": 46,
+    "19": 8
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 6.19,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 23,
+    "2": 16,
+    "6": 8,
+    "14": 30
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 2.25,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 23,
+    "2": 38,
+    "3": 8,
+    "6": 2,
+    "14": 6
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 2.01,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 23,
+    "1": 33,
+    "5": 11,
+    "9": 10
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.95,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 23,
+    "1": 21,
+    "2": 30,
+    "5": 3
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.22,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 23,
+    "1": 21,
+    "2": 3,
+    "3": 30
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 24,
+   "excess_mean": 2.23,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 20,
+    "0": 38,
+    "4": 8,
+    "8": 4,
+    "16": 5,
+    "24": 2
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 38,
+    "4": 11,
+    "7": 2,
+    "8": 6
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 38,
+    "2": 7,
+    "3": 12
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 19,
+    "1": 9,
+    "4": 26,
+    "5": 3
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 19,
+    "1": 9,
+    "3": 29
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 13,
+   "prefixes": 77,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.45,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 20,
+    "0": 19,
+    "1": 29,
+    "2": 5,
+    "4": 4
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.22,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 38,
+    "1": 28,
+    "3": 40,
+    "5": 5
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.52,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 42,
+    "2": 16,
+    "4": 30,
+    "6": 1,
+    "10": 3
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.19,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 38,
+    "2": 65,
+    "5": 8
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 2.21,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 38,
+    "1": 28,
+    "4": 30,
+    "7": 10,
+    "13": 5
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 38,
+    "1": 45,
+    "2": 8,
+    "5": 4,
+    "7": 4,
+    "8": 12
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.94,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 42,
+    "3": 22,
+    "6": 28
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 1.13,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 42,
+    "2": 34,
+    "3": 2,
+    "5": 14
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 50,
+    "1": 35,
+    "3": 7
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 23,
+   "excess_mean": 3.04,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 38,
+    "3": 60,
+    "7": 4,
+    "15": 5,
+    "23": 4
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 2.13,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 38,
+    "2": 65,
+    "18": 8
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 4.15,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 38,
+    "2": 8,
+    "3": 13,
+    "6": 10,
+    "7": 12,
+    "10": 30
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 4.1,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 38,
+    "1": 28,
+    "5": 15,
+    "13": 30
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 2.12,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 38,
+    "1": 45,
+    "2": 8,
+    "5": 4,
+    "9": 4,
+    "13": 12
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.64,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 38,
+    "1": 45,
+    "2": 20,
+    "3": 8
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 2.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 42,
+    "4": 36,
+    "8": 11,
+    "12": 3
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.68,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 42,
+    "3": 28,
+    "4": 11,
+    "7": 11
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.93,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 42,
+    "2": 34,
+    "3": 14,
+    "6": 2
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 50,
+    "1": 35,
+    "4": 7
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 50,
+    "1": 35,
+    "3": 7
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 14,
+   "prefixes": 111,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.52,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 19,
+    "0": 50,
+    "1": 7,
+    "2": 35
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "1": 81,
+    "3": 38,
+    "5": 1,
+    "9": 3
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.47,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 63,
+    "2": 40,
+    "4": 12
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 2.05,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "2": 82,
+    "5": 37,
+    "8": 4
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.27,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "1": 81,
+    "4": 41,
+    "7": 1
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.78,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "1": 42,
+    "2": 15,
+    "4": 66
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 63,
+    "3": 30,
+    "6": 14,
+    "12": 8
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.93,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 63,
+    "2": 12,
+    "3": 10,
+    "5": 30
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.71,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 52,
+    "1": 43,
+    "4": 4,
+    "6": 4,
+    "7": 12
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.95,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "3": 86,
+    "7": 34,
+    "11": 3
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 3.76,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 42,
+    "2": 82,
+    "6": 4,
+    "10": 25,
+    "14": 5,
+    "22": 7
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 3.57,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "2": 41,
+    "3": 21,
+    "6": 31,
+    "10": 30
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 2.53,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 42,
+    "1": 81,
+    "5": 26,
+    "9": 3,
+    "17": 13
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 3.02,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "1": 42,
+    "2": 15,
+    "5": 18,
+    "6": 18,
+    "9": 30
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.28,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42,
+    "1": 42,
+    "2": 66,
+    "5": 11,
+    "6": 4
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 2.41,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 63,
+    "4": 22,
+    "12": 30
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.82,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 63,
+    "3": 22,
+    "4": 30
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.63,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 63,
+    "2": 12,
+    "3": 30,
+    "4": 10
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 52,
+    "1": 43,
+    "4": 4,
+    "8": 4,
+    "12": 12
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.47,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 52,
+    "1": 43,
+    "4": 16,
+    "5": 4
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 15,
+   "prefixes": 165,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 50,
+    "0": 52,
+    "1": 20,
+    "2": 13,
+    "4": 30
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 1.39,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 63,
+    "1": 122,
+    "3": 46,
+    "19": 7
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 124,
+    "2": 58,
+    "4": 1,
+    "8": 3
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 2.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 63,
+    "2": 116,
+    "5": 36,
+    "8": 3,
+    "11": 13,
+    "14": 7
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 63,
+    "1": 122,
+    "4": 45,
+    "7": 8
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 1.75,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 63,
+    "1": 53,
+    "2": 31,
+    "4": 91
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.63,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 124,
+    "3": 57,
+    "6": 5
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.38,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 124,
+    "2": 4,
+    "3": 4,
+    "5": 29,
+    "6": 12,
+    "11": 13
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.11,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 62,
+    "1": 28,
+    "3": 96
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 5.64,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 63,
+    "3": 90,
+    "11": 60,
+    "19": 25
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 2.25,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 63,
+    "2": 116,
+    "6": 56,
+    "10": 3
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 2.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 63,
+    "2": 59,
+    "3": 78,
+    "6": 25,
+    "10": 13
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 2.69,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 63,
+    "1": 122,
+    "5": 8,
+    "9": 25,
+    "13": 13,
+    "21": 7
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 3.14,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 63,
+    "1": 53,
+    "2": 31,
+    "5": 31,
+    "9": 60
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.11,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 63,
+    "1": 53,
+    "2": 91,
+    "3": 31
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 1.53,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 52,
+    "0": 124,
+    "4": 46,
+    "8": 3,
+    "16": 13
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.94,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 124,
+    "3": 5,
+    "4": 16,
+    "7": 4,
+    "11": 37
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.56,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 124,
+    "2": 4,
+    "3": 54,
+    "4": 4
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 2.6,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 62,
+    "1": 28,
+    "4": 18,
+    "5": 18,
+    "8": 60
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.11,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 62,
+    "1": 28,
+    "3": 96
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 16,
+   "prefixes": 238,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.67,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 52,
+    "0": 62,
+    "1": 96,
+    "4": 24,
+    "5": 4
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.77,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "1": 174,
+    "3": 49,
+    "5": 8,
+    "7": 6
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.6,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 62,
+    "0": 150,
+    "2": 46,
+    "4": 78,
+    "6": 18,
+    "18": 7
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 26,
+   "excess_mean": 5.76,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 124,
+    "2": 147,
+    "5": 12,
+    "23": 60,
+    "26": 18
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.3,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "1": 174,
+    "4": 36,
+    "7": 6,
+    "10": 13,
+    "13": 8
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.77,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "1": 63,
+    "2": 82,
+    "4": 54,
+    "5": 12,
+    "10": 26
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.28,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 150,
+    "3": 123,
+    "6": 26
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.2,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 150,
+    "2": 103,
+    "3": 8,
+    "5": 13,
+    "8": 25
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.97,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 149,
+    "1": 31,
+    "3": 115,
+    "9": 4
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.73,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "3": 197,
+    "7": 6,
+    "11": 8,
+    "15": 26
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 3.54,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 124,
+    "2": 147,
+    "10": 64,
+    "18": 26
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 3.34,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "2": 90,
+    "3": 40,
+    "6": 17,
+    "10": 62,
+    "11": 28
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.08,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "1": 174,
+    "5": 57,
+    "9": 6
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.85,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "1": 63,
+    "2": 82,
+    "5": 66,
+    "9": 26
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 3,
+   "excess_mean": 1.02,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 124,
+    "1": 63,
+    "2": 92,
+    "3": 82
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 2.55,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 62,
+    "0": 150,
+    "4": 86,
+    "8": 43,
+    "12": 13,
+    "20": 7
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 150,
+    "3": 26,
+    "4": 63,
+    "7": 60
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 150,
+    "2": 103,
+    "3": 38,
+    "4": 8
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 149,
+    "1": 31,
+    "4": 55,
+    "5": 4,
+    "8": 60
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 149,
+    "1": 31,
+    "3": 115,
+    "4": 4
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 17,
+   "prefixes": 361,
+   "survivors": 0,
+   "excess_max": 2,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 62,
+    "0": 149,
+    "1": 119,
+    "2": 31
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 2.29,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 150,
+    "1": 193,
+    "3": 100,
+    "5": 18,
+    "9": 60,
+    "17": 15
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.97,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 205,
+    "2": 53,
+    "4": 105,
+    "6": 24
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 2.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 150,
+    "2": 320,
+    "5": 34,
+    "8": 6,
+    "14": 26
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 25,
+   "excess_mean": 5.08,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 150,
+    "1": 193,
+    "4": 19,
+    "7": 78,
+    "16": 18,
+    "22": 60,
+    "25": 18
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 2.04,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 150,
+    "1": 193,
+    "2": 48,
+    "4": 26,
+    "5": 4,
+    "7": 87,
+    "8": 28
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.74,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 205,
+    "3": 100,
+    "6": 24,
+    "9": 19,
+    "12": 39
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.64,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 205,
+    "2": 129,
+    "3": 21,
+    "5": 28,
+    "8": 4
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.76,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 182,
+    "1": 113,
+    "3": 54,
+    "4": 12,
+    "9": 26
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 31,
+   "excess_mean": 4.84,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 150,
+    "3": 156,
+    "7": 123,
+    "11": 86,
+    "19": 15,
+    "31": 6
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 2.43,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 150,
+    "2": 320,
+    "6": 6,
+    "10": 16,
+    "14": 44
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 2.72,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 150,
+    "2": 66,
+    "3": 198,
+    "6": 64,
+    "7": 28,
+    "10": 30
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 3.1,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 150,
+    "1": 193,
+    "5": 96,
+    "9": 64,
+    "17": 33
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 2.52,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 150,
+    "1": 193,
+    "2": 48,
+    "5": 30,
+    "9": 87,
+    "10": 28
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 150,
+    "1": 193,
+    "2": 145,
+    "3": 16,
+    "6": 6,
+    "7": 26
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.29,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 205,
+    "4": 154,
+    "8": 28
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.46,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 205,
+    "3": 82,
+    "4": 4,
+    "7": 96
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.54,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 205,
+    "2": 129,
+    "3": 32,
+    "4": 21
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.81,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 182,
+    "1": 113,
+    "4": 66,
+    "8": 26
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.54,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 182,
+    "1": 113,
+    "3": 54,
+    "4": 26,
+    "5": 12
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 18,
+   "prefixes": 536,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.47,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 149,
+    "0": 182,
+    "1": 92,
+    "2": 85,
+    "5": 28
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.28,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "1": 373,
+    "3": 147,
+    "5": 30,
+    "13": 18
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 1.44,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 306,
+    "2": 138,
+    "4": 68,
+    "6": 4,
+    "8": 60,
+    "16": 15
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 4.03,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "2": 256,
+    "5": 52,
+    "8": 105,
+    "11": 155
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 2.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "1": 373,
+    "4": 48,
+    "7": 90,
+    "13": 57
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.44,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "1": 195,
+    "2": 219,
+    "4": 132,
+    "7": 22
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 24,
+   "excess_mean": 3.6,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 182,
+    "0": 306,
+    "3": 45,
+    "6": 144,
+    "15": 18,
+    "21": 60,
+    "24": 18
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.87,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 306,
+    "2": 147,
+    "3": 108,
+    "8": 30
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 285,
+    "1": 133,
+    "3": 26,
+    "4": 4,
+    "6": 87,
+    "7": 56
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 4.62,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "3": 281,
+    "7": 134,
+    "11": 75,
+    "15": 78
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 30,
+   "excess_mean": 4.62,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 205,
+    "2": 256,
+    "6": 160,
+    "10": 99,
+    "18": 23,
+    "30": 30
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 2.27,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "2": 312,
+    "3": 100,
+    "6": 140,
+    "7": 4,
+    "14": 12
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 3.06,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "1": 373,
+    "5": 30,
+    "9": 24,
+    "13": 141
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.78,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "1": 195,
+    "2": 219,
+    "5": 64,
+    "6": 60,
+    "9": 30
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.89,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 205,
+    "1": 195,
+    "2": 154,
+    "3": 62,
+    "5": 22,
+    "6": 75,
+    "7": 60
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 2.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 306,
+    "4": 184,
+    "8": 64,
+    "12": 4,
+    "16": 33
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.03,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 306,
+    "3": 240,
+    "4": 19,
+    "7": 26
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.89,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 306,
+    "2": 147,
+    "3": 30,
+    "4": 90,
+    "7": 18
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.64,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 285,
+    "1": 133,
+    "4": 30,
+    "8": 87,
+    "9": 56
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 285,
+    "1": 133,
+    "3": 26,
+    "4": 143,
+    "5": 4
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 19,
+   "prefixes": 773,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 182,
+    "0": 285,
+    "1": 173,
+    "2": 76,
+    "4": 4,
+    "5": 27,
+    "6": 26
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.49,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "1": 394,
+    "3": 206,
+    "5": 65,
+    "7": 120,
+    "15": 68
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 0.73,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 506,
+    "2": 294,
+    "4": 30,
+    "8": 26,
+    "12": 18
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 23,
+   "excess_mean": 5.43,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 306,
+    "2": 326,
+    "5": 305,
+    "14": 36,
+    "20": 120,
+    "23": 66
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 3.23,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "1": 394,
+    "4": 74,
+    "7": 165,
+    "10": 220
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.27,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "1": 459,
+    "2": 208,
+    "4": 92,
+    "5": 60,
+    "7": 34
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.53,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 506,
+    "3": 191,
+    "6": 94,
+    "9": 26,
+    "12": 57
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.05,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 506,
+    "2": 74,
+    "3": 121,
+    "5": 93,
+    "6": 56,
+    "8": 24
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 368,
+    "1": 295,
+    "3": 136,
+    "4": 26,
+    "6": 49
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 4.77,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "3": 424,
+    "7": 200,
+    "11": 69,
+    "15": 160
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 4.53,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "2": 326,
+    "6": 246,
+    "10": 125,
+    "14": 156
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.84,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "2": 527,
+    "3": 231,
+    "6": 65,
+    "7": 6,
+    "11": 24
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 29,
+   "excess_mean": 3.62,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 306,
+    "1": 394,
+    "5": 232,
+    "9": 159,
+    "17": 38,
+    "29": 30
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.41,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "1": 459,
+    "2": 208,
+    "5": 140,
+    "6": 34,
+    "13": 12
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.09,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 306,
+    "1": 459,
+    "2": 186,
+    "3": 168,
+    "5": 4,
+    "6": 36
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 2.17,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 506,
+    "4": 177,
+    "8": 50,
+    "12": 141
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.29,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 506,
+    "3": 177,
+    "4": 48,
+    "7": 87,
+    "8": 56
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.15,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 506,
+    "2": 74,
+    "3": 173,
+    "4": 4,
+    "6": 60,
+    "10": 57
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 368,
+    "1": 295,
+    "4": 94,
+    "5": 60,
+    "8": 57
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.64,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 368,
+    "1": 295,
+    "3": 136,
+    "4": 49,
+    "5": 26
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 20,
+   "prefixes": 1159,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 285,
+    "0": 368,
+    "1": 211,
+    "2": 62,
+    "4": 38,
+    "5": 75,
+    "6": 120
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.86,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "1": 620,
+    "3": 264,
+    "5": 132,
+    "7": 151,
+    "11": 54
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.61,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 689,
+    "2": 281,
+    "4": 145,
+    "6": 176,
+    "14": 68
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.73,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "2": 615,
+    "5": 398,
+    "8": 94,
+    "11": 114
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 3.83,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 506,
+    "1": 620,
+    "4": 305,
+    "7": 26,
+    "13": 54,
+    "19": 120,
+    "22": 96
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.22,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "1": 601,
+    "2": 352,
+    "4": 125,
+    "5": 95,
+    "7": 48
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 2.67,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 689,
+    "3": 191,
+    "6": 173,
+    "9": 220,
+    "12": 26,
+    "18": 60
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 0.95,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 689,
+    "2": 389,
+    "3": 196,
+    "5": 49,
+    "11": 36
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 1.36,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 670,
+    "1": 270,
+    "3": 130,
+    "4": 180,
+    "6": 34,
+    "15": 75
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 4.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "3": 505,
+    "7": 250,
+    "11": 458,
+    "15": 8
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 3.72,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "2": 615,
+    "6": 286,
+    "10": 126,
+    "14": 190,
+    "18": 4
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 2.11,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "2": 606,
+    "3": 290,
+    "6": 207,
+    "7": 118
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 3.02,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "1": 620,
+    "5": 276,
+    "9": 125,
+    "13": 200
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.43,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "1": 601,
+    "2": 352,
+    "5": 133,
+    "6": 87,
+    "10": 48
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.57,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 506,
+    "1": 601,
+    "2": 268,
+    "3": 72,
+    "5": 166,
+    "9": 114
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 28,
+   "excess_mean": 2.66,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 368,
+    "0": 689,
+    "4": 383,
+    "8": 163,
+    "12": 56,
+    "16": 38,
+    "28": 30
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 689,
+    "3": 479,
+    "4": 90,
+    "7": 101
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.88,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 689,
+    "2": 389,
+    "3": 85,
+    "4": 157,
+    "6": 39
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.18,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 670,
+    "1": 270,
+    "4": 276,
+    "5": 56,
+    "8": 75,
+    "12": 12
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.94,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 670,
+    "1": 270,
+    "3": 130,
+    "4": 109,
+    "5": 180
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 21,
+   "prefixes": 1727,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 368,
+    "0": 670,
+    "1": 419,
+    "2": 191,
+    "4": 4,
+    "5": 36,
+    "6": 39
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 2.38,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "1": 896,
+    "3": 335,
+    "5": 454,
+    "7": 4,
+    "13": 202
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.28,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 890,
+    "2": 553,
+    "4": 184,
+    "6": 173,
+    "10": 110
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 3.75,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "2": 696,
+    "5": 510,
+    "8": 545,
+    "11": 26,
+    "14": 54,
+    "17": 60
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 2.29,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "1": 896,
+    "4": 662,
+    "7": 94,
+    "10": 239
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "1": 995,
+    "2": 486,
+    "4": 244,
+    "5": 12,
+    "7": 82,
+    "10": 72
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 3.17,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 670,
+    "0": 890,
+    "3": 448,
+    "6": 66,
+    "9": 180,
+    "12": 110,
+    "18": 120,
+    "21": 96
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.27,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 890,
+    "2": 467,
+    "3": 276,
+    "5": 82,
+    "6": 120,
+    "14": 75
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.52,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 1020,
+    "1": 543,
+    "3": 129,
+    "4": 134,
+    "6": 48,
+    "7": 36
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 27,
+   "excess_mean": 4.83,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 689,
+    "3": 934,
+    "7": 639,
+    "11": 104,
+    "15": 88,
+    "27": 126
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 4.53,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 689,
+    "2": 696,
+    "6": 440,
+    "10": 679,
+    "14": 16,
+    "22": 60
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "2": 1195,
+    "3": 315,
+    "6": 381
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 3.25,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "1": 896,
+    "5": 470,
+    "9": 251,
+    "13": 270,
+    "17": 4
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "1": 995,
+    "2": 486,
+    "5": 207,
+    "6": 199,
+    "9": 4
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.2,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 689,
+    "1": 995,
+    "2": 410,
+    "3": 306,
+    "5": 78,
+    "6": 48,
+    "7": 54
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 24,
+   "excess_mean": 2.56,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 670,
+    "0": 890,
+    "4": 583,
+    "8": 133,
+    "12": 256,
+    "16": 44,
+    "24": 4
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.31,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 890,
+    "3": 572,
+    "4": 301,
+    "7": 123,
+    "11": 24
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 4,
+   "excess_mean": 0.85,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 890,
+    "2": 467,
+    "3": 277,
+    "4": 276
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 1020,
+    "1": 543,
+    "4": 172,
+    "5": 87,
+    "9": 88
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 5,
+   "excess_mean": 0.49,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 1020,
+    "1": 543,
+    "3": 129,
+    "4": 84,
+    "5": 134
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 22,
+   "prefixes": 2580,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 670,
+    "0": 1020,
+    "1": 347,
+    "2": 120,
+    "4": 309,
+    "8": 114
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 2.14,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "1": 1249,
+    "3": 782,
+    "5": 527,
+    "7": 189,
+    "9": 164
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.35,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1439,
+    "2": 553,
+    "4": 484,
+    "6": 91,
+    "12": 214
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 5.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "2": 1382,
+    "5": 319,
+    "8": 248,
+    "11": 176,
+    "14": 76,
+    "17": 480,
+    "20": 230
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 3.02,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "1": 1249,
+    "4": 702,
+    "7": 710,
+    "10": 26,
+    "13": 164,
+    "16": 60
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.47,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "1": 1662,
+    "2": 591,
+    "4": 275,
+    "5": 308,
+    "13": 75
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1439,
+    "3": 837,
+    "6": 198,
+    "9": 251,
+    "12": 56
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.71,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1439,
+    "2": 789,
+    "3": 373,
+    "5": 64,
+    "6": 116
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.76,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1342,
+    "1": 606,
+    "3": 553,
+    "4": 126,
+    "6": 82,
+    "9": 72
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 23,
+   "excess_mean": 4.39,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 890,
+    "3": 1538,
+    "7": 652,
+    "11": 616,
+    "15": 101,
+    "23": 4
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 26,
+   "excess_mean": 4.6,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 890,
+    "2": 1382,
+    "6": 895,
+    "10": 324,
+    "14": 88,
+    "26": 222
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 2.08,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "2": 1529,
+    "3": 973,
+    "6": 317,
+    "10": 92
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 3.52,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "1": 1249,
+    "5": 677,
+    "9": 909,
+    "13": 16,
+    "21": 60
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.42,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "1": 1662,
+    "2": 591,
+    "5": 549,
+    "6": 101,
+    "13": 8
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.11,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 890,
+    "1": 1662,
+    "2": 658,
+    "3": 485,
+    "5": 26,
+    "6": 12,
+    "7": 68
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 2.18,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1439,
+    "4": 718,
+    "8": 263,
+    "12": 357,
+    "16": 4
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.78,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1439,
+    "3": 505,
+    "4": 373,
+    "7": 16,
+    "8": 88,
+    "11": 360
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.86,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1439,
+    "2": 789,
+    "3": 180,
+    "4": 134,
+    "6": 56,
+    "7": 183
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.09,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1342,
+    "1": 606,
+    "4": 502,
+    "5": 199,
+    "8": 12,
+    "12": 120
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.72,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1342,
+    "1": 606,
+    "3": 553,
+    "4": 154,
+    "7": 126
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 23,
+   "prefixes": 3801,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.5,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1020,
+    "0": 1342,
+    "1": 833,
+    "2": 334,
+    "4": 78,
+    "5": 48,
+    "6": 146
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.36,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "1": 1935,
+    "3": 1263,
+    "5": 263,
+    "7": 180,
+    "9": 88,
+    "11": 524
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.62,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 1855,
+    "2": 1062,
+    "4": 734,
+    "6": 295,
+    "8": 164,
+    "10": 240
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 3.19,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "2": 2375,
+    "5": 634,
+    "8": 903,
+    "11": 101,
+    "14": 240
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 5.04,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "1": 1935,
+    "4": 458,
+    "7": 320,
+    "10": 188,
+    "13": 152,
+    "16": 840,
+    "19": 360
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.18,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "1": 2318,
+    "2": 1346,
+    "4": 181,
+    "5": 316,
+    "7": 36,
+    "11": 56
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.51,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 1855,
+    "3": 1033,
+    "6": 972,
+    "9": 26,
+    "12": 164,
+    "15": 300
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.11,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 1855,
+    "2": 1433,
+    "3": 376,
+    "5": 598,
+    "6": 16,
+    "8": 72
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 0.64,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 2495,
+    "1": 925,
+    "3": 353,
+    "4": 454,
+    "6": 48,
+    "12": 75
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 4.84,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "3": 1743,
+    "7": 972,
+    "11": 1526,
+    "15": 12
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 3.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "2": 2375,
+    "6": 903,
+    "10": 780,
+    "14": 191,
+    "22": 4
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 3.02,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "2": 1878,
+    "3": 1229,
+    "6": 107,
+    "7": 88,
+    "10": 840,
+    "14": 111
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 25,
+   "excess_mean": 3.87,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 1439,
+    "1": 1935,
+    "5": 1410,
+    "9": 380,
+    "13": 176,
+    "17": 4,
+    "25": 348
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "1": 2318,
+    "2": 1346,
+    "5": 449,
+    "9": 140
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.67,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1439,
+    "1": 2318,
+    "2": 589,
+    "3": 253,
+    "5": 112,
+    "6": 741,
+    "7": 240
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 3.43,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 1855,
+    "4": 884,
+    "8": 1213,
+    "12": 42,
+    "20": 356
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.55,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 1855,
+    "3": 1462,
+    "4": 713,
+    "7": 146,
+    "8": 18,
+    "11": 120,
+    "12": 36
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 1855,
+    "2": 1433,
+    "3": 686,
+    "4": 114,
+    "6": 202,
+    "7": 60
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 0.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 2495,
+    "1": 925,
+    "4": 695,
+    "5": 179,
+    "12": 56
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 2495,
+    "1": 925,
+    "3": 353,
+    "4": 123,
+    "5": 202,
+    "7": 240,
+    "8": 12
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 24,
+   "prefixes": 5692,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.34,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1342,
+    "0": 2495,
+    "1": 930,
+    "2": 757,
+    "4": 52,
+    "5": 48,
+    "6": 68
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.18,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "1": 3437,
+    "3": 1440,
+    "5": 823,
+    "7": 464,
+    "9": 480,
+    "11": 104
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.38,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 2860,
+    "2": 1840,
+    "4": 327,
+    "6": 316,
+    "8": 88,
+    "10": 677
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 4.04,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "2": 2776,
+    "5": 2416,
+    "8": 52,
+    "11": 844,
+    "14": 660
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 3.03,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "1": 3437,
+    "4": 1015,
+    "7": 1587,
+    "10": 101,
+    "13": 488,
+    "16": 120
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "1": 3311,
+    "2": 1605,
+    "4": 1522,
+    "5": 123,
+    "7": 147,
+    "8": 40
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 3.55,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 2860,
+    "3": 693,
+    "6": 592,
+    "9": 364,
+    "12": 354,
+    "15": 840,
+    "18": 405
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 0.83,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 2860,
+    "2": 1408,
+    "3": 1434,
+    "5": 331,
+    "11": 75
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 0.34,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 3248,
+    "1": 2103,
+    "3": 233,
+    "4": 384,
+    "6": 84,
+    "10": 56
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 23,
+   "excess_mean": 6.1,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "3": 1938,
+    "7": 3197,
+    "11": 582,
+    "19": 983,
+    "23": 48
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 4.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "2": 2776,
+    "6": 1530,
+    "10": 2316,
+    "14": 126
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.12,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "2": 3972,
+    "3": 1978,
+    "6": 439,
+    "7": 36,
+    "10": 251,
+    "11": 72
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 2.94,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "1": 3437,
+    "5": 1768,
+    "9": 1322,
+    "13": 209,
+    "21": 12
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 2.46,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "1": 3311,
+    "2": 1605,
+    "5": 179,
+    "6": 88,
+    "9": 1346,
+    "13": 147,
+    "14": 72
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1855,
+    "1": 3311,
+    "2": 1832,
+    "3": 315,
+    "5": 706,
+    "6": 180,
+    "7": 56,
+    "10": 348
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 24,
+   "excess_mean": 2.98,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 2860,
+    "4": 1724,
+    "8": 484,
+    "12": 611,
+    "16": 36,
+    "24": 393
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 1.21,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 2860,
+    "3": 2555,
+    "4": 267,
+    "8": 283,
+    "11": 68,
+    "15": 75
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.93,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 2860,
+    "2": 1408,
+    "3": 406,
+    "4": 1066,
+    "6": 356,
+    "7": 12
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.41,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 3248,
+    "1": 2103,
+    "4": 543,
+    "8": 188,
+    "9": 26
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.38,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 3248,
+    "1": 2103,
+    "3": 233,
+    "4": 140,
+    "5": 264,
+    "9": 120
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 25,
+   "prefixes": 8603,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.8,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2495,
+    "0": 3248,
+    "1": 757,
+    "2": 685,
+    "4": 112,
+    "5": 1066,
+    "6": 240
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 2.79,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "1": 4616,
+    "3": 1149,
+    "5": 1721,
+    "7": 264,
+    "9": 2246
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.03,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 5540,
+    "2": 1964,
+    "4": 897,
+    "6": 464,
+    "8": 639,
+    "10": 104
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 5.96,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "2": 2631,
+    "5": 2321,
+    "8": 1307,
+    "11": 812,
+    "14": 2160,
+    "17": 765
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 2.96,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "1": 4616,
+    "4": 3211,
+    "7": 52,
+    "10": 1457,
+    "13": 660
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.15,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "1": 5380,
+    "2": 3412,
+    "4": 1020,
+    "5": 53,
+    "7": 56,
+    "10": 75
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 1.85,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 5540,
+    "3": 1229,
+    "6": 1799,
+    "9": 101,
+    "12": 819,
+    "15": 120
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.71,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 5540,
+    "2": 2104,
+    "3": 1438,
+    "5": 120,
+    "6": 12,
+    "8": 338,
+    "9": 56
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.01,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 4068,
+    "1": 2290,
+    "3": 1634,
+    "4": 363,
+    "6": 1213,
+    "7": 40
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 23,
+   "excess_mean": 5.98,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "3": 4621,
+    "7": 1694,
+    "11": 1858,
+    "15": 1037,
+    "23": 786
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 5.51,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "2": 2631,
+    "6": 4689,
+    "10": 1011,
+    "18": 1617,
+    "22": 48
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.96,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "2": 7365,
+    "3": 1569,
+    "6": 136,
+    "7": 696,
+    "10": 80,
+    "14": 150
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 3.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "1": 4616,
+    "5": 1866,
+    "9": 3376,
+    "13": 138
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "1": 5380,
+    "2": 3412,
+    "5": 647,
+    "6": 36,
+    "9": 401,
+    "10": 120
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.32,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2860,
+    "1": 5380,
+    "2": 1204,
+    "3": 2644,
+    "5": 547,
+    "6": 173,
+    "7": 48
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 1.66,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 5540,
+    "4": 2246,
+    "8": 1601,
+    "12": 209,
+    "20": 12
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.86,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 5540,
+    "3": 2839,
+    "4": 954,
+    "7": 188,
+    "8": 87
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 0.72,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 5540,
+    "2": 2104,
+    "3": 526,
+    "4": 1209,
+    "7": 64,
+    "8": 120,
+    "10": 45
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.98,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 4068,
+    "1": 2290,
+    "4": 531,
+    "5": 430,
+    "8": 1346,
+    "12": 847,
+    "13": 96
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.85,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 4068,
+    "1": 2290,
+    "3": 1634,
+    "4": 1253,
+    "5": 315,
+    "7": 48
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 26,
+   "prefixes": 12856,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3248,
+    "0": 4068,
+    "1": 3250,
+    "2": 463,
+    "4": 920,
+    "5": 236,
+    "6": 56,
+    "9": 615
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 2.43,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "1": 4595,
+    "3": 3396,
+    "5": 3388,
+    "7": 1662,
+    "9": 975,
+    "21": 48
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.81,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 6906,
+    "2": 2765,
+    "4": 3139,
+    "6": 312,
+    "8": 2246,
+    "10": 168
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 3.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "2": 5850,
+    "5": 4478,
+    "8": 1467,
+    "11": 1925,
+    "14": 240,
+    "17": 104
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 3.93,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "1": 4595,
+    "4": 3686,
+    "7": 1898,
+    "10": 960,
+    "13": 2160,
+    "16": 765
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 0.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "1": 9469,
+    "2": 3007,
+    "4": 556,
+    "5": 60,
+    "7": 884,
+    "8": 56,
+    "11": 32
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 2.05,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 6906,
+    "3": 5930,
+    "6": 100,
+    "9": 1772,
+    "12": 828
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 6906,
+    "2": 5865,
+    "3": 1131,
+    "5": 1509,
+    "6": 40,
+    "8": 61,
+    "9": 24
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.59,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 8630,
+    "1": 3875,
+    "3": 1940,
+    "4": 724,
+    "6": 112,
+    "9": 255
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 23,
+   "excess_mean": 5.62,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "3": 6312,
+    "7": 4077,
+    "11": 1245,
+    "15": 150,
+    "19": 24,
+    "23": 2256
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 4.88,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "2": 5850,
+    "6": 2656,
+    "10": 2745,
+    "14": 1982,
+    "22": 831
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.62,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "2": 8214,
+    "3": 4936,
+    "6": 446,
+    "7": 444,
+    "11": 24
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 3.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "1": 4595,
+    "5": 6002,
+    "9": 1247,
+    "17": 2172,
+    "21": 48
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.05,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "1": 9469,
+    "2": 3007,
+    "5": 268,
+    "6": 1090,
+    "9": 80,
+    "13": 150
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5540,
+    "1": 9469,
+    "2": 1588,
+    "3": 2594,
+    "6": 128,
+    "7": 195,
+    "9": 90
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 2.61,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 6906,
+    "4": 4470,
+    "8": 3464,
+    "12": 354,
+    "16": 342
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 2.14,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 6906,
+    "3": 2700,
+    "4": 2487,
+    "7": 2416,
+    "8": 84,
+    "11": 847,
+    "12": 96
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 6906,
+    "2": 5865,
+    "3": 1634,
+    "4": 367,
+    "6": 48,
+    "7": 716
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.86,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 8630,
+    "1": 3875,
+    "4": 1808,
+    "5": 54,
+    "8": 1049,
+    "9": 120
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.65,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 8630,
+    "1": 3875,
+    "3": 1940,
+    "4": 367,
+    "5": 56,
+    "7": 8,
+    "8": 660
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 27,
+   "prefixes": 19604,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.46,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4068,
+    "0": 8630,
+    "1": 3031,
+    "2": 2924,
+    "4": 674,
+    "5": 229,
+    "6": 48
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.41,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "1": 8615,
+    "3": 7102,
+    "5": 942,
+    "7": 5627,
+    "9": 168,
+    "11": 240
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 1.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 8470,
+    "2": 4487,
+    "4": 5198,
+    "6": 1662,
+    "8": 1065,
+    "16": 40,
+    "20": 48
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 3.52,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "2": 12242,
+    "5": 1848,
+    "8": 5955,
+    "11": 2553,
+    "17": 96
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 2.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "1": 8615,
+    "4": 8128,
+    "7": 2652,
+    "10": 2585,
+    "13": 480,
+    "16": 234
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 1.03,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "1": 14079,
+    "2": 6067,
+    "4": 1935,
+    "5": 382,
+    "7": 183,
+    "8": 48
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.81,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 8470,
+    "3": 4909,
+    "6": 2742,
+    "9": 960,
+    "12": 2160,
+    "15": 1729
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.95,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 8470,
+    "2": 8013,
+    "3": 2136,
+    "5": 594,
+    "6": 1362,
+    "8": 395
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 0.33,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 12500,
+    "1": 5931,
+    "3": 1230,
+    "4": 108,
+    "6": 968,
+    "7": 56,
+    "10": 132,
+    "18": 45
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 4.36,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "3": 9133,
+    "7": 10739,
+    "11": 2306,
+    "15": 432,
+    "19": 84
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 4.51,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "2": 12242,
+    "6": 5553,
+    "10": 1986,
+    "14": 150,
+    "18": 24,
+    "22": 2739
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.45,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "2": 10452,
+    "3": 6467,
+    "6": 4452,
+    "7": 344,
+    "10": 883,
+    "11": 96
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 4.66,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "1": 8615,
+    "5": 5291,
+    "9": 4253,
+    "13": 2963,
+    "21": 1572
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.27,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "1": 14079,
+    "2": 6067,
+    "5": 828,
+    "6": 801,
+    "10": 823,
+    "13": 96
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.6,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6906,
+    "1": 14079,
+    "2": 2548,
+    "3": 809,
+    "5": 1190,
+    "6": 1872,
+    "7": 2196
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 2.59,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 8470,
+    "4": 8235,
+    "8": 2005,
+    "16": 2212,
+    "20": 48
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.57,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 8470,
+    "3": 7591,
+    "4": 2184,
+    "7": 1385,
+    "8": 314,
+    "11": 1026
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 0.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 8470,
+    "2": 8013,
+    "3": 2351,
+    "4": 1186,
+    "6": 8,
+    "7": 660,
+    "11": 258,
+    "12": 24
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 0.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 12500,
+    "1": 5931,
+    "4": 691,
+    "5": 1359,
+    "8": 180,
+    "9": 84,
+    "12": 225
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.22,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 12500,
+    "1": 5931,
+    "3": 1230,
+    "4": 1201,
+    "5": 72,
+    "7": 36
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 28,
+   "prefixes": 29600,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.31,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8630,
+    "0": 12500,
+    "1": 2539,
+    "2": 5260,
+    "5": 128,
+    "6": 195,
+    "8": 90,
+    "9": 258
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 2.05,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "1": 16729,
+    "3": 10677,
+    "5": 4355,
+    "7": 3057,
+    "15": 232,
+    "19": 144
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 14546,
+    "2": 8411,
+    "4": 1391,
+    "6": 5785,
+    "8": 392,
+    "10": 555,
+    "12": 84
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 4.53,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "2": 14042,
+    "5": 9705,
+    "8": 2468,
+    "11": 5192,
+    "14": 3787
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 3.21,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "1": 16729,
+    "4": 3662,
+    "7": 10576,
+    "10": 4083,
+    "16": 144
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 1.53,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "1": 18465,
+    "2": 8603,
+    "4": 2786,
+    "5": 4613,
+    "7": 691,
+    "20": 36
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 14546,
+    "3": 9976,
+    "6": 2768,
+    "9": 2609,
+    "12": 879,
+    "15": 234,
+    "18": 152
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 1.2,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 14546,
+    "2": 8207,
+    "3": 3859,
+    "5": 1124,
+    "6": 392,
+    "8": 1539,
+    "9": 132,
+    "11": 1320,
+    "17": 45
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 16618,
+    "1": 11327,
+    "3": 1935,
+    "4": 925,
+    "6": 183,
+    "7": 160,
+    "9": 16
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 27,
+   "excess_mean": 4.53,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "3": 22921,
+    "7": 5928,
+    "11": 234,
+    "15": 5871,
+    "19": 144,
+    "27": 96
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 3.86,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "2": 14042,
+    "6": 16568,
+    "10": 3750,
+    "14": 750,
+    "18": 84
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 2.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "2": 21152,
+    "3": 7220,
+    "6": 2260,
+    "7": 677,
+    "10": 3885
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 4.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "1": 16729,
+    "5": 9199,
+    "9": 3397,
+    "13": 378,
+    "17": 64,
+    "21": 5427
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.66,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "1": 18465,
+    "2": 8603,
+    "5": 6408,
+    "6": 739,
+    "9": 883,
+    "10": 96
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 8470,
+    "1": 18465,
+    "2": 8126,
+    "3": 6859,
+    "5": 220,
+    "6": 696,
+    "7": 240,
+    "10": 516,
+    "11": 72
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 3.14,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 14546,
+    "4": 6028,
+    "8": 4533,
+    "12": 3520,
+    "16": 884,
+    "20": 1653
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.61,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 14546,
+    "3": 6642,
+    "4": 5534,
+    "7": 938,
+    "8": 1404,
+    "11": 2100
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 14546,
+    "2": 8207,
+    "3": 4552,
+    "4": 1190,
+    "6": 212,
+    "7": 72,
+    "8": 2385
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 0.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 16618,
+    "1": 11327,
+    "4": 1371,
+    "5": 929,
+    "9": 823,
+    "12": 96
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.29,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 16618,
+    "1": 11327,
+    "3": 1935,
+    "4": 359,
+    "5": 283,
+    "7": 126,
+    "8": 516
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 29,
+   "prefixes": 43664,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 12500,
+    "0": 16618,
+    "1": 3219,
+    "2": 3415,
+    "4": 1648,
+    "5": 1908,
+    "6": 4356
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.29,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "1": 22453,
+    "3": 5453,
+    "5": 21473,
+    "7": 1076,
+    "9": 1189,
+    "11": 168
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 22,
+   "excess_mean": 0.95,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 28056,
+    "2": 11961,
+    "4": 5274,
+    "6": 3763,
+    "14": 288,
+    "18": 144,
+    "22": 254
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 2.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "2": 32897,
+    "5": 7743,
+    "8": 7476,
+    "11": 2940,
+    "14": 604,
+    "17": 152
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 3.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "1": 22453,
+    "4": 13761,
+    "7": 3812,
+    "10": 6427,
+    "13": 5359
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 1.73,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "1": 29359,
+    "2": 11079,
+    "4": 2073,
+    "5": 2075,
+    "7": 4409,
+    "8": 132,
+    "10": 2640,
+    "16": 45
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 1.71,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 28056,
+    "3": 5510,
+    "6": 11180,
+    "9": 4655,
+    "12": 195,
+    "15": 144
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.68,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 28056,
+    "2": 9723,
+    "3": 9116,
+    "5": 2015,
+    "6": 762,
+    "8": 68
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 1.01,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 21684,
+    "1": 12018,
+    "3": 4434,
+    "4": 8969,
+    "6": 691,
+    "9": 1872,
+    "19": 72
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 31,
+   "excess_mean": 6.48,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 14546,
+    "3": 18201,
+    "7": 12205,
+    "11": 12174,
+    "15": 1422,
+    "19": 7762,
+    "31": 48
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 26,
+   "excess_mean": 3.7,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "2": 32897,
+    "6": 8911,
+    "10": 516,
+    "14": 9144,
+    "18": 144,
+    "22": 104,
+    "26": 96
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.96,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "2": 18915,
+    "3": 19911,
+    "6": 2676,
+    "7": 2724,
+    "10": 6989,
+    "14": 342,
+    "15": 255
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 2.76,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "1": 22453,
+    "5": 23402,
+    "9": 4949,
+    "13": 840,
+    "17": 168
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.85,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "1": 29359,
+    "2": 11079,
+    "5": 2856,
+    "6": 1774,
+    "9": 6744
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 1.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 14546,
+    "1": 29359,
+    "2": 11374,
+    "3": 3859,
+    "5": 720,
+    "6": 144,
+    "7": 6356
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 24,
+   "excess_mean": 2.97,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 28056,
+    "4": 10449,
+    "8": 3786,
+    "12": 1020,
+    "16": 64,
+    "20": 6111,
+    "24": 254
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 28056,
+    "3": 16174,
+    "4": 2383,
+    "7": 336,
+    "8": 2695,
+    "11": 96
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.9,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 28056,
+    "2": 9723,
+    "3": 2845,
+    "4": 3359,
+    "6": 5241,
+    "7": 516
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.07,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 21684,
+    "1": 12018,
+    "4": 11360,
+    "5": 2731,
+    "8": 967,
+    "9": 980
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 7,
+   "excess_mean": 0.99,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 21684,
+    "1": 12018,
+    "3": 4434,
+    "4": 2635,
+    "5": 8241,
+    "7": 728
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 30,
+   "prefixes": 66358,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 0.52,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 16618,
+    "0": 21684,
+    "1": 16038,
+    "2": 9299,
+    "4": 536,
+    "5": 696,
+    "6": 795,
+    "9": 516,
+    "10": 176
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 21,
+   "excess_mean": 1.45,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "1": 44858,
+    "3": 15822,
+    "5": 10694,
+    "7": 96,
+    "9": 48,
+    "11": 104,
+    "13": 1332,
+    "17": 288,
+    "21": 254
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 1.36,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 34471,
+    "2": 17057,
+    "4": 24725,
+    "6": 1994,
+    "8": 1189,
+    "10": 168,
+    "12": 24,
+    "16": 240
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 3.17,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "2": 23711,
+    "5": 32747,
+    "8": 16555,
+    "11": 195,
+    "14": 288
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 2.0,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "1": 44858,
+    "4": 10804,
+    "7": 12962,
+    "10": 3956,
+    "13": 764,
+    "16": 152
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.31,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "1": 28638,
+    "2": 29027,
+    "4": 12377,
+    "5": 1364,
+    "7": 176,
+    "8": 1350,
+    "10": 564
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 2.77,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 34471,
+    "3": 18439,
+    "6": 9472,
+    "9": 6487,
+    "12": 10999
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.05,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 34471,
+    "2": 28340,
+    "3": 11559,
+    "5": 2948,
+    "6": 390,
+    "8": 1872,
+    "18": 288
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 0.82,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 45397,
+    "1": 20378,
+    "3": 2609,
+    "4": 3562,
+    "6": 4409,
+    "7": 132,
+    "9": 2640,
+    "15": 741
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 23,
+   "excess_mean": 4.85,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "3": 43090,
+    "7": 13705,
+    "11": 2751,
+    "15": 200,
+    "19": 13496,
+    "23": 254
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 30,
+   "excess_mean": 5.56,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 28056,
+    "2": 23711,
+    "6": 16860,
+    "10": 17874,
+    "14": 1566,
+    "18": 13385,
+    "30": 100
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 2.19,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "2": 49785,
+    "3": 6997,
+    "6": 3954,
+    "7": 10340,
+    "10": 96,
+    "11": 56,
+    "14": 2268
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 25,
+   "excess_mean": 2.79,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "1": 44858,
+    "5": 13258,
+    "9": 1291,
+    "13": 13347,
+    "17": 288,
+    "21": 358,
+    "25": 96
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.77,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "1": 28638,
+    "2": 29027,
+    "5": 3726,
+    "6": 2923,
+    "9": 8585,
+    "13": 342,
+    "14": 255
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 1.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 28056,
+    "1": 28638,
+    "2": 15831,
+    "3": 15249,
+    "5": 10706,
+    "6": 3072
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 2.08,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 34471,
+    "4": 35039,
+    "8": 8467,
+    "12": 1228,
+    "16": 663
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 1.75,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 34471,
+    "3": 26958,
+    "4": 5539,
+    "7": 6940,
+    "8": 5904,
+    "11": 56
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 10,
+   "excess_mean": 1.03,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 34471,
+    "2": 28340,
+    "3": 5498,
+    "4": 9553,
+    "6": 1300,
+    "8": 136,
+    "10": 570
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.84,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 45397,
+    "1": 20378,
+    "4": 4539,
+    "5": 2810,
+    "8": 6744
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 45397,
+    "1": 20378,
+    "3": 2609,
+    "4": 7922,
+    "5": 2598,
+    "8": 684,
+    "9": 280
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 31,
+   "prefixes": 101552,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.64,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 21684,
+    "0": 45397,
+    "1": 14093,
+    "2": 11308,
+    "4": 2172,
+    "5": 542,
+    "6": 6356
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 1.94,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "1": 40768,
+    "3": 57838,
+    "5": 14249,
+    "7": 4852,
+    "9": 822,
+    "11": 124,
+    "15": 240
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 20,
+   "excess_mean": 0.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 65236,
+    "2": 27306,
+    "4": 11281,
+    "6": 1234,
+    "8": 48,
+    "10": 104,
+    "12": 1332,
+    "16": 288,
+    "20": 1138
+   }
+  },
+  {
+   "a": "001",
+   "p": 3,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 3.61,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "2": 61529,
+    "5": 18309,
+    "8": 19183,
+    "11": 19584,
+    "17": 288
+   }
+  },
+  {
+   "a": "010",
+   "p": 3,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 2.57,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "1": 40768,
+    "4": 54585,
+    "7": 22817,
+    "10": 195,
+    "13": 288,
+    "16": 240
+   }
+  },
+  {
+   "a": "011",
+   "p": 3,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 1.24,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "1": 78125,
+    "2": 18556,
+    "4": 16905,
+    "5": 1576,
+    "7": 2388,
+    "8": 64,
+    "11": 775,
+    "17": 504
+   }
+  },
+  {
+   "a": "100",
+   "p": 3,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.23,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 65236,
+    "3": 20358,
+    "6": 13516,
+    "9": 5259,
+    "12": 3362,
+    "15": 152,
+    "18": 84
+   }
+  },
+  {
+   "a": "101",
+   "p": 3,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 0.68,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 65236,
+    "2": 15425,
+    "3": 16368,
+    "5": 7089,
+    "6": 132,
+    "8": 2976,
+    "14": 741
+   }
+  },
+  {
+   "a": "110",
+   "p": 3,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 0.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 42731,
+    "1": 40335,
+    "3": 14549,
+    "4": 7720,
+    "6": 232,
+    "7": 1836,
+    "9": 564
+   }
+  },
+  {
+   "a": "0001",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 3.44,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "3": 74922,
+    "7": 37556,
+    "11": 5344,
+    "15": 1071
+   }
+  },
+  {
+   "a": "0010",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 34,
+   "excess_mean": 4.9,
+   "death_before_2T_minus_1": false,
+   "excess_hist": {
+    "-1": 34471,
+    "2": 61529,
+    "6": 28559,
+    "10": 4097,
+    "14": 1416,
+    "18": 20437,
+    "22": 2819,
+    "34": 36
+   }
+  },
+  {
+   "a": "0011",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.46,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "2": 57364,
+    "3": 29957,
+    "6": 14825,
+    "7": 16440,
+    "10": 112,
+    "11": 195
+   }
+  },
+  {
+   "a": "0100",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 29,
+   "excess_mean": 5.19,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "1": 40768,
+    "5": 24507,
+    "9": 29344,
+    "13": 2868,
+    "17": 21066,
+    "21": 240,
+    "29": 100
+   }
+  },
+  {
+   "a": "0110",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.53,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "1": 78125,
+    "2": 18556,
+    "5": 4703,
+    "6": 12797,
+    "9": 460,
+    "10": 1984,
+    "13": 2268
+   }
+  },
+  {
+   "a": "0111",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 9,
+   "excess_mean": 1.07,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 34471,
+    "1": 78125,
+    "2": 22212,
+    "3": 12122,
+    "5": 4371,
+    "6": 104,
+    "7": 591,
+    "9": 1368
+   }
+  },
+  {
+   "a": "1000",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 24,
+   "excess_mean": 1.91,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 65236,
+    "4": 23187,
+    "8": 2078,
+    "12": 14727,
+    "16": 1029,
+    "20": 1242,
+    "24": 468
+   }
+  },
+  {
+   "a": "1001",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 1.35,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 65236,
+    "3": 22373,
+    "4": 5152,
+    "7": 7360,
+    "8": 664,
+    "11": 108,
+    "15": 7074
+   }
+  },
+  {
+   "a": "1011",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 8,
+   "excess_mean": 0.72,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 65236,
+    "2": 15425,
+    "3": 10938,
+    "4": 3946,
+    "6": 10990,
+    "7": 1152,
+    "8": 280
+   }
+  },
+  {
+   "a": "1100",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 0.94,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 42731,
+    "1": 40335,
+    "4": 11678,
+    "5": 2923,
+    "8": 8641,
+    "9": 576,
+    "12": 684,
+    "13": 399
+   }
+  },
+  {
+   "a": "1101",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 0.6,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 42731,
+    "1": 40335,
+    "3": 14549,
+    "4": 2632,
+    "5": 6816,
+    "8": 240,
+    "9": 456,
+    "12": 208
+   }
+  },
+  {
+   "a": "1110",
+   "p": 4,
+   "T": 32,
+   "prefixes": 153364,
+   "survivors": 0,
+   "excess_max": 6,
+   "excess_mean": 0.66,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 45397,
+    "0": 42731,
+    "1": 24901,
+    "2": 22505,
+    "4": 12686,
+    "5": 4920,
+    "6": 224
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 33,
+   "prefixes": 226860,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 1.69,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 65236,
+    "1": 88835,
+    "3": 49413,
+    "5": 12293,
+    "7": 938,
+    "9": 996,
+    "11": 4616,
+    "15": 576,
+    "19": 3957
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 33,
+   "prefixes": 226860,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.18,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 42731,
+    "0": 81103,
+    "2": 68190,
+    "4": 22665,
+    "6": 7492,
+    "8": 4315,
+    "10": 124,
+    "14": 240
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 34,
+   "prefixes": 345753,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 1.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 81103,
+    "1": 163470,
+    "3": 65716,
+    "5": 25133,
+    "7": 8039,
+    "9": 1620,
+    "13": 672
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 34,
+   "prefixes": 345753,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.4,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 103026,
+    "0": 129896,
+    "2": 59864,
+    "4": 19532,
+    "6": 12361,
+    "8": 1876,
+    "10": 4616,
+    "12": 305,
+    "14": 1584,
+    "18": 12693
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 35,
+   "prefixes": 507377,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 2.08,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 129896,
+    "1": 228465,
+    "3": 75554,
+    "5": 16663,
+    "7": 4672,
+    "9": 32724,
+    "11": 305,
+    "13": 2448,
+    "17": 16650
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 35,
+   "prefixes": 507377,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.26,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 112831,
+    "0": 223743,
+    "2": 72922,
+    "4": 28699,
+    "6": 47142,
+    "8": 6228,
+    "10": 15140,
+    "12": 672
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 36,
+   "prefixes": 772027,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.11,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 223743,
+    "1": 233123,
+    "3": 92701,
+    "5": 130849,
+    "7": 71634,
+    "9": 16788,
+    "11": 3189
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 36,
+   "prefixes": 772027,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 1.54,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 170803,
+    "0": 301670,
+    "2": 137802,
+    "4": 98609,
+    "6": 4800,
+    "8": 32724,
+    "10": 545,
+    "12": 2552,
+    "16": 22522
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 37,
+   "prefixes": 1149508,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.06,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 301670,
+    "1": 440088,
+    "3": 199665,
+    "5": 79942,
+    "7": 82495,
+    "9": 1300,
+    "11": 5104,
+    "15": 39244
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 37,
+   "prefixes": 1149508,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.03,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 299554,
+    "0": 468759,
+    "2": 145574,
+    "4": 136250,
+    "6": 76818,
+    "8": 19032,
+    "10": 3297,
+    "14": 224
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 38,
+   "prefixes": 1697792,
+   "survivors": 0,
+   "excess_max": 19,
+   "excess_mean": 1.74,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 468759,
+    "1": 564287,
+    "3": 361759,
+    "5": 202877,
+    "7": 82548,
+    "9": 15162,
+    "13": 224,
+    "15": 832,
+    "19": 1344
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 38,
+   "prefixes": 1697792,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.32,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 381195,
+    "0": 676919,
+    "2": 286887,
+    "4": 209610,
+    "6": 94401,
+    "8": 3808,
+    "10": 5728,
+    "14": 39244
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 39,
+   "prefixes": 2545630,
+   "survivors": 0,
+   "excess_max": 13,
+   "excess_mean": 2.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 676919,
+    "1": 822313,
+    "3": 444480,
+    "5": 309664,
+    "7": 107618,
+    "9": 30528,
+    "11": 14996,
+    "13": 139112
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 39,
+   "prefixes": 2545630,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.08,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 639678,
+    "0": 889043,
+    "2": 520406,
+    "4": 349649,
+    "6": 123792,
+    "8": 20422,
+    "12": 464,
+    "14": 832,
+    "18": 1344
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 40,
+   "prefixes": 3774663,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 1.47,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 889043,
+    "1": 1670752,
+    "3": 773007,
+    "5": 371210,
+    "7": 56971,
+    "11": 6944,
+    "13": 2704,
+    "17": 4032
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 40,
+   "prefixes": 3774663,
+   "survivors": 0,
+   "excess_max": 12,
+   "excess_mean": 1.45,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1016909,
+    "0": 1296856,
+    "2": 719506,
+    "4": 320955,
+    "6": 160449,
+    "8": 42808,
+    "10": 78068,
+    "12": 139112
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 41,
+   "prefixes": 5643374,
+   "survivors": 0,
+   "excess_max": 11,
+   "excess_mean": 2.97,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1296856,
+    "1": 1702035,
+    "3": 954222,
+    "5": 605641,
+    "7": 104948,
+    "9": 513902,
+    "11": 465770
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 41,
+   "prefixes": 5643374,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 0.73,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1460898,
+    "0": 2293276,
+    "2": 1226990,
+    "4": 538207,
+    "6": 76063,
+    "8": 15960,
+    "10": 7880,
+    "12": 20068,
+    "16": 4032
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 42,
+   "prefixes": 8528994,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 1.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 2293276,
+    "1": 3530490,
+    "3": 1592386,
+    "5": 683914,
+    "7": 375152,
+    "9": 22048,
+    "11": 23664,
+    "15": 8064
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 42,
+   "prefixes": 8528994,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.72,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 1889200,
+    "0": 3001261,
+    "2": 1641409,
+    "4": 835532,
+    "6": 144244,
+    "8": 548290,
+    "10": 468074,
+    "14": 144,
+    "18": 840
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 43,
+   "prefixes": 12875512,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 2.45,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3001261,
+    "1": 4609028,
+    "3": 2161359,
+    "5": 407663,
+    "7": 1455248,
+    "9": 1222605,
+    "13": 17508,
+    "17": 840
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 43,
+   "prefixes": 12875512,
+   "survivors": 0,
+   "excess_max": 18,
+   "excess_mean": 1.58,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 3638533,
+    "0": 4144791,
+    "2": 2636804,
+    "4": 835219,
+    "6": 453433,
+    "8": 657640,
+    "10": 221668,
+    "14": 8064,
+    "18": 279360
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 44,
+   "prefixes": 19111230,
+   "survivors": 0,
+   "excess_max": 17,
+   "excess_mean": 2.37,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 4144791,
+    "1": 7202911,
+    "3": 2845163,
+    "5": 2545670,
+    "7": 1383853,
+    "9": 682612,
+    "11": 6710,
+    "13": 20160,
+    "17": 279360
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 44,
+   "prefixes": 19111230,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 1.47,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 5092188,
+    "0": 6484307,
+    "2": 3640943,
+    "4": 552077,
+    "6": 1816716,
+    "8": 1374881,
+    "12": 149278,
+    "16": 840
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 45,
+   "prefixes": 28985481,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.39,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 6484307,
+    "1": 9015537,
+    "3": 5057885,
+    "5": 4606954,
+    "7": 3370378,
+    "9": 58752,
+    "11": 389988,
+    "15": 1680
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 45,
+   "prefixes": 28985481,
+   "survivors": 0,
+   "excess_max": 16,
+   "excess_mean": 1.27,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 7534735,
+    "0": 10824279,
+    "2": 4895462,
+    "4": 2873408,
+    "6": 1422315,
+    "8": 930596,
+    "10": 6710,
+    "12": 218616,
+    "16": 279360
+   }
+  },
+  {
+   "a": "01",
+   "p": 2,
+   "T": 46,
+   "prefixes": 43951920,
+   "survivors": 0,
+   "excess_max": 15,
+   "excess_mean": 2.48,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 10824279,
+    "1": 10665153,
+    "3": 11016275,
+    "5": 5012249,
+    "7": 5513048,
+    "9": 39594,
+    "11": 315818,
+    "13": 4320,
+    "15": 561184
+   }
+  },
+  {
+   "a": "10",
+   "p": 2,
+   "T": 46,
+   "prefixes": 43951920,
+   "survivors": 0,
+   "excess_max": 14,
+   "excess_mean": 1.35,
+   "death_before_2T_minus_1": true,
+   "excess_hist": {
+    "-1": 10626467,
+    "0": 15676520,
+    "2": 6517104,
+    "4": 6079414,
+    "6": 4291134,
+    "8": 337344,
+    "10": 414327,
+    "14": 9610
+   }
+  }
+ ]
+}
