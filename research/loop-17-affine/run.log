@@ -1,0 +1,303 @@
+a=01 done (1s)
+a=10 done (2s)
+a=001 done (3s)
+a=010 done (4s)
+a=011 done (5s)
+a=100 done (6s)
+a=101 done (8s)
+a=110 done (9s)
+a=0001 done (10s)
+a=0010 done (11s)
+a=0011 done (12s)
+a=0100 done (13s)
+a=0110 done (15s)
+a=0111 done (16s)
+a=1000 done (17s)
+a=1001 done (18s)
+a=1011 done (19s)
+a=1100 done (20s)
+a=1101 done (22s)
+a=1110 done (23s)
+a=00001 done (24s)
+a=00010 done (25s)
+a=00011 done (27s)
+a=00100 done (28s)
+a=00101 done (29s)
+a=00110 done (30s)
+a=00111 done (32s)
+a=01000 done (33s)
+a=01001 done (34s)
+a=01010 done (36s)
+a=01011 done (37s)
+a=01100 done (38s)
+a=01101 done (39s)
+a=01110 done (41s)
+a=01111 done (42s)
+a=10000 done (43s)
+a=10001 done (44s)
+a=10010 done (46s)
+a=10011 done (47s)
+a=10100 done (48s)
+a=10101 done (49s)
+a=10110 done (51s)
+a=10111 done (52s)
+a=11000 done (53s)
+a=11001 done (54s)
+a=11010 done (56s)
+a=11011 done (57s)
+a=11100 done (58s)
+a=11101 done (59s)
+a=11110 done (61s)
+{
+ "TW": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "B6": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B5": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 7,
+  "EvidenceGap": 0
+ },
+ "H30": {
+  "ReportedStatus": "FALSIFIED",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "F16": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B1": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 75,
+  "BlockedCount": 20,
+  "CompletedNativeLoops": 16,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 32,
+  "CheckedCount": 25,
+  "FalsifiedCount": 12,
+  "OpenCount": 6,
+  "AtRiskCount": 2,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "seconds": 60.7,
+ "cases": 750,
+ "TW_failures": [],
+ "cases_dying_in_window": 750,
+ "not_dying_in_window": [],
+ "H30_holds": false,
+ "H30_violations": [
+  {
+   "T": 4,
+   "a": "010",
+   "Z": 2,
+   "max_degree": -1
+  },
+  {
+   "T": 4,
+   "a": "100",
+   "Z": 2,
+   "max_degree": -1
+  },
+  {
+   "T": 4,
+   "a": "0111",
+   "Z": 1,
+   "max_degree": -1
+  },
+  {
+   "T": 6,
+   "a": "1001",
+   "Z": 2,
+   "max_degree": 0
+  },
+  {
+   "T": 6,
+   "a": "1101",
+   "Z": 1,
+   "max_degree": -1
+  },
+  {
+   "T": 10,
+   "a": "1101",
+   "Z": 2,
+   "max_degree": -1
+  },
+  {
+   "T": 12,
+   "a": "1110",
+   "Z": 2,
+   "max_degree": 0
+  },
+  {
+   "T": 4,
+   "a": "00100",
+   "Z": 2,
+   "max_degree": -1
+  },
+  {
+   "T": 4,
+   "a": "01001",
+   "Z": 2,
+   "max_degree": -1
+  },
+  {
+   "T": 4,
+   "a": "01110",
+   "Z": 1,
+   "max_degree": -1
+  },
+  {
+   "T": 4,
+   "a": "01111",
+   "Z": 1,
+   "max_degree": -1
+  },
+  {
+   "T": 12,
+   "a": "01111",
+   "Z": 3,
+   "max_degree": 1
+  },
+  {
+   "T": 4,
+   "a": "10010",
+   "Z": 2,
+   "max_degree": -1
+  },
+  {
+   "T": 15,
+   "a": "10111",
+   "Z": 3,
+   "max_degree": 1
+  },
+  {
+   "T": 17,
+   "a": "10111",
+   "Z": 3,
+   "max_degree": 1
+  },
+  {
+   "T": 13,
+   "a": "11011",
+   "Z": 2,
+   "max_degree": 0
+  },
+  {
+   "T": 17,
+   "a": "11011",
+   "Z": 3,
+   "max_degree": -1
+  },
+  {
+   "T": 8,
+   "a": "11101",
+   "Z": 1,
+   "max_degree": -1
+  },
+  {
+   "T": 13,
+   "a": "11101",
+   "Z": 2,
+   "max_degree": -1
+  }
+ ],
+ "degree_minus_Z_hist": {
+  "-6": 0,
+  "-5": 0,
+  "-4": 1,
+  "-3": 7,
+  "-2": 11,
+  "-1": 86,
+  "0": 645
+ },
+ "constraints_to_death_minus_Z": {
+  "-10": 0,
+  "-9": 0,
+  "-8": 0,
+  "-7": 0,
+  "-6": 0,
+  "-5": 4,
+  "-4": 7,
+  "-3": 27,
+  "-2": 52,
+  "-1": 143,
+  "0": 167,
+  "1": 164,
+  "2": 89,
+  "3": 53,
+  "4": 25,
+  "5": 12,
+  "6": 5,
+  "7": 2,
+  "8": 0,
+  "9": 0,
+  "10": 0,
+  "11": 0,
+  "12": 0,
+  "13": 0,
+  "14": 0
+ },
+ "mass_kills": {
+  "count": 14,
+  "all_constant_on_live": true,
+  "degrees": [
+   8,
+   9,
+   10,
+   11,
+   12,
+   13
+  ]
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-16",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 6.1, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "971b81afe0cc688d2208c2ebd2bc2cae001bccd6ad3f874bd8440e5be845c81e",
+  "OutputHash": "9b17255830d398600b636d2f37048b3ce58f493cb54b51fb61ad539903c998c1",
+  "Sequence": 29,
+  "StartedAt": "2026-10-23T18:42:15-0500",
+  "FinishedAt": "2026-10-23T19:05:02-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H29: for the single-zero words of periods [8, 10, 12, 16] the left-cone exclusion excess stays at most 64 at every onset T>=32 the enumeration completes (cap 2^25).",
+  "Summary": "H29 held: single-zero words p=[8, 10, 12, 16] to onset 384, max excess 23; excess slope vs T 0.0552, vs log2 T 6.5653. B5 remains the open child of B1.",
+  "Name": "effortless-16",
+  "ClaimsAdded": 2,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 0,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 5.9,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 71,
+  "BlockedCount": 18,
+  "CompletedNativeLoops": 16,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 30,
+  "CheckedCount": 24,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 1,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

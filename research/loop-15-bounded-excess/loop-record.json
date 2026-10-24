@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-15",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 8.2, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "8624d9e5ee9f4a27ff4c6f98d399e052ed80e757db9f44c55a14f878af14dab9",
+  "OutputHash": "d7e1828a6ce75bdf6cf3622e1d87aeb0c84ff5a2487a64c8d95d13e4c652de9b",
+  "Sequence": 28,
+  "StartedAt": "2026-10-23T16:37:42-0500",
+  "FinishedAt": "2026-10-23T17:26:45-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H28: the left-cone exclusion excess L(T,a)-T is at most 64 for every primitive nonconstant word of period 7 or 8 at every onset T>=8 the enumeration completes; TV: from time 2T the one-time constraints are ray parities with no free-row term.",
+  "Summary": "TV proved: from time 2T every one-time constraint is a ray parity with no free-row term. H28 held: 1750 cases (periods 7-8, onsets to 192), max excess L-T = 56, mean 17.89; the dying windows violate cone cells at most 56 columns past the first cone column and 28 steps after T; edge-cell failures in 0.487 of cases. B5 remains the open child of B1.",
+  "Name": "effortless-15",
+  "ClaimsAdded": 3,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 0,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 6.0,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 69,
+  "BlockedCount": 18,
+  "CompletedNativeLoops": 15,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 30,
+  "CheckedCount": 22,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 1,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

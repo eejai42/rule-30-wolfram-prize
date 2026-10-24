@@ -1,0 +1,49 @@
+{
+ "loop": {
+  "LoopId": "effortless-17",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh requested\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 6.0, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "6c9f23a6867b6a0bc4af1325c0e0865ee4513cc7b528ce4a406b714538187e0d",
+  "OutputHash": "ae5a10baa061e6b55a93fb9fbf176441a7dac1a70229c28e49b05da4b997b2a3",
+  "Sequence": 30,
+  "StartedAt": "2026-10-23T19:33:46-0500",
+  "FinishedAt": "2026-10-23T19:35:00-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "TW: exactly 2^Z rows survive to 2T-2; B5 <- TU+TW+B6. H30: the one-time constraints that kill them have algebraic degree >= Z-1 over the Z free bits (p<=5, 4<=T<=18).",
+  "Summary": "TW proved (2^Z free rows, confirmed in all 750 cases); B5 derived from TU+TW+B6, B6 is the new open child of B1. H30 FALSIFIED: degree minus Z histogram {\"-6\": 0, \"-5\": 0, \"-4\": 1, \"-3\": 7, \"-2\": 11, \"-1\": 86, \"0\": 645}; constraints-to-death minus Z {\"-5\": 4, \"-4\": 7, \"-3\": 27, \"-2\": 52, \"-1\": 143, \"0\": 167, \"1\": 164, \"2\": 89, \"3\": 53, \"4\": 25, \"5\": 12, \"6\": 5, \"7\": 2}; 14 mass kills, degrees [8, 9, 10, 11, 12, 13].",
+  "Name": "effortless-17",
+  "ClaimsAdded": 4,
+  "RevisionsMade": 2,
+  "FalsificationsMade": 1,
+  "ProofsMade": 1
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 6.5,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 75,
+  "BlockedCount": 20,
+  "CompletedNativeLoops": 17,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 32,
+  "CheckedCount": 25,
+  "FalsifiedCount": 12,
+  "OpenCount": 6,
+  "AtRiskCount": 2,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13
+ }
+}

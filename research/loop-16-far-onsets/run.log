@@ -1,0 +1,171 @@
+p=8 T=32 L=36 excess=4 capped=False peak=16 0.0s (0s)
+p=8 T=48 L=53 excess=5 capped=False peak=64 0.0s (0s)
+p=8 T=64 L=74 excess=10 capped=False peak=256 0.0s (0s)
+p=8 T=80 L=90 excess=10 capped=False peak=1024 0.0s (0s)
+p=8 T=96 L=108 excess=12 capped=False peak=4096 0.0s (0s)
+p=8 T=112 L=128 excess=16 capped=False peak=16384 0.0s (0s)
+p=8 T=128 L=143 excess=15 capped=False peak=65536 0.1s (0s)
+p=8 T=160 L=179 excess=19 capped=False peak=1048576 2.4s (3s)
+p=8 T=192 L=214 excess=22 capped=False peak=16777216 52.9s (56s)
+p=8 T=224 L=None excess=None capped=True peak=67108864 136.1s (192s)
+p=10 T=32 L=37 excess=5 capped=False peak=16 0.0s (192s)
+p=10 T=48 L=54 excess=6 capped=False peak=32 0.0s (192s)
+p=10 T=64 L=69 excess=5 capped=False peak=128 0.0s (192s)
+p=10 T=80 L=87 excess=7 capped=False peak=256 0.0s (192s)
+p=10 T=96 L=106 excess=10 capped=False peak=1024 0.0s (192s)
+p=10 T=112 L=124 excess=12 capped=False peak=4096 0.0s (192s)
+p=10 T=128 L=138 excess=10 capped=False peak=8192 0.0s (192s)
+p=10 T=160 L=175 excess=15 capped=False peak=65536 0.2s (192s)
+p=10 T=192 L=214 excess=22 capped=False peak=1048576 2.0s (194s)
+p=10 T=224 L=246 excess=22 capped=False peak=8388608 20.2s (214s)
+p=10 T=256 L=None excess=None capped=True peak=67108864 175.0s (389s)
+p=12 T=32 L=33 excess=1 capped=False peak=8 0.0s (389s)
+p=12 T=48 L=51 excess=3 capped=False peak=16 0.0s (389s)
+p=12 T=64 L=67 excess=3 capped=False peak=64 0.0s (389s)
+p=12 T=80 L=86 excess=6 capped=False peak=128 0.0s (389s)
+p=12 T=96 L=105 excess=9 capped=False peak=256 0.0s (389s)
+p=12 T=112 L=120 excess=8 capped=False peak=1024 0.0s (389s)
+p=12 T=128 L=139 excess=11 capped=False peak=2048 0.0s (389s)
+p=12 T=160 L=173 excess=13 capped=False peak=16384 0.0s (389s)
+p=12 T=192 L=207 excess=15 capped=False peak=65536 0.2s (389s)
+p=12 T=224 L=239 excess=15 capped=False peak=524288 1.6s (391s)
+p=12 T=256 L=279 excess=23 capped=False peak=4194304 12.9s (404s)
+p=12 T=288 L=309 excess=21 capped=False peak=16777216 85.1s (489s)
+p=12 T=320 L=None excess=None capped=True peak=67108864 229.8s (719s)
+p=16 T=32 L=36 excess=4 capped=False peak=4 0.0s (719s)
+p=16 T=48 L=51 excess=3 capped=False peak=8 0.0s (719s)
+p=16 T=64 L=67 excess=3 capped=False peak=16 0.0s (719s)
+p=16 T=80 L=85 excess=5 capped=False peak=32 0.0s (719s)
+p=16 T=96 L=108 excess=12 capped=False peak=64 0.0s (719s)
+p=16 T=112 L=118 excess=6 capped=False peak=128 0.0s (719s)
+p=16 T=128 L=137 excess=9 capped=False peak=256 0.0s (719s)
+p=16 T=160 L=169 excess=9 capped=False peak=1024 0.0s (719s)
+p=16 T=192 L=203 excess=11 capped=False peak=4096 0.0s (719s)
+p=16 T=224 L=235 excess=11 capped=False peak=16384 0.1s (719s)
+p=16 T=256 L=272 excess=16 capped=False peak=65536 0.3s (719s)
+p=16 T=288 L=304 excess=16 capped=False peak=262144 1.3s (721s)
+p=16 T=320 L=341 excess=21 capped=False peak=1048576 7.2s (728s)
+p=16 T=352 L=373 excess=21 capped=False peak=4194304 29.6s (757s)
+p=16 T=384 L=407 excess=23 capped=False peak=16777216 138.2s (896s)
+p=16 T=416 L=None excess=None capped=True peak=67108864 345.0s (1241s)
+{
+ "H29": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F15": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B5": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 6,
+  "EvidenceGap": 0
+ },
+ "B1": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 71,
+  "BlockedCount": 18,
+  "CompletedNativeLoops": 15,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 30,
+  "CheckedCount": 24,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 1,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "seconds": 1240.6,
+ "H29_holds": true,
+ "cases_completed": 46,
+ "largest_T_completed": 384,
+ "excess_max": 23,
+ "excess_by_T": {
+  "8:32": 4,
+  "8:48": 5,
+  "8:64": 10,
+  "8:80": 10,
+  "8:96": 12,
+  "8:112": 16,
+  "8:128": 15,
+  "8:160": 19,
+  "8:192": 22,
+  "10:32": 5,
+  "10:48": 6,
+  "10:64": 5,
+  "10:80": 7,
+  "10:96": 10,
+  "10:112": 12,
+  "10:128": 10,
+  "10:160": 15,
+  "10:192": 22,
+  "10:224": 22,
+  "12:32": 1,
+  "12:48": 3,
+  "12:64": 3,
+  "12:80": 6,
+  "12:96": 9,
+  "12:112": 8,
+  "12:128": 11,
+  "12:160": 13,
+  "12:192": 15,
+  "12:224": 15,
+  "12:256": 23,
+  "12:288": 21,
+  "16:32": 4,
+  "16:48": 3,
+  "16:64": 3,
+  "16:80": 5,
+  "16:96": 12,
+  "16:112": 6,
+  "16:128": 9,
+  "16:160": 9,
+  "16:192": 11,
+  "16:224": 11,
+  "16:256": 16,
+  "16:288": 16,
+  "16:320": 21,
+  "16:352": 21,
+  "16:384": 23
+ },
+ "fit_excess_vs_T_slope_T>=64": 0.0552,
+ "fit_excess_vs_log2T_slope_T>=64": 6.5653,
+ "violations": []
+}

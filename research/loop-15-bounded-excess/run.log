@@ -4,3 +4,115 @@ p=7 word 41/126 (232s)
 p=7 word 61/126 (359s)
 p=7 word 81/126 (502s)
 p=7 word 101/126 (653s)
+p=7 word 121/126 (847s)
+p=8 word 1/240 (967s)
+p=8 word 21/240 (1094s)
+p=8 word 41/240 (1210s)
+p=8 word 61/240 (1363s)
+p=8 word 81/240 (1479s)
+p=8 word 101/240 (1624s)
+p=8 word 121/240 (1823s)
+p=8 word 141/240 (1924s)
+p=8 word 161/240 (2072s)
+p=8 word 181/240 (2287s)
+p=8 word 201/240 (2405s)
+p=8 word 221/240 (2620s)
+{
+ "TV": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "H28": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "F14": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B5": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 5,
+  "EvidenceGap": 0
+ },
+ "B1": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 69,
+  "BlockedCount": 18,
+  "CompletedNativeLoops": 14,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 30,
+  "CheckedCount": 22,
+  "FalsifiedCount": 11,
+  "OpenCount": 6,
+  "AtRiskCount": 1,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13
+ }
+}
+{
+ "seconds": 2928.3,
+ "H28_holds": true,
+ "cases_completed": 1750,
+ "largest_T_completed": 192,
+ "excess_max": 56,
+ "excess_mean": 17.89,
+ "excess_max_by_T": {
+  "8": 56,
+  "16": 52,
+  "24": 47,
+  "32": 39,
+  "48": 23,
+  "64": 43,
+  "96": 30,
+  "128": 22,
+  "160": 25,
+  "192": 23
+ },
+ "death_cells": {
+  "col_offset_past_cone_max": 56,
+  "time_offset_past_T_max": 28,
+  "share_of_cases_with_some_window_failing_edge_cell": 0.487,
+  "mean_share_of_windows_failing_edge_cell": 0.443
+ },
+ "violations": []
+}
