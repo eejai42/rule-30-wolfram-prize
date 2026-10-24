@@ -10,7 +10,7 @@ EvidenceLinks: EvidenceLinkId, Name, Evidence, Assertion, EvidencePath
 CellStates: CellStateId, Name, StateValue
 Rules: RuleId, Name, RuleNumber, TableNumber, BlackOutputCount, IsBalanced, ZeroNeighborhoodOutput, IsQuiescent, MirrorRuleNumber, ComplementRuleNumber, IsMirrorSymmetric, PolynomialMismatchCount, IsRule30Polynomial, LeftInsensitiveCount, IsLeftPermutive, RightInsensitiveCount, IsRightPermutive, RunCount
 Neighborhoods: NeighborhoodId, Name, LeftState, CenterState, RightState, NeighborhoodIndex, MirrorIndex, ComplementIndex, PolynomialValue, EntryCount
-RuleTableEntries: RuleTableEntryId, Name, Rule, Neighborhood, LeftPartner, RightPartner, RuleNumber, NeighborhoodIndex, MirrorIndex, ComplementIndex, PolynomialValue, OutputValue, Weight, MirrorWeight, ComplementWeight, MatchesPolynomial, LeftPartnerOutput, IsLeftSensitive, RightPartnerOutput, IsRightSensitive, UseCount
+RuleTableEntries: RuleTableEntryId, Name, Rule, Neighborhood, LeftPartner, RightPartner, LeftState, RightState, RuleNumber, NeighborhoodIndex, MirrorIndex, ComplementIndex, PolynomialValue, OutputValue, Weight, MirrorWeight, ComplementWeight, MatchesPolynomial, LeftPartnerOutput, IsLeftSensitive, RightPartnerOutput, IsRightSensitive, UseCount
 InitialConditions: InitialConditionId, Name, Background, BackgroundValue, SeedCellCount, BlackSeedCount, OriginSeedCount, IsSingleSeed
 SeedCells: SeedCellId, Name, InitialCondition, Position, State, StateValue
 Runs: RunId, Name, Rule, InitialCondition, Depth, RuleNumber, IsQuiescent, BackgroundValue, IsSingleSeed, IsLightConeExact, CellCount, BlackCellCount, LineCount, TotalCellUpdates, CenterLength, CenterOnes, CenterDensity, CenterDiscrepancy, MaxAbsCenterDiscrepancy, LongestCenterRun, CenterRunBoundViolations
@@ -20,8 +20,8 @@ Cells: CellId, Name, Run, TimeStep, Column, SeedCell, Time, Position, LeftParent
 Periods: PeriodId, Name, Length, TestCount
 PeriodTests: PeriodTestId, Name, Column, Period, PeriodLength, Depth, ComparisonCount, MismatchCount, LastMismatchTime, LongestAgreementStreak, FirstSurvivingOnset, FinalAgreementLength, OnsetBound, BoundedRefutationHolds
 PeriodComparisons: PeriodComparisonId, Name, PeriodTest, Time, EarlierCell, LaterCell, PreviousComparison, EarlierValue, LaterValue, IsMismatch, PriorAgreementStreak, AgreementStreak
-Tolerances: ToleranceId, Name, Epsilon, ExcursionCount, LastExcursionTime, HorizonTime, SettledAtHorizon
-ToleranceChecks: ToleranceCheckId, Name, Tolerance, Cell, Epsilon, Time, DensityDeviation, IsExcursion
+Tolerances: ToleranceId, Name, EpsilonNumerator, EpsilonDenominator, Epsilon, ExcursionCount, LastExcursionTime, HorizonTime, SettledAtHorizon
+ToleranceChecks: ToleranceCheckId, Name, Tolerance, Cell, EpsilonNumerator, EpsilonDenominator, AbsDiscrepancy, PrefixLength, Time, DensityDeviation, IsExcursion
 ColorCounts: ColorCountId, Name, Column, CellState, Depth, ConeCount, ColumnFirstTime, OccurrenceCount, Share, ShareDeviation
 MachineModels: MachineModelId, Name, StepMeaning, InputEncoding, AlgorithmCount
 Algorithms: AlgorithmId, Name, MachineModel, EffortRule, StoresAnswer, IsAdmissible, ComputationCount, WrongOutputCount, RatioAtHorizon, RatioAtHalfHorizon, IsRatioGrowing, EffortHolds

@@ -1,0 +1,93 @@
+cellular automaton
+rule
+rule number
+rule 30
+rule table
+neighborhood
+left neighbor
+right neighbor
+immediate neighbors
+output value
+polynomial
+xor
+or
+mirror rule
+complement rule
+equivalence class
+quiescent
+cell
+cell state
+color
+black
+white
+initial condition
+single seed
+nonzero cell
+background
+infinite lattice
+position
+time step
+line
+evolution
+run
+light cone
+width
+cell updates
+center column
+column
+center-cell values
+sequence
+term
+prefix
+horizon
+depth
+period
+periodic
+non-periodic
+eventually periodic
+onset
+comparison
+mismatch
+agreement streak
+constant run
+eventually constant
+center-run bounds
+frequency
+equally often
+average
+density
+discrepancy
+limit
+tolerance
+excursion
+computational effort
+machine
+machine model
+turing machine
+algorithm
+store the answer
+admissible
+effort ratio
+limsup
+sublinear
+o(n)
+o(n²)
+encoding
+cost model
+predicate
+quantifier
+for all
+exists
+not exists
+variable
+domain
+unbounded
+instance
+holds
+witness
+finite verification
+partial result
+theorem
+claim
+accelerator
+prize problem

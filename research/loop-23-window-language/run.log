@@ -1,0 +1,165 @@
+t=19 prefixes=1159 |W_12|=40 |W_20|=40 (0s)
+t=20 prefixes=1727 |W_12|=47 |W_20|=47 (0s)
+t=21 prefixes=2580 |W_12|=57 |W_20|=57 (0s)
+t=22 prefixes=3801 |W_12|=63 |W_20|=63 (0s)
+t=23 prefixes=5692 |W_12|=76 |W_20|=76 (0s)
+t=24 prefixes=8603 |W_12|=84 |W_20|=84 (0s)
+t=25 prefixes=12856 |W_12|=91 |W_20|=91 (0s)
+t=26 prefixes=19604 |W_12|=103 |W_20|=103 (0s)
+t=27 prefixes=29600 |W_12|=106 |W_20|=106 (0s)
+t=28 prefixes=43664 |W_12|=120 |W_20|=120 (0s)
+t=29 prefixes=66358 |W_12|=129 |W_20|=129 (0s)
+t=30 prefixes=101552 |W_12|=143 |W_20|=143 (0s)
+t=31 prefixes=153364 |W_12|=152 |W_20|=152 (0s)
+t=32 prefixes=226860 |W_12|=168 |W_20|=168 (0s)
+t=33 prefixes=345753 |W_12|=190 |W_20|=190 (0s)
+t=34 prefixes=507377 |W_12|=211 |W_20|=211 (0s)
+t=35 prefixes=772027 |W_12|=232 |W_20|=232 (1s)
+t=36 prefixes=1149508 |W_12|=256 |W_20|=261 (1s)
+t=37 prefixes=1697792 |W_12|=275 |W_20|=279 (1s)
+t=38 prefixes=2545630 |W_12|=282 |W_20|=297 (1s)
+t=39 prefixes=3774663 |W_12|=314 |W_20|=319 (2s)
+t=40 prefixes=5643374 |W_12|=340 |W_20|=359 (3s)
+t=41 prefixes=8528994 |W_12|=379 |W_20|=399 (4s)
+t=42 prefixes=12875512 |W_12|=414 |W_20|=446 (6s)
+t=43 prefixes=19111230 |W_12|=483 |W_20|=500 (10s)
+t=44 prefixes=28985481 |W_12|=543 |W_20|=563 (14s)
+t=45 prefixes=43951920 |W_12|=624 |W_20|=631 (22s)
+{
+ "H37": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "H38": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "F22": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "B9": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "B1": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 93,
+  "BlockedCount": 28,
+  "CompletedNativeLoops": 22,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 35,
+  "CheckedCount": 34,
+  "FalsifiedCount": 17,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 1
+ }
+}
+{
+ "seconds": 21.7,
+ "H37_holds": true,
+ "H38_holds": true,
+ "fraction_missing_at_THI": {
+  "4": 0.0,
+  "6": 0.0,
+  "8": 0.2715,
+  "10": 0.7334,
+  "12": 0.9238,
+  "14": 0.9807,
+  "16": 0.9952,
+  "18": 0.9988,
+  "20": 0.9997,
+  "22": 0.9999,
+  "24": 1.0,
+  "26": 1.0,
+  "28": 1.0,
+  "30": 1.0
+ },
+ "smallest_nonfull": {
+  "E": 8,
+  "count_missing": 139,
+  "examples_c_then_x-1..x-E": [
+   "011000000",
+   "110001000",
+   "000101000",
+   "100101000",
+   "010101000",
+   "110101000",
+   "001101000",
+   "101101000",
+   "011101000",
+   "111101000",
+   "011011000",
+   "011111000",
+   "010000100",
+   "001000100",
+   "101000100",
+   "111000100",
+   "010100100",
+   "110100100",
+   "011100100",
+   "000010100"
+  ]
+ },
+ "K_holds_by_E": {
+  "4": false,
+  "6": false,
+  "8": false,
+  "10": false,
+  "12": false,
+  "14": false,
+  "16": false,
+  "18": false,
+  "20": false,
+  "22": false,
+  "24": true,
+  "26": true,
+  "28": true,
+  "30": true
+ },
+ "smallest_E_with_K": 24
+}

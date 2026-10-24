@@ -969,8 +969,8 @@
         "datatype": "integer",
         "type": "aggregation",
         "nullable": true,
-        "Description": "Neighborhoods where flipping the left cell does not flip the output.",
-        "formula": "=COUNTIFS(RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{IsLeftSensitive}},0)"
+        "Description": "Pairs of neighborhoods differing only in the left cell that give the same output.",
+        "formula": "=COUNTIFS(RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{LeftState}},0,RuleTableEntries!{{IsLeftSensitive}},0)"
       },
       {
         "name": "IsLeftPermutive",
@@ -985,8 +985,8 @@
         "datatype": "integer",
         "type": "aggregation",
         "nullable": true,
-        "Description": "Neighborhoods where flipping the right cell does not flip the output.",
-        "formula": "=COUNTIFS(RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{IsRightSensitive}},0)"
+        "Description": "Pairs of neighborhoods differing only in the right cell that give the same output.",
+        "formula": "=COUNTIFS(RuleTableEntries!{{Rule}},{{RuleId}},RuleTableEntries!{{RightState}},0,RuleTableEntries!{{IsRightSensitive}},0)"
       },
       {
         "name": "IsRightPermutive",
@@ -1126,7 +1126,7 @@
         "datatype": "string",
         "type": "relationship",
         "nullable": true,
-        "Description": "The same rule at this neighborhood with the left cell flipped.",
+        "Description": "Set when the left cell is white: the same rule with the left cell black. (One direction only, so the row graph stays acyclic.)",
         "RelatedTo": "RuleTableEntries"
       },
       {
@@ -1134,8 +1134,24 @@
         "datatype": "string",
         "type": "relationship",
         "nullable": true,
-        "Description": "The same rule at this neighborhood with the right cell flipped.",
+        "Description": "Set when the right cell is white: the same rule with the right cell black.",
         "RelatedTo": "RuleTableEntries"
+      },
+      {
+        "name": "LeftState",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The left cell of the neighborhood.",
+        "formula": "=INDEX(Neighborhoods!{{LeftState}},MATCH({{Neighborhood}},Neighborhoods!{{NeighborhoodId}},0))"
+      },
+      {
+        "name": "RightState",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The right cell of the neighborhood.",
+        "formula": "=INDEX(Neighborhoods!{{RightState}},MATCH({{Neighborhood}},Neighborhoods!{{NeighborhoodId}},0))"
       },
       {
         "name": "RuleNumber",
@@ -1215,7 +1231,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the output equals Mod[p + q + r + q r, 2].",
-        "formula": "=IF({{OutputValue}}={{PolynomialValue}},1,0)"
+        "formula": "=IF(ABS({{OutputValue}}-{{PolynomialValue}})=0,1,0)"
       },
       {
         "name": "LeftPartnerOutput",
@@ -1230,8 +1246,8 @@
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "1 when flipping the left cell flips the output here.",
-        "formula": "=IF({{OutputValue}}<>{{LeftPartnerOutput}},1,0)"
+        "Description": "On rows with a left partner: 1 when flipping the left cell flips the output.",
+        "formula": "=IF(ABS({{OutputValue}}-{{LeftPartnerOutput}})=1,1,0)"
       },
       {
         "name": "RightPartnerOutput",
@@ -1246,8 +1262,8 @@
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "1 when flipping the right cell flips the output here.",
-        "formula": "=IF({{OutputValue}}<>{{RightPartnerOutput}},1,0)"
+        "Description": "On rows with a right partner: 1 when flipping the right cell flips the output.",
+        "formula": "=IF(ABS({{OutputValue}}-{{RightPartnerOutput}})=1,1,0)"
       },
       {
         "name": "UseCount",
@@ -2200,7 +2216,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Matching comparisons after the last mismatch, up to the horizon.",
-        "formula": "={{Depth}}-{{PeriodLength}}-{{LastMismatchTime}}"
+        "formula": "={{Depth}}-({{PeriodLength}}+{{LastMismatchTime}})"
       },
       {
         "name": "OnsetBound",
@@ -2327,7 +2343,7 @@
         "datatype": "string",
         "type": "raw",
         "nullable": false,
-        "Description": "eps-<epsilon>."
+        "Description": "eps-<numerator>-<denominator>."
       },
       {
         "name": "Name",
@@ -2338,11 +2354,26 @@
         "formula": "={{ToleranceId}}"
       },
       {
-        "name": "Epsilon",
-        "datatype": "number",
+        "name": "EpsilonNumerator",
+        "datatype": "integer",
         "type": "raw",
         "nullable": false,
-        "Description": "The margin."
+        "Description": "Numerator of the margin."
+      },
+      {
+        "name": "EpsilonDenominator",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Denominator of the margin. Exact integers, because a float margin and a NUMERIC margin disagree at exact boundaries (docs/toolchain-gaps.md gap 9)."
+      },
+      {
+        "name": "Epsilon",
+        "datatype": "number",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The margin, for display.",
+        "formula": "={{EpsilonNumerator}}/{{EpsilonDenominator}}"
       },
       {
         "name": "ExcursionCount",
@@ -2413,12 +2444,36 @@
         "RelatedTo": "Cells"
       },
       {
-        "name": "Epsilon",
-        "datatype": "number",
+        "name": "EpsilonNumerator",
+        "datatype": "integer",
         "type": "lookup",
         "nullable": true,
-        "Description": "The margin.",
-        "formula": "=INDEX(Tolerances!{{Epsilon}},MATCH({{Tolerance}},Tolerances!{{ToleranceId}},0))"
+        "Description": "Numerator of the margin.",
+        "formula": "=INDEX(Tolerances!{{EpsilonNumerator}},MATCH({{Tolerance}},Tolerances!{{ToleranceId}},0))"
+      },
+      {
+        "name": "EpsilonDenominator",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Denominator of the margin.",
+        "formula": "=INDEX(Tolerances!{{EpsilonDenominator}},MATCH({{Tolerance}},Tolerances!{{ToleranceId}},0))"
+      },
+      {
+        "name": "AbsDiscrepancy",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "|ones - zeros| of the prefix.",
+        "formula": "=INDEX(Cells!{{AbsDiscrepancy}},MATCH({{Cell}},Cells!{{CellId}},0))"
+      },
+      {
+        "name": "PrefixLength",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Terms in the prefix.",
+        "formula": "=INDEX(Cells!{{PrefixLength}},MATCH({{Cell}},Cells!{{CellId}},0))"
       },
       {
         "name": "Time",
@@ -2441,8 +2496,8 @@
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "1 when the prefix density is more than epsilon from 1/2.",
-        "formula": "=IF({{DensityDeviation}}>{{Epsilon}},1,0)"
+        "Description": "1 when the prefix density is more than epsilon from 1/2, in exact integers: |ones - zeros| / N > 2 epsilon.",
+        "formula": "=IF({{AbsDiscrepancy}}*{{EpsilonDenominator}}>2*{{EpsilonNumerator}}*{{PrefixLength}},1,0)"
       }
     ]
   },

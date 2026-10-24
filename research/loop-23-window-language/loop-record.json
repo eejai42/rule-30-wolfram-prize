@@ -1,0 +1,51 @@
+{
+ "loop": {
+  "LoopId": "effortless-23",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a\", \"seconds\": 17.5, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "a94cc79e0d6482e985dbb08986f53d2d9bf42563e5d0ae1076bded618c7236c1",
+  "OutputHash": "dd688bb075d4cc522f533108a7c2caaea5e3d60e6817244c43da28291e9f8c01",
+  "Sequence": 36,
+  "StartedAt": "2026-10-23T23:54:07-0500",
+  "FinishedAt": "2026-10-23T23:55:13-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H37: the near-center window language of left-consistent sequences misses at least half of all windows at some width E>=12; H38: some E<=30 has every reachable window killed within E-1 steps by both period-2 tails (t=19..45).",
+  "Summary": "Near-center language of left-consistent sequences: H37 held (fraction missing at t=45: {\"4\": 0.0, \"6\": 0.0, \"8\": 0.2715, \"10\": 0.7334, \"12\": 0.9238, \"14\": 0.9807, \"16\": 0.9952, \"18\": 0.9988, \"20\": 0.9997, \"22\": 0.9999, \"24\": 1.0, \"26\": 1.0, \"28\": 1.0, \"30\": 1.0}); H38 held (smallest E with the finite kill K(E): 24).",
+  "Name": "effortless-23",
+  "ClaimsAdded": 3,
+  "RevisionsMade": 2,
+  "FalsificationsMade": 0,
+  "ProofsMade": 0
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 18.8,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.09.13.0001 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "log_sha256": "726d312cfc93ceb48f347e4fb14d2f4337a88a87a29bb4dbe6852f45e501240a",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 93,
+  "BlockedCount": 28,
+  "CompletedNativeLoops": 23,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 35,
+  "CheckedCount": 34,
+  "FalsifiedCount": 17,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 1
+ }
+}

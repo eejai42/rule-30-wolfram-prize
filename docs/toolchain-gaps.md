@@ -7,6 +7,12 @@
 | 3. closure view cannot be filtered by the target row | Open |
 | 4. the CLI does not print a remote tool's failure | Open |
 | 5. field names that are Python keywords or reserved (`R`, `Class`) fail compile-rulebook | Open (rename the field) |
+| 6. a bare `COUNT(Table!{{CalculatedField}})` aggregation breaks the generated Postgres view | Open (use COUNTIFS) |
+| 7. `{{A}} = {{B}}` between two fields inside a self-referencing chain fails in Postgres (text vs integer) | Open (write `{{A}}-{{B}}=0`) |
+| 8. rulebook-to-postgres groups `a-b-c` as `a-(b-c)` | Open (parenthesize) |
+| 9. compile-rulebook uses floats, Postgres NUMERIC: they disagree at exact boundaries | Open (compare in integers) |
+| 10. a lookup through an empty reference: compile-rulebook evaluates the target formula on a blank row, Postgres returns NULL | Open (do not read such values) |
+| 11. a row-level cycle in a self-referencing table (A points at B, B at A) leaves every chained field NULL in Postgres | Open (keep self-references one-directional) |
 
 Goal (project rule): everything is in the rulebook, and running the full rulebook gives the right
 answer. Python is allowed only as an optimizer for large pieces, checked against the rulebook.
@@ -72,3 +78,56 @@ not return expected output files". A failed build looks like a no-op.
 
 A field named `R` (Python parameter `r`) or `Class` (`class`) makes compile-rulebook's Python
 generator refuse the rulebook. Rename the field (here: `LeftValue`, `CenterValue`, `RightValue`).
+
+## 6. Bare COUNT over another table's calculated field breaks the Postgres view
+
+`Dashboards.PredicateCount = COUNT(Predicates!{{QuantifierCount}})` compiles correctly in
+compile-rulebook (7), but rulebook-to-postgres emits
+`SELECT COUNT(calc_predicates_quantifier_count(p_predicate_id))` inside
+`calc_dashboards_predicate_count`, where `p_predicate_id` is not in scope, so `vw_dashboards`
+fails to plan (`column "p_predicate_id" does not exist`, seen in the editor's `/api/view-health`).
+The two substrates disagree on the same formula. Workaround: count with a COUNTIFS on a field
+whose value is known, or leave the count out; the model no longer uses bare COUNT.
+
+## 7. Field-to-field equality inside a self-referencing chain is mistyped in Postgres
+
+rulebook-to-postgres computes a self-referencing table (Cells reads its parents' Value) in a
+recursive `settled` jsonb CTE and inlines each chained formula there. An `IF` inlines as a
+`CASE ... THEN (1)::text ... END`, and a comparison of two such fields is emitted as
+`COALESCE(<text CASE>, 0) = COALESCE(<other>, 0)` without the `::NUMERIC` cast it uses when one
+side is a literal. `Cells.RunStart = IF({{Value}}={{CenterValue}}, ...)` therefore made
+`vw_cells` fail with `COALESCE types text and integer cannot be matched`, and every view built on
+it (15 of 33) was missing. compile-rulebook computed the same formula correctly. Workaround:
+write the equality as arithmetic, `IF({{Value}}-{{CenterValue}}=0, ...)`, which goes through the
+generator's safe numeric path.
+
+## 8. Chained subtraction is right-associative in Postgres
+
+`PeriodTests.FinalAgreementLength = {{Depth}}-{{PeriodLength}}-{{LastMismatchTime}}` is
+64 - 1 - 61 = 2 in compile-rulebook, but `calc_period_tests_final_agreement_length` computes
+`depth - (period_length - last_mismatch_time)` = 124. Mixed `a-b+1` is grouped correctly.
+Found by `research/hub/check_postgres.py`. Workaround: `{{Depth}}-({{PeriodLength}}+{{LastMismatchTime}})`.
+
+## 9. Floats against NUMERIC at an exact boundary
+
+compile-rulebook evaluates in Python floats; Postgres uses NUMERIC. At t = 19 the center prefix has
+density exactly 11/20, so |density - 1/2| = 0.05 exactly: Postgres says it is not more than
+epsilon = 0.05, compile-rulebook computes 0.050000000000000044 and says it is. Postgres is right.
+Workaround: the model stores epsilon as an integer fraction and compares
+`|ones - zeros| * denominator > 2 * numerator * N` in integers.
+
+## 10. Lookups through an empty reference
+
+For a row whose foreign key is empty, compile-rulebook gives a lookup the target formula evaluated
+on an all-blank row (often 0), and Postgres gives NULL. Neither is a value of anything; the
+model only reads such fields on rows where the reference is set. `check_postgres.py` skips them.
+
+## 11. Row-level cycles in a self-referencing table
+
+`RuleTableEntries.LeftPartner` first pointed both ways (n000 -> n100 and n100 -> n000). Postgres
+settles a self-referencing table in a recursive CTE that starts from rows with no self-reference,
+so with every row in a 2-cycle nothing settled and `OutputValue` (which does not even depend on the
+partner) came back NULL on all 32 rows. compile-rulebook computed them. Workaround: partners point
+one way only (white left cell -> black left cell), so the row graph is a DAG, as the conventions
+require.
+
