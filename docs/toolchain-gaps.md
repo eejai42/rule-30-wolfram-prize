@@ -14,7 +14,7 @@
 | 10. a lookup through an empty reference: compile-rulebook evaluates the target formula on a blank row, Postgres returns NULL | Open (do not read such values) |
 | 11. a row-level cycle in a self-referencing table (A points at B, B at A) leaves every chained field NULL in Postgres | Open (keep self-references one-directional) |
 | 12. MAXIFS/MINIFS over an empty set: blank in compile-rulebook, 0 in Postgres | Open (guard with a COUNTIFS) |
-| 13. minimize-rulebook runs out of memory on a ~17 MB rulebook; rulebook-to-xlsx fails in the editor at ~11 MB | Open (keep generated rows lean) |
+| 13. minimize-rulebook runs out of memory on a ~16 MB rulebook; rulebook-to-xlsx fails in the editor at ~11 MB | minimize-rulebook **fixed** in v2026.10.24.1121 (2 CPU / 4 GiB; 24 MB in 6 s); xlsx open |
 
 Goal (project rule): everything is in the rulebook, and running the full rulebook gives the right
 answer. Python is allowed only as an optimizer for large pieces, checked against the rulebook.
@@ -147,4 +147,9 @@ compile, and the remote minimize-rulebook failed with `System.OutOfMemoryExcepti
 10 onsets x margin 12 it is 11.5 MB and builds, but the editor's rulebook-to-xlsx step fails (the
 rest of the editor build succeeds). Generated lattices are the bulk; keep their keys short and their
 instance sets to one candidate per distinct object.
+
+Fix (minimize-rulebook v2026.10.24.1121): the workload ran with `cpu: 200m, memory: 512Mi`
+(`tools/effortless/minimize-rulebook/cpln/workload.yaml` in Versioned-Stable-SSoTme-Tools), against
+compile-rulebook's 2Gi. Now 2000m / 4Gi; a 24 MB rulebook minimizes in about 6 seconds. The
+editor's rulebook-to-xlsx step still fails at this size (the rest of the editor build succeeds).
 

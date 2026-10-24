@@ -1201,6 +1201,37 @@ LINK = {'D0': 'pr-d0-setup', 'P1': 'pr-p1-non-periodic', 'P2': 'pr-p2-equal-freq
         'H21': 'pr-h21-agreement-44', 'TQ': 'pr-tq-agreement-runs'}
 LINK.update({aid: pid for pid, _, aid, *_ in fc.CLAIMS})
 LINK.update({aid: pid for pid, _, aid, *_ in fc.DECIDED})
+# ============================ caches on the load-bearing nodes ============================
+# Every ledger read (Assertions, Assessments, Dashboards, the explorer) goes through these fields, and
+# Postgres recomputes the whole model chain behind them on every read. Each becomes
+# IF({{IsCached}}=1, {{<Field>Cache}}, <formula>); loop_tools.build() fills the caches from a fresh
+# compile and every save clears the flags, so a cached value is always the current computed value.
+CACHE = {
+    'Runs': ['IsLightConeExact', 'IsPrizeSetup'],
+    'RuleTableEntries': ['MatchesPolynomial'],
+    'Cells': ['IsCenter', 'PrefixLength', 'Discrepancy', 'RunStart', 'RunLength', 'RunBoundHolds'],
+    'LeftConsistencyChecks': ['IsConsistent'],
+    'DiagonalPeriodTests': ['IsPurePeriod'],
+    'Tolerances': ['LastExcursionTime', 'SettledAtHorizon'],
+    'Algorithms': ['EffortHolds'],
+    'AcceleratorClaims': ['IsMatch'],
+    'TailCandidates': ['KillTime', 'IsKilled', 'KillExcess'],
+    'PeriodTests': ['LastMismatchTime', 'LongestAgreementStreak', 'BoundedRefutationHolds', 'WindowCount', 'WindowFailureCount', 'WindowsHold'],
+    'DiagonalFacts': ['Holds', 'IsDecided'],
+    'PredicateInstances': ['InDomain', 'Holds', 'Witness'],
+    'Predicates': ['QuantifierCount', 'UnboundedQuantifierCount', 'UnmodeledOperatorCount', 'IsFinitelyDecidable', 'IsComputable',
+                   'RowCount', 'InstanceCount', 'HoldingCount', 'FailingCount', 'IsRefuted', 'IsVerified', 'FiniteVerdict'],
+    'Assertions': ['IsModelLinked', 'ModelVerdict', 'EffectiveStatus', 'IsModelDecided', 'IsModelContradicted',
+                   'StatusGroup', 'IsUsable', 'IsProofEligible'],
+}
+for tbl, names in CACHE.items():
+    ensure_field(tbl, F(lt.CACHE_FLAG, 'integer', desc='1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save).'))
+    for name in names:
+        f = next(x for x in book[tbl]['schema'] if x['name'] == name)
+        if not f['formula'].startswith(lt.CACHED_PREFIX):
+            f['formula'] = lt.CACHED_PREFIX + '{{%sCache}},%s)' % (name, f['formula'][1:])
+        ensure_field(tbl, F(f'{name}Cache', f['datatype'], desc=f'Cached {name} from the last fresh compile; read by {name} while {lt.CACHE_FLAG} = 1.'))
+
 loop_preds = {r['PredicateId'] for r in book['Predicates']['data'] if r.get('IntroducedInLoop')}
 for a in book['Assertions']['data']:
     if a.get('Predicate') not in loop_preds:   # a loop's own claims keep the predicate the loop gave them

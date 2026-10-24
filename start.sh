@@ -2,7 +2,7 @@
 # Rule 30 Explorer + rulebook editor (admin portal).
 #   ./start.sh          start the editor container if it is not answering, then (re)start the explorer
 #   ./start.sh editor   force-restart the editor container too
-#   ./start.sh build    effortless build
+#   ./start.sh build    build with caches (research/build.py)
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
@@ -18,7 +18,7 @@ start_editor() {
 }
 
 case "${1:-}" in
-  build) effortless build; exit ;;
+  build) python3 research/build.py; exit ;;
   editor) start_editor ;;
   "") curl -sf -m 3 "http://localhost:${EDITOR_API_PORT}/api/health" >/dev/null || start_editor ;;
   *) echo "Usage: ./start.sh [editor|build]" >&2; exit 1 ;;

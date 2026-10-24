@@ -59,7 +59,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Proved (definition, proved or rederived known), Checked (finite verification only), Falsified, Superseded or Open.",
-        "formula": "=IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\"),\"Proved\",IF({{EffectiveStatus}}=\"FINITE_VERIFIED\",\"Checked\",IF({{EffectiveStatus}}=\"FALSIFIED\",\"Falsified\",IF({{EffectiveStatus}}=\"SUPERSEDED\",\"Superseded\",\"Open\"))))"
+        "formula": "=IF({{IsCached}}=1,{{StatusGroupCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\"),\"Proved\",IF({{EffectiveStatus}}=\"FINITE_VERIFIED\",\"Checked\",IF({{EffectiveStatus}}=\"FALSIFIED\",\"Falsified\",IF({{EffectiveStatus}}=\"SUPERSEDED\",\"Superseded\",\"Open\")))))"
       },
       {
         "name": "PremiseCount",
@@ -99,7 +99,7 @@
         "type": "calculated",
         "nullable": false,
         "Description": "IsUsable",
-        "formula": "=IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\",{{EffectiveStatus}}=\"FINITE_VERIFIED\"),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsUsableCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\",{{EffectiveStatus}}=\"FINITE_VERIFIED\"),1,0))"
       },
       {
         "name": "IsProofEligible",
@@ -107,7 +107,7 @@
         "type": "calculated",
         "nullable": false,
         "Description": "IsProofEligible",
-        "formula": "=IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\"),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsProofEligibleCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\"),1,0))"
       },
       {
         "name": "DescendantCount",
@@ -147,7 +147,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "1 when the claim is tied to a modeled predicate.",
-        "formula": "=COUNTIFS(Predicates!{{PredicateId}},{{Predicate}})"
+        "formula": "=IF({{IsCached}}=1,{{IsModelLinkedCache}},COUNTIFS(Predicates!{{PredicateId}},{{Predicate}}))"
       },
       {
         "name": "PredicateIsRefuted",
@@ -171,7 +171,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "The status the ledger uses: FALSIFIED when the model holds a counterexample, FINITE_VERIFIED when the model decides an open or checked claim true, otherwise the reported status.",
-        "formula": "=IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1),\"FALSIFIED\",IF(AND({{IsModelLinked}}=1,{{PredicateIsVerified}}=1,OR({{ReportedStatus}}=\"OPEN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),\"FINITE_VERIFIED\",{{ReportedStatus}}))"
+        "formula": "=IF({{IsCached}}=1,{{EffectiveStatusCache}},IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1),\"FALSIFIED\",IF(AND({{IsModelLinked}}=1,{{PredicateIsVerified}}=1,OR({{ReportedStatus}}=\"OPEN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),\"FINITE_VERIFIED\",{{ReportedStatus}})))"
       },
       {
         "name": "IsModelDecided",
@@ -179,7 +179,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the model, not a report, decides the status.",
-        "formula": "=IF(AND({{IsModelLinked}}=1,OR({{PredicateIsRefuted}}=1,{{PredicateIsVerified}}=1)),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsModelDecidedCache}},IF(AND({{IsModelLinked}}=1,OR({{PredicateIsRefuted}}=1,{{PredicateIsVerified}}=1)),1,0))"
       },
       {
         "name": "IsModelContradicted",
@@ -187,7 +187,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the report asserts the claim (proved, checked or definitional) and the model refutes it: the report is wrong. An OPEN claim the model refutes is decided, not contradicted.",
-        "formula": "=IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsModelContradictedCache}},IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),1,0))"
       },
       {
         "name": "ModelVerdict",
@@ -195,7 +195,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "The model's verdict on the claim's predicate; NOT MODELED for a claim stated only in words.",
-        "formula": "=IF({{IsModelLinked}}=1,{{PredicateVerdict}},\"NOT MODELED\")"
+        "formula": "=IF({{IsCached}}=1,{{ModelVerdictCache}},IF({{IsModelLinked}}=1,{{PredicateVerdict}},\"NOT MODELED\"))"
       },
       {
         "name": "OnCurrentPath",
@@ -204,6 +204,69 @@
         "nullable": true,
         "Description": "1 when the claim is a step of the plan in force.",
         "formula": "=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "IsModelLinkedCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsModelLinked from the last fresh compile; read by IsModelLinked while IsCached = 1."
+      },
+      {
+        "name": "ModelVerdictCache",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached ModelVerdict from the last fresh compile; read by ModelVerdict while IsCached = 1."
+      },
+      {
+        "name": "EffectiveStatusCache",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached EffectiveStatus from the last fresh compile; read by EffectiveStatus while IsCached = 1."
+      },
+      {
+        "name": "IsModelDecidedCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsModelDecided from the last fresh compile; read by IsModelDecided while IsCached = 1."
+      },
+      {
+        "name": "IsModelContradictedCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsModelContradicted from the last fresh compile; read by IsModelContradicted while IsCached = 1."
+      },
+      {
+        "name": "StatusGroupCache",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached StatusGroup from the last fresh compile; read by StatusGroup while IsCached = 1."
+      },
+      {
+        "name": "IsUsableCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsUsable from the last fresh compile; read by IsUsable while IsCached = 1."
+      },
+      {
+        "name": "IsProofEligibleCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsProofEligible from the last fresh compile; read by IsProofEligible while IsCached = 1."
       }
     ]
   },
@@ -944,6 +1007,341 @@
       }
     ]
   },
+  "Strategies": {
+    "Description": "The plan toward a prize problem: where things stand, the route, and where the next loop aims. One row is in force (IsCurrent = 1); older plans are history.",
+    "schema": [
+      {
+        "name": "StrategyId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "after-loop-<n>: the plan as it stood after that loop."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{StrategyId}}"
+      },
+      {
+        "name": "Goal",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The prize problem this plan aims at.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "IsCurrent",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 on the plan in force now, 0 on history."
+      },
+      {
+        "name": "Headline",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Where things stand, in one sentence."
+      },
+      {
+        "name": "Approach",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The route being taken and why, in a short paragraph."
+      },
+      {
+        "name": "Missing",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What the route still lacks."
+      },
+      {
+        "name": "NextTarget",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The open claim the next loop serves.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "NextHypothesis",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Where the next loop is aiming: its hypothesis in words."
+      },
+      {
+        "name": "Estimate",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "An honest estimate of the odds, with what each number is for."
+      },
+      {
+        "name": "UpdatedInLoop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The loop after which this plan was written.",
+        "RelatedTo": "Loops"
+      },
+      {
+        "name": "ProjectKey",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Dashboard this plan rolls up to.",
+        "RelatedTo": "Dashboards"
+      },
+      {
+        "name": "GoalStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The goal's statement.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "GoalStatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The goal's status group.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "GoalAncestorBlockedCount",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Open claims the goal waits on.",
+        "formula": "=INDEX(Assessments!{{AncestorBlockedCount}},MATCH({{Goal}},Assessments!{{AssessmentId}},0))"
+      },
+      {
+        "name": "NextTargetStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The next target's statement.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "NextTargetStatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The next target's status group.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "UpdatedInLoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "State of the loop that last updated the plan.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{UpdatedInLoop}},Loops!{{LoopId}},0))"
+      },
+      {
+        "name": "StepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims on the route.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}})"
+      },
+      {
+        "name": "OpenStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps still open.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsOpen}},1)"
+      },
+      {
+        "name": "EstablishedStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps proved or finitely checked.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsEstablished}},1)"
+      },
+      {
+        "name": "BlockingStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps that are open claims the goal waits on.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{BlocksGoal}},1)"
+      },
+      {
+        "name": "RuledOutCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Mechanisms on the record as ruled out.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{Role}},\"Ruled out\")"
+      }
+    ]
+  },
+  "StrategySteps": {
+    "Description": "The claims on a plan's route, in order from the goal, each with its role and a note. Statuses are looked up from the claims.",
+    "schema": [
+      {
+        "name": "StrategyStepId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<strategy>-<sequence>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{StrategyStepId}}"
+      },
+      {
+        "name": "Strategy",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The plan.",
+        "RelatedTo": "Strategies"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The claim at this step.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Sequence",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Order on the route, the goal first."
+      },
+      {
+        "name": "Role",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Goal, Reduction, Open obligation, Evidence or Ruled out."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Why this claim is on the route, in one line."
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Kind of claim.",
+        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Proved, Checked, Open, Falsified or Superseded.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "EffectiveStatus",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The status the ledger uses.",
+        "formula": "=INDEX(Assertions!{{EffectiveStatus}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "CurrentStatus",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Compiled status: BLOCKED when an ancestor is not usable.",
+        "formula": "=INDEX(Assessments!{{CurrentStatus}},MATCH({{Assertion}},Assessments!{{AssessmentId}},0))"
+      },
+      {
+        "name": "StrategyGoal",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The plan's goal.",
+        "formula": "=INDEX(Strategies!{{Goal}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
+      },
+      {
+        "name": "StrategyIsCurrent",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the plan is in force.",
+        "formula": "=INDEX(Strategies!{{IsCurrent}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
+      },
+      {
+        "name": "GoalPrerequisiteKey",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Key of the Prerequisites row linking the goal to this claim.",
+        "formula": "=CONCAT({{StrategyGoal}},\"-\",{{Assertion}})"
+      },
+      {
+        "name": "IsBlockingAncestorOfGoal",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when this claim is an unusable ancestor of the goal.",
+        "formula": "=INDEX(Prerequisites!{{IsBlockingAncestor}},MATCH({{GoalPrerequisiteKey}},Prerequisites!{{PrerequisiteId}},0))"
+      },
+      {
+        "name": "IsOpen",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 while the claim is open.",
+        "formula": "=IF({{StatusGroup}}=\"Open\",1,0)"
+      },
+      {
+        "name": "IsEstablished",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when proved or finitely checked.",
+        "formula": "=IF(OR({{StatusGroup}}=\"Proved\",{{StatusGroup}}=\"Checked\"),1,0)"
+      },
+      {
+        "name": "BlocksGoal",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when this open claim is one the goal waits on.",
+        "formula": "=IF(AND({{IsOpen}}=1,{{IsBlockingAncestorOfGoal}}=1),1,0)"
+      }
+    ]
+  },
   "CellStates": {
     "Description": "The two states a cell can hold, with their colors. Problem 2 asks whether each occurs equally often.",
     "schema": [
@@ -1343,7 +1741,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the output equals Mod[p + q + r + q r, 2].",
-        "formula": "=IF(ABS({{OutputValue}}-{{PolynomialValue}})=0,1,0)"
+        "formula": "=IF({{IsCached}}=1,{{MatchesPolynomialCache}},IF(ABS({{OutputValue}}-{{PolynomialValue}})=0,1,0))"
       },
       {
         "name": "LeftPartnerOutput",
@@ -1384,6 +1782,20 @@
         "nullable": true,
         "Description": "How many cells of the runs were produced by this transition.",
         "formula": "=COUNTIFS(Cells!{{TransitionKey}},{{RuleTableEntryId}})"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "MatchesPolynomialCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached MatchesPolynomial from the last fresh compile; read by MatchesPolynomial while IsCached = 1."
       }
     ]
   },
@@ -1585,7 +1997,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when every cell outside |i| <= t is white, so computing only the cone is exact.",
-        "formula": "=IF(AND({{IsQuiescent}}=1,{{BackgroundValue}}=0,{{IsSingleSeed}}=1),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsLightConeExactCache}},IF(AND({{IsQuiescent}}=1,{{BackgroundValue}}=0,{{IsSingleSeed}}=1),1,0))"
       },
       {
         "name": "IsPrizeSetup",
@@ -1593,7 +2005,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 for the prize problems' setup: Rule 30 from the single seed.",
-        "formula": "=IF(AND({{IsSingleSeed}}=1,{{RuleNumber}}=30),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsPrizeSetupCache}},IF(AND({{IsSingleSeed}}=1,{{RuleNumber}}=30),1,0))"
       },
       {
         "name": "CellCount",
@@ -1682,6 +2094,27 @@
         "nullable": true,
         "Description": "Center cells past the Theorem D bound for their run. Must be 0.",
         "formula": "=SUMIFS(Cells!{{ViolatesRunBound}},Cells!{{Run}},{{RunId}})"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "IsLightConeExactCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsLightConeExact from the last fresh compile; read by IsLightConeExact while IsCached = 1."
+      },
+      {
+        "name": "IsPrizeSetupCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsPrizeSetup from the last fresh compile; read by IsPrizeSetup while IsCached = 1."
       }
     ]
   },
@@ -2065,7 +2498,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 on the center column c(t) = x(0, t).",
-        "formula": "=IF({{Position}}=0,1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsCenterCache}},IF({{Position}}=0,1,0))"
       },
       {
         "name": "IsColumnStart",
@@ -2113,7 +2546,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Terms in the prefix 0 .. t.",
-        "formula": "={{Time}}+1"
+        "formula": "=IF({{IsCached}}=1,{{PrefixLengthCache}},{{Time}}+1)"
       },
       {
         "name": "ColumnDensity",
@@ -2129,7 +2562,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Ones minus zeros in the prefix.",
-        "formula": "=2*{{ColumnOnes}}-{{PrefixLength}}"
+        "formula": "=IF({{IsCached}}=1,{{DiscrepancyCache}},2*{{ColumnOnes}}-{{PrefixLength}})"
       },
       {
         "name": "AbsDiscrepancy",
@@ -2161,7 +2594,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "First time step of the constant run this term belongs to. (Equality is written as a difference: rulebook-to-postgres mistypes field = field inside a self-referencing chain, docs/toolchain-gaps.md gap 7.)",
-        "formula": "=IF({{IsColumnStart}}=1,IF({{Value}}-{{BackgroundValue}}=0,0,{{Time}}),IF({{Value}}-{{CenterValue}}=0,{{PriorRunStart}},{{Time}}))"
+        "formula": "=IF({{IsCached}}=1,{{RunStartCache}},IF({{IsColumnStart}}=1,IF({{Value}}-{{BackgroundValue}}=0,0,{{Time}}),IF({{Value}}-{{CenterValue}}=0,{{PriorRunStart}},{{Time}})))"
       },
       {
         "name": "RunLength",
@@ -2169,7 +2602,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Length of the constant run so far.",
-        "formula": "={{Time}}-{{RunStart}}+1"
+        "formula": "=IF({{IsCached}}=1,{{RunLengthCache}},{{Time}}-{{RunStart}}+1)"
       },
       {
         "name": "RunBound",
@@ -2193,7 +2626,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Theorem D instance: 1 when this term respects the bound.",
-        "formula": "=1-{{ViolatesRunBound}}"
+        "formula": "=IF({{IsCached}}=1,{{RunBoundHoldsCache}},1-{{ViolatesRunBound}})"
       },
       {
         "name": "ClaimCount",
@@ -2202,6 +2635,55 @@
         "nullable": true,
         "Description": "Accelerator claims made about this cell.",
         "formula": "=COUNTIFS(AcceleratorClaims!{{Cell}},{{CellId}})"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "IsCenterCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsCenter from the last fresh compile; read by IsCenter while IsCached = 1."
+      },
+      {
+        "name": "PrefixLengthCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached PrefixLength from the last fresh compile; read by PrefixLength while IsCached = 1."
+      },
+      {
+        "name": "DiscrepancyCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached Discrepancy from the last fresh compile; read by Discrepancy while IsCached = 1."
+      },
+      {
+        "name": "RunStartCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached RunStart from the last fresh compile; read by RunStart while IsCached = 1."
+      },
+      {
+        "name": "RunLengthCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached RunLength from the last fresh compile; read by RunLength while IsCached = 1."
+      },
+      {
+        "name": "RunBoundHoldsCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached RunBoundHolds from the last fresh compile; read by RunBoundHolds while IsCached = 1."
       }
     ]
   },
@@ -2328,7 +2810,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "The last t with x(i, t + p) != x(i, t). Every onset T <= it is refuted.",
-        "formula": "=MAXIFS(PeriodicityCandidates!{{Onset}},PeriodicityCandidates!{{PeriodTest}},{{PeriodTestId}},PeriodicityCandidates!{{IsMismatch}},1)"
+        "formula": "=IF({{IsCached}}=1,{{LastMismatchTimeCache}},MAXIFS(PeriodicityCandidates!{{Onset}},PeriodicityCandidates!{{PeriodTest}},{{PeriodTestId}},PeriodicityCandidates!{{IsMismatch}},1))"
       },
       {
         "name": "LongestAgreementStreak",
@@ -2336,7 +2818,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Longest stretch on which the column looked p-periodic.",
-        "formula": "=MAXIFS(PeriodicityCandidates!{{AgreementRunFrom}},PeriodicityCandidates!{{PeriodTest}},{{PeriodTestId}})"
+        "formula": "=IF({{IsCached}}=1,{{LongestAgreementStreakCache}},MAXIFS(PeriodicityCandidates!{{AgreementRunFrom}},PeriodicityCandidates!{{PeriodTest}},{{PeriodTestId}}))"
       },
       {
         "name": "RefutedCandidateCount",
@@ -2376,7 +2858,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when every onset T <= OnsetBound has a mismatch at some t >= T.",
-        "formula": "=IF({{LastMismatchTime}}>={{OnsetBound}},1,0)"
+        "formula": "=IF({{IsCached}}=1,{{BoundedRefutationHoldsCache}},IF({{LastMismatchTime}}>={{OnsetBound}},1,0))"
       },
       {
         "name": "WindowCount",
@@ -2384,7 +2866,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Theorem C windows for this period that end inside the horizon.",
-        "formula": "=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}})"
+        "formula": "=IF({{IsCached}}=1,{{WindowCountCache}},COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}}))"
       },
       {
         "name": "WindowFailureCount",
@@ -2392,7 +2874,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Windows with no mismatch in either column. Theorem C says 0.",
-        "formula": "=COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}},MismatchWindows!{{WindowHolds}},0)"
+        "formula": "=IF({{IsCached}}=1,{{WindowFailureCountCache}},COUNTIFS(MismatchWindows!{{CenterTest}},{{PeriodTestId}},MismatchWindows!{{WindowHolds}},0))"
       },
       {
         "name": "CenterWitnessWindowCount",
@@ -2408,7 +2890,56 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when every Theorem C window of this period holds.",
-        "formula": "=IF(AND({{WindowCount}}>0,{{WindowFailureCount}}=0),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{WindowsHoldCache}},IF(AND({{WindowCount}}>0,{{WindowFailureCount}}=0),1,0))"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "LastMismatchTimeCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached LastMismatchTime from the last fresh compile; read by LastMismatchTime while IsCached = 1."
+      },
+      {
+        "name": "LongestAgreementStreakCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached LongestAgreementStreak from the last fresh compile; read by LongestAgreementStreak while IsCached = 1."
+      },
+      {
+        "name": "BoundedRefutationHoldsCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached BoundedRefutationHolds from the last fresh compile; read by BoundedRefutationHolds while IsCached = 1."
+      },
+      {
+        "name": "WindowCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached WindowCount from the last fresh compile; read by WindowCount while IsCached = 1."
+      },
+      {
+        "name": "WindowFailureCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached WindowFailureCount from the last fresh compile; read by WindowFailureCount while IsCached = 1."
+      },
+      {
+        "name": "WindowsHoldCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached WindowsHold from the last fresh compile; read by WindowsHold while IsCached = 1."
       }
     ]
   },
@@ -2793,7 +3324,21 @@
         "type": "calculated",
         "nullable": true,
         "Description": "TX instance: 1 unless c(t) = 1 and c(t + 1) != NOT x(-1, t).",
-        "formula": "=IF({{IsOneTime}}=0,1,IF(ABS({{NextValue}}-{{ForcedNext}})=0,1,0))"
+        "formula": "=IF({{IsCached}}=1,{{IsConsistentCache}},IF({{IsOneTime}}=0,1,IF(ABS({{NextValue}}-{{ForcedNext}})=0,1,0)))"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "IsConsistentCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsConsistent from the last fresh compile; read by IsConsistent while IsCached = 1."
       }
     ]
   },
@@ -3135,7 +3680,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "The witness: the first one-time t >= T - 1 at which c(t + 1) != NOT x(-1, t); Horizon + 1 when none.",
-        "formula": "=MINIFS(TailChecks!{{FirstViolationFrom}},TailChecks!{{TailCandidate}},{{TailCandidateId}})"
+        "formula": "=IF({{IsCached}}=1,{{KillTimeCache}},MINIFS(TailChecks!{{FirstViolationFrom}},TailChecks!{{TailCandidate}},{{TailCandidateId}}))"
       },
       {
         "name": "IsKilled",
@@ -3143,7 +3688,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when left-consistency kills the tail inside the horizon.",
-        "formula": "=IF({{KillTime}}<={{Horizon}},1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsKilledCache}},IF({{KillTime}}<={{Horizon}},1,0))"
       },
       {
         "name": "KillExcess",
@@ -3151,7 +3696,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "How long past the onset the tail survived (-1: killed by the first tail bit).",
-        "formula": "={{KillTime}}-{{Onset}}"
+        "formula": "=IF({{IsCached}}=1,{{KillExcessCache}},{{KillTime}}-{{Onset}})"
       },
       {
         "name": "OneTimeCount",
@@ -3168,6 +3713,34 @@
         "nullable": true,
         "Description": "Left-half cells computed for this tail.",
         "formula": "=COUNTIFS(TailCells!{{TailCandidate}},{{TailCandidateId}})"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "KillTimeCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached KillTime from the last fresh compile; read by KillTime while IsCached = 1."
+      },
+      {
+        "name": "IsKilledCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsKilled from the last fresh compile; read by IsKilled while IsCached = 1."
+      },
+      {
+        "name": "KillExcessCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached KillExcess from the last fresh compile; read by KillExcess while IsCached = 1."
       }
     ]
   },
@@ -3947,7 +4520,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when every comparison matches and every residue mod d is compared at least once.",
-        "formula": "=IF(AND({{MismatchCount}}=0,{{ComparisonCount}}>={{Period}}),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsPurePeriodCache}},IF(AND({{MismatchCount}}=0,{{ComparisonCount}}>={{Period}}),1,0))"
       },
       {
         "name": "EventualOnset",
@@ -3980,6 +4553,20 @@
         "nullable": true,
         "Description": "1 for the least eventual period.",
         "formula": "=IF({{Period}}-{{DiagonalEventualPeriod}}=0,1,0)"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "IsPurePeriodCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsPurePeriod from the last fresh compile; read by IsPurePeriod while IsCached = 1."
       }
     ]
   },
@@ -4241,7 +4828,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the fact holds for this diagonal.",
-        "formula": "=IF({{Fact}}=\"all-ones\",IF({{OnesCount}}-{{CellCount}}=0,1,0),IF({{Fact}}=\"first-one-at-half\",IF(AND({{FirstOneTime}}-INT(({{Offset}}+1)/2)=0,{{LeastPeriod}}>{{FirstOneTime}}),1,0),IF({{Fact}}=\"balanced\",IF(2*{{OnesPerPeriod}}-{{LeastPeriod}}=0,1,0),IF({{Fact}}=\"doubles\",{{Doubles}},IF({{Fact}}=\"nondecreasing\",IF({{LeastPeriod}}>={{PreviousLeastPeriod}},1,0),IF({{Fact}}=\"repeat-or-double\",IF(OR({{LeastPeriod}}-{{PreviousLeastPeriod}}=0,{{Doubles}}=1),1,0),IF({{Fact}}=\"no-triple-double\",IF({{Doubles}}+{{PreviousDoubles}}+{{PreviousPreviousDoubles}}<3,1,0),IF({{Fact}}=\"half-period-one\",{{HalfPeriodValue}},IF({{Fact}}=\"eventually-dyadic\",IF({{EventualPeriod}}>0,1,0),IF({{Fact}}=\"parity-after-doubling\",IF({{PreviousDoubles}}=1,IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),1),IF({{Fact}}=\"parity-always\",IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),IF({{Fact}}=\"left-half-speed\",IF({{EventualPeriod}}*{{EventualPeriod}}<={{OppositeLeastPeriod}},1,0),0))))))))))))"
+        "formula": "=IF({{IsCached}}=1,{{HoldsCache}},IF({{Fact}}=\"all-ones\",IF({{OnesCount}}-{{CellCount}}=0,1,0),IF({{Fact}}=\"first-one-at-half\",IF(AND({{FirstOneTime}}-INT(({{Offset}}+1)/2)=0,{{LeastPeriod}}>{{FirstOneTime}}),1,0),IF({{Fact}}=\"balanced\",IF(2*{{OnesPerPeriod}}-{{LeastPeriod}}=0,1,0),IF({{Fact}}=\"doubles\",{{Doubles}},IF({{Fact}}=\"nondecreasing\",IF({{LeastPeriod}}>={{PreviousLeastPeriod}},1,0),IF({{Fact}}=\"repeat-or-double\",IF(OR({{LeastPeriod}}-{{PreviousLeastPeriod}}=0,{{Doubles}}=1),1,0),IF({{Fact}}=\"no-triple-double\",IF({{Doubles}}+{{PreviousDoubles}}+{{PreviousPreviousDoubles}}<3,1,0),IF({{Fact}}=\"half-period-one\",{{HalfPeriodValue}},IF({{Fact}}=\"eventually-dyadic\",IF({{EventualPeriod}}>0,1,0),IF({{Fact}}=\"parity-after-doubling\",IF({{PreviousDoubles}}=1,IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),1),IF({{Fact}}=\"parity-always\",IF({{Doubles}}-MOD({{PreviousPreviousOnesPerPeriod}},2)=0,1,0),IF({{Fact}}=\"left-half-speed\",IF({{EventualPeriod}}*{{EventualPeriod}}<={{OppositeLeastPeriod}},1,0),0)))))))))))))"
       },
       {
         "name": "IsDecided",
@@ -4249,7 +4836,28 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the horizon certifies the periods the fact needs; otherwise the fact is not an instance.",
-        "formula": "=IF({{Fact}}=\"left-half-speed\",IF(AND({{EventualPeriod}}>0,{{OppositeLeastPeriod}}>0),1,0),IF(OR({{Fact}}=\"all-ones\",{{Fact}}=\"eventually-dyadic\",{{LeastPeriod}}>0),1,0))"
+        "formula": "=IF({{IsCached}}=1,{{IsDecidedCache}},IF({{Fact}}=\"left-half-speed\",IF(AND({{EventualPeriod}}>0,{{OppositeLeastPeriod}}>0),1,0),IF(OR({{Fact}}=\"all-ones\",{{Fact}}=\"eventually-dyadic\",{{LeastPeriod}}>0),1,0)))"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "HoldsCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached Holds from the last fresh compile; read by Holds while IsCached = 1."
+      },
+      {
+        "name": "IsDecidedCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsDecided from the last fresh compile; read by IsDecided while IsCached = 1."
       }
     ]
   },
@@ -4307,7 +4915,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "The witness: the last prefix end t outside the margin.",
-        "formula": "=MAXIFS(ToleranceChecks!{{Time}},ToleranceChecks!{{Tolerance}},{{ToleranceId}},ToleranceChecks!{{IsExcursion}},1)"
+        "formula": "=IF({{IsCached}}=1,{{LastExcursionTimeCache}},MAXIFS(ToleranceChecks!{{Time}},ToleranceChecks!{{Tolerance}},{{ToleranceId}},ToleranceChecks!{{IsExcursion}},1))"
       },
       {
         "name": "HorizonTime",
@@ -4323,7 +4931,28 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Problem 2 instance: 1 when the density at the horizon is within epsilon of 1/2.",
-        "formula": "=IF({{LastExcursionTime}}<{{HorizonTime}},1,0)"
+        "formula": "=IF({{IsCached}}=1,{{SettledAtHorizonCache}},IF({{LastExcursionTime}}<{{HorizonTime}},1,0))"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "LastExcursionTimeCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached LastExcursionTime from the last fresh compile; read by LastExcursionTime while IsCached = 1."
+      },
+      {
+        "name": "SettledAtHorizonCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached SettledAtHorizon from the last fresh compile; read by SettledAtHorizon while IsCached = 1."
       }
     ]
   },
@@ -4639,7 +5268,21 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Problem 3 instance: an admissible algorithm shows no sign of O(n) effort (inadmissible ones are excluded, so hold vacuously).",
-        "formula": "=IF({{IsAdmissible}}=1,{{IsRatioGrowing}},1)"
+        "formula": "=IF({{IsCached}}=1,{{EffortHoldsCache}},IF({{IsAdmissible}}=1,{{IsRatioGrowing}},1))"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "EffortHoldsCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached EffortHolds from the last fresh compile; read by EffortHolds while IsCached = 1."
       }
     ]
   },
@@ -5199,7 +5842,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Quantifiers in the statement.",
-        "formula": "=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsBinder}},1)"
+        "formula": "=IF({{IsCached}}=1,{{QuantifierCountCache}},COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsBinder}},1))"
       },
       {
         "name": "UnboundedQuantifierCount",
@@ -5207,7 +5850,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Quantifiers over an infinite domain.",
-        "formula": "=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnboundedBinder}},1)"
+        "formula": "=IF({{IsCached}}=1,{{UnboundedQuantifierCountCache}},COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnboundedBinder}},1))"
       },
       {
         "name": "UnmodeledOperatorCount",
@@ -5215,7 +5858,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Operators of the statement the model does not compute yet.",
-        "formula": "=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnmodeledOperator}},1)"
+        "formula": "=IF({{IsCached}}=1,{{UnmodeledOperatorCountCache}},COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsUnmodeledOperator}},1))"
       },
       {
         "name": "IsComputable",
@@ -5223,7 +5866,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when every operator of the statement has a meaning in the model.",
-        "formula": "=IF({{UnmodeledOperatorCount}}=0,1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsComputableCache}},IF({{UnmodeledOperatorCount}}=0,1,0))"
       },
       {
         "name": "IsFinitelyDecidable",
@@ -5231,7 +5874,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the model can decide the full statement, not only bounded instances.",
-        "formula": "=IF({{UnboundedQuantifierCount}}=0,1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsFinitelyDecidableCache}},IF({{UnboundedQuantifierCount}}=0,1,0))"
       },
       {
         "name": "RowCount",
@@ -5239,7 +5882,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Instance rows, in or out of the domain.",
-        "formula": "=COUNTIFS(PredicateInstances!{{Predicate}},{{PredicateId}})"
+        "formula": "=IF({{IsCached}}=1,{{RowCountCache}},COUNTIFS(PredicateInstances!{{Predicate}},{{PredicateId}}))"
       },
       {
         "name": "InstanceCount",
@@ -5247,7 +5890,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Bounded instances in the domain of the statement.",
-        "formula": "=COUNTIFS(PredicateInstances!{{Predicate}},{{PredicateId}},PredicateInstances!{{InDomain}},1)"
+        "formula": "=IF({{IsCached}}=1,{{InstanceCountCache}},COUNTIFS(PredicateInstances!{{Predicate}},{{PredicateId}},PredicateInstances!{{InDomain}},1))"
       },
       {
         "name": "HoldingCount",
@@ -5255,7 +5898,7 @@
         "type": "aggregation",
         "nullable": true,
         "Description": "Instances that hold.",
-        "formula": "=SUMIFS(PredicateInstances!{{Holds}},PredicateInstances!{{Predicate}},{{PredicateId}},PredicateInstances!{{InDomain}},1)"
+        "formula": "=IF({{IsCached}}=1,{{HoldingCountCache}},SUMIFS(PredicateInstances!{{Holds}},PredicateInstances!{{Predicate}},{{PredicateId}},PredicateInstances!{{InDomain}},1))"
       },
       {
         "name": "FailingCount",
@@ -5263,7 +5906,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "Instances that fail.",
-        "formula": "={{InstanceCount}}-{{HoldingCount}}"
+        "formula": "=IF({{IsCached}}=1,{{FailingCountCache}},{{InstanceCount}}-{{HoldingCount}})"
       },
       {
         "name": "IsRefuted",
@@ -5271,7 +5914,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when a counterexample instance fails: the statement is false.",
-        "formula": "=IF(AND({{FailureRefutes}}=1,{{FailingCount}}>0),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsRefutedCache}},IF(AND({{FailureRefutes}}=1,{{FailingCount}}>0),1,0))"
       },
       {
         "name": "IsVerified",
@@ -5279,7 +5922,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the statement is finite, its instances cover its domain and every one holds: the model decides it true.",
-        "formula": "=IF(AND({{IsFinitelyDecidable}}=1,{{CoversDomain}}=1,{{InstanceCount}}>0,{{FailingCount}}=0),1,0)"
+        "formula": "=IF({{IsCached}}=1,{{IsVerifiedCache}},IF(AND({{IsFinitelyDecidable}}=1,{{CoversDomain}}=1,{{InstanceCount}}>0,{{FailingCount}}=0),1,0))"
       },
       {
         "name": "FiniteVerdict",
@@ -5287,7 +5930,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "What the model says about the bounded instances.",
-        "formula": "=IF({{InstanceCount}}=0,\"NO INSTANCES\",IF({{FailingCount}}=0,\"HOLDS ON EVERY INSTANCE\",IF({{FailureRefutes}}=1,CONCAT(\"REFUTED BY \",{{FailingCount}},\" OF \",{{InstanceCount}},\" INSTANCES\"),CONCAT({{FailingCount}},\" OF \",{{InstanceCount}},\" UNDECIDED AT THE HORIZON\"))))"
+        "formula": "=IF({{IsCached}}=1,{{FiniteVerdictCache}},IF({{InstanceCount}}=0,\"NO INSTANCES\",IF({{FailingCount}}=0,\"HOLDS ON EVERY INSTANCE\",IF({{FailureRefutes}}=1,CONCAT(\"REFUTED BY \",{{FailingCount}},\" OF \",{{InstanceCount}},\" INSTANCES\"),CONCAT({{FailingCount}},\" OF \",{{InstanceCount}},\" UNDECIDED AT THE HORIZON\")))))"
       },
       {
         "name": "AssertionCount",
@@ -5296,6 +5939,97 @@
         "nullable": true,
         "Description": "Ledger claims about this predicate.",
         "formula": "=COUNTIFS(Assertions!{{Predicate}},{{PredicateId}})"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "QuantifierCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached QuantifierCount from the last fresh compile; read by QuantifierCount while IsCached = 1."
+      },
+      {
+        "name": "UnboundedQuantifierCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached UnboundedQuantifierCount from the last fresh compile; read by UnboundedQuantifierCount while IsCached = 1."
+      },
+      {
+        "name": "UnmodeledOperatorCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached UnmodeledOperatorCount from the last fresh compile; read by UnmodeledOperatorCount while IsCached = 1."
+      },
+      {
+        "name": "IsFinitelyDecidableCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsFinitelyDecidable from the last fresh compile; read by IsFinitelyDecidable while IsCached = 1."
+      },
+      {
+        "name": "IsComputableCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsComputable from the last fresh compile; read by IsComputable while IsCached = 1."
+      },
+      {
+        "name": "RowCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached RowCount from the last fresh compile; read by RowCount while IsCached = 1."
+      },
+      {
+        "name": "InstanceCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached InstanceCount from the last fresh compile; read by InstanceCount while IsCached = 1."
+      },
+      {
+        "name": "HoldingCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached HoldingCount from the last fresh compile; read by HoldingCount while IsCached = 1."
+      },
+      {
+        "name": "FailingCountCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached FailingCount from the last fresh compile; read by FailingCount while IsCached = 1."
+      },
+      {
+        "name": "IsRefutedCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsRefuted from the last fresh compile; read by IsRefuted while IsCached = 1."
+      },
+      {
+        "name": "IsVerifiedCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached IsVerified from the last fresh compile; read by IsVerified while IsCached = 1."
+      },
+      {
+        "name": "FiniteVerdictCache",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached FiniteVerdict from the last fresh compile; read by FiniteVerdict while IsCached = 1."
       }
     ]
   },
@@ -5699,7 +6433,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the instance lies in the domain the statement quantifies over (computed, not chosen).",
-        "formula": "=IF({{InstanceKind}}=\"PeriodicityCandidate\",{{CandidateInDomain}},IF(OR({{InstanceKind}}=\"TailCandidate\",{{InstanceKind}}=\"TailCandidateExcessBound\"),{{TailInDomain}},IF({{InstanceKind}}=\"CellSquaredDiscrepancyBound\",IF(AND({{CellIsCenter}}=1,{{CellPrefixLength}}>={{DomainMin}}),1,0),IF({{InstanceKind}}=\"CellRunLengthLogBound\",IF(AND({{CellIsCenter}}=1,{{CellRunStart}}>={{DomainMin}}),1,0),IF({{InstanceKind}}=\"DiagonalFact\",{{FactIsDecided}},1)))))"
+        "formula": "=IF({{IsCached}}=1,{{InDomainCache}},IF({{InstanceKind}}=\"PeriodicityCandidate\",{{CandidateInDomain}},IF(OR({{InstanceKind}}=\"TailCandidate\",{{InstanceKind}}=\"TailCandidateExcessBound\"),{{TailInDomain}},IF({{InstanceKind}}=\"CellSquaredDiscrepancyBound\",IF(AND({{CellIsCenter}}=1,{{CellPrefixLength}}>={{DomainMin}}),1,0),IF({{InstanceKind}}=\"CellRunLengthLogBound\",IF(AND({{CellIsCenter}}=1,{{CellRunStart}}>={{DomainMin}}),1,0),IF({{InstanceKind}}=\"DiagonalFact\",{{FactIsDecided}},1))))))"
       },
       {
         "name": "Holds",
@@ -5707,7 +6441,7 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the instance holds, read from its deciding row.",
-        "formula": "=IF({{InstanceKind}}=\"TailCandidateExcessBound\",IF(AND({{TailCandidateHolds}}=1,{{TailKillExcess}}<={{BoundSlope}}*{{TailWordLength}}+{{BoundIntercept}}),1,0),IF({{InstanceKind}}=\"CellSquaredDiscrepancyBound\",IF({{CellDiscrepancy}}*{{CellDiscrepancy}}<={{BoundSlope}}*{{CellPrefixLength}},1,0),IF({{InstanceKind}}=\"CellRunLengthLogBound\",IF(POWER(2,{{CellRunLength}}-{{BoundIntercept}})<=POWER({{CellRunStart}}+1,{{BoundSlope}}),1,0),IF({{InstanceKind}}=\"PeriodTestAgreementBound\",IF({{TestLongestAgreement}}<={{BoundIntercept}},1,0),IF({{InstanceKind}}=\"RuleTableEntry\",{{RuleTableEntryHolds}},IF({{InstanceKind}}=\"Run\",{{RunHolds}},IF({{InstanceKind}}=\"RunSetup\",{{RunSetupHolds}},IF({{InstanceKind}}=\"PeriodicityCandidate\",{{PeriodicityCandidateHolds}},IF({{InstanceKind}}=\"MismatchWindow\",{{MismatchWindowHolds}},IF({{InstanceKind}}=\"Cell\",{{CellHolds}},IF({{InstanceKind}}=\"LeftConsistencyCheck\",{{LeftConsistencyCheckHolds}},IF({{InstanceKind}}=\"TailCandidate\",{{TailCandidateHolds}},IF({{InstanceKind}}=\"Tolerance\",{{ToleranceHolds}},IF({{InstanceKind}}=\"Algorithm\",{{AlgorithmHolds}},IF({{InstanceKind}}=\"DiagonalPeriodTest\",{{DiagonalPeriodTestHolds}},IF({{InstanceKind}}=\"DiagonalFact\",{{DiagonalFactHolds}},IF({{InstanceKind}}=\"AcceleratorClaim\",{{AcceleratorClaimHolds}},IF({{InstanceKind}}=\"PeriodTest\",{{PeriodTestHolds}},IF({{InstanceKind}}=\"PeriodTestWindows\",{{PeriodTestWindowsHolds}},0)))))))))))))))))))"
+        "formula": "=IF({{IsCached}}=1,{{HoldsCache}},IF({{InstanceKind}}=\"TailCandidateExcessBound\",IF(AND({{TailCandidateHolds}}=1,{{TailKillExcess}}<={{BoundSlope}}*{{TailWordLength}}+{{BoundIntercept}}),1,0),IF({{InstanceKind}}=\"CellSquaredDiscrepancyBound\",IF({{CellDiscrepancy}}*{{CellDiscrepancy}}<={{BoundSlope}}*{{CellPrefixLength}},1,0),IF({{InstanceKind}}=\"CellRunLengthLogBound\",IF(POWER(2,{{CellRunLength}}-{{BoundIntercept}})<=POWER({{CellRunStart}}+1,{{BoundSlope}}),1,0),IF({{InstanceKind}}=\"PeriodTestAgreementBound\",IF({{TestLongestAgreement}}<={{BoundIntercept}},1,0),IF({{InstanceKind}}=\"RuleTableEntry\",{{RuleTableEntryHolds}},IF({{InstanceKind}}=\"Run\",{{RunHolds}},IF({{InstanceKind}}=\"RunSetup\",{{RunSetupHolds}},IF({{InstanceKind}}=\"PeriodicityCandidate\",{{PeriodicityCandidateHolds}},IF({{InstanceKind}}=\"MismatchWindow\",{{MismatchWindowHolds}},IF({{InstanceKind}}=\"Cell\",{{CellHolds}},IF({{InstanceKind}}=\"LeftConsistencyCheck\",{{LeftConsistencyCheckHolds}},IF({{InstanceKind}}=\"TailCandidate\",{{TailCandidateHolds}},IF({{InstanceKind}}=\"Tolerance\",{{ToleranceHolds}},IF({{InstanceKind}}=\"Algorithm\",{{AlgorithmHolds}},IF({{InstanceKind}}=\"DiagonalPeriodTest\",{{DiagonalPeriodTestHolds}},IF({{InstanceKind}}=\"DiagonalFact\",{{DiagonalFactHolds}},IF({{InstanceKind}}=\"AcceleratorClaim\",{{AcceleratorClaimHolds}},IF({{InstanceKind}}=\"PeriodTest\",{{PeriodTestHolds}},IF({{InstanceKind}}=\"PeriodTestWindows\",{{PeriodTestWindowsHolds}},0))))))))))))))))))))"
       },
       {
         "name": "Witness",
@@ -5715,7 +6449,35 @@
         "type": "calculated",
         "nullable": true,
         "Description": "The time step that decides it, where there is one: the refuting mismatch or the kill.",
-        "formula": "=IF({{InstanceKind}}=\"PeriodicityCandidate\",{{CandidateWitness}},IF(OR({{InstanceKind}}=\"TailCandidate\",{{InstanceKind}}=\"TailCandidateExcessBound\"),{{TailKillTime}},0))"
+        "formula": "=IF({{IsCached}}=1,{{WitnessCache}},IF({{InstanceKind}}=\"PeriodicityCandidate\",{{CandidateWitness}},IF(OR({{InstanceKind}}=\"TailCandidate\",{{InstanceKind}}=\"TailCandidateExcessBound\"),{{TailKillTime}},0)))"
+      },
+      {
+        "name": "IsCached",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
+      },
+      {
+        "name": "InDomainCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached InDomain from the last fresh compile; read by InDomain while IsCached = 1."
+      },
+      {
+        "name": "HoldsCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached Holds from the last fresh compile; read by Holds while IsCached = 1."
+      },
+      {
+        "name": "WitnessCache",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Cached Witness from the last fresh compile; read by Witness while IsCached = 1."
       }
     ]
   },
@@ -5774,342 +6536,21 @@
         "type": "calculated",
         "nullable": true,
         "Description": "1 when the optimizer agrees with the model.",
-        "formula": "=IF({{ClaimedValue}}={{ModelValue}},1,0)"
-      }
-    ]
-  },
-  "Strategies": {
-    "Description": "The plan toward a prize problem: where things stand, the route, and where the next loop aims. One row is in force (IsCurrent = 1); older plans are history.",
-    "schema": [
-      {
-        "name": "StrategyId",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": false,
-        "Description": "after-loop-<n>: the plan as it stood after that loop."
+        "formula": "=IF({{IsCached}}=1,{{IsMatchCache}},IF({{ClaimedValue}}={{ModelValue}},1,0))"
       },
       {
-        "name": "Name",
-        "datatype": "string",
-        "type": "calculated",
-        "nullable": true,
-        "Description": "Display alias.",
-        "formula": "={{StrategyId}}"
-      },
-      {
-        "name": "Goal",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": false,
-        "Description": "The prize problem this plan aims at.",
-        "RelatedTo": "Assertions"
-      },
-      {
-        "name": "IsCurrent",
+        "name": "IsCached",
         "datatype": "integer",
         "type": "raw",
-        "nullable": false,
-        "Description": "1 on the plan in force now, 0 on history."
-      },
-      {
-        "name": "Headline",
-        "datatype": "string",
-        "type": "raw",
         "nullable": true,
-        "Description": "Where things stand, in one sentence."
+        "Description": "1 when the *Cache fields of this row hold the last fresh compile (filled by loop_tools.build, cleared by every save)."
       },
       {
-        "name": "Approach",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": true,
-        "Description": "The route being taken and why, in a short paragraph."
-      },
-      {
-        "name": "Missing",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": true,
-        "Description": "What the route still lacks."
-      },
-      {
-        "name": "NextTarget",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": true,
-        "Description": "The open claim the next loop serves.",
-        "RelatedTo": "Assertions"
-      },
-      {
-        "name": "NextHypothesis",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": true,
-        "Description": "Where the next loop is aiming: its hypothesis in words."
-      },
-      {
-        "name": "Estimate",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": true,
-        "Description": "An honest estimate of the odds, with what each number is for."
-      },
-      {
-        "name": "UpdatedInLoop",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": true,
-        "Description": "The loop after which this plan was written.",
-        "RelatedTo": "Loops"
-      },
-      {
-        "name": "ProjectKey",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": false,
-        "Description": "Dashboard this plan rolls up to.",
-        "RelatedTo": "Dashboards"
-      },
-      {
-        "name": "GoalStatement",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The goal's statement.",
-        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "GoalStatusGroup",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The goal's status group.",
-        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "GoalAncestorBlockedCount",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Open claims the goal waits on.",
-        "formula": "=INDEX(Assessments!{{AncestorBlockedCount}},MATCH({{Goal}},Assessments!{{AssessmentId}},0))"
-      },
-      {
-        "name": "NextTargetStatement",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The next target's statement.",
-        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "NextTargetStatusGroup",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The next target's status group.",
-        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "UpdatedInLoopState",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "State of the loop that last updated the plan.",
-        "formula": "=INDEX(Loops!{{State}},MATCH({{UpdatedInLoop}},Loops!{{LoopId}},0))"
-      },
-      {
-        "name": "StepCount",
-        "datatype": "integer",
-        "type": "aggregation",
-        "nullable": true,
-        "Description": "Claims on the route.",
-        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}})"
-      },
-      {
-        "name": "OpenStepCount",
-        "datatype": "integer",
-        "type": "aggregation",
-        "nullable": true,
-        "Description": "Steps still open.",
-        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsOpen}},1)"
-      },
-      {
-        "name": "EstablishedStepCount",
-        "datatype": "integer",
-        "type": "aggregation",
-        "nullable": true,
-        "Description": "Steps proved or finitely checked.",
-        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsEstablished}},1)"
-      },
-      {
-        "name": "BlockingStepCount",
-        "datatype": "integer",
-        "type": "aggregation",
-        "nullable": true,
-        "Description": "Steps that are open claims the goal waits on.",
-        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{BlocksGoal}},1)"
-      },
-      {
-        "name": "RuledOutCount",
-        "datatype": "integer",
-        "type": "aggregation",
-        "nullable": true,
-        "Description": "Mechanisms on the record as ruled out.",
-        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{Role}},\"Ruled out\")"
-      }
-    ]
-  },
-  "StrategySteps": {
-    "Description": "The claims on a plan's route, in order from the goal, each with its role and a note. Statuses are looked up from the claims.",
-    "schema": [
-      {
-        "name": "StrategyStepId",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": false,
-        "Description": "<strategy>-<sequence>."
-      },
-      {
-        "name": "Name",
-        "datatype": "string",
-        "type": "calculated",
-        "nullable": true,
-        "Description": "Display alias.",
-        "formula": "={{StrategyStepId}}"
-      },
-      {
-        "name": "Strategy",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": false,
-        "Description": "The plan.",
-        "RelatedTo": "Strategies"
-      },
-      {
-        "name": "Assertion",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": false,
-        "Description": "The claim at this step.",
-        "RelatedTo": "Assertions"
-      },
-      {
-        "name": "Sequence",
+        "name": "IsMatchCache",
         "datatype": "integer",
         "type": "raw",
-        "nullable": false,
-        "Description": "Order on the route, the goal first."
-      },
-      {
-        "name": "Role",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": false,
-        "Description": "Goal, Reduction, Open obligation, Evidence or Ruled out."
-      },
-      {
-        "name": "Note",
-        "datatype": "string",
-        "type": "raw",
         "nullable": true,
-        "Description": "Why this claim is on the route, in one line."
-      },
-      {
-        "name": "Statement",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The claim.",
-        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "Kind",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Kind of claim.",
-        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "StatusGroup",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Proved, Checked, Open, Falsified or Superseded.",
-        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "EffectiveStatus",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The status the ledger uses.",
-        "formula": "=INDEX(Assertions!{{EffectiveStatus}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "CurrentStatus",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Compiled status: BLOCKED when an ancestor is not usable.",
-        "formula": "=INDEX(Assessments!{{CurrentStatus}},MATCH({{Assertion}},Assessments!{{AssessmentId}},0))"
-      },
-      {
-        "name": "StrategyGoal",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The plan's goal.",
-        "formula": "=INDEX(Strategies!{{Goal}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
-      },
-      {
-        "name": "StrategyIsCurrent",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "1 when the plan is in force.",
-        "formula": "=INDEX(Strategies!{{IsCurrent}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
-      },
-      {
-        "name": "GoalPrerequisiteKey",
-        "datatype": "string",
-        "type": "calculated",
-        "nullable": true,
-        "Description": "Key of the Prerequisites row linking the goal to this claim.",
-        "formula": "=CONCAT({{StrategyGoal}},\"-\",{{Assertion}})"
-      },
-      {
-        "name": "IsBlockingAncestorOfGoal",
-        "datatype": "integer",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "1 when this claim is an unusable ancestor of the goal.",
-        "formula": "=INDEX(Prerequisites!{{IsBlockingAncestor}},MATCH({{GoalPrerequisiteKey}},Prerequisites!{{PrerequisiteId}},0))"
-      },
-      {
-        "name": "IsOpen",
-        "datatype": "integer",
-        "type": "calculated",
-        "nullable": true,
-        "Description": "1 while the claim is open.",
-        "formula": "=IF({{StatusGroup}}=\"Open\",1,0)"
-      },
-      {
-        "name": "IsEstablished",
-        "datatype": "integer",
-        "type": "calculated",
-        "nullable": true,
-        "Description": "1 when proved or finitely checked.",
-        "formula": "=IF(OR({{StatusGroup}}=\"Proved\",{{StatusGroup}}=\"Checked\"),1,0)"
-      },
-      {
-        "name": "BlocksGoal",
-        "datatype": "integer",
-        "type": "calculated",
-        "nullable": true,
-        "Description": "1 when this open claim is one the goal waits on.",
-        "formula": "=IF(AND({{IsOpen}}=1,{{IsBlockingAncestorOfGoal}}=1),1,0)"
+        "Description": "Cached IsMatch from the last fresh compile; read by IsMatch while IsCached = 1."
       }
     ]
   }

@@ -47,7 +47,13 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const last = useRef<Data | null>(null);
   useEffect(() => {
     let alive = true;
+    let inFlight = false;   // a poll can outlast POLL_MS (PredicateInstances reads in ~7 s); never stack them
     async function tick() {
+      if (inFlight) return;
+      inFlight = true;
+      try { await poll(); } finally { inFlight = false; }
+    }
+    async function poll() {
       let building = false;
       try {
         const s = await fetch('/api/admin/build-status');

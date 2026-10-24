@@ -50,9 +50,41 @@ def _dump_single_line_leaves(book: dict) -> str:
     return '\n'.join(out) + '\n'
 
 
+# ---------- caches of load-bearing computed fields ----------
+# A cached field's formula is IF({{IsCached}}=1, {{<Field>Cache}}, <its formula>). The caches hold the
+# values of the last fresh compile, so Postgres (which computes every view on read) skips the chain
+# behind them. They are only ever true: every save clears the flags (any edit may change what they
+# depend on), and build() fills them right after a compile that ran with the flags cleared.
+CACHE_FLAG = 'IsCached'
+CACHED_PREFIX = '=IF({{%s}}=1,' % CACHE_FLAG
+
+
+def cached_fields(book: dict) -> dict[str, list[str]]:
+    return {t: [f['name'] for f in v['schema'] if str(f.get('formula', '')).startswith(CACHED_PREFIX)]
+            for t, v in book.items() if isinstance(v, dict) and any(f['name'] == CACHE_FLAG for f in v.get('schema', []))}
+
+
+def clear_caches(book: dict) -> None:
+    for t in cached_fields(book):
+        for r in rows(book, t):
+            r.pop(CACHE_FLAG, None)
+
+
+def fill_caches(book: dict) -> int:
+    n = 0
+    for t, names in cached_fields(book).items():
+        for r in rows(book, t):
+            for f in names:
+                r[f + 'Cache'] = r.get(f)
+            r[CACHE_FLAG] = 1
+            n += 1
+    return n
+
+
 def save(book: dict) -> None:
     regen_prerequisites(book)
     ensure_assessments(book)
+    clear_caches(book)
     RULEBOOK.write_text(_dump_single_line_leaves(book))
 
 
@@ -177,14 +209,31 @@ def verify_evidence(book) -> list[str]:
 
 
 # ---------- build / consume / loop record ----------
-def build() -> dict:
-    """Run `effortless build` from the project root. Returns a receipt (never a value)."""
-    t0 = time.time()
+def _effortless_build() -> tuple[int, str]:
     proc = subprocess.run(['effortless', 'build'], cwd=ROOT, capture_output=True, text=True)
     log = proc.stdout + proc.stderr
     versions = [ln.strip() for ln in log.splitlines() if ln.startswith('cli:>')]
-    receipt = {'exit': proc.returncode, 'seconds': round(time.time() - t0, 1), 'versions': versions, 'log_sha256': hashlib.sha256(log.encode()).hexdigest()}
     assert proc.returncode == 0 and len(versions) >= 2, log[-2000:]
+    return versions, log
+
+
+def build() -> dict:
+    """Clear the caches, `effortless build`, fill the caches from that compile, build again.
+
+    Returns a receipt (never a value). The second build compiles with the caches set, so it yields
+    the same values and regenerates every spoke from the cached rulebook.
+    """
+    t0 = time.time()
+    book = load()
+    clear_caches(book)
+    RULEBOOK.write_text(_dump_single_line_leaves(book))
+    versions, log = _effortless_build()
+    book = load()
+    filled = fill_caches(book)
+    RULEBOOK.write_text(_dump_single_line_leaves(book))
+    _, log2 = _effortless_build()
+    receipt = {'exit': 0, 'seconds': round(time.time() - t0, 1), 'versions': versions, 'cached_rows': filled,
+               'log_sha256': hashlib.sha256((log + log2).encode()).hexdigest()}
     receipt['editor'] = refresh_editor()
     return receipt
 
