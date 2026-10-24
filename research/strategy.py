@@ -156,28 +156,28 @@ def set_strategy(book, sid: str, goal: str, fields: dict, steps: list[tuple[str,
 
 
 CURRENT = dict(
-    sid='after-loop-25', goal='P1',
+    sid='after-loop-26', goal='P1',
     fields=dict(
-        Headline='P1 waits on two open obligations, B7 (period 2) and B8 (period 3 and up), at the bottom of a chain of proved reductions. No prize problem is closer to proved; the open obligations are sharper.',
-        Approach='Go after period 2 first, through B9: no left-consistent sequence ends in a 2-periodic tail. TX makes the center left-consistent, so B9 is exactly what B1 needs, and it is weaker than B5. Finite checks are strong: every left-consistent start at onsets 20 to 46 dies within 22 steps of a period-2 tail (F21), and every near-center window of width 25 that such sequences produce at times 19 to 45 dies within 23 steps (H38).',
-        Missing='A uniform description of the reachable windows that still kills. Freeing the outer cell at each step reaches every window and lets 18,432 survive (H40). Tying the outer cell to the settled left-edge zone does not help for long: the settled zone starts about 0.27 t columns out (17 at t = 64, 35 at t = 128), so column 24 is settled only until about t = 85, and the unsettled band between the window and the settled zone widens without bound.',
+        Headline='P1 waits on two open obligations, B7 (period 2) and B8 (period 3 and up), at the bottom of a chain of proved reductions. Loop 26 closed the near-center window route to period 2; the attack moves to whole rows.',
+        Approach='Go after period 2 first, through B9: no left-consistent sequence ends in a 2-periodic tail. TX makes the center left-consistent, so B9 is exactly what B1 needs. Prefixes with the same row have the same future, so merged by row they are few: 4.6 million states at t = 160 against an extrapolated 10^28 prefixes, and every one dies under both period-2 tails (F23). A proof needs a description of the reachable rows that is closed under the step and contains only rows that die.',
+        Missing='A finite description of whole reachable rows. Near-center windows cannot be it: a free outer cell floods any window closure (TY), and the kill time of real states grows with t (46 and 47 checks by t = 111, H41), so no fixed-width window kills. The far left of a row is where the settled diagonals make it periodic, so an automaton reading the row from the left edge inward may stay small.',
         NextTarget='B7',
-        NextLoop='effortless-26',
-        NextHypothesis='Decide whether this route can work at all: is there any window width at which the free-outer-cell closure is not the whole space, and does the reachable language keep growing or settle? If the closure is everything at every width and the language keeps growing, no finite-window invariant proves B9 for period 2, and the route closes.',
-        Estimate='Proving P1 itself: well under 1 percent, unchanged. Proving the period-2 case on this route: lowered to about 1 in 20, because the window idea needs information from a band that widens with t. Loop 26 is designed to settle whether the route is viable at all.',
-        UpdatedInLoop='effortless-25'),
+        NextLoop='effortless-27',
+        NextHypothesis='Read each reachable row from the left edge inward and build the smallest automaton accepting exactly the reachable rows at each t. If its size stops growing in t through t = 160, a regular invariant is plausible and the next step is to close it under the step and check that every row it accepts dies. If it keeps growing like the state count, no regular description exists at this level and the route through B9 needs another idea.',
+        Estimate='Proving P1 itself: well under 1 percent, unchanged. Proving the period-2 case through B9: about 1 in 30, lowered because the window route closed and the kill time grows with t. Loop 27 gives a decisive reading on the whole-row route.',
+        UpdatedInLoop='effortless-26'),
     next_loop=dict(
-        id='effortless-26',
-        hypothesis='H41 (draft, to be fixed before the run): for every window width E from 8 to 26, the closure of the near-center windows seen at t = 19, under one step with the outer cell free, is the whole space of 2^(E+1) windows; and the number of distinct reachable windows of width 25 keeps growing through t = 60.',
-        plan='Sweep the window width with the loop 25 closure, record the smallest width (if any) where the closure is a strict subset, and extend the reachable-language count of loop 23 to t = 60. Reading: a strict subset that still kills would revive the route with a concrete invariant; a full closure at every width, with a language that keeps growing, closes the finite-window route to B9 for period 2. Either way the plan is updated and the next target chosen from what is left.',
+        id='effortless-27',
+        hypothesis='H42 (draft, fix before the run): read from the left edge inward, the reachable rows of left-consistent sequences at each t <= 160 are accepted by a minimal automaton whose number of states stops growing in t.',
+        plan='Use loop 26 merged states (states.py). For each t, build the minimal DFA of the set of reachable rows read from the left edge inward, padded to a common length, and record its size against t and against the state count. Reading: a size that levels off makes a regular invariant plausible (next: close it under the step, check every accepted row dies); a size that tracks the state count closes the regular whole-row route.',
         targets=[
-            ('B7', 'Serves', 'The open obligation for period 2 that this route would discharge.'),
-            ('B9', 'Serves', 'Its period-2 case is what a working invariant would prove.'),
+            ('B7', 'Serves', 'The open obligation for period 2.'),
+            ('B9', 'Serves', 'Its period-2 case is what a regular invariant of reachable rows would prove.'),
             ('P1', 'Serves', 'The goal, through B1.'),
-            ('H40', 'Builds on', 'Loop 25: at width 25 the free-outer-cell closure is everything.'),
-            ('H38', 'Builds on', 'Every reachable width-25 window dies: the finite half the invariant must preserve.'),
-            ('H37', 'Builds on', 'The reachable windows are a thin set.'),
-            ('F22', 'Builds on', 'The language sizes up to t = 45 that the run extends.'),
+            ('F23', 'Builds on', 'Loop 26: the merged reachable states through t = 160, all killed by both period-2 tails.'),
+            ('H41', 'Builds on', 'Loop 26: no fixed-width window kill; the description must cover whole rows.'),
+            ('TY', 'Builds on', 'Loop 26: a free outer cell floods any window closure.'),
+            ('TR', 'Builds on', 'The left-edge diagonals are eventually periodic: why the far left of a row may be regular.'),
             ('TX', 'Builds on', 'The step relation: the next center bit is forced after a 1.'),
         ]),
     steps=[
@@ -189,14 +189,14 @@ CURRENT = dict(
         ('B6', 'Reduction', 'B5 restated with the free data named, then split by period.'),
         ('B7', 'Open obligation', 'Period 2. The current target, attacked through the period-2 case of B9.'),
         ('B8', 'Open obligation', 'Period 3 and up. Waits until period 2 shows a proof shape.'),
+        ('F23', 'Evidence', 'Merged by row, the reachable states through t = 160 all die under both period-2 tails, within 47 checks.'),
         ('F21', 'Evidence', 'Every left-consistent start at onsets 20 to 46 dies within 22 steps of a period-2 tail.'),
-        ('H38', 'Evidence', 'Every reachable width-25 window dies within 23 steps under both period-2 tails: the finite half.'),
-        ('H37', 'Evidence', 'The reachable windows are a thin set: 631 of about 2 billion at width 31.'),
-        ('H40', 'Ruled out', 'A free outer cell lets the window closure reach everything: too lossy.'),
+        ('H41', 'Ruled out', 'No fixed-width window kill: at t = 46 a state survives 30 checks, and the longest survival grows with t.'),
+        ('TY', 'Ruled out', 'A free outer cell floods any window closure, at every width (proved).'),
+        ('H40', 'Ruled out', 'The width-25 closure with a free outer cell is everything (the case TY explains).'),
         ('H34', 'Ruled out', 'The settled left-edge zone does not make the free-row clash local.'),
         ('H30', 'Ruled out', 'The kill is not linear algebra over the free bits.'),
     ])
-
 
 if __name__ == '__main__':
     book = lt.load()

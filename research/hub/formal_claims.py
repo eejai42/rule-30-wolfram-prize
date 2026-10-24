@@ -22,7 +22,7 @@ MAXP = lambda k: ('Max', P(mi(k, K(1))), P(mi(k, K(2))))
 REP = lambda q: ('Reported', q)
 
 t, T, p, k, j, n, N, a, i = (V(v) for v in ('time', 'onset', 'period', 'offset', 'offset-j', 'index', 'prefix-length', 'word', 'index-i'))
-L, R, E, w, s, f, u = (V(v) for v in ('window-length', 'row', 'width', 'window', 'sequence', 'function', 'input-row'))
+L, R, E, w, s, f, u, v = (V(v) for v in ('window-length', 'row', 'width', 'window', 'sequence', 'function', 'input-row', 'target-window'))
 plen = ('Length', a)
 prim = AND(('Nonconstant', a), eq(('LeastPeriod', a), plen))
 
@@ -210,6 +210,13 @@ CLAIMS = [
      ('ForAll!', 'word', AND(('Nonconstant', a), eq(plen, K(2))), ('ForAll', 'window', ('InWindowClosure', w, K(24), K(19), ('LeftConsistentPrefix', s, K(19))),
       ('WindowDies', w, K(24), a))),
      'H40: every window in the closure of the width-25 near-center windows shown at t = 19 (one step of the left half, outer bit free, TX after a 1) dies within 24 checks under 01 and under 10; it implies B9 for period 2.'),
+    ('pr-ty-window-flood', 'Theorem', 'TY', 1,
+     ('ForAll', 'width', ge(E, K(1)), ('ForAll', 'window', TRUE, ('ForAll', 'target-window', TRUE, ('WindowReachable', w, v, E, pl(tm(K(2), E), K(1)))))),
+     'TY: with the outer cell free, every width-(E+1) window reaches every window within 2E + 1 steps, so the closure of any nonempty window set is everything.'),
+    ('pr-h41-window-kill-160', 'Hypothesis', 'H41', 1,
+     ('ForAll!', 'word', AND(('Nonconstant', a), eq(plen, K(2))), ('ForAll!', 'time', between(t, K(19), K(160)), ('ForAll', 'window', ('InWindowLanguage', w, K(24), t),
+      ('WindowDies', w, K(24), a)))),
+     'H41: every width-25 window of a left-consistent sequence at 19 <= t <= 160 dies within 24 checks under 01 and under 10.'),
     # --- reported tables of the relaxation loops ---
     ('pr-f12-relaxation-table', 'Finite check', 'F12', 1,
      ('ForAll!', 'onset', between(T, K(1), K(10)), ('ForAll!', 'word', AND(prim, le(plen, K(4))), eq(REP(('ExclusionLength', T, a)), ('ExclusionLength', T, a)))),
@@ -244,6 +251,10 @@ CLAIMS = [
     ('pr-f22-window-table', 'Finite check', 'F22', 1,
      ('ForAll!', 'width', between(E, K(4), K(30)), ('ForAll!', 'time', between(t, K(19), K(45)), eq(REP(('WindowLanguageSize', E, t)), ('WindowLanguageSize', E, t)))),
      'F22: the reported near-center window language sizes are exact for E = 4..30 and t = 19..45.'),
+    ('pr-f23-merged-state-table', 'Finite check', 'F23', 1,
+     ('ForAll!', 'word', AND(('Nonconstant', a), eq(plen, K(2))), ('ForAll!', 'time', between(t, K(3), K(160)),
+      AND(eq(REP(('ReachableStateCount', t)), ('ReachableStateCount', t)), eq(REP(('MaxTailSurvival', t, a)), ('MaxTailSurvival', t, a))))),
+     'F23: the reported merged-state counts and longest period-2 survivals are exact for t = 3..160.'),
     # --- the methodology and the supplied package (not statements about Rule 30) ---
     ('pr-f1-supplied-outputs', 'Finite check', 'F1', 1,
      ('ForAll!', 'supplied-output', ('IsSuppliedOutput', V('supplied-output')), eq(('Rerun', V('supplied-output')), ('Supplied', V('supplied-output')))),
@@ -281,6 +292,7 @@ DECIDED = [
 NEW_VARIABLES = [  # (id, symbol, meaning, domain table, unbounded in the problem)
     ('index-i', 'i', 'A summation index', '', 1), ('window-length', 'L', 'Relaxation window length (or a plateau bound)', '', 1),
     ('row', 'R', 'A row of free bits at time T', '', 1), ('width', 'E', 'Window width', '', 1), ('window', 'w', 'A near-center window', '', 1),
+    ('target-window', 'v', 'A second near-center window', '', 1),
     ('sequence', 's', 'A left-consistent binary sequence', '', 1), ('function', 'f', 'A Boolean function (finitely many for a fixed arity)', '', 0),
     ('bound-function', 'f', 'A bounding function N -> N', '', 1), ('input-row', 'u', 'An input row of 2n + 1 cells', '', 1),
     ('constant-c', 'c0', 'A positive constant', '', 1), ('index-n0', 'n0', 'A threshold index', '', 1),

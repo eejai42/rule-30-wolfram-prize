@@ -1,0 +1,128 @@
+{
+ "TY": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "H41": {
+  "ReportedStatus": "FALSIFIED",
+  "EffectiveStatus": "FALSIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "F23": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "EffectiveStatus": "FINITE_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "H38": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "EffectiveStatus": "FINITE_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "H40": {
+  "ReportedStatus": "FALSIFIED",
+  "EffectiveStatus": "FALSIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "B9": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "B7": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 98,
+  "BlockedCount": 31,
+  "CompletedNativeLoops": 25,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 36,
+  "CheckedCount": 35,
+  "FalsifiedCount": 20,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 6,
+  "ModelLinkedClaimCount": 95,
+  "ModelDecidedClaimCount": 5,
+  "ModelContradictionCount": 0,
+  "UnmodeledClaimCount": 3,
+  "PlannedLoopCount": 0
+ },
+ "_receipt": {
+  "exit": 0,
+  "seconds": 83.2,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.10.24.1121 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "cached_rows": 5605,
+  "log_sha256": "0e988c8640c3fa0c104411f196d661755c2cb558ce7636a54bddbba8a0e2aff8",
+  "editor": "refresh queued (editor busy)"
+ },
+ "_input_hash": "0c7dd148b92908730f122195ae3ef932d9ff8afd991a56b4725c5b4b79c46fab",
+ "_output_hash": "7b1a567d4ee547a9acb6bfc6e472498be4fdde7fc85d5d011b2d6ccae20f240c"
+}

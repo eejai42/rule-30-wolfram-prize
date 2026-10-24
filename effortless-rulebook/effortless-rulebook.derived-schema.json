@@ -1389,6 +1389,88 @@
       }
     ]
   },
+  "LoopTargets": {
+    "Description": "The claims a loop serves, tests or builds on, so a loop page (planned, running or done) links to them.",
+    "schema": [
+      {
+        "name": "LoopTargetId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<loop>-<assertion>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LoopTargetId}}"
+      },
+      {
+        "name": "Loop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The loop.",
+        "RelatedTo": "Loops"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "A claim the loop serves, tests or builds on.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Role",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Serves (the open claim it advances), Tests (the hypothesis it decides), Builds on (results it uses) or Rules out."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "How the loop relates to the claim, in one line."
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Kind of claim.",
+        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Proved, Checked, Open, Falsified or Superseded.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "LoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "State of the loop.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{Loop}},Loops!{{LoopId}},0))"
+      }
+    ]
+  },
   "CellStates": {
     "Description": "The two states a cell can hold, with their colors. Problem 2 asks whether each occurs equally often.",
     "schema": [
@@ -6598,88 +6680,6 @@
         "type": "raw",
         "nullable": true,
         "Description": "Cached IsMatch from the last fresh compile; read by IsMatch while IsCached = 1."
-      }
-    ]
-  },
-  "LoopTargets": {
-    "Description": "The claims a loop serves, tests or builds on, so a loop page (planned, running or done) links to them.",
-    "schema": [
-      {
-        "name": "LoopTargetId",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": false,
-        "Description": "<loop>-<assertion>."
-      },
-      {
-        "name": "Name",
-        "datatype": "string",
-        "type": "calculated",
-        "nullable": true,
-        "Description": "Display alias.",
-        "formula": "={{LoopTargetId}}"
-      },
-      {
-        "name": "Loop",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": false,
-        "Description": "The loop.",
-        "RelatedTo": "Loops"
-      },
-      {
-        "name": "Assertion",
-        "datatype": "string",
-        "type": "relationship",
-        "nullable": false,
-        "Description": "A claim the loop serves, tests or builds on.",
-        "RelatedTo": "Assertions"
-      },
-      {
-        "name": "Role",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": false,
-        "Description": "Serves (the open claim it advances), Tests (the hypothesis it decides), Builds on (results it uses) or Rules out."
-      },
-      {
-        "name": "Note",
-        "datatype": "string",
-        "type": "raw",
-        "nullable": true,
-        "Description": "How the loop relates to the claim, in one line."
-      },
-      {
-        "name": "Statement",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "The claim.",
-        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "Kind",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Kind of claim.",
-        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "StatusGroup",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "Proved, Checked, Open, Falsified or Superseded.",
-        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
-      },
-      {
-        "name": "LoopState",
-        "datatype": "string",
-        "type": "lookup",
-        "nullable": true,
-        "Description": "State of the loop.",
-        "formula": "=INDEX(Loops!{{State}},MATCH({{Loop}},Loops!{{LoopId}},0))"
       }
     ]
   }

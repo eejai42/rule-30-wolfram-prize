@@ -1,0 +1,59 @@
+{
+ "loop": {
+  "LoopId": "effortless-26",
+  "Kind": "EFFORTLESS",
+  "State": "VERIFIED",
+  "BuildReceipt": "{\"cached_rows\": 5605, \"editor\": \"refresh queued (editor busy)\", \"exit\": 0, \"log_sha256\": \"0e988c8640c3fa0c104411f196d661755c2cb558ce7636a54bddbba8a0e2aff8\", \"seconds\": 83.2, \"versions\": [\"cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]\", \"cli:> effortless/effortless/minimize-rulebook v2026.10.24.1121 [latest]\", \"cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]\", \"cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]\"]}",
+  "InputHash": "0c7dd148b92908730f122195ae3ef932d9ff8afd991a56b4725c5b4b79c46fab",
+  "OutputHash": "7b1a567d4ee547a9acb6bfc6e472498be4fdde7fc85d5d011b2d6ccae20f240c",
+  "Sequence": 39,
+  "StartedAt": "2026-10-24T15:44:41-0500",
+  "FinishedAt": "2026-10-24T15:48:44-0500",
+  "ProjectKey": "Rule30",
+  "Hypothesis": "H41: every width-25 near-center window shown by a left-consistent prefix at any time 19 <= t <= 160 dies within 24 checks under both period-2 tails (H38 extended); TY: a free outer cell floods the window closure at every width.",
+  "Summary": "TY proved: a free outer cell floods the window closure at every width (every window reaches every window within 2E+1 steps; exhaustive for E = 1..16). H41 FALSIFIED: over merged states (4575350 at t = 160), states survive 24 checks of a period-2 tail from t = {\"01\": 46, \"10\": 47}; longest survival over t = 19..160: {\"01\": 46, \"10\": 47} checks. No fixed-width finite kill at width 25.",
+  "Plan": "Merge left-consistent prefixes by their row, which turns 44 million prefixes at t = 45 into 631 states and makes t = 160 reachable (about 4.6 million states). At every t, run every state against both period-2 tails: a state survives 24 checks exactly when its width-25 window is one of the 18,432 survivors of loop 25. Record the longest survival per t. Reading: a survivor past t = 45 means H38 was a small-t effect and no fixed-width kill exists; none through t = 160, with the longest survival flat, is strong evidence for a fixed-width kill and pins down what an invariant must exclude.",
+  "Name": "effortless-26",
+  "ClaimsAdded": 3,
+  "RevisionsMade": 1,
+  "FalsificationsMade": 1,
+  "ProofsMade": 0,
+  "TargetCount": 8
+ },
+ "post_record_build": {
+  "exit": 0,
+  "seconds": 82.1,
+  "versions": [
+   "cli:> effortless/effortless/compile-rulebook v2026.10.23.1627 [latest]",
+   "cli:> effortless/effortless/minimize-rulebook v2026.10.24.1121 [latest]",
+   "cli:> effortless/effortless/effortless-rulebook-editor v2026.10.19.1709 [latest]",
+   "cli:> effortless/effortless/rulebook-to-explainer-dag v2026.09.17.2059 [latest]"
+  ],
+  "cached_rows": 5605,
+  "log_sha256": "0e988c8640c3fa0c104411f196d661755c2cb558ce7636a54bddbba8a0e2aff8",
+  "editor": "refresh queued (editor busy)"
+ },
+ "dashboard_after": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 98,
+  "BlockedCount": 31,
+  "CompletedNativeLoops": 26,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 36,
+  "CheckedCount": 35,
+  "FalsifiedCount": 20,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 0,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 6,
+  "ModelLinkedClaimCount": 95,
+  "ModelDecidedClaimCount": 5,
+  "ModelContradictionCount": 0,
+  "UnmodeledClaimCount": 3,
+  "PlannedLoopCount": 0
+ }
+}

@@ -1,0 +1,161 @@
+t=0 states=1 longest={'01': None, '10': None} (1s)
+t=10 states=9 longest={'01': 6, '10': 5} (1s)
+t=20 states=47 longest={'01': 12, '10': 15} (1s)
+t=30 states=143 longest={'01': 22, '10': 17} (1s)
+t=40 states=359 longest={'01': 12, '10': 17} (1s)
+t=50 states=1232 longest={'01': 26, '10': 15} (1s)
+t=60 states=3580 longest={'01': 24, '10': 17} (1s)
+t=70 states=8050 longest={'01': 24, '10': 21} (1s)
+t=80 states=19670 longest={'01': 24, '10': 23} (1s)
+t=90 states=44444 longest={'01': 26, '10': 35} (2s)
+t=100 states=96293 longest={'01': 34, '10': 31} (2s)
+t=110 states=198146 longest={'01': 28, '10': 33} (3s)
+t=120 states=373726 longest={'01': 46, '10': 37} (6s)
+t=130 states=690474 longest={'01': 38, '10': 39} (11s)
+t=140 states=1282375 longest={'01': 34, '10': 37} (21s)
+t=150 states=2418959 longest={'01': 44, '10': 39} (39s)
+t=160 states=4575350 longest={'01': 42, '10': 47} (78s)
+{
+ "TY": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "PROVED_HUMAN_READABLE",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "H41": {
+  "ReportedStatus": "FALSIFIED",
+  "EffectiveStatus": "FALSIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "F23": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "EffectiveStatus": "FINITE_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "H38": {
+  "ReportedStatus": "FINITE_VERIFIED",
+  "EffectiveStatus": "FINITE_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "FINITE_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 2,
+  "EvidenceGap": 0
+ },
+ "H40": {
+  "ReportedStatus": "FALSIFIED",
+  "EffectiveStatus": "FALSIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "B9": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "B7": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 4,
+  "EvidenceGap": 0
+ },
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "_dashboard": {
+  "DashboardId": "Rule30",
+  "Name": "Rule30",
+  "ClaimCount": 98,
+  "BlockedCount": 31,
+  "CompletedNativeLoops": 25,
+  "EvidenceGapCount": 0,
+  "ProvedCount": 36,
+  "CheckedCount": 35,
+  "FalsifiedCount": 20,
+  "OpenCount": 7,
+  "AtRiskCount": 4,
+  "OpenPrizeProblemCount": 3,
+  "RunningLoopCount": 1,
+  "LegacyLoopCount": 13,
+  "ConformanceMismatchCount": 0,
+  "PredicatesFailingAnInstance": 6,
+  "ModelLinkedClaimCount": 95,
+  "ModelDecidedClaimCount": 5,
+  "ModelContradictionCount": 0,
+  "UnmodeledClaimCount": 3,
+  "PlannedLoopCount": 0
+ }
+}
+{
+ "seconds": 77.8,
+ "TY_strongly_connected_E1_16": true,
+ "merge_matches_loop22_tree_t_le_36": true,
+ "agrees_with_loop22_excess": true,
+ "agrees_with_loop23_language": true,
+ "window_test_equals_state_test": true,
+ "H41_holds": false,
+ "first_t_with_survivor": {
+  "01": 46,
+  "10": 47
+ },
+ "longest_survival_peak_19_160": {
+  "01": 46,
+  "10": 47
+ },
+ "longest_survival_peak_at": {
+  "01": [
+   112,
+   120,
+   146,
+   157
+  ],
+  "10": [
+   111,
+   119,
+   156,
+   160
+  ]
+ }
+}

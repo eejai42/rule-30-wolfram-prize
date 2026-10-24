@@ -5,7 +5,7 @@ proved, what is ruled out, and what the next loops aim at. The rulebook is the s
 for every status below; this page is the map that explains how the nodes fit. Update it when a
 loop changes the chain under P1.
 
-Last updated: loop 25 (2026-10-24).
+Last updated: loop 26 (2026-10-24).
 
 ## The chain under P1
 
@@ -38,6 +38,7 @@ B9 asks: can a left-consistent sequence end in a periodic tail with a nonconstan
 | TV | from time 2T each one-time constraint is a parity along a light ray, no free bits | 15 |
 | TW | exactly 2^Z rows survive to 2T-2; later constraints are functions of Z bits | 17 |
 | TX | the center is left-consistent | 22 |
+| TY | a free outer cell steers any window to any window within 2E+1 steps (a lemma that rules out, not a reduction) | 26 |
 
 ## Ruled out: mechanisms a proof cannot use
 
@@ -65,6 +66,13 @@ new idea about why they would work.
    one step, with the outer cell and the post-0 center bit free, is every window, and 18,432 of
    them survive a period-2 tail (H40, loop 25). The real windows all die (H38), so the reachable
    set is thin, but this description of it is not.
+9. **Any closure with a free outer cell, at any width.** Rule 30 is left-permutive, so the free
+   outer cell steers every window to every window within 2E+1 steps (TY, proved, loop 26). Widening
+   the window cannot rescue mechanism 8.
+10. **A fixed-width finite kill of the reachable windows.** H38 (every width-25 window dies within 24
+   checks) held only because loop 23 stopped at t = 45. At t = 46 a reachable state survives 30
+   checks of `01` (H41, loop 26), and the longest survival keeps growing: 46 and 47 checks by t = 111.
+   Every state through t = 160 still dies within 120 checks.
 
 ## Certified, finite
 
@@ -75,11 +83,14 @@ uniform in the onset.
 
 ## Current target
 
-B9 for period 2. The seeded relaxation kills every period-2 tail within 22 steps from onset 20 to
-46 (loop 22), and every reachable width-25 window dies within 23 steps (H38, loop 23). What is
-missing is a uniform description of the reachable windows that still kills: a free outer bit is
-too weak (H40). The next candidates keep more of the left side, for example the outer bit tied to
-the settled left-edge diagonals, or a wider window whose outer part is constrained by the seed.
+B9 for period 2, by whole rows. Loop 26 closed the near-center window route (mechanisms 9 and 10):
+no fixed-width window description works, because the kill time grows with t. What it found
+instead: left-consistent prefixes with the same row have the same future, and merged by row they
+are few (631 states at t = 45, 4.6 million at t = 160, against an extrapolated 10^28 prefixes). Every
+one of them dies under both period-2 tails (F23). A proof needs a description of the reachable rows
+that is closed under the step and contains only rows that die. The next candidate is an automaton
+that reads the row from the left edge inward, where the settled diagonals make the rows periodic;
+loop 27 tests whether the reachable rows at t <= 160 fit an automaton whose size stops growing.
 
 ## What the model computes (loop 24 on)
 
