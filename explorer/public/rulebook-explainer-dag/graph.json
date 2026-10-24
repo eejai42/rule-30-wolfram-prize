@@ -199,6 +199,14 @@
         "nullable": true,
         "Description": "The model's verdict on the claim's predicate; NOT MODELED for a claim stated only in words.",
         "formula": "=IF({{IsModelLinked}}=1,{{PredicateVerdict}},\"NOT MODELED\")"
+      },
+      {
+        "name": "OnCurrentPath",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "1 when the claim is a step of the plan in force.",
+        "formula": "=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)"
       }
     ],
     "data": [
@@ -227,7 +235,8 @@
         "EffectiveStatus": "DEFINITION",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "T0",
@@ -254,7 +263,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "T004",
@@ -281,7 +291,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TA",
@@ -308,7 +319,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TB",
@@ -335,7 +347,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TC",
@@ -362,7 +375,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TD",
@@ -389,7 +403,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "K1",
@@ -416,7 +431,8 @@
         "EffectiveStatus": "REDERIVED_KNOWN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TE",
@@ -443,7 +459,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "CM",
@@ -470,7 +487,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F1",
@@ -497,7 +515,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F2",
@@ -524,7 +543,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F3",
@@ -551,7 +571,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F4",
@@ -578,7 +599,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H1",
@@ -605,7 +627,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 1,
         "IsModelContradicted": 0,
-        "ModelVerdict": "REFUTED BY 1 OF 8 INSTANCES"
+        "ModelVerdict": "REFUTED BY 1 OF 8 INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H2",
@@ -632,7 +655,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 1,
         "IsModelContradicted": 0,
-        "ModelVerdict": "REFUTED BY 2 OF 6 INSTANCES"
+        "ModelVerdict": "REFUTED BY 2 OF 6 INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H3",
@@ -659,7 +683,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H4",
@@ -686,7 +711,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H5",
@@ -713,7 +739,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H6",
@@ -740,7 +767,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "B1",
@@ -767,7 +795,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "B2",
@@ -794,7 +823,8 @@
         "EffectiveStatus": "OPEN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "B3",
@@ -821,7 +851,8 @@
         "EffectiveStatus": "OPEN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "P1",
@@ -848,7 +879,8 @@
         "EffectiveStatus": "OPEN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "P2",
@@ -875,7 +907,8 @@
         "EffectiveStatus": "OPEN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "1 OF 3 UNDECIDED AT THE HORIZON"
+        "ModelVerdict": "1 OF 3 UNDECIDED AT THE HORIZON",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "P3",
@@ -902,7 +935,8 @@
         "EffectiveStatus": "OPEN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TF",
@@ -929,7 +963,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TG",
@@ -956,7 +991,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TH",
@@ -983,7 +1019,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H7",
@@ -1010,7 +1047,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TI",
@@ -1037,7 +1075,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F5",
@@ -1064,7 +1103,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H14",
@@ -1091,7 +1131,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 1,
         "IsModelContradicted": 0,
-        "ModelVerdict": "REFUTED BY 1 OF 8 INSTANCES"
+        "ModelVerdict": "REFUTED BY 1 OF 8 INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TJ",
@@ -1118,7 +1159,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TK",
@@ -1145,7 +1187,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TL",
@@ -1172,7 +1215,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H15",
@@ -1199,7 +1243,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H16",
@@ -1226,7 +1271,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 1,
         "IsModelContradicted": 0,
-        "ModelVerdict": "REFUTED BY 1 OF 5 INSTANCES"
+        "ModelVerdict": "REFUTED BY 1 OF 5 INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TM",
@@ -1253,7 +1299,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TN",
@@ -1280,7 +1327,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H9",
@@ -1307,7 +1355,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H13",
@@ -1334,7 +1383,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F6",
@@ -1361,7 +1411,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H18",
@@ -1388,7 +1439,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TP",
@@ -1415,7 +1467,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F7",
@@ -1442,7 +1495,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TO",
@@ -1469,7 +1523,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H19",
@@ -1496,7 +1551,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TQ",
@@ -1523,7 +1579,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H21",
@@ -1550,7 +1607,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TR",
@@ -1577,7 +1635,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F8",
@@ -1604,7 +1663,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H22",
@@ -1631,7 +1691,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H23",
@@ -1658,7 +1719,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F9",
@@ -1685,7 +1747,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H24",
@@ -1712,7 +1775,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F10",
@@ -1739,7 +1803,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H25",
@@ -1766,7 +1831,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F11",
@@ -1793,7 +1859,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TS",
@@ -1820,7 +1887,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H26",
@@ -1847,7 +1915,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F12",
@@ -1874,7 +1943,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "B5",
@@ -1901,7 +1971,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "TU",
@@ -1928,7 +1999,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H27",
@@ -1955,7 +2027,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F13",
@@ -1982,7 +2055,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TV",
@@ -2009,7 +2083,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H28",
@@ -2036,7 +2111,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F14",
@@ -2063,7 +2139,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H29",
@@ -2090,7 +2167,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F15",
@@ -2117,7 +2195,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TW",
@@ -2144,7 +2223,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "B6",
@@ -2171,7 +2251,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "H30",
@@ -2198,7 +2279,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "F16",
@@ -2225,7 +2307,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H31",
@@ -2252,7 +2335,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F17",
@@ -2279,7 +2363,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "B7",
@@ -2306,7 +2391,8 @@
         "EffectiveStatus": "OPEN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "B8",
@@ -2333,7 +2419,8 @@
         "EffectiveStatus": "OPEN",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "H32",
@@ -2360,7 +2447,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F18",
@@ -2387,7 +2475,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H33",
@@ -2414,7 +2503,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F19",
@@ -2441,7 +2531,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H34",
@@ -2468,7 +2559,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "F20",
@@ -2495,7 +2587,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "TX",
@@ -2522,7 +2615,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "B9",
@@ -2549,7 +2643,8 @@
         "EffectiveStatus": "PROVED_HUMAN_READABLE",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "HOLDS ON EVERY INSTANCE"
+        "ModelVerdict": "HOLDS ON EVERY INSTANCE",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "H35",
@@ -2576,7 +2671,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H36",
@@ -2603,7 +2699,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "F21",
@@ -2630,7 +2727,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "H37",
@@ -2657,7 +2755,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "H38",
@@ -2684,7 +2783,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 1
       },
       {
         "AssertionId": "F22",
@@ -2711,7 +2811,8 @@
         "EffectiveStatus": "FINITE_VERIFIED",
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
-        "ModelVerdict": "NO INSTANCES"
+        "ModelVerdict": "NO INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H39",
@@ -2738,7 +2839,8 @@
         "EffectiveStatus": "FALSIFIED",
         "IsModelDecided": 1,
         "IsModelContradicted": 0,
-        "ModelVerdict": "REFUTED BY 1 OF 80 INSTANCES"
+        "ModelVerdict": "REFUTED BY 1 OF 80 INSTANCES",
+        "OnCurrentPath": 0
       },
       {
         "AssertionId": "H40",
@@ -2765,7 +2867,8 @@
         "IsModelDecided": 0,
         "IsModelContradicted": 0,
         "ModelVerdict": "NO INSTANCES",
-        "Predicate": "pr-h40-window-closure-kill"
+        "Predicate": "pr-h40-window-closure-kill",
+        "OnCurrentPath": 1
       }
     ]
   },
@@ -632414,6 +632517,664 @@
         "Name": "E17-r30-seed-t064p+000",
         "ModelValue": 1,
         "IsMatch": 1
+      }
+    ]
+  },
+  "Strategies": {
+    "Description": "The plan toward a prize problem: where things stand, the route, and where the next loop aims. One row is in force (IsCurrent = 1); older plans are history.",
+    "schema": [
+      {
+        "name": "StrategyId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "after-loop-<n>: the plan as it stood after that loop."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{StrategyId}}"
+      },
+      {
+        "name": "Goal",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The prize problem this plan aims at.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "IsCurrent",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 on the plan in force now, 0 on history."
+      },
+      {
+        "name": "Headline",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Where things stand, in one sentence."
+      },
+      {
+        "name": "Approach",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The route being taken and why, in a short paragraph."
+      },
+      {
+        "name": "Missing",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What the route still lacks."
+      },
+      {
+        "name": "NextTarget",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The open claim the next loop serves.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "NextHypothesis",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Where the next loop is aiming: its hypothesis in words."
+      },
+      {
+        "name": "Estimate",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "An honest estimate of the odds, with what each number is for."
+      },
+      {
+        "name": "UpdatedInLoop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The loop after which this plan was written.",
+        "RelatedTo": "Loops"
+      },
+      {
+        "name": "ProjectKey",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Dashboard this plan rolls up to.",
+        "RelatedTo": "Dashboards"
+      },
+      {
+        "name": "GoalStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The goal's statement.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "GoalStatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The goal's status group.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "GoalAncestorBlockedCount",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Open claims the goal waits on.",
+        "formula": "=INDEX(Assessments!{{AncestorBlockedCount}},MATCH({{Goal}},Assessments!{{AssessmentId}},0))"
+      },
+      {
+        "name": "NextTargetStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The next target's statement.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "NextTargetStatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The next target's status group.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "UpdatedInLoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "State of the loop that last updated the plan.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{UpdatedInLoop}},Loops!{{LoopId}},0))"
+      },
+      {
+        "name": "StepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims on the route.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}})"
+      },
+      {
+        "name": "OpenStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps still open.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsOpen}},1)"
+      },
+      {
+        "name": "EstablishedStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps proved or finitely checked.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsEstablished}},1)"
+      },
+      {
+        "name": "BlockingStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps that are open claims the goal waits on.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{BlocksGoal}},1)"
+      },
+      {
+        "name": "RuledOutCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Mechanisms on the record as ruled out.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{Role}},\"Ruled out\")"
+      }
+    ],
+    "data": [
+      {
+        "StrategyId": "after-loop-25",
+        "Goal": "P1",
+        "IsCurrent": 1,
+        "ProjectKey": "Rule30",
+        "Headline": "P1 waits on two open obligations, B7 (period 2) and B8 (period 3 and up), at the bottom of a chain of proved reductions. No prize problem is closer to proved; the open obligations are sharper.",
+        "Approach": "Go after period 2 first, through B9: no left-consistent sequence ends in a 2-periodic tail. TX makes the center left-consistent, so B9 is exactly what B1 needs, and it is weaker than B5. Finite checks are strong: every left-consistent start at onsets 20 to 46 dies within 22 steps of a period-2 tail (F21), and every near-center window of width 25 that such sequences produce at times 19 to 45 dies within 23 steps (H38).",
+        "Missing": "A uniform description of the reachable windows that still kills. The simplest one, closing the window set under one step with the outer cell free, covers every window and lets 18,432 of them survive (H40). The description has to keep information from the far left.",
+        "NextTarget": "B7",
+        "NextHypothesis": "Tie the outer cell of the window to the settled left-edge diagonals instead of leaving it free (or widen the window and constrain its outer part by the seed), and test whether the closure of the reachable windows still kills both period-2 tails. If it does, that is a finite proof of B9 for period 2.",
+        "Estimate": "Proving P1 itself: well under 1 percent, unchanged. Proving the period-2 case on this route: about 1 in 10. A decisive answer either way about this route within a few loops: likely.",
+        "UpdatedInLoop": "effortless-25",
+        "Name": "after-loop-25",
+        "GoalStatement": "The Rule 30 center is not eventually periodic.",
+        "GoalStatusGroup": "Open",
+        "GoalAncestorBlockedCount": 2,
+        "NextTargetStatement": "B6 for the period-2 words 01 and 10: for every onset T>=2, each TW row for a 2-periodic center violates a one-time constraint at or after 2T-1 (equivalently, the Rule 30 center is not eventually 2-periodic).",
+        "NextTargetStatusGroup": "Open",
+        "UpdatedInLoopState": "VERIFIED",
+        "StepCount": 14,
+        "OpenStepCount": 3,
+        "EstablishedStepCount": 8,
+        "BlockingStepCount": 2,
+        "RuledOutCount": 3
+      }
+    ]
+  },
+  "StrategySteps": {
+    "Description": "The claims on a plan's route, in order from the goal, each with its role and a note. Statuses are looked up from the claims.",
+    "schema": [
+      {
+        "name": "StrategyStepId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<strategy>-<sequence>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{StrategyStepId}}"
+      },
+      {
+        "name": "Strategy",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The plan.",
+        "RelatedTo": "Strategies"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The claim at this step.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Sequence",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Order on the route, the goal first."
+      },
+      {
+        "name": "Role",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Goal, Reduction, Open obligation, Evidence or Ruled out."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Why this claim is on the route, in one line."
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Kind of claim.",
+        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Proved, Checked, Open, Falsified or Superseded.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "EffectiveStatus",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The status the ledger uses.",
+        "formula": "=INDEX(Assertions!{{EffectiveStatus}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "CurrentStatus",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Compiled status: BLOCKED when an ancestor is not usable.",
+        "formula": "=INDEX(Assessments!{{CurrentStatus}},MATCH({{Assertion}},Assessments!{{AssessmentId}},0))"
+      },
+      {
+        "name": "StrategyGoal",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The plan's goal.",
+        "formula": "=INDEX(Strategies!{{Goal}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
+      },
+      {
+        "name": "StrategyIsCurrent",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the plan is in force.",
+        "formula": "=INDEX(Strategies!{{IsCurrent}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
+      },
+      {
+        "name": "GoalPrerequisiteKey",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Key of the Prerequisites row linking the goal to this claim.",
+        "formula": "=CONCAT({{StrategyGoal}},\"-\",{{Assertion}})"
+      },
+      {
+        "name": "IsBlockingAncestorOfGoal",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when this claim is an unusable ancestor of the goal.",
+        "formula": "=INDEX(Prerequisites!{{IsBlockingAncestor}},MATCH({{GoalPrerequisiteKey}},Prerequisites!{{PrerequisiteId}},0))"
+      },
+      {
+        "name": "IsOpen",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 while the claim is open.",
+        "formula": "=IF({{StatusGroup}}=\"Open\",1,0)"
+      },
+      {
+        "name": "IsEstablished",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when proved or finitely checked.",
+        "formula": "=IF(OR({{StatusGroup}}=\"Proved\",{{StatusGroup}}=\"Checked\"),1,0)"
+      },
+      {
+        "name": "BlocksGoal",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when this open claim is one the goal waits on.",
+        "formula": "=IF(AND({{IsOpen}}=1,{{IsBlockingAncestorOfGoal}}=1),1,0)"
+      }
+    ],
+    "data": [
+      {
+        "StrategyStepId": "after-loop-25-01",
+        "Strategy": "after-loop-25",
+        "Assertion": "P1",
+        "Sequence": 1,
+        "Role": "Goal",
+        "Note": "Problem 1: the center column is not eventually periodic.",
+        "Name": "after-loop-25-01",
+        "Statement": "The Rule 30 center is not eventually periodic.",
+        "Kind": "Prize problem",
+        "StatusGroup": "Open",
+        "EffectiveStatus": "OPEN",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-P1",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 1,
+        "IsEstablished": 0,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-02",
+        "Strategy": "after-loop-25",
+        "Assertion": "B1",
+        "Sequence": 2,
+        "Role": "Reduction",
+        "Note": "A periodic center of period 2 or more is impossible; with K1 this is P1. Derived from B9 and TX.",
+        "Name": "after-loop-25-02",
+        "Statement": "Periodic center of every p>=2 forces a contradiction with seed-compatible neighboring columns.",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Proved",
+        "EffectiveStatus": "PROVED_HUMAN_READABLE",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-B1",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-03",
+        "Strategy": "after-loop-25",
+        "Assertion": "TX",
+        "Sequence": 3,
+        "Role": "Reduction",
+        "Note": "The center is left-consistent: after every 1, its next bit is forced by its own past.",
+        "Name": "after-loop-25-03",
+        "Statement": "The left half x(i,t), i<=-1, is a function of c(0..t-1) and the seed, and whenever c(t)=1 the forward rule forces c(t+1)=NOT x(-1,t): the center is left-consistent.",
+        "Kind": "Theorem",
+        "StatusGroup": "Proved",
+        "EffectiveStatus": "PROVED_HUMAN_READABLE",
+        "CurrentStatus": "PROVED_HUMAN_READABLE",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-TX",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-04",
+        "Strategy": "after-loop-25",
+        "Assertion": "B9",
+        "Sequence": 4,
+        "Role": "Reduction",
+        "Note": "No left-consistent sequence ends in a nonconstant periodic tail. The statement B1 actually needs.",
+        "Name": "after-loop-25-04",
+        "Statement": "No left-consistent sequence (c(0)=1, and c(t+1)=NOT x(-1,t) whenever c(t)=1, with x the left half it generates from the seed) ends in a periodic tail with a nonconstant word.",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Proved",
+        "EffectiveStatus": "PROVED_HUMAN_READABLE",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-B9",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-05",
+        "Strategy": "after-loop-25",
+        "Assertion": "B5",
+        "Sequence": 5,
+        "Role": "Reduction",
+        "Note": "The free-row left-cone relaxation excludes every periodic center; it implies B9.",
+        "Name": "after-loop-25-05",
+        "Statement": "For every onset T, every p>=2 and every nonconstant word a of least period p, the left-cone relaxation (periodic center word a from T, free column 1, inverse rule, cone of T0) is unsatisfiable at some finite L(T,a).",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Proved",
+        "EffectiveStatus": "PROVED_HUMAN_READABLE",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-B5",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-06",
+        "Strategy": "after-loop-25",
+        "Assertion": "B6",
+        "Sequence": 6,
+        "Role": "Reduction",
+        "Note": "B5 restated with the free data named, then split by period.",
+        "Name": "after-loop-25-06",
+        "Statement": "For every T>=2 and every nonconstant periodic word, each of the 2^Z rows of TW violates x(-1,t)=NOT c'(t+1) at some one-time t>=2T-1.",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Proved",
+        "EffectiveStatus": "PROVED_HUMAN_READABLE",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-B6",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-07",
+        "Strategy": "after-loop-25",
+        "Assertion": "B7",
+        "Sequence": 7,
+        "Role": "Open obligation",
+        "Note": "Period 2. The current target, attacked through the period-2 case of B9.",
+        "Name": "after-loop-25-07",
+        "Statement": "B6 for the period-2 words 01 and 10: for every onset T>=2, each TW row for a 2-periodic center violates a one-time constraint at or after 2T-1 (equivalently, the Rule 30 center is not eventually 2-periodic).",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Open",
+        "EffectiveStatus": "OPEN",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-B7",
+        "IsBlockingAncestorOfGoal": 1,
+        "IsOpen": 1,
+        "IsEstablished": 0,
+        "BlocksGoal": 1
+      },
+      {
+        "StrategyStepId": "after-loop-25-08",
+        "Strategy": "after-loop-25",
+        "Assertion": "B8",
+        "Sequence": 8,
+        "Role": "Open obligation",
+        "Note": "Period 3 and up. Waits until period 2 shows a proof shape.",
+        "Name": "after-loop-25-08",
+        "Statement": "B6 for every nonconstant word of least period p>=3.",
+        "Kind": "Bridge obligation",
+        "StatusGroup": "Open",
+        "EffectiveStatus": "OPEN",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-B8",
+        "IsBlockingAncestorOfGoal": 1,
+        "IsOpen": 1,
+        "IsEstablished": 0,
+        "BlocksGoal": 1
+      },
+      {
+        "StrategyStepId": "after-loop-25-09",
+        "Strategy": "after-loop-25",
+        "Assertion": "F21",
+        "Sequence": 9,
+        "Role": "Evidence",
+        "Note": "Every left-consistent start at onsets 20 to 46 dies within 22 steps of a period-2 tail.",
+        "Name": "after-loop-25-09",
+        "Statement": "Seeded relaxation table: for the words 01, 10 (onsets 4..46) and every primitive word of period 3 and 4 (onsets 4..32), the number of left-consistent prefixes, survivors, and the largest and mean death excess t*-T with its histogram; tree growth ratio 1.4981 per step.",
+        "Kind": "Finite check",
+        "StatusGroup": "Checked",
+        "EffectiveStatus": "FINITE_VERIFIED",
+        "CurrentStatus": "FINITE_VERIFIED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-F21",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-10",
+        "Strategy": "after-loop-25",
+        "Assertion": "H38",
+        "Sequence": 10,
+        "Role": "Evidence",
+        "Note": "Every reachable width-25 window dies within 23 steps under both period-2 tails: the finite half.",
+        "Name": "after-loop-25-10",
+        "Statement": "There is an E<=30 such that every width-(E+1) near-center window shown by a left-consistent sequence at any time 19<=t<=45 dies within E-1 steps under the tail 01 and under the tail 10 (the finite part K(E) of B9 for period 2).",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "EffectiveStatus": "FINITE_VERIFIED",
+        "CurrentStatus": "FINITE_VERIFIED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-H38",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-11",
+        "Strategy": "after-loop-25",
+        "Assertion": "H37",
+        "Sequence": 11,
+        "Role": "Evidence",
+        "Note": "The reachable windows are a thin set: 631 of about 2 billion at width 31.",
+        "Name": "after-loop-25-11",
+        "Statement": "For some E>=12, the near-center windows (c(t), x(-1..-E,t)) shown by left-consistent sequences at t=45 miss at least half of the 2^(E+1) possible windows.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Checked",
+        "EffectiveStatus": "FINITE_VERIFIED",
+        "CurrentStatus": "FINITE_VERIFIED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-H37",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 1,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-12",
+        "Strategy": "after-loop-25",
+        "Assertion": "H40",
+        "Sequence": 12,
+        "Role": "Ruled out",
+        "Note": "A free outer cell lets the window closure reach everything: too lossy.",
+        "Name": "after-loop-25-12",
+        "Statement": "Let A be the least set of width-25 near-center windows (c(t), x(-1..-24,t)) that contains every window shown by a left-consistent prefix at t=19 and is closed under one step of the left half (outer bit free, next center bit forced by TX after a 1). For each period-2 tail, every window in A fails one of the next 24 one-time checks. H40 implies B9 for period 2 at every onset.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Falsified",
+        "EffectiveStatus": "FALSIFIED",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-H40",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 0,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-13",
+        "Strategy": "after-loop-25",
+        "Assertion": "H34",
+        "Sequence": 13,
+        "Role": "Ruled out",
+        "Note": "The settled left-edge zone does not make the free-row clash local.",
+        "Name": "after-loop-25-13",
+        "Statement": "With every settled left-edge diagonal imposed on the periodic-center relaxation (exact values, or periodicity only), the death window exceeds the settled frontier by at most 8 (exact) or 16 (periodic only) for the words 01 and 10 at every onset 8<=T<=160 the search completes: the clash with the settled zone is local.",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Falsified",
+        "EffectiveStatus": "FALSIFIED",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-H34",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 0,
+        "BlocksGoal": 0
+      },
+      {
+        "StrategyStepId": "after-loop-25-14",
+        "Strategy": "after-loop-25",
+        "Assertion": "H30",
+        "Sequence": 14,
+        "Role": "Ruled out",
+        "Note": "The kill is not linear algebra over the free bits.",
+        "Name": "after-loop-25-14",
+        "Statement": "For every nonconstant primitive word of period p<=5 and every onset 4<=T<=18, the largest algebraic degree over the Z free bits among the one-time constraints applied before death is at least Z-1: the kill is maximally nonlinear, so B6 is not linear algebra over GF(2).",
+        "Kind": "Hypothesis",
+        "StatusGroup": "Falsified",
+        "EffectiveStatus": "FALSIFIED",
+        "CurrentStatus": "BLOCKED",
+        "StrategyGoal": "P1",
+        "StrategyIsCurrent": 1,
+        "GoalPrerequisiteKey": "P1-H30",
+        "IsBlockingAncestorOfGoal": 0,
+        "IsOpen": 0,
+        "IsEstablished": 0,
+        "BlocksGoal": 0
       }
     ]
   }

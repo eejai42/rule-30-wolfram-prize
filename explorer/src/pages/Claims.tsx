@@ -63,6 +63,60 @@ export function ClaimsPage() {
   );
 }
 
+function ModelSection({ a }: { a: Row }) {
+  const pred = byId(useRows('Predicates'), 'predicate_id', a.predicate);
+  const insts = useRows('PredicateInstances').filter((i) => i.predicate === a.predicate);
+  const step = useRows('StrategySteps').find((s) => s.assertion === a.assertion_id && num(s.strategy_is_current) === 1);
+  return (
+    <>
+      {step && (
+        <Section title="On the current path to P1">
+          <div className="card">
+            <div className="card-top"><span className="path-role">{step.role}</span> {num(step.blocks_goal) === 1 && <D f="StrategySteps.BlocksGoal" className="pill g-open">blocking the goal</D>}</div>
+            <p className="statement">{step.note}</p>
+            <Link to="/">See the whole path →</Link>
+          </div>
+        </Section>
+      )}
+      <Section title="In the model">
+        {!pred ? <p className="muted">Not linked to a modeled predicate.</p> : (
+          <div className="card">
+            <div className="card-top"><span className="claim-id">{pred.predicate_id}</span> <span className="kind">{pred.problem}</span></div>
+            <p className="statement">{pred.statement}</p>
+            <pre className="formal"><D f="Predicates.Formal">{pred.formal}</D></pre>
+            <dl className="kv">
+              <dt>Model verdict</dt><dd><D f="Predicates.FiniteVerdict" className="mono">{pred.finite_verdict}</D></dd>
+              <dt>Decided by the model</dt><dd><D f="Assertions.IsModelDecided">{num(a.is_model_decided) ? 'yes: the build sets the status' : 'no: the status is a report'}</D></dd>
+              <dt>Ledger status</dt><dd><D f="Assertions.EffectiveStatus" className="mono">{a.effective_status}</D></dd>
+              {num(a.is_model_contradicted) === 1 && <><dt>Contradiction</dt><dd><D f="Assertions.IsModelContradicted" className="pill g-falsified">the model disagrees with the reported status</D></dd></>}
+              <dt>Quantifiers</dt><dd><D f="Predicates.QuantifierCount">{num(pred.quantifier_count)}</D>, <D f="Predicates.UnboundedQuantifierCount">{num(pred.unbounded_quantifier_count)}</D> over infinite domains</dd>
+              <dt>Computable from the model</dt><dd><D f="Predicates.IsComputable">{num(pred.is_computable) ? 'yes' : `no: ${num(pred.unmodeled_operator_count)} operator(s) not modeled yet`}</D></dd>
+              <dt>Finitely decidable</dt><dd><D f="Predicates.IsFinitelyDecidable">{num(pred.is_finitely_decidable) ? 'yes' : 'no: only bounded instances can be checked'}</D></dd>
+              <dt>Instances</dt><dd><D f="Predicates.InstanceCount">{num(pred.instance_count)}</D> in domain, <D f="Predicates.HoldingCount">{num(pred.holding_count)}</D> hold, <D f="Predicates.FailingCount">{num(pred.failing_count)}</D> fail</dd>
+            </dl>
+            {pred.instance_meaning && <p className="muted small">One instance: {pred.instance_meaning}</p>}
+            {insts.length > 0 && (
+              <details>
+                <summary>{insts.length} instance rows</summary>
+                <ul className="list inst-list">
+                  {insts.slice(0, 200).map((i) => (
+                    <li key={i.predicate_instance_id}>
+                      <span className="mono small">{i.predicate_instance_id}</span>{' '}
+                      <D f="PredicateInstances.Holds" className={`pill ${num(i.holds) ? 'g-proved' : 'g-falsified'}`}>{num(i.holds) ? 'holds' : 'fails'}</D>
+                      {num(i.in_domain) === 0 && <span className="muted small"> outside the domain</span>}
+                      {i.witness !== null && i.witness !== undefined && i.witness !== '' && <span className="muted small"> witness <D f="PredicateInstances.Witness">{String(i.witness)}</D></span>}
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )}
+          </div>
+        )}
+      </Section>
+    </>
+  );
+}
+
 export function ClaimPage() {
   const { id = '' } = useParams();
   const a = byId(useRows('Assertions'), 'assertion_id', id);
@@ -109,6 +163,7 @@ export function ClaimPage() {
         </dl>
       </div>
 
+      <ModelSection a={a} />
       {blockers.length > 0 && (
         <Section title="Blocked by">
           <ul className="list">{blockers.map((p) => mini(p.premise))}</ul>

@@ -69,6 +69,10 @@ the build checks the script on that sample. Steps 0 to 6 below are the classic l
 4. `effortless build`.
 5. Consume the compiled Assessments / Dashboards (read, do not recompute).
 6. Mark the loop `VERIFIED` with the input hash (rulebook sha256 before the build), the build receipt, and the output hash (rulebook sha256 after the build). Then build again so the Dashboard counts it.
+6a. **Update the plan.** Edit `CURRENT` in `research/strategy.py` (headline, approach, what is missing, the next
+   target and hypothesis, the honest estimate, and the route's steps with their roles), run it, then
+   `effortless build`. The explorer's landing page shows this plan as the most promising path to P1, so a
+   loop that changes the picture without updating it leaves the page wrong.
 
 **Grow the DAG from the prize problem down.** Every loop names the open obligation it serves
 (B1, B2, B3 or a child of one) and its new claims get a dependency path to that node. Decompose
@@ -86,6 +90,7 @@ P1, P2, P3 after the build.
 ## Explorer and admin portal
 - `./start.sh` launches both. The explorer (progress, loops, claims, dependency graph, proofs) is at http://localhost:7431. The generated admin portal from `effortless-rulebook-editor` is at http://localhost:42442, its API at http://localhost:42441/api/docs.
 - **`docs/p1-frontier.md` is the map of the attack on P1**: the chain of open nodes, the proved reductions, and the mechanisms already ruled out. Read it before proposing a loop; update it when a loop changes the chain.
+- The explorer's landing page leads with the plan in force (`Strategies`, `StrategySteps`, written by `research/strategy.py`): the route to P1, what blocks it, and where the next loop aims. Each claim page shows the claim's modeled predicate (formal statement, instances, verdict).
 - The explorer lives in `explorer/` and reads only the editor API's views. Personas, stories and routes are in `docs/app.md`; read it before changing a screen.
 - Any status, count or flag a screen needs is a rulebook field first. Never compute one in the explorer.
 - The editor does NOT rebuild by itself when the rulebook file changes from outside; it only offers a rebuild in its UI. `loop_tools.build()` therefore asks it to rebuild after every `effortless build` (skipped when the admin portal has unsaved edits). The editor drops a request that arrives while it is already building (a full rebuild takes about 2 minutes; the data lands in the first few seconds), so a busy editor gets a detached waiter, `research/editor_refresh.py`, that retries until the editor has built the current rulebook. Its log is `.logs/editor-refresh.log`. A plain `effortless build` from the shell does not; click Rebuild in the admin portal or `curl -X POST localhost:42441/api/admin/run-build`.

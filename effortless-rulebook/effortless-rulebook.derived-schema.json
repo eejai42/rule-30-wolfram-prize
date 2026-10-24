@@ -196,6 +196,14 @@
         "nullable": true,
         "Description": "The model's verdict on the claim's predicate; NOT MODELED for a claim stated only in words.",
         "formula": "=IF({{IsModelLinked}}=1,{{PredicateVerdict}},\"NOT MODELED\")"
+      },
+      {
+        "name": "OnCurrentPath",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "1 when the claim is a step of the plan in force.",
+        "formula": "=COUNTIFS(StrategySteps!{{Assertion}},{{AssertionId}},StrategySteps!{{StrategyIsCurrent}},1)"
       }
     ]
   },
@@ -5767,6 +5775,341 @@
         "nullable": true,
         "Description": "1 when the optimizer agrees with the model.",
         "formula": "=IF({{ClaimedValue}}={{ModelValue}},1,0)"
+      }
+    ]
+  },
+  "Strategies": {
+    "Description": "The plan toward a prize problem: where things stand, the route, and where the next loop aims. One row is in force (IsCurrent = 1); older plans are history.",
+    "schema": [
+      {
+        "name": "StrategyId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "after-loop-<n>: the plan as it stood after that loop."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{StrategyId}}"
+      },
+      {
+        "name": "Goal",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The prize problem this plan aims at.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "IsCurrent",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 on the plan in force now, 0 on history."
+      },
+      {
+        "name": "Headline",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Where things stand, in one sentence."
+      },
+      {
+        "name": "Approach",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The route being taken and why, in a short paragraph."
+      },
+      {
+        "name": "Missing",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What the route still lacks."
+      },
+      {
+        "name": "NextTarget",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The open claim the next loop serves.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "NextHypothesis",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Where the next loop is aiming: its hypothesis in words."
+      },
+      {
+        "name": "Estimate",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "An honest estimate of the odds, with what each number is for."
+      },
+      {
+        "name": "UpdatedInLoop",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The loop after which this plan was written.",
+        "RelatedTo": "Loops"
+      },
+      {
+        "name": "ProjectKey",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Dashboard this plan rolls up to.",
+        "RelatedTo": "Dashboards"
+      },
+      {
+        "name": "GoalStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The goal's statement.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "GoalStatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The goal's status group.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Goal}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "GoalAncestorBlockedCount",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Open claims the goal waits on.",
+        "formula": "=INDEX(Assessments!{{AncestorBlockedCount}},MATCH({{Goal}},Assessments!{{AssessmentId}},0))"
+      },
+      {
+        "name": "NextTargetStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The next target's statement.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "NextTargetStatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The next target's status group.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{NextTarget}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "UpdatedInLoopState",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "State of the loop that last updated the plan.",
+        "formula": "=INDEX(Loops!{{State}},MATCH({{UpdatedInLoop}},Loops!{{LoopId}},0))"
+      },
+      {
+        "name": "StepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims on the route.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}})"
+      },
+      {
+        "name": "OpenStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps still open.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsOpen}},1)"
+      },
+      {
+        "name": "EstablishedStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps proved or finitely checked.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{IsEstablished}},1)"
+      },
+      {
+        "name": "BlockingStepCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Steps that are open claims the goal waits on.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{BlocksGoal}},1)"
+      },
+      {
+        "name": "RuledOutCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Mechanisms on the record as ruled out.",
+        "formula": "=COUNTIFS(StrategySteps!{{Strategy}},{{StrategyId}},StrategySteps!{{Role}},\"Ruled out\")"
+      }
+    ]
+  },
+  "StrategySteps": {
+    "Description": "The claims on a plan's route, in order from the goal, each with its role and a note. Statuses are looked up from the claims.",
+    "schema": [
+      {
+        "name": "StrategyStepId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<strategy>-<sequence>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{StrategyStepId}}"
+      },
+      {
+        "name": "Strategy",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The plan.",
+        "RelatedTo": "Strategies"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The claim at this step.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Sequence",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Order on the route, the goal first."
+      },
+      {
+        "name": "Role",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "Goal, Reduction, Open obligation, Evidence or Ruled out."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Why this claim is on the route, in one line."
+      },
+      {
+        "name": "Statement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim.",
+        "formula": "=INDEX(Assertions!{{Statement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Kind of claim.",
+        "formula": "=INDEX(Assertions!{{Kind}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "StatusGroup",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Proved, Checked, Open, Falsified or Superseded.",
+        "formula": "=INDEX(Assertions!{{StatusGroup}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "EffectiveStatus",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The status the ledger uses.",
+        "formula": "=INDEX(Assertions!{{EffectiveStatus}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "CurrentStatus",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Compiled status: BLOCKED when an ancestor is not usable.",
+        "formula": "=INDEX(Assessments!{{CurrentStatus}},MATCH({{Assertion}},Assessments!{{AssessmentId}},0))"
+      },
+      {
+        "name": "StrategyGoal",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The plan's goal.",
+        "formula": "=INDEX(Strategies!{{Goal}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
+      },
+      {
+        "name": "StrategyIsCurrent",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the plan is in force.",
+        "formula": "=INDEX(Strategies!{{IsCurrent}},MATCH({{Strategy}},Strategies!{{StrategyId}},0))"
+      },
+      {
+        "name": "GoalPrerequisiteKey",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Key of the Prerequisites row linking the goal to this claim.",
+        "formula": "=CONCAT({{StrategyGoal}},\"-\",{{Assertion}})"
+      },
+      {
+        "name": "IsBlockingAncestorOfGoal",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when this claim is an unusable ancestor of the goal.",
+        "formula": "=INDEX(Prerequisites!{{IsBlockingAncestor}},MATCH({{GoalPrerequisiteKey}},Prerequisites!{{PrerequisiteId}},0))"
+      },
+      {
+        "name": "IsOpen",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 while the claim is open.",
+        "formula": "=IF({{StatusGroup}}=\"Open\",1,0)"
+      },
+      {
+        "name": "IsEstablished",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when proved or finitely checked.",
+        "formula": "=IF(OR({{StatusGroup}}=\"Proved\",{{StatusGroup}}=\"Checked\"),1,0)"
+      },
+      {
+        "name": "BlocksGoal",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when this open claim is one the goal waits on.",
+        "formula": "=IF(AND({{IsOpen}}=1,{{IsBlockingAncestorOfGoal}}=1),1,0)"
       }
     ]
   }

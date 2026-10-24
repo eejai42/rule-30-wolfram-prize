@@ -26,17 +26,21 @@ reviewer who only reads proofs) would add one.
 8. As a researcher I explore the dependency graph and click into any claim. *(Dependencies, Assessments.StatusGroup)*
 9. As a researcher I read proof and evidence files in the app. *(Assertions.ProofSection, Evidence.Path)*
 10. As a researcher I hover any derived value to see the rule that produced it. *(explainer DAG on every derived value)*
+11. As a researcher I open the app and see, first, the most promising path from where the research stands to P1: the route of claims, which are established, which are open and which block the goal, and what has been ruled out. *(Strategies.Headline, EstablishedStepCount, OpenStepCount, BlockingStepCount, RuledOutCount; StrategySteps.Role, StatusGroup, BlocksGoal)*
+12. As a researcher I see where the next loop is aiming and why, with an honest estimate. *(Strategies.NextTarget, NextHypothesis, Approach, Missing, Estimate)*
+13. As a researcher I open any claim and see what the model says about it: its formal statement, its quantifiers, whether the model can decide it, its bounded instances and their verdicts, and whether the ledger's status comes from the build or from a report. *(Predicates.Formal, FiniteVerdict, IsComputable, IsFinitelyDecidable, InstanceCount, FailingCount; PredicateInstances.Holds, Witness; Assertions.EffectiveStatus, IsModelDecided)*
+14. As a researcher I see in the dependency graph which claims are on the current path, and double-click any claim to open its page. *(Assertions.OnCurrentPath)*
 
 ## Routes
 
 | Path | Shows | Stories |
 |---|---|---|
-| `/` | Progress: status tiles, prize problems and what blocks them, alarms, running and recent loops | 1, 2, 3, 5 |
+| `/` | The path to P1 (route, blockers, ruled out, next loop's aim), then status tiles, prize problems, alarms, running and recent loops | 1, 2, 3, 5, 11, 12 |
 | `/loops` | Every loop, newest first, legacy and native | 3, 4 |
 | `/loops/:id` | One loop: hypothesis, summary, counts, claims added, revisions, receipt and hashes | 4 |
 | `/claims` | Every claim, filter by kind and status, search | 6 |
-| `/claims/:id` | One claim: statement, statuses, proof, premises, dependents, blockers, evidence, revisions | 7, 9 |
-| `/graph` | The dependency graph, coloured by status; tap a node to open the claim | 8 |
+| `/claims/:id` | One claim: statement, statuses, proof, its place on the current path, what the model says (formal statement, instances, verdict), premises, dependents, blockers, evidence, revisions | 7, 9, 13 |
+| `/graph` | The dependency graph, coloured by status, current path outlined; tap to focus, double-click to open the claim | 8, 14 |
 | `/files?path=` | A proof or evidence file, rendered (Markdown) or shown (JSON, text) | 9 |
 | `/dag`, `/dag/:table/:field` | The explainer's field pages | 10 |
 

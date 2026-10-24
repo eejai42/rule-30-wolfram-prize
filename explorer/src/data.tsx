@@ -5,7 +5,7 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 
 export type Row = Record<string, any>;
-export const TABLES = ['Dashboards', 'Assessments', 'Assertions', 'Dependencies', 'Prerequisites', 'Loops', 'Revisions', 'Evidence', 'EvidenceLinks'] as const;
+export const TABLES = ['Dashboards', 'Assessments', 'Assertions', 'Dependencies', 'Prerequisites', 'Loops', 'Revisions', 'Evidence', 'EvidenceLinks', 'Strategies', 'StrategySteps', 'Predicates', 'PredicateInstances'] as const;
 export type TableName = (typeof TABLES)[number];
 export type Data = Record<TableName, Row[]>;
 export type Sync = 'loading' | 'live' | 'syncing' | 'offline';
@@ -23,6 +23,7 @@ const POLL_MS = 5000;
 const PK: Record<TableName, string> = {
   Dashboards: 'dashboard_id', Assessments: 'assessment_id', Assertions: 'assertion_id', Dependencies: 'dependency_id', Prerequisites: 'prerequisite_id',
   Loops: 'loop_id', Revisions: 'revision_id', Evidence: 'evidence_id', EvidenceLinks: 'evidence_link_id',
+  Strategies: 'strategy_id', StrategySteps: 'strategy_step_id', Predicates: 'predicate_id', PredicateInstances: 'predicate_instance_id',
 };
 
 async function fetchTable(t: TableName): Promise<Row[]> {

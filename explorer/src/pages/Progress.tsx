@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { num, useRows, byId, type Row } from '../data';
 import { CardLink, ClaimLink, D, Group, LoopState, Section, Tile, useFlash } from '../ui';
+import PathHero from './PathHero';
 
 function PrizeCard({ a }: { a: Row }) {
   const prereqs = useRows('Prerequisites');
@@ -65,6 +66,7 @@ export default function Progress() {
 
   return (
     <div className="page">
+      <PathHero />
       <div className="hero">
         <div className="hero-big"><D f="Dashboards.OpenPrizeProblemCount">{num(dash.open_prize_problem_count)}</D> of {prize.length}</div>
         <div className="hero-sub">prize problems still open</div>

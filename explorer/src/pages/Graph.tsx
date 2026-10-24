@@ -61,7 +61,7 @@ export default function Graph() {
         <label className="chip"><input type="checkbox" checked={showFalsified} onChange={(e) => { const n = new URLSearchParams(params); if (e.target.checked) n.set('falsified', '1'); else n.delete('falsified'); setParams(n, { replace: true }); }} /> show falsified</label>
         <button className="chip" onClick={() => setView({ x: 0, y: 0, k: 1 })}>reset view</button>
       </div>
-      <p className="muted small">Arrows point from a premise up to the claim that uses it. Tap a claim to light up everything it rests on and everything that rests on it. Drag to pan, scroll to zoom.</p>
+      <p className="muted small">Arrows point from a premise up to the claim that uses it. Tap a claim to light up everything it rests on and everything that rests on it; double-click it to open its page. Claims with a thick outline are on the current path to P1. Drag to pan, scroll to zoom.</p>
       <div className="legend">
         {['Proved', 'Checked', 'Open', 'Falsified'].map((g) => <span key={g} className={`pill g-${g.toLowerCase()}`}>{g}</span>)}
       </div>
@@ -80,7 +80,8 @@ export default function Graph() {
             })}
             {layout.nodes.map((a) => {
               const n = layout.g.node(a.assessment_id);
-              const cls = `node g-${String(a.status_group).toLowerCase()}${lit(a.assessment_id) ? '' : ' dim'}${focus === a.assessment_id ? ' focus' : ''}`;
+              const onPath = num(byId(assertions, 'assertion_id', a.assessment_id)?.on_current_path) > 0;
+              const cls = `node g-${String(a.status_group).toLowerCase()}${lit(a.assessment_id) ? '' : ' dim'}${focus === a.assessment_id ? ' focus' : ''}${onPath ? ' on-path' : ''}`;
               return (
                 <g key={a.assessment_id} className={cls} transform={`translate(${n.x - W / 2},${n.y - H / 2})`} onClick={() => select(a.assessment_id)} onDoubleClick={() => navigate(`/claims/${a.assessment_id}`)}>
                   <rect width={W} height={H} rx={8} />
