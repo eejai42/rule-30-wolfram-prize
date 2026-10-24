@@ -61,6 +61,40 @@ ones = [sum(c[:t + 1]) for t in range(DEPTH + 1)]
 dev = [abs(Fraction(ones[t], t + 1) - Fraction(1, 2)) for t in range(DEPTH + 1)]
 last_excursion = {f'{a}-{b}': max((t for t in range(DEPTH + 1) if dev[t] > Fraction(a, b)), default=None) for a, b in TOLERANCES}
 
+# --- Problem 1 as tables (S15-S19) ---
+TAIL_WORD_LENGTHS, TAIL_ONSETS, TAIL_MARGIN = (1, 2, 3), range(1, 11), 12
+words = [''.join(str((n >> (L - 1 - k)) & 1) for k in range(L)) for L in TAIL_WORD_LENGTHS for n in range(2 ** L)]
+least = {w: min(d for d in range(1, len(w) + 1) if w == w[d:] + w[:d]) for w in words}
+x = lambda i, t: rows[t].get(i, 0) if t >= 0 else 0
+tx_violations = sum(1 for t in range(DEPTH) if c[t] == 1 and c[t + 1] != 1 - x(-1, t))
+
+
+def first_mismatch(i, p, T):
+    return next((t for t in range(T, DEPTH - p + 1) if x(i, t) != x(i, t + p)), DEPTH - p + 1)
+
+
+windows = [(p, T) for p in range(1, MAX_PERIOD + 1) for T in range((DEPTH - 2 * p) // 2 + 1)]
+tc_fail = sum(1 for p, T in windows if min(first_mismatch(0, p, T), first_mismatch(1, p, T)) > 2 * T + p)
+tc_center = sum(1 for p, T in windows if first_mismatch(0, p, T) <= 2 * T + p)
+
+
+def kill(w, T):
+    """First one-time t >= T - 1 of the real prefix + w w w ... with c'(t + 1) != NOT x'(-1, t); H + 1 if none."""
+    H, L = T + TAIL_MARGIN, len(w)
+    cc = lambda t: c[t] if t < T else int(w[(t - T) % L])
+    left = {i: x(i, T) for i in range(-T, 0)}
+    for t in range(T - 1, H + 1):
+        x1 = x(-1, t) if t < T else left.get(-1, 0)
+        if cc(t) == 1 and cc(t + 1) != 1 - x1:
+            return t
+        if t >= T:
+            left = {i: (lambda g: g(i - 1) ^ (g(i) | g(i + 1)))(lambda j: cc(t) if j == 0 else left.get(j, 0)) for i in range(-(t + 1), 0)}
+    return H + 1
+
+
+tail_words = [w for w in words if least[w] == len(w)]
+kills = {f'{w}-T{T:02d}': kill(w, T) for w in tail_words for T in TAIL_ONSETS}
+
 out = {
     'depth': DEPTH,
     'S01_rule30_table': {f'{n:03b}': rule_bit(30, n) for n in range(7, -1, -1)},
@@ -84,6 +118,11 @@ out = {
     'S13_light_cone_effort': {n: (n + 1) ** 2 - 1 for n in (1, 8, 32, 64)},
     'S14_cells': sum(len(r) for r in rows),
     'S14_black_cells': sum(sum(r.values()) for r in rows),
+    'S15_least_periods': least,
+    'S16_tx_violations': tx_violations,
+    'S17_tc_windows': len(windows), 'S17_tc_failures': tc_fail, 'S17_tc_center_witnesses': tc_center,
+    'S18_first_mismatch_sample': {f'{i}-p{p:02d}-T{T:03d}': first_mismatch(i, p, T) for i in (0, 1) for p in (1, 2, 3, 7) for T in (0, 5, 20, 40) if T <= DEPTH - p},
+    'S19_tail_kill_times': kills,
 }
 Path(__file__).with_name('scenarios.json').write_text(json.dumps(out, indent=1) + '\n')
 print(json.dumps({k: out[k] for k in ('S03_equivalence', 'S04_quiescent', 'S07_transition_use', 'S10_td_violations', 'S11_last_excursion', 'S12_center_color_counts', 'S14_cells')}))

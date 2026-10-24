@@ -8,15 +8,20 @@ The Wolfram Rule 30 prize problems, modeled in one rulebook with two halves:
 
 - **The domain model**: Rule 30 itself, built like `effortless-rulebooks/rulebook-examples/simpsons-paradox`.
   Rules, neighborhoods and rule tables; the single seed; a run with its time steps, columns and
-  every cell of the light cone to depth 64; Problem 1's period tests and comparisons; Problem 2's
-  prefix densities, tolerances and color counts; Problem 3's machine models, algorithms and
-  computations; and the predicates themselves (formal statement, quantifiers, variables, bounded
-  instances). Only structure and inputs are data; every cell value, witness and verdict is a
-  formula. Map: `bootstrap/rule30-model/schema.md` (Shadle artifacts in the same folder).
-- **The ledger**: assertions (definitions, theorems, finite verifications, hypotheses), their
-  dependency DAG, evidence files with hashes, revisions, and the research loops. `effortless
-  build` recomputes every derived status. `Assertions.Predicate` links a claim to the modeled
-  predicate it is about, and `PredicateVerdict` shows what the model computes for it.
+  every cell of the light cone to depth 64. Problem 1: every (p, T) periodicity candidate with its
+  refuting witness, Theorem C's windows, TX's left-consistency checks, periodic words with computed
+  least periods, and B9's tail candidates (the real prefix with a periodic tail spliced on, its own
+  left-half lattice, and the one-time check that kills it). Problem 2's prefix densities,
+  tolerances and color counts; Problem 3's machine models, algorithms and computations. The
+  predicates themselves: each formal statement is a tree of Terms over Operators and Variables,
+  written out by the build, with bounded instances whose domain, verdict and witness are computed.
+  Only structure and inputs are data. Map: `bootstrap/rule30-model/schema.md`.
+- **The ledger**: assertions, their dependency DAG, evidence files, revisions, and the research
+  loops. The ledger reads the model: `Assertions.Predicate` links a claim to its predicate, and
+  `EffectiveStatus` (which StatusGroup, IsUsable and CurrentStatus use) is FALSIFIED when the model
+  holds a counterexample instance and FINITE_VERIFIED when the model decides a finite statement
+  true; otherwise it is the reported status. `Dashboards.ModelContradictionCount` must stay 0, and
+  `UnmodeledClaimCount` is how many claims are still only words.
 
 **No prize conjecture is proved here.** See `bootstrap/cmcc_rule30_effortless_migration/research_v05/REPORT.md` for the partial results this ledger started from.
 
@@ -26,13 +31,27 @@ The Wolfram Rule 30 prize problems, modeled in one rulebook with two halves:
 3. **Edit the hub with `research/loop_tools.py`**, not by hand. It keeps the Prerequisites closure consistent with Dependencies and keeps Single Line Leaves formatting.
 4. **Always run `effortless build`** after any change to the rulebook. `compile-rulebook` recomputes every calculated, lookup and aggregation field in place; `minimize-rulebook` regenerates the derived ladder.
 5. **Never reimplement the status logic** (IsUsable, Blocked, CurrentStatus, ProofEligible, EvidenceGap) in scripts. Read the compiled values.
-5a. **The domain model tables are owned by `research/hub/build_model.py`.** It replaces them on every run, so change the model there (not with a one-off edit), then `effortless build`, then `python3 research/hub/check_model.py`, which compares the built values with the independent oracle in `bootstrap/rule30-model/mock-data/`, and `python3 research/hub/check_postgres.py`, which compares every computed value with the editor's Postgres views (the two substrates have disagreed before: `docs/toolchain-gaps.md` gaps 6 to 11). A claim about Rule 30 belongs in the model as rows and formulas the build decides; Python may only accelerate, and its values enter as `AcceleratorClaims` the model checks.
+5a. **The domain model tables are owned by `research/hub/build_model.py`.** It replaces them on every run, so change the model there (not with a one-off edit), then `effortless build`, then `python3 research/hub/check_model.py`, which compares the built values with the independent oracle in `bootstrap/rule30-model/mock-data/`, and `python3 research/hub/check_postgres.py`, which compares every computed value with the editor's Postgres views (the two substrates have disagreed before: `docs/toolchain-gaps.md` gaps 6 to 13). A claim about Rule 30 belongs in the model as rows and formulas the build decides; Python may only accelerate, and its values enter as `AcceleratorClaims` the model checks.
 6. **Ask permission** before changing the assertion statuses of existing claims outside a loop.
 7. **A failed compile-rulebook run can look like a no-op.** The CLI does not print a remote tool's error, so check that computed values actually changed (or rerun with `-debug`). Field names that are Python keywords or single letters like `R` make it fail. See `docs/toolchain-gaps.md`.
 
 ## The research loop (what "do a loop" means here)
 
-One loop = one hypothesis, tested, recorded, built, consumed:
+One loop = one hypothesis, tested, recorded, built, consumed.
+
+**Model-native loops (the default from loop 24 on).** When the hypothesis can be stated over the
+model, the loop is rows only: `model_tools.add_loop_predicate()` adds the predicate (its statement as
+a term tree, `ForAll!` for a binder whose condition bounds its variable), one PredicateInstances row
+per deciding model row, and the claim (OPEN, `Predicate` set). `run_loop(..., summarize=...)` builds,
+lets `EffectiveStatus` decide, records the decision as a Revision, and finishes. No script computes a
+value or a verdict; the loop's rows survive reruns of build_model.py (they carry IntroducedInLoop).
+`research/loop-24-kill-bound/run.py` is the pattern. If the hypothesis needs a concept the model lacks,
+add it to build_model.py first (a model change, checked by check_model.py and check_postgres.py).
+
+**Computations too large for rows** (millions of windows, onsets in the hundreds) stay Python, as
+before, but their per-object results enter as `AcceleratorClaims`-style rows the model rechecks on
+objects it computes itself, and the claim's status stays a report (`IsModelDecided` = 0). Steps 0
+to 6 below are that classic loop:
 
 0. The loop is added to Loops as `RUNNING` and built, so the explorer shows it in progress.
 1. State the hypothesis as an Assertion (status OPEN) with its Dependencies.

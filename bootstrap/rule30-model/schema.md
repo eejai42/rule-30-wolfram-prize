@@ -23,9 +23,10 @@ CellStates ──< SeedCells >── InitialConditions ──< Runs >── Rule
                   Tolerances ──< ToleranceChecks >── Cells
                   AcceleratorClaims >── Cells, Evidence
 
-Variables ──< Quantifiers >── Predicates ──< PredicateInstances >── RuleTableEntries | Runs |
-                                   │                                PeriodTests | Cells |
-                                   └──< Assertions (the ledger)     Tolerances | Algorithms
+Operators, Variables ──< Terms (self: Arg1..Arg4) ──< Predicates ──< PredicateInstances >── RuleTableEntries | Runs |
+                                                       │          PeriodicityCandidates | MismatchWindows | Cells |
+                                                       │          LeftConsistencyChecks | TailCandidates | Tolerances | Algorithms
+                                                       └──< Assertions (the ledger reads EffectiveStatus)
 ```
 
 | Area | Table | One row is | Key derived fields |
@@ -41,18 +42,25 @@ Variables ──< Quantifiers >── Predicates ──< PredicateInstances >─
 | | Columns | one position i | BlackCount, Density |
 | | Cells | x(i, t) | Value, TransitionKey, ColumnOnes, ColumnDensity, Discrepancy, RunStart, RunBound |
 | Problem 1 | Periods | a period p | — |
-| | PeriodTests | (column, p) | LastMismatchTime (witness), LongestAgreementStreak, FirstSurvivingOnset, BoundedRefutationHolds |
-| | PeriodComparisons | c(t) vs c(t + p) | IsMismatch, AgreementStreak |
+| | PeriodTests | (column, p), columns 0 and 1 | LastMismatchTime, LongestAgreementStreak, RefutedCandidateCount |
+| | PeriodicityCandidates | "column i is p-periodic from onset T" | IsMismatch, FirstMismatchFrom (the witness, via the chain to T + 1), IsRefuted, InBoundedDomain |
+| | MismatchWindows | Theorem C at (T, p) | CenterInWindow, NeighborInWindow, WindowHolds |
+| | LeftConsistencyChecks | TX at time t | IsOneTime, ForcedNext, IsConsistent |
+| | PeriodicWords, WordLetters, WordShifts, WordShiftChecks | a tail word, its letters and rotations | LeastPeriod, IsPrimitive, IsNonconstant, IsInB9Domain, MaxKillExcess |
+| | TailCandidates | real prefix to T, then a a a ... | KillTime (witness), IsKilled, KillExcess |
+| | TailCenterTerms, TailCells, TailChecks | c'(t), the left half x'(i, t) it drives, the one-time check | Value, IsViolation, FirstViolationFrom |
 | Problem 2 | Tolerances | a margin ε | LastExcursionTime (witness), SettledAtHorizon |
 | | ToleranceChecks | (ε, prefix) | IsExcursion |
 | | ColorCounts | (column, color) | OccurrenceCount, Share |
 | Problem 3 | MachineModels | what a step is | — |
 | | Algorithms | a way to compute c(n) | IsAdmissible, RatioAtHorizon, IsRatioGrowing |
 | | Computations | machine[m][n] = {v, t} | OutputValue, Effort, EffortRatio |
-| Logic | Variables | t, i, p, T, N, ε, n, m, … | QuantifierCount |
-| | Predicates | a definition, theorem or prize problem | UnboundedQuantifierCount, IsFinitelyDecidable, InstanceCount, FailingCount, FiniteVerdict |
-| | Quantifiers | one ∀ / ∃ / ¬∃ / lim | IsUnbounded |
-| | PredicateInstances | one bounded instance | Holds (read from the deciding row) |
+| Logic | Variables | t, i, p, T, N, ε, n, m, a, … | BinderCount |
+| | Operators | ForAll, ==, c, x, rule30, cTail, … | UseCount |
+| | Terms | one node of a formal statement | Rendered (the statement written out), BinderCount, UnboundedBinderCount |
+| | Predicates | a definition, theorem, bridge obligation, hypothesis or prize problem | Formal, IsFinitelyDecidable, InstanceCount, FailingCount, IsRefuted, IsVerified, FiniteVerdict |
+| | PredicateInstances | one bounded instance | InDomain, Holds, Witness (read from the deciding row) |
+| Ledger | Assertions (bridge fields) | a claim | IsModelLinked, ModelVerdict, EffectiveStatus, IsModelDecided, IsModelContradicted |
 | Outside | AcceleratorClaims | an optimizer's claimed cell value | IsMatch |
 
 Toolchain shape notes (why some things are rows): COUNTIFS-family criteria compare against a

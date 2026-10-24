@@ -222,7 +222,7 @@ def consume(book, assertion_ids) -> dict:
     out = {}
     for aid in assertion_ids:
         r = row(book, 'Assessments', aid)
-        out[aid] = {k: r[k] for k in ('ReportedStatus', 'CurrentStatus', 'BlockedCount', 'ProofBlockedCount', 'ProofEligible', 'SupportCount', 'EvidenceGap') if k in r}
+        out[aid] = {k: r[k] for k in ('ReportedStatus', 'EffectiveStatus', 'IsModelDecided', 'CurrentStatus', 'BlockedCount', 'ProofBlockedCount', 'ProofEligible', 'SupportCount', 'EvidenceGap') if k in r}
     out['_dashboard'] = dict(rows(book, 'Dashboards')[0])
     return out
 
@@ -246,10 +246,30 @@ def finish_loop(book, loop_id, summary, input_hash, receipt, output_hash):
               'Summary': summary, 'FinishedAt': _now()})
 
 
-def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path) -> dict:
+def record_model_outcomes(book, loop_id, aids) -> list[str]:
+    """After a build: a Revision for each claim whose status the model decided differently from its report.
+
+    The status itself is never typed: Assertions.EffectiveStatus is computed from the claim's predicate.
+    The revision only records, in the loop that caused it, what the build decided and why.
+    """
+    made = []
+    for aid in aids:
+        a = row(book, 'Assertions', aid)
+        if a.get('EffectiveStatus') and a['EffectiveStatus'] != a['ReportedStatus']:
+            n = 1 + sum(1 for r in rows(book, 'Revisions') if r['Assertion'] == aid)
+            rows(book, 'Revisions').append({'RevisionId': f'revision-{aid}-{n}', 'Assertion': aid, 'PriorStatus': a['ReportedStatus'],
+                                            'NewStatus': a['EffectiveStatus'], 'Reason': f"decided by the model ({a['Predicate']}): {a['ModelVerdict']}",
+                                            'Replacement': '', 'Loop': loop_id})
+            made.append(aid)
+    return made
+
+
+def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path, summarize=None) -> dict:
     """The whole loop: start (RUNNING) -> edit -> build -> consume -> finish (VERIFIED) -> build.
 
     `edit(book)` applies this loop's hub changes and returns a one-paragraph summary.
+    A model-native loop passes `summarize(book)` instead of writing its outcome into `edit`: it runs on
+    the built rulebook, records the model's decisions as Revisions and returns the summary.
     Returns the consumed compiled values, also written to outdir/consumed.json.
     """
     global CURRENT_LOOP
@@ -280,6 +300,9 @@ def run_loop(loop_id: str, hypothesis: str, edit, consume_ids, outdir: Path) -> 
     consumed['_input_hash'] = input_hash
     consumed['_output_hash'] = output_hash
     (outdir / 'consumed.json').write_text(json.dumps(consumed, indent=1) + '\n')
+    if summarize:
+        record_model_outcomes(book, loop_id, consume_ids)
+        summary = f'{summary} {summarize(book)}'.strip()
     finish_loop(book, loop_id, summary, input_hash, receipt, output_hash)
     save(book)
     receipt2 = build()

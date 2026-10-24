@@ -61,7 +61,22 @@ eq('S14 cells', run['CellCount'], S['S14_cells'])
 eq('S14 black cells', run['BlackCellCount'], S['S14_black_cells'])
 eq('S14 accelerator mismatches', T['Dashboards']['Rule30']['ConformanceMismatchCount'], 0)
 eq('light cone exact', run['IsLightConeExact'], 1)
+for w, lp in S['S15_least_periods'].items():
+    eq(f'S15 least period {w}', T['PeriodicWords'][f'w{w}']['LeastPeriod'], lp)
+eq('S16 TX violations', sum(1 - r['IsConsistent'] for r in T['LeftConsistencyChecks'].values()), S['S16_tx_violations'])
+eq('S17 Theorem C windows', len(T['MismatchWindows']), S['S17_tc_windows'])
+eq('S17 Theorem C failures', sum(1 - r['WindowHolds'] for r in T['MismatchWindows'].values()), S['S17_tc_failures'])
+eq('S17 windows with a center witness', sum(r['CenterInWindow'] for r in T['MismatchWindows'].values()), S['S17_tc_center_witnesses'])
+for key, want in S['S18_first_mismatch_sample'].items():
+    i, p, onset = key.split('-')
+    eq(f'S18 first mismatch {key}', T['PeriodicityCandidates'][f'{RUN}-p{int(i):+04d}-{p}-{onset}']['FirstMismatchFrom'], want)
+for key, want in S['S19_tail_kill_times'].items():
+    eq(f'S19 kill time {key}', T['TailCandidates'][f'tail-{key}']['KillTime'], want)
+for a in book['Assertions']['data']:
+    if a.get('IsModelContradicted'):
+        fails.append(f"ledger: {a['AssertionId']} is reported {a['ReportedStatus']} but the model refutes it")
 
 print('\n'.join(fails) if fails else 'all scenarios match')
 print({p: (r['FiniteVerdict'], r['IsFinitelyDecidable']) for p, r in T['Predicates'].items()})
+print({a['AssertionId']: (a['ReportedStatus'], a['EffectiveStatus']) for a in book['Assertions']['data'] if a.get('IsModelLinked')})
 sys.exit(1 if fails else 0)

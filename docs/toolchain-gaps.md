@@ -13,6 +13,8 @@
 | 9. compile-rulebook uses floats, Postgres NUMERIC: they disagree at exact boundaries | Open (compare in integers) |
 | 10. a lookup through an empty reference: compile-rulebook evaluates the target formula on a blank row, Postgres returns NULL | Open (do not read such values) |
 | 11. a row-level cycle in a self-referencing table (A points at B, B at A) leaves every chained field NULL in Postgres | Open (keep self-references one-directional) |
+| 12. MAXIFS/MINIFS over an empty set: blank in compile-rulebook, 0 in Postgres | Open (guard with a COUNTIFS) |
+| 13. minimize-rulebook runs out of memory on a ~17 MB rulebook; rulebook-to-xlsx fails in the editor at ~11 MB | Open (keep generated rows lean) |
 
 Goal (project rule): everything is in the rulebook, and running the full rulebook gives the right
 answer. Python is allowed only as an optimizer for large pieces, checked against the rulebook.
@@ -130,4 +132,19 @@ so with every row in a 2-cycle nothing settled and `OutputValue` (which does not
 partner) came back NULL on all 32 rows. compile-rulebook computed them. Workaround: partners point
 one way only (white left cell -> black left cell), so the row graph is a DAG, as the conventions
 require.
+
+## 12. Empty MAXIFS / MINIFS
+
+`PeriodicWords.MaxKillExcess = MAXIFS(TailCandidates!{{KillExcess}}, ..., IsKilled, 1)` has no
+matching rows for the words 00, 11, 000, 111 (their tails are spelled 0 and 1). compile-rulebook
+leaves it blank, Postgres returns 0. Workaround: aggregate into a raw field and read it through
+`IF(<count> > 0, <aggregate>, <sentinel>)`.
+
+## 13. Size limits
+
+With the B9 tail lattices at 14 words x 12 onsets x margin 14 the rulebook reached 17.7 MB after
+compile, and the remote minimize-rulebook failed with `System.OutOfMemoryException`. At 10 tails x
+10 onsets x margin 12 it is 11.5 MB and builds, but the editor's rulebook-to-xlsx step fails (the
+rest of the editor build succeeds). Generated lattices are the bulk; keep their keys short and their
+instance sets to one candidate per distinct object.
 
