@@ -10,3 +10,8 @@ data/
 # rulebook-to-postgres output that the rulebook already carries, or that is machine-local
 postgres/05-insert-data.sql
 postgres/.applied-manifest.json
+
+# The Rule 30 Prize kit checkout (research/sources/sync.py clones it; its commit is pinned in the rulebook)
+external/
+# Lean build output of the generated ledger module
+lean/.out/

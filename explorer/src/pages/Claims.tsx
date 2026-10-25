@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
-import { byId, num, useRows, type Row } from '../data';
+import { byId, num, useRows, useTable, type Row } from '../data';
 import { CardLink, ClaimLink, D, Group, LoopState, Section, fileHref, proofLink, useFlash } from '../ui';
 
-const KINDS = ['Prize problem', 'Bridge obligation', 'Theorem', 'Known result', 'Definition', 'Finite check', 'Hypothesis'];
+const KINDS = ['Prize problem', 'Bridge obligation', 'Theorem', 'Known result', 'Definition', 'Finite check', 'Hypothesis', 'Kit case', 'Kit open statement', 'Lean result', 'Equivalent form'];
 const GROUPS = ['Proved', 'Checked', 'Open', 'Falsified', 'Superseded'];
 
 function ClaimCard({ a, counts }: { a: Row; counts?: Row }) {
@@ -40,10 +40,13 @@ export function ClaimsPage() {
     if (v) next.set(k, v); else next.delete(k);
     setParams(next, { replace: true });
   };
+  const src = params.get('src') ?? '';
+  const own = useMemo(() => new Set(assertions.filter((a) => num(a.is_own_claim) === 1).map((a) => a.assertion_id)), [assertions]);
   const rows = useMemo(() => assessments
     .filter((a) => (!kind || a.kind === kind) && (!group || a.status_group === group))
+    .filter((a) => !src || (src === 'own') === own.has(a.assessment_id))
     .filter((a) => !q || `${a.assessment_id} ${a.statement}`.toLowerCase().includes(q))
-    .sort((x, y) => KINDS.indexOf(x.kind) - KINDS.indexOf(y.kind)), [assessments, kind, group, q]);
+    .sort((x, y) => KINDS.indexOf(x.kind) - KINDS.indexOf(y.kind)), [assessments, kind, group, q, src, own]);
 
   return (
     <div className="page">
@@ -56,6 +59,9 @@ export function ClaimsPage() {
       <div className="chips">
         <button className={!kind ? 'chip on' : 'chip'} onClick={() => set('kind', '')}>Any kind</button>
         {KINDS.map((k) => <button key={k} className={kind === k ? 'chip on' : 'chip'} onClick={() => set('kind', kind === k ? '' : k)}>{k}</button>)}
+      </div>
+      <div className="chips">
+        {[['', 'Ours and the kit\'s'], ['own', 'Ours'], ['kit', 'The kit\'s']].map(([v, l]) => <button key={v} className={(params.get('src') ?? '') === v ? 'chip on' : 'chip'} onClick={() => set('src', v)}>{l}</button>)}
       </div>
       <p className="muted small">{rows.length} of {assessments.length} claims</p>
       <div className="grid">{rows.map((a) => <ClaimCard key={a.assessment_id} a={a} counts={byId(assertions, 'assertion_id', a.assessment_id)} />)}</div>
@@ -117,6 +123,55 @@ function ModelSection({ a }: { a: Row }) {
   );
 }
 
+function LeanSection({ a }: { a: Row }) {
+  const checks = useTable('LeanChecks').filter((c) => c.assertion === a.assertion_id);
+  const links = useTable('ClaimLinks').filter((l) => l.assertion === a.assertion_id);
+  if (!a.lean_statement && !a.lean_module && !a.lean_declaration && !links.length) return null;
+  return (
+    <Section title="In Lean">
+      <div className="card">
+        <dl className="kv">
+          <dt>Status rests on</dt><dd><D f="Assertions.ProofBasis" className="mono">{a.proof_basis}</D></dd>
+          {a.lean_module && <><dt>Kit module</dt><dd><a href={a.lean_module_url} target="_blank" rel="noreferrer" className="mono">{a.lean_module}</a> <D f="Assertions.LeanModuleIsVerified" className={`pill ${num(a.lean_module_is_verified) ? 'g-proved' : 'g-falsified'}`}>{num(a.lean_module_is_verified) ? 'verified here' : 'not verified here'}</D></dd></>}
+          {a.lean_declaration && <><dt>Lean declaration</dt><dd className="mono small">{a.lean_declaration}</dd></>}
+          {num(a.is_own_claim) === 1 && <><dt>Known in the kit</dt><dd><D f="Assertions.IsKnownInKit">{num(a.is_known_in_kit) ? 'yes: not new against the catalog' : 'no'}</D></dd></>}
+        </dl>
+        {a.lean_declaration_statement && <pre className="formal"><D f="Assertions.LeanDeclarationStatement">{a.lean_declaration_definition ? `${a.lean_declaration_statement} := ${a.lean_declaration_definition}` : a.lean_declaration_statement}</D></pre>}
+        {a.lean_statement ? (
+          <>
+            <div className="eyebrow">Lean statement, written by the build from the term tree</div>
+            <pre className="formal"><D f="Assertions.LeanStatement">{a.lean_statement}</D></pre>
+          </>
+        ) : num(a.is_own_claim) === 1 && <p className="muted small">No Lean statement yet: an operator or variable of its term tree has no Lean meaning (research/model_tools.py, LEAN).</p>}
+        {checks.map((c) => (
+          <div key={c.lean_check_id} className="meta">
+            <span className="mono">{c.theorem}</span>{' '}
+            <D f="LeanChecks.Ok" className={`pill ${num(c.ok) ? 'g-proved' : 'g-open'}`}>{num(c.ok) ? 'kernel-checked' : num(c.elaborates) ? (num(c.has_proof) ? 'proof fails' : 'open in Lean') : 'statement rejected'}</D>
+            {num(c.is_current) === 0 && <D f="LeanChecks.IsCurrent" className="pill g-superseded">stale: the statement changed</D>}
+            {c.target && <span className="muted small"> ↔ {c.target}</span>}
+            {c.problems && <div className="muted small">{c.problems}</div>}
+            <div className="muted small">kit {String(c.kit_commit).slice(0, 10)} · {c.checked_at} · axioms {c.axioms || 'none'}</div>
+          </div>
+        ))}
+        {links.length > 0 && (
+          <>
+            <div className="eyebrow">The kit on this claim</div>
+            <ul className="list">
+              {links.map((l) => (
+                <li key={l.claim_link_id}>
+                  <span className="path-role">{l.relation}</span> <a href={l.declaration_url} target="_blank" rel="noreferrer" className="mono small">{String(l.declaration).replace('Ruliology.CellularAutomata.', '')}</a>
+                  <div className="muted small">{l.note}</div>
+                  <pre className="formal small"><D f="ClaimLinks.DeclarationStatement">{l.declaration_statement}</D></pre>
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    </Section>
+  );
+}
+
 export function ClaimPage() {
   const { id = '' } = useParams();
   const a = byId(useRows('Assertions'), 'assertion_id', id);
@@ -166,6 +221,7 @@ export function ClaimPage() {
       </div>
 
       <ModelSection a={a} />
+      <LeanSection a={a} />
       {blockers.length > 0 && (
         <Section title="Blocked by">
           <ul className="list">{blockers.map((p) => mini(p.premise))}</ul>

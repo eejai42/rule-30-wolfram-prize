@@ -3,6 +3,7 @@
 #   ./start.sh          start the editor container if it is not answering, then (re)start the explorer
 #   ./start.sh editor   force-restart the editor container too
 #   ./start.sh build    build with caches (research/build.py)
+#   ./start.sh sync     sync the live Rule 30 Prize challenge (kit, verifier, submissions), then build
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT"
@@ -19,9 +20,10 @@ start_editor() {
 
 case "${1:-}" in
   build) python3 research/build.py; exit ;;
+  sync) python3 research/sources/sync.py; exit ;;
   editor) start_editor ;;
   "") curl -sf -m 3 "http://localhost:${EDITOR_API_PORT}/api/health" >/dev/null || start_editor ;;
-  *) echo "Usage: ./start.sh [editor|build]" >&2; exit 1 ;;
+  *) echo "Usage: ./start.sh [editor|build|sync]" >&2; exit 1 ;;
 esac
 
 pids=$(lsof -ti "tcp:${EXPLORER_PORT}" 2>/dev/null || true)

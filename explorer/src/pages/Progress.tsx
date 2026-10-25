@@ -66,6 +66,12 @@ export default function Progress() {
 
   return (
     <div className="page">
+      <Link to="/challenge" className="banner ok-banner challenge-banner">
+        <b>The Rule 30 Prize, in Lean</b> · <D f="Dashboards.KitModuleCount">{num(dash.kit_module_count)}</D> kit modules,{' '}
+        <D f="Dashboards.SubmissionCount">{num(dash.submission_count)}</D> submissions,{' '}
+        <D f="Dashboards.OwnLeanVerifiedCount">{num(dash.own_lean_verified_count)}</D> of our claims kernel-checked,{' '}
+        <D f="Dashboards.OwnKnownInKitCount">{num(dash.own_known_in_kit_count)}</D> already in the kit →
+      </Link>
       <PathHero />
       <div className="hero">
         <div className="hero-big"><D f="Dashboards.OpenPrizeProblemCount">{num(dash.open_prize_problem_count)}</D> of {prize.length}</div>

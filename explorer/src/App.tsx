@@ -7,9 +7,11 @@ import { LoopPage, LoopsPage } from './pages/Loops';
 import { ClaimPage, ClaimsPage } from './pages/Claims';
 import Graph from './pages/Graph';
 import FileView from './pages/FileView';
+import Challenge from './pages/Challenge';
 
 const NAV = [
   { to: '/', label: 'Progress', end: true },
+  { to: '/challenge', label: 'Challenge' },
   { to: '/loops', label: 'Loops' },
   { to: '/claims', label: 'Claims' },
   { to: '/graph', label: 'Graph' },
@@ -59,6 +61,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<Progress />} />
+          <Route path="/challenge" element={<Challenge />} />
           <Route path="/loops" element={<LoopsPage />} />
           <Route path="/loops/:id" element={<LoopPage />} />
           <Route path="/claims" element={<ClaimsPage />} />

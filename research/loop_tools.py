@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 EDITOR_API = 'http://localhost:42441'   # effortless-rulebook/ports.env
 RULEBOOK = ROOT / 'effortless-rulebook' / 'effortless-rulebook.json'
 CURRENT_LOOP = ''   # set by run_loop; tags new claims and revisions with the loop that made them
-USABLE = {'DEFINITION', 'PROVED_HUMAN_READABLE', 'REDERIVED_KNOWN', 'FINITE_VERIFIED'}
+USABLE = {'DEFINITION', 'PROVED_HUMAN_READABLE', 'REDERIVED_KNOWN', 'LEAN_VERIFIED', 'FINITE_VERIFIED'}
 ALLOWED = USABLE | {'FALSIFIED', 'OPEN', 'SUPERSEDED'}
 
 
@@ -240,11 +240,23 @@ def _effortless_build() -> tuple[int, str]:
     return versions, log
 
 
-def build() -> dict:
-    """Clear the caches, `effortless build`, fill the caches from that compile, build again.
+def lean_refresh(book) -> tuple[str, bool]:
+    """Write lean/Rule30Ledger.lean from the compiled rulebook and check it against the kit, when it or the
+    kit changed (research/lean/ledger.py). Returns (receipt line, whether LeanChecks changed)."""
+    sys.path.insert(0, str(ROOT / 'research' / 'lean'))
+    sys.path.insert(0, str(ROOT / 'research' / 'hub'))
+    import ledger
+    before = json.dumps(book.get('LeanChecks', {}).get('data', []), sort_keys=True)
+    msg = ledger.refresh(book)
+    return msg, json.dumps(book.get('LeanChecks', {}).get('data', []), sort_keys=True) != before
 
-    Returns a receipt (never a value). The second build compiles with the caches set, so it yields
-    the same values and regenerates every spoke from the cached rulebook.
+
+def build() -> dict:
+    """Clear the caches, `effortless build`, check the Lean ledger, fill the caches from a fresh compile, build again.
+
+    Returns a receipt (never a value). When the Lean check changed LeanChecks, the rulebook is compiled once
+    more (caches still clear) before they are filled, so a cache always equals its fresh value. The last
+    build compiles with the caches set, so it yields the same values and regenerates every spoke.
     """
     t0 = time.time()
     book = load()
@@ -253,10 +265,17 @@ def build() -> dict:
     RULEBOOK.write_text(_dump_single_line_leaves(book))
     versions, log = _effortless_build()
     book = load()
+    lean, changed = lean_refresh(book)
+    if changed:
+        clear_caches(book)
+        RULEBOOK.write_text(_dump_single_line_leaves(book))
+        _, log_lean = _effortless_build()
+        log += log_lean
+        book = load()
     filled = fill_caches(book)
     RULEBOOK.write_text(_dump_single_line_leaves(book))
     _, log2 = _effortless_build()
-    receipt = {'exit': 0, 'seconds': round(time.time() - t0, 1), 'versions': versions, 'cached_rows': filled,
+    receipt = {'exit': 0, 'seconds': round(time.time() - t0, 1), 'versions': versions, 'cached_rows': filled, 'lean': lean,
                'log_sha256': hashlib.sha256((log + log2).encode()).hexdigest()}
     receipt['editor'] = refresh_editor()
     return receipt
@@ -334,9 +353,10 @@ def record_model_outcomes(book, loop_id, aids) -> list[str]:
         a = row(book, 'Assertions', aid)
         if a.get('EffectiveStatus') and a['EffectiveStatus'] != a['ReportedStatus']:
             n = 1 + sum(1 for r in rows(book, 'Revisions') if r['Assertion'] == aid)
+            reason = (f"verified in Lean: the kit's Check.lean accepts a proof of its Lean statement (lean/Rule30Ledger.lean)"
+                      if a.get('ProofBasis') == 'Lean' else f"decided by the model ({a['Predicate']}): {a['ModelVerdict']}")
             rows(book, 'Revisions').append({'RevisionId': f'revision-{aid}-{n}', 'Assertion': aid, 'PriorStatus': a['ReportedStatus'],
-                                            'NewStatus': a['EffectiveStatus'], 'Reason': f"decided by the model ({a['Predicate']}): {a['ModelVerdict']}",
-                                            'Replacement': '', 'Loop': loop_id})
+                                            'NewStatus': a['EffectiveStatus'], 'Reason': reason, 'Replacement': '', 'Loop': loop_id})
             made.append(aid)
     return made
 

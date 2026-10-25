@@ -79,6 +79,28 @@ KIND = {oid: kind for oid, _, kind, _, _ in OPERATORS}
 _syms = [sym for _, sym, kind, _, _ in OPERATORS if kind not in ('var', 'const')]
 assert len(_syms) == len(set(_syms)), 'operator symbols must be unique'
 
+# The Lean meaning of an operator: (LeanForm, LeanSymbol). LeanForm says how Terms.LeanRendered writes a
+# term (forall, exists, notexists, infix, prefix, apply, atom); the symbol is Lean syntax, or a function of
+# the prelude in research/lean/ledger.py (c, x, y, w, rule30, ... defined from the kit's cell, R and D).
+# An operator missing here has no Lean meaning yet: a statement using it gets no Lean statement, the way an
+# unmodeled operator makes a statement uncomputable.
+LEAN = {
+    'for-all': ('forall', '∀'), 'exists': ('exists', '∃'), 'not-exists': ('notexists', '¬∃'),
+    'and': ('infix', '∧'), 'or': ('infix', '∨'), 'implies': ('infix', '→'), 'iff': ('infix', '↔'),
+    'eq': ('infix', '='), 'neq': ('infix', '≠'), 'le': ('infix', '≤'), 'lt': ('infix', '<'), 'ge': ('infix', '≥'), 'gt': ('infix', '>'),
+    'plus': ('infix', '+'), 'minus': ('infix', '-'), 'times': ('infix', '*'), 'divide': ('infix', '/'), 'divides': ('infix', '∣'),
+    'not': ('prefix', '¬'),
+    'c': ('apply', 'c'), 'x': ('apply', 'x'), 'y': ('apply', 'y'), 'w': ('apply', 'w'), 'rule30': ('apply', 'rule30'),
+    'mod': ('apply', 'Mod'), 'power': ('apply', 'Power'), 'max': ('apply', 'max'), 'xor': ('apply', 'bxor'), 'or-bit': ('apply', 'bor'),
+    'diag-period': ('apply', 'P'), 'doubles': ('apply', 'Eps'),
+    'true': ('atom', 'True'),
+    'var': ('var', ''), 'const': ('const', ''),
+}
+# Lean types of the variables (Variables.LeanType). Left out: no Lean meaning yet (words, rows, windows, ...).
+LEAN_TYPES = {'time': 'Nat', 'position': 'Int', 'period': 'Nat', 'onset': 'Nat', 'prefix-length': 'Nat', 'index': 'Nat',
+              'left-bit': 'Nat', 'center-bit': 'Nat', 'right-bit': 'Nat', 'run-end': 'Nat', 'offset': 'Nat', 'offset-j': 'Nat',
+              'index-i': 'Nat', 'window-length': 'Nat', 'width': 'Nat', 'constant-c': 'Nat', 'index-n0': 'Nat'}
+
 
 def term_rows(prefix: str, tree, loop: str = '') -> tuple[str, list[dict]]:
     """Rows for one term tree, numbered in preorder. Returns (root term id, rows)."""

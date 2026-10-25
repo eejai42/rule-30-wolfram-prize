@@ -828,8 +828,11 @@ book['Variables'] = table(
         F('DomainTable', desc='The table whose rows are its values in the model (finite there).'),
         F('IsUnboundedInProblem', 'integer', desc='1 when its domain in the problem is infinite.', nullable=False),
         AGG('BinderCount', '=COUNTIFS(Terms!{{Variable}},{{VariableId}},Terms!{{OpKind}},"binder")', 'Quantifiers binding it, across all predicates.'),
+        F('LeanType', desc='Its type in Lean (Nat, Int); empty while it has no Lean meaning (words, rows, windows).'),
+        F('IsLeanTyped', 'integer', desc='1 when the variable has a Lean type.', nullable=False),
     ],
-    [{'VariableId': v, 'Symbol': s, 'Meaning': m, 'DomainTable': d, 'IsUnboundedInProblem': u} for v, s, m, d, u in VARS])
+    [{'VariableId': v, 'Symbol': s, 'Meaning': m, 'DomainTable': d, 'IsUnboundedInProblem': u, 'LeanType': mt.LEAN_TYPES.get(v, ''),
+      'IsLeanTyped': int(v in mt.LEAN_TYPES)} for v, s, m, d, u in VARS])
 
 book['Operators'] = table(
     'The symbols formal statements are built from: binders (quantifiers, limits), connectives, relations, arithmetic and the functions of the model (c, x, rule30, cTail, ...).',
@@ -839,8 +842,12 @@ book['Operators'] = table(
         F('Arity', 'integer', desc='Number of arguments (a binder has two: its condition and its body).', nullable=False),
         F('IsModeled', 'integer', desc='1 when the model computes this operator (a table or field gives it its value); 0 when it is only a named symbol so far.', nullable=False),
         AGG('UseCount', '=COUNTIFS(Terms!{{TermOperator}},{{OperatorId}})', 'Terms using it.'),
+        F('LeanForm', desc='How Terms.LeanRendered writes a term with this operator: forall, exists, notexists, infix, prefix, apply, atom, var, const. Empty while the operator has no Lean meaning.'),
+        F('LeanSymbol', desc='The operator in Lean: syntax, or a function of the prelude in research/lean/ledger.py.'),
+        F('IsLeanDefined', 'integer', desc='1 when the operator has a Lean meaning.', nullable=False),
     ],
-    [{'OperatorId': o, 'Symbol': s, 'Kind': k, 'Arity': a, 'IsModeled': m} for o, s, k, a, m in mt.OPERATORS])
+    [{'OperatorId': o, 'Symbol': s, 'Kind': k, 'Arity': a, 'IsModeled': m, 'LeanForm': mt.LEAN.get(o, ('', ''))[0],
+      'LeanSymbol': mt.LEAN.get(o, ('', ''))[1], 'IsLeanDefined': int(o in mt.LEAN)} for o, s, k, a, m in mt.OPERATORS])
 
 ARGS = ('Arg1', 'Arg2', 'Arg3', 'Arg4')
 book['Terms'] = table(
@@ -868,6 +875,15 @@ book['Terms'] = table(
         CALC('IsUnboundedBinder', '=IF(AND({{OpKind}}="binder",{{VarUnbounded}}=1,{{BoundsVariable}}=0),1,0)', '1 for a quantifier over an infinite domain.'),
         CALC('IsBinder', '=IF({{OpKind}}="binder",1,0)', '1 for a quantifier (or another binder).'),
         CALC('IsUnmodeledOperator', '=IF({{OpIsModeled}}=1,0,1)', '1 when the model does not compute this operator yet.'),
+        LK('OpLeanForm', 'Operators', 'TermOperator', 'OperatorId', 'LeanForm', 'How the term is written in Lean.', 'string'),
+        LK('OpLeanSymbol', 'Operators', 'TermOperator', 'OperatorId', 'LeanSymbol', 'The operator in Lean.', 'string'),
+        LK('VarLeanType', 'Variables', 'Variable', 'VariableId', 'LeanType', "The variable's Lean type.", 'string'),
+        LK('OpIsLean', 'Operators', 'TermOperator', 'OperatorId', 'IsLeanDefined', '1 when the operator has a Lean meaning.'),
+        LK('VarIsLean', 'Variables', 'Variable', 'VariableId', 'IsLeanTyped', '1 when the variable has a Lean type.'),
+    ] + [LK(f'{a}Lean', 'Terms', a, 'TermId', 'LeanRendered', f'{a} written in Lean.', 'string') for a in ARGS] + [
+        CALC('LeanRendered', '=IF({{OpLeanForm}}="var",{{VarSymbol}},IF({{OpLeanForm}}="const",IF({{Constant}}<0,CONCAT("(",{{Constant}},")"),CONCAT("",{{Constant}})),IF({{OpLeanForm}}="atom",{{OpLeanSymbol}},IF({{OpLeanForm}}="forall",CONCAT("(∀ ",{{VarSymbol}}," : ",{{VarLeanType}},", ",{{Arg1Lean}}," → ",{{Arg2Lean}},")"),IF({{OpLeanForm}}="exists",CONCAT("(∃ ",{{VarSymbol}}," : ",{{VarLeanType}},", ",{{Arg1Lean}}," ∧ ",{{Arg2Lean}},")"),IF({{OpLeanForm}}="notexists",CONCAT("(¬∃ ",{{VarSymbol}}," : ",{{VarLeanType}},", ",{{Arg1Lean}}," ∧ ",{{Arg2Lean}},")"),IF({{OpLeanForm}}="infix",CONCAT("(",{{Arg1Lean}}," ",{{OpLeanSymbol}}," ",{{Arg2Lean}},")"),IF({{OpLeanForm}}="prefix",CONCAT("(",{{OpLeanSymbol}},{{Arg1Lean}},")"),IF({{OpLeanForm}}="apply",CONCAT("(",{{OpLeanSymbol}}," ",{{Arg1Lean}},IF({{OpArity}}>=2,CONCAT(" ",{{Arg2Lean}}),""),IF({{OpArity}}>=3,CONCAT(" ",{{Arg3Lean}}),""),IF({{OpArity}}>=4,CONCAT(" ",{{Arg4Lean}}),""),")"),"")))))))))',
+             'The term written in Lean, computed from the tree over the prelude of research/lean/ledger.py; empty when an operator or variable has no Lean meaning yet.', 'string'),
+        CALC('IsLeanless', '=IF({{OpIsLean}}=0,1,IF(AND(OR({{OpLeanForm}}="var",{{OpKind}}="binder"),{{VarIsLean}}=0),1,0))', '1 when this node has no Lean meaning yet (its operator, or the type of its variable).'),
     ],
     [])
 
@@ -892,7 +908,7 @@ PREDS = [
      'From the single seed under a quiescent rule, every cell outside the light cone is white.',
      'One instance per run: the run satisfies the conditions that make the cone exact.'),
     ('pr-p1-non-periodic', 'P1', 'PeriodTest', 0,
-     ('NotExists', 'period', ('>=', p_, K(1)), ('NotExists', 'onset', ('>=', T_, K(0)), ('ForAll', 'time', ('>=', t_, T_), ('==', c(pl(t_, p_)), c(t_))))),
+     ('NotExists', 'period', ('>=', p_, K(1)), ('Exists', 'onset', ('>=', T_, K(0)), ('ForAll', 'time', ('>=', t_, T_), ('==', c(pl(t_, p_)), c(t_))))),
      'Problem 1: the center column is not eventually periodic.',
      'One instance per period p <= %d: every candidate (p, T) with T <= (depth - p)/2 has a witness t >= T with c(t + p) != c(t) inside the horizon (the witnesses are PeriodicityCandidates.FirstMismatchFrom).' % MAX_PERIOD),
     ('pr-k1-not-constant', 'Known result', 'PeriodTest', 0,
@@ -1039,6 +1055,10 @@ book['Predicates'] = table(
         CALC('IsVerified', '=IF(AND({{IsFinitelyDecidable}}=1,{{CoversDomain}}=1,{{InstanceCount}}>0,{{FailingCount}}=0),1,0)', '1 when the statement is finite, its instances cover its domain and every one holds: the model decides it true.'),
         CALC('FiniteVerdict', '=IF({{InstanceCount}}=0,"NO INSTANCES",IF({{FailingCount}}=0,"HOLDS ON EVERY INSTANCE",IF({{FailureRefutes}}=1,CONCAT("REFUTED BY ",{{FailingCount}}," OF ",{{InstanceCount}}," INSTANCES"),CONCAT({{FailingCount}}," OF ",{{InstanceCount}}," UNDECIDED AT THE HORIZON"))))', 'What the model says about the bounded instances.', 'string'),
         AGG('AssertionCount', '=COUNTIFS(Assertions!{{Predicate}},{{PredicateId}})', 'Ledger claims about this predicate.'),
+        AGG('LeanlessTermCount', '=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsLeanless}},1)', 'Nodes of the statement with no Lean meaning yet.'),
+        CALC('IsLeanExpressible', '=IF({{LeanlessTermCount}}=0,1,0)', '1 when every node of the statement has a Lean meaning, so the build writes it in Lean.'),
+        LK('LeanRoot', 'Terms', 'RootTerm', 'TermId', 'LeanRendered', 'The root term written in Lean.', 'string'),
+        CALC('LeanStatement', '=IF({{IsLeanExpressible}}=1,{{LeanRoot}},"")', 'The statement in Lean, written by the build from the term tree; empty while some node has no Lean meaning.', 'string'),
     ],
     preds)
 
@@ -1201,6 +1221,13 @@ LINK = {'D0': 'pr-d0-setup', 'P1': 'pr-p1-non-periodic', 'P2': 'pr-p2-equal-freq
         'H21': 'pr-h21-agreement-44', 'TQ': 'pr-tq-agreement-runs'}
 LINK.update({aid: pid for pid, _, aid, *_ in fc.CLAIMS})
 LINK.update({aid: pid for pid, _, aid, *_ in fc.DECIDED})
+# ============================ the challenge ============================
+# The kit, the verifier, the submissions and the Lean side of every claim's status (build_challenge.py).
+# It redefines EffectiveStatus and the fields that read it to know LEAN_VERIFIED, so it runs before the caches.
+import build_challenge
+if (build_challenge.SNAP / 'kit-export.json.gz').exists():
+    print(build_challenge.apply(book))
+
 # ============================ caches on the load-bearing nodes ============================
 # Every ledger read (Assertions, Assessments, Dashboards, the explorer) goes through these fields, and
 # Postgres recomputes the whole model chain behind them on every read. Each becomes

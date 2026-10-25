@@ -88,3 +88,30 @@ export function byId(rows: Row[], key: string, id: string | undefined): Row | un
 }
 
 export const num = (v: unknown) => (v === null || v === undefined || v === '' ? 0 : Number(v));
+
+/**
+ * A table outside the 5-second poll (the challenge tables are large or change only on a sync):
+ * fetched when a screen first needs it, then every `ms`. Values are shown as the view returns them.
+ */
+const onDemand = new Map<string, { rows: Row[]; at: number; pending?: Promise<void> }>();
+export function useTable(t: string, ms = 30000): Row[] {
+  const [rows, setRows] = useState<Row[]>(onDemand.get(t)?.rows ?? []);
+  useEffect(() => {
+    let alive = true;
+    async function load() {
+      const hit = onDemand.get(t);
+      if (hit && Date.now() - hit.at < ms) { if (alive) setRows(hit.rows); return; }
+      if (hit?.pending) { await hit.pending; if (alive) setRows(onDemand.get(t)?.rows ?? []); return; }
+      const pending = fetch(`/api/tables/${t}`).then(async (r) => {
+        if (r.ok) onDemand.set(t, { rows: (await r.json()).rows as Row[], at: Date.now() });
+      }).catch(() => undefined);
+      onDemand.set(t, { rows: hit?.rows ?? [], at: hit?.at ?? 0, pending });
+      await pending;
+      if (alive) setRows(onDemand.get(t)?.rows ?? []);
+    }
+    load();
+    const id = setInterval(load, ms);
+    return () => { alive = false; clearInterval(id); };
+  }, [t, ms]);
+  return rows;
+}
