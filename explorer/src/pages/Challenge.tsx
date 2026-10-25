@@ -16,11 +16,8 @@ function ProblemCard({ id }: { id: string }) {
         {num(a.is_officially_aligned) === 1 && <D f="Assertions.IsOfficiallyAligned" className="pill g-proved">matches the official statement in Lean</D>}
       </div>
       <p className="statement">{a.statement}</p>
-      {a.lean_declaration_definition ? (
-        <>
-          <div className="eyebrow">Official Lean statement (kit)</div>
-          <pre className="formal"><D f="Assertions.LeanDeclarationDefinition">{a.lean_declaration}{' := '}{a.lean_declaration_definition}</D></pre>
-        </>
+      {a.lean_declaration ? (
+        <p className="small">Official Lean statement: <a href={a.lean_declaration_url} target="_blank" rel="noreferrer" className="mono"><D f="Assertions.LeanDeclarationUrl">{String(a.lean_declaration).replace('Ruliology.CellularAutomata.', '')}</D></a> <span className="muted">(in the kit; read it there: the kit states no license, so its text is not copied here)</span></p>
       ) : <p className="muted small">No official Lean statement: Problem 3 needs a model of computation (the kit has a reference one, Rule30Problem3).</p>}
       {a.lean_statement && (
         <>
@@ -52,12 +49,14 @@ function Sources() {
       <ul className="list">
         {sources.map((s) => (
           <li key={s.challenge_source_id}>
-            <a href={s.url} target="_blank" rel="noreferrer"><b>{s.title}</b></a> <span className="mono small">{s.challenge_source_id === 'kit' || s.challenge_source_id === 'verifier' ? short(s.version) : s.version}</span>
-            <div className="muted small">{s.role}</div>
+            <a href={s.url} target="_blank" rel="noreferrer"><b>{s.title}</b></a> <span className="mono small">{s.challenge_source_id === 'kit' || s.challenge_source_id === 'verifier' ? short(s.version) : s.version}</span>{' '}
+            <D f="ChallengeSources.AllowsRedistribution" className={`pill ${num(s.allows_redistribution) ? 'g-proved' : 'g-superseded'}`}>{s.license}</D>
+            <div className="muted small">{s.role} {s.credit && <>Credit: {s.credit}.</>}</div>
+            <div className="muted small">Kept here: {s.kept_here}</div>
           </li>
         ))}
       </ul>
-      <p className="muted small">Sync with <code>./start.sh sync</code>: it fetches every source, builds and exports the kit, and re-checks every submission's Lean source here.</p>
+      <p className="muted small">Sync with <code>./start.sh sync</code>: it fetches every source into <code>external/</code> (never committed), builds and exports the kit, and re-checks every submission's Lean source there. The repo keeps what each license allows: for the kit and the submissions, which state none, their names, links, hashes and the results of the checks.</p>
     </Section>
   );
 }
@@ -130,7 +129,7 @@ function Submissions() {
             {num(s.is_human_verified) === 1 && <span className="pill g-proved">Human Verified</span>}{' '}
             {num(s.is_kit_contribution) === 1 && <span className="pill g-checked">Kit Contribution</span>}{' '}
             {num(s.is_prize_claimed) === 1 && <span className="pill running">Prize Claimed</span>}
-            <div className="muted small">P{s.problem} · {s.claim} · {s.authors} · {String(s.submitted).slice(0, 10)} · here: <D f="Submissions.OurVerdict" className="mono">{s.our_verdict}</D>
+            <div className="muted small">P{s.problem} · {s.claim} · {s.authors} · {String(s.submitted).slice(0, 10)} · license {s.license} · {s.lean_url && <a href={s.lean_url} target="_blank" rel="noreferrer">Lean source</a>} · here: <D f="Submissions.OurVerdict" className="mono">{s.our_verdict}</D>
               {num(s.agrees_with_verifier) === 0 && <D f="Submissions.AgreesWithVerifier" className="pill g-open">differs from the verifier</D>}</div>
           </li>
         ))}

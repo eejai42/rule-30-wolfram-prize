@@ -133,10 +133,9 @@ function LeanSection({ a }: { a: Row }) {
         <dl className="kv">
           <dt>Status rests on</dt><dd><D f="Assertions.ProofBasis" className="mono">{a.proof_basis}</D></dd>
           {a.lean_module && <><dt>Kit module</dt><dd><a href={a.lean_module_url} target="_blank" rel="noreferrer" className="mono">{a.lean_module}</a> <D f="Assertions.LeanModuleIsVerified" className={`pill ${num(a.lean_module_is_verified) ? 'g-proved' : 'g-falsified'}`}>{num(a.lean_module_is_verified) ? 'verified here' : 'not verified here'}</D></dd></>}
-          {a.lean_declaration && <><dt>Lean declaration</dt><dd className="mono small">{a.lean_declaration}</dd></>}
+          {a.lean_declaration && <><dt>Lean declaration</dt><dd><a href={a.lean_declaration_url} target="_blank" rel="noreferrer" className="mono small">{a.lean_declaration}</a></dd></>}
           {num(a.is_own_claim) === 1 && <><dt>Known in the kit</dt><dd><D f="Assertions.IsKnownInKit">{num(a.is_known_in_kit) ? 'yes: not new against the catalog' : 'no'}</D></dd></>}
         </dl>
-        {a.lean_declaration_statement && <pre className="formal"><D f="Assertions.LeanDeclarationStatement">{a.lean_declaration_definition ? `${a.lean_declaration_statement} := ${a.lean_declaration_definition}` : a.lean_declaration_statement}</D></pre>}
         {a.lean_statement ? (
           <>
             <div className="eyebrow">Lean statement, written by the build from the term tree</div>
@@ -160,8 +159,7 @@ function LeanSection({ a }: { a: Row }) {
               {links.map((l) => (
                 <li key={l.claim_link_id}>
                   <span className="path-role">{l.relation}</span> <a href={l.declaration_url} target="_blank" rel="noreferrer" className="mono small">{String(l.declaration).replace('Ruliology.CellularAutomata.', '')}</a>
-                  <div className="muted small">{l.note}</div>
-                  <pre className="formal small"><D f="ClaimLinks.DeclarationStatement">{l.declaration_statement}</D></pre>
+                  <div className="muted small">{l.note} <span className="muted">(statement at the link)</span></div>
                 </li>
               ))}
             </ul>

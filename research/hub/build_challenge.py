@@ -10,6 +10,10 @@
                  statements (Q-...), the route node B10, and the Lean side of every claim's status:
                  LeanStatement, IsLeanVerified, LEAN_VERIFIED in EffectiveStatus.
 
+Licenses: every external source carries its license (research/sources/licenses.py). The kit, the submissions
+and the agent instructions state none, so the snapshots hold references and results only (names, links,
+versions, hashes, what the checks said): no Lean source, statement, docstring or abstract of theirs.
+
 Only structure and inputs are data: what the export, the submissions list and the kernel said. Every
 status, count and flag is a formula. Rerunnable: the tables above are replaced; kit claims are upserted
 (a module that leaves the kit keeps its claim, SUPERSEDED). build_model.py calls apply(); run this file
@@ -24,6 +28,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / 'research'))
 sys.path.insert(0, str(ROOT / 'research' / 'lean'))
+sys.path.insert(0, str(ROOT / 'research' / 'sources'))
 import loop_tools as lt
 
 SNAP = ROOT / 'research' / 'sources' / 'snapshots'
@@ -31,7 +36,7 @@ CHECKS = ROOT / 'research' / 'lean' / 'checks.json'
 NS = 'Ruliology.CellularAutomata.'
 KIT_URL = 'https://github.com/WolframInstitute/Rule30PrizeKit'
 AGENTS = 'https://www.wolframcloud.com/obj/rule-30-prize/Agents'
-OWNED = ('ChallengeSources', 'SourceSyncs', 'LeanModules', 'LeanImports', 'LeanDeclarations', 'LeanUses',
+OWNED = ('Licenses', 'ChallengeSources', 'SourceSyncs', 'LeanModules', 'LeanImports', 'LeanDeclarations', 'LeanUses',
          'Submissions', 'SubmissionTags', 'SubmissionHeadlines', 'SubmissionModules', 'ClaimLinks', 'LeanProofs', 'LeanChecks')
 ROUTE_CASES = ('Period 1', 'Period 2', 'Least period 3', 'Least period 4', 'Longer periods')
 # The kit's open statements (lean/README.md, "Status by period"), by the case that waits on them. The Lean
@@ -109,16 +114,17 @@ def clip(s, n):
 
 # ---------- inputs ----------
 def load_inputs():
+    """The checked-in snapshots: references and results only (research/sources/licenses.py says why)."""
     kit = json.loads((SNAP / 'kit.json').read_text())
     export = json.loads(gzip.decompress((SNAP / 'kit-export.json.gz').read_bytes()))
     env = json.loads((SNAP / 'environment.json').read_text())
     subs = json.loads((SNAP / 'submissions.json').read_text())
     checks = json.loads((SNAP / 'submission-checks.json').read_text()) if (SNAP / 'submission-checks.json').exists() else {}
     syncs = json.loads((SNAP / 'syncs.json').read_text()) if (SNAP / 'syncs.json').exists() else []
-    readme = (SNAP / 'kit-lean-README.md').read_text()
-    skill = (SNAP / 'skill.md').read_text()
+    facts = json.loads((SNAP / 'kit-facts.json').read_text())
+    skill = json.loads((SNAP / 'skill.json').read_text())
     lean_checks = json.loads(CHECKS.read_text()) if CHECKS.exists() else {'checks': []}
-    return kit, export, env, subs, checks, syncs, readme, skill, lean_checks
+    return kit, export, env, subs, checks, syncs, facts, skill, lean_checks
 
 
 def module_path(name, files):
@@ -136,28 +142,10 @@ def is_certificate(name):
     return '.Rule30Certificates.' in name
 
 
-def md_table(readme, heading):
-    """Rows of the first Markdown table under a '## heading' of the kit README, as lists of cells."""
-    sec = readme.split(f'## {heading}', 1)[1]
-    rows = []
-    for ln in sec.splitlines():
-        if ln.startswith('|'):
-            cells = [c.strip() for c in ln.strip().strip('|').split('|')]
-            if set(''.join(cells)) <= set('-: '):
-                continue
-            rows.append(cells)
-        elif rows:
-            break
-    return rows[1:]   # drop the header
-
-
-def plain(md):
-    return one_line(re.sub(r'\*\*|`', '', md))
-
-
 # ---------- the load ----------
 def apply(book: dict) -> dict:
-    kit, export, env, subs, checks, syncs, readme, skill, lean_checks = load_inputs()
+    import licenses as lic
+    kit, export, env, subs, checks, syncs, facts, skill, lean_checks = load_inputs()
     commit = kit['commit']
     files = kit['files']
     verifier_commit = env['kit']['commit']
@@ -165,34 +153,39 @@ def apply(book: dict) -> dict:
     for t in OWNED:
         book.pop(t, None)
 
-    # --- sources ---
-    skill_version = next((ln.split(':', 1)[1].strip() for ln in skill.splitlines() if ln.startswith('version:')), '')
-    sources = [
-        {'ChallengeSourceId': 'kit', 'Title': 'Rule 30 Prize kit (reference Lean environment)', 'Url': KIT_URL, 'Role': 'The official statements, the catalog of partial results and the equivalent forms, in Lean.',
-         'Version': commit, 'VersionDate': kit['date'], 'Snapshot': 'research/sources/snapshots/kit.json', 'IsOfficial': 1},
-        {'ChallengeSourceId': 'verifier', 'Title': "The verifier's environment", 'Url': f'{AGENTS}/api/environment', 'Role': 'The kit commit, Lean and Mathlib versions a submission is checked against, and the modules it may import.',
-         'Version': verifier_commit, 'VersionDate': env['kit'].get('date', ''), 'Snapshot': 'research/sources/snapshots/environment.json', 'IsOfficial': 1},
-        {'ChallengeSourceId': 'submissions', 'Title': 'Rule 30 Prize submissions', 'Url': f'{AGENTS}/submissions.json', 'Role': 'Every submission: abstract, headline theorems, verifier status, reviewer tags.',
-         'Version': subs['updated'], 'VersionDate': subs['updated'], 'Snapshot': 'research/sources/snapshots/submissions.json', 'IsOfficial': 1},
-        {'ChallengeSourceId': 'skill', 'Title': 'The Rule 30 Prize, for AI agents (skill.md)', 'Url': f'{AGENTS}/skill.md', 'Role': 'The official instructions for agents: setup, ground rules, what is known, how to prove and submit.',
-         'Version': skill_version, 'VersionDate': '', 'Snapshot': 'research/sources/snapshots/skill.md', 'IsOfficial': 1},
-        {'ChallengeSourceId': 'announcement', 'Title': 'Announcing the Rule 30 Prizes (Wolfram, 2019)', 'Url': 'https://writings.stephenwolfram.com/2019/10/announcing-the-rule-30-prizes/',
-         'Role': 'The three problems in words, and the prize rules (rule30prize.org).', 'Version': '2019-10-01', 'VersionDate': '2019-10-01', 'Snapshot': '', 'IsOfficial': 1},
-    ]
+    # --- licenses and sources ---
+    book['Licenses'] = table(
+        'The licenses of the external sources this repo references, and whether each lets their works be copied here. A work under a license that does not is only referenced: links, authors, versions, hashes, and the results of checking it (research/sources/licenses.py).',
+        KEY('LicenseId', 'An SPDX id, or none / all-rights-reserved.') + [
+            F('Title'), F('Url'),
+            F('AllowsRedistribution', 'integer', desc='1 when the license lets the work be copied into this repo, with its credit and license.', nullable=False),
+            AGG('SourceCount', '=COUNTIFS(ChallengeSources!{{License}},{{LicenseId}})', 'Sources under it.'),
+            AGG('SubmissionCount', '=COUNTIFS(Submissions!{{License}},{{LicenseId}})', 'Submissions under it.'),
+        ], [{'LicenseId': k, 'Title': t, 'Url': u, 'AllowsRedistribution': a} for k, (t, u, a) in lic.LICENSES.items()])
+    version = {'kit': (commit, kit['date']), 'verifier': (verifier_commit, env['kit'].get('date', '')), 'submissions': (subs['updated'], subs['updated']),
+               'skill': (skill['version'], ''), 'announcement': ('2019-10-01', '2019-10-01')}
+    snapshot = {'kit': 'research/sources/snapshots/kit.json', 'verifier': 'research/sources/snapshots/environment.json',
+                'submissions': 'research/sources/snapshots/submissions.json', 'skill': 'research/sources/snapshots/skill.json'}
+    sources = [{'ChallengeSourceId': sid, 'Title': title, 'Url': url, 'Role': role, 'License': license_, 'KeptHere': kept, 'Credit': credit,
+                'Version': version.get(sid, ('', ''))[0], 'VersionDate': version.get(sid, ('', ''))[1], 'Snapshot': snapshot.get(sid, ''), 'IsOfficial': official}
+               for sid, title, url, role, license_, kept, credit, official in lic.SOURCES]
     book['ChallengeSources'] = table(
-        'The public record of the Rule 30 Prize this model is measured against, and the version of each that was last synced (research/sources/sync.py).',
-        KEY('ChallengeSourceId', 'kit, verifier, submissions, skill, announcement.') + [
+        'Every external source this model is measured against or built with, its license, what of it is kept here, and the version last synced (research/sources/sync.py).',
+        KEY('ChallengeSourceId', 'kit, verifier, submissions, skill, announcement, lean4, mathlib, formal-conjectures, effortless-skills, rule30-lab.') + [
             F('Title'), F('Url'), F('Role', desc='What the source is for.'),
+            REL('License', 'Licenses', 'Its license.', False),
+            F('KeptHere', desc='What this repo keeps of it, as its license allows.'), F('Credit', desc='Who made it.'),
             F('Version', desc='What was synced: a commit, a timestamp, a version.'), F('VersionDate'),
-            F('Snapshot', desc='The repo file holding the synced copy (pinned as Evidence).'),
+            F('Snapshot', desc='The repo file holding the synced references and results (pinned as Evidence).'),
             F('IsOfficial', 'integer', desc='1 for a source published by the prize (Wolfram, the Wolfram Institute).', nullable=False),
+            LK('AllowsRedistribution', 'Licenses', 'License', 'LicenseId', 'AllowsRedistribution', '1 when its license lets its works be copied here.'),
             AGG('SyncCount', '=COUNTIFS(SourceSyncs!{{Source}},{{ChallengeSourceId}})', 'Times it was synced.'),
             AGG('ModuleCount', '=COUNTIFS(LeanModules!{{Source}},{{ChallengeSourceId}})', 'Lean modules from this source.'),
         ], sources)
     src_ids = {s['ChallengeSourceId'] for s in sources}
     sync_rows = []
     for n, r in enumerate(syncs, 1):
-        src = {'kit-export': 'kit', 'submission-checks': 'submissions'}.get(r['source'], r['source'])
+        src = {'kit-export': 'kit', 'submission-checks': 'submissions', 'environment': 'verifier'}.get(r['source'], r['source'])
         sync_rows.append({'SourceSyncId': f"sync-{n:04d}", 'Source': src if src in src_ids else None, 'What': r['source'], 'RetrievedAt': r['retrievedAt'],
                           'Version': r.get('version', ''), 'Sha256': r.get('sha256', ''), 'Snapshot': r.get('snapshot', '')})
     book['SourceSyncs'] = table(
@@ -201,61 +194,54 @@ def apply(book: dict) -> dict:
                                             F('RetrievedAt'), F('Version'), F('Sha256'), F('Snapshot')],
         sync_rows)
 
-    # --- the kit: modules, imports, declarations, uses ---
-    added = {}
-    for cells in md_table(readme, 'Added in the kit'):
-        if len(cells) >= 4:
-            mod = NS + plain(cells[0]).replace('/', '.')
-            added[mod] = {'AddedOn': plain(cells[1]), 'Credit': plain(cells[2]), 'Headlines': re.findall(r'`([^`]+)`', cells[3])}
+    # --- the kit: modules, imports, declarations, uses (names and results; no source, statements or docstrings) ---
+    added = {a['module']: a for a in facts['added']}
     mods = {m['name']: m for m in export['modules']}
     decls = export['declarations']
     by_module = {}
     for d in decls:
         by_module.setdefault(d['module'], []).append(d)
-    headline_names = {NS + short(m) + '.' + h if not h.startswith(NS) else h for m, a in added.items() for h in a['Headlines']}
+    headline_names = {NS + short(m) + '.' + h if not h.startswith(NS) else h for m, a in added.items() for h in a['headlines']}
     mod_rows = []
     for name, m in sorted(mods.items()):
-        docs = m.get('moduleDocs') or []
-        first = docs[0] if docs else ''
-        title = next((ln.lstrip('# ').strip() for ln in first.splitlines() if ln.startswith('#')), '')
-        body = one_line('\n'.join(ln for ln in first.splitlines() if not ln.startswith('#')))
         path = module_path(name, files)
         a = added.get(name, {})
         pkg = 'Rule30Equivalents' if name.startswith('Rule30Equivalents') else 'Ruliology' if name.startswith('Ruliology') else 'Rule30PrizeKit'
         mod_rows.append({'LeanModuleId': name, 'Source': 'kit', 'Package': pkg, 'ShortName': short(name), 'Path': path,
                          'Sha256': files.get(path, {}).get('sha256', ''), 'LineCount': files.get(path, {}).get('lines', 0),
-                         'Title': clip(title, 300), 'Summary': clip(body, 1500), 'AddedOn': a.get('AddedOn', ''), 'Credit': clip(a.get('Credit', ''), 600),
+                         'Title': clip(m.get('title', ''), 300), 'AddedOn': a.get('addedOn', ''), 'Credit': clip(a.get('credit', ''), 600),
                          'IsCertificateData': int(is_certificate(name)), 'IsInVerifier': int(name in verifier_modules), 'IsExported': 1})
-    # Submissions' own modules (each compiled here as Rule30Submission) and their declarations.
+    # Submissions' own modules (each compiled here as Rule30Submission): their headline theorems and propositions, by name.
     sub_decls = []
-    for e in subs['entries']:
-        rec = checks.get(e['id'], {})
-        if rec.get('declarations'):
-            mid = f"submission:{e['id']}"
-            mod_rows.append({'LeanModuleId': mid, 'Source': 'submissions', 'Package': 'Submission', 'ShortName': e['id'], 'Path': rec.get('source', ''),
-                             'Sha256': rec.get('sha256', ''), 'LineCount': 0, 'Title': clip(e['title'], 300), 'Summary': clip(one_line(e.get('abstract', '')), 1500),
-                             'AddedOn': e.get('submitted', '')[:10], 'Credit': clip(e.get('authors', ''), 600), 'IsCertificateData': 0, 'IsInVerifier': 0, 'IsExported': 1})
+    by_sub = {e['id']: e for e in subs['entries']}
+    for sid, rec in sorted(checks.items()):
+        e = by_sub.get(sid)
+        if e and rec.get('declarations'):
+            mid = f"submission:{sid}"
+            mod_rows.append({'LeanModuleId': mid, 'Source': 'submissions', 'Package': 'Submission', 'ShortName': sid, 'Path': rec.get('sourceUrl') or '',
+                             'Sha256': rec.get('sourceSha256') or '', 'LineCount': 0, 'Title': clip(e.get('title', ''), 300),
+                             'AddedOn': (e.get('submitted') or '')[:10], 'Credit': clip(e.get('authors') or '', 600), 'IsCertificateData': 0, 'IsInVerifier': 0, 'IsExported': 1})
             heads = set(e.get('headlines') or [])
-            for d in rec['declarations']:   # its headlines and the statements it defines (all of it is in the snapshot)
-                if d['kind'] == 'proposition' or d['name'] in heads:
-                    sub_decls.append(dict(d, module=mid, key=f"{e['id']}:{d['name']}", headline=int(d['name'] in heads)))
+            for d in rec['declarations']:
+                sub_decls.append(dict(d, module=mid, key=f"{sid}:{d['name']}", headline=int(d['name'] in heads)))
     mod_ids = {r['LeanModuleId'] for r in mod_rows}
     book['LeanModules'] = table(
-        "The kit's Lean modules (the official statements, the catalog of partial results, the equivalent forms) and every submission's module, as the compiled environment reports them (lean/ExportKit.lean). A module is verified when none of its declarations depends on a non-standard axiom.",
+        "The kit's Lean modules (the official statements, the catalog of partial results, the equivalent forms) and every submission's module, as the compiled environment reports them (lean/ExportKit.lean): names, links, hashes, counts and verdicts, not their source. A module is verified when none of its declarations depends on a non-standard axiom.",
         KEY('LeanModuleId', 'The Lean module name, or submission:<id> for a submission compiled here.') + [
             REL('Source', 'ChallengeSources', 'Where the module comes from.', False),
             F('Package', desc='Ruliology (the catalog), Rule30Equivalents, Rule30PrizeKit, or Submission.'),
-            F('ShortName'), F('Path', desc='Its file in the kit (or the snapshot of a submission).'), F('Sha256', desc="The file's sha256 at the synced commit."),
-            F('LineCount', 'integer'), F('Title', desc="The module docstring's title."), F('Summary', desc="The module docstring's first section."),
-            F('AddedOn', desc='For modules added after the catalog snapshot: the date (lean/README.md, Added in the kit).'),
-            F('Credit', desc='Who proved it (lean/README.md, Added in the kit; a submission: its authors).'),
+            F('ShortName'), F('Path', desc="Its file in the kit (a submission: the link to its Lean source)."), F('Sha256', desc="The file's sha256 at the synced commit."),
+            F('LineCount', 'integer'), F('Title', desc="The module docstring's title, as a citation."),
+            F('AddedOn', desc='For modules added after the catalog snapshot: the date (the kit README, Added in the kit).'),
+            F('Credit', desc='Who proved it (the kit README, Added in the kit; a submission: its authors).'),
             F('IsCertificateData', 'integer', desc='1 for a data module under Rule30Certificates/.', nullable=False),
             F('IsInVerifier', 'integer', desc="1 when the verifier's environment lists the module, so a submission may import it now.", nullable=False),
             F('IsExported', 'integer', desc='1 when the module was compiled and exported here.', nullable=False),
             LK('SourceUrl', 'ChallengeSources', 'Source', 'ChallengeSourceId', 'Url', 'The source repository.', 'string'),
             LK('SourceVersion', 'ChallengeSources', 'Source', 'ChallengeSourceId', 'Version', 'The commit synced.', 'string'),
+            LK('License', 'ChallengeSources', 'Source', 'ChallengeSourceId', 'License', "Its source's license.", 'string'),
             CALC('Url', '=IF({{Package}}="Submission",{{Path}},CONCAT({{SourceUrl}},"/blob/",{{SourceVersion}},"/",{{Path}}))', 'The file at the synced commit.', 'string'),
-            AGG('DeclarationCount', '=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}})', 'Named declarations.'),
+            AGG('DeclarationCount', '=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}})', 'Named declarations kept here.'),
             AGG('TheoremCount', '=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}},LeanDeclarations!{{Kind}},"theorem")', 'Theorems.'),
             AGG('PropositionCount', '=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}},LeanDeclarations!{{Kind}},"proposition")', 'Propositions it defines (statements, some of them open).'),
             AGG('BadAxiomDeclarationCount', '=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}},LeanDeclarations!{{BadAxiomCount}},">0")', 'Declarations that depend on sorry, native_decide or a new axiom. Must be 0.'),
@@ -281,8 +267,7 @@ def apply(book: dict) -> dict:
         key = d.get('key', d['name'])
         bad = d.get('badAxioms') or []
         decl_rows.append({'LeanDeclarationId': key, 'LeanName': d['name'], 'Module': d['module'], 'ShortName': d['name'].rsplit('.', 1)[-1], 'Kind': d['kind'],
-                          'Statement': clip(one_line(d.get('statement')), 600), 'Definition': clip(one_line(d.get('definition')), 1200),
-                          'Doc': clip(one_line(d.get('doc')), 400), 'Line': d.get('line') or 0, 'BadAxioms': ', '.join(bad), 'BadAxiomCount': len(bad),
+                          'Line': d.get('line') or 0, 'BadAxioms': ', '.join(bad), 'BadAxiomCount': len(bad),
                           'IsHeadline': int(d.get('headline', d['name'] in headline_names))})
         if d['kind'] != 'theorem':
             continue
@@ -293,18 +278,16 @@ def apply(book: dict) -> dict:
     decl_ids = {r['LeanDeclarationId'] for r in decl_rows}
     uses = [dict(u, LeanUseId=f'u{n:05d}') for n, u in enumerate(sorted((u for u in uses if u['Uses'] in decl_ids), key=lambda u: (u['Declaration'], u['Uses'])), 1)]
     book['LeanDeclarations'] = table(
-        "Every named declaration of the kit (and the theorems of each submission compiled here): its statement as Lean prints it, its docstring, and the non-standard axioms it depends on, followed through every import. A theorem is verified when that list is empty.",
+        "Every named declaration of the kit (and the headline theorems and propositions of each submission compiled here), by name: its kind, where it is (Url), and the non-standard axioms it depends on, followed through every import. A theorem is verified when that list is empty. Its statement is read at the Url: the sources state no license, so their text is not copied here.",
         KEY('LeanDeclarationId', 'The Lean name; <submission id>:<name> for a submission.') + [
             F('LeanName', desc='The full Lean name.'), REL('Module', 'LeanModules', 'Its module.', False), F('ShortName'),
-            F('Kind', desc='theorem, def, proposition (a definition of type Prop: a statement), structure, inductive, opaque, axiom.'),
-            F('Statement', desc='Its type, as Lean prints it (namespace Ruliology.CellularAutomata left out).'),
-            F('Definition', desc="A proposition's definition: what the statement says."), F('Doc', desc='Its docstring.'), F('Line', 'integer'),
+            F('Kind', desc='theorem, def, proposition (a definition of type Prop: a statement), structure, inductive, opaque, axiom.'), F('Line', 'integer'),
             F('BadAxioms', desc='The non-standard axioms it depends on (sorryAx, Lean.ofReduceBool, Lean.trustCompiler, any new axiom).'),
             F('BadAxiomCount', 'integer', desc='How many. 0 for every declaration the kit ships.', nullable=False),
-            F('IsHeadline', 'integer', desc="1 for a module's headline theorem (lean/README.md) or a submission's headline.", nullable=False),
+            F('IsHeadline', 'integer', desc="1 for a module's headline theorem (the kit README) or a submission's headline.", nullable=False),
             LK('ModuleUrl', 'LeanModules', 'Module', 'LeanModuleId', 'Url', "Its module's file.", 'string'),
             LK('ModuleIsVerified', 'LeanModules', 'Module', 'LeanModuleId', 'IsVerified', '1 when its module is verified.'),
-            CALC('Url', '=IF({{Line}}>0,CONCAT({{ModuleUrl}},"#L",{{Line}}),{{ModuleUrl}})', 'Where it is in the source.', 'string'),
+            CALC('Url', '=IF({{Line}}>0,CONCAT({{ModuleUrl}},"#L",{{Line}}),{{ModuleUrl}})', 'Where it is in the source: read the statement there.', 'string'),
             CALC('IsVerified', '=IF(AND({{Kind}}="theorem",{{BadAxiomCount}}=0),1,0)', '1 for a theorem with standard axioms only: the kernel accepted it.'),
             AGG('UsesCount', '=COUNTIFS(LeanUses!{{Declaration}},{{LeanDeclarationId}})', 'Named kit declarations it uses.'),
             AGG('UsedByCount', '=COUNTIFS(LeanUses!{{Uses}},{{LeanDeclarationId}})', 'Declarations that use it.'),
@@ -313,20 +296,22 @@ def apply(book: dict) -> dict:
     book['LeanUses'] = table('Which theorem rests on which theorem or proposition (looking through auxiliary match_ and proof_ constants).', [F('LeanUseId', desc='u<n>.', nullable=False)] + [
         REL('Declaration', 'LeanDeclarations', 'The user.', False), REL('Uses', 'LeanDeclarations', 'The declaration it uses.', False)], uses)
 
-    # --- submissions ---
+    # --- submissions (references and results: no abstracts, no sources) ---
     srows, tags, heads, smods = [], [], [], []
     sub_ids = {e['id'] for e in subs['entries']}
     for e in subs['entries']:
         rec = checks.get(e['id'], {})
         ck = e.get('check') or {}
-        ours = rec.get('check', {})
-        verdict = ('no Lean source' if not rec.get('source') else 'did not compile' if not rec.get('compiled') else ours.get('verdict', 'error'))
-        srows.append({'SubmissionId': e['id'], 'Title': clip(e['title'], 300), 'Problem': e.get('problem'), 'Claim': e.get('claim', ''),
-                      'Authors': clip(e.get('authors', ''), 300), 'Agent': clip(e.get('agent', ''), 200), 'Abstract': clip(e.get('abstract', ''), 3000),
-                      'Status': e.get('status', ''), 'Submitted': e.get('submitted', ''), 'Supersedes': e['supersedes'] if e.get('supersedes') in sub_ids else None,
-                      'PageUrl': e.get('page', ''), 'LeanUrl': (e.get('files') or {}).get('lean', ''), 'VerifierVerdict': ck.get('verdict', ''),
-                      'VerifierKitCommit': ck.get('kitCommit', ''), 'VerifierCheckedAt': ck.get('checkedAt', ''), 'OurVerdict': verdict,
-                      'OurKitCommit': commit, 'LeanModule': f"submission:{e['id']}" if f"submission:{e['id']}" in mod_ids else None})
+        ours = rec.get('check') or {}
+        verdict = ('no Lean source' if not rec.get('sourceUrl') else 'not checked here' if not rec.get('checked') else
+                   'did not compile' if not rec.get('compiled') else ours.get('verdict') or 'error')
+        srows.append({'SubmissionId': e['id'], 'Title': clip(e.get('title') or '', 300), 'Problem': e.get('problem'), 'Claim': e.get('claim') or '',
+                      'Authors': clip(e.get('authors') or '', 300), 'Agent': clip(e.get('agent') or '', 200),
+                      'Status': e.get('status') or '', 'Submitted': e.get('submitted') or '', 'Supersedes': e['supersedes'] if e.get('supersedes') in sub_ids else None,
+                      'PageUrl': e.get('page') or '', 'LeanUrl': (e.get('files') or {}).get('lean', ''), 'NotebookUrl': (e.get('files') or {}).get('notebook', ''),
+                      'License': rec.get('license') or 'none', 'IncludedPath': rec.get('included') or '', 'SourceSha256': rec.get('sourceSha256') or '',
+                      'VerifierVerdict': ck.get('verdict') or '', 'VerifierKitCommit': ck.get('kitCommit') or '', 'VerifierCheckedAt': ck.get('checkedAt') or '',
+                      'OurVerdict': verdict, 'OurKitCommit': commit, 'LeanModule': f"submission:{e['id']}" if f"submission:{e['id']}" in mod_ids else None})
         for t in e.get('tags') or []:
             tags.append({'SubmissionTagId': f"{e['id']}:{t}", 'Submission': e['id'], 'Tag': t})
         ours_by = {h['name']: h for h in ours.get('headlines', [])}
@@ -337,28 +322,31 @@ def apply(book: dict) -> dict:
         for m in (e.get('kitContribution') or {}).get('modules', []):
             smods.append({'SubmissionModuleId': f"{e['id']}>{m}", 'Submission': e['id'], 'Module': m if m in mod_ids else None, 'ModuleName': m})
     book['Submissions'] = table(
-        "Every public Rule 30 Prize submission (submissions.json): its claim, abstract and headline theorems, the verifier's verdict and the reviewers' tags, and our own verdict: its Lean source compiled against the synced kit and checked by the kit's Check.lean.",
+        "Every public Rule 30 Prize submission (submissions.json), as a reference: its claim, authors, links and headline theorem names, the verifier's verdict and the reviewers' tags, its license, and our own verdict (its Lean source compiled against the synced kit in external/ and checked by the kit's Check.lean). Abstracts and sources are read at the links: none states a license, so none is copied here.",
         KEY('SubmissionId', 'R30-<date>-<hash>.') + [
-            F('Title'), F('Problem', 'integer', desc='1, 2 or 3.'), F('Claim', desc='proof, disproof or partial.'), F('Authors'), F('Agent'), F('Abstract'),
+            F('Title'), F('Problem', 'integer', desc='1, 2 or 3.'), F('Claim', desc='proof, disproof or partial.'), F('Authors'), F('Agent'),
             F('Status', desc='Lean Verified or Lean Unverified (the verifier).'), F('Submitted'), REL('Supersedes', 'Submissions', 'The earlier submission this one replaces.'),
-            F('PageUrl'), F('LeanUrl'), F('VerifierVerdict'), F('VerifierKitCommit', desc='The kit commit the verifier checked it against.'), F('VerifierCheckedAt'),
-            F('OurVerdict', desc='pass, fail, error, did not compile, or no Lean source: the kit\'s Check.lean here, against OurKitCommit.'),
-            F('OurKitCommit'), REL('LeanModule', 'LeanModules', 'The submission compiled here, with its declarations.'),
+            F('PageUrl'), F('LeanUrl', desc='Its Lean source.'), F('NotebookUrl', desc='Its computational essay.'),
+            REL('License', 'Licenses', 'Its license: what its Lean source declares (none when it declares nothing).', False),
+            F('IncludedPath', desc='When its license allows: the copy of its Lean source in this repo.'), F('SourceSha256', desc='The sha256 of the Lean source checked here.'),
+            F('VerifierVerdict'), F('VerifierKitCommit', desc='The kit commit the verifier checked it against.'), F('VerifierCheckedAt'),
+            F('OurVerdict', desc="pass, fail, error, did not compile, not checked here, or no Lean source: the kit's Check.lean here, against OurKitCommit."),
+            F('OurKitCommit'), REL('LeanModule', 'LeanModules', 'The submission compiled here: its headline theorems and propositions, by name.'),
             AGG('IsHumanVerified', '=COUNTIFS(SubmissionTags!{{Submission}},{{SubmissionId}},SubmissionTags!{{Tag}},"Human Verified")', 'Reviewer tag.'),
             AGG('IsKitContribution', '=COUNTIFS(SubmissionTags!{{Submission}},{{SubmissionId}},SubmissionTags!{{Tag}},"Kit Contribution")', 'Reviewer tag: its proof joined the kit.'),
             AGG('IsPrizeClaimed', '=COUNTIFS(SubmissionTags!{{Submission}},{{SubmissionId}},SubmissionTags!{{Tag}},"Prize Claimed")', 'Reviewer tag: the Prize Committee accepted it.'),
             AGG('HeadlineCount', '=COUNTIFS(SubmissionHeadlines!{{Submission}},{{SubmissionId}})', 'Headline theorems.'),
             AGG('OurOkHeadlineCount', '=SUMIFS(SubmissionHeadlines!{{OurOk}},SubmissionHeadlines!{{Submission}},{{SubmissionId}})', 'Headlines that pass Check.lean here.'),
             AGG('KitModuleCount', '=COUNTIFS(SubmissionModules!{{Submission}},{{SubmissionId}})', 'Kit modules it contributed.'),
+            LK('AllowsRedistribution', 'Licenses', 'License', 'LicenseId', 'AllowsRedistribution', '1 when its license lets its source be copied here.'),
             CALC('IsLeanVerified', '=IF({{Status}}="Lean Verified",1,0)', "1 when the verifier accepted it."),
             CALC('AgreesWithVerifier', '=IF({{IsLeanVerified}}=1,IF({{OurVerdict}}="pass",1,0),IF({{OurVerdict}}="pass",0,1))', '1 when our check and the verifier agree.'),
         ], srows)
     book['SubmissionTags'] = table('Reviewer tags on submissions.', KEY('SubmissionTagId', '<submission>:<tag>.') + [
         REL('Submission', 'Submissions', 'The submission.', False), F('Tag', desc='Human Verified, Kit Contribution or Prize Claimed.')], tags)
-    book['SubmissionHeadlines'] = table('The headline theorems of each submission, with our check of each.', KEY('SubmissionHeadlineId', '<submission>:<theorem>.') + [
+    book['SubmissionHeadlines'] = table('The headline theorems of each submission, by name, with our check of each.', KEY('SubmissionHeadlineId', '<submission>:<theorem>.') + [
         REL('Submission', 'Submissions', 'The submission.', False), F('TheoremName'), REL('Declaration', 'LeanDeclarations', 'The theorem, as exported here.'),
-        F('OurOk', 'integer', desc="1 when the kit's Check.lean accepts it here.", nullable=False), F('OurAxioms'),
-        LK('Statement', 'LeanDeclarations', 'Declaration', 'LeanDeclarationId', 'Statement', 'What it states.', 'string')], heads)
+        F('OurOk', 'integer', desc="1 when the kit's Check.lean accepts it here.", nullable=False), F('OurAxioms')], heads)
     book['SubmissionModules'] = table('Kit modules a submission contributed (reviewer tag Kit Contribution).', KEY('SubmissionModuleId', '<submission>><module>.') + [
         REL('Submission', 'Submissions', 'The submission.', False), REL('Module', 'LeanModules', 'The kit module, when it is in the synced kit.'), F('ModuleName')], smods)
 
@@ -375,7 +363,6 @@ def apply(book: dict) -> dict:
         KEY('ClaimLinkId', '<claim>><declaration>.') + [
             REL('Assertion', 'Assertions', 'Our claim.', False), REL('Declaration', 'LeanDeclarations', 'The kit declaration.', False),
             F('Relation', desc='same, stronger, jointly (our claim is the conjunction of its jointly links), weaker, related or contradicts: the kit declaration relative to our claim.'), F('Note'),
-            LK('DeclarationStatement', 'LeanDeclarations', 'Declaration', 'LeanDeclarationId', 'Statement', 'What the kit states.', 'string'),
             LK('DeclarationIsVerified', 'LeanDeclarations', 'Declaration', 'LeanDeclarationId', 'IsVerified', '1 when the kit theorem is verified.'),
             LK('DeclarationUrl', 'LeanDeclarations', 'Declaration', 'LeanDeclarationId', 'Url', 'Where it is.', 'string'),
             CALC('Covers', '=IF(AND(OR({{Relation}}="same",{{Relation}}="stronger"),{{DeclarationIsVerified}}=1),1,0)', '1 when a verified kit theorem states our claim or more: the claim is known.'),
@@ -476,21 +463,22 @@ def apply(book: dict) -> dict:
                 return {next(d['module'] for d in decls if d['name'] == cand)}, {cand}
         return set(), set()
 
-    cases = md_table(readme, 'Status by period')
+    cases = facts['cases']
     case_ids = {}
-    for n, cells in enumerate(cases, 1):
-        title, status_md, lean_md = cells[0], cells[1], cells[2]
+    for n, c in enumerate(cases, 1):
+        title = c['case']
         cmods, cdecls = set(), set()
-        for tok in re.findall(r'`([^`]+)`', lean_md):
+        for tok in c['lean']:
             m_, d_ = resolve(tok)
             cmods |= m_
             cdecls |= d_
         cmods &= set(result_mods)
-        proved = status_md.startswith('**Proved')
+        proved = c['kitStatus'] == 'proved'
         aid = f'KC{n}'
         case_ids[title] = aid
         first_decl = sorted(cdecls)[0] if cdecls else None
-        upsert(aid, f'{title}: {plain(status_md)}', 'LEAN_VERIFIED' if proved else 'OPEN', 'Kit case',
+        said = {'proved': 'proved in Lean', 'reduced': 'reduced to open statements', 'open': 'open'}[c['kitStatus']]
+        upsert(aid, f"{title}: {said}, according to the kit (lean/README.md, Status by period).", 'LEAN_VERIFIED' if proved else 'OPEN', 'Kit case',
                {claim_id(m) for m in cmods}, Source='kit', LeanModule=sorted(cmods)[0] if (proved and cmods and not first_decl) else None,
                LeanDeclaration=first_decl if proved else None)
     for aid, case, lean_name, statement in OPEN_STATEMENTS:
@@ -508,10 +496,14 @@ def apply(book: dict) -> dict:
         if decl in decl_ids:
             lt_ids[aid]['LeanDeclaration'] = decl
 
-    # --- evidence: the snapshots, pinned ---
+    # --- evidence: the snapshots (references and results), pinned ---
+    for gone in ('S-kit-readme',):   # the README copy of loop 27's first sync: the kit states no license, so only its facts are kept
+        book['Evidence']['data'] = [e for e in book['Evidence']['data'] if e['EvidenceId'] != gone]
+        book['EvidenceLinks']['data'] = [e for e in book['EvidenceLinks']['data'] if e['Evidence'] != gone]
     for eid, path, supports in [('S-kit', 'research/sources/snapshots/kit.json', ['B10']), ('S-kit-export', 'research/sources/snapshots/kit-export.json.gz', ['B10']),
+                                ('S-kit-facts', 'research/sources/snapshots/kit-facts.json', ['B10']),
                                 ('S-environment', 'research/sources/snapshots/environment.json', ['P1']), ('S-submissions', 'research/sources/snapshots/submissions.json', ['P1']),
-                                ('S-skill', 'research/sources/snapshots/skill.md', ['P1']), ('S-kit-readme', 'research/sources/snapshots/kit-lean-README.md', ['B10']),
+                                ('S-skill', 'research/sources/snapshots/skill.json', ['P1']),
                                 ('S-submission-checks', 'research/sources/snapshots/submission-checks.json', ['P1']), ('S-lean-checks', 'research/lean/checks.json', ['P1'])]:
         if (ROOT / path).is_file():
             lt.add_evidence(book, eid, path, supports)
@@ -530,13 +522,18 @@ def load_lean_checks(book, lean_checks):
          'HasProof': int(c['has_proof']), 'Axioms': ', '.join(c.get('axioms', [])), 'Problems': clip('; '.join(c.get('problems', [])), 1500),
          'KitCommit': lean_checks.get('kitCommit', ''), 'CheckedAt': lean_checks.get('checkedAt', ''), 'LeanFileSha256': lean_checks.get('leanFileSha256', '')}
         for c in lean_checks.get('checks', []) if c['claim'] in aids]
-    if CHECKS.exists():
+    if CHECKS.exists() and 'Evidence' in book:
         lt.add_evidence(book, 'S-lean-checks', 'research/lean/checks.json', ['P1'])
 
 
 def ledger_status(book):
     """The Lean side of every claim's status, and LEAN_VERIFIED in the status vocabulary."""
     A = 'Assertions'
+    # Lookups of kit text that loop 27's first load copied in (the kit states no license): gone.
+    for gone in ('LeanDeclarationStatement', 'LeanDeclarationDefinition'):
+        book[A]['schema'] = [f for f in book[A]['schema'] if f['name'] != gone]
+        for r in book[A]['data']:
+            r.pop(gone, None)
     for f in [
         LK('LeanStatement', 'Predicates', 'Predicate', 'PredicateId', 'LeanStatement', "The claim's statement in Lean, written by the build from its term tree (empty while some operator has no Lean meaning).", 'string'),
         LK('IsLeanExpressible', 'Predicates', 'Predicate', 'PredicateId', 'IsLeanExpressible', '1 when the build writes the statement in Lean.'),
@@ -547,8 +544,7 @@ def ledger_status(book):
         AGG('IsKitDeclarationLinked', '=COUNTIFS(LeanDeclarations!{{LeanDeclarationId}},{{LeanDeclaration}})', '1 when a Lean declaration states the claim.'),
         LK('LeanModuleIsVerified', 'LeanModules', 'LeanModule', 'LeanModuleId', 'IsVerified', '1 when the kit module is verified.'),
         LK('LeanDeclarationIsVerified', 'LeanDeclarations', 'LeanDeclaration', 'LeanDeclarationId', 'IsVerified', '1 when the Lean declaration is a verified theorem.'),
-        LK('LeanDeclarationStatement', 'LeanDeclarations', 'LeanDeclaration', 'LeanDeclarationId', 'Statement', 'The Lean declaration, as Lean prints it.', 'string'),
-        LK('LeanDeclarationDefinition', 'LeanDeclarations', 'LeanDeclaration', 'LeanDeclarationId', 'Definition', "For an official statement: its definition.", 'string'),
+        LK('LeanDeclarationUrl', 'LeanDeclarations', 'LeanDeclaration', 'LeanDeclarationId', 'Url', 'Where the Lean declaration is: read its statement there.', 'string'),
         LK('LeanModuleUrl', 'LeanModules', 'LeanModule', 'LeanModuleId', 'Url', "The kit module's file.", 'string'),
         CALC('IsOwnClaim', '=IF({{Source}}="kit",0,1)', "1 for this ledger's own claims, 0 for the kit's."),
         CALC('IsLeanLinked', '=IF(OR({{IsLeanExpressible}}=1,{{IsKitModuleLinked}}>0,{{IsKitDeclarationLinked}}>0),1,0)', '1 when the claim has a Lean form: its own Lean statement, a kit module or a Lean declaration.'),
