@@ -5,7 +5,39 @@ proved, what is ruled out, and what the next loops aim at. The rulebook is the s
 for every status below; this page is the map that explains how the nodes fit. Update it when a
 loop changes the chain under P1.
 
-Last updated: loop 26 (2026-10-24).
+Last updated: loop 27 (2026-10-25).
+
+## Measured against the challenge (loop 27)
+
+The prize is graded in Lean, and the kit (WolframInstitute/Rule30PrizeKit) holds the official
+statements, a catalog of partial results and 100+ equivalent forms, all kernel-checked. Loop 27
+loaded all of it into the model (claims `L-...`, `KC1`..`KC7`, `Q-...`, routes `B10`, `B11`). The
+kit's own split of P1 by the least period:
+
+| Case | Kit status | Claim |
+|---|---|---|
+| Period 1 | proved for every column | KC1 (our K1 is kernel-checked against it) |
+| Small periods | proved: no eventual period P <= 4096 with transient T <= 8192 | KC2 |
+| Any period | proved: T + P >= 16359 | KC3 |
+| Period 2 | reduced to Q01 (zero-boundary left half; open, proved to width 52) | KC4 <- Q-Q01 |
+| Least period 3 | reduced to four open statements | KC5 <- Q-Q001, Q-C3w011 |
+| Least period 4 | reduced to Absorption (open) | KC6 <- Q-Absorption |
+| Longer periods | open; many words excluded | KC7 |
+
+What this changes for the chain below:
+
+- **Our diagonal results are known.** T004, H4, TL, TN, TK, H7, TB, TR and K1 are kit theorems
+  (`Rule30Diagonals`, `Rule30RightPeriods`); `Assertions.IsKnownInKit` marks them. They stay usable
+  premises, and none of them is new against the catalog.
+- **The kernel now checks six of our claims** (K1, T0, TX, D0, TS, T004) and proves our formal
+  P1 equivalent to the official `Problem1`. Its term tree used to say "no onset" in its inner binder,
+  the shape of the negation; Lean's alignment check is what decides it now.
+- **B7 and Q01 are the same frontier from two sides.** Q01 asks the zero-boundary left half from
+  any finite start; B9 asks the left half the real seed produces (TX). The kit proves that no finite
+  abstraction, local ranking or edge-DFA ranking can prove Q01 over all finite starts
+  (`Rule30ZeroBoundaryBarriers`), but its witnesses are never real left halves
+  (`trunc_not_left_half`). That gap is the only room our route has, and the planned automaton loop
+  (loop 28) has to live in it.
 
 ## The chain under P1
 
@@ -90,7 +122,9 @@ are few (631 states at t = 45, 4.6 million at t = 160, against an extrapolated 1
 one of them dies under both period-2 tails (F23). A proof needs a description of the reachable rows
 that is closed under the step and contains only rows that die. The next candidate is an automaton
 that reads the row from the left edge inward, where the settled diagonals make the rows periodic;
-loop 27 tests whether the reachable rows at t <= 160 fit an automaton whose size stops growing.
+loop 28 tests whether the reachable rows at t <= 160 fit an automaton whose size stops growing. The
+kit's barrier B6 (`no_edge_dfa_ranking`) says no such automaton works over all finite starts; it can
+only work because the real left halves exclude the barrier's truncated stripes.
 
 ## What the model computes (loop 24 on)
 

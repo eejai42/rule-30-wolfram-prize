@@ -1,0 +1,50 @@
+[
+ {
+  "source": "environment",
+  "url": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/environment",
+  "retrievedAt": "2026-10-25T19:28:18Z",
+  "version": "0090056412733accaa27643d3cbbf982104f2251",
+  "sha256": "5fc1bf74d33fe2205ee285d037a212ff3e75dd6522c1daf5c0f10e285810303e",
+  "snapshot": "research/sources/snapshots/environment.json"
+ },
+ {
+  "source": "submissions",
+  "url": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/submissions.json",
+  "retrievedAt": "2026-10-25T19:28:18Z",
+  "version": "2026-10-25T18:04:39Z (41 entries)",
+  "sha256": "b33de8cc0a15cd5fbdb03f9fa330977652c1830da99e725c14fd1047b4625e9a",
+  "snapshot": "research/sources/snapshots/submissions.json"
+ },
+ {
+  "source": "skill",
+  "url": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/skill.md",
+  "retrievedAt": "2026-10-25T19:28:18Z",
+  "version": "1.17.2",
+  "sha256": "664d2b3d40f30e2b020279877ada965cf0e5bdefd1acb5183910d46f37b3f2a8",
+  "snapshot": "research/sources/snapshots/skill.json"
+ },
+ {
+  "source": "kit",
+  "url": "https://github.com/WolframInstitute/Rule30PrizeKit",
+  "retrievedAt": "2026-10-25T19:28:19Z",
+  "version": "0090056412733accaa27643d3cbbf982104f2251",
+  "sha256": "5961d2760d528836fb10d9ff2a96a38dcaf35580774a8cf99d90299dabf26f7b",
+  "snapshot": "research/sources/snapshots/kit.json"
+ },
+ {
+  "source": "kit-export",
+  "url": "lean/ExportKit.lean",
+  "retrievedAt": "2026-10-25T19:28:19Z",
+  "version": "227 modules, 7018 declarations",
+  "sha256": "1bd52d0194cb0284f8e36f51e406effc4be718a8005a103a7ca326e3e6958bb6",
+  "snapshot": "research/sources/snapshots/kit-export.json.gz"
+ },
+ {
+  "source": "submission-checks",
+  "url": "research/lean/leankit.py",
+  "retrievedAt": "2026-10-25T19:28:19Z",
+  "version": "38 of 41 pass here",
+  "sha256": "81881c7adfa200868ae03776b494c70633d8f86571be1e34afc897954fa2763a",
+  "snapshot": "research/sources/snapshots/submission-checks.json"
+ }
+]

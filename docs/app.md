@@ -30,16 +30,22 @@ reviewer who only reads proofs) would add one.
 12. As a researcher I see where the next loop is aiming and why, with an honest estimate. *(Strategies.NextTarget, NextHypothesis, Approach, Missing, Estimate)*
 13. As a researcher I open any claim and see what the model says about it: its formal statement, its quantifiers, whether the model can decide it, its bounded instances and their verdicts, and whether the ledger's status comes from the build or from a report. *(Predicates.Formal, FiniteVerdict, IsComputable, IsFinitelyDecidable, InstanceCount, FailingCount; PredicateInstances.Holds, Witness; Assertions.EffectiveStatus, IsModelDecided)*
 14. As a researcher I see in the dependency graph which claims are on the current path, and double-click any claim to open its page. *(Assertions.OnCurrentPath)*
+15. As a researcher I see the challenge itself first: the three problems with their official Lean statements, whether our formal statement is proved equivalent to the official one, and the kit's case split of Problem 1 with the open statements each case waits on. *(Assertions.LeanDeclarationDefinition, LeanStatement, IsOfficiallyAligned; Assessments.StatusGroup of KC1..KC7, Q-...)*
+16. As a researcher I see what the model is measured against and when it was last synced: the kit commit, the verifier's commit, the submissions list, the agent instructions. *(ChallengeSources.Version, SourceSyncs.RetrievedAt)*
+17. As a researcher I see, for each of our claims, whether Lean verifies it and whether the kit already has it, so nothing known is presented as new. *(Assertions.ProofBasis, IsLeanVerified, IsKnownInKit; LeanChecks.Ok, IsCurrent, Problems; ClaimLinks.Relation, DeclarationStatement)*
+18. As a researcher I browse every submission (verifier status, reviewer tags, our own re-check against the synced kit) and the kit's catalog (modules, credits, verified here, importable by the verifier today). *(Submissions.Status, OurVerdict, AgreesWithVerifier, IsHumanVerified, IsKitContribution; LeanModules.IsVerified, IsInVerifier, TheoremCount)*
+19. As a researcher I am warned when the consolidation is inconsistent: a kit theorem refuting a claim we hold, Lean proving a refuted claim, a reported Lean result not confirmed here, a kit module on a non-standard axiom. *(Dashboards.KitContradictionCount, LeanContradictionCount, LeanUnconfirmedCount, KitUnverifiedModuleCount)*
 
 ## Routes
 
 | Path | Shows | Stories |
 |---|---|---|
-| `/` | The path to P1 (route, blockers, ruled out, next loop's aim), then status tiles, prize problems, alarms, running and recent loops | 1, 2, 3, 5, 11, 12 |
+| `/` | A banner into the challenge, the path to P1 (route, blockers, ruled out, next loop's aim), then status tiles, prize problems, alarms, running and recent loops | 1, 2, 3, 5, 11, 12 |
+| `/challenge` | The official problems and their Lean statements, the consolidation alarms, the kit's case split, our claims against Lean and the kit, the sources, the submissions, the catalog | 15, 16, 17, 18, 19 |
 | `/loops` | Every loop, newest first, legacy and native | 3, 4 |
 | `/loops/:id` | One loop: hypothesis, summary, counts, claims added, revisions, receipt and hashes | 4 |
 | `/claims` | Every claim, filter by kind and status, search | 6 |
-| `/claims/:id` | One claim: statement, statuses, proof, its place on the current path, what the model says (formal statement, instances, verdict), premises, dependents, blockers, evidence, revisions | 7, 9, 13 |
+| `/claims/:id` | One claim: statement, statuses, proof, its place on the current path, what the model says (formal statement, instances, verdict), what Lean says (Lean statement, kernel check, kit module or declaration, the kit's declarations on it), premises, dependents, blockers, evidence, revisions | 7, 9, 13, 17 |
 | `/graph` | The dependency graph, coloured by status, current path outlined; tap to focus, double-click to open the claim | 8, 14 |
 | `/files?path=` | A proof or evidence file, rendered (Markdown) or shown (JSON, text) | 9 |
 | `/dag`, `/dag/:table/:field` | The explainer's field pages | 10 |
@@ -52,4 +58,5 @@ reviewer who only reads proofs) would add one.
 - `/api/*` is proxied to the rulebook editor API on port 42441 (`effortless-rulebook/ports.env`).
 - `/repo-files/*` serves repo files read-only, limited to `research/`, `bootstrap/` and `docs/`.
 - The explainer assets are generated into `explorer/public/rulebook-explainer-dag/` by `rulebook-to-explainer-dag` on every `effortless build`.
+- The challenge tables (`ChallengeSources`, `SourceSyncs`, `LeanModules`, `Submissions`, `LeanChecks`, `ClaimLinks`) are outside the 5-second poll: `useTable` fetches one when a screen first needs it and refreshes it every 30 to 60 seconds (they change only on a sync or a build). `LeanDeclarations` (thousands of rows) is never fetched whole; screens read its values through lookups on `Assertions` and `ClaimLinks`.
 - The app polls the API every 5 seconds. While the editor container rebuilds after a rulebook change, the header shows "Syncing" and the last good data stays on screen.

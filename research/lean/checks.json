@@ -1,0 +1,293 @@
+{
+ "kitCommit": "0090056412733accaa27643d3cbbf982104f2251",
+ "checkedAt": "2026-10-25T18:28:48Z",
+ "leanFileSha256": "2a236d5b55bf6e1aa249b043c9d077dc829d7760e646d57a6c64383bba2c086c",
+ "inputSha256": "872d9e27127990411c7222e14322d966da50722951b87b8d27247d6397240b5a",
+ "replay": {
+  "constants": 43,
+  "ok": true
+ },
+ "verdict": "fail",
+ "checks": [
+  {
+   "claim": "D0",
+   "kind": "claim",
+   "theorem": "claim_D0",
+   "statement": "((((x 0 0) = 1) ∧ (∀ i : Int, (i ≠ 0) → ((x i 0) = 0))) ∧ (∀ t : Nat, (t ≥ 0) → (∀ i : Int, True → ((x i (t + 1)) = (rule30 (x (i - 1) t) (x i t) (x (i + 1) t))))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": true,
+   "ok": true,
+   "axioms": [
+    "propext"
+   ],
+   "problems": []
+  },
+  {
+   "claim": "T0",
+   "kind": "claim",
+   "theorem": "claim_T0",
+   "statement": "(∀ t : Nat, (t ≥ 0) → (((x (0 - t) t) = 1) ∧ ((x t t) = 1)))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": true,
+   "ok": true,
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ],
+   "problems": []
+  },
+  {
+   "claim": "T004",
+   "kind": "claim",
+   "theorem": "claim_T004",
+   "statement": "(∀ k : Nat, (k ≥ 0) → ((P k) ∣ (Power 2 k)))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": true,
+   "ok": true,
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "problems": []
+  },
+  {
+   "claim": "TC",
+   "kind": "claim",
+   "theorem": "claim_TC",
+   "statement": "(∀ T : Nat, (T ≥ 0) → (∀ p : Nat, (p ≥ 1) → (∃ i : Int, ((i ≥ 0) ∧ (i ≤ 1)) ∧ (∃ t : Nat, ((t ≥ T) ∧ (t ≤ ((2 * T) + p))) ∧ ((x i t) ≠ (x i (t + p)))))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "sorryAx"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "TD",
+   "kind": "claim",
+   "theorem": "claim_TD",
+   "statement": "(∀ T : Nat, (T ≥ 0) → (∀ V : Nat, (V ≥ T) → (((∀ t : Nat, ((t ≥ T) ∧ (t ≤ V)) → ((c t) = 1)) → (V ≤ ((2 * T) + 1))) ∧ ((∀ t : Nat, ((t ≥ T) ∧ (t ≤ V)) → ((c t) = 0)) → (V ≤ ((4 * T) + 5))))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "sorryAx"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "K1",
+   "kind": "claim",
+   "theorem": "claim_K1",
+   "statement": "(¬∃ T : Nat, (T ≥ 0) ∧ (∀ t : Nat, (t ≥ T) → ((c (t + 1)) = (c t))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": true,
+   "ok": true,
+   "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "problems": []
+  },
+  {
+   "claim": "F3",
+   "kind": "claim",
+   "theorem": "claim_F3",
+   "statement": "(∀ p : Nat, ((p ≥ 1) ∧ (p ≤ 10000)) → (∀ T : Nat, ((T ≥ 0) ∧ (T ≤ 90000)) → (∃ t : Nat, ((t ≥ T) ∧ (t < (100001 - p))) ∧ ((c (t + p)) ≠ (c t)))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "sorryAx"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "H2",
+   "kind": "claim",
+   "theorem": "claim_H2",
+   "statement": "(∀ k : Nat, (k ≥ 3) → ((P k) = (2 * (P (k - 1)))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "propext",
+    "sorryAx",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "H4",
+   "kind": "claim",
+   "theorem": "claim_H4",
+   "statement": "(∀ k : Nat, (k ≥ 1) → ((P k) ≥ (P (k - 1))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "propext",
+    "sorryAx",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "P1",
+   "kind": "claim",
+   "theorem": "claim_P1",
+   "statement": "(¬∃ p : Nat, (p ≥ 1) ∧ (∃ T : Nat, (T ≥ 0) ∧ (∀ t : Nat, (t ≥ T) → ((c (t + p)) = (c t)))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "sorryAx"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "P1",
+   "kind": "alignment",
+   "theorem": "official_P1",
+   "statement": "(¬∃ p : Nat, (p ≥ 1) ∧ (∃ T : Nat, (T ≥ 0) ∧ (∀ t : Nat, (t ≥ T) → ((c (t + p)) = (c t)))))",
+   "target": "Ruliology.CellularAutomata.Rule30Prize.Problem1",
+   "elaborates": true,
+   "has_proof": true,
+   "ok": true,
+   "axioms": [
+    "propext"
+   ],
+   "problems": []
+  },
+  {
+   "claim": "H14",
+   "kind": "claim",
+   "theorem": "claim_H14",
+   "statement": "(∀ k : Nat, (k ≥ 1) → ((y k ((P k) / 2)) = 1))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "propext",
+    "sorryAx",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "TL",
+   "kind": "claim",
+   "theorem": "claim_TL",
+   "statement": "((∀ k : Nat, (k ≥ 3) → ((P k) = ((P (k - 1)) * (1 + (Eps k))))) ∧ (∀ k : Nat, (k ≥ 3) → (∃ j : Nat, (j > k) ∧ ((Eps j) = 1))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "propext",
+    "sorryAx",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "TN",
+   "kind": "claim",
+   "theorem": "claim_TN",
+   "statement": "(∀ k : Nat, (k ≥ 5) → (¬((((Eps k) = 1) ∧ ((Eps (k - 1)) = 1)) ∧ ((Eps (k - 2)) = 1))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "propext",
+    "sorryAx",
+    "Classical.choice",
+    "Quot.sound"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "F6",
+   "kind": "claim",
+   "theorem": "claim_F6",
+   "statement": "(∀ p : Nat, ((p ≥ 1) ∧ (p ≤ (Power 2 17))) → (∀ T : Nat, ((T ≥ 0) ∧ (T ≤ 917498)) → (∃ t : Nat, ((t ≥ T) ∧ (t < ((Power 2 20) - p))) ∧ ((c (t + p)) ≠ (c t)))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": false,
+   "ok": false,
+   "axioms": [
+    "propext",
+    "sorryAx"
+   ],
+   "problems": [
+    "no proof yet (sorry)"
+   ]
+  },
+  {
+   "claim": "TS",
+   "kind": "claim",
+   "theorem": "claim_TS",
+   "statement": "(∀ p : Nat, (p ≥ 1) → (∀ t : Nat, (t ≥ 0) → ((((x 0 t) = (x 0 (t + p))) ∧ ((x 0 (t + 1)) = (x 0 ((t + 1) + p)))) → ((((c t) = 1) → ((x (-1) t) = (x (-1) (t + p)))) ∧ (((c t) = 0) → (((x (-1) t) = (x (-1) (t + p))) ↔ ((x 1 t) = (x 1 (t + p)))))))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": true,
+   "ok": true,
+   "axioms": [
+    "propext",
+    "Quot.sound"
+   ],
+   "problems": []
+  },
+  {
+   "claim": "TX",
+   "kind": "claim",
+   "theorem": "claim_TX",
+   "statement": "(∀ t : Nat, (t ≥ 0) → (((c t) = 1) → ((c (t + 1)) = (1 - (x (-1) t)))))",
+   "target": "",
+   "elaborates": true,
+   "has_proof": true,
+   "ok": true,
+   "axioms": [
+    "propext"
+   ],
+   "problems": []
+  }
+ ]
+}

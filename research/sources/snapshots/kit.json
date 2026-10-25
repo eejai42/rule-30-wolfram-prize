@@ -1,0 +1,960 @@
+{
+ "commit": "0090056412733accaa27643d3cbbf982104f2251",
+ "date": "2026-10-25T21:23:32+05:00",
+ "files": {
+  "Check.lean": {
+   "lines": 250,
+   "sha256": "b882f2527a1d6e720828a0c729cc80c3977905ed9207d09af22f8d153a073905"
+  },
+  "Rule30PrizeKit.lean": {
+   "lines": 28,
+   "sha256": "1993776224a5fbe18756cd6c1e32e26560c41bb62afb35b5eb08dbe1c935364d"
+  },
+  "Rule30Submission.lean": {
+   "lines": 46,
+   "sha256": "cd568ecf9bcfa9dcbf9485fe25f1f7802a3fd7dbfe06bb8c4fc99ceda12f74f3"
+  },
+  "comparator/Rule30Challenge.lean": {
+   "lines": 23,
+   "sha256": "3ae9ef93697a28e8b6d637619715389ce50dd147cc06605a0da22154a925941b"
+  },
+  "equivalents/Rule30Equivalents.lean": {
+   "lines": 107,
+   "sha256": "2f7837d2ae8a4aaada90e4d5c60ee5ec88b1c5b25ac6c73e43369565ba84f6b6"
+  },
+  "equivalents/Rule30Equivalents/AlgebraicDFinite.lean": {
+   "lines": 270,
+   "sha256": "135b8049040b5fab2a84a712818b2843a25fd0dbd9c2265f297cf4724215cf3d"
+  },
+  "equivalents/Rule30Equivalents/AlgebraicDegree.lean": {
+   "lines": 894,
+   "sha256": "fcf02bca6ae7d628fb1e3f18451e992639c98f8d6feb2f52021ccd8d08a63e2b"
+  },
+  "equivalents/Rule30Equivalents/ApproximateRecurrence.lean": {
+   "lines": 152,
+   "sha256": "d7fcf2a31c9c2f8a51680dd548301325348cd40c6b40bbbdea6c0b05040cc8ff"
+  },
+  "equivalents/Rule30Equivalents/Autocorrelation.lean": {
+   "lines": 219,
+   "sha256": "b49c99236c043ea0178b22ee840a2f4662b0e68176197a887aa631b7f13672f8"
+  },
+  "equivalents/Rule30Equivalents/Automatic.lean": {
+   "lines": 406,
+   "sha256": "d5c303d880acf82c22b59bc2d63a3e5a4bcf4e07b2bc27d2063af93f683f2b08"
+  },
+  "equivalents/Rule30Equivalents/AutomatonGroup.lean": {
+   "lines": 303,
+   "sha256": "113d46f22c76b740ef73b621e2830365509334e51cb36f9730359b64e31cce24"
+  },
+  "equivalents/Rule30Equivalents/Basic.lean": {
+   "lines": 38,
+   "sha256": "e17c0cc81fbeeb2a6e3ded6435a86ffb279da4bf48446c5d658492e196b595e3"
+  },
+  "equivalents/Rule30Equivalents/BinaryIrrational.lean": {
+   "lines": 458,
+   "sha256": "0663c7cc79cc661ce5db527950304c9e9ede3cd72d84b38047b689f4cea22452"
+  },
+  "equivalents/Rule30Equivalents/BlackTimes.lean": {
+   "lines": 160,
+   "sha256": "4d47a8395c579811aa6a7bc0c1f1534efa79a29aed24afc677c9f1f1b252cfd4"
+  },
+  "equivalents/Rule30Equivalents/BoundedRemainder.lean": {
+   "lines": 411,
+   "sha256": "cc116240e835c55ec6affe10513b5f39f0abe4cb6392d6ca332f95692c6f5afe"
+  },
+  "equivalents/Rule30Equivalents/BuchiArithmetic.lean": {
+   "lines": 525,
+   "sha256": "e83fda4b4a0c694b64a6ed5db29dceb5a93ae75784968635a4deda39654d3dba"
+  },
+  "equivalents/Rule30Equivalents/BuchiConverse.lean": {
+   "lines": 462,
+   "sha256": "7d24c764dc23bf85bbc2064c3a1ce1da7fccda7f6d34a6a3257a08ca1ee6f557"
+  },
+  "equivalents/Rule30Equivalents/CenterFormulas.lean": {
+   "lines": 234,
+   "sha256": "592c3380cee436a377feeace8285b8dbc2c5937de341b4529097f4e3d5cb62f9"
+  },
+  "equivalents/Rule30Equivalents/CesaroMeans.lean": {
+   "lines": 342,
+   "sha256": "5caa43194d589d6c4c38304d608fbe78177521c98bbc0f2f8e7d9f20f7ff7094"
+  },
+  "equivalents/Rule30Equivalents/Christol.lean": {
+   "lines": 552,
+   "sha256": "e793f4d60c6df482c415d4aa7ccc0627e55e99bafe79e23a2eab16e99799044e"
+  },
+  "equivalents/Rule30Equivalents/Circuits.lean": {
+   "lines": 217,
+   "sha256": "1b567d39253ce6c34a450dd7a561dbd057628af50e524f3fe7a8dce388773873"
+  },
+  "equivalents/Rule30Equivalents/Cobham.lean": {
+   "lines": 369,
+   "sha256": "94b1f45b752923768fb1622787c008792cf1cd14b6e8e79cd5bc7bc181b980ea"
+  },
+  "equivalents/Rule30Equivalents/Computability.lean": {
+   "lines": 329,
+   "sha256": "8ee86d4f0085956431a840af495c056df54e094abdd70d906989806d5a102b73"
+  },
+  "equivalents/Rule30Equivalents/ContextFree.lean": {
+   "lines": 620,
+   "sha256": "420e09cf9e769651038e8b899bd6aa6fd253d5e07071829b4c9082ff101a4903"
+  },
+  "equivalents/Rule30Equivalents/CoupledHalves.lean": {
+   "lines": 137,
+   "sha256": "3d34514c73d8527bed32f00e71b4742b765d52b2bf176e44600b9cff7fd002ae"
+  },
+  "equivalents/Rule30Equivalents/DFinite.lean": {
+   "lines": 227,
+   "sha256": "2b0b1d3f57d17b9efe8178e773060b7525cb12de347fd61a9e32887ce1d6ea68"
+  },
+  "equivalents/Rule30Equivalents/DiophantineGraph.lean": {
+   "lines": 488,
+   "sha256": "4b75853a11bb56d0258580f2a7bd6e2a7d3f5f03b6ce06c551eb37a3fe9a63b7"
+  },
+  "equivalents/Rule30Equivalents/EmpiricalMeasures.lean": {
+   "lines": 369,
+   "sha256": "288becf2193995eb890f8545566942eed3feb51746e7132ac48e26e1f4301a0b"
+  },
+  "equivalents/Rule30Equivalents/ErdosRenyi.lean": {
+   "lines": 405,
+   "sha256": "8573d7d9e43d54f86a156579f484884e16df6a4d4f9cca742dd227058a9785dd"
+  },
+  "equivalents/Rule30Equivalents/Expansions.lean": {
+   "lines": 584,
+   "sha256": "45de2b5b9ca2be359b15626fa2e091770f1370b45846774faef9058276982bb2"
+  },
+  "equivalents/Rule30Equivalents/FiniteRings.lean": {
+   "lines": 70,
+   "sha256": "9b0562c9a28bb8498286f26a3f64aab9f9aa54cecf7bbf066aa3c867dc2e6d8e"
+  },
+  "equivalents/Rule30Equivalents/Fluctuations.lean": {
+   "lines": 677,
+   "sha256": "b31f217ce7ddc928444b447befd52d65efa3dada7585825200b5c90fed7d442c"
+  },
+  "equivalents/Rule30Equivalents/FrozenBoundary.lean": {
+   "lines": 330,
+   "sha256": "972caf239a9c1950d710f9f343574aaf75e086cfca7ead97166ca60795605cd4"
+  },
+  "equivalents/Rule30Equivalents/FrozenBoundaryCore.lean": {
+   "lines": 476,
+   "sha256": "bc8e9fb6113e8b0d487e471c992e0bc3d9c9a5f611b9923c8f593a673fd0a154"
+  },
+  "equivalents/Rule30Equivalents/FrozenBoundaryPeriodTwo.lean": {
+   "lines": 351,
+   "sha256": "b8532abfa9fd08c693e44b86bb7d2817a496411103ed3a2126e765318ddda8f7"
+  },
+  "equivalents/Rule30Equivalents/Genericity.lean": {
+   "lines": 450,
+   "sha256": "50417cdf95dfdc20867962baa323682e785366757a951dfd477551b09f88817d"
+  },
+  "equivalents/Rule30Equivalents/GoldenPowers.lean": {
+   "lines": 309,
+   "sha256": "9d64d3275e26a3c2b5ea38cb26967c918231ac7d8dd878a72587d81e5a9faf22"
+  },
+  "equivalents/Rule30Equivalents/HolderMeans.lean": {
+   "lines": 242,
+   "sha256": "88e53f13d029249431f735ad7479f315780c3b8b541505b6b07fb38569306100"
+  },
+  "equivalents/Rule30Equivalents/Holonomic.lean": {
+   "lines": 196,
+   "sha256": "932eab812325c611a132a1eb8bb6bba41e5028331bf70dd5c4183567493b122e"
+  },
+  "equivalents/Rule30Equivalents/IntegerRows.lean": {
+   "lines": 127,
+   "sha256": "ad7af09acafd51c51f6c4f615f11c53d2988cc74a8a04fc731eaf5128b0ec65e"
+  },
+  "equivalents/Rule30Equivalents/Invertibility.lean": {
+   "lines": 239,
+   "sha256": "ebd7ea734799195590be158694ff84e24e9506a697615670e3c1e51f8617cb93"
+  },
+  "equivalents/Rule30Equivalents/IrrationalityExponent.lean": {
+   "lines": 289,
+   "sha256": "e029925ce8076ad843530d84bf86b8d225c098cbaa3f6fa9f261410bc81dae5a"
+  },
+  "equivalents/Rule30Equivalents/IteratedLogarithm.lean": {
+   "lines": 1227,
+   "sha256": "587affd8cd152a7bfd90ed3f34b19a8c26a995f635f28445d2f9005b1d08d6f9"
+  },
+  "equivalents/Rule30Equivalents/Lagrange.lean": {
+   "lines": 833,
+   "sha256": "aeb375a679af2e3177014cba9c571291c69636e4c4c2cf00908bf13a0461b791"
+  },
+  "equivalents/Rule30Equivalents/LargeDeviations.lean": {
+   "lines": 347,
+   "sha256": "ffd5f0727c8209f6dae3fbd0e3fd45868415639542562dcb98db59a95a28c86a"
+  },
+  "equivalents/Rule30Equivalents/LempelZiv.lean": {
+   "lines": 218,
+   "sha256": "12024ef2ad84d38b79abc701e975b8e2b2864d0dcac034562134f16dc7acb198"
+  },
+  "equivalents/Rule30Equivalents/LimitPoints.lean": {
+   "lines": 257,
+   "sha256": "d48af29f758aa73b61c2be1bd0fb8e487fab50b63d587d8e0216e048c6d5ce24"
+  },
+  "equivalents/Rule30Equivalents/LinearComplexity.lean": {
+   "lines": 404,
+   "sha256": "9a0e07ea9a46663804d2efeb1d6842a099fc8a6f1fcb3d2b864230cd331ac245"
+  },
+  "equivalents/Rule30Equivalents/LinearRecurrence.lean": {
+   "lines": 523,
+   "sha256": "084599152a96a739e98eb55d6bc853c92d4823898cf1533573e219560183a1a2"
+  },
+  "equivalents/Rule30Equivalents/LinearRelations.lean": {
+   "lines": 1089,
+   "sha256": "729f09b76d0df65e55440ae21f37c69b58ec173eeefb728b338eff696f6fcca2"
+  },
+  "equivalents/Rule30Equivalents/Lines.lean": {
+   "lines": 109,
+   "sha256": "e0167dc8cfb902dbe0bc715364f71415ef370e4201b1372bc018826c0ae0a767"
+  },
+  "equivalents/Rule30Equivalents/LocalLimit.lean": {
+   "lines": 341,
+   "sha256": "9f8114933375f38edc0ee032c30e5ff723c2ef346010a29d6beac0cfd242fe74"
+  },
+  "equivalents/Rule30Equivalents/LogicAutomata.lean": {
+   "lines": 193,
+   "sha256": "bef6c52fd7ade1e56c37f071fdbad5af990825c497b0473a6193d48a398baf77"
+  },
+  "equivalents/Rule30Equivalents/LongestRuns.lean": {
+   "lines": 377,
+   "sha256": "06373927185f6c2d61007766d849c8205b5e7f5c859075bfb6e97c5c63d0fd33"
+  },
+  "equivalents/Rule30Equivalents/Lyndon.lean": {
+   "lines": 248,
+   "sha256": "92cd1fda5427569ebbf97c464dd8b66dae6b569ecd2a58abe2d1ec3955dd5850"
+  },
+  "equivalents/Rule30Equivalents/MaxOrderComplexity.lean": {
+   "lines": 650,
+   "sha256": "52bf57bb6cb156f03dcc62429d438a898bac5c58edb5632fb762d513ac7c4d12"
+  },
+  "equivalents/Rule30Equivalents/MeromorphicExtension.lean": {
+   "lines": 261,
+   "sha256": "09da8c96bbf05d3e1582c0e4e8ca0b27c57ef7556416566b5be4eb138c4fe951"
+  },
+  "equivalents/Rule30Equivalents/Minkowski.lean": {
+   "lines": 303,
+   "sha256": "3725c40a67896fb47df76086d518f3c990c8cebda8533a8dff8834e89a75e8e9"
+  },
+  "equivalents/Rule30Equivalents/Mixing.lean": {
+   "lines": 1259,
+   "sha256": "d948370149b18ad44b3107663fca095a5c62945e7c793ce65484996a395fa6d0"
+  },
+  "equivalents/Rule30Equivalents/MonadicLogic.lean": {
+   "lines": 711,
+   "sha256": "1322a3ad4346c71ad365816894cd8b89f7b2a06c8ba11a8dff4a55369729bd1f"
+  },
+  "equivalents/Rule30Equivalents/NaturalBoundary.lean": {
+   "lines": 115,
+   "sha256": "7febf1b0727e0f2523a6c594ea7b223eb3892baa81e7c71349949453d8aab6e2"
+  },
+  "equivalents/Rule30Equivalents/NumberTheory.lean": {
+   "lines": 737,
+   "sha256": "8a6ae2021262a538a0192c78dba8ba746bdeb5ad206092f5be632e26d66e4e6c"
+  },
+  "equivalents/Rule30Equivalents/Odometer.lean": {
+   "lines": 305,
+   "sha256": "a4d27a2590fd75f6edbc6129689f16fbeecc87b252d71cf3d3c5b468b0f81512"
+  },
+  "equivalents/Rule30Equivalents/OfflineGap.lean": {
+   "lines": 701,
+   "sha256": "17c2b343fa6f13ffa679fa99439fcba9357d12683dbd9a14f348bf9406fbc633"
+  },
+  "equivalents/Rule30Equivalents/OmegaRegular.lean": {
+   "lines": 257,
+   "sha256": "4f9cad014bca87add0436c8e59f5e334080ce572f889dbddac183c1aed07e885"
+  },
+  "equivalents/Rule30Equivalents/OneTapeGap.lean": {
+   "lines": 1127,
+   "sha256": "70f5731842cc858070199190ff5fd38d4fec52395144c5f5a9182da0c7410465"
+  },
+  "equivalents/Rule30Equivalents/OneTapeRegular.lean": {
+   "lines": 523,
+   "sha256": "627299c941d39b75c1828625267822d0a9f1e980d99616d7c1b5090e33413c0d"
+  },
+  "equivalents/Rule30Equivalents/OrbitFrequencies.lean": {
+   "lines": 240,
+   "sha256": "301af2d0b06b176ada72194926b96534f0d4422019252aeae4bb86798685c47f"
+  },
+  "equivalents/Rule30Equivalents/OrderDefinable.lean": {
+   "lines": 290,
+   "sha256": "994fbf701e557c1976e5cfcca63f3e7f47dd1150d1be4bed6b31786cdad044ac"
+  },
+  "equivalents/Rule30Equivalents/PeriodicPoints.lean": {
+   "lines": 316,
+   "sha256": "dd7e300baf996d52dabe789ce8537f1a5fb03c59504c233f37544bbd17843f57"
+  },
+  "equivalents/Rule30Equivalents/PerronFrobenius.lean": {
+   "lines": 536,
+   "sha256": "703e8734fd0ca7838ce95fee4f34c0635461dc3f60cc837cfaebf3d3afbc56e4"
+  },
+  "equivalents/Rule30Equivalents/PisotBase.lean": {
+   "lines": 152,
+   "sha256": "ea331afaaaff1ae56feebfe426a505d5ad337c81615e485ccc1a8c1f414f05ce"
+  },
+  "equivalents/Rule30Equivalents/PisotNumbers.lean": {
+   "lines": 251,
+   "sha256": "d27ce187e9ca87e1e2dd3ac154b845c2882be23c3a3b7136d3237db8c1297089"
+  },
+  "equivalents/Rule30Equivalents/PowerSeriesF2.lean": {
+   "lines": 281,
+   "sha256": "6c62f07523a3cf326e03fba168c5efe71d006592e66afd532e835610c81847c5"
+  },
+  "equivalents/Rule30Equivalents/Preimages.lean": {
+   "lines": 602,
+   "sha256": "d29af2ca2b994f2b38c2c29de58c92da9faae64bd9bea7e9dc23bd8c3929d378"
+  },
+  "equivalents/Rule30Equivalents/PresburgerExpansion.lean": {
+   "lines": 534,
+   "sha256": "08e85554f79b76ff450597a82ef32fafb04a663ff41a307f40af92e533dabcf8"
+  },
+  "equivalents/Rule30Equivalents/ProblemThree.lean": {
+   "lines": 432,
+   "sha256": "918f53c34a282d72ec5730aa0898f1fdc037414f1582993df89693a336bdafe9"
+  },
+  "equivalents/Rule30Equivalents/ProblemTwo.lean": {
+   "lines": 270,
+   "sha256": "a6f1d79fe40f02390da7951b86ad18cb1d736d0c3a024c9024bed9bf43f6c4ca"
+  },
+  "equivalents/Rule30Equivalents/ProfiniteIntegers.lean": {
+   "lines": 155,
+   "sha256": "4fc36d79326980baaf1729ad6451155fc55c24d79819ae4882e3ecbc717d53a0"
+  },
+  "equivalents/Rule30Equivalents/QueryComplexity.lean": {
+   "lines": 183,
+   "sha256": "4e47436fbf1807f8335a5fbd349fe7559dbc1dcef6fd727152286109c0132094"
+  },
+  "equivalents/Rule30Equivalents/RandomConfigurations.lean": {
+   "lines": 1005,
+   "sha256": "d2ba25ed4401e36f315a52869f7d0051b022aac5113e355bde8b95bdb272957b"
+  },
+  "equivalents/Rule30Equivalents/RandomNaturalBoundary.lean": {
+   "lines": 628,
+   "sha256": "f555f36338eab41e65a465a64581a633a03b9563c2f45bed0513542afb56b18b"
+  },
+  "equivalents/Rule30Equivalents/Realization.lean": {
+   "lines": 126,
+   "sha256": "5671b95ecb53914c4dc85fe2d6e08464c2e50f8f09b816895ffcb1a3eab393e0"
+  },
+  "equivalents/Rule30Equivalents/RegularSequences.lean": {
+   "lines": 110,
+   "sha256": "00ec51cc94363c9504e76ec3e0e448932a8d083a0b8272cd14f4badcbc5ac970"
+  },
+  "equivalents/Rule30Equivalents/ReturnTimes.lean": {
+   "lines": 315,
+   "sha256": "f90c9b5584bd1817869383acab5ba8309dc378234f1e2b051c39cd26675db401"
+  },
+  "equivalents/Rule30Equivalents/RightHalfReturns.lean": {
+   "lines": 200,
+   "sha256": "5aef7912187928def2c0fbc684b3129583639cc8777e3b1aaf2d3cb971eed19f"
+  },
+  "equivalents/Rule30Equivalents/ShiftOrbit.lean": {
+   "lines": 330,
+   "sha256": "c6f4bc52323c83df867d8628739c2643344332e5bcc76fbb4e91036e157fefd2"
+  },
+  "equivalents/Rule30Equivalents/SkolemMahlerLech.lean": {
+   "lines": 416,
+   "sha256": "53deb01eda2a9a1225d05bf2c717b9e1b3af3773ec62b4f1464f3b3a2963540b"
+  },
+  "equivalents/Rule30Equivalents/Strassmann.lean": {
+   "lines": 274,
+   "sha256": "a4d60e38eea63d563292860c453d60ace6a9278271312fe3998a5b8269f61a01"
+  },
+  "equivalents/Rule30Equivalents/StrongerStatements.lean": {
+   "lines": 862,
+   "sha256": "ee902586c4962e5016a34521a6dfb8d03d7b1fb31f2cd9d3a9167679f8a39974"
+  },
+  "equivalents/Rule30Equivalents/Substitutive.lean": {
+   "lines": 192,
+   "sha256": "15f78262465b75088bd7b919b7cf8cc504fd6db5b82041c497c76494b6647b14"
+  },
+  "equivalents/Rule30Equivalents/Symmetry.lean": {
+   "lines": 417,
+   "sha256": "074540570c0a5a7f7b6438d196ffc118d4d88258a59a7a9a1160764a81e9ceb4"
+  },
+  "equivalents/Rule30Equivalents/Szego.lean": {
+   "lines": 105,
+   "sha256": "d46551abc8b4f3361e0908bbae7f857cccf5f829c5b7349e838296c49aa463bb"
+  },
+  "equivalents/Rule30Equivalents/SzegoContour.lean": {
+   "lines": 699,
+   "sha256": "d5d0f358bba907ea4a9dbf5e98913a1afdbfede2ef77fc02126b051a418d63d6"
+  },
+  "equivalents/Rule30Equivalents/SzegoPolynomial.lean": {
+   "lines": 555,
+   "sha256": "868fdd979d6ffc45d1d50fef6103d1dbc8f85a3a3d4303095321721e27461555"
+  },
+  "equivalents/Rule30Equivalents/TFunction.lean": {
+   "lines": 251,
+   "sha256": "a9849fdaaa270820051fc574e68cb8b2e074e97874c9e8030645ff8c6b497a8b"
+  },
+  "equivalents/Rule30Equivalents/TFunctionCycles.lean": {
+   "lines": 420,
+   "sha256": "2e005c30411a75196149600aee7587842b1b9d58e175f4294a2923ab428ceb49"
+  },
+  "equivalents/Rule30Equivalents/TailLanguage.lean": {
+   "lines": 238,
+   "sha256": "05ff83b808b4b5eb6eb4fcb0a3b7f9893d75712cd02e28b01b772466059295ca"
+  },
+  "equivalents/Rule30Equivalents/Tauberian.lean": {
+   "lines": 603,
+   "sha256": "0589a14087fd7d43ef63ab9649eb0111907910e10f3635fc3b2654156680da8e"
+  },
+  "equivalents/Rule30Equivalents/Transcendence.lean": {
+   "lines": 80,
+   "sha256": "bce4d9a9e75ce493d70efc53acccba083015d7ba2add06ffd6cfa46038dc82ed"
+  },
+  "equivalents/Rule30Equivalents/TransformsSeeds.lean": {
+   "lines": 971,
+   "sha256": "86c688db03896ec59a2e2e3fc53c56ab0c6311429bbaa9b48650a96134532d28"
+  },
+  "equivalents/Rule30Equivalents/TwoAdic.lean": {
+   "lines": 726,
+   "sha256": "298535fd89475150f7bfa04f7a71f139eaa49c02b80351652df49dff7ba0f4b4"
+  },
+  "equivalents/Rule30Equivalents/TwoAdicPeriods.lean": {
+   "lines": 231,
+   "sha256": "2fd7b7ca6cfdca3914e843e35331ccf1db234e6a35daf23b345be45f0616ca46"
+  },
+  "equivalents/Rule30Equivalents/TypicalConditions.lean": {
+   "lines": 773,
+   "sha256": "8641a1531983231e4ed6a80a22dd10f324e063cfa117813f66e2e5a3619dfd9f"
+  },
+  "equivalents/Rule30Equivalents/Typicality.lean": {
+   "lines": 475,
+   "sha256": "2ddc7b5a013e51baa8d1ba79b198c98fad14853abb3757f257c9fe340ea0f5f5"
+  },
+  "equivalents/Rule30Equivalents/UniformMorphic.lean": {
+   "lines": 107,
+   "sha256": "b1e9b9a9b1072e32460797d1a46d3695b85cb05f95f5ad4e9c72c00e9372b59d"
+  },
+  "equivalents/Rule30Equivalents/WordForms.lean": {
+   "lines": 602,
+   "sha256": "0069e3be6756957acf6a86ced33ee7a7866222d8c84fcbf3ea2ffcb2a7815d57"
+  },
+  "equivalents/Rule30Equivalents/WordsAutomata.lean": {
+   "lines": 1427,
+   "sha256": "b65826036813b71d23b8c70f525bf80ef40060e660333dd3e69af0bf3703d31c"
+  },
+  "equivalents/scripts/CheckAxioms.lean": {
+   "lines": 236,
+   "sha256": "16fcc8ce0380a2f3fbba5847fece1c2a45b14fdd8c395590a97446264e966c22"
+  },
+  "lean/Ruliology.lean": {
+   "lines": 122,
+   "sha256": "cd71888344281c4657f4841059575a11010ee468ba355d223d06c25ab0f28fc1"
+  },
+  "lean/Ruliology/CellularAutomata/BusyBeaverLifetimes.lean": {
+   "lines": 562,
+   "sha256": "218bf78cf65b557beb323c707233b01daf819baf81f1b9dfcb328e066f7e847f"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30BackwardTube.lean": {
+   "lines": 301,
+   "sha256": "6763dc2a6f3228025ef266ddac579378d66bf05073ff06c7ff9b6d0b48dcd52a"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30BackwardVacuum.lean": {
+   "lines": 95,
+   "sha256": "0896e6fab66c9f4fc712cc33763a26e65bfe5c008af516de85a1ed56937a0a8b"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30BlackRunBlocks.lean": {
+   "lines": 263,
+   "sha256": "280625746eeebfe8aa6848afa5f6af317f41cf6cbb0720bf2313edc33875ad05"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30BlackRuns.lean": {
+   "lines": 964,
+   "sha256": "8a830f14ee171641dd1a6c9da229e6308f34b05867d4a8a37843185491e609ee"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Blocks.lean": {
+   "lines": 218,
+   "sha256": "2d53a6f493878077b1870ecea22be0fc8953d1bd44ec11e440b5897c18392fd0"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30CenterRuns.lean": {
+   "lines": 531,
+   "sha256": "9a915821a2f6ba61cd061265ea78ac28f89ace590f50106131f41bb2e87ad485"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/EtherTrap0.lean": {
+   "lines": 44,
+   "sha256": "f2d34eb3f203f41daa9e59d51c8623641b02dce9400666ee42580fe9bf1a8350"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/EtherTrap1.lean": {
+   "lines": 44,
+   "sha256": "8831e9d04cb239d2222a95a096d67861cc3377adcf35f0d78415d9df42b3ec36"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/EtherTrap2.lean": {
+   "lines": 44,
+   "sha256": "f474d8c778420e1fc4c421fd4d88a10b931dd0292f8fb44a68ebe543363f7707"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/EtherTrap3.lean": {
+   "lines": 44,
+   "sha256": "6ae3885e834dc00d90922361ee89e1a6b6206ceb2e2e174f17ce1b339a72dfbf"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/EtherTrap4.lean": {
+   "lines": 44,
+   "sha256": "f8de1576b7a09b933d50f58f423922264394f339ef0793d0be20c9203767d661"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/EtherTrap5.lean": {
+   "lines": 44,
+   "sha256": "fb3421de222c46819dd1d5ee1327426885df99612f64685c38690fb1904e37ca"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/FiveTailTube.lean": {
+   "lines": 1238,
+   "sha256": "a34c8c80ea21aa4e867861360a886756bca96cb3c74c44b4b891acda2903f7a0"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/SixTailBackward.lean": {
+   "lines": 1347,
+   "sha256": "3dbac9db130c227c9fedee86688df0ba1fec674eac4f678196e968cb303bf61c"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/SixTailEndpoints.lean": {
+   "lines": 509,
+   "sha256": "ff0c95c893762b84018a5624d8b6a2ae3626dbaf6295638083e8878c70b8a6df"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/StripeMeeting.lean": {
+   "lines": 108,
+   "sha256": "b78ff5ef89b76b61abe0eb2fbe79598c998abade15c7c8574dc5c037868f7af6"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/StripeTail13Completion.lean": {
+   "lines": 138,
+   "sha256": "cc9fe7e31fb566bd74a856203e58aa0aeade7de1786e024ec24677073ca08877"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/WhiteEndChecks.lean": {
+   "lines": 191,
+   "sha256": "feed01d4b5c96daca9f4fc2b2ed7a6ebc33a64f363822f6357b6d63a3c05f8d6"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/WhitePaddingFamilies.lean": {
+   "lines": 1136,
+   "sha256": "a9d248f211ee0870399d85a6a88858515a9518c208d90aa5c33dfdefaf6606ed"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryStripeCycles0.lean": {
+   "lines": 51,
+   "sha256": "d140c4f39dcc54790b6f4d11baab444ca2c5932f21db56d12f17beaf3e1c625f"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryStripeCycles1.lean": {
+   "lines": 28,
+   "sha256": "b88039fc6d19f0435d0bb3ab601456efa24456c773829d6b8a2187ab9fc89cfa"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryStripeCycles2.lean": {
+   "lines": 28,
+   "sha256": "747277b80a730f704404c463f7113f91b6f9d29198972a3c91a04743368d1065"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryStripeCycles3.lean": {
+   "lines": 71,
+   "sha256": "2850690275a859d59ea979c60346f1bd3818973354f748342cf0444baed5cc5b"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryWidth52Chunks0.lean": {
+   "lines": 127,
+   "sha256": "29b497ec02ea8c4e9de32ae96082327441a44aa68e6241170217cd3130c4e45f"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryWidth52Chunks1.lean": {
+   "lines": 127,
+   "sha256": "cc64ccc578ae8e122aaaa36792c328df04ed534495f66896c8690e7697bdff74"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryWidth52Chunks2.lean": {
+   "lines": 127,
+   "sha256": "4ef279499221920da8b9a2f9a18847e39713488d3e52680525608c734a004e24"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Certificates/ZeroBoundaryWidth52Chunks3.lean": {
+   "lines": 127,
+   "sha256": "d4ea9b0f2b74651f564b3915c3d9125143b1181861ef913e136ec2b4caabdd7f"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ClockMask.lean": {
+   "lines": 160,
+   "sha256": "b0ec0d01e18e88c167ca2762b4cd50714bd67f31982e656a0a07d2cb2514a6b1"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ColumnSeparation.lean": {
+   "lines": 200,
+   "sha256": "d7f9c2e9c50e014ee5ad5f5beb556799d69fa134f5e661aafee05a8dc5c54354"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ControlledResponse.lean": {
+   "lines": 426,
+   "sha256": "7a9c994a18fb5dbf55373926b9c58da067e7e928c374ce5f9fe75f9d6ca68b8a"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Coupled.lean": {
+   "lines": 219,
+   "sha256": "a168bae5fc887fd0a54ba0433f1219b019571ea368315249695df5af2edc7884"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Diagonals.lean": {
+   "lines": 279,
+   "sha256": "4bbdd2e9fbe0ba2cd47479c5054b01f37be9df7724b5cd8758917f1ecc500791"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30DrivenLeft.lean": {
+   "lines": 505,
+   "sha256": "1f46101a2b6041f9b4bcade0b32da60b1c6ac779b49d0237fbfd72faff4d2053"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30DrivenPrefix.lean": {
+   "lines": 147,
+   "sha256": "7be112c4105a8f94196eb8fe08335238df415d53176146ffcd847e6cd3b988dc"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Ether.lean": {
+   "lines": 1081,
+   "sha256": "dc3d84cd13e0f091c400d60a0594e45dba59d9bc86aa224a328b2af66f06d756"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherThree.lean": {
+   "lines": 341,
+   "sha256": "d49ed8342f9810711266d0be6ba75ccfde1d85e8eda7ecdabea1c4dabdc3b1de"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherThreeErosion.lean": {
+   "lines": 469,
+   "sha256": "64f342ebd3839d5d83e3ff9aef5429c383c023e4ae6cd279bdb5d7d084cc2052"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherThreeLeft.lean": {
+   "lines": 251,
+   "sha256": "06d9e27cc5e28a76cb102ef91632f8ec3c4ed416dd670ab54eeb4909269a03bc"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherThreeNoWall.lean": {
+   "lines": 236,
+   "sha256": "d1cafa93b60da82d81e31af40a53a71ef1e5dac62d71230cc77f1654bd961804"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherThreeReach.lean": {
+   "lines": 89,
+   "sha256": "438a3d4153d910cc463e448694206a3d08751c1a9409cddef83fb1d8b86f69fd"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherThreeSkeleton.lean": {
+   "lines": 177,
+   "sha256": "258879c00907c97462aac2ef319e357ac97a9466ef705df9cea4dff9884fbad7"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherThreeTrap.lean": {
+   "lines": 218,
+   "sha256": "ca8f0808bcae176e975c80d585021a953871e4e50c0b8b098a5761cdf9975b63"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherTrap.lean": {
+   "lines": 387,
+   "sha256": "8106c2607262d83ca41190125e87012aec9995d06c82181e895c259a6afc8181"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30EtherTrapWidth20.lean": {
+   "lines": 128,
+   "sha256": "f14a2f21dc62fc2afb399097541c05cd7da711575c79185411b5c8293e8b05e7"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ExactReturn.lean": {
+   "lines": 161,
+   "sha256": "91dd9eec11168384fd82d7ff01b52593339ef250f5e4aef26666757d97faa3e1"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FactorWindow.lean": {
+   "lines": 165,
+   "sha256": "17faf9caea72466338d6141eba94ba4b3629fc0575a2c04d3e8f69b348e4097f"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FeedbackErasure.lean": {
+   "lines": 165,
+   "sha256": "4556054ed1efd7c27b1066732e1ce278830112d76515602b518435be1f89f00a"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteBlackRunBlocks.lean": {
+   "lines": 235,
+   "sha256": "e9f0c4a6fc7c3aeea8eb74f46c767a9a4c31fdb8dba1500da1508c8e149d370f"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteBlackRuns.lean": {
+   "lines": 561,
+   "sha256": "b7bb6cefa84da6eeed352648aa7834435505ca66c72a352ffb16e86de7160990"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteClockCertificate.lean": {
+   "lines": 281,
+   "sha256": "a3bfe323f65f2edda2ce2088d51d053958c6ce716e9afa8ac351ad842cce3ba1"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteClockSixteen.lean": {
+   "lines": 151,
+   "sha256": "7d78c73be44e937b6ab28fe22b20c7e50aeea4dde6f82e1640fe3fea1fdfc71a"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteConfigs.lean": {
+   "lines": 365,
+   "sha256": "11a2d601078947f7bbb863cf67cbbb9757a0cc2e78a3b2a45f82f79f3162b84a"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteDiagonals.lean": {
+   "lines": 219,
+   "sha256": "47d4ea81a653974d059d543f1f3254f60821381c4fca75af46a924987b70a4e3"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteMaskedJen.lean": {
+   "lines": 151,
+   "sha256": "1108a634dea7246738d644c1e903d96c07f0064206b3ae2875df9a4447450273"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteStrips.lean": {
+   "lines": 226,
+   "sha256": "3722ce539aff889e63eaeb3929e283299c3be8015a1f5c578c30803840983acd"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiniteWhiteRuns.lean": {
+   "lines": 553,
+   "sha256": "6827f78d4499a0df9bc1d42da2acb12940fd1031e9f86d236dfeed08ed089fa2"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiveTail.lean": {
+   "lines": 60,
+   "sha256": "fabfb3713c980c1ea6084eb6f927bf18baf1bc822f6f369cf57c04b5ae4dec6c"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30FiveTailReduction.lean": {
+   "lines": 96,
+   "sha256": "e665ba6b5802c023314bdbf58f07bb7ce5e0a0a1dd1de6131c5c298f478ea732"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ForbiddenSuffix.lean": {
+   "lines": 112,
+   "sha256": "c04a36d52273a9a1d54101bca6e8c4b6b221382b48e10c834e6be3de99429890"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Jen.lean": {
+   "lines": 274,
+   "sha256": "0700944834df40a026191a7fe4c1ab22114c6509a319afc1d71877e30a22c6bc"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30LightCone.lean": {
+   "lines": 117,
+   "sha256": "a97d914a9e2d2be61376cd551d41bd4d79c5238054da903f93d7e32fb47cb6cb"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30MaskedJen.lean": {
+   "lines": 225,
+   "sha256": "44fe75c8865d6edd4a6cddeeec9430d32fed7e06e47803c35b267024192dbfb5"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PackedReconstruction.lean": {
+   "lines": 67,
+   "sha256": "cd6d5a58a936d03d160916c7c659e42b9747e4a3120924b95016d1e0062f2087"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PaddedWords.lean": {
+   "lines": 104,
+   "sha256": "0f4d3a626b6a6f0cd349861825484a9bab02fb093e32931d6e880e77b015b875"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodFourSkeleton.lean": {
+   "lines": 615,
+   "sha256": "f4bb6c71526578259e2d22410f4c9ab2aedc7890fff4283ebbef27ccd812b6b0"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodTwo.lean": {
+   "lines": 365,
+   "sha256": "00dd86544ed7763a08271f8a8d3327d4f3cda7f60c5fc5c92ad467b43dd85769"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodTwoCoupled.lean": {
+   "lines": 229,
+   "sha256": "caa2f8ba78d0a48dc8c7db6f8adf65375b1d1442b85021eb5a676c1e185f3d22"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodTwoLanguage.lean": {
+   "lines": 176,
+   "sha256": "763dd2219c3e80a7ef96fb956e1b1d747a10ede15cbf0f4eb265ba963f86d835"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodTwoSideways.lean": {
+   "lines": 557,
+   "sha256": "d08b1d0d0ea35051855323fbf1e8a88f01ab39a89ad0361b76f161437c206b54"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodTwoWidth5.lean": {
+   "lines": 90,
+   "sha256": "b4cf0ccb6a799840bf6d50591c225b0e9e30e0dccbc3fbf12bcaf9ee0015d197"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodTwoWidth6.lean": {
+   "lines": 99,
+   "sha256": "f8846e6499a179057dfdfe8efcb20c98db7a90a3869b338b4ac686be700f62b0"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PeriodicProfileCounter.lean": {
+   "lines": 170,
+   "sha256": "9417cedc6b02509bd19e1ce2ceb42af40fa8950f2575b5dfa2c90147e0c55eb4"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30PredecessorCounts.lean": {
+   "lines": 234,
+   "sha256": "efcec4a26a8eb7da0ad5246bcd1220eb8904d6738e167047b144fbe34d33a196"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Predecessors.lean": {
+   "lines": 653,
+   "sha256": "70b00cd4ab31cb8b2415667830e22a1d8edbaae0e6586979e582af4081519bcb"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Prize.lean": {
+   "lines": 117,
+   "sha256": "9d6bc9deff317ec056d9d321c1fb0373fdaba808d91112da3c7870e7562f283c"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Problem3.lean": {
+   "lines": 197,
+   "sha256": "dc117894eae57dab159b7af45fdc2cf60891f006d8bda504b22d04f2a770f8f8"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Realization.lean": {
+   "lines": 449,
+   "sha256": "da6444504fc3d9789ccdae0f042f63e980b6f0de1ce23958d5387e6d4999eac5"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30RestrictedBackwardTube.lean": {
+   "lines": 194,
+   "sha256": "0511547d17e527e81cfd93bf03fbed785885cd79bb3586288f4571b90b7a210b"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30RightPeriods.lean": {
+   "lines": 945,
+   "sha256": "ebc46daf6bb8c59f493ddd4b6410b34c9793696905b59b7f7fa65c61f0327680"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ShortTail.lean": {
+   "lines": 223,
+   "sha256": "204c381e81ed35cd4219aaa34f247cab97ddaa5f9ea0518a0946f184b9b85974"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30SixTail.lean": {
+   "lines": 57,
+   "sha256": "313f6de31d54d07f5ac928a6bbf7eb8f50e9069de26627008fe58857f2bb21f9"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30SixTailReduction.lean": {
+   "lines": 108,
+   "sha256": "859aadd1ff92c8782038bf464be6f759eec63c5cb48e9871baea2930d1b7dbb5"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30SixTailSharpened.lean": {
+   "lines": 105,
+   "sha256": "3dbc5ec908f58fe4050d6db07ce555a1ab37c103605655ea276575e66956aa8b"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30SpacingGapCounterexample.lean": {
+   "lines": 82,
+   "sha256": "02f2fd3b1a82df92fd9418ae00ce1fa70f140f60da19351f5a7aa3d11f2d77e7"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30SpacingRenormalization.lean": {
+   "lines": 176,
+   "sha256": "81599e80c7b8befeb0f33dfd917c40107fc0034b9958a1db90fb440799eb9579"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30SparsePreimage.lean": {
+   "lines": 78,
+   "sha256": "174d721883127c3a8c656b52886ea800a4182ea6754a1868beef8cba9db91e74"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30StripCertificateTable.lean": {
+   "lines": 97,
+   "sha256": "a1096fcfdac32e18d816a573e06c12057ef921dacfa428952a94557ed6e2233b"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30StripCertificates.lean": {
+   "lines": 780,
+   "sha256": "9a359c0afc4151b62bcb7a05f240a56c37f3c93d3233bb1f0a0af4d54b72fb94"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30StripeMeeting.lean": {
+   "lines": 1031,
+   "sha256": "e2d6708845b910d441a100e57e41dcde429df0204bceb673b406da59246f7d7d"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30SuffixFamilies.lean": {
+   "lines": 73,
+   "sha256": "2a5ad82d399ba5bdc39dfb439fc0f6f06d53d504394a0be2676a2d3b5321e751"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30TerminalClock.lean": {
+   "lines": 159,
+   "sha256": "d000fe8baee0fcc4cf0b9107417b1aa7f25842bff3c974f1612dc660e8b30508"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30TraceAmbiguity.lean": {
+   "lines": 94,
+   "sha256": "c0d18b2baa343ce7770fe838e6ff3d766e784dcf4c47082b2586b0608d74e487"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30TraceEdge.lean": {
+   "lines": 88,
+   "sha256": "458f22ffa401e81440f6c2e4d039f02523af19186cbd92a2879667f5fa7e3ded"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30TraceMerge.lean": {
+   "lines": 181,
+   "sha256": "48c995fd4aa963dd106b7c53bc4aaf5945ee17e11c5f5f23536ff08bea9f3a48"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30UniformWhitePadding.lean": {
+   "lines": 121,
+   "sha256": "222f44a949c36bed5fc9d7f42aa8dd90b78d606f756fb8d13e5851c400dd252f"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30VacuumExample.lean": {
+   "lines": 54,
+   "sha256": "b1e6ac36e8c5fbe59bbd9e48d30211d65b95a7cda3022ce78337da56c4f128f5"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhiteEnd.lean": {
+   "lines": 532,
+   "sha256": "e82cb92706281527edbbd534d6dfd9d5c10f7a9e38679a3384781ef201cc7adc"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhitePad10111.lean": {
+   "lines": 295,
+   "sha256": "e791e32f7be45125a9e9ef0cd78ea95c78abed631a6b08bd4fa0148ae238ef0d"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhitePadding.lean": {
+   "lines": 128,
+   "sha256": "c77ac2494c20b6fecd8302ec6d69ed9d52f5590ae648e657b4e7e95da8f44734"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhitePadding10101.lean": {
+   "lines": 63,
+   "sha256": "5a965d5dddc090c2b2a2d9c543b2b5b9886315753800bd68f0aeb93867458203"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhitePaddingVacuumCriterion.lean": {
+   "lines": 112,
+   "sha256": "97f43530ba72edf398237176aecaec8b3de237f15633281080e21fb7a0668554"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhitePulse.lean": {
+   "lines": 322,
+   "sha256": "75e04d3e80035564a41c1d37a9f36665cc7b2a4ff61d398f0875540a66e34e30"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhiteRunEight.lean": {
+   "lines": 216,
+   "sha256": "fa2fa3f945d113d99166eaf8265ce9018dc42d73af6997d2f20d82cf970b678a"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhiteSeed.lean": {
+   "lines": 127,
+   "sha256": "8889646bd42ddb59ca92de9ae35b2c67cd50a453eb72e1591ca662a01c845149"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WhiteTailErosion.lean": {
+   "lines": 178,
+   "sha256": "4767dc31fa67835962825eb26619cae747dfc05d660d1729fc31b479cc3bac61"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30Window.lean": {
+   "lines": 147,
+   "sha256": "9561eb0493f6ef94b6e4c5b44a95aa4fc509d2f16c6d8a498af08f8b1440bb90"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30WordRotation.lean": {
+   "lines": 81,
+   "sha256": "f5df1071ac92e1233bb0a6338834dfa1bc698fa4cad5c41989edbe8cd77e7597"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30XorRigidity.lean": {
+   "lines": 326,
+   "sha256": "a0ceb2ada2df5c5b232725ef98931af0ca8b0a77bf3be13a8e43130f6a664de9"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundary.lean": {
+   "lines": 1354,
+   "sha256": "95279579b7a51d750a87db786ade44cf55627bd805e6a4d369126adc91d1004d"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryBarriers.lean": {
+   "lines": 1105,
+   "sha256": "d16659ead7a294ff46d1ee37019d720fed76d4d35aa8be310a7ea65757289765"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryLanes.lean": {
+   "lines": 519,
+   "sha256": "f764a524009f830c400a984e578ccd287657ae019a664da36a3026e2069b2627"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundarySmall.lean": {
+   "lines": 168,
+   "sha256": "b1bcb6cfede2a2b86f43eb39614a268da25dd42f74de86bf23d1fbc5c38be615"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryStripe.lean": {
+   "lines": 974,
+   "sha256": "cdce78d32f43914de493ec05e409d512fae2a16ccbc25e29c6be61feaf86949c"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryStripeFamily.lean": {
+   "lines": 122,
+   "sha256": "ff5a884bf366da4a0bd4b88b6aa9a5728bfaa7627b84c15da61ff2662caa048c"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryStripeFour.lean": {
+   "lines": 195,
+   "sha256": "b57073d14136fc7fc7dc04d0feca839a6b8ba90bd5d4511d4c397bec6cf3467a"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryStripeFourComplete.lean": {
+   "lines": 113,
+   "sha256": "5a9b9d593961c3a8944221330b24d638eb1fb85d04d7e9a2644b9624ad2342d7"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryStripeFront.lean": {
+   "lines": 399,
+   "sha256": "4d10603319b889cff3b3869a489ad36968ac0fe8df4377f3b0d30084eccaddfd"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryStripeFrontLift.lean": {
+   "lines": 632,
+   "sha256": "dd759c49522f228945998508ed9753a917eb4b00d31bfdac4dacc068145b2d1e"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroBoundaryWidth52.lean": {
+   "lines": 59,
+   "sha256": "a35fb6697d29be8eaf515b4cb69628456efd1c06e614af80a516c3ca11bd43bd"
+  },
+  "lean/Ruliology/CellularAutomata/Rule30ZeroPredecessor.lean": {
+   "lines": 52,
+   "sha256": "c9d2989a4441395d1c5febee088ffbc96b616f6d3b65958abe85f088553b9702"
+  },
+  "tests/T01Template.lean": {
+   "lines": 10,
+   "sha256": "7e3893eba4d708b76f09a562f7ddb4f213a346cad839e3f4c424ca1d32d64983"
+  },
+  "tests/T02Sorry.lean": {
+   "lines": 6,
+   "sha256": "41614dec16e2c6db4e0f8e30392c37c956b2c092b3bd357751a80a4895a95691"
+  },
+  "tests/T03NewAxiom.lean": {
+   "lines": 7,
+   "sha256": "8461238ceff92a89af8890e2e012faa592a19f1f903948cd5b44d9290c42c785"
+  },
+  "tests/T04NativeDecide.lean": {
+   "lines": 7,
+   "sha256": "cd545fa9dcae4a4fd390834ed09c4f5ea72ea0816b10d2284c965c0cc18d71f5"
+  },
+  "tests/T05SkipKernel.lean": {
+   "lines": 9,
+   "sha256": "2563bd86fdd60507c6d98e32871998884d358d07abc691aa045e4ad0afcd910b"
+  },
+  "tests/T06WrongType.lean": {
+   "lines": 5,
+   "sha256": "2a48ab34b0b2180086dca2bccf6cf3da589130e2308f3d776c33177cab9b055d"
+  },
+  "tests/T07Redefine.lean": {
+   "lines": 14,
+   "sha256": "5fe0bed7a942eeac4fa148471d968949af0c874e8909baf187c893970135f409"
+  }
+ },
+ "license": "none",
+ "repository": "https://github.com/WolframInstitute/Rule30PrizeKit"
+}

@@ -163,19 +163,21 @@ CREATE OR REPLACE FUNCTION erb_refresh_memo_terms() RETURNS integer LANGUAGE plp
 DECLARE n integer; total integer := 0;
 BEGIN
   DELETE FROM erb_memo_terms_rendered;
+  DELETE FROM erb_memo_terms_lean_rendered;
   LOOP
     CREATE TEMP TABLE IF NOT EXISTS erb_memo_round (id TEXT PRIMARY KEY) ON COMMIT DROP;
     DELETE FROM erb_memo_round;
     INSERT INTO erb_memo_round SELECT c.term_id::text FROM terms c
-    WHERE NOT EXISTS (SELECT 1 FROM erb_memo_terms_rendered m WHERE m.id = c.term_id::text)
-      AND (c.arg1 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg1) OR EXISTS (SELECT 1 FROM erb_memo_terms_rendered m WHERE m.id = c.arg1::text))
-      AND (c.arg2 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg2) OR EXISTS (SELECT 1 FROM erb_memo_terms_rendered m WHERE m.id = c.arg2::text))
-      AND (c.arg3 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg3) OR EXISTS (SELECT 1 FROM erb_memo_terms_rendered m WHERE m.id = c.arg3::text))
-      AND (c.arg4 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg4) OR EXISTS (SELECT 1 FROM erb_memo_terms_rendered m WHERE m.id = c.arg4::text))
+    WHERE NOT EXISTS (SELECT 1 FROM erb_memo_terms_lean_rendered m WHERE m.id = c.term_id::text)
+      AND (c.arg1 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg1) OR EXISTS (SELECT 1 FROM erb_memo_terms_lean_rendered m WHERE m.id = c.arg1::text))
+      AND (c.arg2 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg2) OR EXISTS (SELECT 1 FROM erb_memo_terms_lean_rendered m WHERE m.id = c.arg2::text))
+      AND (c.arg3 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg3) OR EXISTS (SELECT 1 FROM erb_memo_terms_lean_rendered m WHERE m.id = c.arg3::text))
+      AND (c.arg4 IS NULL OR NOT EXISTS (SELECT 1 FROM terms p WHERE p.term_id = c.arg4) OR EXISTS (SELECT 1 FROM erb_memo_terms_lean_rendered m WHERE m.id = c.arg4::text))
     ;
     GET DIAGNOSTICS n = ROW_COUNT;
     EXIT WHEN n = 0;
     INSERT INTO erb_memo_terms_rendered(id, val) SELECT c.term_id::text, calc_terms_rendered__compute(c.term_id) FROM terms c JOIN erb_memo_round r ON r.id = c.term_id::text;
+    INSERT INTO erb_memo_terms_lean_rendered(id, val) SELECT c.term_id::text, calc_terms_lean_rendered__compute(c.term_id) FROM terms c JOIN erb_memo_round r ON r.id = c.term_id::text;
     total := total + n;
   END LOOP;
   RETURN total;

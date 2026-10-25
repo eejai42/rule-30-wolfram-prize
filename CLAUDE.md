@@ -4,7 +4,18 @@ This is an Effortless Rulebook (ERB) project. All development follows the effort
 
 ## What this repo is
 
-The Wolfram Rule 30 prize problems, modeled in one rulebook with two halves:
+The Wolfram Rule 30 Prize, modeled in one rulebook and **measured against the official challenge**:
+the prize is graded in Lean (a submission's headline theorem must have the official type and use only
+standard axioms), so the model holds the challenge's whole public record and decides in Lean what it can.
+
+- **The challenge** (since loop 27): the kit (`WolframInstitute/Rule30PrizeKit`: the official Lean
+  statements, the catalog of partial results, the equivalent forms), the verifier's environment and
+  every public submission, synced into the model (`research/sources/sync.py`, `./start.sh sync`).
+  Every kit module is a claim (`L-...`, Kind `Lean result` / `Equivalent form`), the kit's case split
+  of Problem 1 is `KC1`..`KC7` with its open statements `Q-...`, and `B10`/`B11` are the kit's routes to
+  P1. See "The challenge and Lean" below.
+
+The rulebook has two more halves:
 
 - **The domain model**: Rule 30 itself, built like `effortless-rulebooks/rulebook-examples/simpsons-paradox`.
   Rules, neighborhoods and rule tables; the single seed; a run with its time steps, columns and
@@ -89,10 +100,66 @@ P1, P2, P3 after the build.
 `research/loop_tools.py` `run_loop()` does steps 0 to 6; a loop script supplies only the hub edit. Claims and revisions made inside a loop are tagged with it automatically. A loop that skips the build or the consume step is not VERIFIED.
 
 ## Status vocabulary
-`DEFINITION`, `PROVED_HUMAN_READABLE`, `REDERIVED_KNOWN`, `FINITE_VERIFIED` are usable premises. Only the first three are proof-eligible. `OPEN`, `FALSIFIED`, `SUPERSEDED` are not usable; any conclusion with such an ancestor compiles to `BLOCKED`.
+`DEFINITION`, `PROVED_HUMAN_READABLE`, `REDERIVED_KNOWN`, `LEAN_VERIFIED`, `FINITE_VERIFIED` are usable premises. All but `FINITE_VERIFIED` are proof-eligible. `OPEN`, `FALSIFIED`, `SUPERSEDED` are not usable; any conclusion with such an ancestor compiles to `BLOCKED`.
+
+`LEAN_VERIFIED` is never typed for our own claims: `EffectiveStatus` sets it when the kit's `Check.lean`
+accepts a proof of the claim's **current** Lean statement (`LeanChecks.IsCurrent`), or, for a kit claim
+reported proved, when the export shows its module free of non-standard axioms. `PROVED_HUMAN_READABLE`
+is an English proof: on this challenge it counts as unverified until Lean says otherwise.
+
+## The challenge and Lean (loop 27)
+
+- **Setup, once:** Lean via elan (`curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --default-toolchain none`),
+  then `./start.sh sync`. The first sync clones the kit into `external/Rule30PrizeKit` (gitignored), fetches
+  prebuilt Mathlib and builds every catalog module with the kit's `build_all.sh` (about an hour, about 8 GB).
+  Without Lean the build still runs; its receipt says `lean: skipped` and the last checks stay as they are.
+- **Licenses decide what is kept here** (`research/sources/licenses.py`, owner's rule 2026-10-25): every external
+  source carries its license, and the repo keeps as much of a work as that license allows, with credit. The kit,
+  the submissions and skill.md state no license, so **no Lean source, statement, docstring, abstract or
+  instruction text of theirs is ever committed**: they are downloaded into `external/sources/` and
+  `external/Rule30PrizeKit` (gitignored), and the snapshots keep references and results only (names, links,
+  versions, hashes, what the checks said). Validating those works is up to whoever runs the checks. A source that
+  declares an open license (an SPDX line in a submission, a LICENSE file in the kit) may be copied into
+  `research/sources/included/`; sync.py says when one appears. `NOTICE.md` (generated) lists every source.
+- **Sync** (`research/sources/sync.py`): `api/environment`, `submissions.json`, `skill.md` and the kit (latest
+  `main` by default, `--commit verifier` for the verifier's commit) are fetched into `external/sources/`; the
+  reduced snapshots land in `research/sources/snapshots/`, pinned as Evidence (`S-*`). `--from-raw` rebuilds
+  them from what is already downloaded. `lean/ExportKit.lean` exports every module and named declaration from the
+  compiled environment (names, kinds, lines, uses, non-standard axioms through Mathlib; statements and docstrings stay in `external/`). Every submission's
+  Lean source is compiled against the kit and checked with the kit's `Check.lean` here (cached per source and
+  kit commit). `research/hub/build_challenge.py` loads it all (build_model.py calls it too).
+- **The verifier checks against the commit `api/environment` names, not the kit's latest.** The model syncs
+  the latest (more results); `LeanModules.IsInVerifier` says what a submission may import today.
+- **Lean statements are written by the build.** `Operators.LeanForm/LeanSymbol` and `Variables.LeanType`
+  (from `model_tools.LEAN`, `LEAN_TYPES`) give the vocabulary a Lean meaning over the prelude in
+  `research/lean/ledger.py` (`c`, `x`, `y`, `w`, `rule30`, `P` from the kit's `cell`, `R`, `D`).
+  `Terms.LeanRendered` writes each term tree; `Assertions.LeanStatement` is the result, empty while an
+  operator has no Lean meaning (`IsLeanExpressible` = 0). To give an operator a Lean meaning, add it to
+  `LEAN` and, if it is a function, to the prelude.
+- **Every build checks the Lean ledger** (`loop_tools.build()` -> `research/lean/ledger.py`): when the
+  statements, the proofs or the kit commit changed, it writes `lean/Rule30Ledger.lean` (generated: never
+  edit it), compiles it against the kit (statements first; a failing proof falls back to `sorry`), runs the
+  kit's `Check.lean` on every theorem and loads the verdicts into `LeanChecks` from `research/lean/checks.json`.
+  Proofs live in `research/lean/proofs.py` (only the part after `:=`); `kind: alignment` proves a prize
+  problem's statement equivalent to the official constant (P1 is, since loop 27).
+- **Before claiming anything new**, read `Assertions.IsKnownInKit` and the submissions list
+  (`Submissions`, and skill.md's ground rules): a claim the kit proves is not new, and more instances of an
+  existing method are not worth a submission. `research/hub/claim_links.py` holds the readings of our
+  claims against kit declarations (same, stronger, jointly, weaker, related, contradicts).
+- **Must stay 0:** `Dashboards.KitContradictionCount` (a kit theorem refutes a claim we hold),
+  `LeanContradictionCount` (Lean proves a claim the model refutes), `LeanUnconfirmedCount` (a reported
+  Lean result the check here does not confirm), `KitUnverifiedModuleCount`.
+- **Editor steps switched off:** the rulebook editor's own pipeline runs `rulebook-to-rulespeak` (out of memory
+  on this rulebook) and `rulebook-to-xlsx` (fails above about 11 MB). `loop_tools.EDITOR_DISABLED_STEPS` turns
+  both off in `effortless-rulebook/docker/effortless.editor.json` after every build (the editor transpiler
+  regenerates it) and in the running editor (`/__boot/pipeline-toggle`). The admin portal has no RuleSpeak tab or
+  xlsx export as a result.
+- **Size:** the compiled rulebook is about 25 MB and a build with a Lean change compiles three times
+  (about 9 minutes). Certificate data modules keep only their headline declarations, and `LeanUses` keeps
+  theorem-to-theorem edges only, to stay inside minimize-rulebook's range.
 
 ## Explorer and admin portal
-- `./start.sh` launches both. The explorer (progress, loops, claims, dependency graph, proofs) is at http://localhost:7431. The generated admin portal from `effortless-rulebook-editor` is at http://localhost:42442, its API at http://localhost:42441/api/docs.
+- `./start.sh` launches both. The explorer (progress, the challenge, loops, claims, dependency graph, proofs) is at http://localhost:7431; `/challenge` shows the official problems, the sources and when they were synced, the kit's case split, our claims against Lean and the kit, the submissions and the catalog. The generated admin portal from `effortless-rulebook-editor` is at http://localhost:42442, its API at http://localhost:42441/api/docs.
 - **`docs/p1-frontier.md` is the map of the attack on P1**: the chain of open nodes, the proved reductions, and the mechanisms already ruled out. Read it before proposing a loop; update it when a loop changes the chain.
 - The explorer's landing page leads with the plan in force (`Strategies`, `StrategySteps`, written by `research/strategy.py`): the route to P1, what blocks it, and where the next loop aims. Each claim page shows the claim's modeled predicate (formal statement, instances, verdict).
 - The explorer lives in `explorer/` and reads only the editor API's views. Personas, stories and routes are in `docs/app.md`; read it before changing a screen.
@@ -124,8 +191,11 @@ P1, P2, P3 after the build.
   another session is still editing for that session's commit.
 
 ## Build
-- Build: `python3 research/build.py` from project root. It runs `effortless build` (compile-rulebook, minimize-rulebook, effortless-rulebook-editor, rulebook-to-explainer-dag, rulebook-to-postgres; all remote) twice around filling the caches (rule 4), about 2 minutes.
+- Build: `python3 research/build.py` from project root. It runs `effortless build` (compile-rulebook, minimize-rulebook, effortless-rulebook-editor, rulebook-to-explainer-dag, rulebook-to-postgres; all remote) twice around filling the caches (rule 4), and a third time when the Lean ledger's verdicts changed; about 6 to 9 minutes since loop 27.
 - `rulebook-to-postgres` (`postgres/`) is a read-only output spoke for the analysis database; the hub does not change.
 
 ## ERB Skills
 All conventions live in the effortless-* skills. Routing starts at **effortless-orchestrator**.
+They are checked in under `.claude/skills/` (copied 2026-10-25 from the public
+[EffortlessAPI/effortless-skills](https://github.com/EffortlessAPI/effortless-skills)), so a fresh clone has them as
+project skills in Claude Code. To update them, follow `effortless-claude-updates` and copy the new versions here.

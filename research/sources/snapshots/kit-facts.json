@@ -1,0 +1,734 @@
+{
+ "added": [
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "preCheck_sound",
+    "tail_tube_forces",
+    "no_padding_of_endpoint_tube"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30BackwardTube"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "not_eventually_word_strip",
+    "not_eventually_word_strip_finite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteStrips"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "decomposition",
+    "no_five_tail_of_cores"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiveTailReduction"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_padding_of_forbidden_suffix",
+    "no_padding_of_forbidden_suffix_finite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ForbiddenSuffix"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "restrictedPreCheck_sound",
+    "no_padding_of_endpoint_tube"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30RestrictedBackwardTube"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_short_tail_leftFinite",
+    "no_short_tail_finite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ShortTail"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_six_tail_leftFinite",
+    "no_six_tail_finite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30SixTail"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "decomposition",
+    "no_six_tail_of_cores"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30SixTailReduction"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "restricted_of_sparse",
+    "colConst_inter_of_sparse"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30SparsePreimage"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_paddingA_leftFinite",
+    "no_paddingE_leftFinite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30UniformWhitePadding"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_paddingA",
+    "no_paddingB"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30VacuumExample"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "zeros_stable",
+    "padding_strip",
+    "no_padding_word"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhitePadding"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_padding_10101_leftFinite",
+    "no_padding_10101_finite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhitePadding10101"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_padding_of_vacuum_avoidance",
+    "no_padding_seed_of_vacuum_avoidance"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhitePaddingVacuumCriterion"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "white_pulse_return",
+    "white_padding_forces_early_white"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhitePulse"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "eventuallyWord_swap",
+    "short_decomposition"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WordRotation"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "stripStep_zero_predecessor",
+    "stripStep_zero_iff"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ZeroPredecessor"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "Tube10101.Zmask"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30Certificates.FiveTailTube"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "C100001.no_padding"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30Certificates.SixTailBackward"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "C110001.no_padding"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30Certificates.SixTailEndpoints"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "ForbiddenSuffix.safe011"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30Certificates.WhitePaddingFamilies"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Proof and formalization by OpenAI Codex through Troyusrex2.",
+   "headlines": [
+    "no_six_tail_leftFinite",
+    "no_six_tail_finite",
+    "no_six_tail_seed"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30SixTailSharpened"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Proof and formalization by OpenAI Codex through Troyusrex2, using the existing white-pulse reduction.",
+   "headlines": [
+    "no_vacuum_of_backward_certificate",
+    "no_padding_of_backward_certificate"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30BackwardVacuum"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Proof and formalization by OpenAI Codex through Troyusrex2, using the existing white-pulse reduction.",
+   "headlines": [
+    "no_padding_suffix011_leftFinite",
+    "no_padding_suffix001001_leftFinite",
+    "no_padding_suffix111001_leftFinite",
+    "no_padding_suffix011_seed"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30SuffixFamilies"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Proof and formalization by OpenAI Codex, building on the catalog's uniform masked Jen theorem.",
+   "headlines": [
+    "no_five_tail_leftFinite",
+    "no_five_tail_finite",
+    "no_five_tail_seed"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiveTail"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "Proved on 2026-10-15 by the verifier of the white-run exclusion and left out of the catalog; ported here.",
+   "headlines": [
+    "no_white_run_11_ge8"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhiteRunEight"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "CQ01_iff_no_finite_alternating",
+    "Q01_no_leftfinite_alternating",
+    "CQ01_iff_Psi",
+    "not_finSupp_Psi_of_R2",
+    "exact_death_center",
+    "truncation_death",
+    "CQ01Empty_iff",
+    "no_finite_abstract_ranking_coupled"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30PeriodTwoSideways"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "jen",
+    "no_column_eventually_constant",
+    "jen_finite",
+    "no_column_eventually_constant_finite",
+    "CQ01_iff_no_finite_period_two",
+    "no_leftFinite_period_two_of_Q01"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteConfigs"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "masked_jen",
+    "orCol_not_eventuallyPeriodic",
+    "window_jen_col",
+    "periodic_window"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteMaskedJen"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "nine_black",
+    "black_shield",
+    "not_eventuallyPeriodic_of_long_one_runs",
+    "no_long_black_run",
+    "no_black_white_run",
+    "not_eventuallyPeriodic_of_long_one_runs_finite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteBlackRuns"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "no_black_run_block",
+    "no_period_black_run_then_white",
+    "no_black_run_block_finite",
+    "traceCol1_rowAt"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteBlackRunBlocks"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "Rd_periodic",
+    "Ld_periodic",
+    "evol_eq_Rd",
+    "column_reads_periodic_rows"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteDiagonals"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "no_white_run_11_col0",
+    "no_white_run_11_finite",
+    "evol_right_edge",
+    "exists_rightmost"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteWhiteRuns"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "left_eq_L",
+    "right_eq_drv",
+    "evol_glue",
+    "CQ_iff_no_finite_config",
+    "CQ_altCol_iff_CQ01",
+    "finConf_center_iff",
+    "problem1_of_CQ"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30Coupled"
+  },
+  {
+   "addedOn": "2026-10-17",
+   "credit": "",
+   "headlines": [
+    "evol_window",
+    "block_step",
+    "center_eq_root"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30LightCone"
+  },
+  {
+   "addedOn": "2026-10-23",
+   "credit": "Contributed by Ying Yin with Codex (GPT-6) as Rule 30 Prize submission R30-20261020-81df0e, and ported to core Lean.",
+   "headlines": [
+    "stripe_four_tail",
+    "family4_of_class"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ZeroBoundaryStripeFour"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "universal_front_period",
+    "initial_run_correct",
+    "return_map_cycle_lift"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ZeroBoundaryStripeFrontLift"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "The lower cycle is by G.",
+   "headlines": [
+    "Ruliology.CellularAutomata.Rule30Tail13Completion.cyc13_period",
+    "Ruliology.CellularAutomata.Rule30Tail13Completion.cyc13_sig",
+    "Ruliology.CellularAutomata.Rule30Tail13Completion.run_full",
+    "Ruliology.CellularAutomata.Rule30Tail13Completion.return_cycle",
+    "Ruliology.CellularAutomata.Rule30Tail13Completion.rare_table"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30Certificates.StripeTail13Completion"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex, using Ying Yin and Codex's catalog stripe-front method and the Quint/Gemini lower cycle.",
+   "headlines": [
+    "row4_13_all_odd",
+    "stripe_four_tail_complete"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ZeroBoundaryStripeFourComplete"
+  },
+  {
+   "addedOn": "2026-10-23",
+   "credit": "Contributed by Gareth Herbert with Claude and GPT as Rule 30 Prize submission R30-20261022-c27323, and ported to core Lean.",
+   "headlines": [
+    "not_eventuallyWord_white_end",
+    "white_end_seed",
+    "white_end",
+    "white_end_finite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhiteEnd"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "",
+   "headlines": [
+    "Problem3",
+    "Problem3Verbal",
+    "Problem3Robust",
+    "problem3Verbal_of_problem3",
+    "problem3Robust_of_problem3Verbal"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30Problem3"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by AIOvernight with OpenAI Codex as Rule 30 Prize submission R30-20261023-7a9ed3.",
+   "headlines": [
+    "not_eventually_zeros_10111"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhitePad10111"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex as Rule 30 Prize submission R30-20261024-ad6cac.",
+   "headlines": [
+    "mirror_columns_distinguishable",
+    "columns_distinguishable",
+    "columns_injective"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ColumnSeparation"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_eventuallyPeriodic_of_edgeObservable",
+    "problem1_of_edgeObservable",
+    "edges_equal_of_nonnegative"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30TraceEdge"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_left_recovery_from_eventual_finiteness",
+    "eventual_finite_edge_iff"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30TraceMerge"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "arbitrarily_long_finite_left_ambiguity",
+    "no_uniform_finite_left_recovery",
+    "recover_left_neighbor_at_depth_two",
+    "left_neighbor_rigid_at_depth_two"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30TraceAmbiguity"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex, following the one-step identity in [morpholib Theorem 14](https://github.",
+   "headlines": [
+    "reconstruction_translate",
+    "finite_transfer",
+    "transform_spaced_iff",
+    "second_translation_fails"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30SpacingRenormalization"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "packed_sound"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30PackedReconstruction"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "gate31_gaps",
+    "gate31_spaced",
+    "seventeen_white",
+    "no_uniform_gap_bound_sixteen"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30SpacingGapCounterexample"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "packed_sound",
+    "double_prefix",
+    "iterate_mod_bit"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30DrivenPrefix"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "translation_iff_nearSpaced",
+    "transformed_exactReturn_iff",
+    "infinite_gate_fails_arbitrarily_late",
+    "lastAllowed_transformed_return"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ExactReturn"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "sameResponse_iff_diagonal",
+    "tail_011_drv",
+    "tail_101_drv",
+    "feedback_left_equal",
+    "tail_011_center",
+    "tail_101_center"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ControlledResponse"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "same_OR",
+    "OR_nonconstant",
+    "heads_differ",
+    "full_period_eight",
+    "loss_head_period_two",
+    "loss_full_period_lower_bound",
+    "loss_infinite"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30PeriodicProfileCounter"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "white_step_erases_distinction",
+    "same_left_forever",
+    "finite_feedback_counterexample"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FeedbackErasure"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "no_constant_OR_at_onset",
+    "OR_not_half_period",
+    "predecessor_not_half_period",
+    "orbit_onset_not_constant_OR"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30ClockMask"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "covers_finite_family",
+    "finite_family_clock_detected",
+    "finite_state_eventual_clock_detected"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteClockCertificate"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "pool16_checked",
+    "detection16_all_head_clocks",
+    "eventual_period_detected",
+    "period_loss_requires_infinite_tail"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30FiniteClockSixteen"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "linked_diagonal",
+    "iterate_equal_iff",
+    "tail_011_return_iff",
+    "tail_101_return_iff",
+    "rewrite_return_iff"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30TerminalClock"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Luis Perez Morales, Claude (Fable 5.",
+   "headlines": [
+    "black_run_le",
+    "white_run_le'",
+    "white_run_le_three",
+    "exists_white",
+    "exists_black'",
+    "exists_black_three",
+    "blackCount_pow_two",
+    "log_two_succ_le_blackCount",
+    "log_two_le_blackCount",
+    "whiteCount_pow_four",
+    "log_le_whiteCount",
+    "black_run_le_evol"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30CenterRuns"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Luis Perez Morales, Claude (Fable 5.",
+   "headlines": [
+    "erosion3_fin",
+    "no_wall",
+    "wake_good",
+    "front_step",
+    "run_bad",
+    "cert_all",
+    "redge_step"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30EtherThreeErosion"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex, building on Luis Perez Morales and Claude's front certificate and potential.",
+   "headlines": [
+    "run_bad_bounded",
+    "erosion_bounded",
+    "white_tail_evol",
+    "white_tail_defect",
+    "white_tail_erosion",
+    "white_tail_often_departs"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30WhiteTailErosion"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by AIOvernight with OpenAI Codex as Rule 30 Prize submission R30-20261024-ddbfbd.",
+   "headlines": [
+    "xor_history_iff",
+    "standard_two_partners"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30XorRigidity"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "Contributed by Troy Lowry with OpenAI Codex.",
+   "headlines": [
+    "stripe_related_same_trace",
+    "stripe_related_preserves_two",
+    "stripe_meeting_is_early",
+    "no_delayed_stripe_meeting",
+    "eventually_stripe_iff_early"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30StripeMeeting, Rule30Certificates.StripeMeeting"
+  },
+  {
+   "addedOn": "2026-10-24",
+   "credit": "",
+   "headlines": [
+    "no_padded_word",
+    "not_eventuallyWord_zeros_11",
+    "not_eventuallyWord_zeros_one"
+   ],
+   "module": "Ruliology.CellularAutomata.Rule30PaddedWords"
+  }
+ ],
+ "cases": [
+  {
+   "case": "Period 1",
+   "kitStatus": "proved",
+   "lean": [
+    "Rule30Prize.no_column_eventually_constant",
+    "center_not_eventually_period_one",
+    "Rule30FiniteConfigs.no_column_eventually_constant"
+   ]
+  },
+  {
+   "case": "Small periods",
+   "kitStatus": "proved",
+   "lean": [
+    "Rule30Window"
+   ]
+  },
+  {
+   "case": "Any period",
+   "kitStatus": "proved",
+   "lean": [
+    "Rule30FactorWindow"
+   ]
+  },
+  {
+   "case": "Period 2",
+   "kitStatus": "reduced",
+   "lean": [
+    "Rule30PeriodTwo",
+    "Rule30PeriodTwoCoupled",
+    "Rule30PeriodTwoSideways",
+    "Rule30ZeroBoundary*",
+    "Rule30ZeroBoundaryWidth52",
+    "Rule30PeriodTwoWidth5/6"
+   ]
+  },
+  {
+   "case": "Least period 3",
+   "kitStatus": "reduced",
+   "lean": [
+    "Rule30EtherThree*"
+   ]
+  },
+  {
+   "case": "Least period 4",
+   "kitStatus": "reduced",
+   "lean": [
+    "Rule30Ether",
+    "Rule30PeriodFourSkeleton",
+    "Rule30EtherTrapWidth20"
+   ]
+  },
+  {
+   "case": "Longer periods",
+   "kitStatus": "open",
+   "lean": [
+    "Rule30BlackRuns",
+    "Rule30BlackRunBlocks",
+    "Rule30StripCertificateTable",
+    "Rule30WhiteRunEight",
+    "Rule30WhiteEnd"
+   ]
+  }
+ ],
+ "license": "none",
+ "readme": "https://github.com/WolframInstitute/Rule30PrizeKit/blob/0090056412733accaa27643d3cbbf982104f2251/lean/README.md"
+}

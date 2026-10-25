@@ -1,0 +1,4131 @@
+{
+ "R30-20261020-81df0e": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.stripe_four_tail",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 113,
+    "name": "Rule30Submission.stripe_four_tail"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "7ad769f0b0dde743190e1121785573ac78dc331e6f455ff1438af25b29bac380",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261020-81df0e&kind=lean"
+ },
+ "R30-20261022-0616de": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.seed_no_adjacent_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.seed_white_then_black",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.seed_periods_unbounded",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.seed_periods_unbounded_quant",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.seed_infinitely_many_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.seed_infinitely_many_black",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.lemma_B2",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.lemma_B3_sharp",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 641,
+    "name": "Rule30Submission.seed_periods_unbounded_quant"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 650,
+    "name": "Rule30Submission.seed_infinitely_many_white"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 657,
+    "name": "Rule30Submission.seed_infinitely_many_black"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 496,
+    "name": "Rule30Submission.lemma_B2"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 631,
+    "name": "Rule30Submission.seed_periods_unbounded"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 624,
+    "name": "Rule30Submission.seed_white_then_black"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 617,
+    "name": "Rule30Submission.seed_no_adjacent_white"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 261,
+    "name": "Rule30Submission.lemma_B3_sharp"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "407f237bc8f8722178c3cb9453773e3feb55f5af83367cda7a27e02ce26f0230",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-0616de&kind=lean"
+ },
+ "R30-20261022-0cac94": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.q001_width_le_37",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.q001_restricted",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_oneBlack_of_QP",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.q00001_width_le_28",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 514,
+    "name": "Rule30Submission.q001_restricted"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 498,
+    "name": "Rule30Submission.q00001_width_le_28"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 486,
+    "name": "Rule30Submission.not_eventually_oneBlack_of_QP"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 492,
+    "name": "Rule30Submission.q001_width_le_37"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "eafb3a33116bd6b85b39112e095bf881499b95ee467cff3c3a66f9f64b40a17d",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-0cac94&kind=lean"
+ },
+ "R30-20261022-1d5070": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.center_A4_sharp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.center_A4",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.theorem_A4_sharp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.theorem_A4",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.theorem_A3",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.lemma_B3_sharp",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 283,
+    "name": "Rule30Submission.theorem_A4_sharp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 382,
+    "name": "Rule30Submission.center_A4"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 129,
+    "name": "Rule30Submission.theorem_A3"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 335,
+    "name": "Rule30Submission.theorem_A4"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 226,
+    "name": "Rule30Submission.lemma_B3_sharp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 370,
+    "name": "Rule30Submission.center_A4_sharp"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "5e7d1e2aeb539e5ae78d281243aa84cb0176cbef5edc916c0b43d2c768bd5ee9",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-1d5070&kind=lean"
+ },
+ "R30-20261022-5c4fbf": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_words",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.words_general",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 804,
+    "name": "Rule30Submission.not_eventuallyWord_words"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 762,
+    "name": "Rule30Submission.words_general"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "9d7757aa9634de9276d1c83b1fd18a2a18f64554dd0184a5991fc7161f1dbc2c",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-5c4fbf&kind=lean"
+ },
+ "R30-20261022-70d23b": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_words",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.words_general",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 965,
+    "name": "Rule30Submission.not_eventuallyWord_words"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 923,
+    "name": "Rule30Submission.words_general"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "ad64d6ff341b7a1bf5fbf7c11891438647e29ce53d73f22f5ee394f31e90945d",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-70d23b&kind=lean"
+ },
+ "R30-20261022-91b0b0": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.corollary_F",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.col_m1",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.blocks_of_visible",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.theorem_A3",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.infinitely_many_black",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.lemma_B2",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 702,
+    "name": "Rule30Submission.corollary_F"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 581,
+    "name": "Rule30Submission.infinitely_many_black"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 490,
+    "name": "Rule30Submission.lemma_B2"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 650,
+    "name": "Rule30Submission.theorem_A3"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 665,
+    "name": "Rule30Submission.col_m1"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 683,
+    "name": "Rule30Submission.blocks_of_visible"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "5385bceee4e6d584e48b582681e5a9bbe13e3ecf644858d4dd3d31549925e68f",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-91b0b0&kind=lean"
+ },
+ "R30-20261022-920c1b": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_Q01_210",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.parity_invariant",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.linear",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_start_inX",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_start_parity",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_adjacent",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 103,
+    "name": "Rule30Submission.white_start_inX"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 116,
+    "name": "Rule30Submission.parity_invariant"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 158,
+    "name": "Rule30Submission.no_adjacent"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 80,
+    "name": "Rule30Submission.white_start_parity"
+   },
+   {
+    "badAxioms": [],
+    "kind": "proposition",
+    "line": 77,
+    "name": "Rule30Submission.Q01_210"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 111,
+    "name": "Rule30Submission.not_Q01_210"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 141,
+    "name": "Rule30Submission.linear"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "f23877df4758fbd6cc5b779a5ec9ea4bde50d721caf267ea01912520739f8813",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-920c1b&kind=lean"
+ },
+ "R30-20261022-c27323": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_end_finite",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_end_seed",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 571,
+    "name": "Rule30Submission.white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 637,
+    "name": "Rule30Submission.not_eventuallyWord_white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 645,
+    "name": "Rule30Submission.white_end_seed"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 594,
+    "name": "Rule30Submission.white_end_finite"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "fd695e33dca0ea8855ad27b15d2ce020058b95bb70e83ab04492992edf3e4c06",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261022-c27323&kind=lean"
+ },
+ "R30-20261023-0c4a33": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.characteristic_excluded",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.characteristic_block_excluded",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.characteristic_excluded_compl",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.fibonacci_excluded",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.cw_near_square",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.std_near_comm",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.corollary_F",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 715,
+    "name": "Rule30Submission.corollary_F"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 860,
+    "name": "Rule30Submission.cw_near_square"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 970,
+    "name": "Rule30Submission.characteristic_block_excluded"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 920,
+    "name": "Rule30Submission.characteristic_excluded_compl"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 899,
+    "name": "Rule30Submission.characteristic_excluded"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 938,
+    "name": "Rule30Submission.fibonacci_excluded"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 833,
+    "name": "Rule30Submission.std_near_comm"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "151cf9594be9dcdd96d5a36100b5f1ffae66f89169544e5679a844718ea2c7b1",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-0c4a33&kind=lean"
+ },
+ "R30-20261023-1bf4dc": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_finite_clock",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_finite_eventually_alternating",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.seed_not_eventually_alternating",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.clock_bg",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.parity_left_of_clock",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_finite_clock90",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Dev.even_impossible",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Dev.odd_impossible",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 456,
+    "name": "Rule30Submission.clock_bg"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 516,
+    "name": "Rule30Submission.Dev.odd_impossible"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 907,
+    "name": "Rule30Submission.seed_not_eventually_alternating"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 784,
+    "name": "Rule30Submission.Dev.even_impossible"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 894,
+    "name": "Rule30Submission.no_finite_eventually_alternating"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 165,
+    "name": "Rule30Submission.parity_left_of_clock"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 307,
+    "name": "Rule30Submission.no_finite_clock90"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 814,
+    "name": "Rule30Submission.no_finite_clock"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "020fb54da58c6c387fa4b2d25202428f002ca303e5925906d6a18e87a404b2fc",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-1bf4dc&kind=lean"
+ },
+ "R30-20261023-4767e0": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.channel_bound_12",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.channel_bound_12_eventually",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.channel_ncard_12",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Cert.bound",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.check_sound",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.weight_bound",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.win_step2",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.visFrom_mem",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext"
+     ],
+     "name": "Rule30Submission.cert12_valid",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 590,
+    "name": "Rule30Submission.check_sound"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 935,
+    "name": "Rule30Submission.channel_bound_12"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 843,
+    "name": "Rule30Submission.Cert.bound"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 952,
+    "name": "Rule30Submission.channel_ncard_12"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 925,
+    "name": "Rule30Submission.cert12_valid"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 765,
+    "name": "Rule30Submission.visFrom_mem"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 944,
+    "name": "Rule30Submission.channel_bound_12_eventually"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 698,
+    "name": "Rule30Submission.win_step2"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 795,
+    "name": "Rule30Submission.weight_bound"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "99806d1c0bca8ab1a651e6737860c75a45b5150cf98b74ee7a229e2e3b07ef4f",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-4767e0&kind=lean"
+ },
+ "R30-20261023-4d1a54": {
+  "checked": false,
+  "compiled": false,
+  "license": "none",
+  "note": "no Lean source in the submission",
+  "sourceUrl": null
+ },
+ "R30-20261023-521830": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_0000000001",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_00000001011",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 51,
+    "name": "Rule30Submission.not_eventually_00000001011"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 34,
+    "name": "Rule30Submission.not_eventually_0000000001"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "7d0dff30e2538e0507f9706d7b2b3035341b7d8b8d4bc84c3396f7436bf31a97",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-521830&kind=lean"
+ },
+ "R30-20261023-524848": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_six_bit_core",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 3002,
+    "name": "Rule30Submission.no_six_bit_core"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "92b78cca7b29a009b8fb5cb8629b7a7dfd7de6c3cbb6e76d900d75ef7abea8d9",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-524848&kind=lean"
+ },
+ "R30-20261023-603218": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_double_black_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_double_black_end_ge8",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_long_black_run_sharp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_black_white_run_sharp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_black_run_any_block",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_long_black_run_cascade",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_black_white_run_cascade",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_long_black_run_three_stage_cascade",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_prefix_white_end_m",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_prefix_black_white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_black_white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_10_black_white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_two_white_runs",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_1_white_11_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_1_white_1_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.block_shield_catalog",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.problem2_cesaro_abel_simplyNormal_equiv",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.problem3_hierarchy_and_problem1_bridge",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.rule30_anf_degree_and_walsh_spectrum",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.rule30_query_complexity_and_duhamel_center_formulas",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2433,
+    "name": "Rule30Submission.no_black_run_any_block"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2468,
+    "name": "Rule30Submission.not_eventuallyWord_10_black_white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2613,
+    "name": "Rule30Submission.problem3_hierarchy_and_problem1_bridge"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2629,
+    "name": "Rule30Submission.rule30_anf_degree_and_walsh_spectrum"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2439,
+    "name": "Rule30Submission.no_long_black_run_cascade"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2417,
+    "name": "Rule30Submission.not_eventuallyWord_double_black_end_ge8"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2453,
+    "name": "Rule30Submission.not_eventuallyWord_prefix_white_end_m"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2472,
+    "name": "Rule30Submission.not_eventuallyWord_two_white_runs"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2464,
+    "name": "Rule30Submission.not_eventuallyWord_black_white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2421,
+    "name": "Rule30Submission.no_long_black_run_sharp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2578,
+    "name": "Rule30Submission.no_long_black_run_three_stage_cascade"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2479,
+    "name": "Rule30Submission.not_eventuallyWord_1_white_11_white"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2593,
+    "name": "Rule30Submission.problem2_cesaro_abel_simplyNormal_equiv"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2426,
+    "name": "Rule30Submission.no_black_white_run_sharp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2458,
+    "name": "Rule30Submission.not_eventuallyWord_prefix_black_white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2445,
+    "name": "Rule30Submission.no_black_white_run_cascade"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2655,
+    "name": "Rule30Submission.rule30_query_complexity_and_duhamel_center_formulas"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2413,
+    "name": "Rule30Submission.not_eventuallyWord_double_black_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2526,
+    "name": "Rule30Submission.block_shield_catalog"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2483,
+    "name": "Rule30Submission.not_eventuallyWord_1_white_1_white"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "68851ecc751cd06587482baecce52f0e5b0958fe12a759e26e8484b45e002da3",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-603218&kind=lean"
+ },
+ "R30-20261023-60d213": {
+  "checked": false,
+  "compiled": false,
+  "license": "none",
+  "note": "no Lean source in the submission",
+  "sourceUrl": null
+ },
+ "R30-20261023-7a9ed3": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.WhitePad10111.not_eventually_zeros_10111",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_listed",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1856,
+    "name": "Rule30Submission.WhitePad10111.not_eventually_zeros_10111"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1874,
+    "name": "Rule30Submission.not_eventually_listed"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "567cac3906a381ed1a39505a2e2e0338681be0ce2a009481f3cf9dd51e79b831",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-7a9ed3&kind=lean"
+ },
+ "R30-20261023-7e9e6e": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.g30_unique_nonconstant_in_jen_class",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.run_symm_iff_not_g30",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.run_eq_run90_iff_g90_or_g210",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.jen_class_iff_four_rules",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.lc_seed_eq_cell",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.lc_seed_triangle_and_diag",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.tlf_left_cone_unique_all_depths",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.tlf_cell_two_step_left_retrodiction",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 122,
+    "name": "Rule30Submission.run_symm_iff_not_g30"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 140,
+    "name": "Rule30Submission.g30_unique_nonconstant_in_jen_class"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 91,
+    "name": "Rule30Submission.jen_class_iff_four_rules"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 71,
+    "name": "Rule30Submission.lc_seed_eq_cell"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 107,
+    "name": "Rule30Submission.run_eq_run90_iff_g90_or_g210"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 20,
+    "name": "Rule30Submission.tlf_cell_two_step_left_retrodiction"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 34,
+    "name": "Rule30Submission.tlf_left_cone_unique_all_depths"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 81,
+    "name": "Rule30Submission.lc_seed_triangle_and_diag"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "2cf3b80ed1bd7f8d08c77db79d9f08809ba20f943391a7466da6611a1c2e7353",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-7e9e6e&kind=lean"
+ },
+ "R30-20261023-8084e6": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sturmian_excluded",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sturmian_excluded_clock0",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sturmian_excluded_fract",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sturmian_block_excluded",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sturmian_pairs",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.exists_block_collision",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_small_period",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.corollary_F",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 720,
+    "name": "Rule30Submission.corollary_F"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 884,
+    "name": "Rule30Submission.exists_block_collision"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1033,
+    "name": "Rule30Submission.sturmian_pairs"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1083,
+    "name": "Rule30Submission.sturmian_excluded_fract"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1054,
+    "name": "Rule30Submission.sturmian_excluded"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1090,
+    "name": "Rule30Submission.sturmian_block_excluded"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 986,
+    "name": "Rule30Submission.no_small_period"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1068,
+    "name": "Rule30Submission.sturmian_excluded_clock0"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "cb5c367c10675674335df074f7296f1d42a87aa168add0fb44592a0ce45079b5",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-8084e6&kind=lean"
+ },
+ "R30-20261023-8e6bd3": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.death_time_52_exact",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width56_lower",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width60_lower",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 118,
+    "name": "Rule30Submission.death_time_52_exact"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 126,
+    "name": "Rule30Submission.width56_lower"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 131,
+    "name": "Rule30Submission.width60_lower"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "f254a8b65d20e32036918020f62f579829b17ae7bbf8d46aa137951e0cb3b6a0",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-8e6bd3&kind=lean"
+ },
+ "R30-20261023-8fe04c": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_padding_suffix011",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_padding_suffix001001",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_padding_suffix111001",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 994,
+    "name": "Rule30Submission.no_padding_suffix111001"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 987,
+    "name": "Rule30Submission.no_padding_suffix001001"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 980,
+    "name": "Rule30Submission.no_padding_suffix011"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "b0f157ce870c0fc4d5c2a8c14abc08a0b715355b54c03a5aa4b1d5e91883d56a",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-8fe04c&kind=lean"
+ },
+ "R30-20261023-ac3898": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.death_time_56_exact",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.q01_width_le_56",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1574,
+    "name": "Rule30Submission.q01_width_le_56"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1612,
+    "name": "Rule30Submission.death_time_56_exact"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "cc34baacd27eea495252b13ffe716b814bedd47e03f9c6601000f81cd9b19399",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-ac3898&kind=lean"
+ },
+ "R30-20261023-c5e3c0": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_double_black_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_double_black_end_ge8",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_long_black_run_sharp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_black_white_run_sharp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_black_run_any_block",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_long_black_run_cascade",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_black_white_run_cascade",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_prefix_white_end_m",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_prefix_black_white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_black_white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_10_black_white_end",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_two_white_runs",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_1_white_11_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_1_white_1_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventuallyWord_11_white_101_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.block_shield_catalog",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.catalog_excludes_black_run",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2433,
+    "name": "Rule30Submission.no_black_run_any_block"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2468,
+    "name": "Rule30Submission.not_eventuallyWord_10_black_white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2439,
+    "name": "Rule30Submission.no_long_black_run_cascade"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2417,
+    "name": "Rule30Submission.not_eventuallyWord_double_black_end_ge8"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2453,
+    "name": "Rule30Submission.not_eventuallyWord_prefix_white_end_m"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2472,
+    "name": "Rule30Submission.not_eventuallyWord_two_white_runs"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2464,
+    "name": "Rule30Submission.not_eventuallyWord_black_white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2421,
+    "name": "Rule30Submission.no_long_black_run_sharp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2564,
+    "name": "Rule30Submission.catalog_excludes_black_run"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2479,
+    "name": "Rule30Submission.not_eventuallyWord_1_white_11_white"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2426,
+    "name": "Rule30Submission.no_black_white_run_sharp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2458,
+    "name": "Rule30Submission.not_eventuallyWord_prefix_black_white_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2445,
+    "name": "Rule30Submission.no_black_white_run_cascade"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2487,
+    "name": "Rule30Submission.not_eventuallyWord_11_white_101_white"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2413,
+    "name": "Rule30Submission.not_eventuallyWord_double_black_end"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2526,
+    "name": "Rule30Submission.block_shield_catalog"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2483,
+    "name": "Rule30Submission.not_eventuallyWord_1_white_1_white"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "ebba97fc3444bad62c50660550bb50fa29b51c3cde3d601fcc6092b25ec605e8",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261023-c5e3c0&kind=lean"
+ },
+ "R30-20261024-03b551": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.black_run_le",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_le'",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_le_three",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.exists_black'",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.exists_black_three",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.exists_white",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.blackCount_pow_two",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.log_two_succ_le_blackCount",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.log_two_le_blackCount",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.whiteCount_pow_four",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.log_le_whiteCount",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.black_run_le_evol",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 287,
+    "name": "Rule30Submission.log_le_whiteCount"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 499,
+    "name": "Rule30Submission.exists_black'"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 269,
+    "name": "Rule30Submission.whiteCount_pow_four"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 423,
+    "name": "Rule30Submission.white_run_le'"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 591,
+    "name": "Rule30Submission.black_run_le_evol"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 534,
+    "name": "Rule30Submission.log_two_succ_le_blackCount"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 510,
+    "name": "Rule30Submission.exists_black_three"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 93,
+    "name": "Rule30Submission.black_run_le"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 524,
+    "name": "Rule30Submission.blackCount_pow_two"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 540,
+    "name": "Rule30Submission.log_two_le_blackCount"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 462,
+    "name": "Rule30Submission.white_run_le_three"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 187,
+    "name": "Rule30Submission.exists_white"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "3172207902a8f8f0b6517473a8bc76f13340d003572bc78cfc38e33ab6851417",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-03b551&kind=lean"
+ },
+ "R30-20261024-1fc962": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.erosion3_fin",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_wall",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.wake_good",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.front_step",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.run_bad",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext"
+     ],
+     "name": "Rule30Submission.cert_all",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.redge_step",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 181,
+    "name": "Rule30Submission.front_step"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 420,
+    "name": "Rule30Submission.no_wall"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 273,
+    "name": "Rule30Submission.wake_good"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 342,
+    "name": "Rule30Submission.erosion3_fin"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 92,
+    "name": "Rule30Submission.cert_all"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 309,
+    "name": "Rule30Submission.run_bad"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 155,
+    "name": "Rule30Submission.redge_step"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "2f9e7c25aa6d1d87552dd744e4715f5082d1152b164248f7ff7ea4374f52e063",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-1fc962&kind=lean"
+ },
+ "R30-20261024-4dcf69": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width76_lower",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 73,
+    "name": "Rule30Submission.width76_lower"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "de2dff7924b670ffd6a467394e6ac4cf55677bfc099f5ab6dcd46b753a9e512d",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-4dcf69&kind=lean"
+ },
+ "R30-20261024-71f858": {
+  "checked": false,
+  "compiled": false,
+  "license": "none",
+  "note": "no Lean source in the submission",
+  "sourceUrl": null
+ },
+ "R30-20261024-8d7751": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.CQ01_prefix31",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.CQ01_prefix495",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Psi_prefix31",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Psi_prefix495",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Psi_eq",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.CQ01_fam",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.fam_injective",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext"
+     ],
+     "name": "Rule30Submission.not_move_equivalent",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 254,
+    "name": "Rule30Submission.Psi_prefix495"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 250,
+    "name": "Rule30Submission.Psi_prefix31"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 262,
+    "name": "Rule30Submission.CQ01_prefix495"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 279,
+    "name": "Rule30Submission.fam_injective"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 109,
+    "name": "Rule30Submission.Psi_eq"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 187,
+    "name": "Rule30Submission.not_move_equivalent"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 284,
+    "name": "Rule30Submission.CQ01_fam"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 258,
+    "name": "Rule30Submission.CQ01_prefix31"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "b0113490bddc1abcc9c9d30b5f6a250108120ddd87de65bd7654d0d42fd89ff5",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-8d7751&kind=lean"
+ },
+ "R30-20261024-991a71": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sep_8",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sep_13",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.sep_14",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.attained_8",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.attained_13",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.attained_14",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.separationB",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.centers_spec",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 505,
+    "name": "Rule30Submission.sep_8"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 987,
+    "name": "Rule30Submission.attained_13"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 980,
+    "name": "Rule30Submission.attained_8"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 452,
+    "name": "Rule30Submission.separationB"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 920,
+    "name": "Rule30Submission.sep_14"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 649,
+    "name": "Rule30Submission.sep_13"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 197,
+    "name": "Rule30Submission.centers_spec"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 994,
+    "name": "Rule30Submission.attained_14"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "dd1e9b87f9f34b839461353f9c9a6ad3a256d6ed4875a1237fd8cbe3fc3f2083",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-991a71&kind=lean"
+ },
+ "R30-20261024-9d92a2": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_param_word",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_paramWhiteTable",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_paramBlackTable",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_certTable_finite",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Psi_free_constraints_width6_of_finSupp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Psi_even_first_defect_le_10",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Psi_black_in_window_16",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.psi_empty_997_true",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_alternating_le_996",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_coupled_of_right_masked_periodic",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_coupled_0001",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_coupled_0011",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_coupled_0111",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_coupled_001",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.skeleton_001_finite",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.skeleton_011_finite",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.q001_width_le_12",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.inX3_black_in_window_12",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.lc_empty_011_999_true",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_011_le_998",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1460,
+    "name": "Rule30Submission.Psi_black_in_window_16"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2315,
+    "name": "Rule30Submission.skeleton_001_finite"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1868,
+    "name": "Rule30Submission.not_coupled_of_right_masked_periodic"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 742,
+    "name": "Rule30Submission.not_eventually_paramBlackTable"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2105,
+    "name": "Rule30Submission.no_empty_right_coupled_0001"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2667,
+    "name": "Rule30Submission.no_empty_right_011_le_998"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 795,
+    "name": "Rule30Submission.not_eventually_paramWhiteTable"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1738,
+    "name": "Rule30Submission.no_empty_right_alternating_le_996"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1688,
+    "name": "Rule30Submission.psi_empty_997_true"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1397,
+    "name": "Rule30Submission.Psi_even_first_defect_le_10"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2113,
+    "name": "Rule30Submission.no_empty_right_coupled_0011"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2478,
+    "name": "Rule30Submission.q001_width_le_12"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1228,
+    "name": "Rule30Submission.Psi_free_constraints_width6_of_finSupp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 662,
+    "name": "Rule30Submission.not_eventually_param_word"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2272,
+    "name": "Rule30Submission.no_empty_right_coupled_001"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2645,
+    "name": "Rule30Submission.lc_empty_011_999_true"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 318,
+    "name": "Rule30Submission.not_eventually_certTable_finite"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2121,
+    "name": "Rule30Submission.no_empty_right_coupled_0111"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2348,
+    "name": "Rule30Submission.skeleton_011_finite"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2519,
+    "name": "Rule30Submission.inX3_black_in_window_12"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "57bd19e546495805c816437239133c694a9ef5ed43a1163b3ad6246f7fe9d1cb",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-9d92a2&kind=lean"
+ },
+ "R30-20261024-a129c3": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width74_lower",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 73,
+    "name": "Rule30Submission.width74_lower"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "b8c5bee5bb3521d11ed27c3fa41b5e4c7ff6b89169488d3fb1e498c51f2c01f8",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-a129c3&kind=lean"
+ },
+ "R30-20261024-ad6cac": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.columns_distinguishable",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.mirror_columns_distinguishable",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.columns_injective",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 148,
+    "name": "Rule30Submission.mirror_columns_distinguishable"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 196,
+    "name": "Rule30Submission.columns_injective"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 169,
+    "name": "Rule30Submission.columns_distinguishable"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "8aae43ec4eb1d0da57dd0e4926846f86c37cb8d5a5e2e2bd84d4534f771f27a9",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-ad6cac&kind=lean"
+ },
+ "R30-20261024-b16332": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width64_lower",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width66_lower",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width68_lower",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width70_lower",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.width72_lower",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 121,
+    "name": "Rule30Submission.width68_lower"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 73,
+    "name": "Rule30Submission.width64_lower"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 145,
+    "name": "Rule30Submission.width70_lower"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 169,
+    "name": "Rule30Submission.width72_lower"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 97,
+    "name": "Rule30Submission.width66_lower"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "4912905337e645c425c71162ad16b43c3ae7c0d527f76e2b79008a9cc4bf2812",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-b16332&kind=lean"
+ },
+ "R30-20261024-ddbfbd": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.xor_history_iff",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.standard_two_partners",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 297,
+    "name": "Rule30Submission.standard_two_partners"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 313,
+    "name": "Rule30Submission.xor_history_iff"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "648720a7fba9ce14a43ecb172ec228ad93d8195a639b7970fb0afb96c69acc2c",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261024-ddbfbd&kind=lean"
+ },
+ "R30-20261025-01554c": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.black_run_center_le_ge4",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.exists_white_ge4",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_le_diag5",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_le_of_diag_defect",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.black_run_le_of_diag_defect",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.D_five",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.D_four",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.D_three",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.D_two",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.D5_defect",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.D3_defect",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_param_word",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_paramWhiteTable",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.not_eventually_paramBlackTable",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.Psi_free_constraints_width6_of_finSupp",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_coupled_0001",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.no_empty_right_coupled_001",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.q001_width_le_12",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.inX3_black_in_window_12",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.psi_empty_997_true",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2780,
+    "name": "Rule30Submission.D3_defect"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2720,
+    "name": "Rule30Submission.D_three"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2766,
+    "name": "Rule30Submission.D5_defect"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 752,
+    "name": "Rule30Submission.not_eventually_paramBlackTable"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2115,
+    "name": "Rule30Submission.no_empty_right_coupled_0001"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2736,
+    "name": "Rule30Submission.D_four"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 805,
+    "name": "Rule30Submission.not_eventually_paramWhiteTable"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1698,
+    "name": "Rule30Submission.psi_empty_997_true"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2907,
+    "name": "Rule30Submission.black_run_le_of_diag_defect"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2899,
+    "name": "Rule30Submission.white_run_le_diag5"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2946,
+    "name": "Rule30Submission.black_run_center_le_ge4"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2743,
+    "name": "Rule30Submission.D_five"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2488,
+    "name": "Rule30Submission.q001_width_le_12"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1238,
+    "name": "Rule30Submission.Psi_free_constraints_width6_of_finSupp"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 672,
+    "name": "Rule30Submission.not_eventually_param_word"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2282,
+    "name": "Rule30Submission.no_empty_right_coupled_001"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2959,
+    "name": "Rule30Submission.exists_white_ge4"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2714,
+    "name": "Rule30Submission.D_two"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2875,
+    "name": "Rule30Submission.white_run_le_of_diag_defect"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 2529,
+    "name": "Rule30Submission.inX3_black_in_window_12"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "d19dfbce3625a2ab7ab72c5e92cb151af8c0a32427ee5e62a96c6507eae0a181",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261025-01554c&kind=lean"
+ },
+ "R30-20261025-017d83": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.stripe_five_tail",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.stripe_four_tail_all",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.family5_of_class",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.cyc_13_0",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 333,
+    "name": "Rule30Submission.cyc_13_0"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 448,
+    "name": "Rule30Submission.family5_of_class"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 624,
+    "name": "Rule30Submission.stripe_five_tail"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 600,
+    "name": "Rule30Submission.stripe_four_tail_all"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "3cec3f654b7ab060fe8bd5ba3165fd32de85ac9f668f1aeed2981df6411b2da3",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261025-017d83&kind=lean"
+ },
+ "R30-20261025-0554f7": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.black_run_three_fifths",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.black_run_five_le",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.alt_block",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.black_run_evol",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_front",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_five_le",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_exists_front",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.white_run_after_nine_black",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.exists_white_three_fifths",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.whiteCount_eight_fifths",
+     "ok": true
+    },
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.log_two_le_whiteCount",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 333,
+    "name": "Rule30Submission.black_run_evol"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 297,
+    "name": "Rule30Submission.white_run_exists_front"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 414,
+    "name": "Rule30Submission.whiteCount_eight_fifths"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 289,
+    "name": "Rule30Submission.white_run_five_le"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 239,
+    "name": "Rule30Submission.black_run_five_le"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 226,
+    "name": "Rule30Submission.black_run_three_fifths"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 364,
+    "name": "Rule30Submission.exists_white_three_fifths"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 268,
+    "name": "Rule30Submission.white_run_front"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 305,
+    "name": "Rule30Submission.white_run_after_nine_black"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 247,
+    "name": "Rule30Submission.alt_block"
+   },
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 443,
+    "name": "Rule30Submission.log_two_le_whiteCount"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "9d25d40a666ff114317fb1451dcc4a0f57109c5202c1fa546fd5bdf3ed714fe3",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261025-0554f7&kind=lean"
+ },
+ "R30-20261025-5105a7": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.problem2_iff_singleSequence",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 575,
+    "name": "Rule30Submission.problem2_iff_singleSequence"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "2d24ba37ac3553a4e87b8531c1ceb8fe3a570d28a97bdc0c2296426e8c66adc4",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261025-5105a7&kind=lean"
+ },
+ "R30-20261025-a02087": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.absorption_high",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 550,
+    "name": "Rule30Submission.absorption_high"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "576df388fd667ca78d1782e004244c06a809d217e1c86d9963de5bd7b5bf2ab9",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261025-a02087&kind=lean"
+ },
+ "R30-20261025-b572b3": {
+  "check": {
+   "headlines": [
+    {
+     "axioms": [
+      "propext",
+      "Quot.sound"
+     ],
+     "name": "Rule30Submission.singleCell_absorption",
+     "ok": true
+    }
+   ],
+   "reasons": [],
+   "replayOk": true,
+   "verdict": "pass"
+  },
+  "checked": true,
+  "compiled": true,
+  "declarations": [
+   {
+    "badAxioms": [],
+    "kind": "theorem",
+    "line": 1151,
+    "name": "Rule30Submission.singleCell_absorption"
+   }
+  ],
+  "included": null,
+  "license": "none",
+  "sourceSha256": "86db607a5e36b9719b140d3ce53f9a5872154e73248dcfbd0de591c47f805f84",
+  "sourceUrl": "https://www.wolframcloud.com/obj/rule-30-prize/Agents/api/file?id=R30-20261025-b572b3&kind=lean"
+ }
+}

@@ -169,6 +169,72 @@ RETURNS INTEGER AS $$
   SELECT calc_predicates_is_verified((SELECT predicate FROM assertions WHERE assertion_id = p_assertion_id));
 $$ LANGUAGE sql STABLE;
 
+-- calc_assertions_lean_statement
+-- Field: Assertions.LeanStatement
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanStatement from related Predicates
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_lean_statement(p_assertion_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_predicates_lean_statement((SELECT predicate FROM assertions WHERE assertion_id = p_assertion_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_lean_expressible
+-- Field: Assertions.IsLeanExpressible
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: IsLeanExpressible from related Predicates
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_lean_expressible(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT calc_predicates_is_lean_expressible((SELECT predicate FROM assertions WHERE assertion_id = p_assertion_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_lean_module_is_verified
+-- Field: Assertions.LeanModuleIsVerified
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: IsVerified from related LeanModules
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_lean_module_is_verified(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT calc_lean_modules_is_verified((SELECT lean_module FROM assertions WHERE assertion_id = p_assertion_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_lean_declaration_is_verified
+-- Field: Assertions.LeanDeclarationIsVerified
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: IsVerified from related LeanDeclarations
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_lean_declaration_is_verified(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT calc_lean_declarations_is_verified((SELECT lean_declaration FROM assertions WHERE assertion_id = p_assertion_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_lean_module_url
+-- Field: Assertions.LeanModuleUrl
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: Url from related LeanModules
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_lean_module_url(p_assertion_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_lean_modules_url((SELECT lean_module FROM assertions WHERE assertion_id = p_assertion_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_lean_declaration_url
+-- Field: Assertions.LeanDeclarationUrl
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: Url from related LeanDeclarations
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_lean_declaration_url(p_assertion_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_lean_declarations_url((SELECT lean_declaration FROM assertions WHERE assertion_id = p_assertion_id));
+$$ LANGUAGE sql STABLE;
+
 -- get_loops_kind
 -- Helper function: Get Kind from Loops by LoopId
 -- Used for join-free cross-table references in aggregations
@@ -466,6 +532,242 @@ RETURNS TEXT AS $$
   SELECT (SELECT finite_verdict_cache FROM predicates WHERE predicate_id = p_predicate_id);
 $$ LANGUAGE sql STABLE;
 
+-- get_challenge_sources_title
+-- Helper function: Get Title from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_challenge_sources_title(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT title FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_url
+-- Helper function: Get Url from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_challenge_sources_url(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT url FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_role
+-- Helper function: Get Role from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_challenge_sources_role(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT role FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_kept_here
+-- Helper function: Get KeptHere from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_challenge_sources_kept_here(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT kept_here FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_credit
+-- Helper function: Get Credit from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_challenge_sources_credit(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT credit FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_version
+-- Helper function: Get Version from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_challenge_sources_version(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT version FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_version_date
+-- Helper function: Get VersionDate from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_challenge_sources_version_date(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT version_date FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_snapshot
+-- Helper function: Get Snapshot from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_challenge_sources_snapshot(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT snapshot FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_challenge_sources_is_official
+-- Helper function: Get IsOfficial from ChallengeSources by ChallengeSourceId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_challenge_sources_is_official(p_challenge_source_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_official FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_package
+-- Helper function: Get Package from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_package(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT package FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_short_name
+-- Helper function: Get ShortName from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_lean_modules_short_name(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT short_name FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_path
+-- Helper function: Get Path from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_path(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT path FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_sha256
+-- Helper function: Get Sha256 from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_sha256(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT sha256 FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_line_count
+-- Helper function: Get LineCount from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_lean_modules_line_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT line_count FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_title
+-- Helper function: Get Title from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_title(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT title FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_added_on
+-- Helper function: Get AddedOn from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_added_on(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT added_on FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_credit
+-- Helper function: Get Credit from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_credit(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT credit FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_is_certificate_data
+-- Helper function: Get IsCertificateData from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_is_certificate_data(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_certificate_data FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_is_in_verifier
+-- Helper function: Get IsInVerifier from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_is_in_verifier(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_in_verifier FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_modules_is_exported
+-- Helper function: Get IsExported from LeanModules by LeanModuleId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_modules_is_exported(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_exported FROM lean_modules WHERE lean_module_id = p_lean_module_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_declarations_lean_name
+-- Helper function: Get LeanName from LeanDeclarations by LeanDeclarationId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_declarations_lean_name(p_lean_declaration_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_name FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_declarations_short_name
+-- Helper function: Get ShortName from LeanDeclarations by LeanDeclarationId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_lean_declarations_short_name(p_lean_declaration_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT short_name FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_declarations_kind
+-- Helper function: Get Kind from LeanDeclarations by LeanDeclarationId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_declarations_kind(p_lean_declaration_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT kind FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_declarations_line
+-- Helper function: Get Line from LeanDeclarations by LeanDeclarationId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_lean_declarations_line(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT line FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_declarations_bad_axioms
+-- Helper function: Get BadAxioms from LeanDeclarations by LeanDeclarationId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_declarations_bad_axioms(p_lean_declaration_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT bad_axioms FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_declarations_bad_axiom_count
+-- Helper function: Get BadAxiomCount from LeanDeclarations by LeanDeclarationId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_declarations_bad_axiom_count(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT bad_axiom_count FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_lean_declarations_is_headline
+-- Helper function: Get IsHeadline from LeanDeclarations by LeanDeclarationId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_lean_declarations_is_headline(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_headline FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id);
+$$ LANGUAGE sql STABLE;
+
 -- calc_assertions_name
 -- Field: Assertions.Name
 -- Type: calculated | DataType: string | Returns: TEXT
@@ -483,7 +785,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_assertions_status_group(p_assertion_id TEXT)
 RETURNS TEXT AS $$
-  WITH __erb_dedup_v1 AS (SELECT calc_assertions_effective_status(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT NULLIF(status_group_cache, '') FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'REDERIVED_KNOWN', FALSE)) THEN ('Proved')::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'FINITE_VERIFIED' THEN ('Checked')::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'FALSIFIED' THEN ('Falsified')::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'SUPERSEDED' THEN ('Superseded')::text ELSE ('Open')::text END)::text END)::text END)::text END)::text END)::text;
+  WITH __erb_dedup_v1 AS (SELECT calc_assertions_effective_status(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT NULLIF(status_group_cache, '') FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'REDERIVED_KNOWN', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'LEAN_VERIFIED', FALSE)) THEN ('Proved')::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'FINITE_VERIFIED' THEN ('Checked')::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'FALSIFIED' THEN ('Falsified')::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'SUPERSEDED' THEN ('Superseded')::text ELSE ('Open')::text END)::text END)::text END)::text END)::text END)::text;
 $$ LANGUAGE sql STABLE;
 
 -- calc_assertions_premise_count
@@ -533,7 +835,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_assertions_is_usable(p_assertion_id TEXT)
 RETURNS INTEGER AS $$
-  WITH __erb_dedup_v1 AS (SELECT calc_assertions_effective_status(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_usable_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'REDERIVED_KNOWN', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'FINITE_VERIFIED', FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
+  WITH __erb_dedup_v1 AS (SELECT calc_assertions_effective_status(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_usable_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'REDERIVED_KNOWN', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'LEAN_VERIFIED', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'FINITE_VERIFIED', FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_assertions_is_proof_eligible
@@ -543,7 +845,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_assertions_is_proof_eligible(p_assertion_id TEXT)
 RETURNS INTEGER AS $$
-  WITH __erb_dedup_v1 AS (SELECT calc_assertions_effective_status(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_proof_eligible_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'REDERIVED_KNOWN', FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
+  WITH __erb_dedup_v1 AS (SELECT calc_assertions_effective_status(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_proof_eligible_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'REDERIVED_KNOWN', FALSE) OR COALESCE(COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'LEAN_VERIFIED', FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_assertions_descendant_count
@@ -563,7 +865,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_assertions_is_model_linked(p_assertion_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_model_linked_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE ((SELECT COUNT(*) FROM predicates WHERE predicate_id = (SELECT NULLIF(predicate, '') FROM assertions WHERE assertion_id = p_assertion_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_model_linked_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (((SELECT COUNT(*) FROM predicates WHERE predicate_id = (SELECT NULLIF(predicate, '') FROM assertions WHERE assertion_id = p_assertion_id))))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_assertions_effective_status
@@ -573,7 +875,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_assertions_effective_status(p_assertion_id TEXT)
 RETURNS TEXT AS $$
-  WITH __erb_dedup_v1 AS (SELECT calc_assertions_is_model_linked(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT NULLIF(effective_status_cache, '') FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE(((SELECT val FROM __erb_dedup_v1))::NUMERIC, 0) = 1, FALSE) AND COALESCE(COALESCE((calc_assertions_predicate_is_refuted(p_assertion_id))::NUMERIC, 0) = 1, FALSE)) THEN ('FALSIFIED')::text ELSE (CASE WHEN (COALESCE(COALESCE(((SELECT val FROM __erb_dedup_v1))::NUMERIC, 0) = 1, FALSE) AND COALESCE(COALESCE((calc_assertions_predicate_is_verified(p_assertion_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE((COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'OPEN', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'FINITE_VERIFIED', FALSE)), FALSE)) THEN ('FINITE_VERIFIED')::text ELSE ((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id))::text END)::text END)::text END)::text;
+  WITH __erb_dedup_v1 AS (SELECT calc_assertions_is_model_linked(p_assertion_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT NULLIF(effective_status_cache, '') FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE(((SELECT val FROM __erb_dedup_v1))::NUMERIC, 0) = 1, FALSE) AND COALESCE(COALESCE((calc_assertions_predicate_is_refuted(p_assertion_id))::NUMERIC, 0) = 1, FALSE)) THEN ('FALSIFIED')::text ELSE (CASE WHEN COALESCE((calc_assertions_is_lean_verified(p_assertion_id))::NUMERIC, 0) = 1 THEN ('LEAN_VERIFIED')::text ELSE (CASE WHEN COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'LEAN_VERIFIED' THEN ('OPEN')::text ELSE (CASE WHEN (COALESCE(COALESCE(((SELECT val FROM __erb_dedup_v1))::NUMERIC, 0) = 1, FALSE) AND COALESCE(COALESCE((calc_assertions_predicate_is_verified(p_assertion_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE((COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'OPEN', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'FINITE_VERIFIED', FALSE)), FALSE)) THEN ('FINITE_VERIFIED')::text ELSE ((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id))::text END)::text END)::text END)::text END)::text END)::text;
 $$ LANGUAGE sql STABLE;
 
 -- calc_assertions_is_model_decided
@@ -593,7 +895,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_assertions_is_model_contradicted(p_assertion_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_model_contradicted_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((calc_assertions_is_model_linked(p_assertion_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE(COALESCE((calc_assertions_predicate_is_refuted(p_assertion_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE((COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'REDERIVED_KNOWN', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'FINITE_VERIFIED', FALSE)), FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT is_model_contradicted_cache FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN (COALESCE(COALESCE((calc_assertions_is_model_linked(p_assertion_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE(COALESCE((calc_assertions_predicate_is_refuted(p_assertion_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE((COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'DEFINITION', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'PROVED_HUMAN_READABLE', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'REDERIVED_KNOWN', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'LEAN_VERIFIED', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'FINITE_VERIFIED', FALSE)), FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_assertions_model_verdict
@@ -604,6 +906,206 @@ $$ LANGUAGE sql STABLE;
 CREATE OR REPLACE FUNCTION calc_assertions_model_verdict(p_assertion_id TEXT)
 RETURNS TEXT AS $$
   SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM assertions WHERE assertion_id = p_assertion_id))::NUMERIC, 0) = 1 THEN ((SELECT NULLIF(model_verdict_cache, '') FROM assertions WHERE assertion_id = p_assertion_id))::text ELSE (CASE WHEN COALESCE((calc_assertions_is_model_linked(p_assertion_id))::NUMERIC, 0) = 1 THEN (calc_assertions_predicate_verdict(p_assertion_id))::text ELSE ('NOT MODELED')::text END)::text END)::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_lean_check_count
+-- Field: Assertions.LeanCheckCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_lean_check_count(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_checks WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND kind = 'claim' AND calc_lean_checks_is_current(lean_check_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_lean_check_ok
+-- Field: Assertions.LeanCheckOk
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_lean_check_ok(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_checks WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND kind = 'claim' AND calc_lean_checks_is_current(lean_check_id) = 1 AND ok = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_officially_aligned
+-- Field: Assertions.IsOfficiallyAligned
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_officially_aligned(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_checks WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND kind = 'alignment' AND calc_lean_checks_is_current(lean_check_id) = 1 AND ok = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_kit_module_linked
+-- Field: Assertions.IsKitModuleLinked
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_kit_module_linked(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_modules WHERE lean_module_id = (SELECT NULLIF(lean_module, '') FROM assertions WHERE assertion_id = p_assertion_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_kit_declaration_linked
+-- Field: Assertions.IsKitDeclarationLinked
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_kit_declaration_linked(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_declarations WHERE lean_declaration_id = (SELECT NULLIF(lean_declaration, '') FROM assertions WHERE assertion_id = p_assertion_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_own_claim
+-- Field: Assertions.IsOwnClaim
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_own_claim(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((SELECT NULLIF(source, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'kit' THEN (0)::text ELSE (1)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_lean_linked
+-- Field: Assertions.IsLeanLinked
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_lean_linked(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((calc_assertions_is_lean_expressible(p_assertion_id))::NUMERIC, 0) = 1, FALSE) OR COALESCE(COALESCE((calc_assertions_is_kit_module_linked(p_assertion_id))::NUMERIC, 0) > 0, FALSE) OR COALESCE(COALESCE((calc_assertions_is_kit_declaration_linked(p_assertion_id))::NUMERIC, 0) > 0, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_formally_stated
+-- Field: Assertions.IsFormallyStated
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_formally_stated(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((calc_assertions_is_model_linked(p_assertion_id))::NUMERIC, 0) = 1, FALSE) OR COALESCE(COALESCE((calc_assertions_is_lean_linked(p_assertion_id))::NUMERIC, 0) = 1, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_lean_verified
+-- Field: Assertions.IsLeanVerified
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_lean_verified(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((calc_assertions_lean_check_ok(p_assertion_id))::NUMERIC, 0) > 0 THEN (1)::text ELSE (CASE WHEN (COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'LEAN_VERIFIED', FALSE) AND COALESCE((COALESCE(COALESCE((calc_assertions_lean_module_is_verified(p_assertion_id))::NUMERIC, 0) = 1, FALSE) OR COALESCE(COALESCE((calc_assertions_lean_declaration_is_verified(p_assertion_id))::NUMERIC, 0) = 1, FALSE)), FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_kit_link_count
+-- Field: Assertions.KitLinkCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_kit_link_count(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM claim_links WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_kit_cover_count
+-- Field: Assertions.KitCoverCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_kit_cover_count(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM claim_links WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND calc_claim_links_covers(claim_link_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_kit_contradiction_count
+-- Field: Assertions.KitContradictionCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_kit_contradiction_count(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM claim_links WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND calc_claim_links_contradicts(claim_link_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_kit_joint_count
+-- Field: Assertions.KitJointCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_kit_joint_count(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM claim_links WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND calc_claim_links_is_joint(claim_link_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_kit_joint_verified_count
+-- Field: Assertions.KitJointVerifiedCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_kit_joint_verified_count(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM claim_links WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND calc_claim_links_is_joint_verified(claim_link_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_kit_glue_proof_count
+-- Field: Assertions.KitGlueProofCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_kit_glue_proof_count(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_proofs WHERE assertion = (SELECT NULLIF(assertion_id, '') FROM assertions WHERE assertion_id = p_assertion_id) AND kind = 'claim' AND is_kit_glue = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_known_in_kit
+-- Field: Assertions.IsKnownInKit
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_known_in_kit(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  WITH __erb_dedup_v1 AS (SELECT calc_assertions_kit_joint_count(p_assertion_id) AS val) SELECT (CASE WHEN (COALESCE(COALESCE((calc_assertions_kit_cover_count(p_assertion_id))::NUMERIC, 0) > 0, FALSE) OR COALESCE((COALESCE(COALESCE(((SELECT val FROM __erb_dedup_v1))::NUMERIC, 0) > 0, FALSE) AND COALESCE(COALESCE(calc_assertions_kit_joint_verified_count(p_assertion_id), 0) = COALESCE((SELECT val FROM __erb_dedup_v1), 0), FALSE)), FALSE) OR COALESCE((COALESCE(COALESCE((calc_assertions_kit_glue_proof_count(p_assertion_id))::NUMERIC, 0) > 0, FALSE) AND COALESCE(COALESCE((calc_assertions_lean_check_ok(p_assertion_id))::NUMERIC, 0) > 0, FALSE)), FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_kit_contradicted
+-- Field: Assertions.IsKitContradicted
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_kit_contradicted(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((calc_assertions_kit_contradiction_count(p_assertion_id))::NUMERIC, 0) > 0, FALSE) AND COALESCE(COALESCE((calc_assertions_is_usable(p_assertion_id))::NUMERIC, 0) = 1, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_lean_contradicted
+-- Field: Assertions.IsLeanContradicted
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_lean_contradicted(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((calc_assertions_is_lean_verified(p_assertion_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE((COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'FALSIFIED', FALSE) OR COALESCE(COALESCE((calc_assertions_predicate_is_refuted(p_assertion_id))::NUMERIC, 0) = 1, FALSE)), FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_is_lean_unconfirmed
+-- Field: Assertions.IsLeanUnconfirmed
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_is_lean_unconfirmed(p_assertion_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((SELECT NULLIF(reported_status, '') FROM assertions WHERE assertion_id = p_assertion_id), '') = 'LEAN_VERIFIED', FALSE) AND COALESCE(COALESCE((calc_assertions_is_lean_verified(p_assertion_id))::NUMERIC, 0) = 0, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_assertions_proof_basis
+-- Field: Assertions.ProofBasis
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_assertions_proof_basis(p_assertion_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (CASE WHEN COALESCE((calc_assertions_is_lean_verified(p_assertion_id))::NUMERIC, 0) = 1 THEN ('Lean')::text ELSE (CASE WHEN COALESCE((calc_assertions_is_model_decided(p_assertion_id))::NUMERIC, 0) = 1 THEN ('Model')::text ELSE ('Report')::text END)::text END)::text;
 $$ LANGUAGE sql STABLE;
 
 -- calc_assertions_on_current_path
@@ -1289,7 +1791,177 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_dashboards_unmodeled_claim_count(p_dashboard_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_model_linked(assertion_id) = 0))::integer;
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_formally_stated(assertion_id) = 0))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_own_claim_count
+-- Field: Dashboards.OwnClaimCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_own_claim_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_own_claim(assertion_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_kit_claim_count
+-- Field: Dashboards.KitClaimCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_kit_claim_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_own_claim(assertion_id) = 0))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_lean_verified_count
+-- Field: Dashboards.LeanVerifiedCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_lean_verified_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_effective_status(assertion_id) = 'LEAN_VERIFIED'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_own_lean_verified_count
+-- Field: Dashboards.OwnLeanVerifiedCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_own_lean_verified_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_own_claim(assertion_id) = 1 AND calc_assertions_effective_status(assertion_id) = 'LEAN_VERIFIED'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_own_lean_expressible_count
+-- Field: Dashboards.OwnLeanExpressibleCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_own_lean_expressible_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_own_claim(assertion_id) = 1 AND calc_assertions_is_lean_expressible(assertion_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_own_known_in_kit_count
+-- Field: Dashboards.OwnKnownInKitCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_own_known_in_kit_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_own_claim(assertion_id) = 1 AND calc_assertions_is_known_in_kit(assertion_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_kit_module_count
+-- Field: Dashboards.KitModuleCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_kit_module_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_modules WHERE source = 'kit'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_kit_declaration_count
+-- Field: Dashboards.KitDeclarationCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_kit_declaration_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_declarations WHERE (bad_axiom_count)::numeric >= (0)::numeric))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_kit_unverified_module_count
+-- Field: Dashboards.KitUnverifiedModuleCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_kit_unverified_module_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_modules WHERE calc_lean_modules_is_verified(lean_module_id) = 0))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_submission_count
+-- Field: Dashboards.SubmissionCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_submission_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submissions WHERE (problem)::numeric >= (1)::numeric))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_submission_lean_verified_count
+-- Field: Dashboards.SubmissionLeanVerifiedCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_submission_lean_verified_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submissions WHERE status = 'Lean Verified'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_submission_disagreement_count
+-- Field: Dashboards.SubmissionDisagreementCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_submission_disagreement_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submissions WHERE calc_submissions_agrees_with_verifier(submission_id) = 0))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_lean_contradiction_count
+-- Field: Dashboards.LeanContradictionCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_lean_contradiction_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_lean_contradicted(assertion_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_lean_unconfirmed_count
+-- Field: Dashboards.LeanUnconfirmedCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_lean_unconfirmed_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_lean_unconfirmed(assertion_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_kit_contradiction_count
+-- Field: Dashboards.KitContradictionCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_kit_contradiction_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_kit_contradicted(assertion_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_kit_agreement_count
+-- Field: Dashboards.KitAgreementCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_kit_agreement_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM assertions WHERE calc_assertions_is_own_claim(assertion_id) = 1 AND (calc_assertions_kit_contradiction_count(assertion_id))::numeric > (0)::numeric AND calc_assertions_status_group(assertion_id) = 'Falsified'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_dashboards_official_alignment_count
+-- Field: Dashboards.OfficialAlignmentCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_dashboards_official_alignment_count(p_dashboard_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COALESCE(SUM((calc_assertions_is_officially_aligned(assertion_id))::numeric), 0) FROM assertions WHERE kind = 'Prize problem'))::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_dashboards_planned_loop_count
@@ -3207,7 +3879,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_period_tests_last_mismatch_time(p_period_test_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT last_mismatch_time_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE ((SELECT COALESCE(MAX((onset)::numeric), 0) FROM periodicity_candidates WHERE period_test = p_period_test_id AND calc_periodicity_candidates_is_mismatch(periodicity_candidate_id) = 1))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT last_mismatch_time_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE (((SELECT COALESCE(MAX((onset)::numeric), 0) FROM periodicity_candidates WHERE period_test = p_period_test_id AND calc_periodicity_candidates_is_mismatch(periodicity_candidate_id) = 1)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_period_tests_longest_agreement_streak
@@ -3217,7 +3889,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_period_tests_longest_agreement_streak(p_period_test_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT longest_agreement_streak_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE ((SELECT COALESCE(MAX((calc_periodicity_candidates_agreement_run_from(periodicity_candidate_id))::numeric), 0) FROM periodicity_candidates WHERE period_test = p_period_test_id))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT longest_agreement_streak_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE (((SELECT COALESCE(MAX((calc_periodicity_candidates_agreement_run_from(periodicity_candidate_id))::numeric), 0) FROM periodicity_candidates WHERE period_test = p_period_test_id)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_period_tests_refuted_candidate_count
@@ -3277,7 +3949,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_period_tests_window_count(p_period_test_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT window_count_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE ((SELECT COUNT(*) FROM mismatch_windows WHERE center_test = (SELECT NULLIF(period_test_id, '') FROM period_tests WHERE period_test_id = p_period_test_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT window_count_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE (((SELECT COUNT(*) FROM mismatch_windows WHERE center_test = (SELECT NULLIF(period_test_id, '') FROM period_tests WHERE period_test_id = p_period_test_id))))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_period_tests_window_failure_count
@@ -3287,7 +3959,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_period_tests_window_failure_count(p_period_test_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT window_failure_count_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE ((SELECT COUNT(*) FROM mismatch_windows WHERE center_test = (SELECT NULLIF(period_test_id, '') FROM period_tests WHERE period_test_id = p_period_test_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM period_tests WHERE period_test_id = p_period_test_id))::NUMERIC, 0) = 1 THEN ((SELECT window_failure_count_cache FROM period_tests WHERE period_test_id = p_period_test_id))::text ELSE (((SELECT COUNT(*) FROM mismatch_windows WHERE center_test = (SELECT NULLIF(period_test_id, '') FROM period_tests WHERE period_test_id = p_period_test_id) AND calc_mismatch_windows_window_holds(mismatch_window_id) = 0)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_period_tests_center_witness_window_count
@@ -3963,7 +4635,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_tail_candidates_kill_time(p_tail_candidate_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM tail_candidates WHERE tail_candidate_id = p_tail_candidate_id))::NUMERIC, 0) = 1 THEN ((SELECT kill_time_cache FROM tail_candidates WHERE tail_candidate_id = p_tail_candidate_id))::text ELSE ((SELECT COALESCE(MIN((calc_tail_checks_first_violation_from(tail_check_id))::numeric), 0) FROM tail_checks WHERE tail_candidate = p_tail_candidate_id))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM tail_candidates WHERE tail_candidate_id = p_tail_candidate_id))::NUMERIC, 0) = 1 THEN ((SELECT kill_time_cache FROM tail_candidates WHERE tail_candidate_id = p_tail_candidate_id))::text ELSE (((SELECT COALESCE(MIN((calc_tail_checks_first_violation_from(tail_check_id))::numeric), 0) FROM tail_checks WHERE tail_candidate = p_tail_candidate_id)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_tail_candidates_is_killed
@@ -5161,7 +5833,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_tolerances_last_excursion_time(p_tolerance_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM tolerances WHERE tolerance_id = p_tolerance_id))::NUMERIC, 0) = 1 THEN ((SELECT last_excursion_time_cache FROM tolerances WHERE tolerance_id = p_tolerance_id))::text ELSE ((SELECT COALESCE(MAX((calc_tolerance_checks_time(tolerance_check_id))::numeric), 0) FROM tolerance_checks WHERE tolerance = p_tolerance_id AND calc_tolerance_checks_is_excursion(tolerance_check_id) = 1))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM tolerances WHERE tolerance_id = p_tolerance_id))::NUMERIC, 0) = 1 THEN ((SELECT last_excursion_time_cache FROM tolerances WHERE tolerance_id = p_tolerance_id))::text ELSE (((SELECT COALESCE(MAX((calc_tolerance_checks_time(tolerance_check_id))::numeric), 0) FROM tolerance_checks WHERE tolerance = p_tolerance_id AND calc_tolerance_checks_is_excursion(tolerance_check_id) = 1)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_tolerances_horizon_time
@@ -5816,6 +6488,105 @@ RETURNS TEXT AS $$
   SELECT calc_terms_rendered((SELECT arg4 FROM terms WHERE term_id = p_term_id));
 $$ LANGUAGE sql STABLE;
 
+-- calc_terms_op_lean_form
+-- Field: Terms.OpLeanForm
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanForm from related Operators
+
+
+CREATE OR REPLACE FUNCTION calc_terms_op_lean_form(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_form::text FROM operators WHERE operator_id = (SELECT term_operator FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_op_lean_symbol
+-- Field: Terms.OpLeanSymbol
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanSymbol from related Operators
+
+
+CREATE OR REPLACE FUNCTION calc_terms_op_lean_symbol(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_symbol::text FROM operators WHERE operator_id = (SELECT term_operator FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_var_lean_type
+-- Field: Terms.VarLeanType
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanType from related Variables
+
+
+CREATE OR REPLACE FUNCTION calc_terms_var_lean_type(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_type::text FROM variables WHERE variable_id = (SELECT variable FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_op_is_lean
+-- Field: Terms.OpIsLean
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: IsLeanDefined from related Operators
+
+
+CREATE OR REPLACE FUNCTION calc_terms_op_is_lean(p_term_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_lean_defined::integer FROM operators WHERE operator_id = (SELECT term_operator FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_var_is_lean
+-- Field: Terms.VarIsLean
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: IsLeanTyped from related Variables
+
+
+CREATE OR REPLACE FUNCTION calc_terms_var_is_lean(p_term_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_lean_typed::integer FROM variables WHERE variable_id = (SELECT variable FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_arg1_lean
+-- Field: Terms.Arg1Lean
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanRendered from related Terms
+
+
+CREATE OR REPLACE FUNCTION calc_terms_arg1_lean(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_terms_lean_rendered((SELECT arg1 FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_arg2_lean
+-- Field: Terms.Arg2Lean
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanRendered from related Terms
+
+
+CREATE OR REPLACE FUNCTION calc_terms_arg2_lean(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_terms_lean_rendered((SELECT arg2 FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_arg3_lean
+-- Field: Terms.Arg3Lean
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanRendered from related Terms
+
+
+CREATE OR REPLACE FUNCTION calc_terms_arg3_lean(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_terms_lean_rendered((SELECT arg3 FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_arg4_lean
+-- Field: Terms.Arg4Lean
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanRendered from related Terms
+
+
+CREATE OR REPLACE FUNCTION calc_terms_arg4_lean(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_terms_lean_rendered((SELECT arg4 FROM terms WHERE term_id = p_term_id));
+$$ LANGUAGE sql STABLE;
+
 -- get_operators_symbol
 -- Helper function: Get Symbol from Operators by OperatorId
 -- Used for join-free cross-table references in aggregations
@@ -5852,6 +6623,33 @@ RETURNS INTEGER AS $$
   SELECT (SELECT is_modeled FROM operators WHERE operator_id = p_operator_id);
 $$ LANGUAGE sql STABLE;
 
+-- get_operators_lean_form
+-- Helper function: Get LeanForm from Operators by OperatorId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_operators_lean_form(p_operator_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_form FROM operators WHERE operator_id = p_operator_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_operators_lean_symbol
+-- Helper function: Get LeanSymbol from Operators by OperatorId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_operators_lean_symbol(p_operator_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_symbol FROM operators WHERE operator_id = p_operator_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_operators_is_lean_defined
+-- Helper function: Get IsLeanDefined from Operators by OperatorId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_operators_is_lean_defined(p_operator_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_lean_defined FROM operators WHERE operator_id = p_operator_id);
+$$ LANGUAGE sql STABLE;
+
 -- get_variables_symbol
 -- Helper function: Get Symbol from Variables by VariableId
 -- Used for join-free cross-table references in aggregations
@@ -5886,6 +6684,24 @@ $$ LANGUAGE sql STABLE;
 CREATE OR REPLACE FUNCTION get_variables_is_unbounded_in_problem(p_variable_id TEXT)
 RETURNS INTEGER AS $$
   SELECT (SELECT is_unbounded_in_problem FROM variables WHERE variable_id = p_variable_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_variables_lean_type
+-- Helper function: Get LeanType from Variables by VariableId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_variables_lean_type(p_variable_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_type FROM variables WHERE variable_id = p_variable_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_variables_is_lean_typed
+-- Helper function: Get IsLeanTyped from Variables by VariableId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_variables_is_lean_typed(p_variable_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT is_lean_typed FROM variables WHERE variable_id = p_variable_id);
 $$ LANGUAGE sql STABLE;
 
 -- get_terms_constant
@@ -5965,6 +6781,26 @@ RETURNS INTEGER AS $$
   SELECT (CASE WHEN COALESCE((calc_terms_op_is_modeled(p_term_id))::NUMERIC, 0) = 1 THEN (0)::text ELSE (1)::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
+-- calc_terms_lean_rendered
+-- Field: Terms.LeanRendered
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_terms_lean_rendered__compute(p_term_id TEXT)
+RETURNS TEXT AS $$
+  WITH __erb_dedup_v1 AS (SELECT calc_terms_op_lean_form(p_term_id) AS val), __erb_dedup_v2 AS (SELECT calc_terms_var_symbol(p_term_id) AS val), __erb_dedup_v3 AS (SELECT calc_terms_op_lean_symbol(p_term_id) AS val), __erb_dedup_v4 AS (SELECT calc_terms_var_lean_type(p_term_id) AS val), __erb_dedup_v5 AS (SELECT calc_terms_arg1_lean(p_term_id) AS val), __erb_dedup_v6 AS (SELECT calc_terms_arg2_lean(p_term_id) AS val), __erb_dedup_v7 AS (SELECT calc_terms_op_arity(p_term_id) AS val) SELECT (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'var' THEN ((SELECT val FROM __erb_dedup_v2))::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'const' THEN (CASE WHEN COALESCE(((SELECT constant FROM terms WHERE term_id = p_term_id))::NUMERIC, 0) < 0 THEN (CONCAT('(', (SELECT constant FROM terms WHERE term_id = p_term_id), ')'))::text ELSE (CONCAT('', (SELECT constant FROM terms WHERE term_id = p_term_id)))::text END)::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'atom' THEN ((SELECT val FROM __erb_dedup_v3))::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'forall' THEN (CONCAT('(∀ ', (SELECT val FROM __erb_dedup_v2), ' : ', (SELECT val FROM __erb_dedup_v4), ', ', (SELECT val FROM __erb_dedup_v5), ' → ', (SELECT val FROM __erb_dedup_v6), ')'))::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'exists' THEN (CONCAT('(∃ ', (SELECT val FROM __erb_dedup_v2), ' : ', (SELECT val FROM __erb_dedup_v4), ', ', (SELECT val FROM __erb_dedup_v5), ' ∧ ', (SELECT val FROM __erb_dedup_v6), ')'))::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'notexists' THEN (CONCAT('(¬∃ ', (SELECT val FROM __erb_dedup_v2), ' : ', (SELECT val FROM __erb_dedup_v4), ', ', (SELECT val FROM __erb_dedup_v5), ' ∧ ', (SELECT val FROM __erb_dedup_v6), ')'))::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'infix' THEN (CONCAT('(', (SELECT val FROM __erb_dedup_v5), ' ', (SELECT val FROM __erb_dedup_v3), ' ', (SELECT val FROM __erb_dedup_v6), ')'))::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'prefix' THEN (CONCAT('(', (SELECT val FROM __erb_dedup_v3), (SELECT val FROM __erb_dedup_v5), ')'))::text ELSE (CASE WHEN COALESCE((SELECT val FROM __erb_dedup_v1), '') = 'apply' THEN (CONCAT('(', (SELECT val FROM __erb_dedup_v3), ' ', (SELECT val FROM __erb_dedup_v5), CASE WHEN COALESCE(((SELECT val FROM __erb_dedup_v7))::NUMERIC, 0) >= 2 THEN (CONCAT(' ', (SELECT val FROM __erb_dedup_v6)))::text ELSE ('')::text END, CASE WHEN COALESCE(((SELECT val FROM __erb_dedup_v7))::NUMERIC, 0) >= 3 THEN (CONCAT(' ', calc_terms_arg3_lean(p_term_id)))::text ELSE ('')::text END, CASE WHEN COALESCE(((SELECT val FROM __erb_dedup_v7))::NUMERIC, 0) >= 4 THEN (CONCAT(' ', calc_terms_arg4_lean(p_term_id)))::text ELSE ('')::text END, ')'))::text ELSE ('')::text END)::text END)::text END)::text END)::text END)::text END)::text END)::text END)::text END)::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_terms_is_leanless
+-- Field: Terms.IsLeanless
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_terms_is_leanless(p_term_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((calc_terms_op_is_lean(p_term_id))::NUMERIC, 0) = 0 THEN (1)::text ELSE (CASE WHEN (COALESCE((COALESCE(COALESCE(calc_terms_op_lean_form(p_term_id), '') = 'var', FALSE) OR COALESCE(COALESCE(calc_terms_op_kind(p_term_id), '') = 'binder', FALSE)), FALSE) AND COALESCE(COALESCE((calc_terms_var_is_lean(p_term_id))::NUMERIC, 0) = 0, FALSE)) THEN (1)::text ELSE (0)::text END)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
 -- calc_predicates_formal
 -- Field: Predicates.Formal
 -- Type: lookup | DataType: string | Returns: TEXT
@@ -5974,6 +6810,17 @@ $$ LANGUAGE sql STABLE;
 CREATE OR REPLACE FUNCTION calc_predicates_formal(p_predicate_id TEXT)
 RETURNS TEXT AS $$
   SELECT calc_terms_rendered((SELECT root_term FROM predicates WHERE predicate_id = p_predicate_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_predicates_lean_root
+-- Field: Predicates.LeanRoot
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanRendered from related Terms
+
+
+CREATE OR REPLACE FUNCTION calc_predicates_lean_root(p_predicate_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_terms_lean_rendered((SELECT root_term FROM predicates WHERE predicate_id = p_predicate_id));
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicates_name
@@ -5993,7 +6840,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_predicates_quantifier_count(p_predicate_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT quantifier_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE ((SELECT COUNT(*) FROM terms WHERE predicate_key = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT quantifier_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE (((SELECT COUNT(*) FROM terms WHERE predicate_key = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id) AND calc_terms_is_binder(term_id) = 1)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicates_unbounded_quantifier_count
@@ -6003,7 +6850,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_predicates_unbounded_quantifier_count(p_predicate_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT unbounded_quantifier_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE ((SELECT COUNT(*) FROM terms WHERE predicate_key = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT unbounded_quantifier_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE (((SELECT COUNT(*) FROM terms WHERE predicate_key = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id) AND calc_terms_is_unbounded_binder(term_id) = 1)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicates_unmodeled_operator_count
@@ -6013,7 +6860,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_predicates_unmodeled_operator_count(p_predicate_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT unmodeled_operator_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE ((SELECT COUNT(*) FROM terms WHERE predicate_key = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT unmodeled_operator_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE (((SELECT COUNT(*) FROM terms WHERE predicate_key = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id) AND calc_terms_is_unmodeled_operator(term_id) = 1)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicates_is_computable
@@ -6043,7 +6890,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_predicates_row_count(p_predicate_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT row_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE ((SELECT COUNT(*) FROM predicate_instances WHERE predicate = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT row_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE (((SELECT COUNT(*) FROM predicate_instances WHERE predicate = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id))))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicates_instance_count
@@ -6053,7 +6900,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_predicates_instance_count(p_predicate_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT instance_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE ((SELECT COUNT(*) FROM predicate_instances WHERE predicate = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id)))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT instance_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE (((SELECT COUNT(*) FROM predicate_instances WHERE predicate = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id) AND calc_predicate_instances_in_domain(predicate_instance_id) = 1)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicates_holding_count
@@ -6063,7 +6910,7 @@ $$ LANGUAGE sql STABLE;
 
 CREATE OR REPLACE FUNCTION calc_predicates_holding_count(p_predicate_id TEXT)
 RETURNS INTEGER AS $$
-  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT holding_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE ((SELECT COALESCE(SUM((calc_predicate_instances_holds(predicate_instance_id))::numeric), 0) FROM predicate_instances WHERE predicate = p_predicate_id AND calc_predicate_instances_in_domain(predicate_instance_id) = 1))::text END)::integer;
+  SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM predicates WHERE predicate_id = p_predicate_id))::NUMERIC, 0) = 1 THEN ((SELECT holding_count_cache FROM predicates WHERE predicate_id = p_predicate_id))::text ELSE (((SELECT COALESCE(SUM((calc_predicate_instances_holds(predicate_instance_id))::numeric), 0) FROM predicate_instances WHERE predicate = p_predicate_id AND calc_predicate_instances_in_domain(predicate_instance_id) = 1)))::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicates_failing_count
@@ -6114,6 +6961,36 @@ $$ LANGUAGE sql STABLE;
 CREATE OR REPLACE FUNCTION calc_predicates_assertion_count(p_predicate_id TEXT)
 RETURNS INTEGER AS $$
   SELECT ((SELECT COUNT(*) FROM assertions WHERE predicate = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_predicates_leanless_term_count
+-- Field: Predicates.LeanlessTermCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_predicates_leanless_term_count(p_predicate_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM terms WHERE predicate_key = (SELECT NULLIF(predicate_id, '') FROM predicates WHERE predicate_id = p_predicate_id) AND calc_terms_is_leanless(term_id) = 1))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_predicates_is_lean_expressible
+-- Field: Predicates.IsLeanExpressible
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_predicates_is_lean_expressible(p_predicate_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((calc_predicates_leanless_term_count(p_predicate_id))::NUMERIC, 0) = 0 THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_predicates_lean_statement
+-- Field: Predicates.LeanStatement
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_predicates_lean_statement(p_predicate_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (CASE WHEN COALESCE((calc_predicates_is_lean_expressible(p_predicate_id))::NUMERIC, 0) = 1 THEN (calc_predicates_lean_root(p_predicate_id))::text ELSE ('')::text END)::text;
 $$ LANGUAGE sql STABLE;
 
 -- calc_predicate_instances_instance_kind
@@ -6638,6 +7515,726 @@ RETURNS INTEGER AS $$
   SELECT (CASE WHEN COALESCE(((SELECT is_cached FROM accelerator_claims WHERE accelerator_claim_id = p_accelerator_claim_id))::NUMERIC, 0) = 1 THEN ((SELECT is_match_cache FROM accelerator_claims WHERE accelerator_claim_id = p_accelerator_claim_id))::text ELSE (CASE WHEN COALESCE((SELECT claimed_value FROM accelerator_claims WHERE accelerator_claim_id = p_accelerator_claim_id), 0) = COALESCE(calc_accelerator_claims_model_value(p_accelerator_claim_id), 0) THEN (1)::text ELSE (0)::text END)::text END)::integer;
 $$ LANGUAGE sql STABLE;
 
+-- calc_licenses_name
+-- Field: Licenses.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_licenses_name(p_license_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(license_id, '') FROM licenses WHERE license_id = p_license_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_licenses_source_count
+-- Field: Licenses.SourceCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_licenses_source_count(p_license_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM challenge_sources WHERE license = (SELECT NULLIF(license_id, '') FROM licenses WHERE license_id = p_license_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_licenses_submission_count
+-- Field: Licenses.SubmissionCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_licenses_submission_count(p_license_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submissions WHERE license = (SELECT NULLIF(license_id, '') FROM licenses WHERE license_id = p_license_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_challenge_sources_allows_redistribution
+-- Field: ChallengeSources.AllowsRedistribution
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: AllowsRedistribution from related Licenses
+
+
+CREATE OR REPLACE FUNCTION calc_challenge_sources_allows_redistribution(p_challenge_source_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT allows_redistribution::integer FROM licenses WHERE license_id = (SELECT license FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id));
+$$ LANGUAGE sql STABLE;
+
+-- get_licenses_title
+-- Helper function: Get Title from Licenses by LicenseId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_licenses_title(p_license_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT title FROM licenses WHERE license_id = p_license_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_licenses_url
+-- Helper function: Get Url from Licenses by LicenseId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_licenses_url(p_license_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT url FROM licenses WHERE license_id = p_license_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_licenses_allows_redistribution
+-- Helper function: Get AllowsRedistribution from Licenses by LicenseId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_licenses_allows_redistribution(p_license_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT allows_redistribution FROM licenses WHERE license_id = p_license_id);
+$$ LANGUAGE sql STABLE;
+
+-- calc_challenge_sources_name
+-- Field: ChallengeSources.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_challenge_sources_name(p_challenge_source_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(challenge_source_id, '') FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_challenge_sources_sync_count
+-- Field: ChallengeSources.SyncCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_challenge_sources_sync_count(p_challenge_source_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM source_syncs WHERE source = (SELECT NULLIF(challenge_source_id, '') FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_challenge_sources_module_count
+-- Field: ChallengeSources.ModuleCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_challenge_sources_module_count(p_challenge_source_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_modules WHERE source = (SELECT NULLIF(challenge_source_id, '') FROM challenge_sources WHERE challenge_source_id = p_challenge_source_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_source_syncs_name
+-- Field: SourceSyncs.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_source_syncs_name(p_source_sync_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(source_sync_id, '') FROM source_syncs WHERE source_sync_id = p_source_sync_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_source_url
+-- Field: LeanModules.SourceUrl
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: Url from related ChallengeSources
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_source_url(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT url::text FROM challenge_sources WHERE challenge_source_id = (SELECT source FROM lean_modules WHERE lean_module_id = p_lean_module_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_source_version
+-- Field: LeanModules.SourceVersion
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: Version from related ChallengeSources
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_source_version(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT version::text FROM challenge_sources WHERE challenge_source_id = (SELECT source FROM lean_modules WHERE lean_module_id = p_lean_module_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_license
+-- Field: LeanModules.License
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: License from related ChallengeSources
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_license(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT license::text FROM challenge_sources WHERE challenge_source_id = (SELECT source FROM lean_modules WHERE lean_module_id = p_lean_module_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_name
+-- Field: LeanModules.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_name(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_url
+-- Field: LeanModules.Url
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_url(p_lean_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (CASE WHEN COALESCE((SELECT NULLIF(package, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id), '') = 'Submission' THEN ((SELECT NULLIF(path, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id))::text ELSE (CONCAT(calc_lean_modules_source_url(p_lean_module_id), '/blob/', calc_lean_modules_source_version(p_lean_module_id), '/', (SELECT NULLIF(path, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id)))::text END)::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_declaration_count
+-- Field: LeanModules.DeclarationCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_declaration_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_declarations WHERE module = (SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_theorem_count
+-- Field: LeanModules.TheoremCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_theorem_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_declarations WHERE module = (SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id) AND kind = 'theorem'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_proposition_count
+-- Field: LeanModules.PropositionCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_proposition_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_declarations WHERE module = (SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id) AND kind = 'proposition'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_bad_axiom_declaration_count
+-- Field: LeanModules.BadAxiomDeclarationCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_bad_axiom_declaration_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_declarations WHERE module = (SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id) AND (bad_axiom_count)::numeric > (0)::numeric))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_import_count
+-- Field: LeanModules.ImportCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_import_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_imports WHERE module = (SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_imported_by_count
+-- Field: LeanModules.ImportedByCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_imported_by_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_imports WHERE imports = (SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_submission_count
+-- Field: LeanModules.SubmissionCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_submission_count(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submission_modules WHERE module = (SELECT NULLIF(lean_module_id, '') FROM lean_modules WHERE lean_module_id = p_lean_module_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_modules_is_verified
+-- Field: LeanModules.IsVerified
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_modules_is_verified(p_lean_module_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE(((SELECT is_exported FROM lean_modules WHERE lean_module_id = p_lean_module_id))::NUMERIC, 0) = 1, FALSE) AND COALESCE(COALESCE((calc_lean_modules_bad_axiom_declaration_count(p_lean_module_id))::NUMERIC, 0) = 0, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_imports_name
+-- Field: LeanImports.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_lean_imports_name(p_lean_import_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(lean_import_id, '') FROM lean_imports WHERE lean_import_id = p_lean_import_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_module_url
+-- Field: LeanDeclarations.ModuleUrl
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: Url from related LeanModules
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_module_url(p_lean_declaration_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_lean_modules_url((SELECT module FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_module_is_verified
+-- Field: LeanDeclarations.ModuleIsVerified
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: IsVerified from related LeanModules
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_module_is_verified(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT calc_lean_modules_is_verified((SELECT module FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_name
+-- Field: LeanDeclarations.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_name(p_lean_declaration_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(lean_declaration_id, '') FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_url
+-- Field: LeanDeclarations.Url
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_url(p_lean_declaration_id TEXT)
+RETURNS TEXT AS $$
+  WITH __erb_dedup_v1 AS (SELECT calc_lean_declarations_module_url(p_lean_declaration_id) AS val) SELECT (CASE WHEN COALESCE(((SELECT line FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id))::NUMERIC, 0) > 0 THEN (CONCAT((SELECT val FROM __erb_dedup_v1), '#L', (SELECT line FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id)))::text ELSE ((SELECT val FROM __erb_dedup_v1))::text END)::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_is_verified
+-- Field: LeanDeclarations.IsVerified
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_is_verified(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((SELECT NULLIF(kind, '') FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id), '') = 'theorem', FALSE) AND COALESCE(COALESCE(((SELECT bad_axiom_count FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id))::NUMERIC, 0) = 0, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_uses_count
+-- Field: LeanDeclarations.UsesCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_uses_count(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_uses WHERE declaration = (SELECT NULLIF(lean_declaration_id, '') FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_used_by_count
+-- Field: LeanDeclarations.UsedByCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_used_by_count(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM lean_uses WHERE uses = (SELECT NULLIF(lean_declaration_id, '') FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_declarations_claim_link_count
+-- Field: LeanDeclarations.ClaimLinkCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_declarations_claim_link_count(p_lean_declaration_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM claim_links WHERE declaration = (SELECT NULLIF(lean_declaration_id, '') FROM lean_declarations WHERE lean_declaration_id = p_lean_declaration_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_allows_redistribution
+-- Field: Submissions.AllowsRedistribution
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: AllowsRedistribution from related Licenses
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_allows_redistribution(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT allows_redistribution::integer FROM licenses WHERE license_id = (SELECT license FROM submissions WHERE submission_id = p_submission_id));
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_title
+-- Helper function: Get Title from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_title(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT title FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_problem
+-- Helper function: Get Problem from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_problem(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (SELECT problem FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_claim
+-- Helper function: Get Claim from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_claim(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT claim FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_authors
+-- Helper function: Get Authors from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_authors(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT authors FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_agent
+-- Helper function: Get Agent from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_agent(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT agent FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_status
+-- Helper function: Get Status from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_status(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT status FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_submitted
+-- Helper function: Get Submitted from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_submitted(p_submission_id TEXT)
+RETURNS TIMESTAMPTZ AS $$
+  SELECT (SELECT submitted FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_page_url
+-- Helper function: Get PageUrl from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_page_url(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT page_url FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_lean_url
+-- Helper function: Get LeanUrl from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_lean_url(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT lean_url FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_notebook_url
+-- Helper function: Get NotebookUrl from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_notebook_url(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT notebook_url FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_included_path
+-- Helper function: Get IncludedPath from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_included_path(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT included_path FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_source_sha256
+-- Helper function: Get SourceSha256 from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_source_sha256(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT source_sha256 FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_verifier_verdict
+-- Helper function: Get VerifierVerdict from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_verifier_verdict(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT verifier_verdict FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_verifier_kit_commit
+-- Helper function: Get VerifierKitCommit from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_verifier_kit_commit(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT verifier_kit_commit FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_verifier_checked_at
+-- Helper function: Get VerifierCheckedAt from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_verifier_checked_at(p_submission_id TEXT)
+RETURNS TIMESTAMPTZ AS $$
+  SELECT (SELECT verifier_checked_at FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_our_verdict
+-- Helper function: Get OurVerdict from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+
+CREATE OR REPLACE FUNCTION get_submissions_our_verdict(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT our_verdict FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- get_submissions_our_kit_commit
+-- Helper function: Get OurKitCommit from Submissions by SubmissionId
+-- Used for join-free cross-table references in aggregations
+CREATE OR REPLACE FUNCTION get_submissions_our_kit_commit(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT (SELECT our_kit_commit FROM submissions WHERE submission_id = p_submission_id);
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_name
+-- Field: Submissions.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_name(p_submission_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(submission_id, '') FROM submissions WHERE submission_id = p_submission_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_is_human_verified
+-- Field: Submissions.IsHumanVerified
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_is_human_verified(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submission_tags WHERE submission = (SELECT NULLIF(submission_id, '') FROM submissions WHERE submission_id = p_submission_id) AND tag = 'Human Verified'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_is_kit_contribution
+-- Field: Submissions.IsKitContribution
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_is_kit_contribution(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submission_tags WHERE submission = (SELECT NULLIF(submission_id, '') FROM submissions WHERE submission_id = p_submission_id) AND tag = 'Kit Contribution'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_is_prize_claimed
+-- Field: Submissions.IsPrizeClaimed
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_is_prize_claimed(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submission_tags WHERE submission = (SELECT NULLIF(submission_id, '') FROM submissions WHERE submission_id = p_submission_id) AND tag = 'Prize Claimed'))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_headline_count
+-- Field: Submissions.HeadlineCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_headline_count(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submission_headlines WHERE submission = (SELECT NULLIF(submission_id, '') FROM submissions WHERE submission_id = p_submission_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_our_ok_headline_count
+-- Field: Submissions.OurOkHeadlineCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_our_ok_headline_count(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COALESCE(SUM((our_ok)::numeric), 0) FROM submission_headlines WHERE submission = p_submission_id))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_kit_module_count
+-- Field: Submissions.KitModuleCount
+-- Type: aggregation | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_kit_module_count(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT ((SELECT COUNT(*) FROM submission_modules WHERE submission = (SELECT NULLIF(submission_id, '') FROM submissions WHERE submission_id = p_submission_id)))::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_is_lean_verified
+-- Field: Submissions.IsLeanVerified
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_is_lean_verified(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((SELECT NULLIF(status, '') FROM submissions WHERE submission_id = p_submission_id), '') = 'Lean Verified' THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submissions_agrees_with_verifier
+-- Field: Submissions.AgreesWithVerifier
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_submissions_agrees_with_verifier(p_submission_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((calc_submissions_is_lean_verified(p_submission_id))::NUMERIC, 0) = 1 THEN (CASE WHEN COALESCE((SELECT NULLIF(our_verdict, '') FROM submissions WHERE submission_id = p_submission_id), '') = 'pass' THEN (1)::text ELSE (0)::text END)::text ELSE (CASE WHEN COALESCE((SELECT NULLIF(our_verdict, '') FROM submissions WHERE submission_id = p_submission_id), '') = 'pass' THEN (0)::text ELSE (1)::text END)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submission_tags_name
+-- Field: SubmissionTags.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_submission_tags_name(p_submission_tag_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(submission_tag_id, '') FROM submission_tags WHERE submission_tag_id = p_submission_tag_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submission_headlines_name
+-- Field: SubmissionHeadlines.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_submission_headlines_name(p_submission_headline_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(submission_headline_id, '') FROM submission_headlines WHERE submission_headline_id = p_submission_headline_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_submission_modules_name
+-- Field: SubmissionModules.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_submission_modules_name(p_submission_module_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(submission_module_id, '') FROM submission_modules WHERE submission_module_id = p_submission_module_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_claim_links_declaration_is_verified
+-- Field: ClaimLinks.DeclarationIsVerified
+-- Type: lookup | DataType: integer | Returns: INTEGER
+-- Lookup: IsVerified from related LeanDeclarations
+
+
+CREATE OR REPLACE FUNCTION calc_claim_links_declaration_is_verified(p_claim_link_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT calc_lean_declarations_is_verified((SELECT declaration FROM claim_links WHERE claim_link_id = p_claim_link_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_claim_links_declaration_url
+-- Field: ClaimLinks.DeclarationUrl
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: Url from related LeanDeclarations
+
+
+CREATE OR REPLACE FUNCTION calc_claim_links_declaration_url(p_claim_link_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_lean_declarations_url((SELECT declaration FROM claim_links WHERE claim_link_id = p_claim_link_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_claim_links_name
+-- Field: ClaimLinks.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_claim_links_name(p_claim_link_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(claim_link_id, '') FROM claim_links WHERE claim_link_id = p_claim_link_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_claim_links_covers
+-- Field: ClaimLinks.Covers
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_claim_links_covers(p_claim_link_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE((COALESCE(COALESCE((SELECT NULLIF(relation, '') FROM claim_links WHERE claim_link_id = p_claim_link_id), '') = 'same', FALSE) OR COALESCE(COALESCE((SELECT NULLIF(relation, '') FROM claim_links WHERE claim_link_id = p_claim_link_id), '') = 'stronger', FALSE)), FALSE) AND COALESCE(COALESCE((calc_claim_links_declaration_is_verified(p_claim_link_id))::NUMERIC, 0) = 1, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_claim_links_contradicts
+-- Field: ClaimLinks.Contradicts
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_claim_links_contradicts(p_claim_link_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((SELECT NULLIF(relation, '') FROM claim_links WHERE claim_link_id = p_claim_link_id), '') = 'contradicts', FALSE) AND COALESCE(COALESCE((calc_claim_links_declaration_is_verified(p_claim_link_id))::NUMERIC, 0) = 1, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_claim_links_is_joint
+-- Field: ClaimLinks.IsJoint
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_claim_links_is_joint(p_claim_link_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((SELECT NULLIF(relation, '') FROM claim_links WHERE claim_link_id = p_claim_link_id), '') = 'jointly' THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_claim_links_is_joint_verified
+-- Field: ClaimLinks.IsJointVerified
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_claim_links_is_joint_verified(p_claim_link_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN (COALESCE(COALESCE((SELECT NULLIF(relation, '') FROM claim_links WHERE claim_link_id = p_claim_link_id), '') = 'jointly', FALSE) AND COALESCE(COALESCE((calc_claim_links_declaration_is_verified(p_claim_link_id))::NUMERIC, 0) = 1, FALSE)) THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_proofs_name
+-- Field: LeanProofs.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_lean_proofs_name(p_lean_proof_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(lean_proof_id, '') FROM lean_proofs WHERE lean_proof_id = p_lean_proof_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_checks_current_statement
+-- Field: LeanChecks.CurrentStatement
+-- Type: lookup | DataType: string | Returns: TEXT
+-- Lookup: LeanStatement from related Assertions
+
+
+CREATE OR REPLACE FUNCTION calc_lean_checks_current_statement(p_lean_check_id TEXT)
+RETURNS TEXT AS $$
+  SELECT calc_assertions_lean_statement((SELECT assertion FROM lean_checks WHERE lean_check_id = p_lean_check_id));
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_checks_name
+-- Field: LeanChecks.Name
+-- Type: calculated | DataType: string | Returns: TEXT
+
+
+CREATE OR REPLACE FUNCTION calc_lean_checks_name(p_lean_check_id TEXT)
+RETURNS TEXT AS $$
+  SELECT ((SELECT NULLIF(lean_check_id, '') FROM lean_checks WHERE lean_check_id = p_lean_check_id))::text;
+$$ LANGUAGE sql STABLE;
+
+-- calc_lean_checks_is_current
+-- Field: LeanChecks.IsCurrent
+-- Type: calculated | DataType: integer | Returns: INTEGER
+
+
+CREATE OR REPLACE FUNCTION calc_lean_checks_is_current(p_lean_check_id TEXT)
+RETURNS INTEGER AS $$
+  SELECT (CASE WHEN COALESCE((SELECT NULLIF(checked_statement, '') FROM lean_checks WHERE lean_check_id = p_lean_check_id), '') = COALESCE(calc_lean_checks_current_statement(p_lean_check_id), '') THEN (1)::text ELSE (0)::text END)::integer;
+$$ LANGUAGE sql STABLE;
+
 -- ============================================================================
 -- MANY-SIDE RELATIONSHIP FUNCTIONS
 -- These functions aggregate child records for many-side relationships
@@ -6777,6 +8374,14 @@ RETURNS TEXT AS $$
               ELSE calc_terms_rendered__compute(p_term_id) END;
 $$ LANGUAGE sql STABLE;
 
+CREATE UNLOGGED TABLE IF NOT EXISTS erb_memo_terms_lean_rendered (id TEXT PRIMARY KEY, val TEXT);
+CREATE OR REPLACE FUNCTION calc_terms_lean_rendered(p_term_id TEXT)
+RETURNS TEXT AS $$
+  SELECT CASE WHEN EXISTS (SELECT 1 FROM erb_memo_terms_lean_rendered WHERE id = p_term_id::text)
+              THEN (SELECT val FROM erb_memo_terms_lean_rendered WHERE id = p_term_id::text)
+              ELSE calc_terms_lean_rendered__compute(p_term_id) END;
+$$ LANGUAGE sql STABLE;
+
 CREATE OR REPLACE FUNCTION erb_memo_invalidate() RETURNS trigger LANGUAGE plpgsql AS $$
 BEGIN
   IF EXISTS (SELECT 1 FROM erb_memo_rule_table_entries_output_value) THEN DELETE FROM erb_memo_rule_table_entries_output_value; END IF;
@@ -6794,6 +8399,7 @@ BEGIN
   IF EXISTS (SELECT 1 FROM erb_memo_diagonals_ones_per_period) THEN DELETE FROM erb_memo_diagonals_ones_per_period; END IF;
   IF EXISTS (SELECT 1 FROM erb_memo_diagonals_previous_ones_per_period) THEN DELETE FROM erb_memo_diagonals_previous_ones_per_period; END IF;
   IF EXISTS (SELECT 1 FROM erb_memo_terms_rendered) THEN DELETE FROM erb_memo_terms_rendered; END IF;
+  IF EXISTS (SELECT 1 FROM erb_memo_terms_lean_rendered) THEN DELETE FROM erb_memo_terms_lean_rendered; END IF;
   RETURN NULL;
 END $$;
 DROP TRIGGER IF EXISTS erb_memo_invalidate ON assertions;
@@ -6898,3 +8504,31 @@ DROP TRIGGER IF EXISTS erb_memo_invalidate ON predicate_instances;
 CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON predicate_instances FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
 DROP TRIGGER IF EXISTS erb_memo_invalidate ON accelerator_claims;
 CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON accelerator_claims FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON licenses;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON licenses FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON challenge_sources;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON challenge_sources FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON source_syncs;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON source_syncs FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON lean_modules;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON lean_modules FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON lean_imports;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON lean_imports FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON lean_declarations;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON lean_declarations FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON lean_uses;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON lean_uses FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON submissions;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON submissions FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON submission_tags;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON submission_tags FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON submission_headlines;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON submission_headlines FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON submission_modules;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON submission_modules FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON claim_links;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON claim_links FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON lean_proofs;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON lean_proofs FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();
+DROP TRIGGER IF EXISTS erb_memo_invalidate ON lean_checks;
+CREATE TRIGGER erb_memo_invalidate AFTER INSERT OR UPDATE OR DELETE OR TRUNCATE ON lean_checks FOR EACH STATEMENT EXECUTE FUNCTION erb_memo_invalidate();

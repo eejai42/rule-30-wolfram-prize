@@ -19,6 +19,15 @@ ALTER TABLE assertions ADD CONSTRAINT fk_assertions_introduced_in_loop
 ALTER TABLE assertions DROP CONSTRAINT IF EXISTS fk_assertions_predicate;
 ALTER TABLE assertions ADD CONSTRAINT fk_assertions_predicate
   FOREIGN KEY (predicate) REFERENCES predicates (predicate_id);
+ALTER TABLE assertions DROP CONSTRAINT IF EXISTS fk_assertions_source;
+ALTER TABLE assertions ADD CONSTRAINT fk_assertions_source
+  FOREIGN KEY (source) REFERENCES challenge_sources (challenge_source_id);
+ALTER TABLE assertions DROP CONSTRAINT IF EXISTS fk_assertions_lean_module;
+ALTER TABLE assertions ADD CONSTRAINT fk_assertions_lean_module
+  FOREIGN KEY (lean_module) REFERENCES lean_modules (lean_module_id);
+ALTER TABLE assertions DROP CONSTRAINT IF EXISTS fk_assertions_lean_declaration;
+ALTER TABLE assertions ADD CONSTRAINT fk_assertions_lean_declaration
+  FOREIGN KEY (lean_declaration) REFERENCES lean_declarations (lean_declaration_id);
 
 -- Dependencies
 ALTER TABLE dependencies DROP CONSTRAINT IF EXISTS fk_dependencies_conclusion;
@@ -446,4 +455,90 @@ ALTER TABLE accelerator_claims DROP CONSTRAINT IF EXISTS fk_accelerator_claims_s
 ALTER TABLE accelerator_claims ADD CONSTRAINT fk_accelerator_claims_source
   FOREIGN KEY (source) REFERENCES evidence (evidence_id);
 
--- 118 FK constraint(s) declared (off unless EFFORTLESS_ENFORCE_FKS=true).
+-- ChallengeSources
+ALTER TABLE challenge_sources DROP CONSTRAINT IF EXISTS fk_challenge_sources_license;
+ALTER TABLE challenge_sources ADD CONSTRAINT fk_challenge_sources_license
+  FOREIGN KEY (license) REFERENCES licenses (license_id);
+
+-- SourceSyncs
+ALTER TABLE source_syncs DROP CONSTRAINT IF EXISTS fk_source_syncs_source;
+ALTER TABLE source_syncs ADD CONSTRAINT fk_source_syncs_source
+  FOREIGN KEY (source) REFERENCES challenge_sources (challenge_source_id);
+
+-- LeanModules
+ALTER TABLE lean_modules DROP CONSTRAINT IF EXISTS fk_lean_modules_source;
+ALTER TABLE lean_modules ADD CONSTRAINT fk_lean_modules_source
+  FOREIGN KEY (source) REFERENCES challenge_sources (challenge_source_id);
+
+-- LeanImports
+ALTER TABLE lean_imports DROP CONSTRAINT IF EXISTS fk_lean_imports_module;
+ALTER TABLE lean_imports ADD CONSTRAINT fk_lean_imports_module
+  FOREIGN KEY (module) REFERENCES lean_modules (lean_module_id);
+ALTER TABLE lean_imports DROP CONSTRAINT IF EXISTS fk_lean_imports_imports;
+ALTER TABLE lean_imports ADD CONSTRAINT fk_lean_imports_imports
+  FOREIGN KEY (imports) REFERENCES lean_modules (lean_module_id);
+
+-- LeanDeclarations
+ALTER TABLE lean_declarations DROP CONSTRAINT IF EXISTS fk_lean_declarations_module;
+ALTER TABLE lean_declarations ADD CONSTRAINT fk_lean_declarations_module
+  FOREIGN KEY (module) REFERENCES lean_modules (lean_module_id);
+
+-- LeanUses
+ALTER TABLE lean_uses DROP CONSTRAINT IF EXISTS fk_lean_uses_declaration;
+ALTER TABLE lean_uses ADD CONSTRAINT fk_lean_uses_declaration
+  FOREIGN KEY (declaration) REFERENCES lean_declarations (lean_declaration_id);
+ALTER TABLE lean_uses DROP CONSTRAINT IF EXISTS fk_lean_uses_uses;
+ALTER TABLE lean_uses ADD CONSTRAINT fk_lean_uses_uses
+  FOREIGN KEY (uses) REFERENCES lean_declarations (lean_declaration_id);
+
+-- Submissions
+ALTER TABLE submissions DROP CONSTRAINT IF EXISTS fk_submissions_supersedes;
+ALTER TABLE submissions ADD CONSTRAINT fk_submissions_supersedes
+  FOREIGN KEY (supersedes) REFERENCES submissions (submission_id);
+ALTER TABLE submissions DROP CONSTRAINT IF EXISTS fk_submissions_license;
+ALTER TABLE submissions ADD CONSTRAINT fk_submissions_license
+  FOREIGN KEY (license) REFERENCES licenses (license_id);
+ALTER TABLE submissions DROP CONSTRAINT IF EXISTS fk_submissions_lean_module;
+ALTER TABLE submissions ADD CONSTRAINT fk_submissions_lean_module
+  FOREIGN KEY (lean_module) REFERENCES lean_modules (lean_module_id);
+
+-- SubmissionTags
+ALTER TABLE submission_tags DROP CONSTRAINT IF EXISTS fk_submission_tags_submission;
+ALTER TABLE submission_tags ADD CONSTRAINT fk_submission_tags_submission
+  FOREIGN KEY (submission) REFERENCES submissions (submission_id);
+
+-- SubmissionHeadlines
+ALTER TABLE submission_headlines DROP CONSTRAINT IF EXISTS fk_submission_headlines_submission;
+ALTER TABLE submission_headlines ADD CONSTRAINT fk_submission_headlines_submission
+  FOREIGN KEY (submission) REFERENCES submissions (submission_id);
+ALTER TABLE submission_headlines DROP CONSTRAINT IF EXISTS fk_submission_headlines_declaration;
+ALTER TABLE submission_headlines ADD CONSTRAINT fk_submission_headlines_declaration
+  FOREIGN KEY (declaration) REFERENCES lean_declarations (lean_declaration_id);
+
+-- SubmissionModules
+ALTER TABLE submission_modules DROP CONSTRAINT IF EXISTS fk_submission_modules_submission;
+ALTER TABLE submission_modules ADD CONSTRAINT fk_submission_modules_submission
+  FOREIGN KEY (submission) REFERENCES submissions (submission_id);
+ALTER TABLE submission_modules DROP CONSTRAINT IF EXISTS fk_submission_modules_module;
+ALTER TABLE submission_modules ADD CONSTRAINT fk_submission_modules_module
+  FOREIGN KEY (module) REFERENCES lean_modules (lean_module_id);
+
+-- ClaimLinks
+ALTER TABLE claim_links DROP CONSTRAINT IF EXISTS fk_claim_links_assertion;
+ALTER TABLE claim_links ADD CONSTRAINT fk_claim_links_assertion
+  FOREIGN KEY (assertion) REFERENCES assertions (assertion_id);
+ALTER TABLE claim_links DROP CONSTRAINT IF EXISTS fk_claim_links_declaration;
+ALTER TABLE claim_links ADD CONSTRAINT fk_claim_links_declaration
+  FOREIGN KEY (declaration) REFERENCES lean_declarations (lean_declaration_id);
+
+-- LeanProofs
+ALTER TABLE lean_proofs DROP CONSTRAINT IF EXISTS fk_lean_proofs_assertion;
+ALTER TABLE lean_proofs ADD CONSTRAINT fk_lean_proofs_assertion
+  FOREIGN KEY (assertion) REFERENCES assertions (assertion_id);
+
+-- LeanChecks
+ALTER TABLE lean_checks DROP CONSTRAINT IF EXISTS fk_lean_checks_assertion;
+ALTER TABLE lean_checks ADD CONSTRAINT fk_lean_checks_assertion
+  FOREIGN KEY (assertion) REFERENCES assertions (assertion_id);
+
+-- 141 FK constraint(s) declared (off unless EFFORTLESS_ENFORCE_FKS=true).

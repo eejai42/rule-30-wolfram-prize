@@ -1,0 +1,157 @@
+{
+ "P1": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 3,
+  "ProofBlockedCount": 3,
+  "ProofEligible": 0,
+  "SupportCount": 5,
+  "EvidenceGap": 0
+ },
+ "P2": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "P3": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "K1": {
+  "ReportedStatus": "REDERIVED_KNOWN",
+  "EffectiveStatus": "LEAN_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "LEAN_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "T0": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "LEAN_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "LEAN_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "TX": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "LEAN_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "LEAN_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "D0": {
+  "ReportedStatus": "DEFINITION",
+  "EffectiveStatus": "LEAN_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "LEAN_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "TS": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "LEAN_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "LEAN_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 1,
+  "EvidenceGap": 0
+ },
+ "T004": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "LEAN_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "LEAN_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "B10": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 8,
+  "ProofBlockedCount": 8,
+  "ProofEligible": 0,
+  "SupportCount": 3,
+  "EvidenceGap": 0
+ },
+ "B11": {
+  "ReportedStatus": "PROVED_HUMAN_READABLE",
+  "EffectiveStatus": "PROVED_HUMAN_READABLE",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "KC1": {
+  "ReportedStatus": "LEAN_VERIFIED",
+  "EffectiveStatus": "LEAN_VERIFIED",
+  "IsModelDecided": 0,
+  "CurrentStatus": "LEAN_VERIFIED",
+  "BlockedCount": 0,
+  "ProofBlockedCount": 0,
+  "ProofEligible": 1,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "KC4": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 2,
+  "ProofBlockedCount": 2,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ },
+ "Q-Q01": {
+  "ReportedStatus": "OPEN",
+  "EffectiveStatus": "OPEN",
+  "IsModelDecided": 0,
+  "CurrentStatus": "BLOCKED",
+  "BlockedCount": 1,
+  "ProofBlockedCount": 1,
+  "ProofEligible": 0,
+  "SupportCount": 0,
+  "EvidenceGap": 0
+ }
+}
+exit 0

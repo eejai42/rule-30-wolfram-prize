@@ -58,8 +58,8 @@
         "datatype": "string",
         "type": "calculated",
         "nullable": true,
-        "Description": "Proved (definition, proved or rederived known), Checked (finite verification only), Falsified, Superseded or Open.",
-        "formula": "=IF({{IsCached}}=1,{{StatusGroupCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\"),\"Proved\",IF({{EffectiveStatus}}=\"FINITE_VERIFIED\",\"Checked\",IF({{EffectiveStatus}}=\"FALSIFIED\",\"Falsified\",IF({{EffectiveStatus}}=\"SUPERSEDED\",\"Superseded\",\"Open\")))))"
+        "Description": "Proved (definition, proved, rederived known or Lean-verified), Checked (finite verification only), Falsified, Superseded or Open.",
+        "formula": "=IF({{IsCached}}=1,{{StatusGroupCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\",{{EffectiveStatus}}=\"LEAN_VERIFIED\"),\"Proved\",IF({{EffectiveStatus}}=\"FINITE_VERIFIED\",\"Checked\",IF({{EffectiveStatus}}=\"FALSIFIED\",\"Falsified\",IF({{EffectiveStatus}}=\"SUPERSEDED\",\"Superseded\",\"Open\")))))"
       },
       {
         "name": "PremiseCount",
@@ -97,17 +97,17 @@
         "name": "IsUsable",
         "datatype": "integer",
         "type": "calculated",
-        "nullable": false,
-        "Description": "IsUsable",
-        "formula": "=IF({{IsCached}}=1,{{IsUsableCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\",{{EffectiveStatus}}=\"FINITE_VERIFIED\"),1,0))"
+        "nullable": true,
+        "Description": "1 when the claim may be used as a premise.",
+        "formula": "=IF({{IsCached}}=1,{{IsUsableCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\",{{EffectiveStatus}}=\"LEAN_VERIFIED\",{{EffectiveStatus}}=\"FINITE_VERIFIED\"),1,0))"
       },
       {
         "name": "IsProofEligible",
         "datatype": "integer",
         "type": "calculated",
-        "nullable": false,
-        "Description": "IsProofEligible",
-        "formula": "=IF({{IsCached}}=1,{{IsProofEligibleCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\"),1,0))"
+        "nullable": true,
+        "Description": "1 when the claim may be used in a proof (finite checks may not).",
+        "formula": "=IF({{IsCached}}=1,{{IsProofEligibleCache}},IF(OR({{EffectiveStatus}}=\"DEFINITION\",{{EffectiveStatus}}=\"PROVED_HUMAN_READABLE\",{{EffectiveStatus}}=\"REDERIVED_KNOWN\",{{EffectiveStatus}}=\"LEAN_VERIFIED\"),1,0))"
       },
       {
         "name": "DescendantCount",
@@ -170,8 +170,8 @@
         "datatype": "string",
         "type": "calculated",
         "nullable": true,
-        "Description": "The status the ledger uses: FALSIFIED when the model holds a counterexample, FINITE_VERIFIED when the model decides an open or checked claim true, otherwise the reported status.",
-        "formula": "=IF({{IsCached}}=1,{{EffectiveStatusCache}},IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1),\"FALSIFIED\",IF(AND({{IsModelLinked}}=1,{{PredicateIsVerified}}=1,OR({{ReportedStatus}}=\"OPEN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),\"FINITE_VERIFIED\",{{ReportedStatus}})))"
+        "Description": "The status the ledger uses: FALSIFIED when the model holds a counterexample; LEAN_VERIFIED when the Lean kernel accepts a proof of the claim (or confirms a kit result); OPEN for a reported Lean result the check here does not confirm; FINITE_VERIFIED when the model decides an open or checked claim true; otherwise the reported status.",
+        "formula": "=IF({{IsCached}}=1,{{EffectiveStatusCache}},IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1),\"FALSIFIED\",IF({{IsLeanVerified}}=1,\"LEAN_VERIFIED\",IF({{ReportedStatus}}=\"LEAN_VERIFIED\",\"OPEN\",IF(AND({{IsModelLinked}}=1,{{PredicateIsVerified}}=1,OR({{ReportedStatus}}=\"OPEN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),\"FINITE_VERIFIED\",{{ReportedStatus}})))))"
       },
       {
         "name": "IsModelDecided",
@@ -186,8 +186,8 @@
         "datatype": "integer",
         "type": "calculated",
         "nullable": true,
-        "Description": "1 when the report asserts the claim (proved, checked or definitional) and the model refutes it: the report is wrong. An OPEN claim the model refutes is decided, not contradicted.",
-        "formula": "=IF({{IsCached}}=1,{{IsModelContradictedCache}},IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),1,0))"
+        "Description": "1 when the report asserts the claim (proved, Lean-verified, checked or definitional) and the model refutes it: the report is wrong. An OPEN claim the model refutes is decided, not contradicted.",
+        "formula": "=IF({{IsCached}}=1,{{IsModelContradictedCache}},IF(AND({{IsModelLinked}}=1,{{PredicateIsRefuted}}=1,OR({{ReportedStatus}}=\"DEFINITION\",{{ReportedStatus}}=\"PROVED_HUMAN_READABLE\",{{ReportedStatus}}=\"REDERIVED_KNOWN\",{{ReportedStatus}}=\"LEAN_VERIFIED\",{{ReportedStatus}}=\"FINITE_VERIFIED\")),1,0))"
       },
       {
         "name": "ModelVerdict",
@@ -261,6 +261,230 @@
         "Description": "Cached IsProofEligible from the last fresh compile; read by IsProofEligible while IsCached = 1."
       },
       {
+        "name": "Source",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "Where a claim comes from: kit for the kit's results; empty for this ledger's own claims.",
+        "RelatedTo": "ChallengeSources"
+      },
+      {
+        "name": "LeanModule",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "For a kit result: its module.",
+        "RelatedTo": "LeanModules"
+      },
+      {
+        "name": "LeanDeclaration",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The Lean declaration that states the claim: a prize problem's official statement, a kit case's headline theorem.",
+        "RelatedTo": "LeanDeclarations"
+      },
+      {
+        "name": "LeanStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim's statement in Lean, written by the build from its term tree (empty while some operator has no Lean meaning).",
+        "formula": "=INDEX(Predicates!{{LeanStatement}},MATCH({{Predicate}},Predicates!{{PredicateId}},0))"
+      },
+      {
+        "name": "IsLeanExpressible",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the build writes the statement in Lean.",
+        "formula": "=INDEX(Predicates!{{IsLeanExpressible}},MATCH({{Predicate}},Predicates!{{PredicateId}},0))"
+      },
+      {
+        "name": "LeanCheckCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kernel checks of the current Lean statement.",
+        "formula": "=COUNTIFS(LeanChecks!{{Assertion}},{{AssertionId}},LeanChecks!{{Kind}},\"claim\",LeanChecks!{{IsCurrent}},1)"
+      },
+      {
+        "name": "LeanCheckOk",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kernel checks of the current Lean statement that passed.",
+        "formula": "=COUNTIFS(LeanChecks!{{Assertion}},{{AssertionId}},LeanChecks!{{Kind}},\"claim\",LeanChecks!{{IsCurrent}},1,LeanChecks!{{Ok}},1)"
+      },
+      {
+        "name": "IsOfficiallyAligned",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "1 when Lean proves the claim's statement equivalent to the official one.",
+        "formula": "=COUNTIFS(LeanChecks!{{Assertion}},{{AssertionId}},LeanChecks!{{Kind}},\"alignment\",LeanChecks!{{IsCurrent}},1,LeanChecks!{{Ok}},1)"
+      },
+      {
+        "name": "IsKitModuleLinked",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "1 when the claim is a kit module.",
+        "formula": "=COUNTIFS(LeanModules!{{LeanModuleId}},{{LeanModule}})"
+      },
+      {
+        "name": "IsKitDeclarationLinked",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "1 when a Lean declaration states the claim.",
+        "formula": "=COUNTIFS(LeanDeclarations!{{LeanDeclarationId}},{{LeanDeclaration}})"
+      },
+      {
+        "name": "LeanModuleIsVerified",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the kit module is verified.",
+        "formula": "=INDEX(LeanModules!{{IsVerified}},MATCH({{LeanModule}},LeanModules!{{LeanModuleId}},0))"
+      },
+      {
+        "name": "LeanDeclarationIsVerified",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the Lean declaration is a verified theorem.",
+        "formula": "=INDEX(LeanDeclarations!{{IsVerified}},MATCH({{LeanDeclaration}},LeanDeclarations!{{LeanDeclarationId}},0))"
+      },
+      {
+        "name": "LeanModuleUrl",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The kit module's file.",
+        "formula": "=INDEX(LeanModules!{{Url}},MATCH({{LeanModule}},LeanModules!{{LeanModuleId}},0))"
+      },
+      {
+        "name": "IsOwnClaim",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for this ledger's own claims, 0 for the kit's.",
+        "formula": "=IF({{Source}}=\"kit\",0,1)"
+      },
+      {
+        "name": "IsLeanLinked",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the claim has a Lean form: its own Lean statement, a kit module or a Lean declaration.",
+        "formula": "=IF(OR({{IsLeanExpressible}}=1,{{IsKitModuleLinked}}>0,{{IsKitDeclarationLinked}}>0),1,0)"
+      },
+      {
+        "name": "IsFormallyStated",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the claim is stated formally: as a term tree of the model or in Lean.",
+        "formula": "=IF(OR({{IsModelLinked}}=1,{{IsLeanLinked}}=1),1,0)"
+      },
+      {
+        "name": "IsLeanVerified",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the kernel accepted a proof of the claim's current Lean statement here, or the claim is a kit result reported proved and its module (or theorem) is verified here.",
+        "formula": "=IF({{LeanCheckOk}}>0,1,IF(AND({{ReportedStatus}}=\"LEAN_VERIFIED\",OR({{LeanModuleIsVerified}}=1,{{LeanDeclarationIsVerified}}=1)),1,0))"
+      },
+      {
+        "name": "KitLinkCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kit declarations linked to this claim.",
+        "formula": "=COUNTIFS(ClaimLinks!{{Assertion}},{{AssertionId}})"
+      },
+      {
+        "name": "KitCoverCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Verified kit theorems that state this claim or more.",
+        "formula": "=COUNTIFS(ClaimLinks!{{Assertion}},{{AssertionId}},ClaimLinks!{{Covers}},1)"
+      },
+      {
+        "name": "KitContradictionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Verified kit theorems that refute this claim. Must be 0 for a claim we hold.",
+        "formula": "=COUNTIFS(ClaimLinks!{{Assertion}},{{AssertionId}},ClaimLinks!{{Contradicts}},1)"
+      },
+      {
+        "name": "KitJointCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kit theorems whose conjunction is this claim.",
+        "formula": "=COUNTIFS(ClaimLinks!{{Assertion}},{{AssertionId}},ClaimLinks!{{IsJoint}},1)"
+      },
+      {
+        "name": "KitJointVerifiedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Of those, the verified ones.",
+        "formula": "=COUNTIFS(ClaimLinks!{{Assertion}},{{AssertionId}},ClaimLinks!{{IsJointVerified}},1)"
+      },
+      {
+        "name": "KitGlueProofCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Lean proofs of this claim that only restate kit theorems.",
+        "formula": "=COUNTIFS(LeanProofs!{{Assertion}},{{AssertionId}},LeanProofs!{{Kind}},\"claim\",LeanProofs!{{IsKitGlue}},1)"
+      },
+      {
+        "name": "IsKnownInKit",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the kit already proves this claim (a verified kit theorem says it or more, the jointly linked ones are all verified, or its Lean proof only restates the kit): not new against the catalog.",
+        "formula": "=IF(OR({{KitCoverCount}}>0,AND({{KitJointCount}}>0,{{KitJointVerifiedCount}}={{KitJointCount}}),AND({{KitGlueProofCount}}>0,{{LeanCheckOk}}>0)),1,0)"
+      },
+      {
+        "name": "IsKitContradicted",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when a verified kit theorem refutes a claim the ledger holds (usable). A falsified claim the kit also refutes is agreement, not contradiction.",
+        "formula": "=IF(AND({{KitContradictionCount}}>0,{{IsUsable}}=1),1,0)"
+      },
+      {
+        "name": "IsLeanContradicted",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when Lean proves a claim the model or the ledger refutes. Must be 0.",
+        "formula": "=IF(AND({{IsLeanVerified}}=1,OR({{ReportedStatus}}=\"FALSIFIED\",{{PredicateIsRefuted}}=1)),1,0)"
+      },
+      {
+        "name": "IsLeanUnconfirmed",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when a source reports the claim proved in Lean and the check here does not confirm it. Must be 0.",
+        "formula": "=IF(AND({{ReportedStatus}}=\"LEAN_VERIFIED\",{{IsLeanVerified}}=0),1,0)"
+      },
+      {
+        "name": "ProofBasis",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "What the status rests on: the Lean kernel, the model, or a report.",
+        "formula": "=IF({{IsLeanVerified}}=1,\"Lean\",IF({{IsModelDecided}}=1,\"Model\",\"Report\"))"
+      },
+      {
         "name": "OnCurrentPath",
         "datatype": "integer",
         "type": "aggregation",
@@ -275,6 +499,14 @@
         "nullable": true,
         "Description": "Loops (planned, running or done) linked to this claim.",
         "formula": "=COUNTIFS(LoopTargets!{{Assertion}},{{AssertionId}})"
+      },
+      {
+        "name": "LeanDeclarationUrl",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Where the Lean declaration is: read its statement there.",
+        "formula": "=INDEX(LeanDeclarations!{{Url}},MATCH({{LeanDeclaration}},LeanDeclarations!{{LeanDeclarationId}},0))"
       }
     ]
   },
@@ -981,8 +1213,144 @@
         "datatype": "integer",
         "type": "aggregation",
         "nullable": true,
-        "Description": "Claims still only stated in words.",
-        "formula": "=COUNTIFS(Assertions!{{IsModelLinked}},0)"
+        "Description": "Claims still only stated in words (no term tree, no Lean form).",
+        "formula": "=COUNTIFS(Assertions!{{IsFormallyStated}},0)"
+      },
+      {
+        "name": "OwnClaimCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "This ledger's own claims.",
+        "formula": "=COUNTIFS(Assertions!{{IsOwnClaim}},1)"
+      },
+      {
+        "name": "KitClaimCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims from the kit: its modules, its cases and its open statements.",
+        "formula": "=COUNTIFS(Assertions!{{IsOwnClaim}},0)"
+      },
+      {
+        "name": "LeanVerifiedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims the Lean kernel verifies.",
+        "formula": "=COUNTIFS(Assertions!{{EffectiveStatus}},\"LEAN_VERIFIED\")"
+      },
+      {
+        "name": "OwnLeanVerifiedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Our claims with a kernel-checked Lean proof.",
+        "formula": "=COUNTIFS(Assertions!{{IsOwnClaim}},1,Assertions!{{EffectiveStatus}},\"LEAN_VERIFIED\")"
+      },
+      {
+        "name": "OwnLeanExpressibleCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Our claims the build writes in Lean.",
+        "formula": "=COUNTIFS(Assertions!{{IsOwnClaim}},1,Assertions!{{IsLeanExpressible}},1)"
+      },
+      {
+        "name": "OwnKnownInKitCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Our claims the kit already proves.",
+        "formula": "=COUNTIFS(Assertions!{{IsOwnClaim}},1,Assertions!{{IsKnownInKit}},1)"
+      },
+      {
+        "name": "KitModuleCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kit modules synced.",
+        "formula": "=COUNTIFS(LeanModules!{{Source}},\"kit\")"
+      },
+      {
+        "name": "KitDeclarationCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Lean declarations in the model (kit and submissions).",
+        "formula": "=COUNTIFS(LeanDeclarations!{{BadAxiomCount}},\">=0\")"
+      },
+      {
+        "name": "KitUnverifiedModuleCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Modules with a declaration on a non-standard axiom. Must be 0.",
+        "formula": "=COUNTIFS(LeanModules!{{IsVerified}},0)"
+      },
+      {
+        "name": "SubmissionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Public submissions.",
+        "formula": "=COUNTIFS(Submissions!{{Problem}},\">=1\")"
+      },
+      {
+        "name": "SubmissionLeanVerifiedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Submissions the verifier accepted.",
+        "formula": "=COUNTIFS(Submissions!{{Status}},\"Lean Verified\")"
+      },
+      {
+        "name": "SubmissionDisagreementCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Submissions where our check and the verifier disagree (often a different kit commit).",
+        "formula": "=COUNTIFS(Submissions!{{AgreesWithVerifier}},0)"
+      },
+      {
+        "name": "LeanContradictionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims Lean proves although the model or the ledger refutes them. Must be 0.",
+        "formula": "=COUNTIFS(Assertions!{{IsLeanContradicted}},1)"
+      },
+      {
+        "name": "LeanUnconfirmedCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Reported Lean results the check here does not confirm. Must be 0.",
+        "formula": "=COUNTIFS(Assertions!{{IsLeanUnconfirmed}},1)"
+      },
+      {
+        "name": "KitContradictionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims we hold that a verified kit theorem refutes. Must be 0.",
+        "formula": "=COUNTIFS(Assertions!{{IsKitContradicted}},1)"
+      },
+      {
+        "name": "KitAgreementCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Claims we falsified that a kit theorem refutes too.",
+        "formula": "=COUNTIFS(Assertions!{{IsOwnClaim}},1,Assertions!{{KitContradictionCount}},\">0\",Assertions!{{StatusGroup}},\"Falsified\")"
+      },
+      {
+        "name": "OfficialAlignmentCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Prize problems whose formal statement Lean proves equivalent to the official one.",
+        "formula": "=SUMIFS(Assertions!{{IsOfficiallyAligned}},Assertions!{{Kind}},\"Prize problem\")"
       },
       {
         "name": "PlannedLoopCount",
@@ -5592,6 +5960,20 @@
         "nullable": true,
         "Description": "Quantifiers binding it, across all predicates.",
         "formula": "=COUNTIFS(Terms!{{Variable}},{{VariableId}},Terms!{{OpKind}},\"binder\")"
+      },
+      {
+        "name": "LeanType",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Its type in Lean (Nat, Int); empty while it has no Lean meaning (words, rows, windows)."
+      },
+      {
+        "name": "IsLeanTyped",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the variable has a Lean type."
       }
     ]
   },
@@ -5648,6 +6030,27 @@
         "nullable": true,
         "Description": "Terms using it.",
         "formula": "=COUNTIFS(Terms!{{TermOperator}},{{OperatorId}})"
+      },
+      {
+        "name": "LeanForm",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "How Terms.LeanRendered writes a term with this operator: forall, exists, notexists, infix, prefix, apply, atom, var, const. Empty while the operator has no Lean meaning."
+      },
+      {
+        "name": "LeanSymbol",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The operator in Lean: syntax, or a function of the prelude in research/lean/ledger.py."
+      },
+      {
+        "name": "IsLeanDefined",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the operator has a Lean meaning."
       }
     ]
   },
@@ -5857,6 +6260,94 @@
         "nullable": true,
         "Description": "1 when the model does not compute this operator yet.",
         "formula": "=IF({{OpIsModeled}}=1,0,1)"
+      },
+      {
+        "name": "OpLeanForm",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "How the term is written in Lean.",
+        "formula": "=INDEX(Operators!{{LeanForm}},MATCH({{TermOperator}},Operators!{{OperatorId}},0))"
+      },
+      {
+        "name": "OpLeanSymbol",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The operator in Lean.",
+        "formula": "=INDEX(Operators!{{LeanSymbol}},MATCH({{TermOperator}},Operators!{{OperatorId}},0))"
+      },
+      {
+        "name": "VarLeanType",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The variable's Lean type.",
+        "formula": "=INDEX(Variables!{{LeanType}},MATCH({{Variable}},Variables!{{VariableId}},0))"
+      },
+      {
+        "name": "OpIsLean",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the operator has a Lean meaning.",
+        "formula": "=INDEX(Operators!{{IsLeanDefined}},MATCH({{TermOperator}},Operators!{{OperatorId}},0))"
+      },
+      {
+        "name": "VarIsLean",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the variable has a Lean type.",
+        "formula": "=INDEX(Variables!{{IsLeanTyped}},MATCH({{Variable}},Variables!{{VariableId}},0))"
+      },
+      {
+        "name": "Arg1Lean",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Arg1 written in Lean.",
+        "formula": "=INDEX(Terms!{{LeanRendered}},MATCH({{Arg1}},Terms!{{TermId}},0))"
+      },
+      {
+        "name": "Arg2Lean",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Arg2 written in Lean.",
+        "formula": "=INDEX(Terms!{{LeanRendered}},MATCH({{Arg2}},Terms!{{TermId}},0))"
+      },
+      {
+        "name": "Arg3Lean",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Arg3 written in Lean.",
+        "formula": "=INDEX(Terms!{{LeanRendered}},MATCH({{Arg3}},Terms!{{TermId}},0))"
+      },
+      {
+        "name": "Arg4Lean",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Arg4 written in Lean.",
+        "formula": "=INDEX(Terms!{{LeanRendered}},MATCH({{Arg4}},Terms!{{TermId}},0))"
+      },
+      {
+        "name": "LeanRendered",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The term written in Lean, computed from the tree over the prelude of research/lean/ledger.py; empty when an operator or variable has no Lean meaning yet.",
+        "formula": "=IF({{OpLeanForm}}=\"var\",{{VarSymbol}},IF({{OpLeanForm}}=\"const\",IF({{Constant}}<0,CONCAT(\"(\",{{Constant}},\")\"),CONCAT(\"\",{{Constant}})),IF({{OpLeanForm}}=\"atom\",{{OpLeanSymbol}},IF({{OpLeanForm}}=\"forall\",CONCAT(\"(∀ \",{{VarSymbol}},\" : \",{{VarLeanType}},\", \",{{Arg1Lean}},\" → \",{{Arg2Lean}},\")\"),IF({{OpLeanForm}}=\"exists\",CONCAT(\"(∃ \",{{VarSymbol}},\" : \",{{VarLeanType}},\", \",{{Arg1Lean}},\" ∧ \",{{Arg2Lean}},\")\"),IF({{OpLeanForm}}=\"notexists\",CONCAT(\"(¬∃ \",{{VarSymbol}},\" : \",{{VarLeanType}},\", \",{{Arg1Lean}},\" ∧ \",{{Arg2Lean}},\")\"),IF({{OpLeanForm}}=\"infix\",CONCAT(\"(\",{{Arg1Lean}},\" \",{{OpLeanSymbol}},\" \",{{Arg2Lean}},\")\"),IF({{OpLeanForm}}=\"prefix\",CONCAT(\"(\",{{OpLeanSymbol}},{{Arg1Lean}},\")\"),IF({{OpLeanForm}}=\"apply\",CONCAT(\"(\",{{OpLeanSymbol}},\" \",{{Arg1Lean}},IF({{OpArity}}>=2,CONCAT(\" \",{{Arg2Lean}}),\"\"),IF({{OpArity}}>=3,CONCAT(\" \",{{Arg3Lean}}),\"\"),IF({{OpArity}}>=4,CONCAT(\" \",{{Arg4Lean}}),\"\"),\")\"),\"\")))))))))"
+      },
+      {
+        "name": "IsLeanless",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when this node has no Lean meaning yet (its operator, or the type of its variable).",
+        "formula": "=IF({{OpIsLean}}=0,1,IF(AND(OR({{OpLeanForm}}=\"var\",{{OpKind}}=\"binder\"),{{VarIsLean}}=0),1,0))"
       }
     ]
   },
@@ -6068,6 +6559,38 @@
         "nullable": true,
         "Description": "Ledger claims about this predicate.",
         "formula": "=COUNTIFS(Assertions!{{Predicate}},{{PredicateId}})"
+      },
+      {
+        "name": "LeanlessTermCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Nodes of the statement with no Lean meaning yet.",
+        "formula": "=COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsLeanless}},1)"
+      },
+      {
+        "name": "IsLeanExpressible",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when every node of the statement has a Lean meaning, so the build writes it in Lean.",
+        "formula": "=IF({{LeanlessTermCount}}=0,1,0)"
+      },
+      {
+        "name": "LeanRoot",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The root term written in Lean.",
+        "formula": "=INDEX(Terms!{{LeanRendered}},MATCH({{RootTerm}},Terms!{{TermId}},0))"
+      },
+      {
+        "name": "LeanStatement",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The statement in Lean, written by the build from the term tree; empty while some node has no Lean meaning.",
+        "formula": "=IF({{IsLeanExpressible}}=1,{{LeanRoot}},\"\")"
       },
       {
         "name": "IsCached",
@@ -6680,6 +7203,1305 @@
         "type": "raw",
         "nullable": true,
         "Description": "Cached IsMatch from the last fresh compile; read by IsMatch while IsCached = 1."
+      }
+    ]
+  },
+  "Licenses": {
+    "Description": "The licenses of the external sources this repo references, and whether each lets their works be copied here. A work under a license that does not is only referenced: links, authors, versions, hashes, and the results of checking it (research/sources/licenses.py).",
+    "schema": [
+      {
+        "name": "LicenseId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "An SPDX id, or none / all-rights-reserved."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LicenseId}}"
+      },
+      {
+        "name": "Title",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Url",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "AllowsRedistribution",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the license lets the work be copied into this repo, with its credit and license."
+      },
+      {
+        "name": "SourceCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Sources under it.",
+        "formula": "=COUNTIFS(ChallengeSources!{{License}},{{LicenseId}})"
+      },
+      {
+        "name": "SubmissionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Submissions under it.",
+        "formula": "=COUNTIFS(Submissions!{{License}},{{LicenseId}})"
+      }
+    ]
+  },
+  "ChallengeSources": {
+    "Description": "Every external source this model is measured against or built with, its license, what of it is kept here, and the version last synced (research/sources/sync.py).",
+    "schema": [
+      {
+        "name": "ChallengeSourceId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "kit, verifier, submissions, skill, announcement, lean4, mathlib, formal-conjectures, effortless-skills, rule30-lab."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{ChallengeSourceId}}"
+      },
+      {
+        "name": "Title",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Url",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Role",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What the source is for."
+      },
+      {
+        "name": "License",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Its license.",
+        "RelatedTo": "Licenses"
+      },
+      {
+        "name": "KeptHere",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What this repo keeps of it, as its license allows."
+      },
+      {
+        "name": "Credit",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Who made it."
+      },
+      {
+        "name": "Version",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "What was synced: a commit, a timestamp, a version."
+      },
+      {
+        "name": "VersionDate",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Snapshot",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The repo file holding the synced references and results (pinned as Evidence)."
+      },
+      {
+        "name": "IsOfficial",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 for a source published by the prize (Wolfram, the Wolfram Institute)."
+      },
+      {
+        "name": "AllowsRedistribution",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when its license lets its works be copied here.",
+        "formula": "=INDEX(Licenses!{{AllowsRedistribution}},MATCH({{License}},Licenses!{{LicenseId}},0))"
+      },
+      {
+        "name": "SyncCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Times it was synced.",
+        "formula": "=COUNTIFS(SourceSyncs!{{Source}},{{ChallengeSourceId}})"
+      },
+      {
+        "name": "ModuleCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Lean modules from this source.",
+        "formula": "=COUNTIFS(LeanModules!{{Source}},{{ChallengeSourceId}})"
+      }
+    ]
+  },
+  "SourceSyncs": {
+    "Description": "Every sync of a challenge source: when, what version, and the hash of what was saved. Appended by research/sources/sync.py.",
+    "schema": [
+      {
+        "name": "SourceSyncId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "sync-<n>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{SourceSyncId}}"
+      },
+      {
+        "name": "Source",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The source synced.",
+        "RelatedTo": "ChallengeSources"
+      },
+      {
+        "name": "What",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The file synced (environment, submissions, skill, kit, kit-export, submission-checks)."
+      },
+      {
+        "name": "RetrievedAt",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Version",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Sha256",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Snapshot",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      }
+    ]
+  },
+  "LeanModules": {
+    "Description": "The kit's Lean modules (the official statements, the catalog of partial results, the equivalent forms) and every submission's module, as the compiled environment reports them (lean/ExportKit.lean): names, links, hashes, counts and verdicts, not their source. A module is verified when none of its declarations depends on a non-standard axiom.",
+    "schema": [
+      {
+        "name": "LeanModuleId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The Lean module name, or submission:<id> for a submission compiled here."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LeanModuleId}}"
+      },
+      {
+        "name": "Source",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Where the module comes from.",
+        "RelatedTo": "ChallengeSources"
+      },
+      {
+        "name": "Package",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Ruliology (the catalog), Rule30Equivalents, Rule30PrizeKit, or Submission."
+      },
+      {
+        "name": "ShortName",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Path",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Its file in the kit (a submission: the link to its Lean source)."
+      },
+      {
+        "name": "Sha256",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The file's sha256 at the synced commit."
+      },
+      {
+        "name": "LineCount",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Title",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The module docstring's title, as a citation."
+      },
+      {
+        "name": "AddedOn",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "For modules added after the catalog snapshot: the date (the kit README, Added in the kit)."
+      },
+      {
+        "name": "Credit",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Who proved it (the kit README, Added in the kit; a submission: its authors)."
+      },
+      {
+        "name": "IsCertificateData",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 for a data module under Rule30Certificates/."
+      },
+      {
+        "name": "IsInVerifier",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the verifier's environment lists the module, so a submission may import it now."
+      },
+      {
+        "name": "IsExported",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the module was compiled and exported here."
+      },
+      {
+        "name": "SourceUrl",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The source repository.",
+        "formula": "=INDEX(ChallengeSources!{{Url}},MATCH({{Source}},ChallengeSources!{{ChallengeSourceId}},0))"
+      },
+      {
+        "name": "SourceVersion",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The commit synced.",
+        "formula": "=INDEX(ChallengeSources!{{Version}},MATCH({{Source}},ChallengeSources!{{ChallengeSourceId}},0))"
+      },
+      {
+        "name": "License",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Its source's license.",
+        "formula": "=INDEX(ChallengeSources!{{License}},MATCH({{Source}},ChallengeSources!{{ChallengeSourceId}},0))"
+      },
+      {
+        "name": "Url",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "The file at the synced commit.",
+        "formula": "=IF({{Package}}=\"Submission\",{{Path}},CONCAT({{SourceUrl}},\"/blob/\",{{SourceVersion}},\"/\",{{Path}}))"
+      },
+      {
+        "name": "DeclarationCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Named declarations kept here.",
+        "formula": "=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}})"
+      },
+      {
+        "name": "TheoremCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Theorems.",
+        "formula": "=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}},LeanDeclarations!{{Kind}},\"theorem\")"
+      },
+      {
+        "name": "PropositionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Propositions it defines (statements, some of them open).",
+        "formula": "=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}},LeanDeclarations!{{Kind}},\"proposition\")"
+      },
+      {
+        "name": "BadAxiomDeclarationCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Declarations that depend on sorry, native_decide or a new axiom. Must be 0.",
+        "formula": "=COUNTIFS(LeanDeclarations!{{Module}},{{LeanModuleId}},LeanDeclarations!{{BadAxiomCount}},\">0\")"
+      },
+      {
+        "name": "ImportCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kit modules it imports.",
+        "formula": "=COUNTIFS(LeanImports!{{Module}},{{LeanModuleId}})"
+      },
+      {
+        "name": "ImportedByCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kit modules that import it.",
+        "formula": "=COUNTIFS(LeanImports!{{Imports}},{{LeanModuleId}})"
+      },
+      {
+        "name": "SubmissionCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Submissions that contributed it.",
+        "formula": "=COUNTIFS(SubmissionModules!{{Module}},{{LeanModuleId}})"
+      },
+      {
+        "name": "IsVerified",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when it compiled here and every declaration uses only propext, Classical.choice and Quot.sound.",
+        "formula": "=IF(AND({{IsExported}}=1,{{BadAxiomDeclarationCount}}=0),1,0)"
+      }
+    ]
+  },
+  "LeanImports": {
+    "Description": "Which kit module imports which.",
+    "schema": [
+      {
+        "name": "LeanImportId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<module>><import>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LeanImportId}}"
+      },
+      {
+        "name": "Module",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The importing module.",
+        "RelatedTo": "LeanModules"
+      },
+      {
+        "name": "Imports",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The imported module.",
+        "RelatedTo": "LeanModules"
+      }
+    ]
+  },
+  "LeanDeclarations": {
+    "Description": "Every named declaration of the kit (and the headline theorems and propositions of each submission compiled here), by name: its kind, where it is (Url), and the non-standard axioms it depends on, followed through every import. A theorem is verified when that list is empty. Its statement is read at the Url: the sources state no license, so their text is not copied here.",
+    "schema": [
+      {
+        "name": "LeanDeclarationId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "The Lean name; <submission id>:<name> for a submission."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LeanDeclarationId}}"
+      },
+      {
+        "name": "LeanName",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The full Lean name."
+      },
+      {
+        "name": "Module",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Its module.",
+        "RelatedTo": "LeanModules"
+      },
+      {
+        "name": "ShortName",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "theorem, def, proposition (a definition of type Prop: a statement), structure, inductive, opaque, axiom."
+      },
+      {
+        "name": "Line",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "BadAxioms",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The non-standard axioms it depends on (sorryAx, Lean.ofReduceBool, Lean.trustCompiler, any new axiom)."
+      },
+      {
+        "name": "BadAxiomCount",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "How many. 0 for every declaration the kit ships."
+      },
+      {
+        "name": "IsHeadline",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 for a module's headline theorem (the kit README) or a submission's headline."
+      },
+      {
+        "name": "ModuleUrl",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Its module's file.",
+        "formula": "=INDEX(LeanModules!{{Url}},MATCH({{Module}},LeanModules!{{LeanModuleId}},0))"
+      },
+      {
+        "name": "ModuleIsVerified",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when its module is verified.",
+        "formula": "=INDEX(LeanModules!{{IsVerified}},MATCH({{Module}},LeanModules!{{LeanModuleId}},0))"
+      },
+      {
+        "name": "Url",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Where it is in the source: read the statement there.",
+        "formula": "=IF({{Line}}>0,CONCAT({{ModuleUrl}},\"#L\",{{Line}}),{{ModuleUrl}})"
+      },
+      {
+        "name": "IsVerified",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for a theorem with standard axioms only: the kernel accepted it.",
+        "formula": "=IF(AND({{Kind}}=\"theorem\",{{BadAxiomCount}}=0),1,0)"
+      },
+      {
+        "name": "UsesCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Named kit declarations it uses.",
+        "formula": "=COUNTIFS(LeanUses!{{Declaration}},{{LeanDeclarationId}})"
+      },
+      {
+        "name": "UsedByCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Declarations that use it.",
+        "formula": "=COUNTIFS(LeanUses!{{Uses}},{{LeanDeclarationId}})"
+      },
+      {
+        "name": "ClaimLinkCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Ledger claims linked to it.",
+        "formula": "=COUNTIFS(ClaimLinks!{{Declaration}},{{LeanDeclarationId}})"
+      }
+    ]
+  },
+  "LeanUses": {
+    "Description": "Which theorem rests on which theorem or proposition (looking through auxiliary match_ and proof_ constants).",
+    "schema": [
+      {
+        "name": "LeanUseId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "u<n>."
+      },
+      {
+        "name": "Declaration",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The user.",
+        "RelatedTo": "LeanDeclarations"
+      },
+      {
+        "name": "Uses",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The declaration it uses.",
+        "RelatedTo": "LeanDeclarations"
+      }
+    ]
+  },
+  "Submissions": {
+    "Description": "Every public Rule 30 Prize submission (submissions.json), as a reference: its claim, authors, links and headline theorem names, the verifier's verdict and the reviewers' tags, its license, and our own verdict (its Lean source compiled against the synced kit in external/ and checked by the kit's Check.lean). Abstracts and sources are read at the links: none states a license, so none is copied here.",
+    "schema": [
+      {
+        "name": "SubmissionId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "R30-<date>-<hash>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{SubmissionId}}"
+      },
+      {
+        "name": "Title",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Problem",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": true,
+        "Description": "1, 2 or 3."
+      },
+      {
+        "name": "Claim",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "proof, disproof or partial."
+      },
+      {
+        "name": "Authors",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Agent",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Status",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Lean Verified or Lean Unverified (the verifier)."
+      },
+      {
+        "name": "Submitted",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Supersedes",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The earlier submission this one replaces.",
+        "RelatedTo": "Submissions"
+      },
+      {
+        "name": "PageUrl",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "LeanUrl",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Its Lean source."
+      },
+      {
+        "name": "NotebookUrl",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Its computational essay."
+      },
+      {
+        "name": "License",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Its license: what its Lean source declares (none when it declares nothing).",
+        "RelatedTo": "Licenses"
+      },
+      {
+        "name": "IncludedPath",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "When its license allows: the copy of its Lean source in this repo."
+      },
+      {
+        "name": "SourceSha256",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The sha256 of the Lean source checked here."
+      },
+      {
+        "name": "VerifierVerdict",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "VerifierKitCommit",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The kit commit the verifier checked it against."
+      },
+      {
+        "name": "VerifierCheckedAt",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "OurVerdict",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "pass, fail, error, did not compile, not checked here, or no Lean source: the kit's Check.lean here, against OurKitCommit."
+      },
+      {
+        "name": "OurKitCommit",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "LeanModule",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The submission compiled here: its headline theorems and propositions, by name.",
+        "RelatedTo": "LeanModules"
+      },
+      {
+        "name": "IsHumanVerified",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Reviewer tag.",
+        "formula": "=COUNTIFS(SubmissionTags!{{Submission}},{{SubmissionId}},SubmissionTags!{{Tag}},\"Human Verified\")"
+      },
+      {
+        "name": "IsKitContribution",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Reviewer tag: its proof joined the kit.",
+        "formula": "=COUNTIFS(SubmissionTags!{{Submission}},{{SubmissionId}},SubmissionTags!{{Tag}},\"Kit Contribution\")"
+      },
+      {
+        "name": "IsPrizeClaimed",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Reviewer tag: the Prize Committee accepted it.",
+        "formula": "=COUNTIFS(SubmissionTags!{{Submission}},{{SubmissionId}},SubmissionTags!{{Tag}},\"Prize Claimed\")"
+      },
+      {
+        "name": "HeadlineCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Headline theorems.",
+        "formula": "=COUNTIFS(SubmissionHeadlines!{{Submission}},{{SubmissionId}})"
+      },
+      {
+        "name": "OurOkHeadlineCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Headlines that pass Check.lean here.",
+        "formula": "=SUMIFS(SubmissionHeadlines!{{OurOk}},SubmissionHeadlines!{{Submission}},{{SubmissionId}})"
+      },
+      {
+        "name": "KitModuleCount",
+        "datatype": "integer",
+        "type": "aggregation",
+        "nullable": true,
+        "Description": "Kit modules it contributed.",
+        "formula": "=COUNTIFS(SubmissionModules!{{Submission}},{{SubmissionId}})"
+      },
+      {
+        "name": "AllowsRedistribution",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when its license lets its source be copied here.",
+        "formula": "=INDEX(Licenses!{{AllowsRedistribution}},MATCH({{License}},Licenses!{{LicenseId}},0))"
+      },
+      {
+        "name": "IsLeanVerified",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when the verifier accepted it.",
+        "formula": "=IF({{Status}}=\"Lean Verified\",1,0)"
+      },
+      {
+        "name": "AgreesWithVerifier",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when our check and the verifier agree.",
+        "formula": "=IF({{IsLeanVerified}}=1,IF({{OurVerdict}}=\"pass\",1,0),IF({{OurVerdict}}=\"pass\",0,1))"
+      }
+    ]
+  },
+  "SubmissionTags": {
+    "Description": "Reviewer tags on submissions.",
+    "schema": [
+      {
+        "name": "SubmissionTagId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<submission>:<tag>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{SubmissionTagId}}"
+      },
+      {
+        "name": "Submission",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The submission.",
+        "RelatedTo": "Submissions"
+      },
+      {
+        "name": "Tag",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Human Verified, Kit Contribution or Prize Claimed."
+      }
+    ]
+  },
+  "SubmissionHeadlines": {
+    "Description": "The headline theorems of each submission, by name, with our check of each.",
+    "schema": [
+      {
+        "name": "SubmissionHeadlineId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<submission>:<theorem>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{SubmissionHeadlineId}}"
+      },
+      {
+        "name": "Submission",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The submission.",
+        "RelatedTo": "Submissions"
+      },
+      {
+        "name": "TheoremName",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Declaration",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The theorem, as exported here.",
+        "RelatedTo": "LeanDeclarations"
+      },
+      {
+        "name": "OurOk",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the kit's Check.lean accepts it here."
+      },
+      {
+        "name": "OurAxioms",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      }
+    ]
+  },
+  "SubmissionModules": {
+    "Description": "Kit modules a submission contributed (reviewer tag Kit Contribution).",
+    "schema": [
+      {
+        "name": "SubmissionModuleId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<submission>><module>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{SubmissionModuleId}}"
+      },
+      {
+        "name": "Submission",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The submission.",
+        "RelatedTo": "Submissions"
+      },
+      {
+        "name": "Module",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": true,
+        "Description": "The kit module, when it is in the synced kit.",
+        "RelatedTo": "LeanModules"
+      },
+      {
+        "name": "ModuleName",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      }
+    ]
+  },
+  "ClaimLinks": {
+    "Description": "Our claims set against the kit: the kit declaration that states the same thing (same), more (stronger), less (weaker), something near it (related), or its negation (contradicts). Authored in research/hub/claim_links.py after reading both statements; a link is a reading, a LeanChecks pass is a proof.",
+    "schema": [
+      {
+        "name": "ClaimLinkId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<claim>><declaration>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{ClaimLinkId}}"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "Our claim.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Declaration",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The kit declaration.",
+        "RelatedTo": "LeanDeclarations"
+      },
+      {
+        "name": "Relation",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "same, stronger, jointly (our claim is the conjunction of its jointly links), weaker, related or contradicts: the kit declaration relative to our claim."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "DeclarationIsVerified",
+        "datatype": "integer",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "1 when the kit theorem is verified.",
+        "formula": "=INDEX(LeanDeclarations!{{IsVerified}},MATCH({{Declaration}},LeanDeclarations!{{LeanDeclarationId}},0))"
+      },
+      {
+        "name": "DeclarationUrl",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "Where it is.",
+        "formula": "=INDEX(LeanDeclarations!{{Url}},MATCH({{Declaration}},LeanDeclarations!{{LeanDeclarationId}},0))"
+      },
+      {
+        "name": "Covers",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when a verified kit theorem states our claim or more: the claim is known.",
+        "formula": "=IF(AND(OR({{Relation}}=\"same\",{{Relation}}=\"stronger\"),{{DeclarationIsVerified}}=1),1,0)"
+      },
+      {
+        "name": "Contradicts",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 when a verified kit theorem refutes our claim.",
+        "formula": "=IF(AND({{Relation}}=\"contradicts\",{{DeclarationIsVerified}}=1),1,0)"
+      },
+      {
+        "name": "IsJoint",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for a jointly link.",
+        "formula": "=IF({{Relation}}=\"jointly\",1,0)"
+      },
+      {
+        "name": "IsJointVerified",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 for a jointly link to a verified theorem.",
+        "formula": "=IF(AND({{Relation}}=\"jointly\",{{DeclarationIsVerified}}=1),1,0)"
+      }
+    ]
+  },
+  "LeanProofs": {
+    "Description": "A Lean proof of a claim's Lean statement (research/lean/proofs.py), usually a few lines citing the kit; or, for kind alignment, of our statement's equivalence with the official one. research/lean/ledger.py writes them into lean/Rule30Ledger.lean; the kernel's verdict is in LeanChecks.",
+    "schema": [
+      {
+        "name": "LeanProofId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<kind>-<claim>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LeanProofId}}"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The claim.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "claim (proves the claim) or alignment (our statement <-> the official one)."
+      },
+      {
+        "name": "Target",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "For an alignment: the official Lean constant."
+      },
+      {
+        "name": "Proof",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The Lean proof (a term or a tactic block)."
+      },
+      {
+        "name": "KitDeclarations",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Kit declarations it cites."
+      },
+      {
+        "name": "IsKitGlue",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when the proof only restates kit theorems: the claim is known in the kit, not new."
+      },
+      {
+        "name": "Note",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      }
+    ]
+  },
+  "LeanChecks": {
+    "Description": "What the Lean kernel said about each claim's Lean statement: lean/Rule30Ledger.lean, written from the compiled rulebook and checked by the kit's Check.lean (research/lean/ledger.py). A check counts only while its statement is the claim's current Lean statement.",
+    "schema": [
+      {
+        "name": "LeanCheckId",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": false,
+        "Description": "<kind>-<claim>."
+      },
+      {
+        "name": "Name",
+        "datatype": "string",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "Display alias.",
+        "formula": "={{LeanCheckId}}"
+      },
+      {
+        "name": "Assertion",
+        "datatype": "string",
+        "type": "relationship",
+        "nullable": false,
+        "Description": "The claim.",
+        "RelatedTo": "Assertions"
+      },
+      {
+        "name": "Kind",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "claim or alignment."
+      },
+      {
+        "name": "Theorem",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "Its name in Rule30Ledger.lean."
+      },
+      {
+        "name": "CheckedStatement",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": "The Lean statement that was checked (for an alignment, our side of the equivalence)."
+      },
+      {
+        "name": "Target",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Elaborates",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when Lean accepted the statement as well-formed."
+      },
+      {
+        "name": "HasProof",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when a proof was supplied (otherwise the theorem is a sorry: an open Lean obligation)."
+      },
+      {
+        "name": "Ok",
+        "datatype": "integer",
+        "type": "raw",
+        "nullable": false,
+        "Description": "1 when Check.lean passed it: kernel replay, standard axioms only."
+      },
+      {
+        "name": "Axioms",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "Problems",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "KitCommit",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "CheckedAt",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "LeanFileSha256",
+        "datatype": "string",
+        "type": "raw",
+        "nullable": true,
+        "Description": ""
+      },
+      {
+        "name": "CurrentStatement",
+        "datatype": "string",
+        "type": "lookup",
+        "nullable": true,
+        "Description": "The claim's Lean statement now.",
+        "formula": "=INDEX(Assertions!{{LeanStatement}},MATCH({{Assertion}},Assertions!{{AssertionId}},0))"
+      },
+      {
+        "name": "IsCurrent",
+        "datatype": "integer",
+        "type": "calculated",
+        "nullable": true,
+        "Description": "1 while the statement checked is still the one the build writes.",
+        "formula": "=IF({{CheckedStatement}}={{CurrentStatement}},1,0)"
       }
     ]
   }
