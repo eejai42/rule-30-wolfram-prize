@@ -15,7 +15,7 @@
 | 11. a row-level cycle in a self-referencing table (A points at B, B at A) leaves every chained field NULL in Postgres | Open (keep self-references one-directional) |
 | 12. MAXIFS/MINIFS over an empty set: blank in compile-rulebook, 0 in Postgres | Open (guard with a COUNTIFS) |
 | 13. minimize-rulebook runs out of memory on a ~16 MB rulebook; rulebook-to-xlsx fails in the editor at ~11 MB; rulebook-to-rulespeak runs out of memory in the editor at 14.6 MB | minimize-rulebook **fixed** in v2026.10.24.1121 (2 CPU / 4 GiB; 24 MB in 6 s); xlsx and rulespeak open |
-| 14. rulebook-to-postgres drops every COUNTIFS criterion after the first pair when the COUNTIFS is an argument of IF (the `IF({{IsCached}}=1, cache, formula)` cache wrapper) | **Open**, masked by the caches; caught by `check_postgres.py --db … --fresh` |
+| 14. rulebook-to-postgres drops every COUNTIFS criterion after the first pair when the COUNTIFS is an argument of IF (the `IF({{IsCached}}=1, cache, formula)` cache wrapper) | **Fixed** in rulebook-to-postgres v2026.10.25.1350 (11 regression tests; the transpiler-server runs a tool's tests before every deploy); `check_postgres.py --db … --fresh` checks it here |
 | 15. any write to a memoised table empties its memos (`erb_memo_invalidate`), and a fresh compute without them is exponential along a self-referencing chain | Open (workaround in `research/ingest/ingest.py`: trigger held off, memos refreshed per sweep) |
 
 Goal (project rule): everything is in the rulebook, and running the full rulebook gives the right
@@ -176,7 +176,14 @@ returns the cache, which `loop_tools.build()` fills from compile-rulebook, so th
 `check_postgres.py` compares compile-rulebook with a copy of itself on every cached field. It
 matters as soon as Postgres computes a cached field itself, which is what the analysis database does
 for bulk rows. `check_postgres.py --db <url> --fresh` clears the flags in a rolled-back transaction and
-shows it. Fix belongs in rulebook-to-postgres (Versioned-Stable-SSoTme-Tools, local dev loop first).
+shows it.
+
+Fix (rulebook-to-postgres v2026.10.25.1350, 2026-10-25): a nested COUNTIFS / SUMIFS / MINIFS /
+MAXIFS / AVERAGEIFS is translated from its raw arguments, like a whole-formula one, and spliced back
+into the surrounding expression. `NestedIfsTranslationTests` (11 cases) fail on the old translator.
+The transpiler-server's deploy stream now runs every tool's .NET test projects before it creates a
+version or builds, so a failing suite cannot be published. After the fix: `--fresh` 0 differences,
+and `ingest.py load` passes its witness check.
 
 ## 15. Memo invalidation and the exponential fallback (rulebook-to-postgres)
 
