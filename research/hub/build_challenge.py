@@ -236,8 +236,8 @@ def apply(book: dict) -> dict:
                              'Sha256': rec.get('sha256', ''), 'LineCount': 0, 'Title': clip(e['title'], 300), 'Summary': clip(one_line(e.get('abstract', '')), 1500),
                              'AddedOn': e.get('submitted', '')[:10], 'Credit': clip(e.get('authors', ''), 600), 'IsCertificateData': 0, 'IsInVerifier': 0, 'IsExported': 1})
             heads = set(e.get('headlines') or [])
-            for d in rec['declarations']:
-                if d['kind'] in ('theorem', 'proposition') or d['name'] in heads:
+            for d in rec['declarations']:   # its headlines and the statements it defines (all of it is in the snapshot)
+                if d['kind'] == 'proposition' or d['name'] in heads:
                     sub_decls.append(dict(d, module=mid, key=f"{e['id']}:{d['name']}", headline=int(d['name'] in heads)))
     mod_ids = {r['LeanModuleId'] for r in mod_rows}
     book['LeanModules'] = table(
