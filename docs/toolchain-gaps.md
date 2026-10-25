@@ -160,6 +160,12 @@ Since loop 26 (rulebook 14.6 MB) the editor's rulebook-to-rulespeak step also fa
 portal are unaffected; only the RuleSpeak docs are missing. Likely the same fix as minimize-rulebook:
 raise the workload's memory in Versioned-Stable-SSoTme-Tools.
 
+Since loop 27 (rulebook about 25 MB compiled) both editor steps are switched off rather than left
+failing: `loop_tools.EDITOR_DISABLED_STEPS` sets `IsDisabled` on `rulebooktorulespeak` and
+`rulebooktoxlsx` in the regenerated `effortless-rulebook/docker/effortless.editor.json` after every
+build, and in the running editor through `POST /__boot/pipeline-toggle`. Turn them back on (remove
+them from that list) once the two workloads get the memory minimize-rulebook got.
+
 
 ## 14. COUNTIFS inside IF loses its later criteria (rulebook-to-postgres)
 
