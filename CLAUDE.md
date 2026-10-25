@@ -100,6 +100,23 @@ P1, P2, P3 after the build.
 - The editor does NOT rebuild by itself when the rulebook file changes from outside; it only offers a rebuild in its UI. `loop_tools.build()` therefore asks it to rebuild after every `effortless build` (skipped when the admin portal has unsaved edits). The editor drops a request that arrives while it is already building (a full rebuild takes about 2 minutes; the data lands in the first few seconds), so a busy editor gets a detached waiter, `research/editor_refresh.py`, that retries until the editor has built the current rulebook. Its log is `.logs/editor-refresh.log`. A plain `effortless build` from the shell does not; click Rebuild in the admin portal or `curl -X POST localhost:42441/api/admin/run-build`.
 - The editor's rebuild only adds and updates rows of the tables and fields it already has. A deleted row, a renamed key, a new table or a new field reaches its database only when `./start.sh editor` recreates the container. Research loops never do any of these; `research/hub/build_model.py` does, so recreate the editor after changing the model's schema.
 
+## Analysis database (bulk data)
+- **The rulebook holds the model and the witness data; bulk data lives outside it.** The analysis
+  database `rule30_analysis` on the local Postgres (localhost:5432) is the rulebook's projection:
+  `rulebook-to-postgres` regenerates `postgres/` on every build (tables, the formulas as `vw_*` views,
+  the witness rows), and `python3 research/ingest/ingest.py reset` rebuilds the database from it.
+- **Bulk rows go into the rulebook's own tables.** `research/ingest/generate.py <name>` writes a
+  dataset (raw fields only) to `data/<name>.csv` (gitignored, deterministic, regenerable) and pins
+  its table, row count, sha256 and parameters in `research/ingest/manifest.json` (checked in).
+  `ingest.py load` checks the hashes, COPYs the rows, refreshes the memos and fills every cached
+  field from the views once, so reads afterwards are static. A table a dataset needs is added to
+  the model in build_model.py first; a value a script computes enters as a claim the model checks.
+- **Never run `postgres/init-db.sh` bare**: its default target is a generic `demo` database. Go through
+  `ingest.py`, which sets `DATABASE_URL`. A build does not touch the analysis database; after a
+  schema change, run `ingest.py` (reset + load) again.
+- `python3 research/hub/check_postgres.py --db postgresql://localhost:5432/rule30_analysis` checks its
+  views against compile-rulebook, as the plain form does for the editor.
+
 ## Commits
 - **Commit as soon as a unit of work is finished**: a verified loop, a model change that passes
   check_model.py, a doc update. Do not wait to be asked, and do not leave finished work
@@ -107,8 +124,8 @@ P1, P2, P3 after the build.
   another session is still editing for that session's commit.
 
 ## Build
-- Build: `python3 research/build.py` from project root. It runs `effortless build` (compile-rulebook, minimize-rulebook, effortless-rulebook-editor, rulebook-to-explainer-dag; all remote) twice around filling the caches (rule 4), about 2 minutes.
-- No Postgres target is registered. If one is added later, it is a read-only output spoke; the hub does not change.
+- Build: `python3 research/build.py` from project root. It runs `effortless build` (compile-rulebook, minimize-rulebook, effortless-rulebook-editor, rulebook-to-explainer-dag, rulebook-to-postgres; all remote) twice around filling the caches (rule 4), about 2 minutes.
+- `rulebook-to-postgres` (`postgres/`) is a read-only output spoke for the analysis database; the hub does not change.
 
 ## ERB Skills
 All conventions live in the effortless-* skills. Routing starts at **effortless-orchestrator**.

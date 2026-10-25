@@ -15,6 +15,8 @@
 | 11. a row-level cycle in a self-referencing table (A points at B, B at A) leaves every chained field NULL in Postgres | Open (keep self-references one-directional) |
 | 12. MAXIFS/MINIFS over an empty set: blank in compile-rulebook, 0 in Postgres | Open (guard with a COUNTIFS) |
 | 13. minimize-rulebook runs out of memory on a ~16 MB rulebook; rulebook-to-xlsx fails in the editor at ~11 MB; rulebook-to-rulespeak runs out of memory in the editor at 14.6 MB | minimize-rulebook **fixed** in v2026.10.24.1121 (2 CPU / 4 GiB; 24 MB in 6 s); xlsx and rulespeak open |
+| 14. rulebook-to-postgres drops every COUNTIFS criterion after the first pair when the COUNTIFS is an argument of IF (the `IF({{IsCached}}=1, cache, formula)` cache wrapper) | **Open**, masked by the caches; caught by `check_postgres.py --db … --fresh` |
+| 15. any write to a memoised table empties its memos (`erb_memo_invalidate`), and a fresh compute without them is exponential along a self-referencing chain | Open (workaround in `research/ingest/ingest.py`: trigger held off, memos refreshed per sweep) |
 
 Goal (project rule): everything is in the rulebook, and running the full rulebook gives the right
 answer. Python is allowed only as an optimizer for large pieces, checked against the rulebook.
@@ -158,3 +160,31 @@ Since loop 26 (rulebook 14.6 MB) the editor's rulebook-to-rulespeak step also fa
 portal are unaffected; only the RuleSpeak docs are missing. Likely the same fix as minimize-rulebook:
 raise the workload's memory in Versioned-Stable-SSoTme-Tools.
 
+
+## 14. COUNTIFS inside IF loses its later criteria (rulebook-to-postgres)
+
+Found 2026-10-24 while building the analysis database. `Predicates.QuantifierCount` is
+`=IF({{IsCached}}=1,{{QuantifierCountCache}},COUNTIFS(Terms!{{PredicateKey}},{{PredicateId}},Terms!{{IsBinder}},1))`,
+and the generated `calc_predicates_quantifier_count` is `SELECT COUNT(*) FROM terms WHERE predicate_key = …`:
+the `IsBinder = 1` criterion is gone. A COUNTIFS that is not inside IF keeps every criterion
+(`calc_assertions_on_current_path`). With the flags cleared, Postgres gives 19 for pr-p1-non-periodic where
+compile-rulebook gives 3, and `PeriodTests.WindowFailureCount` counts every window (32) instead of the
+failing ones (0). 540 computed values differ, in 15 fields, in the editor's database and the analysis database alike.
+
+It has been invisible since the caches were introduced (commit 78e1a41): with `IsCached = 1` Postgres
+returns the cache, which `loop_tools.build()` fills from compile-rulebook, so the plain
+`check_postgres.py` compares compile-rulebook with a copy of itself on every cached field. It
+matters as soon as Postgres computes a cached field itself, which is what the analysis database does
+for bulk rows. `check_postgres.py --db <url> --fresh` clears the flags in a rolled-back transaction and
+shows it. Fix belongs in rulebook-to-postgres (Versioned-Stable-SSoTme-Tools, local dev loop first).
+
+## 15. Memo invalidation and the exponential fallback (rulebook-to-postgres)
+
+Self-referencing lookups (Cells, TailCells, PeriodicityCandidates, ...) are memoised in
+`erb_memo_*` tables, filled by `erb_refresh_memos()` in row-dependency order. A statement-level
+trigger, `erb_memo_invalidate`, empties them on any INSERT, UPDATE or DELETE of the table, including
+an UPDATE that only touches cache columns. Until the next refresh, `calc_*` falls back to
+`__compute`, which re-derives all three parents recursively: `calc_cells_column_ones` over t <= 10 takes
+22 s, growing about 3x per step. `ingest.py` holds the trigger off while it fills the caches and
+refreshes the memos at the start of every sweep; the result is identical, since writing a cache
+never changes a computed value once the caches are fresh.

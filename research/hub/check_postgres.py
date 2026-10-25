@@ -1,8 +1,15 @@
 """Substrate conformance: every computed field of the Rule 30 model, Postgres (the running editor's
-views) against compile-rulebook (the values written into the rulebook).
+views, or with --db the vw_* views of a database built from postgres/) against compile-rulebook
+(the values written into the rulebook).
 
-Needs the editor to have built the current rulebook (./start.sh editor, or loop_tools.build()).
-Usage: python3 research/hub/check_postgres.py
+Needs the editor to have built the current rulebook (./start.sh editor, or loop_tools.build()), or the
+database to have been reset from the current postgres/ (research/ingest/ingest.py).
+Usage: python3 research/hub/check_postgres.py [--db postgresql://localhost:5432/rule30_analysis [--fresh]]
+
+--fresh compares what Postgres itself computes for the cached fields too. Normally a cached field's
+Postgres value is the cache, copied from compile-rulebook, so the plain check cannot see a cached
+formula that Postgres translates wrongly (docs/toolchain-gaps.md gap 14). --fresh clears every
+IsCached flag inside a transaction it rolls back, refreshes the memos, and reads the views.
 """
 import ast, json, re, sys, urllib.request
 from pathlib import Path
@@ -16,6 +23,30 @@ OWNED = ast.literal_eval(re.search(r'^OWNED = (\(.*?\))$', (Path(__file__).with_
 KNOWN_GAPS = {('PeriodicWords', 'KilledExcessMax'): 'gap 12, read through MaxKillExcess'}
 is_known_gap = lambda t, f: (t, f) in KNOWN_GAPS or f.endswith('Raw')
 snake = lambda s: re.sub(r'(?<=[a-z0-9])(?=[A-Z])', '_', s).lower()
+DB = sys.argv[sys.argv.index('--db') + 1] if '--db' in sys.argv else None
+FRESH = '--fresh' in sys.argv
+assert DB or not FRESH, '--fresh needs --db'
+_cur = None
+
+
+def pg_rows(t):
+    global _cur
+    if not DB:
+        return json.load(urllib.request.urlopen(f'{lt.EDITOR_API}/api/tables/{t}', timeout=120))['rows']
+    if _cur is None:
+        import psycopg2, psycopg2.extras
+        _cur = psycopg2.connect(DB).cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        if FRESH:   # never committed: the connection closes with the transaction open
+            _cur.execute("SELECT tgrelid::regclass::text AS t FROM pg_trigger WHERE tgname = 'erb_memo_invalidate'")
+            for r in _cur.fetchall():
+                _cur.execute(f'ALTER TABLE {r["t"]} DISABLE TRIGGER erb_memo_invalidate')
+            for c in lt.cached_fields(book):
+                _cur.execute(f'UPDATE {snake(c)} SET is_cached = 0')
+            _cur.execute('SELECT erb_refresh_memos()')
+    _cur.execute(f'SELECT * FROM vw_{snake(t)}')
+    return _cur.fetchall()
+
+
 book = lt.load()
 total, skipped, bad = 0, 0, []
 
@@ -44,7 +75,7 @@ while changed:
 for t in OWNED:
     pk = book[t]['schema'][0]['name']
     computed = [f['name'] for f in book[t]['schema'] if f['type'] in ('calculated', 'lookup', 'aggregation')]
-    pg = {r[snake(pk)]: r for r in json.load(urllib.request.urlopen(f'{lt.EDITOR_API}/api/tables/{t}', timeout=120))['rows']}
+    pg = {r[snake(pk)]: r for r in pg_rows(t)}
     if len(pg) != len(book[t]['data']):
         bad.append(f'{t}: {len(pg)} rows in Postgres, {len(book[t]["data"])} in the rulebook')
     for r in book[t]['data']:

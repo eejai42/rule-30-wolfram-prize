@@ -5,3 +5,8 @@ research/**/*.pyc
 effortless.env
 .logs/
 explorer/node_modules/**/*
+# Bulk datasets for the analysis DB: regenerable (research/ingest/generate.py), pinned by research/ingest/manifest.json
+data/
+# rulebook-to-postgres output that the rulebook already carries, or that is machine-local
+postgres/05-insert-data.sql
+postgres/.applied-manifest.json
