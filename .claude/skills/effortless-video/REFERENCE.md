@@ -47,7 +47,14 @@ rulebook while it runs.
 ## Dash guard before recording
 
 ```bash
-python3 -c "import json; d=json.load(open('effortless-rulebook/effortless-rulebook.json')); [print('DASH', s['SceneOrder']) for s in d['Scenes']['data'] if any(c in (s.get('Script') or '') for c in '—–')]"
+python3 -c "import json,re; d=json.load(open('effortless-rulebook/effortless-rulebook.json')); [print('DASH' if any(c in (s.get('Script') or '') for c in '—–') else 'ROW', s['SceneOrder']) for s in d['Scenes']['data'] if any(c in (s.get('Script') or '') for c in '—–') or re.search(r'\\brows?\\b', s.get('Script') or '', re.I)]"
+```
+
+`ROW` means the Script says "row" or "rows": the voice reads it as "raw". Write "roe" / "roes"
+(the TTS table in SKILL.md). It shipped in nine scenes of the Rule 30 Laboratory take 1 because
+nothing checked for it. Cue on a neighbouring word, since whisper may write either spelling.
+
+```
 ```
 
 ## After every re-record
@@ -111,6 +118,10 @@ and flashes the worked-out values that changed green.
 - `server/render.js` outputs 1280x720 regardless of `__meta__ render.width`.
 - `effortless build` can take minutes on a cold transpiler. Wait. Leave other sessions'
   `buildOnSave` watchers alone.
+- **A sticky app header hides whatever `scrollIntoView({block:'start'})` brings to the top.**
+  Every Rule 30 Laboratory live scene highlighted headings that sat half under the explorer's
+  56 px top bar. Inject `*{scroll-margin-top:110px!important}` into the filmed app with the other
+  injected styles (`server/rule30/film.mjs` does), then look at a still of every scrolled beat.
 - **An arrow landing on a floating card was silently clipped** (`.fxsvg` z-index 4, cards 7-11).
   It shipped in four scenes before it was named. `arrow()` now lifts the layer itself
   (`stackOf`/`liftSvg`/`dropSvg`, refcounted, cleared by `reset()`) — never hand-set
