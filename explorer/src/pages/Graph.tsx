@@ -4,31 +4,51 @@ import dagre from '@dagrejs/dagre';
 import { byId, num, useRows } from '../data';
 import { D, Group } from '../ui';
 
-const W = 64, H = 30;
+const ROUTE_ROLES = ['Goal', 'Reduction', 'Open obligation'];
 
-/** Dependency graph: premises below, conclusions above, prize problems at the top. */
+/**
+ * Dependency graph: premises below, conclusions above, prize problems at the top.
+ * Two views. `path` (the default) is the route to P1 from the plan in force (StrategySteps with a
+ * route role) plus the claims that sit between two route claims in the Prerequisites closure, so
+ * the chain is connected and a dozen nodes fit on a phone. `all` is every claim.
+ */
 export default function Graph() {
   const assessments = useRows('Assessments');
   const deps = useRows('Dependencies');
   const prereqs = useRows('Prerequisites');
   const assertions = useRows('Assertions');
+  const steps = useRows('StrategySteps');
   const [params, setParams] = useSearchParams();
   const focus = params.get('focus') ?? '';
   const showFalsified = params.get('falsified') === '1';
+  const mode = params.get('view') === 'all' ? 'all' : 'path';
   const navigate = useNavigate();
+
+  const pathIds = useMemo(() => {
+    const route = new Set(steps.filter((s) => num(s.strategy_is_current) === 1 && ROUTE_ROLES.includes(s.role)).map((s) => s.assertion));
+    const goal = steps.find((s) => num(s.strategy_is_current) === 1 && s.role === 'Goal')?.assertion ?? 'P1';
+    const under = new Set(prereqs.filter((p) => p.conclusion_key === goal).map((p) => p.premise));
+    const above = new Set(prereqs.filter((p) => route.has(p.premise)).map((p) => p.conclusion_key));
+    const ids = new Set(route);
+    for (const id of under) if (above.has(id)) ids.add(id);
+    return ids;
+  }, [steps, prereqs]);
 
   const layout = useMemo(() => {
     const g = new dagre.graphlib.Graph();
-    g.setGraph({ rankdir: 'BT', nodesep: 14, ranksep: 46, marginx: 20, marginy: 20 });
+    const big = mode === 'path';
+    const W = big ? 96 : 64, H = big ? 40 : 30;
+    g.setGraph({ rankdir: 'BT', nodesep: big ? 28 : 14, ranksep: big ? 60 : 46, marginx: 20, marginy: 20 });
     g.setDefaultEdgeLabel(() => ({}));
-    const nodes = assessments.filter((a) => showFalsified || a.status_group !== 'Falsified');
+    const nodes = assessments.filter((a) => (showFalsified || a.status_group !== 'Falsified') && (mode === 'all' || pathIds.has(a.assessment_id)));
     const ids = new Set(nodes.map((a) => a.assessment_id));
     nodes.forEach((a) => g.setNode(a.assessment_id, { width: W, height: H }));
     deps.forEach((d) => { if (ids.has(d.premise) && ids.has(d.conclusion)) g.setEdge(d.premise, d.conclusion); });
     dagre.layout(g);
     const w = g.graph().width, h = g.graph().height;
-    return { g, nodes, w: Number.isFinite(w) && w! > 0 ? w! : 400, h: Number.isFinite(h) && h! > 0 ? h! : 400 };
-  }, [assessments, deps, showFalsified]);
+    return { g, nodes, W, H, w: Number.isFinite(w) && w! > 0 ? w! : 400, h: Number.isFinite(h) && h! > 0 ? h! : 400 };
+  }, [assessments, deps, showFalsified, mode, pathIds]);
+  const { W, H } = layout;
 
   // Ancestors of the focused claim come from the rulebook's Prerequisites closure, not from a graph walk.
   const ancestors = useMemo(() => new Set(prereqs.filter((p) => p.conclusion_key === focus).map((p) => p.premise)), [prereqs, focus]);
@@ -58,10 +78,11 @@ export default function Graph() {
     <div className="page graph-page">
       <div className="graph-bar">
         <h1>Dependency graph</h1>
+        {[['path', 'Path to P1'], ['all', 'Every claim']].map(([v, l]) => <button key={v} className={mode === v ? 'chip on' : 'chip'} onClick={() => { const n = new URLSearchParams(params); if (v === 'all') n.set('view', 'all'); else n.delete('view'); setParams(n, { replace: true }); }}>{l}</button>)}
         <label className="chip"><input type="checkbox" checked={showFalsified} onChange={(e) => { const n = new URLSearchParams(params); if (e.target.checked) n.set('falsified', '1'); else n.delete('falsified'); setParams(n, { replace: true }); }} /> show falsified</label>
         <button className="chip" onClick={() => setView({ x: 0, y: 0, k: 1 })}>reset view</button>
       </div>
-      <p className="muted small">Arrows point from a premise up to the claim that uses it. Tap a claim to light up everything it rests on and everything that rests on it; double-click it to open its page. Claims with a thick outline are on the current path to P1. Drag to pan, scroll to zoom.</p>
+      <p className="muted small">{mode === 'path' ? 'The route to P1 from the plan in force, and the claims that connect its steps. ' : 'Every claim in the ledger. '}Arrows point from a premise up to the claim that uses it. Tap a claim to light up everything it rests on and everything that rests on it; double-click it to open its page. Claims with a thick outline are on the current path to P1. Drag to pan, scroll to zoom.</p>
       <div className="legend">
         {['Proved', 'Checked', 'Open', 'Falsified'].map((g) => <span key={g} className={`pill g-${g.toLowerCase()}`}>{g}</span>)}
       </div>
@@ -81,7 +102,7 @@ export default function Graph() {
             {layout.nodes.map((a) => {
               const n = layout.g.node(a.assessment_id);
               const onPath = num(byId(assertions, 'assertion_id', a.assessment_id)?.on_current_path) > 0;
-              const cls = `node g-${String(a.status_group).toLowerCase()}${lit(a.assessment_id) ? '' : ' dim'}${focus === a.assessment_id ? ' focus' : ''}${onPath ? ' on-path' : ''}`;
+              const cls = `node g-${String(a.status_group).toLowerCase()}${lit(a.assessment_id) ? '' : ' dim'}${focus === a.assessment_id ? ' focus' : ''}${onPath ? ' on-path' : ''}${mode === 'path' ? ' big' : ''}`;
               return (
                 <g key={a.assessment_id} className={cls} transform={`translate(${n.x - W / 2},${n.y - H / 2})`} onClick={() => select(a.assessment_id)} onDoubleClick={() => navigate(`/claims/${a.assessment_id}`)}>
                   <rect width={W} height={H} rx={8} />

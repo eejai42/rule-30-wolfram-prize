@@ -144,6 +144,7 @@ a.card:hover { text-decoration: none; border-color: var(--accent); }
 .arrowhead { fill: var(--muted); }
 .node rect { fill: var(--superseded-bg); stroke: var(--superseded); stroke-width: 1.5; }
 .node text { font: 700 12px ui-monospace, Menlo, monospace; fill: var(--text); pointer-events: none; }
+.node.big text { font-size: 15px; }
 .node { cursor: pointer; transition: opacity .2s; }
 .node.dim { opacity: .18; }
 .node.focus rect { stroke-width: 3.5; }

@@ -46,7 +46,7 @@ reviewer who only reads proofs) would add one.
 | `/loops/:id` | One loop: hypothesis, summary, counts, claims added, revisions, receipt and hashes | 4 |
 | `/claims` | Every claim, filter by kind and status, search | 6 |
 | `/claims/:id` | One claim: statement, statuses, proof, its place on the current path, what the model says (formal statement, instances, verdict), what Lean says (Lean statement, kernel check, kit module or declaration, the kit's declarations on it), premises, dependents, blockers, evidence, revisions | 7, 9, 13, 17 |
-| `/graph` | The dependency graph, coloured by status, current path outlined; tap to focus, double-click to open the claim | 8, 14 |
+| `/graph` | The dependency graph, coloured by status, current path outlined; tap to focus, double-click to open the claim. Two views: `path` (default: the route to P1 from the plan in force, `StrategySteps` with a route role, plus the claims the `Prerequisites` closure puts between two route steps) and `view=all` (every claim) | 8, 14 |
 | `/files?path=` | A proof or evidence file, rendered (Markdown) or shown (JSON, text) | 9 |
 | `/dag`, `/dag/:table/:field` | The explainer's field pages | 10 |
 
