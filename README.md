@@ -14,20 +14,23 @@ place where a machine, not a person, decides what is proved, what is refuted, an
 
 ---
 
-## Watch the walkthrough (about 11 minutes)
+## Watch the walkthrough (about 15 minutes)
 
-**The Rule 30 Laboratory**, episode 1 of the video series of the same name, walks through everything on
-this page in order: what Rule 30 is, what the three problems ask, how the prize is graded, every screen
-of the laboratory read aloud, how a claim gets its status, and one research loop run from its hypothesis
-to the verdict the build gives back.
+**The Rule 30 Laboratory**, episode 1 of the video series of the same name, is written for someone who has
+never heard of Rule 30. It starts with the triangle and the rule, the three questions and the machine that
+grades them, and why an attack like this needs a laboratory; then it walks through the explorer screen by
+screen, lifts the hood on the rulebook, shows how a status is decided, and runs one research loop from its
+hypothesis to the verdict the build gives back.
 
-- Watch: **https://effortlessapi.com/watch/p1b6DwEf1HI** (this is the film's permanent address; it plays
-  once the first cut is published, and this line will be updated with the YouTube link at the same time)
+- Permanent page: **https://effortlessapi.com/watch/p1b6DwEf1HI** (this address is stable; the marketing
+  site serves it once `effortlessapi-www` is deployed with this film in `VideosCatalog.json`. This line
+  will be updated with the YouTube link when that release exists)
 - Series: `24-rule-30-laboratory`, produced in the EffortlessAPI video producer. The storyboard is itself a
   rulebook (`Storyboards -> Acts -> Scenes -> Clips -> Assets`) and its `STORYBOARD.md` is the written
   form of the same tour, scene by scene, with what is on screen and what is said.
-- The film is shot against this repository at commit `dd92629` (after loop 27). Every number spoken in
-  it is that commit's value; the numbers below are the same ones.
+- The film (take 1) is shot against this repository at commit `bdb0c88` (after loop 27, with the explorer's
+  "Path to P1" graph view). Every number spoken in it is that commit's value; the numbers below are the same
+  ones.
 
 Later episodes in the series each take one part of the laboratory at depth: the Rule 30 model, the Lean
 ledger, the challenge sync, and a loop filmed live.
@@ -225,7 +228,9 @@ sha256) and its revision history.
 ### 5.4 The dependency graph (`/graph`)
 
 The same ledger drawn as a picture: every claim a node, colored by status, an edge from each premise up
-to the claim that uses it, the current path to P1 outlined. Tap a node to light up everything it rests
+to the claim that uses it. The default view, **Path to P1**, shows only the route from the plan in force
+(the `StrategySteps` with a route role) plus the claims the `Prerequisites` closure puts between two route
+steps, about a dozen nodes; **Every claim** shows the whole ledger with the current path outlined. Tap a node to light up everything it rests
 on and everything that rests on it; double-click to open its page. The thing to notice is how status
 moves along the edges: a claim whose premise is open, falsified or superseded compiles to `BLOCKED`, no
 matter how good its own proof is, and that is a formula (`Prerequisites.Blocked`,

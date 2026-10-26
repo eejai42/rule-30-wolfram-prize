@@ -57,6 +57,23 @@ skipped this averaged 22 seconds of watch time.
   context higher than feels necessary ("a rulebook is…", "this starter is the hello world").
 - **Length is whatever the story needs.** Do not cut for time and do not pad. Tell the owner
   the real length; do not estimate low.
+- **Assume the viewer knows NOTHING, including the subject itself** (the owner's review of
+  `24-rule-30-laboratory/01-the-laboratory` take 0, which opened with "You already know the Rule 30
+  Prize" and lost him in 38 seconds). The first act is the PROBLEM, told from one level above the
+  product: what the thing is, why anyone cares, what the words mean. Then the cast. Then screens.
+- **A count is spoken only after the thing counted has been defined, and never as a list.**
+  "315 claims, 227 modules, 41 submissions" in scene 2 is noise; "Proved: a claim with a proof. Most of
+  these are the kit's own theorems" on the Proved tile is teaching. Name the goal (which problem the
+  work is about) before any status, count or blocker is read.
+- **Never say what the viewer cannot see.** If the narration mentions it, the page has scrolled to it,
+  it is highlighted, and the pointer is on it. No narration over a blank stage or over the top half of a
+  page whose subject is further down. A card with a two-word title and a fragment is not a visual.
+- **No infrastructure in the story.** Ports, file layouts, container names and "legacy vs native"
+  distinctions belong in the README, not in a walkthrough. "The explorer" is THIS explorer, the one on
+  screen, until the viewer has met it.
+- **No absolutes about the viewer** ("the page you open every morning", "every screen you just saw").
+- **A graph the viewer cannot read is not a visual.** Give the app a filtered view of the 10 to 15 nodes
+  that matter and film that; show the full graph once, named, then put it away.
 
 ## 2. The script is a presenter talking to a room
 
@@ -96,6 +113,8 @@ skipped this averaged 22 seconds of watch time.
 | "Brent, who runs construction" | "Brent in construction" | a name ending in a consonant before "in" fuses ("Brenton Construction") |
 | two amounts in separate clauses | "zero dollars and twenty nine dollars" | two adjacent amounts merge into one ("$0.29") |
 | Sock two | SOC 2 | says "es sock two"; whisper writes "SOC 2" either way, so only ears catch it |
+| the cell at step n | the n-th cell | the hyphen trips the dash guard; "n th" is misread |
+| cue on the NOUN beside a number ("B6 and B5", "all 300", "64 instances") | "B six", "three hundred", "sixty four" | whisper writes numerals and letter-codes (`B7`, `TX`, `Q01`, `300`), so a spelled-out cue never matches |
 
 "Ivan" must sound like EYE-vən. Read the whisper transcript of every take that introduces a
 proper noun or acronym before calling it final.
